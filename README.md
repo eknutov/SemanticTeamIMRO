@@ -1,30 +1,30 @@
 # SemanticTeamIMRO
 temporary documentation IMRO standards
 
-#Conventions
+# Conventions
 
-#Process
+# Process
 
-##DoR
+## DoR
 examples required
 
-##DOD
+## DOD
 
-##versioning
+## versioning
 gitflow
 
-#Style
+# Style
 
-##Naming conventions
-##Format
+## Naming conventions
+## Format
 
-#Content
+# Content
 
-##Modules for ontology parts
+## Modules for ontology parts
 
-##MetaData
+## MetaData
 
-##Strictness in following Original source
+## Strictness in following Original source
 
-##reuse of existing vocabularies
+## reuse of existing vocabularies
 
