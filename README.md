@@ -5,7 +5,7 @@ temporary documentation IMRO standards
 
 ## Process
 
-- find all unique classes and properties
+- find all unique **classes** and **properties**
 <include short description of our process>
 
 maintenance?
@@ -52,15 +52,16 @@ Need to look into versioning more, for now we settle with the versioning github 
 
 
 ### Naming conventions
-look at INSPIRE/KKG
+look at **INSPIRE/KKG**
 * INSPIRE repo <https://github.com/inspire-eu-rdf/inspire-rdf-guidelines>
 * INSPIRE docs <http://inspire-eu-rdf.github.io/inspire-rdf-guidelines/>
 ```
 to be refined
 ```
+
 concepts
 
-model
+**model**
 - namespace ends with #
   classes
     CamelCase
@@ -68,9 +69,9 @@ model
 
   individuals
 
-shacl
+**shacl**
 
-nodeshapes:
+**nodeshapes:**
   identical to represetation in the model
 property shapes:
 - name = target + _ + propertyname
@@ -90,7 +91,7 @@ to be discussed. (maintenance)
 ### Modules for ontology parts
 
 ### MetaData
-We want to provide meaningful metadata for vocabularies, so they can be easily used, found and int
+We want to provide meaningful metadata for vocabularies, so they can be easily used, found and int?
 An example of a well annotated vocabulary:
 
 All strings, if meaningful should be supplemented with a dutch languagetag "@nl"
@@ -110,13 +111,18 @@ example 2: identifiers are complex constructs in INSPIRE and similar models, to 
 example 3: For a property like 'naam' (name) a more general RDF property can be used (rdf:label). This makes the data easier to consume on the data web.
 ```
 ### reuse of existing vocabularies
-
-We will maintain a list of (re)used vocabularies and why, including which part of the UML model it replaced.
-(and try to get away with it)
-
+We will maintain a list of (re)used vocabularies and reasons for using them, including which part of the UML model it replaced.
+(and try to get away with it or not and then fight for it)
+see [Vocabularies list](vocabularies.md)
 
 ### Tools
+
 [Atom](https://atom.io/)
-- atom packages:
+- Atom packages:
   * language-rdf https://atom.io/packages/language-rdf (supports Turtle (.ttl), N-Triples (.nt) and TriG (.trig))
   * language-sparql https://atom.io/packages/language-sparql (SPARQL(.rq, .sparql) syntax highlighting)
+[Brackets](http://brackets.io/)
+- Brackets extensions:
+  * Turtle Syntax Highlighter https://github.com/nandana/brackets-turtle-syntax-highlighter
+  * SPARQL Syntax Highlighter https://github.com/nandana/brackets-sparql-syntax-highlighter
+[LOD Live](http://en.lodlive.it/) - Linked data browser
