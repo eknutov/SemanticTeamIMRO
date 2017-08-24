@@ -1,0 +1,113 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ogc: <http://www.opengis.net/ont/geosparql#> .
+@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
+@prefix gml: <http://www.opengis.net/ont/gml#> .
+@prefix nen3610_str: <http://data.informatiehuisruimte.nl/def/nen3610/> .
+@prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
+@prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
+@prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
+@prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
+
+
+#################################################################
+#    NEN3610ID
+#################################################################
+
+nen3610_str:GeoObject_lokaalID
+  rdf:type sh:PropertyShape ;
+  sh:path nen3610:lokaalID ;
+  sh:datatype xsd:string ;
+  sh:description "Unieke identificatiecode binnen een registratie"@nl ;
+  sh:maxCount 1 ;
+  sh:minCount 1 ;
+  sh:nodeKind sh:Literal ;
+  sh:pattern "([a-z0-9A-Z\\.\\,\\-]*\\w)" ;
+.
+
+nen3610_str:GeoObject_namespace
+  rdf:type sh:PropertyShape ;
+  sh:path nen3610:namespace ;
+  sh:datatype xsd:string ;
+  sh:description "Unieke verwijzing naar een registratie van objecten"@nl ;
+  sh:maxCount 1 ;
+  sh:minCount 1 ;
+  sh:nodeKind sh:Literal ;
+  sh:pattern "([a-z0-9A-Z\\.\\,\\-]*\\w)" ;
+.
+
+nen3610_str:GeoObject_versie
+  rdf:type sh:PropertyShape ;
+  sh:path nen3610:versie ;
+  sh:datatype xsd:string ;
+  sh:description "Versie-aanduiding binnen een registratie"@nl ;
+  sh:maxCount 1 ;
+  sh:nodeKind sh:Literal ;
+.
+
+nen3610_str:NEN3610ID
+  rdf:type sh:NodeShape ;
+  sh:property nen3610_str:GeoObject_lokaalID ;
+  sh:property nen3610_str:GeoObject_namespace ;
+  sh:property nen3610_str:GeoObject_versie ;
+  sh:targetClass nen3610:NEN3610ID ;
+.
+
+#################################################################
+#    Planobject // geen constraints hier. 
+#################################################################
+
+ro_str:Planobject a sh:NodeShape ;
+  sh:targetClass ro:Planobject ;
+#  sh:property ro_str:Planobject_plangebied
+.
+
+#ro_str:Planobject_plangebied a sh:PropertyShape ;
+#  sh:path ro:plangebied ;
+#  sh:class ro:Plangebied ;
+#  sh:nodeKind sh:IRI ;
+#  sh:minCount 1 ;
+#  sh:maxCount 1
+#.
+## not true besluitvlakken hebben geen planobject maar een besluitgebied.
+
+#################################################################
+#    Plangebied
+#################################################################
+
+#ro_str:Plangebied a sh:NodeShape ;
+#  sh:targetClass ro:Plangebied ;
+#  sh:property 
+##    ro_str:Plangebied_beleidsmatigVerantwoordelijkeOverheid ,
+##    ro_str:Plangebied_naam ,
+#    ro_str:Plangebied_locatieNaam ,
+#    ro_str:Plangebied_planstatus ,
+## TODO: move to Vaststellingsbesluit
+##    ro_str:Plangebied_besluitnummer ,
+#    ro_str:Plangebied_ondergrond ,
+#    ro_str:Plangebied_externPlan ,
+#    ro_str:Plangebied_norm
+#.
+
+#################################################################
+#    Structuurvisieplangebied_R
+#################################################################
+
+
+ro_str:Structuurvisieplangebied_R a sh:NodeShape ;
+  sh:targetClass ro:Structuurvisieplangebied_R ;
+  sh:property
+    ro_str:typePlan ,
+    ro_str:beleidsmatigVerantwoordelijkeOverheid ,
+    ro_str:locatieNaam ,
+    ro_str:planstatus ,
+    ro_str:vaststelligsbesluit , 
+    ro_str:illustratieverwijzing , 
+    ro_str:tekstverwijzing ,
+    ro_str:ondergrond ,
+    ro_str:externPlan ,
+    ro_str:verwijzingNorm 
+.
