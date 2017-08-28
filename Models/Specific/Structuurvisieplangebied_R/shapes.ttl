@@ -17,7 +17,31 @@
 #    NEN3610ID
 #################################################################
 
-nen3610_str:GeoObject_lokaalID
+nen3610_str:GeoObject a sh:NodeShape ; #common
+  sh:targetClass nen3610:GeoObject ;
+  sh:sparql [
+      sh:message "{$this} is an instance of an abstract class." ;
+      sh:select """
+SELECT DISTINCT $this 
+WHERE {
+  $this <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.informatiehuisruimte.nl/def/nen3610#GeoObject> .
+  FILTER NOT EXISTS {
+    $this <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?class .
+    ?class <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://data.informatiehuisruimte.nl/def/nen3610#GeoObject>  .
+  }
+}""" ;
+    ] ;
+  sh:property [
+    sh:path nen3610:identificatie ;
+    sh:Class nen3610:NEN3610ID ; 
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:node nen3610_str:NEN3610ID
+    ]
+.
+
+
+nen3610_str:GeoObject_lokaalID #common
   rdf:type sh:PropertyShape ;
   sh:path nen3610:lokaalID ;
   sh:datatype xsd:string ;
@@ -25,10 +49,10 @@ nen3610_str:GeoObject_lokaalID
   sh:maxCount 1 ;
   sh:minCount 1 ;
   sh:nodeKind sh:Literal ;
-  sh:pattern "([a-z0-9A-Z\\.\\,\\-]*\\w)" ;
+  sh:pattern "([a-z0-9A-Z\\.\\,\\-]*\\w)" ; # special characters had to be escaped in Topbraid Composer.
 .
 
-nen3610_str:GeoObject_namespace
+nen3610_str:GeoObject_namespace #common
   rdf:type sh:PropertyShape ;
   sh:path nen3610:namespace ;
   sh:datatype xsd:string ;
@@ -39,7 +63,7 @@ nen3610_str:GeoObject_namespace
   sh:pattern "([a-z0-9A-Z\\.\\,\\-]*\\w)" ;
 .
 
-nen3610_str:GeoObject_versie
+nen3610_str:GeoObject_versie #common
   rdf:type sh:PropertyShape ;
   sh:path nen3610:versie ;
   sh:datatype xsd:string ;
@@ -48,20 +72,35 @@ nen3610_str:GeoObject_versie
   sh:nodeKind sh:Literal ;
 .
 
-nen3610_str:NEN3610ID
+nen3610_str:NEN3610ID #common
   rdf:type sh:NodeShape ;
-  sh:property nen3610_str:GeoObject_lokaalID ;
-  sh:property nen3610_str:GeoObject_namespace ;
-  sh:property nen3610_str:GeoObject_versie ;
-  sh:targetClass nen3610:NEN3610ID ;
+  sh:property 
+    nen3610_str:GeoObject_lokaalID ,
+    nen3610_str:GeoObject_namespace ,
+    nen3610_str:GeoObject_versie ;
+#   sh:targetClass nen3610:NEN3610ID ; # unnecessary due to the sh:node at nen3610_str:GeoObject_lokaalID?
 .
 
 #################################################################
-#    Planobject // geen constraints hier. 
+#    Planobject // no common constraints (yet) made it abstract
 #################################################################
 
-ro_str:Planobject a sh:NodeShape ;
+ro_str:Planobject a sh:NodeShape ; #common
   sh:targetClass ro:Planobject ;
+  sh:sparql [
+      sh:message "{$this} is an instance of an abstract class." ;
+#      sh:prefixes <http://data.informatiehuisruimte.nl/def/unnamed>  ; #TODO - fix
+      sh:select """
+SELECT DISTINCT $this 
+WHERE {
+  $this <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.informatiehuisruimte.nl/def/ro#Planobject>  .
+  FILTER NOT EXISTS {
+    $this <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?class .
+    ?class <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://data.informatiehuisruimte.nl/def/ro#Planobject>  .
+  }
+}""" ;
+    ] ;
+
 #  sh:property ro_str:Planobject_plangebied
 .
 
@@ -72,25 +111,19 @@ ro_str:Planobject a sh:NodeShape ;
 #  sh:minCount 1 ;
 #  sh:maxCount 1
 #.
-## not true besluitvlakken hebben geen planobject maar een besluitgebied.
+## not all 'besluitvakken' have a planobject, some have a 'besluitgebied'
 
 #################################################################
-#    Plangebied
+#    Plangebied #common
 #################################################################
 
-#ro_str:Plangebied a sh:NodeShape ;
-#  sh:targetClass ro:Plangebied ;
-#  sh:property 
-##    ro_str:Plangebied_beleidsmatigVerantwoordelijkeOverheid ,
-##    ro_str:Plangebied_naam ,
-#    ro_str:Plangebied_locatieNaam ,
-#    ro_str:Plangebied_planstatus ,
-## TODO: move to Vaststellingsbesluit
-##    ro_str:Plangebied_besluitnummer ,
-#    ro_str:Plangebied_ondergrond ,
-#    ro_str:Plangebied_externPlan ,
-#    ro_str:Plangebied_norm
-#.
+ro_str:Plangebied a sh:NodeShape ; #common
+  sh:targetClass ro:Plangebied ;
+  sh:property 
+    ro_str:Plangebied_locatieNaam ,
+    ro_str:Plangebied_planstatus ,
+    ro_str:Plangebied_ondergrond ,
+.
 
 #################################################################
 #    Structuurvisieplangebied_R
@@ -100,14 +133,27 @@ ro_str:Planobject a sh:NodeShape ;
 ro_str:Structuurvisieplangebied_R a sh:NodeShape ;
   sh:targetClass ro:Structuurvisieplangebied_R ;
   sh:property
-    ro_str:typePlan ,
-    ro_str:beleidsmatigVerantwoordelijkeOverheid ,
-    ro_str:locatieNaam ,
-    ro_str:planstatus ,
-    ro_str:vaststelligsbesluit , 
-    ro_str:illustratieverwijzing , 
-    ro_str:tekstverwijzing ,
-    ro_str:ondergrond ,
-    ro_str:externPlan ,
-    ro_str:verwijzingNorm 
+    ro_str:Structuurvisieplangebied_R_typePlan ,
+    ro_str:Structuurvisieplangebied_R_beleidsmatigVerantwoordelijkeOverheid ,
+    ro_str:naam, #ro:naam or rdfs:label?
+    ro_str:Structuurvisieplangebied_R_illustratieverwijzing , 
+    ro_str:Structuurvisieplangebied_R_tekstverwijzing ,
+    ro_str:Structuurvisieplangebied_R_externPlan ,
+    ro_str:Structuurvisieplantgebied_R_verwijzingNorm , # bestemmingsplangebied seems to have ocl constraints included, others do not
+    ro_str:Structuurvisieplangebied_R_begrenzing ;
+  sh:sparql [
+      sh:message "At least one Structuurvisieplangebied_R should have {$this} as its ro:plangebied." ;
+      sh:select """
+SELECT $this
+WHERE { 
+  $this <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.informatiehuisruimte.nl/def/ro#Structuurvisieplangebied> .
+  FILTER NOT EXISTS {
+  ?structuurvisiegebied <http://data.informatiehuisruimte.nl/def/ro#begrenzing> $this ;
+    <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.informatiehuisruimte.nl/def/ro#Structuurvisiegebied> .
+  }
+}
+""" ;
+    ] ;
 .
+
+
