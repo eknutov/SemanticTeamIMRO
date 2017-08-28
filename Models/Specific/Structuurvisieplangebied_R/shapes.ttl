@@ -156,4 +156,88 @@ WHERE {
     ] ;
 .
 
+ro_str:Plangebied_planstatus a sh:PropertyShape ; #common
+  sh:path ro:planstatus ;
+  sh:class ro:Planstatus ; 
+  sh:minCount 1 ; 
+  sh:maxCount 1 ; 
+  sh:node ro_str:Planstatus ; 
+.
+  
+ro_str:Planstatus a sh:NodeShape ; #common
+  sh:property # and instance of class planstatus has four properties. 
+    ro_str:Planstatus_status ,
+    ro_str:Planstatus_datum ,
+    ro_str:Planstatus_vaststellingsbesluit ,
+    ro_str:Planstatus_besluitnummer ;
+. 
+
+ro_str:Planstatus_status a sh:PropertyShape #common
+  sh:path ro:status #the structuurvisieplangebied_R model.ttl file uses ro:planstatus, this is to be removed when the common model takes effect)
+  sh:clas skos:Concept ; 
+  sh:nodeKind sh:IRI ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ; 
+  sh:shape [ # I would advocate the use of a skos:Collections as defined in the bestemmingsplan model file.
+    sh:property [
+      sh:path [ sh:inversePath skos:member ] ;
+      sh:targetNode ro_col:Planstatussen
+    ]
+  ]
+. 
+
+ro_str:Planstatus_datum a sh:PropertyShape #common
+  sh:path ro:datum ;
+  sh:nodeKind sh:Literal ;
+  sh:datatype xsd:date ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+.
+
+ro_str:Planstatus_vaststellingsbesluit a sh:PropertyShape #common
+  sh:path ro:vaststellingsbesluit ;
+  sh:nodeKind sh:Literal ;
+  sh:datatype xsd:string ;
+  sh:xone ( [ 
+    sh:and ( [
+      sh:path ro:vaststellingsbesluit ;
+      sh:nodeKind sh:Literal ;
+      sh:datatype xsd:string ; 
+      sh:minCount 1 ;
+      sh:maxCount 1 ; 
+      ] 
+      [
+        sh:path ro:status ;
+        sh:equals ro:vastgesteld ;
+      ] )
+    ] 
+    [
+      sh:path ro:vaststellingsbesluit ; 
+      sh:maxCount 0 ;
+    ]
+  ) 
+.  
+
+ro_str:Planstatus_besluitnummer a sh:PropertyShape #common
+  sh:xone ( [
+    sh:and ( [
+      sh:path ro:besluitnummer ;
+      sh:nodeKind sh:Literal ;
+      sh:datatype xsd:string ; 
+      sh:minCount 1 ;
+      sh:maxCount 1 ; 
+      ] 
+      [
+        sh:path ro:status ;
+        sh:equals ro:vastgesteld ;
+      ] )
+    ]
+    [
+      sh:path ro:besluitnummer ; 
+      sh:maxCount 0 ;
+    ]
+  ) 
+.
+
+
 
