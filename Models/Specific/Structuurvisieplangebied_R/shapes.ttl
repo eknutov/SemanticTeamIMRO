@@ -41,7 +41,7 @@ WHERE {
 .
 
 
-nen3610_str:GeoObject_lokaalID #common
+nen3610_str:GeoObject_lokaalID #common different string lengths for plangebied/object
   rdf:type sh:PropertyShape ;
   sh:path nen3610:lokaalID ;
   sh:datatype xsd:string ;
@@ -239,5 +239,19 @@ ro_str:Planstatus_besluitnummer a sh:PropertyShape #common
   ) 
 .
 
+ro_str:Plangebied_locatieNaam a sh:PropertyShape; #common
+  sh:path ro:locatienaam ;
+  sh:nodeKind sh:Literal ;
+  sh:datatype xsd:string ;
+.
 
+ro_str:Plangebied_ondergrond a sh:PropertyShape ;
+  sh:path ro:ondergrond ;
+  sh:minCount 1 ;
+  sh:node ro_str:Plangebied_Ondergrond ;
 
+ro_str:Plangebied_Ondergrond a sh:NodeShape ; #is this the way to go?
+  sh:property [
+    path ro:ondergrond #as defined in bestemmingsplan gebied <- points at named individuals
+    sh:class ro:Ondergrond
+    ]
