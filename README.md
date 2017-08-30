@@ -126,6 +126,3 @@ see [Vocabularies list](vocabularies.md)
   * Turtle Syntax Highlighter https://github.com/nandana/brackets-turtle-syntax-highlighter
   * SPARQL Syntax Highlighter https://github.com/nandana/brackets-sparql-syntax-highlighter
 [LOD Live](http://en.lodlive.it/) - Linked data browser
-  *
-  *
-  *
