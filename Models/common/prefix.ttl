@@ -1,3 +1,4 @@
+# has to be TTL format
 
 # common prefix section
 BASE <http://data.imro.com/id/>
