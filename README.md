@@ -47,8 +47,8 @@ Need to look into versioning more, for now we settle with the versioning github 
 #### rdf:
 - [rdf:type](https://www.w3.org/TR/2004/REC-rdf-schema-20040210/#ch_type)
 
-#### dc/terms
-- [dc:subject](http://dublincore.org/documents/2012/06/14/dcmi-terms/?v=terms#elements-subject)
+#### dcterms:
+- [dcterm:subject](http://dublincore.org/documents/2012/06/14/dcmi-terms/?v=terms#elements-subject)
 
 
 ### Naming conventions
@@ -126,3 +126,6 @@ see [Vocabularies list](vocabularies.md)
   * Turtle Syntax Highlighter https://github.com/nandana/brackets-turtle-syntax-highlighter
   * SPARQL Syntax Highlighter https://github.com/nandana/brackets-sparql-syntax-highlighter
 [LOD Live](http://en.lodlive.it/) - Linked data browser
+  *
+  *
+  *
