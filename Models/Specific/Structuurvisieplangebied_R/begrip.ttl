@@ -24,7 +24,7 @@ ro_beg:typePlan a skos:Concept ;
   rdfs:label "typePlan"@nl ;
   skos:definition "Nadere aanduiding van het type ruimtelijk instrument."@nl ;
   skos:inScheme ro_begkr:ro ;
-
 . 
+
 
 

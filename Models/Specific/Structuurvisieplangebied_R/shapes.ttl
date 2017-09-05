@@ -11,11 +11,7 @@
 @prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
 @prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
 @prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
-
-
-#################################################################
-#    NEN3610ID
-#################################################################
+@prefix dcterms: <http://purl.org/dc/terms/> .
 
 nen3610_str:GeoObject a sh:NodeShape ; #common
   sh:targetClass nen3610:GeoObject ;
@@ -33,13 +29,12 @@ WHERE {
     ] ;
   sh:property [
     sh:path nen3610:identificatie ;
-    sh:Class nen3610:NEN3610ID ; 
+    sh:class nen3610:NEN3610ID ; 
     sh:maxCount 1 ;
     sh:minCount 1 ;
-    sh:node nen3610_str:NEN3610ID
+    sh:node nen3610_str:NEN3610ID ;
     ]
 .
-
 
 nen3610_str:GeoObject_lokaalID #common different string lengths for plangebied/object
   rdf:type sh:PropertyShape ;
@@ -81,9 +76,16 @@ nen3610_str:NEN3610ID #common
 #   sh:targetClass nen3610:NEN3610ID ; # unnecessary due to the sh:node at nen3610_str:GeoObject_lokaalID?
 .
 
-#################################################################
-#    Planobject // no common constraints (yet) made it abstract
-#################################################################
+ro_str:PlanlogischGebied rdf:type sh:NodeShape ;
+  sh:property ro_str:naam ;
+.
+
+ro_str:naam rdf:type sh:PropertyShape ; #TODO: ScopedName
+  sh:path ro:naam ;
+  sh:minCount 1 ; 
+  sh:maxCount 1 ; 
+  sh:datatype xsd:string ;
+.
 
 ro_str:Planobject a sh:NodeShape ; #common
   sh:targetClass ro:Planobject ;
@@ -113,29 +115,21 @@ WHERE {
 #.
 ## not all 'besluitvakken' have a planobject, some have a 'besluitgebied'
 
-#################################################################
-#    Plangebied #common
-#################################################################
-
 ro_str:Plangebied a sh:NodeShape ; #common
   sh:targetClass ro:Plangebied ;
   sh:property 
     ro_str:Plangebied_locatieNaam ,
     ro_str:Plangebied_planstatus ,
     ro_str:Plangebied_ondergrond ,
+    ro_str:Plangebied_naam 
 .
-
-#################################################################
-#    Structuurvisieplangebied_R
-#################################################################
-
 
 ro_str:Structuurvisieplangebied_R a sh:NodeShape ;
   sh:targetClass ro:Structuurvisieplangebied_R ;
   sh:property
     ro_str:Structuurvisieplangebied_R_typePlan ,
     ro_str:Structuurvisieplangebied_R_beleidsmatigVerantwoordelijkeOverheid ,
-    ro_str:naam, #ro:naam or rdfs:label?
+#    ro_str:naam , #ro:naam or rdfs:label? stick to ro:naam #can probably be pushed to ro:PlanlogischGebied
     ro_str:Structuurvisieplangebied_R_illustratieverwijzing , 
     ro_str:Structuurvisieplangebied_R_tekstverwijzing ,
     ro_str:Structuurvisieplangebied_R_externPlan ,
@@ -153,7 +147,16 @@ WHERE {
   }
 }
 """ ;
-    ] ;
+    ] ; 
+
+    sh:closed true ; 
+    sh:ignoredProperties (
+      rdf:type 
+      rdfs:label 
+      rdfs:subClassOf 
+      rdfs:isDefinedBy 
+      dcterms:subject
+    ) ;
 .
 
 ro_str:Plangebied_planstatus a sh:PropertyShape ; #common
@@ -172,8 +175,8 @@ ro_str:Planstatus a sh:NodeShape ; #common
     ro_str:Planstatus_besluitnummer ;
 . 
 
-ro_str:Planstatus_status a sh:PropertyShape #common
-  sh:path ro:status #the structuurvisieplangebied_R model.ttl file uses ro:planstatus, this is to be removed when the common model takes effect)
+ro_str:Planstatus_status a sh:PropertyShape ; #common
+  sh:path ro:status ; #the structuurvisieplangebied_R model.ttl file uses ro:planstatus, this is to be removed when the common model takes effect)
   sh:clas skos:Concept ; 
   sh:nodeKind sh:IRI ;
   sh:minCount 1 ;
@@ -181,12 +184,12 @@ ro_str:Planstatus_status a sh:PropertyShape #common
   sh:shape [ # I would advocate the use of a skos:Collections as defined in the bestemmingsplan model file.
     sh:property [
       sh:path [ sh:inversePath skos:member ] ;
-      sh:targetNode ro_col:Planstatussen
+      sh:targetNode ro_col:Planstatussen ;  #defined in common file.
     ]
   ]
 . 
 
-ro_str:Planstatus_datum a sh:PropertyShape #common
+ro_str:Planstatus_datum a sh:PropertyShape ;  #common
   sh:path ro:datum ;
   sh:nodeKind sh:Literal ;
   sh:datatype xsd:date ;
@@ -194,17 +197,17 @@ ro_str:Planstatus_datum a sh:PropertyShape #common
   sh:maxCount 1 ;
 .
 
-ro_str:Planstatus_vaststellingsbesluit a sh:PropertyShape #common
+ro_str:Planstatus_vaststellingsbesluit a sh:PropertyShape ; #common
   sh:path ro:vaststellingsbesluit ;
   sh:nodeKind sh:Literal ;
   sh:datatype xsd:string ;
   sh:xone ( [ 
     sh:and ( [
-      sh:path ro:vaststellingsbesluit ;
-      sh:nodeKind sh:Literal ;
-      sh:datatype xsd:string ; 
-      sh:minCount 1 ;
-      sh:maxCount 1 ; 
+        sh:path ro:vaststellingsbesluit ;
+        sh:nodeKind sh:Literal ;
+        sh:datatype xsd:string ; 
+        sh:minCount 1 ;
+        sh:maxCount 1 ; 
       ] 
       [
         sh:path ro:status ;
@@ -218,14 +221,14 @@ ro_str:Planstatus_vaststellingsbesluit a sh:PropertyShape #common
   ) 
 .  
 
-ro_str:Planstatus_besluitnummer a sh:PropertyShape #common
+ro_str:Planstatus_besluitnummer a sh:PropertyShape ; #common
   sh:xone ( [
     sh:and ( [
-      sh:path ro:besluitnummer ;
-      sh:nodeKind sh:Literal ;
-      sh:datatype xsd:string ; 
-      sh:minCount 1 ;
-      sh:maxCount 1 ; 
+        sh:path ro:besluitnummer ;
+        sh:nodeKind sh:Literal ;
+        sh:datatype xsd:string ; 
+        sh:minCount 1 ;
+        sh:maxCount 1 ; 
       ] 
       [
         sh:path ro:status ;
@@ -239,8 +242,8 @@ ro_str:Planstatus_besluitnummer a sh:PropertyShape #common
   ) 
 .
 
-ro_str:Plangebied_locatieNaam a sh:PropertyShape; #common
-  sh:path ro:locatienaam ;
+ro_str:Plangebied_locatieNaam a sh:PropertyShape ; #common
+  sh:path ro:locatieNaam ;
   sh:nodeKind sh:Literal ;
   sh:datatype xsd:string ;
 .
@@ -249,9 +252,560 @@ ro_str:Plangebied_ondergrond a sh:PropertyShape ;
   sh:path ro:ondergrond ;
   sh:minCount 1 ;
   sh:node ro_str:Plangebied_Ondergrond ;
+.
 
-ro_str:Plangebied_Ondergrond a sh:NodeShape ; #is this the way to go?
+ro_str:Plangebied_Ondergrond a sh:NodeShape ; #
+  sh:property 
+    ro:Ondergrond_ondergrondtype ,
+    ro:ondergrond_datum 
+.
+
+ro_str:Plangebied_naam a sh:PropertyShape ;
+  sh:path ro:naam ;
+  sh:nodeKind sh:Literal ;
+  sh:datatype xsd:string ;
+  sh:minCount 1 ;
+  sh:maxCount 1
+.
+
+#should be discussed with team
+#plangebied ro:ondergrond X . x is an instance of class ro:Ondergrond 
+# x ro:ondergrondtype Y . y is a named skos:concept
+# x ro:datum Z . z is a date in xsd:date format
+    
+ro_str:Ondergrond_ondergrondtype 
+  rdf:type sh:PropertyShape ; 
+  sh:path ro:ondergrondtype ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+.
+
+ro_str:ondergrond_datum 
+  rdf:type sh:PropertyShape ; 
+  sh:path ro:datum ; 
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+.
+
+#typeplan points to a RuimtelijkPlanOfBesluit, which is partially (largely) identical to the instrument enumeration.
+#amvb for instance occurs in both. Should these be kept seperate or uniformly?
+#for now: typePlan points to a named individual.
+ro_str:Structuurvisieplangebied_R_typePlan 
+  rdf:type sh:PropertyShape ; 
+  sh:path ro:typePlan ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:class ro:RuimtelijkPlanOfBesluit_SV ; 
+.
+
+ro_str:Structuurvisieplangebied_R_beleidsmatigVerantwoordelijkeOverheid 
+  rdf:type sh:PropertyShape ; 
+  sh:path ro:beleidsmatigerantwoordelijkeOverheid ;
+  sh:minCount 1 ;
+#  sh:maxCount 1 ; #the gml files concatenates the names of the ministries, resulting in a single instance. resulting in a sh:maxCount 1 ; however, if we can seperate these again, I think we'll have a more robust knowledge graph.
+  sh:node ro_str:Overheden_R
+.
+
+ro_str:Overheden_R a sh:NodeShape ;
   sh:property [
-    path ro:ondergrond #as defined in bestemmingsplan gebied <- points at named individuals
-    sh:class ro:Ondergrond
+    sh:path rdf:type ;
+    sh:in ( 
+      ro:NationaleOverheid
+    ) ] ;
+  sh:property [
+    sh:path ro:overheidsCode ; 
+    sh:hasValue "0000" ; # would the use of sh:pattern be preffered for consistency's sake?
+#    sh:datatype xsd:string ;  # see following property
+  ] ;
+  sh:property [
+    sh:path ro:overheidsNaam ;
+    sh:pattern "^(ministerie)\\s" ;
+#    sh:datatype xsd:string ; # already specified in ro_str:overheidsNaam
     ]
+.
+
+ro_str:Overheid a sh:NodeShape ;
+  sh:targetClass ro:Overheid ;
+  sh:Property 
+    ro_str:overheidsNaam ,
+    ro_str:overheidsCode 
+.
+
+ro_str:overheidsNaam a sh:PropertyShape ;
+  sh:path ro:overheidsNaam ;
+  sh:minCount 1 ; 
+  sh:maxCount 1 ; 
+  sh:datatype xsd:string ;
+#  sh:pattern ; resource specific patterns are required, see ro_str:overheidsCode
+.
+
+ro_str:overheidsCode a sh:PropertyShape ;
+  sh:path ro:overheidsCode ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:datatype xsd:string ;
+#  sh:pattern resource specific patterns have to be created, for overheden_R pattern = 0000, for structuurvisieplangebied_P the pattern = 99**** where * is a number.
+.
+
+ro_str:Structuurvisieplangebied_R_illustratieverwijzing 
+  rdf:type sh:PropertyShape ; 
+  sh:path ro:illustratie ;
+  sh:class ro:Illustratie ; #if we keep the class/subclass construct, the subclasses should be made disjoint.
+  sh:minCount 1 ; 
+  sh:node ro_str:Illustratie
+
+.
+
+ro_str:Illustratie #illutration is an entity of type either kaart or afbeelding with a reference to its storage location. We don't need sh:in in this case.
+  rdf:type sh:NodeShape ;
+  sh:property [
+    sh:path ro:illustratieverwijzing ;
+#    sh:datatype xsd:string ; #object can be a hyperlink, would we want to store it as a string?
+    sh:minCount 1 ; 
+    sh:maxCount 1 ; 
+  ]
+.
+
+ro_str:Structuurvisieplangebied_R_tekstverwijzing 
+  rdf:type sh:PropertyShape ; 
+    sh:path ro:tekst ;
+    sh:minCount 1 ; 
+    sh:maxCount 3 ;
+#    sh:class ro:Tekst ; no need for this due to the sh:node property following later
+    sh:node ro_str:TeksttypePG_SV ;
+    sh:and ( 
+      [
+        sh:qualifiedValueShape [
+          sh:path ( ro:tekst rdf:type ) ;
+          sh:hasValue ro:Document ; #classes are currently modelled in a hierarchy, not sure if that is correct. for ro:Besluitdocument might not be allowed here.
+        ] ;
+        sh:qualifiedMinCount 1 ;
+        sh:qualifiedMaxCount 1 ;
+      ] 
+      [
+        sh:qualifiedValueShape [
+          sh:path ( ro:tekst rdf:type ) ;
+          sh:hasValue ro:Bijlage ; #classes are currently modelled in a hierarchy, not sure if that is correct. for ro:Besluitdocument might not be allowed here.
+        ] ;
+        sh:qualifiedMaxCount 1 ;
+      ]
+    ) ;
+    sh:node ro_str:TeksttypePG_SV ;
+.
+
+ro_str:TeksttypePG_SV rdf:type sh:NodeShape ;
+  sh:property [
+    sh:path rdf:type ;
+    sh:in ( 
+      ro:Besluitdocument
+      ro:Bijlage
+      ro:Toelichting
+    ) ] ;
+.
+#here we define that all instances of ro:Tekst should have a reference to the tekst as a string.
+ro_str:Tekst rdf:type sh:NodeShape ;
+  sh:targetClass ro:Tekst ;
+  sh:property [ 
+    sh:path ro:tekstverwijzing ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+    ] ;
+.
+
+#externPlan should be a blank node. having it as a class, and dereferencable makes no sense. only the the actual representation should be dereferencable.
+ro_str:Structuurvisieplangebied_R_externPlan rdf:type sh:PropertyShape ; #perhaps we can move this partially to ro_str:Plangebied. The only part unique for structuurvisieplangebie_R is ro_Str:rolExternPlan and its range. 
+  sh:path ro:externPlan ;
+  sh:maxCount 1 ; #we want to store all exteral plans in a single blank node.
+  sh:node ro_str:ExternPlanReferentiePG_SV ; #this blank node should adhere to the following shape
+.
+# perhaps we could:
+# ?s ro:muteert ?o
+# making name and idn irrelevant for they are properties of ?o already.
+# if we were to make ?s a blank node, containing all relations with external plans, we'd have it conciselly in a single node.
+
+ro_str:ExternPlanReferentiePG_SV rdf:type sh:NodeShape ;
+  sh:closed true ; # this construct is used to restrict the allowed predicates from the blank node.
+  sh:ignoredProperties (
+    ro:muteert
+    ro:vervangt
+    ro:uitTeWerkenIn
+    ro:uitgewerktIn
+    ro:gebruiktInformatieUit
+    ro:tenGevolgeVan
+    )
+# we could include a sh:SPARQL to make sure all objects are of type ro:PlanologischGebeid?
+.
+#what will happen if we don't have an IRI for a external plan?
+
+#this nodeshape is no longer required for the role predicates point to IRIs, containing a idn and name.
+#ro_str:ExternPlan rdf:type sh:NodeShape ;
+#  sh:property 
+#    ro_str:naamExternPlan ,
+#    ro_str:idn # ,
+##    ro_str:rolExternPlan 
+#.
+
+ro_str:naamExternPlan rdf:type sh:PropertyShape ;
+  sh:path ro:naam ; 
+  sh:minCount 1 ; 
+  sh:maxCount 1 ; 
+  sh:datatype xsd:string ; 
+.
+
+ro_str:idn rdf:type sh:PropertyShape ; 
+  sh:path ro:idn ; 
+  sh:maxCount 1 ; 
+  sh:datatype xsd:string 
+.
+
+# roles are now defined as predicates.
+#ro_str:rolExternPlan rdf:type sh:PropertyShape ;
+#  sh:path ro:rolExternPlan ; 
+#  sh:minCount 1 ; 
+#  sh:maxCount 1 ; 
+#  sh:node ro_str:RolExternPlanPG_SV 
+#.
+
+ro_str:Structuurvisieplangebied_R_verwijzingNorm  
+  rdf:type sh:PropertyShape ; 
+  sh:path ro:verwijzingNorm ; 
+  sh:minCount 2 ;
+  sh:maxCount 3 ;
+  sh:and ( [
+    sh:qualifiedValueShape [
+      sh:hasValue "IMRO2012" ; # or should this be `:ro`?
+
+      ] ;
+    sh:qualifiedMinCount 1 ; 
+    sh:qualifiedMaxCount 1 ; 
+    ]
+    [ 
+    sh:qualifiedValueShape [
+      sh:hasValue "PRBP2012" ; # should this be an iri?
+    ] ;
+    sh:qualifiedMinCount 1 ;
+    sh:qualifiedMaxCount 1 ; 
+    ]
+    [ 
+    sh:qualifiedValueShape [
+      sh:hasValue "IMROPT2012" ; # should this be an iri?
+    ] ;
+    sh:qualifiedMaxCount 1 ; 
+  ]
+  )
+.
+
+ro_str:Structuurvisieplangebied_R_begrenzing 
+  rdf:type sh:PropertyShape ;
+  sh:path ro:begrenzing ;
+  sh:minCount 1 ; 
+  sh:maxCount 1 ;
+  sh:class ro:GeometriePlangebied ; 
+  sh:node ro_str:Structuurvisieplangebied_R_GeometriePlangebied
+.
+
+ro_str:Structuurvisieplangebied_R_GeometriePlangebied rdf:type sh:NodeShape ; 
+  sh:property 
+    ro_str:Structuurvisieplangebied_R_GeometriePlangebied_geometrie ,
+    ro_str:Structuurvisieplangebied_R_GeometriePlangebied_idealisatie ;
+.
+
+ro_str:Structuurvisieplangebied_R_GeometriePlangebied_geometrie rdf:type sh:PropertyShape ;
+  sh:path ro:geometrie ; #this predicate points to a blank node
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:node ro_str:VlakMultiVlak ; #here, the predicate pointing to the geometry is defined. 
+.
+
+ro_str:VlakMultiVlak a sh:PropertyShape ; 
+  sh:xone ( 
+    ro_str:geometrieVlak
+    ro_str:geometrieMultiVlak
+    )
+.
+
+ro_str:Structuurvisieplangebied_R_GeometriePlangebied_idealisatie  rdf:type sh:PropertyShape ;
+  sh:path ro:idealisatie ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:node ro_str:Idealisatie_1 ;
+.
+
+ro_str:Idealisatie_1 rdf:type sh:NodeShape ;
+ sh:in (
+  ro:exact # perhaps skos:concepts suit better.
+  )
+.
+
+ro_str:Structuurvisiegebied_R rdf:type sh:NodeShape ;
+#    ro_str:naam , inherited from planlogisch gebied
+    sh:targetClass ro:Structuurvisiegebied_R ;
+    sh:property 
+      ro_str:Structuurvisiegebied_R_thema ,
+      ro_str:Structuurvisiegebied_R_beleid ,
+      ro_str:Structuurvisiegebied_R_tekstVerwijzing ,
+      ro_str:Structuurvisiegebied_R_illustratieVerwijzing ,
+      ro_str:Structuurvisiegebied_R_externPlan ,
+      ro_str:Structuurvisiegebied_R_cartografie ,
+      ro_str:Structuurvisiegebied_R_plangebied ,
+      ro_str:Structuurvisiegebied_R_begrenzing
+.
+
+ro_str:Structuurvisiegebied_R_thema rdf:type sh:PropertyShape ;
+  sh:path ro:thema ;
+  sh:minCount 1 ;
+  sh:datatype xsd:string ;
+.
+
+ro_str:Structuurvisiegebied_R_beleid rdf:type sh:PropertyShape ;
+  sh:path ro:beleid ;
+  sh:minCount 1 ;
+  sh:node ro_str:BeleidInfo_RSV ;
+.
+
+ro_str:BeleidInfo_RSV rdf:type sh:NodeShape ;
+  sh:property 
+    BeleidInfo_RSV_belang ,
+    BeleidInfo_RSV_rol ,
+    BeleidInfo_RSV_instrument ;
+.
+
+ro_str:BeleidInfo_RSV_belang rdf:type sh:PropertyShape ;
+  sh:path ro:belang ;
+  sh:datatype xsd:string ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+.
+
+ro_str:BeleidInfo_RSV_rol rdf:type sh:PropertyShape ;
+  sh:path ro:rol ;
+  sh:datatype xsd:string ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+.
+
+ro_str:BeleidInfo_RSV_instrument rdf:type sh:PropertyShape ;
+  sh:path ro:instrument ;
+  sh:maxCount 1 ;
+  sh:in (
+    ro:amvb
+    ro:beheersverordening
+    ro:bestemmingsplan
+    ro:bestuurlijkeAfspraken
+    ro:coordinatieregeling
+    ro:inpassingsplan
+    ro:omgevingsvergunning
+    ro:proactieveAanwijzing
+    ro:reactieveAanwijzing
+    ro:verordening
+    ro:voorbereidingsbesluit
+    ro:vooroverleg
+    ro:zienswijze
+  )
+.
+
+#references to text are done through the property ro:tekstverwijzing and point to a subclass of ro:Tekst.
+ro_str:Structuurvisiegebied_R_tekstVerwijzing rdf:type sh:PropertyShape ;
+  sh:path ro:tekst ;
+  sh:minCount 1 ;
+  sh:node ro_str:Teksttype_SV ; #set of subclasses is restricted with a node shape.
+#  sh:property ro_str:tekstverwijzing_verwijzingNaarTekst ;
+.
+
+#this nodeshape depicts the possible classes
+ro_str:Teksttype_SV rdf:type sh:NodeShape ;
+  sh:property [
+    sh:path rdf:type ;
+    sh:in ( 
+      ro:Beleid
+      ro:Toelichting
+    ) ] ;
+.
+
+ro_str:Structuurvisiegebied_R_illustratieVerwijzing rdf:type sh:PropertyShape ;
+  sh:path ro:illustratie ;
+  sh:class ro:Illustratie ; # for other enumerations this triple would change
+  sh:node ro_str:Illustratie_legendaNaam ;
+  sh:node ro_str:Illustratie
+.
+
+ro_str:Illustratie_legendaNaam rdf:type sh:NodeShape ;
+  sh:path ro:legendaNaam ;
+  sh:datatype xsd:string ;
+  sh:maxCount 1 ;
+.
+
+ro_str:Structuurvisiegebied_R_externPlan rdf:type sh:PropertyShape ;
+  sh:path ro:externPlan ;
+  sh:maxCount 1 ;
+  sh:node ro_str:ExternPlanReferentie_SV ;
+.
+
+ro_str:ExternPlanReferentie_SV rdf:type sh:NodeShape ;
+  sh:closed true ;
+  sh:ignoredProperties (
+    ro:uitTeWerkenIn
+    ro:uitgewerktIn
+    ro:gebruiktInformatieUit
+    ro:tenGevolgeVan
+    )
+.
+
+ro_str:Structuurvisiegebied_R_cartografie rdf:type sh:PropertyShape ;
+# is it a blank node or a class of some sorts? should discuss. for now a blank node approach is taken.
+  sh:path ro:cartografie ;
+  sh:node ro_str:cartografieInfo ;
+.
+
+# TODO clean up.
+ro_str:cartografieInfo rdf:type sh:NodeShape ;
+  sh:property [
+    sh:path ro:kaartNaam ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+    ]
+  sh:property [
+    sh:path ro:kaartNummer ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+    ]  
+  sh:property [
+    sh:path ro:symboolCode ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+    ]
+.
+
+ro_str:Structuurvisiegebied_R_plangebied rdf:type sh:PropertyShape ;
+  sh:path ro:plangebied ;
+  sh:minCount 1 ; 
+  sh:maxCount 1 ;
+  sh:class ro:Structuurvisieplangebied_R ;
+.
+
+ro_str:Structuurvisiegebied_R_begrenzing rdf:type sh:PropertyShape ;
+  sh:path ro:begrenzing ;
+  sh:class ro:GeometrieStructuurvisieObject ;
+  sh:node ro_str:Structuurvisiegebied_R_GeometrieStructuurvisieObject ;
+.
+
+ro_str:Structuurvisiegebied_R_GeometrieStructuurvisieObject rdf:type sh:NodeShape ;
+  sh:property 
+    ro_str:Structuurvisiegebied_R_GeometrieStructuurvisieObject_geometrie ,
+    ro_str:Structuurvisiegebied_R_GeometrieStructuurvisieObject_idealisatie ;
+.
+
+ro_str:Structuurvisiegebied_R_GeometrieStructuurvisieObject_geometrie rdf:type sh:PropertyShape ;
+  sh:path ro:geometrie ; #this predicate points to a blank node
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:node ro_str:PuntLijnVlakMulti ; #here, the predicate pointing to the geometry is defined. 
+.
+
+ro_str:Structuurvisiegebied_R_GeometrieStructuurvisieObject_idealisatie rdf:type sh:PropertyShape ;
+  sh:path ro:idealisatie ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:node ro_str:Idealisatie_3 ;
+.
+
+ro_str:PuntLijnVlakMulti rdf:type sh:PropertyShape ;
+  sh:xone ( 
+    ro_str:geometriePunt
+    ro_str:geometrieLijn
+    ro_str:geometrieVlak
+    ro_str:geometriePuntMulti
+    ro_str:geometrieLijnMulti
+    ro_str:geometrieVlakMulti
+    )
+.
+
+ro_str:Idealisatie_3 rdf:type sh:NodeShape ;
+ sh:in (
+  ro:exact # perhaps skos:concepts suit better.
+  ro:indicatief
+  ro:cartografischFiguur
+  )
+.
+
+ro_str:PuntLijnVlakMulti rdf:type sh:PropertyShape ;
+  sh:xone ( 
+    ro_str:geometriePunt
+    ro_str:geometrieLijn
+    ro_str:geometrieVlak
+    ro_str:geometrieMultiPunt
+    ro_str:geometrieMultiLijn
+    ro_str:geometrieMultiVlak
+    )
+.
+
+ro_str:geometriePunt rdf:type sh:PropertyShape ;
+  sh:path ro:geometriePunt ;
+  sh:minCount 1 ; 
+  sh:maxCount 1 ;
+.
+
+ro_str:geometrieLijn rdf:type sh:PropertyShape ;
+  sh:path ro:geometrieLijn ;
+  sh:minCount 1 ; 
+  sh:maxCount 1 ;
+.
+
+ro_str:geometrieVlak rdf:type sh:PropertyShape ;
+  sh:path ro:geometrieVlak ;  #here the object is the blank node.
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+.
+
+ro_str:geometrieMultiPunt rdf:type sh:PropertyShape ;
+  sh:path ro:geometrieMultiVlak ;
+  sh:minCount 1 ; 
+  sh:maxCount 1 ;
+.
+
+ro_str:geometrieMultiLijn rdf:type sh:PropertyShape ;
+  sh:path ro:geometrieMultiLijn ;
+  sh:minCount 1 ; 
+  sh:maxCount 1 ;
+.
+
+ro_str:geometrieMultiVlak rdf:type sh:PropertyShape ;
+  sh:path ro:geometrieMultiVlak ;
+  sh:minCount 1 ; 
+  sh:maxCount 1 ;
+.
+
+ro_str:Structuurvisiecomplex_R rdf:type sh:NodeShape ;
+    sh:targetClass ro:Structuurvisiecomplex_R ;
+    sh:property 
+      ro_str:Structuurvisiecomplex_R_thema ,
+      ro_str:Structuurvisiecomplex_R_beleid ,
+      ro_str:Structuurvisiecomplex_R_planobject , 
+      ro_str:Structuurvisiegebied_R_tekstVerwijzing ,#copied
+      ro_str:Structuurvisiegebied_R_illustratieVerwijzing , #copied
+      ro_str:Structuurvisiegebied_R_externPlan , #copied
+      ro_str:Structuurvisiegebied_R_cartografie , #copied
+      ro_str:Structuurvisiegebied_R_plangebied , #copied
+      ro_str:Structuurvisiegebied_R_begrenzing #copied
+
+.
+# perhaps we can include in our naming conventions to drop the suffix 'gebied/complex' since both of these have identical shapes.
+
+ro_str:Structuurvisiecomplex_R_thema rdf:type sh:PropertyShape ;
+  sh:path ro:thema ;
+  sh:datatype xsd:string ;
+.
+
+ro_str:Structuurvisiecomplex_R_beleid rdf:type sh:PropertyShape ;
+  sh:path ro:beleid ;
+  sh:node ro_str:BeleidInfo_RSV ;
+.
+
+ro_str:Structuurvisiecomplex_R_planobject rdf:type sh:PropertyShape ;
+  sh:path ro:planobject ;
+  sh:minCount 1 ;
+  sh:class nen3610:Planobject ;
+.
