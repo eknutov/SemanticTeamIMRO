@@ -1,29 +1,28 @@
-
+# beggiep van Structuurvisiegebied_G en Structuurvisieplangebied_G
+#=======================================================================
 @prefix begrip: <http://data.informatiehuisruimte.nl/ro/id/begrip#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
+ro_beg:Structuurvisiegebied_G a skos:Concept ;
+	rdfs:label "Structuurvisiegebied_G"@nl ;
+	skos:prefLabel "Structuurvisiegebied_G"@nl ;
+	skos-thes:broaderGeneric: ro_beg:Planobject ;
+	skos:definition "Een gebied waarop één of meerdere beleidsuitspraken in het kader van een gemeentelijke structuurvisie betrekking hebben."@nl ;
+	skos:inScheme ro_begkr:ro
+	skos:notation "Gemeentelijke structuurvisie"
+.
 
 ro_beg:Structuurvisieplangebied_G a skos:Concept ;
 	rdfs:label "Structuurvisieplangebied_G"@nl ;
 	skos:prefLabel "Structuurvisieplangebied_G"@nl ;
 	skos-thes:broaderGeneric: ro_beg:Plangebied ;
-	skos:definition "Gebied, of gebieden, binnen de grenzen van een Gemeentelijkestructuurvise."@nl ;
+	skos:definition "Gebied, of gebieden, binnen de grenzen van een gemeentelijke structuurvisie."@nl ;
 	skos:inScheme ro_begkr:ro
 	skos:notation "Gemeentelijke structuurvisie"
 .
 
-ro_beg:Idealisatie a skos:Concept ;
-	rdfs:label "Idealisatie"@nl ;
-	skos:definition "Manier waarop de geometrie ruimtelijk geïnterpreteerd moet worden."@nl ;
-	skos:inScheme ro_begkr:ro ;
-.
-
-ro_beg:typePlan a skos:Concept ;
-  rdfs:label "typePlan"@nl ;
-  skos:definition "Nadere aanduiding van het type ruimtelijk instrument."@nl ;
-  skos:inScheme ro_begkr:ro ;
-
-.
+# Idealisatie and typePlan moved to common/skos.ttl

@@ -1,0 +1,21 @@
+#for skos concepts
+# TODO
+# has to be TTL format
+@prefix begrip: <http://data.informatiehuisruimte.nl/ro/id/begrip#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
+
+ro_beg:Idealisatie a skos:Concept ;
+	rdfs:label "Idealisatie"@nl ;
+	skos:definition "Manier waarop de geometrie ruimtelijk geïnterpreteerd moet worden."@nl ;
+	skos:inScheme ro_begkr:ro ;
+.
+
+ro_beg:typePlan a skos:Concept ;
+  rdfs:label "typePlan"@nl ;
+  skos:definition "Nadere aanduiding van het type ruimtelijk instrument."@nl ;
+  skos:inScheme ro_begkr:ro ;
+.

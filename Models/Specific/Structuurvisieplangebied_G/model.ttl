@@ -1,1 +1,63 @@
-#Structuurvisieplangebied_G model
+#Structuurvisieplangebied_G model description
+#============================================
+@prefix begrip: <http://data.informatiehuisruimte.nl/ro/id/begrip#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+#========================================================================================
+# TODO: modelling to continue later
+ro:Structuurvisiegebied_G
+  rdf:type owl:Class ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:label "Structuurvisiegebied_G"@nl ;
+  rdfs:subClassOf ro:Planobject ;
+.
+
+#========================================================================================
+
+ro:Structuurvisieplangebied_G
+  rdf:type owl:Class ;
+  dcterms:subject ro_beg:Structuurvisieplangebied_G;
+  rdfs:isDefinedBy :ro ;
+  rdfs:label "Structuurvisieplangebied_G"@nl ;
+  rdfs:subClassOf ro:Plangebied ;
+  #========================================
+  # general properties    => could become a //general Structuurvisie class//
+  dc:relation: ro:Structuur ;
+
+  ZZZ:Definitie ;               # see begrip
+  ZZZ:HerkomstDefinitie ;       # "IMRO"
+  ZZZ:Inwinningsregels ;        # null
+  rdf:Property ro:Generalisatie ;            # null
+  rdf:Property ro:Specialisatie ;            # "Van Plangebied"
+
+  ZZZ:identificatie ;
+
+  ro:typePlan ;                                # see Model/common/plan #(domain:RuimtelijkPlanOfBesluit_SV)
+  ro:beleidsmatigVerantwoordelijkeOverheid ;   # see Model/common/plan #(domain:Overheden_G)
+
+  ro:naamOverheid ;
+  ro:overheidsCode ;
+  ro:naam ;                                     #(naam van de structuurvisie volgens de (aanhaal)titel)
+  ro:locatieNaam ;
+
+  ro:planstatusInfo ;
+
+  xsd:decimal ro:besluitnummer ;
+
+  ro:verwijzingNaarVaststellingsbesluit ;
+  ro:verwijzingNaarIllustratieInfo ;
+  ro:verwijzingNaarTekstInfo ;
+
+  ro:ondergrondInfo ;                 # see Models/common/kaart
+  ro:verwijzingNaarExternPlanInfo ;   # see Models/common/verwijzing
+
+  ro:verwijzingNorm ;
+
+  ZZZ:Associaties ;
+
+  # specific properties
+.

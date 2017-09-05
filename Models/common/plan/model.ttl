@@ -1,0 +1,62 @@
+# Plans/Planning model
+#============================================
+
+ro:Planobject
+  rdf:type owl:Class ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:label "Planobject"@nl ;
+  rdfs:subClassOf nen3610:PlanologischGebied ;
+.
+ro:planobject
+  rdf:type owl:ObjectProperty ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:label "planobject"@nl ;
+  rdfs:range ro:PlanObject ;
+.
+#=====================================
+ro:Plangebied
+  rdf:type owl:Class ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:label "Plangebied"@nl ;
+  rdfs:subClassOf nen3610:PlanologischGebied ;
+.
+ro:plangebied
+  rdf:type owl:ObjectProperty ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:label "plangebied"@nl ;
+  rdfs:range ro:Plangebied ;
+.
+#=========================================
+ro:Planstatus
+  rdf:type owl:Class ;
+  rdfs:label "Planstatus" ;
+  rdfs:subClassOf owl:Thing ;
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:oneOf (
+          ro:concept
+          ro:voorontwerp
+          ro:ontwerp
+          ro:vastgesteld
+          ro:geconsolideerd
+        ) ;
+    ] ;
+.
+ro:planstatus
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain ro:Planstatus ;
+  rdfs:label "plan status"@nl;
+.
+
+ro:PlanstatusInfo
+  rdf:type rdf:Property ;
+  ro:planstatus           #(domein: Planstatus)
+  dc:date                 #(format jjjj-mm-dd)
+  rdfs:label "planstatus info"@nl ;
+.
+
+ro:typePlan
+  rdf:type owl:ObjectProperty ;
+  dcterms:subject ro_beg:typePlan ;
+  rdfs:label "typePlan"@nl ;
+.

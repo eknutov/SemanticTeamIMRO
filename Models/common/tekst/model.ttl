@@ -1,0 +1,39 @@
+
+
+ro:Tekst
+  rdf:type owl:Class ;
+  rdfs:label "Tekst" ;
+  rdfs:subClassOf owl:Thing ;
+.
+ro:TekstDomain
+  rdf:type owl:Class ;
+  rdfs:label "Tekst domain" ;
+  rdfs:subClassOf ro:Tekst ;
+.
+
+ro:TypeTekst
+  rdf:type owl:Class ;
+  rdfs:label "Type tekst" ;
+  rdfs:subClassOf ro:TekstDomain ;
+.
+
+ro:TeksttypePG_SV
+  rdf:type owl:Class ;
+  rdfs:label "Teksttype PG SV" ;
+  rdfs:subClassOf ro:TypeTekst ;
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:oneOf (
+          ro:Document
+          ro:Bijlage
+          ro:Toelichting
+        ) ;
+    ] ;
+.
+
+ro:Teksttype_XGB
+  rdf:type owl:Class ;
+  rdfs:label "Teksttype XGB" ;
+  rdfs:subClassOf ro:TypeTekst ;
+  #TODO
+.

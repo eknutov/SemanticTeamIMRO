@@ -1,0 +1,26 @@
+
+# various general classes and descriptions
+#===============================================
+
+ro:Inwinningsregels
+  rdf:type owl:Class ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:label "Inwinningsregels"@nl ;
+  skos:definition "Beschrijving van de inwinningsregels met betrekking tot deze klasse"@nl ;
+.
+
+ro_beg:Generalisatie ;
+  rdf:type owl:Class ;
+  skos-thes:narrowerGeneric owl:Class ;
+	rdfs:label "Generalisatie"@nl ;
+	skos:definition "Van welke klassen is deze klasse een generalisatie.."@nl ;
+	skos:inScheme ro_begkr:ro ;
+.
+
+ro_beg:Specialisatie ;
+  rdf:type owl:Class ;
+  skos-thes:broaderGeneric owl:Class ;
+	rdfs:label "Specialisatie"@nl ;
+	skos:definition "Van welke klasse is deze klasse een specialisatie."@nl ;
+	skos:inScheme ro_begkr:ro ;
+.

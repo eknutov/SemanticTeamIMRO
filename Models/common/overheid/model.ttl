@@ -1,0 +1,122 @@
+# Overheid model
+#============================================
+
+
+#Overheid structure classes
+#======================================
+ro:Overheid
+  rdf:type owl:Class ;
+  rdfs:label "overheden"@nl ;
+  rdfs:subClassOf owl:Thing ;
+.
+
+ro:naamOverheid
+  rdf:type owl:AnnotationProperty ;
+  rdfs:domain ro:Overheid ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:label "naam overheid"@nl ;
+.
+
+ro:overheidDomain
+  rdf:type owl:Class ;
+  rdfs:label "overheid domain"@nl ;
+  rdfs:subClassOf ro:Overheid ;
+.
+
+ro:nationaleOverheid
+  rdf:type owl:Class ;
+  rdfs:label "nationale overheid"@nl ;
+  rdfs:subClassOf ro:Overheid ;
+.
+
+ro:provincialeOverheid
+  rdf:type owl:Class ;
+  rdfs:label "provinciale overheid"@nl ;
+  rdfs:subClassOf ro:Overheid ;
+.
+
+ro:gemeentelijkeOverheid
+  rdf:type owl:Class ;
+  rdfs:label "gemeentelijke overheid"@nl ;
+  rdfs:subClassOf ro:Overheid ;
+.
+
+ro:Overheden_BP
+  rdf:type owl:Class ;
+  rdfs:label "Overheden BP" ;
+  rdfs:subClassOf ro:OverheidDomain ;
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:oneOf (
+          ro:gemeentelijkeOverheid
+          ro:Deelgemeente_Stadsdeel
+          ro:provincialeOverheid
+          ro:nationaleOverheid
+        ) ;
+    ] ;
+.
+ro:Overheden_G
+  rdf:type owl:Class ;
+  rdfs:label "Overheden G" ;
+  rdfs:subClassOf ro:OverheidDomain ;
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:oneOf (
+          ro:gemeentelijkeOverheid
+          ro:deelgemeenteStadsdeel
+        ) ;
+    ] ;
+.
+ro:Overheden_P
+  rdf:type owl:Class ;
+  rdfs:label "Overheden P" ;
+  rdfs:subClassOf ro:OverheidDomain ;
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:oneOf (
+          ro:provincialeOverheid
+        ) ;
+    ] ;
+.
+ro:Overheden_R
+  rdf:type owl:Class ;
+  rdfs:label "Overheden R" ;
+  rdfs:subClassOf ro:OverheidDomain ;
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:oneOf (
+          ro:nationaleOverheid
+        ) ;
+    ] ;
+.
+ro:Overheden_XGB
+  rdf:type owl:Class ;
+  rdfs:label "Overheden XGB" ;
+  rdfs:subClassOf ro:OverheidDomain ;
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:oneOf (
+          ro:gemeentelijkeOverheid
+          ro:deelgemeente_stadsdeel
+          ro:provincialeOverheid
+          ro:nationaleOverheid
+        ) ;
+    ] ;
+.
+
+#Overheid additional classes (add below)
+#=======================================
+ro:overheidsCode
+  rdf:type owl:AnnotationProperty ;
+  rdfs:domain ro:Overheid ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:label "overheids code"@nl ;
+  dc:identifier ro:code ;   # define the code types here ? or would label property be enough?
+.
+
+ro:beleidsmatigVerantwoordelijkeOverheid    # government entity responsible for the policy
+  rdf:type owl:AnnotationProperty ;
+  rdfs:domain ro:Overheden_G;
+  rdfs:isDefinedBy :ro ;
+  rdfs:label "Verantwoordelijke Overheid"@nl ;
+.

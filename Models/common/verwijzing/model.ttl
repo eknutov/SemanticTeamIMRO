@@ -1,0 +1,97 @@
+# Verwijzing model
+#============================================
+
+
+ro:Verwijzing
+  rdf:type owl:Class ;
+  rdfs:label "verwijzing"@nl ;
+  rdfs:subClassOf owl:Thing ;
+.
+
+ro:verwijzingNorm
+  rdf:type owl:Class ;
+  rdfs:label "verwijzing norm"@nl ;
+  rdfs:subClassOf ro:Verwijzing ;
+  rdfs:isDefinedBy :ro ;
+.
+
+ro:externeVerwijzing
+  rdf:type owl:Class ;
+  rdfs:label "externe verwijzing"@nl ;
+  rdfs:subClassOf ro:Verwijzing ;
+.
+
+ro:interneVerwijzing
+  rdf:type owl:Class ;
+  rdfs:label "interne verwijzing"@nl ;
+  rdfs:subClassOf ro:Verwijzing ;
+.
+
+ro:verwijzingNaarExternPlanInfo ;
+    rdfs:domain ro:ExternPlanReferentiePG_SV ;
+    #owl:oneOf (
+    #    ro:concept
+    #    ro:voorontwerp
+    #    ro:ontwerp
+    #    ro:vastgesteld
+    #    ro:geconsolideerd
+    #  ) ;
+    dc:title ro:naamExternPlan ;
+    dc:identifier ro:idnExternPlan ;
+    ZZZ  ro:rolExternPlan
+    rdfs:domain ro:RolExternPlanPG_SV ;
+.
+
+#============================================
+ro:verwijzingNaar
+  rdf:type owl:Class ;
+  #rdfs:label "verwijzing naar ..."@nl ;
+  rdfs:subClassOf ro:Verwijzing ;
+  rdfs:isDefinedBy :ro ;
+.
+
+ro:verwijzingNaarVaststellingsbesluit
+  rdf:type owl:Class ;
+  dc:references ro:Vaststellingsbesluit ;  #TODO Vaststellingsbesluit
+  rdfs:label "Verwijzing naar vaststellings besluit"@nl ;
+  rdfs:subClassOf ro:verwijzingNaar ;
+.
+
+ro:verwijzingNaarIllustratieInfo
+  rdf:type owl:Class ;
+  ro:illustratieverwijzing ro:verwijzingNaarIllustratie ;
+  ZZZ ro:typeIllustratie ;
+  rdfs:label "Verwijzing naar illustratie info"@nl ;
+  rdfs:subClassOf ro:verwijzingNaar ;
+.
+
+ro:verwijzingNaarTekstInfo
+  rdf:type owl:Class ;
+  ro:tekstverwijzing ro:verwijzingNaarTekst ;     # verwijzing naar de plantekst
+  ZZZ ro:typeTekst ;              # type tekst waarnaar verwezen wordt
+  ZZZ ro:normadressant ;       # specific to Besluitvlak_P & some other classes
+  rdfs:label "Verwijzing naar tekst info"@nl ;
+  rdfs:subClassOf ro:verwijzingNaar ;
+.
+
+#============================================
+
+
+# to consider: using dc:references
+ro:illustratieverwijzing
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "illustratie verwijzing" ;
+.
+# to consider: using dc:references
+ro:tekstverwijzing
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "tekst verwijzing" ;
+.
+
+# TODO
+#==================================
+# 1) Vaststellingsbesluit class ??
+# maybe can be as simple as dc:references
+# 2) vaststellingsbesluitnummer class ??
+# Alleen toegestaan en verplicht bij de planstatus vastgesteld
+#
