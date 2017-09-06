@@ -9,17 +9,17 @@ ro:Ondergrond
   rdf:type owl:Class ;
   rdfs:label "Ondergrond" ;
   rdfs:subClassOf owl:Thing ;
-
+.
 ro:ondergrond
   rdf:type owl:ObjectProperty ;
   rdfs:domain ro:Plangebied ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "ondergrond"@nl ;
   rdfs:range ro:Ondergrond ;
-
+.
 #======================================================== added for
 
-ro:ondergrondInfo 
+ro:ondergrondInfo
   rdf:type owl:Class ;
   dc:type ro:ondergrondtype ; #(domein: Ondergronden)   ?TODO re-consider dc:type
   dc:date ro:ondergronddatum ;

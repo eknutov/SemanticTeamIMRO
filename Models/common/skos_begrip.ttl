@@ -11,11 +11,11 @@
 ro_beg:Idealisatie a skos:Concept ;
 	rdfs:label "Idealisatie"@nl ;
 	skos:definition "Manier waarop de geometrie ruimtelijk geïnterpreteerd moet worden."@nl ;
-	skos:inScheme ro_begkr:ro ;
+	skos:inScheme ro_beg:ro ;
 .
 
 ro_beg:typePlan a skos:Concept ;
   rdfs:label "typePlan"@nl ;
   skos:definition "Nadere aanduiding van het type ruimtelijk instrument."@nl ;
-  skos:inScheme ro_begkr:ro ;
+  skos:inScheme ro_beg:ro ;
 .

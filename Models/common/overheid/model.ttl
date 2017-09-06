@@ -115,7 +115,7 @@ ro:overheidsCode
 .
 
 ro:beleidsmatigVerantwoordelijkeOverheid    # government entity responsible for the policy
-  rdf:type owl:AnnotationProperty ;
+  rdf:type owl:AnnotationProperty ;         # point to specific
   rdfs:domain ro:Overheden_G;
   rdfs:isDefinedBy :ro ;
   rdfs:label "Verantwoordelijke Overheid"@nl ;

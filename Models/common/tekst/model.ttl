@@ -24,7 +24,7 @@ ro:TeksttypePG_SV
   owl:equivalentClass [
       rdf:type owl:Class ;
       owl:oneOf (
-          ro:Document
+          ro:Document   #doco ontology for documents
           ro:Bijlage
           ro:Toelichting
         ) ;
