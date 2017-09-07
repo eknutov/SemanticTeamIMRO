@@ -29,7 +29,7 @@ WHERE {
     ] ;
   sh:property [
     sh:path nen3610:identificatie ;
-    sh:class nen3610:NEN3610ID ; 
+    sh:class nen3610:NEN3610ID ; #should this be a blank node?
     sh:maxCount 1 ;
     sh:minCount 1 ;
     sh:node nen3610_str:NEN3610ID ;
@@ -115,7 +115,7 @@ WHERE {
 #.
 ## not all 'besluitvakken' have a planobject, some have a 'besluitgebied'
 
-ro_str:Plangebied a sh:NodeShape ; #common
+ro_str:Plangebied rdf:type sh:NodeShape ; #common
   sh:targetClass ro:Plangebied ;
   sh:property 
     ro_str:Plangebied_locatieNaam ,
@@ -148,7 +148,6 @@ WHERE {
 }
 """ ;
     ] ; 
-
     sh:closed true ; 
     sh:ignoredProperties (
       rdf:type 
@@ -177,7 +176,7 @@ ro_str:Planstatus a sh:NodeShape ; #common
 
 ro_str:Planstatus_status a sh:PropertyShape ; #common
   sh:path ro:status ; #the structuurvisieplangebied_R model.ttl file uses ro:planstatus, this is to be removed when the common model takes effect)
-  sh:clas skos:Concept ; 
+  sh:class skos:Concept ; 
   sh:nodeKind sh:IRI ;
   sh:minCount 1 ;
   sh:maxCount 1 ; 
@@ -295,7 +294,7 @@ ro_str:Structuurvisieplangebied_R_typePlan
   sh:path ro:typePlan ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
-  sh:class ro:RuimtelijkPlanOfBesluit_SV ; 
+  sh:class ro:RuimtelijkPlanOfBesluit_SV ; #not sure if this is still valid
 .
 
 ro_str:Structuurvisieplangebied_R_beleidsmatigVerantwoordelijkeOverheid 
@@ -474,7 +473,7 @@ ro_str:Structuurvisieplangebied_R_verwijzingNorm
   sh:maxCount 3 ;
   sh:and ( [
     sh:qualifiedValueShape [
-      sh:hasValue "IMRO2012" ; # or should this be `:ro`?
+      sh:hasValue "IMRO2012" ; # or should this be `:ro`? #as skos:Concept
 
       ] ;
     sh:qualifiedMinCount 1 ; 
