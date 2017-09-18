@@ -1,0 +1,196 @@
+@prefix begrip: <http://data.informatiehuisruimte.nl/ro/id/begrip#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+#what about capitalisation?
+#Things for bestemmingsplangbied are still to be added.
+
+ro_beg:Structuurvisieplangebied_R a skos:Concept ;
+	rdfs:label "Structuurvisieplangebied_R"@nl ;
+	skos:prefLabel "Structuurvisieplangebied_R"@nl ;
+	skos-thes:broaderGeneric: ro_beg:Plangebied ;
+	skos:definition "Gebied, of gebieden, binnen de grenzen van een Rijksstructuurvise."@nl ;
+	skos:inScheme ro_begkr:ro
+	skos:notation "Rijks structuurvisie"
+.
+
+ro_beg:Idealisatie a skos:Concept ;
+	rdfs:label "Idealisatie"@nl ;
+	skos:definition "Manier waarop de geometrie ruimtelijk geïnterpreteerd moet worden."@nl ; 
+	skos:inScheme ro_begkr:ro ;
+.
+
+ro_beg:typePlan a skos:Concept ;
+  rdfs:label "typePlan"@nl ;
+  skos:definition "Nadere aanduiding van het type ruimtelijk instrument."@nl ;
+  skos:inScheme ro_begkr:ro ;
+. 
+
+
+######### planstatus
+
+
+ro_col:Planstatussen a skos:Collection ;
+  rdfs:label "Planstatussen"@nl ;
+  skos:prefLabel "Planstatussen"@nl ;
+  skos:member
+    ro_beg:Concept_Planstatus ,
+    ro_beg:Voorontwerp_Planstatus ,
+    ro_beg:Ontwerp_Planstatus ,
+    ro_beg:Vastgesteld_Planstatus ,
+    ro_beg:Geconsolideerd_Planstatus
+.
+
+ro_beg:Planstatus a skos:Concept ;
+  rdfs:label "Planstatus"@nl ;
+  skos:prefLabel "Planstatus"@nl ;
+  skos:topConceptOf ro_begkr:ro ;
+  skos:inScheme ro_begkr:ro
+.
+
+ro_beg:Concept_Planstatus a skos:Concept ;
+  rdfs:label "Concept (planstatus)"@nl ;
+  skos:prefLabel "Concept"@nl ;
+  skos:definition "TODO"@nl ;
+  skos:inScheme ro_begkr:ro ;
+  skos-thes:broaderGeneric ro_beg:Planstatus ;
+  skos:notation "concept"
+.
+
+ro_beg:Voorontwerp_Planstatus a skos:Concept ;
+  rdfs:label "Voorontwerp (planstatus)"@nl ;
+  skos:prefLabel "Voorontwerp"@nl ;
+  skos:definition "TODO"@nl ;
+  skos:inScheme ro_begkr:ro ;
+  skos-thes:broaderGeneric ro_beg:Planstatus ;
+  skos:notation "voorontwerp"
+.
+
+ro_beg:Ontwerp_Planstatus a skos:Concept ;
+  rdfs:label "Ontwerp (planstatus)"@nl ;
+  skos:prefLabel "Ontwerp"@nl ;
+  skos:definition "TODO"@nl ;
+  skos:inScheme ro_begkr:ro ;
+  skos-thes:broaderGeneric ro_beg:Planstatus ;
+  skos:notation "ontwerp"
+.
+
+ro_beg:Vastgesteld_Planstatus a skos:Concept ;
+  rdfs:label "Vastgesteld (planstatus)"@nl ;
+  skos:prefLabel "Vastgesteld"@nl ;
+  skos:definition "TODO"@nl ;
+  skos:inScheme ro_begkr:ro ;
+  skos-thes:broaderGeneric ro_beg:Planstatus ;
+  skos:notation "vastgesteld"
+.
+
+ro_beg:Geconsolideerd_Planstatus a skos:Concept ;
+  rdfs:label "Geconsolideerd (planstatus)"@nl ;
+  skos:prefLabel "Geconsolideerd"@nl ;
+  skos:definition "TODO"@nl ;
+  skos:inScheme ro_begkr:ro ;
+  skos-thes:broaderGeneric ro_beg:Planstatus ;
+  skos:notation "geconsolideerd"
+.
+
+########## NORMEN
+
+ro_col:Normen a skos:Collection ;
+  rdfs:label "Normen"@nl ;
+  skos:prefLabel "Normen"@nl ;
+  skos:member
+    ro_beg:IMRO2012 ,
+    ro_beg:PRBP2012 ,
+    ro_beg:IMROPT2012 ,
+    ro_beg:PRABPK2012
+.
+
+
+ro_beg:Norm a skos:Concept ;
+  rdfs:label "Norm"@nl ;
+  skos:prefLabel "Norm"@nl ;
+  skos:altLabel "Praktijkrichtlijn"@nl ;
+  skos:topConceptOf ro_begkr:ro ;
+  skos:inScheme ro_begkr:ro
+.
+
+ro_beg:IMRO2012 a skos:Concept ;
+  rdfs:label "IMRO2012"@nl ;
+  skos:prefLabel "IMRO2012"@nl ;
+  skos-thes:broaderGeneric ro_beg:Norm ;
+  skos:notation "IMRO2012"
+.
+
+ro_beg:PRBP2012 a skos:Concept ;
+  rdfs:label "PRBP2012"@nl ;
+  skos:prefLabel "PRBP2012"@nl ;
+  skos-thes:broaderGeneric ro_beg:Norm ;
+  skos:notation "PRBP2012"
+.
+
+ro_beg:IMROPT2012 a skos:Concept ;
+  rdfs:label "IMROPT2012"@nl ;
+  skos:prefLabel "IMROPT2012"@nl ;
+  skos-thes:broaderGeneric ro_beg:Norm ;
+  skos:notation "IMROPT2012"
+.
+
+ro_beg:PRABPK2012 a skos:Concept ; #have not seen this one in the IMRO standard though.
+  rdfs:label "PRABPK2012"@nl ;
+  skos:prefLabel "PRABPK2012"@nl ;
+  skos-thes:broaderGeneric ro_beg:Norm ;
+  skos:notation "PRABPK2012"
+.
+
+###### idealisatie
+
+ro_col:Idealisatie_1 a skos:Collection ;
+  rdfs:label "Idealisatie_1"@nl ;
+  skos:prefLabel "Idealisatie_1"@nl ;
+  skos:member
+    ro_beg:exact #is this even worth it?
+.
+
+ro_col:Idealisatie_2 a skos:Collection ;
+  rdfs:label "Idealisatie_2"@nl ;
+  skos:prefLabel "Idealisatie_2"@nl ;
+  skos:member
+    ro_beg:exact ,
+    ro_beg:indicatief 
+.
+ro_col:Idealisatie_3 a skos:Collection ;
+  rdfs:label "Idealisatie_3"@nl ;
+  skos:prefLabel "Idealisatie_3"@nl ;
+  skos:member
+    ro_beg:exact ,
+    ro_beg:indicatief ,
+    ro_beg:cartografischFiguur
+.
+
+ro_beg:Idealisatie a skos:Concept ;
+  rdfs:label "Idealisatie"@nl ;
+  skos:prefLabel "Idealisatie"@nl ;
+  skos:topConceptOf ro_begkr:ro ;
+  skos:definition "Manier waarop de geometrie ruimtelijk geïnterpreteerd moet worden."@nl ;
+  skos:inScheme ro_begkr:ro
+.
+#what about skos notation?
+ro_beg:exact a skos:Concept ;
+  rdfs:label "exact"@nl ;
+  skos:prefLabel "Exact"@nl ;
+  skos-thes:broaderGeneric ro_beg:Idealisatie ;
+.
+
+ro_beg:indicatief a skos:Concept ;
+  rdfs:label "indicatief"@nl ;
+  skos:prefLabel "Indicatief"@nl ;
+  skos-thes:broaderGeneric ro_beg:Idealisatie ;
+.
+
+ro_beg:cartografischFiguur a skos:Concept ;
+  rdfs:label "cartografisch figuur"@nl ;
+  skos:prefLabel "Cartografisch figuur"@nl ;
+  skos-thes:broaderGeneric ro_beg:Idealisatie ;
+.

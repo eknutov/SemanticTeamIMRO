@@ -1,0 +1,55 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ogc: <http://www.opengis.net/ont/geosparql#> .
+@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
+@prefix gml: <http://www.opengis.net/ont/gml#> .
+@prefix nen3610_str: <http://data.informatiehuisruimte.nl/def/nen3610/> .
+@prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
+@prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
+@prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
+@prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+ro_str:Overheid a sh:NodeShape ;
+  sh:targetClass ro:Overheid ;
+  sh:Property 
+    ro_str:overheidsNaam ,
+    ro_str:overheidsCode 
+.
+
+ro_str:overheidsNaam a sh:PropertyShape ;
+  sh:path ro:overheidsNaam ;
+  sh:minCount 1 ; 
+  sh:maxCount 1 ; 
+  sh:datatype xsd:string ;
+#  sh:pattern ; resource specific patterns are required, see ro_str:overheidsCode
+.
+
+ro_str:overheidsCode a sh:PropertyShape ;
+  sh:path ro:overheidsCode ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:datatype xsd:string ;
+#  sh:pattern resource specific patterns have to be created, for overheden_R pattern = 0000, for structuurvisieplangebied_P the pattern = 99**** where * is a number.
+.
+
+ro_str:Overheden_R a sh:NodeShape ;
+  sh:property [
+    sh:path rdf:type ;
+    sh:in ( 
+      ro:NationaleOverheid
+    ) ] ;
+  sh:property [
+    sh:path ro:overheidsCode ; 
+    sh:hasValue "0000" ; # would the use of sh:pattern be preffered for consistency's sake?
+#    sh:datatype xsd:string ;  # see next property
+  ] ;
+  sh:property [
+    sh:path ro:overheidsNaam ;
+    sh:pattern "^(ministerie)\\s" ;
+#    sh:datatype xsd:string ; # already specified in ro_str:overheidsNaam
+    ]
+.

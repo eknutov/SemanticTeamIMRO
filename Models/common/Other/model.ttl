@@ -1,0 +1,219 @@
+@prefix : <http://data.informatiehuisruimte.nl/def/> .
+@prefix c4o: <http://purl.org/spar/biro/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix doco: <http://purl.org/spar/doco/> .
+@prefix gml: <http://www.opengis.net/ont/gml#> .
+@prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
+@prefix ogc: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pattern: <http://www.essepuntato.it/2008/12/pattern#> .
+@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
+@prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
+@prefix ro_nen3610_beg: <http://data.informatiehuisruimte.nl/nen3610/id/begrip/> .
+@prefix ro_sym: <http://data.informatiehuisruimte.nl/ro/id/symbool/> .
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:ro
+  rdf:type owl:Ontology ;
+  dc:description "TODO"@nl ;
+  dc:title "Ruimtelijke Ordening vocabulaire"@nl ;
+  rdfs:label "Ruimtelijke Ordening vocabulaire"@nl ;
+  owl:imports <http://datashapes.org/dash> ;
+.
+
+ro:RuimtelijkPlanOfBesluit
+  rdf:type owl:Class ;
+  rdfs:isdefinedBy :ro ;
+  rdfs:label "RuimtelijkPlanOfBesluit"@nl ;
+.
+
+ro:RuimtelijkPlanobject
+  rdf:type owl:Class ;
+  rdfs:label "Ruimtelijk planobject"@nl ;
+  rdfs:subClassOf owl:Thing ;
+.
+
+ro:Structuurvisie
+  rdf:type owl:Class ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:label "Structuurvisie"@nl ;
+  rdfs:subClassOf ro:RuimtelijkPlanOfBesluit ;
+.
+
+ro:locatieNaam
+  rdf:type owl:AnnotationProperty ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:label "locatie naam"@nl ;
+.
+
+ro:naam
+  rdf:type owl:AnnotationProperty ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:label "naam"@nl ;
+.
+
+ro:plangebied
+  rdf:type owl:ObjectProperty ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:label "plangebied"@nl ;
+  rdfs:range nen3610:Plangebied ;
+.
+
+ro:planobject
+  rdf:type owl:ObjectProperty ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:label "planobject"@nl ;
+  rdfs:range nen3610:Planobject ;
+.
+
+ro:thema
+  rdf:type owl:DatatypeProperty ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:label "thema"@nl ;
+.
+
+ro:typePlan
+  rdf:type owl:ObjectProperty ;
+  dcterms:subject ro_beg:typePlan ;
+  rdfs:label "typePlan"@nl ;
+.
+
+ro:Ondergrond
+  rdf:type owl:Class ;
+  rdfs:label "Ondergrond"@nl ;
+  rdfs:subClassOf owl:Thing ;
+.
+
+ro:ondergrond
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain nen3610:Plangebied ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:label "ondergrond"@nl ;
+  rdfs:range ro:Ondergrond ;
+.
+
+ro:ondergrondtype  
+  rdf:type owl:ObjectProperty ; 
+  rdfs:domain ro:Ondergrond ;
+  rdfs:isDefinedBy :ro ; 
+  rdfs:label "ondergrondtype"@nl ;
+  #TODO should probably be a class/subclass structure.
+.
+
+ro:beleid 
+  rdf:type owl:ObjectProperty ;
+  rdfs:isDefinedBy :ro ; 
+  rdfs:label "beleid"@nl ;
+.
+
+ro:belang
+  rdf:type owl:DatatypeProperty ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:label "belang"@nl ;
+.
+
+ro:rol
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "rol"@nl ;
+  rdfs:isDefinedBy :ro ;
+.
+
+### instruments
+
+ro:Instrument
+  rdf:type owl:Class ;
+  rdfs:label "Instrument"@nl ;
+  rdfs:subClassOf owl:Thing ;
+.
+ro:instrument
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "instrument"@nl ;
+  rdfs:isDefinedBy :ro ;
+.
+
+ro:instrument
+  rdf:type owl:ObjectProperty ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:label "instrument"@nl ;
+  rdfs:range ro:Instrument ;
+.
+
+ro:amvb
+  rdf:type ro:Instrument ;
+  rdf:type owl:NamedIndividual ;
+  rdfs:label "amvb"@nl ;
+.
+
+ro:beheersverordening
+  rdf:type ro:Instrument ;
+  rdf:type owl:NamedIndividual ;
+  rdfs:label "beheersverordening"@nl ;
+.
+
+ro:bestuurlijkeAfspraken
+  rdf:type ro:Instrument ;
+  rdf:type owl:NamedIndividual ;
+  rdfs:label "bestuurlijke afspraken"@nl ;
+.
+
+ro:coordinatieregeling
+  rdf:type ro:Instrument ;
+  rdf:type owl:NamedIndividual ;
+  rdfs:label "coordinatieregeling"@nl ;
+.
+
+ro:inpassingsplan
+  rdf:type ro:Instrument ;
+  rdf:type owl:NamedIndividual ;
+  rdfs:label "inpassingsplan"@nl ;
+.
+
+ro:omgevingsvergunning
+  rdf:type ro:Instrument ;
+  rdf:type owl:NamedIndividual ;
+  rdfs:label "omgevingsvergunning"@nl ;
+.
+
+ro:proactieveAanwijzing
+  rdf:type ro:Instrument ;
+  rdf:type owl:NamedIndividual ;
+  rdfs:label "proactieve aanwijzing"@nl ;
+.
+
+ro:reactieveAanwijzing
+  rdf:type ro:Instrument ;
+  rdf:type owl:NamedIndividual ;
+  rdfs:label "reactieve aanwijzing"@nl ;
+.
+
+ro:vooroverleg
+  rdf:type ro:Instrument ;
+  rdf:type owl:NamedIndividual ;
+  rdfs:label "vooroverleg"@nl ;
+.
+
+ro:zienswijze
+  rdf:type ro:Instrument ;
+  rdf:type owl:NamedIndividual ;
+  rdfs:label "zienswijze"@nl ;
+.
+
+ro:verordening
+  rdf:type ro:Instrument ;
+  rdf:type owl:NamedIndividual ;
+  rdfs:label "verordening"@nl ;
+.
+
+ro:voorbereidingsbesluit
+  rdf:type ro:Instrument ;
+  rdf:type owl:NamedIndividual ;
+  rdfs:label "voorbereidingsbesluit"@nl ;
+.
+

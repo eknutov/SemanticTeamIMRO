@@ -11,7 +11,7 @@ The IMRO model offers an extention for a selected subset of the standard NEN3610
 		- Plangebied
 		- Planobject
 
-Each class has a `dcterms:subject` property pointing to the respective `skos:Concept`. 
+Each class has a `dcterms:subject` property pointing to the respective `skos:Concept`, if available . 
 
 As well as the following attributes:
 - identificatie
@@ -36,9 +36,11 @@ The IMRO model is iteratively constructed on subclass of `plangebied` at a time.
 `Structuurvisieplangebied_R` is a class, coined under the prefix:
 - ro: <http://data.informatiehuisruimte.nl/def/ro#> 
 
+Structuurvisieplangebied is modeled as a class in rdfs/owl and has a respective shape in shacl. This shape denotes which properties are allowed/required. with the use of `sh:closed true ;` we can state that no properties, other than the ones specified with `sh:property`, are allowed. An exeption list is included for the properties `rdf:type rdfs:label rdfs:subClassOf rdfs:isDefinedBy dcterms:subject`.
+
 ## typePlan
 
-typePlan is defined as an `owl:ObjectProperty` with a specific range. No domain is specified, but so far only instances of ro:plangebied use this property. Its range is a specific enumeration, namely `RuimtelijkPlanOfBesluit_SV`. Since this is a 'type' relation, the terms enumerated in `RuimtelijkPlanOfBesluit_SV` are defined as classes. This enumeration is a subset of another enumeration. All these are to be defined in the same hierarchy, in the model. This specific subset (`RuimtelijkPlanOfBesluit_SV`), modeled in shacl. In this case this lead to the following statement:
+typePlan is defined as an `owl:ObjectProperty` with a specific range. No domain is specified, but so far only instances of ro:plangebied use this property. Its range is a specific enumeration, namely `RuimtelijkPlanOfBesluit_SV`. Since this is a 'type' relation, the terms enumerated in `RuimtelijkPlanOfBesluit_SV` are defined as classes. This enumeration is a subset of a larger enumeration. All these are to be defined in the same hierarchy, in the model. This specific subset (`RuimtelijkPlanOfBesluit_SV`), modeled in shacl. In this case this lead to the following statement:
 ```
 sh:in (
   ro:Structuurvisie # although only one terms is in the enumeration, for 							consistency the sh:in approach is still used.
@@ -58,11 +60,13 @@ The latter two are used to denote and identify specifically which 'overheden' ar
 In order to model this, a class 'Overheid' was included with all terms from the enumerations as subclasses. An instance of structuurvisieplangbied_R would point to an instance of the class Overheid with the predicate: `ro:beleidsmatigVerantwoordelijkeOverheid`. 
 This instance then has two properties, `ro:overheidsNaam` and `ro:overheidsCode`
 
-The cardinality of overheidsNaam is transfered to the predicate `ro: beleidsmatigVerantwoordelijkeOverheid`. ro:overheidsNaam and ro:overheidsCode both get the cardinality of exactly one. This reflects the IMRO standard in a way that multiple 'overheden' can be responsible for a given structuurvisieplangebied, but the property (and cardinality) of overheidsCode is now related to the given 'overheid', instead of the given structuurvisieplangebied.
+The cardinality of overheidsNaam is transfered to the predicate `ro: beleidsmatigVerantwoordelijkeOverheid`. ro:overheidsNaam and ro:overheidsCode both get the cardinality of exactly one. This reflects the IMRO standard in a way that multiple 'overheden' can be responsible for a given structuurvisieplangebied, but the property (and cardinality) of overheidsCode is now related to the given 'overheid', instead of the given structuurvisieplangebied. 
 
-The property 'beleidsmatigVeranwoorkdelijkeOverheid' indicates which type of government is allowed to be responsible for the given structuurvisieplangebied, and implicitly constrains the created Overheid class mentioned earlier.
+The property 'beleidsmatigVeranwoorkdelijkeOverheid', as defined in IMRO indicates which type of government is allowed to be responsible for the given structuurvisieplangebied, and implicitly constrains the created Overheid class mentioned earlier. This is now explicitly modelled with shacl.
 
-In the actual data, multiple responsible governments only occur at national level. 
+In shacl a 'main' sh:NodeShape is created which targets ro:Overheid. This nodeshape contains the two required properties as PropertyShapes. The property shapes contain the basic datatype requiremens and multiplicities ect. the 
+
+In the actual data, multiple responsible governments only occur at national level, and these always have overheidsCode "0000". Furthermore, the name should always start with "ministerie". 
 
 
 

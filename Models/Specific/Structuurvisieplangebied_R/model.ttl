@@ -1,7 +1,3 @@
-# baseURI: http://data.informatiehuisruimte.nl/def/ro
-# imports: http://datashapes.org/dash
-# prefix: ro
-
 @prefix : <http://data.informatiehuisruimte.nl/def/> .
 @prefix c4o: <http://purl.org/spar/biro/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
@@ -24,153 +20,14 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-nen3610:GeoObject
-  rdf:type owl:Class ;
-  dcterms:subject ro_nen3610_beg:GeoObject ;
-  rdfs:label "GeoObject"@nl ;
-.
-nen3610:NEN3610ID
-  rdf:type owl:Class ;
-  dcterms:subject ro_nen3610_beg:NEN3610ID ;
-  rdfs:label "NEN3610ID"@nl ;
-.
-nen3610:PlanologischGebied
-  rdf:type owl:Class ;
-  dcterms:subject ro_nen3610_beg:PlanologischGebied ;
-  rdfs:label "Planologisch gebied"@nl ;
-  rdfs:subClassOf nen3610:GeoObject ;
-.
-nen3610:identificatie
-  rdf:type owl:ObjectProperty ; #functional object property to blank node?
-  rdfs:domain nen3610:GeoObject ;
-  rdfs:label "identificatie"@nl ;
-  rdfs:range nen3610:NEN3610ID ;
-.
-nen3610:lokaalID
-  rdf:type owl:DatatypeProperty ;
-  rdfs:domain nen3610:NEN3610ID ;
-  rdfs:label "lokaalID"@nl ;
-.
-nen3610:namespace
-  rdf:type owl:DatatypeProperty ;
-  rdfs:domain nen3610:NEN3610ID ;
-  rdfs:label "namespace"@nl ;
-.
-nen3610:versie
-  rdf:type owl:DatatypeProperty ;
-  rdfs:domain nen3610:NEN3610ID ;
-  rdfs:label "versie"@nl ;
-.
-:ro
-  rdf:type owl:Ontology ;
-  dc:description "TODO"@nl ;
-  dc:title "Ruimtelijke Ordening vocabulaire"@nl ;
-  rdfs:label "Ruimtelijke Ordening vocabulaire"@nl ;
-  owl:imports <http://datashapes.org/dash> ;
-.
-ro:Afbeelding
-  rdf:type owl:Class ;
-  rdfs:label "Afbeelding"@nl ;
-  rdfs:subClassOf ro:Illustratie ;
-.
 
-ro:Beleid
-  rdf:type owl:Class ;
-  rdfs:label "Beleid"@nl ;
-  rdfs:subClassOf ro:Tekst ;
-.
-ro:Beleid_Gemandateerd_aan_CBS
-  rdf:type owl:Class ;
-  rdfs:label "Beleid Gemandateerd aan CBS"@nl ;
-  rdfs:subClassOf ro:Tekst ;
-.
-ro:Besluitdocument
-  rdf:type owl:Class ;
-  rdfs:label "Besluitdocument"@nl ;
-  rdfs:subClassOf ro:Tekst ;
-.
-ro:Besluittekst
-  rdf:type owl:Class ;
-  rdfs:label "Besluittekst"@nl ;
-  rdfs:subClassOf ro:Tekst ;
-.
-ro:Bijlage
-  rdf:type owl:Class ;
-  rdfs:label "Bijlage"@nl ;
-  rdfs:subClassOf ro:Tekst ;
-.
-ro:Bijlage_Besluitdocument
-  rdf:type owl:Class ;
-  rdfs:label "Bijlage Besluitdocument"@nl ;
-  rdfs:subClassOf ro:Tekst ;
-.
-ro:Bijlage_Besluittekst
-  rdf:type owl:Class ;
-  rdfs:label "Bijlage Besluittekst"@nl ;
-  rdfs:subClassOf ro:Tekst ;
-.
-ro:Bijlage_Regel_met_voorbereidingsbescherming
-  rdf:type owl:Class ;
-  rdfs:label "Bijlage Regel met voorbereidingsbescherming"@nl ;
-  rdfs:subClassOf ro:Tekst ;
-.
-ro:Bijlage_Regel_zonder_voorbereidingsbescherming
-  rdf:type owl:Class ;
-  rdfs:label "Bijlage Regel zonder voorbereidingsbescherming"@nl ;
-  rdfs:subClassOf ro:Tekst ;
-.
-ro:Bijlage_Regels
-  rdf:type owl:Class ;
-  rdfs:label "Bijlage Regels"@nl ;
-  rdfs:subClassOf ro:Tekst ;
-.
-ro:Bijlage_Toelichting
-  rdf:type owl:Class ;
-  rdfs:label "Bijlage Toelichting"@nl ;
-  rdfs:subClassOf ro:Tekst ;
-.
-ro:Deelgemeente_Stadsdeel
-  rdf:type owl:Class ;
-  rdfs:label "Deelgemeente/Stadsdeel"@nl ;
-  rdfs:subClassOf ro:Overheid ;
-.
-ro:Document
-  rdf:type owl:Class ;
-  rdfs:label "Document"@nl ;
-  rdfs:subClassOf ro:Tekst ;
-.
+
+
 #ro:ExternPlan # perhaps a blank node is better
 #  rdf:type owl:Class ;
 #  rdfs:label "Extern plan"@nl ;
 #  rdfs:subClassOf owl:Thing ;
 #.
-ro:GemeentelijkeOverheid
-  rdf:type owl:Class ;
-  rdfs:label "gemeentelijke overheid"@nl ;
-  rdfs:subClassOf ro:Overheid ;
-.
-ro:Geometrie
-  rdf:type owl:Class ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:label "Geometrie"@nl ;
-.
-
-ro:Illustratie
-  rdf:type owl:Class ;
-  rdfs:label "Illustratie"@nl ;
-  rdfs:subClassOf owl:Thing ;
-.
-ro:Instrument
-  rdf:type owl:Class ;
-  rdfs:label "Instrument"@nl ;
-  rdfs:subClassOf owl:Thing ;
-.
-ro:instrument
-  rdf:type owl:ObjectProperty ;
-  rdfs:label "instrument"@nl ;
-  rdfs:isDefinedBy :ro ;
-.
-
 #ro:Instrument_GSV
 #  rdf:type owl:Class ;
 #  rdfs:label "Instrument GSV"@nl ;
@@ -213,118 +70,21 @@ ro:instrument
 #        ) ;
 #    ] ;
 #.
-ro:Kaart
-  rdf:type owl:Class ;
-  rdfs:label "Kaart"@nl ;
-  rdfs:subClassOf ro:Illustratie ;
-.
-ro:Ondergrond
-  rdf:type owl:Class ;
-  rdfs:label "Ondergrond"@nl ;
-  rdfs:subClassOf owl:Thing ;
-.
 
-ro:Overheid
-  rdf:type owl:Class ;
-  rdfs:label "Overheden"@nl ;
-  rdfs:subClassOf owl:Thing ;
-.
-nen3610:Plangebied
-  rdf:type owl:Class ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:label "Plangebied"@nl ;
-  rdfs:subClassOf nen3610:PlanologischGebied ;
-.
-nen3610:Planobject
-  rdf:type owl:Class ;
-  rdfs:label "Planobject"@nl ;
-  rdfs:subClassOf nen3610:PlanologischGebied ;
-.
-ro:Planstatus
-  rdf:type owl:Class ;
-  rdfs:label "Planstatus"@nl ;
-  rdfs:subClassOf owl:Thing ;
-#  owl:equivalentClass [
-#      rdf:type owl:Class ;
-#      owl:oneOf (
-#          ro:concept
-#          ro:voorontwerp
-#          ro:ontwerp
-#          ro:vastgesteld
-#          ro:geconsolideerd
-#        ) ;
-#    ] ;
-.
-ro:status a owl:ObjectProperty ;
-  rdfs:label "status"@nl ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:domain ro:Planstatus 
-.
-
-ro:ProvincialeOverheid
-  rdf:type owl:Class ;
-  rdfs:label "provinciale overheid"@nl ;
-  rdfs:subClassOf ro:Overheid ;
-.
-
-ro:Regel_met_Voorbereidingsbescherming
-  rdf:type owl:Class ;
-  rdfs:label "Regel met Voorbereidingsbescherming"@nl ;
-  rdfs:subClassOf ro:Tekst ;
-.
-
-ro:Regel_zonder_Voorbereidingsbescherming
-  rdf:type owl:Class ;
-  rdfs:label "Regel zonder Voorbereidingsbescherming"@nl ;
-  rdfs:subClassOf ro:Tekst ;
-.
-
-ro:Regels
-  rdf:type owl:Class ;
-  rdfs:label "Regels"@nl ;
-  rdfs:subClassOf ro:Tekst ;
-.
-
-ro:RuimtelijkPlanOfBesluit
-  rdf:type owl:Class ;
-  rdfs:isdefinedBy :ro ;
-  rdfs:label "RuimtelijkPlanOfBesluit"@nl ;
-.
-ro:RuimtelijkPlanOfBesluit_SV
-  rdf:type owl:Class ;
-  rdfs:isdefinedBy :ro ;
-  rdfs:label "RuimtelijkPlanOfBesluit_SV"@nl ;
-  rdfs:subClassOf ro:RuimtelijkPlanOfBesluit ;
-  owl:equivalentClass [
-      rdf:type owl:Class ;
-      owl:oneOf (
-          ro:Structuurvisie
-        ) ;
-    ] ;
-.
-ro:RuimtelijkPlanobject
-  rdf:type owl:Class ;
-  rdfs:label "Ruimtelijk planobject"@nl ;
-  rdfs:subClassOf owl:Thing ;
-.
-ro:Structuurvisie
-  rdf:type owl:Class ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:label "Structuurvisie"@nl ;
-  rdfs:subClassOf ro:RuimtelijkPlanOfBesluit ;
-.
 ro:Structuurvisiecomplex_R
   rdf:type owl:Class ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "Structuurvisiegebied_R"@nl ;
   rdfs:subClassOf nen3610:Planobject ;
 .
+
 ro:Structuurvisiegebied_R
   rdf:type owl:Class ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "Structuurvisiegebied_R"@nl ;
   rdfs:subClassOf nen3610:Planobject ;
 .
+
 ro:Structuurvisieplangebied_R
   rdf:type owl:Class ;
   dcterms:subject ro_beg:Structuurvisieplangebied_R ;
@@ -332,392 +92,54 @@ ro:Structuurvisieplangebied_R
   rdfs:label "Structuurvisieplangebied_R"@nl ;
   rdfs:subClassOf nen3610:Plangebied ;
 .
-ro:Tekst
-  rdf:type owl:Class ;
-  rdfs:label "Tekst"@nl ;
-  rdfs:subClassOf owl:Thing ;
-.
-ro:Toelichting
-  rdf:type owl:Class ;
-  rdfs:label "Toelichting"@nl ;
-  rdfs:subClassOf ro:Tekst ;
-.
-ro:amvb
-  rdf:type ro:Instrument ;
-  rdf:type owl:NamedIndividual ;
-  rdfs:label "amvb"@nl ;
-.
-ro:begrenzing
-  rdf:type owl:ObjectProperty ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:label "begrenzing"@nl ;
-.
-ro:beheersverordening
-  rdf:type ro:Instrument ;
-  rdf:type owl:NamedIndividual ;
-  rdfs:label "beheersverordening"@nl ;
-.
-ro:belang
-  rdf:type owl:DatatypeProperty ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:label "belang"@nl ;
-.
-ro:beleidsmatigerantwoordelijkeOverheid
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain nen3610:Plangebied ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:label "beleidsmatigerantwoordelijke overheid"@nl ;
-  rdfs:range ro:Overheid ;
-.
-ro:besluitnummer
-  rdf:type owl:DatatypeProperty ;
-  rdfs:label "besluitnummer"@nl ;
-  rdfs:domain ro:Planstatus ; 
-.
-ro:bestemmingsplan
-  rdf:type ro:Instrument ;
-  rdf:type owl:NamedIndividual ;
-  rdfs:label "bestemmingsplan"@nl ;
-.
-ro:bestuurlijkeAfspraken
-  rdf:type ro:Instrument ;
-  rdf:type owl:NamedIndividual ;
-  rdfs:label "bestuurlijke afspraken"@nl ;
-.
-ro:cartografie
-  rdf:type owl:ObjectProperty ;
-  rdfs:label "cartografie"@nl ;
-.
 
-ro:coordinatieregeling
-  rdf:type ro:Instrument ;
-  rdf:type owl:NamedIndividual ;
-  rdfs:label "coordinatieregeling"@nl ;
-.
-ro:datum
-  rdf:type owl:DatatypeProperty ;
-  rdfs:label "datum"@nl ;
-  rdfs:range xsd:date ;
-.
 
-ro:externPlan
-  rdf:type owl:ObjectProperty ;
-  rdfs:label "extern plan"@nl ;
-  rdfs:isDefinedBy :ro ; 
-  rdfs:subPropertyOf ro:verwijzing ;
-.
+
 #ro:geconsolideerd
 #  rdf:type ro:Planstatus ;
 #  rdf:type owl:NamedIndividual ;
 #  rdfs:label "geconsolideerd"@nl ;
 #.
-ro:geometrie
-  rdf:type owl:ObjectProperty ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:label "geometrie"@nl ;
-.
 
-### to be replaced by respective OGC datatypes
-ro:geometrieVlak
-  rdf:type owl:DatatypeProperty ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:subPropertyOf ro:geometrie ;
-  rdfs:label "geometrieVlak"@nl ;
-.
-ro:geometrieMultiVlak
-  rdf:type owl:DatatypeProperty ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:subPropertyOf ro:geometrie ;
-  rdfs:label "geometrieMultiVlak"@nl ;
-.
-ro:geometriePunt
-  rdf:type owl:DatatypeProperty ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:subPropertyOf ro:geometrie ;
-  rdfs:label "geometriePunt"@nl ;
-.
-ro:geometrieMultiPunt 
-  rdf:type owl:DatatypeProperty ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:subPropertyOf ro:geometrie ;
-  rdfs:label "geometrieMultiPunt"@nl ;
-.
-ro:geometriePunt
-  rdf:type owl:DatatypeProperty ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:subPropertyOf ro:geometrie ;
-  rdfs:label "geometriePunt"@nl ;
-.
-ro:geometrieMultiPunt 
-  rdf:type owl:DatatypeProperty ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:subPropertyOf ro:geometrie ;
-  rdfs:label "geometrieMultiPunt"@nl ;
-.
-
-#####
-
-ro:idealisatie
-  rdf:type owl:ObjectProperty ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:label "idealisatie"@nl ;
-.
 
 ## not used for externPlan
-ro:idn
-  rdf:type owl:DatatypeProperty ;
-  rdfs:domain ro:ExternPlan ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:label "idn"@nl ;
-.
-ro:verwijzing 
-  rdf:type rdf:Property ;
-  rdfs:label "verwijzing"@nl ;
-  rdfs:isDefinedBy :ro ;
-.
+  
 
-ro:illustratie
-  rdf:type owl:AnnotationProperty ;
-  rdfs:label "illustratie"@nl ;
-  rdfs:subPropertyOf ro:verwijzing ;
-.
-
-ro:afbeeldingReferentie
-  rdf:type owl:AnnotationProperty ;
-  rdfs:label "afbeeldingReferentie"@nl ;
-  rdfs:subPropertyOf ro:illustratie ;
-.
-
-ro:kaartReferentie
-  rdf:type owl:AnnotationProperty ;
-  rdfs:label "kaartReferentie"@nl ;
-  rdfs:subPropertyOf ro:illustratie ;
-.
-
-ro:tekstReferentie
-  rdf:type owl:AnnotationProperty ;
-  rdfs:label "tekstverwijzing"@nl ;
-.
-
-ro:illustratieverwijzing
-  rdf:type owl:ObjectProperty ;
-  rdfs:label "illustratieverwijzing"@nl ;
-.
-ro:verwijzingNorm
-  rdf:type owl:DatatypeProperty ;
-  rdfs:label "verwijzing norm"@nl ;
-.
-ro:inpassingsplan
-  rdf:type ro:Instrument ;
-  rdf:type owl:NamedIndividual ;
-  rdfs:label "inpassingsplan"@nl ;
-.
-ro:instrument
-  rdf:type owl:ObjectProperty ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:label "instrument"@nl ;
-  rdfs:range ro:Instrument ;
-.
-ro:kaartNaam
-  rdf:type owl:DatatypeProperty ;
-  rdfs:label "kaart naam"@nl ;
-.
-ro:kaartNummer
-  rdf:type owl:DatatypeProperty ;
-  rdfs:label "kaart nummer"@nl ;
-.
-ro:legendaNaam
-  rdf:type owl:DatatypeProperty ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:label "legenda naam"@nl ;
-.
-ro:locatieNaam
-  rdf:type owl:AnnotationProperty ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:label "locatie naam"@nl ;
-.
-ro:naam
-  rdf:type owl:AnnotationProperty ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:label "naam"@nl ;
-.
-ro:naamOverheid
-  rdf:type owl:AnnotationProperty ;
-  rdfs:domain ro:Overheid ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:label "naam overheid"@nl ;
-.
-ro:NationaleOverheid
-  rdf:type owl:Class ;
-  rdfs:label "nationale overheid"@nl ;
-  rdfs:subClassOf ro:Overheid ;
-.
-ro:omgevingsvergunning
-  rdf:type ro:Instrument ;
-  rdf:type owl:NamedIndividual ;
-  rdfs:label "omgevingsvergunning"@nl ;
-.
-ro:ondergrond
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain nen3610:Plangebied ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:label "ondergrond"@nl ;
-  rdfs:range ro:Ondergrond ;
-.
-ro:ondergrondtype  
-  rdf:type owl:ObjectProperty ; 
-  rdfs:domain ro:Ondergrond ;
-  rdfs:isDefinedBy :ro ; 
-  rdfs:label "ondergrondtype"@nl ;
-  #TODO
-.
 
 #ro:ontwerp
 #  rdf:type ro:Planstatus ;
 #  rdf:type owl:NamedIndividual ;
 #  rdfs:label "ontwerp"@nl ;
 #.
-ro:overheidsCode
-  rdf:type owl:AnnotationProperty ;
-  rdfs:domain ro:Overheid ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:label "overheids code"@nl ;
-.
-ro:plangebied
-  rdf:type owl:ObjectProperty ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:label "plangebied"@nl ;
-  rdfs:range nen3610:Plangebied ;
-.
-ro:planobject
-  rdf:type owl:ObjectProperty ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:label "planobject"@nl ;
-  rdfs:range ro:Planobject ;
-.
+
+
 #ro:planstatus
 #  rdf:type owl:ObjectProperty ;
 #  rdfs:domain ro:Planstatus ;
 #  rdfs:label "plan status"@nl ;
 #.
-ro:proactieveAanwijzing
-  rdf:type ro:Instrument ;
-  rdf:type owl:NamedIndividual ;
-  rdfs:label "proactieve aanwijzing"@nl ;
-.
-ro:reactieveAanwijzing
-  rdf:type ro:Instrument ;
-  rdf:type owl:NamedIndividual ;
-  rdfs:label "reactieve aanwijzing"@nl ;
-.
 
-# ro:rol
-#   rdf:type owl:DatatypeProperty ;
-#   rdfs:label "rol"@nl ;
-#   rdfs:isDefinedBy :ro ;
-# .
+
+
 # ro:rolExternPlan
 #   rdf:type owl:ObjectProperty ;
 #   rdfs:domain ro:ExternPlan ;
 #   rdfs:isDefinedBy :ro ;
 #   rdfs:label "rol"@nl ;
 # .
-ro:muteert 
-  rdf:type owl:ObjectProperty ;
-  rdfs:subPropertyOf ro:externPlan ;
-  rdfs:isDefinedBy :ro ;
-  dcterms:subject ro_beg:muteert ;
-.
 
-ro:vervangt 
-  rdf:type owl:ObjectProperty ;
-  rdfs:subPropertyOf ro:externPlan ;
-  rdfs:isDefinedBy :ro ;
-  dcterms:subject ro_beg:vervangt ;
-.
 
-ro:uitTeWerkenIn 
-  rdf:type owl:ObjectProperty ;
-  rdfs:subPropertyOf ro:externPlan ;
-  rdfs:isDefinedBy :ro ;
-#  dcterms:subject ro_beg: ;
-.
-
-ro:uitgewerktIn 
-  rdf:type owl:ObjectProperty ;
-  rdfs:subPropertyOf ro:externPlan ;
-  rdfs:isDefinedBy :ro ;
-#  dcterms:subject ro_beg: ;
-.
-
-ro:gebruiktInformatieUit 
-  rdf:type owl:ObjectProperty ; #does this IRI deviate too much from 'informatie in extern plan/besluit'?
-  rdfs:subPropertyOf ro:externPlan ;
-  rdfs:isDefinedBy :ro ;
-#  dcterms:subject ro_beg:vervangt ;
-.
-
-ro:tenGevolgeVan 
-  rdf:type owl:ObjectProperty ;
-  rdfs:subPropertyOf ro:externPlan ;
-  rdfs:isDefinedBy :ro ;
-  dcterms:subject ro_beg:tenGevolgeVan ;
-.
-
-ro:symboolCode
-  rdf:type owl:DatatypeProperty ;
-  rdfs:label "symbool code"@nl ;
-.
-
-ro:thema
-  rdf:type owl:DatatypeProperty ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:label "thema"@nl ;
-.
-ro:beleid 
-  rdf:type owl:ObjectProperty ;
-  rdfs:isDefinedBy :ro ; 
-  rdfs:label "beleid"@nl ;
-.
-ro:typePlan
-  rdf:type owl:ObjectProperty ;
-  dcterms:subject ro_beg:typePlan ;
-  rdfs:label "typePlan"@nl ;
-.
 #ro:vastgesteld
 #  rdf:type ro:Planstatus ;
 #  rdf:type owl:NamedIndividual ;
 #  rdfs:label "vastgesteld"@nl ;
 #.
-ro:vaststellingsbesluit
-  rdf:type owl:ObjectProperty ;
-  rdfs:label "vaststellingsbesluit"@nl ;
-  rdfs:domain ro:Planstatus ; 
-.
-ro:verordening
-  rdf:type ro:Instrument ;
-  rdf:type owl:NamedIndividual ;
-  rdfs:label "verordening"@nl ;
-.
-ro:voorbereidingsbesluit
-  rdf:type ro:Instrument ;
-  rdf:type owl:NamedIndividual ;
-  rdfs:label "voorbereidingsbesluit"@nl ;
-.
+
+
 #ro:voorontwerp
 #  rdf:type ro:Planstatus ;
 #  rdf:type owl:NamedIndividual ;
 #  rdfs:label "voorontwerp"@nl ;
 #.
-ro:vooroverleg
-  rdf:type ro:Instrument ;
-  rdf:type owl:NamedIndividual ;
-  rdfs:label "vooroverleg"@nl ;
-.
 
-ro:zienswijze
-  rdf:type ro:Instrument ;
-  rdf:type owl:NamedIndividual ;
-  rdfs:label "zienswijze"@nl ;
-.
 
