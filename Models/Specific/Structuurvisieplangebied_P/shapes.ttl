@@ -1,0 +1,337 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ogc: <http://www.opengis.net/ont/geosparql#> .
+@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
+@prefix gml: <http://www.opengis.net/ont/gml#> .
+@prefix nen3610_str: <http://data.informatiehuisruimte.nl/def/nen3610/> .
+@prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
+@prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
+@prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
+@prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+
+#################################################################
+#    Structuurvisieplangebied_P
+#################################################################
+
+ro_str:Structuurvisieplangebied_P rdf:type sh:NodeShape ;
+  sh:targetClass ro:Structuurvisieplangebied_P ;
+  sh:property
+    ro_str:Structuurvisieplangebied_P_typePlan ,
+    ro_str:Structuurvisieplangebied_P_beleidsmatigVerantwoordelijkeOverheid ,
+    ro_str:Structuurvisieplangebied_P_illustratieverwijzing , 
+    ro_str:Structuurvisieplangebied_P_tekstverwijzing ,
+    ro_str:Structuurvisieplangebied_P_externPlan ,
+    ro_str:Structuurvisieplangebied_P_verwijzingNorm ,
+    ro_str:Structuurvisieplangebied_P_begrenzing ;
+  sh:sparql [
+      sh:message "At least one Structuurvisieplangebied_P should have {$this} as its ro:plangebied." ;
+      sh:prefixes ro_str:prefixes
+      sh:select """
+SELECT $this
+WHERE { 
+  $this rdf:type ro:Structuurvisieplangebied_P .
+  FILTER NOT EXISTS {
+    ?structuurvisiegebied ro:plangebied $this ;
+           rdf:type ro:Structuurvisiegebied_P .
+  }
+}
+""" ;
+    ] ; 
+.
+
+ro_str:Structuurvisieplangebied_P_typePlan #same as for structuurvisieplangebied_R, perhaps lose P_ and keep use the same sh:PropertyShape.
+  rdf:type sh:PropertyShape ; 
+  sh:path ro:typePlan ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:node ro_str:RuimtelijkPlanOfBesluit_SV ; 
+.
+
+ro_str:Structuurvisieplangebied_P_beleidsmatigVerantwoordelijkeOverheid 
+  rdf:type sh:PropertyShape ; 
+  sh:path ro:beleidsmatigerantwoordelijkeOverheid ;
+  sh:minCount 1 ;
+  sh:node ro_str:Overheden_P
+.
+
+ro_str:Structuurvisieplangebied_P_illustratieverwijzing 
+  rdf:type sh:PropertyShape ; 
+  sh:path ro:illustratie ;
+  sh:class ro:Illustratie ; 
+  sh:node ro_str:Illustratie ;
+.
+
+ro_str:Structuurvisieplangebied_P_tekstverwijzing  #same as for structuurvisieplangebied_R, perhaps lose P_ and keep use the same sh:PropertyShape.
+  rdf:type sh:PropertyShape ; 
+    sh:path ro:tekst ;
+    sh:minCount 1 ; 
+    sh:maxCount 3 ;
+    sh:node ro_str:TeksttypePG_SV ;
+    sh:and ( 
+      [
+        sh:qualifiedValueShape [
+          sh:path rdf:type  ;
+          sh:hasValue ro:Document ; 
+        ] ;
+        sh:qualifiedMinCount 1 ;
+        sh:qualifiedMaxCount 1 ;
+      ] 
+      [
+        sh:qualifiedValueShape [
+          sh:path  rdf:type  ;
+          sh:hasValue ro:Bijlage ;
+        ] ;
+        sh:qualifiedMaxCount 1 ;
+      ]
+    ) ;
+.
+
+ro_str:Structuurvisieplangebied_P_externPlan rdf:type sh:PropertyShape ; #same as for structuurvisieplangebied_R, perhaps lose P_ and keep use the same sh:PropertyShape.
+  sh:path ro:externPlan ;
+  sh:maxCount 1 ; 
+  sh:node ro_str:ExternPlanReferentiePG_SV ; 
+.
+
+ro_str:Structuurvisieplangebied_R_verwijzingNorm 
+  rdf:type sh:PropertyShape ; 
+  sh:path ro:verwijzingNorm ; 
+  sh:minCount 2 ;
+  sh:maxCount 3 ;
+  sh:and ( [
+    sh:qualifiedValueShape [
+      sh:hasValue ro_beg:IMRO2012 ; 
+
+      ] ;
+    sh:qualifiedMinCount 1 ; 
+    sh:qualifiedMaxCount 1 ; 
+    ]
+    [ 
+    sh:qualifiedValueShape [
+      sh:hasValue ro_beg:PRpSV2012 ; 
+    ] ;
+    sh:qualifiedMinCount 1 ;
+    sh:qualifiedMaxCount 1 ; 
+    ]
+    [ 
+    sh:qualifiedValueShape [
+      sh:hasValue ro_beg:IMROPT2012 ; 
+    ] ;
+    sh:qualifiedMaxCount 1 ; 
+  ]
+  )
+.
+
+ro_str:Structuurvisieplangebied_P_begrenzing 
+  rdf:type sh:PropertyShape ;
+  sh:path ro:begrenzing ;
+  sh:minCount 1 ; 
+  sh:maxCount 1 ;
+  sh:class ro:Geometrie ; 
+  sh:node ro_str:Structuurvisieplangebied_P_Geometrie
+.
+
+ro_str:Structuurvisieplangebied_P_Geometrie rdf:type sh:NodeShape ; 
+  sh:property 
+    ro_str:Structuurvisieplangebied_P_Geometrie_geometrie ,
+    ro_str:Structuurvisieplangebied_P_Geometrie_inwinningsschaal ,
+    ro_str:Structuurvisieplangebied_P_Geometrie_idealisatie ;
+.
+
+ro_str:Structuurvisieplangebied_P_Geometrie_geometrie rdf:type sh:PropertyShape ; #same as for structuurvisieplangebied_R, perhaps lose P_ and keep use the same sh:PropertyShape.
+  sh:path ro:geometrie ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+#  sh:node ro_str:VlakMultiVlak ; #existing vocabulary is to be reused.
+.
+
+ro_str:Structuurvisieplangebied_P_Geometrie_inwinningsschaal rdf:type sh:PropertyShape ;
+  sh:path ro:inwinningsschaal ;
+  sh:maxCount 1 ; 
+  sh:datatype xsd:integer ;
+.
+
+ro_str:Structuurvisieplangebied_P_Geometrie_idealisatie  rdf:type sh:PropertyShape ; #same as for structuurvisieplangebied_R, perhaps lose P_ and keep use the same sh:PropertyShape.
+  sh:path ro:idealisatie ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:node ro_str:Idealisatie_1 ;
+.
+
+
+#################################################################
+#    Structuurvisieplangebied_P
+#################################################################
+
+
+ro_str:Structuurvisiegebied_P rdf:type sh:NodeShape ;
+    sh:targetClass ro:Structuurvisiegebied_P ;
+    sh:property 
+      ro_str:Structuurvisiegebied_P_thema ,
+      ro_str:Structuurvisiegebied_P_beleid ,
+      ro_str:Structuurvisiegebied_P_tekstVerwijzing ,
+      ro_str:Structuurvisiegebied_P_illustratieVerwijzing ,
+      ro_str:Structuurvisiegebied_P_externPlan ,
+      ro_str:Structuurvisiegebied_P_cartografie ,
+      ro_str:Structuurvisiegebied_P_plangebied ,
+      ro_str:Structuurvisiegebied_P_begrenzing
+.
+
+ro_str:Structuurvisiegebied_P_thema rdf:type sh:PropertyShape ; #same as for structuurvisieplangebied_R, perhaps lose P_ and keep use the same sh:PropertyShape.
+  sh:path ro:thema ;
+  sh:minCount 1 ;
+  sh:datatype xsd:string ;
+.
+
+ro_str:Structuurvisiegebied_P_beleid rdf:type sh:PropertyShape ;
+  sh:path ro:beleid ;
+  sh:minCount 1 ;
+  sh:node ro_str:BeleidInfo_PSV ;
+.
+
+ro_str:BeleidInfo_PSV rdf:type sh:NodeShape ; #treated as a blank node
+  sh:property 
+    BeleidInfo_PSV_belang ,
+    BeleidInfo_PSV_rol ,
+    BeleidInfo_PSV_instrument ;
+.
+
+ro_str:BeleidInfo_PSV_belang rdf:type sh:PropertyShape ;
+  sh:path ro:belang ;
+  sh:datatype xsd:string ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+.
+
+ro_str:BeleidInfo_PSV_rol rdf:type sh:PropertyShape ;
+  sh:path ro:rol ;
+  sh:datatype xsd:string ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+.
+
+ro_str:BeleidInfo_PSV_instrument rdf:type sh:PropertyShape ;
+  sh:path ro:instrument ;
+  sh:maxCount 1 ;
+  sh:in ( #were instruments named individuals? # for now yes, TODO make skos:Concepts.
+    ro:bestuurlijkeAfspraken
+    ro:coordinatieregeling
+    ro:inpassingsplan
+    ro:omgevingsvergunning
+    ro:proactieveAanwijzing
+    ro:reactieveAanwijzing
+    ro:verordening
+    ro:vooroverleg
+    ro:zienswijze
+  )
+.
+
+ro_str:Structuurvisiegebied_P_tekstVerwijzing rdf:type sh:PropertyShape ;
+  sh:path ro:tekst ;
+  sh:minCount 1 ;
+  sh:node ro_str:Teksttype_PSV ; 
+.
+
+ro_str:Structuurvisiegebied_P_illustratieVerwijzing rdf:type sh:PropertyShape ;
+  sh:path ro:illustratie ;
+  sh:class ro:Illustratie ; 
+  sh:node ro_str:Illustratie ;
+  sh:node ro_str:Illustratie_illustratieNaam ; #not sure if these are valid.
+  sh:node ro_str:Illustratie_legendaNaam ; #this one aswell.
+.
+
+ro_str:Structuurvisiegebied_P_externPlan rdf:type sh:PropertyShape ; #same as for structuurvisieplangebied_R, perhaps lose P_ and keep use the same sh:PropertyShape.
+  sh:path ro:externPlan ;
+  sh:maxCount 1 ;
+  sh:node ro_str:ExternPlanReferentie_SV ;
+.
+
+ro_str:Structuurvisiegebied_P_cartografie rdf:type sh:PropertyShape ; #same as for structuurvisieplangebied_R, perhaps lose P_ and keep use the same sh:PropertyShape.
+  sh:path ro:cartografie ;
+  sh:node ro_str:cartografieInfo ;
+.
+
+ro_str:Structuurvisiegebied_P_plangebied rdf:type sh:PropertyShape ; #same as for structuurvisieplangebied_R, perhaps lose P_ and keep use the same sh:PropertyShape.
+  sh:path ro:plangebied ;
+  sh:minCount 1 ; 
+  sh:maxCount 1 ;
+  sh:class ro:Structuurvisieplangebied_P ;
+.
+
+ro_str:Structuurvisiegebied_P_begrenzing rdf:type sh:PropertyShape ;
+  sh:path ro:begrenzing ;
+  sh:class ro:Geometrie ;
+  sh:minCount 1 ;
+  sh:node ro_str:Structuurvisiegebied_P_Geometrie ;
+.
+
+ro_str:Structuurvisiegebied_R_Geometrie rdf:type sh:NodeShape ;
+  sh:property 
+    ro_str:Structuurvisiegebied_P_Geometrie_geometrie ,
+    ro_str:Structuurvisiegebied_P_Geometrie_inwinningsschaal ,
+    ro_str:Structuurvisiegebied_P_Geometrie_idealisatie ;
+.
+
+ro_str:Structuurvisiegebied_P_Geometrie_geometrie rdf:type sh:PropertyShape ; #same as for structuurvisieplangebied_R, perhaps lose P_ and keep use the same sh:PropertyShape.
+  sh:path ro:geometrie ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+#  sh:node ro_str:PuntLijnVlakMulti ; # TODO: reuse existing vocabulary.
+.
+
+ro_str:Structuurvisiegebied_P_Geometrie_inwinningsschaal rdf:type sh:PropertyShape ;
+  sh:path ro:idealisatie ;
+  sh:maxCount 1 ;
+  sh:datatype xsd:integer ;
+  sh:node ro_str:Idealisatie_3 ;
+.
+ro_str:Structuurvisiegebied_P_Geometrie_idealisatie rdf:type sh:PropertyShape ; #same as for structuurvisieplangebied_R, perhaps lose P_ and keep use the same sh:PropertyShape.
+  sh:path ro:idealisatie ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:node ro_str:Idealisatie_3 ;
+.
+
+#################################################################
+#    Structuurvisiecomplex_P
+#################################################################
+
+ro_str:Structuurvisiecomplex_P rdf:type sh:NodeShape ;
+    sh:targetClass ro:Structuurvisiecomplex_R ;
+    sh:property 
+      ro_str:Structuurvisiecomplex_P_thema ,
+      ro_str:Structuurvisiecomplex_P_beleid ,
+      ro_str:Structuurvisiecomplex_P_planobject , 
+      ro_str:Structuurvisiegebied_P_tekstVerwijzing , #copied 
+      ro_str:Structuurvisiegebied_P_illustratieVerwijzing , #copied
+      ro_str:Structuurvisiegebied_P_externPlan , #copied
+      ro_str:Structuurvisiegebied_P_cartografie , #copied
+      ro_str:Structuurvisiegebied_P_plangebied , #copied
+      ro_str:Structuurvisiecomplex_P_begrenzing 
+.
+
+ro_str:Structuurvisiecomplex_P_thema rdf:type sh:PropertyShape ; #same as for structuurvisieplangebied_R, perhaps lose P_ and keep use the same sh:PropertyShape.
+  sh:path ro:thema ;
+  sh:datatype xsd:string ;
+.
+
+ro_str:Structuurvisiecomplex_P_beleid rdf:type sh:PropertyShape ; #same as for structuurvisieplangebied_R, perhaps lose P_ and keep use the same sh:PropertyShape.
+  sh:path ro:beleid ;
+  sh:node ro_str:BeleidInfo_RSV ;
+.
+
+ro_str:Structuurvisiecomplex_P_planobject rdf:type sh:PropertyShape ; #same as for structuurvisieplangebied_R, perhaps lose P_ and keep use the same sh:PropertyShape.
+  sh:path ro:planobject ;
+  sh:minCount 1 ;
+  sh:class nen3610:Planobject ;
+.
+
+ro_str:Structuurvisiecomplex_P_begrenzing rdf:type sh:PropertyShape ;
+  sh:path ro:begrenzing ;
+  sh:class ro:Geometrie ;
+  sh:node ro_str:Structuurvisiegebied_P_Geometrie ; #copied
+.
