@@ -124,7 +124,7 @@ ro_str:Structuurvisieplangebied_R_verwijzingNorm  #we can probably extract a com
   sh:maxCount 3 ;
   sh:and ( [
     sh:qualifiedValueShape [
-      sh:hasValue "IMRO2012" ; # or should this be `:ro`? #as skos:Concept
+      sh:hasValue ro_beg:IMRO2012 ; 
 
       ] ;
     sh:qualifiedMinCount 1 ; 
@@ -132,14 +132,14 @@ ro_str:Structuurvisieplangebied_R_verwijzingNorm  #we can probably extract a com
     ]
     [ 
     sh:qualifiedValueShape [
-      sh:hasValue "PRBP2012" ; # should this be an iri?
+      sh:hasValue ro_beg:PRBP2012 ; 
     ] ;
     sh:qualifiedMinCount 1 ;
     sh:qualifiedMaxCount 1 ; 
     ]
     [ 
     sh:qualifiedValueShape [
-      sh:hasValue "IMROPT2012" ; # should this be an iri?
+      sh:hasValue ro_beg:IMROPT2012 ;
     ] ;
     sh:qualifiedMaxCount 1 ; 
   ]

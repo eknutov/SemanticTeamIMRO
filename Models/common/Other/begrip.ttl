@@ -107,7 +107,6 @@ ro_col:Normen a skos:Collection ;
     ro_beg:PRABPK2012
 .
 
-
 ro_beg:Norm a skos:Concept ;
   rdfs:label "Norm"@nl ;
   skos:prefLabel "Norm"@nl ;
@@ -144,6 +143,12 @@ ro_beg:PRABPK2012 a skos:Concept ; #have not seen this one in the IMRO standard 
   skos:notation "PRABPK2012"
 .
 
+ro_beg:PRpSV2012 a skos:Concept ; #new from structuurvisieplangebied_P.
+  rdfs:label "PRpSV2012"@nl ;
+  skos:prefLabel "PRpSV2012"@nl ;
+  skos-thes:broaderGeneric ro_beg:Norm ;
+  skos:notation "PRpSV2012"
+.
 ###### idealisatie
 
 ro_col:Idealisatie_1 a skos:Collection ;
@@ -176,6 +181,7 @@ ro_beg:Idealisatie a skos:Concept ;
   skos:definition "Manier waarop de geometrie ruimtelijk geïnterpreteerd moet worden."@nl ;
   skos:inScheme ro_begkr:ro
 .
+
 #what about skos notation?
 ro_beg:exact a skos:Concept ;
   rdfs:label "exact"@nl ;
@@ -194,3 +200,6 @@ ro_beg:cartografischFiguur a skos:Concept ;
   skos:prefLabel "Cartografisch figuur"@nl ;
   skos-thes:broaderGeneric ro_beg:Idealisatie ;
 .
+
+
+#TODO instruments

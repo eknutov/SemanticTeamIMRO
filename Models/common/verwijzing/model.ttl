@@ -70,9 +70,9 @@ ro:Regels
   rdfs:subClassOf ro:Tekst ;
 .
 
-ro:Beleid_Gemandateerd_aan_CBS
+ro:Beleid_Gemandateerd_aan_GS
   rdf:type owl:Class ;
-  rdfs:label "Beleid Gemandateerd aan CBS"@nl ;
+  rdfs:label "Beleid Gemandateerd aan GS"@nl ;
   rdfs:subClassOf ro:Tekst ;
 .
 

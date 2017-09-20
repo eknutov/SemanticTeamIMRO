@@ -47,6 +47,16 @@ ro_str:TeksttypePG_SV rdf:type sh:NodeShape ;
     ) ] ;
 .
 
+ro_str:Teksttype_PSV rdf:type sh:NodeShape ;
+  sh:property [
+    sh:path rdf:type ;
+    sh:in ( 
+      ro:Beleid
+      ro:Beleid_Gemandateerd_aan_GS
+      ro:Toelichting
+    ) ] ;
+.
+
 ### illustratie
 
 ro_str:Illustratie #illutration is an entity of type either kaart or afbeelding with a reference to its storage location. We don't need sh:in in this case.
@@ -59,8 +69,14 @@ ro_str:Illustratie #illutration is an entity of type either kaart or afbeelding 
   ]
 .
 
-ro_str:Illustratie_legendaNaam rdf:type sh:NodeShape ;
+ro_str:Illustratie_legendaNaam rdf:type sh:NodeShape ; #can I treat a nodeshape as a propertyshape?
   sh:path ro:legendaNaam ;
+  sh:datatype xsd:string ;
+  sh:maxCount 1 ;
+.
+
+ro_str:Illustratie_IllustratieNaam rdf:type sh:NodeShape ; #can I treat a nodeshape as a propertyshape?
+  sh:path ro:illustratieNaam ;
   sh:datatype xsd:string ;
   sh:maxCount 1 ;
 .
@@ -99,8 +115,9 @@ ro_str:ExternPlanReferentiePG_SV rdf:type sh:NodeShape ;
     ro:uitgewerktIn
     ro:gebruiktInformatieUit
     ro:tenGevolgeVan
-    ) #include other properties such as rdf:type of is there a better solution?
-.  
+    ) #include other properties such as rdf:type of is there a better solution? 
+      # it's in a blanknode, there are no other predicates.
+. 
 # we could include a sh:SPARQL to make sure all objects are of type ro:PlanologischGebeid?
 
 #what will happen if we don't have an IRI for a external plan?

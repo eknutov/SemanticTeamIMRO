@@ -53,3 +53,20 @@ ro_str:Overheden_R a sh:NodeShape ;
 #    sh:datatype xsd:string ; # already specified in ro_str:overheidsNaam
     ]
 .
+
+ro_str:Overheden_P a sh:NodeShape ;
+  sh:property [
+    sh:path rdf:type ;
+    sh:in ( 
+      ro:ProvincialeOverheid
+    ) ] ;
+  sh:property [
+    sh:path ro:overheidsCode ; 
+    sh:pattern "99[0-9][0-9]";
+  ] ;
+  sh:property [
+    sh:path ro:overheidsNaam ;
+    sh:pattern "^(provincie)\\s" ;
+    ] ;
+.
+

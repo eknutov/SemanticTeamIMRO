@@ -45,6 +45,12 @@ ro:begrenzing
   rdfs:label "begrenzing"@nl ;
 .
 
+ro:inwinningsschaal 
+  rdf:type owl:DatatypeProperty ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:label "inwinningsschaal"@nl ;
+.
+
 ### to be replaced by respective OGC datatypes
 ro:geometrieVlak
   rdf:type owl:DatatypeProperty ;

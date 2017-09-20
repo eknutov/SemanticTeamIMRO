@@ -13,8 +13,6 @@
 @prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 
-
-
 ro_str:Plangebied_planstatus rdf:type sh:PropertyShape ; #common
   sh:path ro:planstatus ;
   sh:class ro:Planstatus ; #in order to avoid a blank node

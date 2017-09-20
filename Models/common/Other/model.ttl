@@ -127,6 +127,8 @@ ro:rol
 
 ### instruments
 
+# this should be skos:concepts if I am right.
+
 ro:Instrument
   rdf:type owl:Class ;
   rdfs:label "Instrument"@nl ;
@@ -216,4 +218,3 @@ ro:voorbereidingsbesluit
   rdf:type owl:NamedIndividual ;
   rdfs:label "voorbereidingsbesluit"@nl ;
 .
-
