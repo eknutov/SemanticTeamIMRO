@@ -1,0 +1,1198 @@
+
+#################################################################
+#    Tekstobject
+#################################################################
+ro_str:Tekstobject a sh:NodeShape ;
+  sh:targetClass ro:Tekstobject ;
+  sh:property
+#    TODO: Is this actually necessary?
+    ro_str:Tekstobject_verwijzingNaarPlangebied ,
+#    TODO: Is this actually necessary?
+    ro_str:Tekstobject_volgnummer ,
+#    TODO: Is this actually necessary?
+    ro_str:Tekstobject_niveau ,
+#    TODO: Is this actually necessary?
+    ro_str:Tekstobject_typeTekst ,
+    ro_str:Tekstobject_titel ,
+    ro_str:Tekstobject_externeVerwijzing ,
+    ro_str:Tekstobject_tekst ,
+    #ro_str:Tekstobject_ouder ,
+    ro_str:Tekstobject_naamPraktijkRichtlijn ;
+.
+
+ro_str:Tekstobject_verwijzingNaarPlangebied a sh:PropertyShape ;
+  sh:path ro:plangebied ;
+  sh:class ro:Plangebied ;
+  sh:nodeKind sh:IRI ;
+  sh:minCount 1 ;
+  sh:maxCount 1
+.
+
+ro_str:Tekstobject_volgnummer a sh:PropertyShape ;
+  sh:path ro:volgnummer ;
+  sh:nodeKind sh:Literal ;
+  sh:datatype xsd:integer ;
+  sh:minCount 1 ;
+  sh:maxCount 1
+.
+
+ro_str:Tekstobject_niveau a sh:PropertyShape ;
+  sh:path ro:niveau ;
+  sh:nodeKind sh:Literal ;
+  sh:datatype xsd:integer ;
+  sh:minCount 1 ;
+  sh:maxCount 1
+.
+
+ro_str:Tekstobject_typeTekst a sh:PropertyShape ;
+  sh:path ro:typeTekst ;
+  sh:class ro:Plangebied ;
+  sh:nodeKind sh:IRI ;
+  sh:maxCount 1
+.
+
+ro_str:Tekstobject_titel a sh:PropertyShape ;
+  sh:path ro:titel ;
+  sh:class ro:Titel ;
+  sh:nodeKind sh:IRI ;
+  sh:minCount 1 ;
+  sh:maxCount 1
+.
+
+ro_str:Tekstobject_externeVerwijzing a sh:PropertyShape ;
+  sh:path ro:externeVerwijzing ;
+  sh:nodeKind sh:Literal ;
+  sh:datatype xsd:string
+.
+
+ro_str:Tekstobject_tekst a sh:PropertyShape ;
+  sh:path ro:tekst ;
+  sh:nodeKind sh:Literal ;
+  sh:datatype rdf:XMLLiteral ;
+  sh:maxCount 1
+.
+
+# TODO: This seems to be part of the metadata of the document. Possibly move this to a higher level?
+ro_str:Tekstobject_naamPraktijkRichtlijn a sh:PropertyShape ;
+  sh:path ro:naamPraktijkRichtlijn ;
+  sh:class skos:Concept ;
+  sh:nodeKind sh:IRI ;
+  sh:maxCount 1 ;
+  sh:shape [
+    sh:property [
+      sh:path [ sh:inversePath skos:member ] ;
+      sh:targetNode ro_col:PraktijkRichtlijnNaam
+    ]
+  ]
+.
+
+#################################################################
+#    Titel
+#################################################################
+ro_str:Titel a sh:NodeShape ;
+  sh:targetClass ro:Titel ;
+  sh:property
+    ro_str:Overheid_titellabel ,
+    ro_str:Overheid_titelnummer ,
+    ro_str:Overheid_titelnaam ;
+.
+
+ro_str:Overheid_titellabel a sh:PropertyShape ;
+  sh:path ro:titellabel ;
+  sh:nodeKind sh:Literal ;
+  sh:datatype xsd:string ;
+  sh:maxCount 1
+.
+
+ro_str:Overheid_titelnummer a sh:PropertyShape ;
+  sh:path ro:titelnummer ;
+  sh:nodeKind sh:Literal ;
+  sh:datatype xsd:string ;
+  sh:maxCount 1
+.
+
+ro_str:Overheid_titelnaam a sh:PropertyShape ;
+  sh:path ro:titelnaam ;
+  sh:nodeKind sh:Literal ;
+  sh:datatype xsd:string ;
+  sh:maxCount 1
+.
+
+
+#################################################################
+#    Regels
+#################################################################
+
+ro_str:PT_Document a sh:NodeShape ;
+  sh:targetClass ro:Document ;
+  sh:property
+    ro_str:PT_Document_ouder ;
+.
+
+ro_str:PT_Document_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro: ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_Regels a sh:NodeShape ;
+  sh:targetClass ro:Regels ;
+  sh:property
+    ro_str:PT_Regels_ouder ;
+.
+
+ro_str:PT_Regels_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:Document ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_InleidendeRegels a sh:NodeShape ;
+  sh:targetClass ro:InleidendeRegels ;
+  sh:property
+    ro_str:PT_InleidendeRegels_ouder ;
+.
+
+ro_str:PT_InleidendeRegels_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:Regels ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_Begrippen a sh:NodeShape ;
+  sh:targetClass ro:Begrippen ;
+  sh:property
+    ro_str:PT_Begrippen_ouder ;
+.
+
+ro_str:PT_Begrippen_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:InleidendeRegels ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_WijzeVanMeten a sh:NodeShape ;
+  sh:targetClass ro:WijzeVanMeten ;
+  sh:property
+    ro_str:PT_WijzeVanMeten_ouder ;
+.
+
+ro_str:PT_WijzeVanMeten_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:InleidendeRegels ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_Bestemmingsregels a sh:NodeShape ;
+  sh:targetClass ro:Bestemmingsregels ;
+  sh:property
+    ro_str:PT_Bestemmingsregels_ouder ;
+.
+
+ro_str:PT_Bestemmingsregels_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:Regels ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_Bestemming a sh:NodeShape ;
+  sh:targetClass ro:Bestemming ;
+  sh:property
+    ro_str:PT_Bestemming_ouder ;
+.
+
+ro_str:PT_Bestemming_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:Bestemmingsregels ;
+.
+
+ro_str:PT_Bestemmingsomschrijving a sh:NodeShape ;
+  sh:targetClass ro:Bestemmingsomschrijving ;
+  sh:property
+    ro_str:PT_Bestemmingsomschrijving_ouder ;
+.
+
+ro_str:PT_Bestemmingsomschrijving_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:Bestemming ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_Bouwregels a sh:NodeShape ;
+  sh:targetClass ro:Bouwregels ;
+  sh:property
+    ro_str:PT_Bouwregels_ouder ;
+.
+
+ro_str:PT_Bouwregels_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:Bestemming ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_NadereEisen a sh:NodeShape ;
+  sh:targetClass ro:NadereEisen ;
+  sh:property
+    ro_str:PT_NadereEisen_ouder ;
+.
+
+ro_str:PT_NadereEisen_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:Bestemming ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_AfwijkenVanDeBouwregels a sh:NodeShape ;
+  sh:targetClass ro:AfwijkenVanDeBouwregels ;
+  sh:property
+    ro_str:PT_AfwijkenVanDeBouwregels_ouder ;
+.
+
+ro_str:PT_AfwijkenVanDeBouwregels_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:Bestemming ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_SpecifiekeGebruiksregels a sh:NodeShape ;
+  sh:targetClass ro:SpecifiekeGebruiksregels ;
+  sh:property
+    ro_str:PT_SpecifiekeGebruiksregels_ouder ;
+.
+
+ro_str:PT_SpecifiekeGebruiksregels_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:Bestemming ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_AfwijkenVanDeGebruiksregels a sh:NodeShape ;
+  sh:targetClass ro:AfwijkenVanDeGebruiksregels ;
+  sh:property
+    ro_str:PT_AfwijkenVanDeGebruiksregels_ouder ;
+.
+
+ro_str:PT_AfwijkenVanDeGebruiksregels_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:Bestemming ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden a sh:NodeShape ;
+  sh:targetClass ro:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden ;
+  sh:property
+    ro_str:PT_OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden_ouder ;
+.
+
+ro_str:PT_OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:Bestemming ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_OmgevingsvergunningVoorHetSlopenVanEenBouwwerk a sh:NodeShape ;
+  sh:targetClass ro:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk ;
+  sh:property
+    ro_str:PT_OmgevingsvergunningVoorHetSlopenVanEenBouwwerk_ouder ;
+.
+
+ro_str:PT_OmgevingsvergunningVoorHetSlopenVanEenBouwwerk_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:Bestemming ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_Wijzigingsbevoegdheid a sh:NodeShape ;
+  sh:targetClass ro:Wijzigingsbevoegdheid ;
+  sh:property
+    ro_str:PT_Wijzigingsbevoegdheid_ouder ;
+.
+
+ro_str:PT_Wijzigingsbevoegdheid_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:Bestemming ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_VoorlopigeBestemming a sh:NodeShape ;
+  sh:targetClass ro:VoorlopigeBestemming ;
+  sh:property
+    ro_str:PT_VoorlopigeBestemming_ouder ;
+.
+
+ro_str:PT_VoorlopigeBestemming_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:Bestemmingsregels ;
+.
+
+ro_str:PT_Bestemmingsomschrijving a sh:NodeShape ;
+  sh:targetClass ro:Bestemmingsomschrijving ;
+  sh:property
+    ro_str:PT_Bestemmingsomschrijving_ouder ;
+.
+
+ro_str:PT_Bestemmingsomschrijving_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:VoorlopigeBestemming ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_Bouwregels a sh:NodeShape ;
+  sh:targetClass ro:Bouwregels ;
+  sh:property
+    ro_str:PT_Bouwregels_ouder ;
+.
+
+ro_str:PT_Bouwregels_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:VoorlopigeBestemming ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_NadereEisen a sh:NodeShape ;
+  sh:targetClass ro:NadereEisen ;
+  sh:property
+    ro_str:PT_NadereEisen_ouder ;
+.
+
+ro_str:PT_NadereEisen_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:VoorlopigeBestemming ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_AfwijkenVanDeBouwregels a sh:NodeShape ;
+  sh:targetClass ro:AfwijkenVanDeBouwregels ;
+  sh:property
+    ro_str:PT_AfwijkenVanDeBouwregels_ouder ;
+.
+
+ro_str:PT_AfwijkenVanDeBouwregels_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:VoorlopigeBestemming ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_SpecifiekeGebruiksregels a sh:NodeShape ;
+  sh:targetClass ro:SpecifiekeGebruiksregels ;
+  sh:property
+    ro_str:PT_SpecifiekeGebruiksregels_ouder ;
+.
+
+ro_str:PT_SpecifiekeGebruiksregels_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:VoorlopigeBestemming ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_AfwijkenVanDeGebruiksregels a sh:NodeShape ;
+  sh:targetClass ro:AfwijkenVanDeGebruiksregels ;
+  sh:property
+    ro_str:PT_AfwijkenVanDeGebruiksregels_ouder ;
+.
+
+ro_str:PT_AfwijkenVanDeGebruiksregels_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:VoorlopigeBestemming ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden a sh:NodeShape ;
+  sh:targetClass ro:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden ;
+  sh:property
+    ro_str:PT_OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden_ouder ;
+.
+
+ro_str:PT_OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:VoorlopigeBestemming ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_OmgevingsvergunningVoorHetSlopenVanEenBouwwerk a sh:NodeShape ;
+  sh:targetClass ro:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk ;
+  sh:property
+    ro_str:PT_OmgevingsvergunningVoorHetSlopenVanEenBouwwerk_ouder ;
+.
+
+ro_str:PT_OmgevingsvergunningVoorHetSlopenVanEenBouwwerk_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:VoorlopigeBestemming ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_Wijzigingsbevoegdheid a sh:NodeShape ;
+  sh:targetClass ro:Wijzigingsbevoegdheid ;
+  sh:property
+    ro_str:PT_Wijzigingsbevoegdheid_ouder ;
+.
+
+ro_str:PT_Wijzigingsbevoegdheid_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:VoorlopigeBestemming ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_GeldigheidstermijnVanDeVoorlopigeBestemming a sh:NodeShape ;
+  sh:targetClass ro:GeldigheidstermijnVanDeVoorlopigeBestemming ;
+  sh:property
+    ro_str:PT_GeldigheidstermijnVanDeVoorlopigeBestemming_ouder ;
+.
+
+ro_str:PT_GeldigheidstermijnVanDeVoorlopigeBestemming_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:VoorlopigeBestemming ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_DefinitieveBestemmingBijVoorlopigeBestemming a sh:NodeShape ;
+  sh:targetClass ro:DefinitieveBestemmingBijVoorlopigeBestemming ;
+  sh:property
+    ro_str:PT_DefinitieveBestemmingBijVoorlopigeBestemming_ouder ;
+.
+
+ro_str:PT_DefinitieveBestemmingBijVoorlopigeBestemming_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:VoorlopigeBestemming ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_Bestemmingsomschrijving a sh:NodeShape ;
+  sh:targetClass ro:Bestemmingsomschrijving ;
+  sh:property
+    ro_str:PT_Bestemmingsomschrijving_ouder ;
+.
+
+ro_str:PT_Bestemmingsomschrijving_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:DefinitieveBestemmingBijVoorlopigeBestemming ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_Bouwregels a sh:NodeShape ;
+  sh:targetClass ro:Bouwregels ;
+  sh:property
+    ro_str:PT_Bouwregels_ouder ;
+.
+
+ro_str:PT_Bouwregels_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:DefinitieveBestemmingBijVoorlopigeBestemming ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_NadereEisen a sh:NodeShape ;
+  sh:targetClass ro:NadereEisen ;
+  sh:property
+    ro_str:PT_NadereEisen_ouder ;
+.
+
+ro_str:PT_NadereEisen_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:DefinitieveBestemmingBijVoorlopigeBestemming ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_AfwijkenVanDeBouwregels a sh:NodeShape ;
+  sh:targetClass ro:AfwijkenVanDeBouwregels ;
+  sh:property
+    ro_str:PT_AfwijkenVanDeBouwregels_ouder ;
+.
+
+ro_str:PT_AfwijkenVanDeBouwregels_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:DefinitieveBestemmingBijVoorlopigeBestemming ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_SpecifiekeGebruiksregels a sh:NodeShape ;
+  sh:targetClass ro:SpecifiekeGebruiksregels ;
+  sh:property
+    ro_str:PT_SpecifiekeGebruiksregels_ouder ;
+.
+
+ro_str:PT_SpecifiekeGebruiksregels_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:DefinitieveBestemmingBijVoorlopigeBestemming ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_AfwijkenVanDeGebruiksregels a sh:NodeShape ;
+  sh:targetClass ro:AfwijkenVanDeGebruiksregels ;
+  sh:property
+    ro_str:PT_AfwijkenVanDeGebruiksregels_ouder ;
+.
+
+ro_str:PT_AfwijkenVanDeGebruiksregels_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:DefinitieveBestemmingBijVoorlopigeBestemming ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden a sh:NodeShape ;
+  sh:targetClass ro:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden ;
+  sh:property
+    ro_str:PT_OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden_ouder ;
+.
+
+ro_str:PT_OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:DefinitieveBestemmingBijVoorlopigeBestemming ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_OmgevingsvergunningVoorHetSlopenVanEenBouwwerk a sh:NodeShape ;
+  sh:targetClass ro:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk ;
+  sh:property
+    ro_str:PT_OmgevingsvergunningVoorHetSlopenVanEenBouwwerk_ouder ;
+.
+
+ro_str:PT_OmgevingsvergunningVoorHetSlopenVanEenBouwwerk_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:DefinitieveBestemmingBijVoorlopigeBestemming ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_Wijzigingsbevoegdheid a sh:NodeShape ;
+  sh:targetClass ro:Wijzigingsbevoegdheid ;
+  sh:property
+    ro_str:PT_Wijzigingsbevoegdheid_ouder ;
+.
+
+ro_str:PT_Wijzigingsbevoegdheid_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:DefinitieveBestemmingBijVoorlopigeBestemming ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_UitTeWerkenBestemming a sh:NodeShape ;
+  sh:targetClass ro:UitTeWerkenBestemming ;
+  sh:property
+    ro_str:PT_UitTeWerkenBestemming_ouder ;
+.
+
+ro_str:PT_UitTeWerkenBestemming_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:Bestemmingsregels ;
+.
+
+ro_str:PT_Bestemmingsomschrijving a sh:NodeShape ;
+  sh:targetClass ro:Bestemmingsomschrijving ;
+  sh:property
+    ro_str:PT_Bestemmingsomschrijving_ouder ;
+.
+
+ro_str:PT_Bestemmingsomschrijving_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:UitTeWerkenBestemming ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_Uitwerkingsregels a sh:NodeShape ;
+  sh:targetClass ro:Uitwerkingsregels ;
+  sh:property
+    ro_str:PT_Uitwerkingsregels_ouder ;
+.
+
+ro_str:PT_Uitwerkingsregels_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:UitTeWerkenBestemming ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_Bouwregels a sh:NodeShape ;
+  sh:targetClass ro:Bouwregels ;
+  sh:property
+    ro_str:PT_Bouwregels_ouder ;
+.
+
+ro_str:PT_Bouwregels_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:UitTeWerkenBestemming ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_AfwijkenVanDeBouwregels a sh:NodeShape ;
+  sh:targetClass ro:AfwijkenVanDeBouwregels ;
+  sh:property
+    ro_str:PT_AfwijkenVanDeBouwregels_ouder ;
+.
+
+ro_str:PT_AfwijkenVanDeBouwregels_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:UitTeWerkenBestemming ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden a sh:NodeShape ;
+  sh:targetClass ro:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden ;
+  sh:property
+    ro_str:PT_OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden_ouder ;
+.
+
+ro_str:PT_OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:UitTeWerkenBestemming ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_Dubbelbestemming a sh:NodeShape ;
+  sh:targetClass ro:Dubbelbestemming_Tekstobject ;
+  sh:property
+    ro_str:PT_Dubbelbestemming_ouder ;
+.
+
+ro_str:PT_Dubbelbestemming_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:Bestemmingsregels ;
+.
+
+ro_str:PT_Bestemmingsomschrijving a sh:NodeShape ;
+  sh:targetClass ro:Bestemmingsomschrijving ;
+  sh:property
+    ro_str:PT_Bestemmingsomschrijving_ouder ;
+.
+
+ro_str:PT_Bestemmingsomschrijving_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:Dubbelbestemming_Tekstobject ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_Bouwregels a sh:NodeShape ;
+  sh:targetClass ro:Bouwregels ;
+  sh:property
+    ro_str:PT_Bouwregels_ouder ;
+.
+
+ro_str:PT_Bouwregels_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:Dubbelbestemming_Tekstobject ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_NadereEisen a sh:NodeShape ;
+  sh:targetClass ro:NadereEisen ;
+  sh:property
+    ro_str:PT_NadereEisen_ouder ;
+.
+
+ro_str:PT_NadereEisen_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:Dubbelbestemming_Tekstobject ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_AfwijkenVanDeBouwregels a sh:NodeShape ;
+  sh:targetClass ro:AfwijkenVanDeBouwregels ;
+  sh:property
+    ro_str:PT_AfwijkenVanDeBouwregels_ouder ;
+.
+
+ro_str:PT_AfwijkenVanDeBouwregels_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:Dubbelbestemming_Tekstobject ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_SpecifiekeGebruiksregels a sh:NodeShape ;
+  sh:targetClass ro:SpecifiekeGebruiksregels ;
+  sh:property
+    ro_str:PT_SpecifiekeGebruiksregels_ouder ;
+.
+
+ro_str:PT_SpecifiekeGebruiksregels_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:Dubbelbestemming_Tekstobject ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_AfwijkenVanDeGebruiksregels a sh:NodeShape ;
+  sh:targetClass ro:AfwijkenVanDeGebruiksregels ;
+  sh:property
+    ro_str:PT_AfwijkenVanDeGebruiksregels_ouder ;
+.
+
+ro_str:PT_AfwijkenVanDeGebruiksregels_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:Dubbelbestemming_Tekstobject ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden a sh:NodeShape ;
+  sh:targetClass ro:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden ;
+  sh:property
+    ro_str:PT_OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden_ouder ;
+.
+
+ro_str:PT_OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:Dubbelbestemming_Tekstobject ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_OmgevingsvergunningVoorHetSlopenVanEenBouwwerk a sh:NodeShape ;
+  sh:targetClass ro:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk ;
+  sh:property
+    ro_str:PT_OmgevingsvergunningVoorHetSlopenVanEenBouwwerk_ouder ;
+.
+
+ro_str:PT_OmgevingsvergunningVoorHetSlopenVanEenBouwwerk_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:Dubbelbestemming_Tekstobject ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_Wijzigingsbevoegdheid a sh:NodeShape ;
+  sh:targetClass ro:Wijzigingsbevoegdheid ;
+  sh:property
+    ro_str:PT_Wijzigingsbevoegdheid_ouder ;
+.
+
+ro_str:PT_Wijzigingsbevoegdheid_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:Dubbelbestemming_Tekstobject ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_AlgemeneRegels a sh:NodeShape ;
+  sh:targetClass ro:AlgemeneRegels ;
+  sh:property
+    ro_str:PT_AlgemeneRegels_ouder ;
+.
+
+ro_str:PT_AlgemeneRegels_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:Regels ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_Anti_dubbeltelregel a sh:NodeShape ;
+  sh:targetClass ro:Anti_dubbeltelregel ;
+  sh:property
+    ro_str:PT_Anti_dubbeltelregel_ouder ;
+.
+
+ro_str:PT_Anti_dubbeltelregel_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:AlgemeneRegels ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_AlgemeneBouwregels a sh:NodeShape ;
+  sh:targetClass ro:AlgemeneBouwregels ;
+  sh:property
+    ro_str:PT_AlgemeneBouwregels_ouder ;
+.
+
+ro_str:PT_AlgemeneBouwregels_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:AlgemeneRegels ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_AlgemeneGebruiksregels a sh:NodeShape ;
+  sh:targetClass ro:AlgemeneGebruiksregels ;
+  sh:property
+    ro_str:PT_AlgemeneGebruiksregels_ouder ;
+.
+
+ro_str:PT_AlgemeneGebruiksregels_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:AlgemeneRegels ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_AlgemeneAanduidingsregels a sh:NodeShape ;
+  sh:targetClass ro:AlgemeneAanduidingsregels ;
+  sh:property
+    ro_str:PT_AlgemeneAanduidingsregels_ouder ;
+.
+
+ro_str:PT_AlgemeneAanduidingsregels_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:AlgemeneRegels ;
+.
+
+ro_str:PT_AlgemeneAfwijkingsregels a sh:NodeShape ;
+  sh:targetClass ro:AlgemeneAfwijkingsregels ;
+  sh:property
+    ro_str:PT_AlgemeneAfwijkingsregels_ouder ;
+.
+
+ro_str:PT_AlgemeneAfwijkingsregels_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:AlgemeneRegels ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_AlgemeneWijzigingsregels a sh:NodeShape ;
+  sh:targetClass ro:AlgemeneWijzigingsregels ;
+  sh:property
+    ro_str:PT_AlgemeneWijzigingsregels_ouder ;
+.
+
+ro_str:PT_AlgemeneWijzigingsregels_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:AlgemeneRegels ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_VerwezenlijkingInDeNaasteToekomst a sh:NodeShape ;
+  sh:targetClass ro:VerwezenlijkingInDeNaasteToekomst ;
+  sh:property
+    ro_str:PT_VerwezenlijkingInDeNaasteToekomst_ouder ;
+.
+
+ro_str:PT_VerwezenlijkingInDeNaasteToekomst_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:AlgemeneRegels ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_AlgemeneProcedureregels a sh:NodeShape ;
+  sh:targetClass ro:AlgemeneProcedureregels ;
+  sh:property
+    ro_str:PT_AlgemeneProcedureregels_ouder ;
+.
+
+ro_str:PT_AlgemeneProcedureregels_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:AlgemeneRegels ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_OverigeRegels a sh:NodeShape ;
+  sh:targetClass ro:OverigeRegels ;
+  sh:property
+    ro_str:PT_OverigeRegels_ouder ;
+.
+
+ro_str:PT_OverigeRegels_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:AlgemeneRegels ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_Overgangs_EnSlotregels a sh:NodeShape ;
+  sh:targetClass ro:Overgangs_EnSlotregels ;
+  sh:property
+    ro_str:PT_Overgangs_EnSlotregels_ouder ;
+.
+
+ro_str:PT_Overgangs_EnSlotregels_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:Regels ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_Overgangsrecht a sh:NodeShape ;
+  sh:targetClass ro:Overgangsrecht ;
+  sh:property
+    ro_str:PT_Overgangsrecht_ouder ;
+.
+
+ro_str:PT_Overgangsrecht_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:Overgangs_EnSlotregels ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_Slotregel a sh:NodeShape ;
+  sh:targetClass ro:Slotregel ;
+  sh:property
+    ro_str:PT_Slotregel_ouder ;
+.
+
+ro_str:PT_Slotregel_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:Overgangs_EnSlotregels ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_Lid a sh:NodeShape ;
+  sh:targetClass ro:Lid ;
+  sh:property
+    ro_str:PT_Lid_ouder ;
+.
+
+ro_str:PT_Lid_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:or (
+    [
+      sh:class ro:WijzeVanMeten ;
+    ]
+    [
+      sh:class ro:Begrippen ;
+    ]
+    [
+      sh:class ro:Anti_dubbeltelregel ;
+    ]
+    [
+      sh:class ro:AlgemeneBouwregels ;
+    ]
+    [
+      sh:class ro:AlgemeneGebruiksregels ;
+    ]
+    [
+      sh:class ro:AlgemeneAanduidingsregels ;
+    ]
+    [
+      sh:class ro:AlgemeneAfwijkingsregels ;
+    ]
+    [
+      sh:class ro:AlgemeneWijzigingsregels ;
+    ]
+    [
+      sh:class ro:VerwerkelijkingInDeNaasteToekomst ;
+    ]
+    [
+      sh:class ro:AlgemeneProcedureregels ;
+    ]
+    [
+      sh:class ro:OverigeRegels ;
+    ]
+    [
+      sh:class ro:Overgangsrecht ;
+    ]
+    [
+      sh:class ro:Slotregel ;
+    ]
+  )
+.
+
+ro_str:PT_Sublid a sh:NodeShape ;
+  sh:targetClass ro:Sublid ;
+  sh:property
+    ro_str:PT_Sublid_ouder ;
+.
+
+ro_str:PT_Sublid_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:Lid ;
+.
+
+ro_str:PT_Subsublid a sh:NodeShape ;
+  sh:targetClass ro:Subsublid ;
+  sh:property
+    ro_str:PT_Subsublid_ouder ;
+.
+
+ro_str:PT_Subsublid_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:Sublid ;
+.
+
+ro_str:PT_Subsubsublid a sh:NodeShape ;
+  sh:targetClass ro:Subsubsublid ;
+  sh:property
+    ro_str:PT_Subsubsublid_ouder ;
+.
+
+ro_str:PT_Subsubsublid_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:Subsublid ;
+.
+
+ro_str:PT_BijlagenBijRegels a sh:NodeShape ;
+  sh:targetClass ro:BijlagenBijRegels ;
+  sh:property
+    ro_str:PT_BijlagenBijRegels_ouder ;
+.
+
+ro_str:PT_BijlagenBijRegels_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:or (
+    [
+      sh:class ro:Document ;
+    ]
+    [
+      sh:class ro:Regels ;
+    ]
+  ) ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_BijlageBijRegels a sh:NodeShape ;
+  sh:targetClass ro:BijlageBijRegels ;
+  sh:property
+    ro_str:PT_BijlageBijRegels_ouder ;
+.
+
+ro_str:PT_BijlageBijRegels_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:BijlagenBijRegels ;
+.
+
+ro_str:PT_Deel a sh:NodeShape ;
+  sh:targetClass ro:Deel ;
+  sh:property
+    ro_str:PT_Deel_ouder ;
+.
+
+ro_str:PT_Deel_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:or (
+    [
+      sh:class ro:BijlageBijRegels ;
+    ]
+    [
+      sh:class ro:Toelichting ;
+    ]
+    [
+      sh:class ro:BijlageBijToelichting ;
+    ]
+  )
+.
+
+ro_str:PT_Hoofdstuk a sh:NodeShape ;
+  sh:targetClass ro:Hoofdstuk ;
+  sh:property
+    ro_str:PT_Hoofdstuk_ouder ;
+.
+
+ro_str:PT_Hoofdstuk_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:or (
+    [
+      sh:class ro:BijlageBijRegels ;
+    ]
+    [
+      sh:class ro:Deel ;
+    ]
+    [
+      sh:class ro:Toelichting ;
+    ]
+    [
+      sh:class ro:BijlageBijToelichting ;
+    ]
+  )
+.
+
+ro_str:PT_Paragraaf a sh:NodeShape ;
+  sh:targetClass ro:Paragraaf ;
+  sh:property
+    ro_str:PT_Paragraaf_ouder ;
+.
+
+ro_str:PT_Paragraaf_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:Hoofdstuk ;
+.
+
+ro_str:PT_Subparagraaf a sh:NodeShape ;
+  sh:targetClass ro:Subparagraaf ;
+  sh:property
+    ro_str:PT_Subparagraaf_ouder ;
+.
+
+ro_str:PT_Subparagraaf_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:Paragraaf ;
+.
+
+ro_str:PT_Subsubparagraaf a sh:NodeShape ;
+  sh:targetClass ro:Subsubparagraaf ;
+  sh:property
+    ro_str:PT_Subsubparagraaf_ouder ;
+.
+
+ro_str:PT_Subsubparagraaf_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:Subparagraaf ;
+.
+
+ro_str:PT_Subsubsubparagraaf a sh:NodeShape ;
+  sh:targetClass ro:Subsubsubparagraaf ;
+  sh:property
+    ro_str:PT_Subsubsubparagraaf_ouder ;
+.
+
+ro_str:PT_Subsubsubparagraaf_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:Subsubparagraaf ;
+.
+
+ro_str:PT_Overig_Tekstobject a sh:NodeShape ;
+  sh:targetClass ro:Overig_Tekstobject ;
+  sh:property
+    ro_str:PT_Overig_Tekstobject_ouder ;
+.
+
+ro_str:PT_Toelichting a sh:NodeShape ;
+  sh:targetClass ro:Toelichting ;
+  sh:property
+    ro_str:PT_Toelichting_ouder ;
+.
+
+ro_str:PT_Toelichting_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:Document ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_BijlagenBijToelichting a sh:NodeShape ;
+  sh:targetClass ro:BijlagenBijToelichting ;
+  sh:property
+    ro_str:PT_BijlagenBijToelichting_ouder ;
+.
+
+ro_str:PT_BijlagenBijToelichting_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:or (
+    [
+      sh:class ro:Document ;
+    ]
+    [
+      sh:class ro:Toelichting ;
+    ]
+  ) ;
+  sh:maxCount 1 ;
+.
+
+ro_str:PT_BijlageBijToelichting a sh:NodeShape ;
+  sh:targetClass ro:BijlageBijToelichting ;
+  sh:property
+    ro_str:PT_BijlageBijToelichting_ouder ;
+.
+
+ro_str:PT_BijlageBijToelichting_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:class ro:BijlagenBijToelichting ;
+.
+
+ro_str:PT_Overig_Tekstobject_ouder a sh:PropertyShape ;
+  sh:path ro:ouder ;
+  sh:or (
+    [
+      sh:class ro:Lid ;
+    ]
+    [
+      sh:class ro:Sublid ;
+    ]
+    [
+      sh:class ro:SubSublid ;
+    ]
+    [
+      sh:class ro:SubSubSublid ;
+    ]
+    [
+      sh:class ro:Hoofdstuk ;
+    ]
+    [
+      sh:class ro:Paragraaf ;
+    ]
+    [
+      sh:class ro:Subparagraaf ;
+    ]
+    [
+      sh:class ro:Subsubparagraaf ;
+    ]
+    [
+      sh:class ro:Subsubsubparagraaf ;
+    ]
+  )
+.

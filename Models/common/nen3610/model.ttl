@@ -64,6 +64,8 @@ nen3610:versie
   rdfs:label "versie"@nl ;
 .
 
+#TODO: Remove all its instances.... iets mee doen
+
 nen3610:Plangebied
   rdf:type owl:Class ;
   rdfs:isDefinedBy :ro ;

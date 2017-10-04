@@ -63,10 +63,14 @@ ro:naamOverheid # use ro:naam?
   rdfs:isDefinedBy :ro ;
   rdfs:label "naam overheid"@nl ;
 .
-
+# TODO: change to ro:code, not to forget the SHACL shapes.
 ro:overheidsCode
   rdf:type owl:AnnotationProperty ;
   rdfs:domain ro:Overheid ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "overheids code"@nl ;
 .
+#ro:code a owl:DatatypeProperty ;
+#  rdfs:label "code"@nl ;
+#  rdfs:isDefinedBy :ro
+#.

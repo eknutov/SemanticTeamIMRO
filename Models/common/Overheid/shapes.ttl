@@ -15,15 +15,15 @@
 
 ro_str:Overheid a sh:NodeShape ;
   sh:targetClass ro:Overheid ;
-  sh:Property 
+  sh:Property
     ro_str:overheidsNaam ,
-    ro_str:overheidsCode 
+    ro_str:overheidsCode ;
 .
 
 ro_str:overheidsNaam a sh:PropertyShape ;
   sh:path ro:overheidsNaam ;
-  sh:minCount 1 ; 
-  sh:maxCount 1 ; 
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
   sh:datatype xsd:string ;
 #  sh:pattern ; resource specific patterns are required, see ro_str:overheidsCode
 .
@@ -39,11 +39,11 @@ ro_str:overheidsCode a sh:PropertyShape ;
 ro_str:Overheden_R a sh:NodeShape ;
   sh:property [
     sh:path rdf:type ;
-    sh:in ( 
+    sh:in (
       ro:NationaleOverheid
     ) ] ;
   sh:property [
-    sh:path ro:overheidsCode ; 
+    sh:path ro:overheidsCode ;
     sh:hasValue "0000" ; # would the use of sh:pattern be preffered for consistency's sake?
 #    sh:datatype xsd:string ;  # see next property
   ] ;
@@ -57,11 +57,11 @@ ro_str:Overheden_R a sh:NodeShape ;
 ro_str:Overheden_P a sh:NodeShape ;
   sh:property [
     sh:path rdf:type ;
-    sh:in ( 
+    sh:in (
       ro:ProvincialeOverheid
     ) ] ;
   sh:property [
-    sh:path ro:overheidsCode ; 
+    sh:path ro:overheidsCode ;
     sh:pattern "99[0-9][0-9]";
   ] ;
   sh:property [
@@ -69,4 +69,3 @@ ro_str:Overheden_P a sh:NodeShape ;
     sh:pattern "^(provincie)\\s" ;
     ] ;
 .
-

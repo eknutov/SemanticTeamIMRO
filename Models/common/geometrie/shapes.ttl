@@ -38,68 +38,67 @@ ro_str:Idealisatie_3 rdf:type sh:NodeShape ;
   )
 .
 
-#will be replaced.
-ro_str:PuntLijnVlakMulti rdf:type sh:PropertyShape ;
-  sh:xone ( 
-    ro_str:geometriePunt
-    ro_str:geometrieLijn
-    ro_str:geometrieVlak
-    ro_str:geometriePuntMulti
-    ro_str:geometrieLijnMulti
-    ro_str:geometrieVlakMulti
-    )
+#################################################################
+#   GML Geometry unions
+#################################################################
+
+ro_str:PuntLijnVlak a sh:NodeShape ;
+  sh:xone (
+    ro_str:Point
+    ro_str:Curve
+    ro_str:Surface
+  )
 .
 
-ro_str:PuntLijnVlakMulti rdf:type sh:PropertyShape ;
-  sh:xone ( 
-    ro_str:geometriePunt
-    ro_str:geometrieLijn
-    ro_str:geometrieVlak
-    ro_str:geometrieMultiPunt
-    ro_str:geometrieMultiLijn
-    ro_str:geometrieMultiVlak
-    )
+ro_str:VlakMultiVlak a sh:NodeShape ;
+  sh:xone (
+    ro_str:Surface
+    ro_str:MultiSurface
+  )
 .
 
-ro_str:VlakMultiVlak rdf:type sh:PropertyShape ; 
-  sh:xone ( 
-    ro_str:geometrieVlak
-    ro_str:geometrieMultiVlak
-    )
+ro_str:PuntLijnVlak a sh:NodeShape ;
+  sh:xone (
+    ro_str:Point
+    ro_str:Curve
+    ro_str:Surface
+    ro_str:MultiPoint
+    ro_str:MultiCurve
+    ro_str:MultiSurface
+  )
 .
 
-ro_str:geometriePunt rdf:type sh:PropertyShape ;
-  sh:path ro:geometriePunt ;
-  sh:minCount 1 ; 
-  sh:maxCount 1 ;
+ro_str:LijnMultiLijn a sh:NodeShape ;
+  sh:xone (
+    ro_str:Curve
+    ro_str:MultiCurve
+  )
 .
 
-ro_str:geometrieLijn rdf:type sh:PropertyShape ;
-  sh:path ro:geometrieLijn ;
-  sh:minCount 1 ; 
-  sh:maxCount 1 ;
+#################################################################
+#   GML Geometry value shapes
+#################################################################
+
+ro_str:Point a sh:NodeShape ;
+  sh:class gml:Point ;
 .
 
-ro_str:geometrieVlak rdf:type sh:PropertyShape ;
-  sh:path ro:geometrieVlak ;  #here the object is the blank node.
-  sh:minCount 1 ;
-  sh:maxCount 1 ;
+ro_str:MultiPoint a sh:NodeShape ;
+  sh:class gml:MultiPoint ;
 .
 
-ro_str:geometrieMultiPunt rdf:type sh:PropertyShape ;
-  sh:path ro:geometrieMultiVlak ;
-  sh:minCount 1 ; 
-  sh:maxCount 1 ;
+ro_str:Surface a sh:NodeShape ;
+  sh:class gml:Surface ;
 .
 
-ro_str:geometrieMultiLijn rdf:type sh:PropertyShape ;
-  sh:path ro:geometrieMultiLijn ;
-  sh:minCount 1 ; 
-  sh:maxCount 1 ;
+ro_str:MultiSurface a sh:NodeShape ;
+  sh:class gml:MultiSurface ;
 .
 
-ro_str:geometrieMultiVlak rdf:type sh:PropertyShape ;
-  sh:path ro:geometrieMultiVlak ;
-  sh:minCount 1 ; 
-  sh:maxCount 1 ;
+ro_str:Curve a sh:NodeShape ;
+  sh:class gml:Curve ;
+.
+
+ro_str:MultiCurve a sh:NodeShape ;
+  sh:class gml:MultiCurve ;
 .

@@ -1,0 +1,454 @@
+
+#################################################################
+#    Bestemmingsplangebied
+#################################################################
+
+ro_str:Bestemmingsplangebied a sh:NodeShape ;
+  sh:targetClass ro:Bestemmingsplangebied ;
+  sh:property
+    ro_str:Bestemmingsplangebied_type , #would .._typeRuimtelijkInstrument suit better?
+    ro_str:Bestemmingsplangebied_beleidsmatigVerantwoorlijkeOverheid ,
+    ro_str:Bestemmingsplangebied_tekstverwijzing ,
+    ro_str:Bestemmingsplangebied_externPlan ,
+    ro_str:Bestemmingsplangebied_norm ,
+    ro_str:Bestemmingsplangebied_geometrie ;
+.
+
+# TODO: ??
+ro_str:Bestemmingsplangebied_type a sh:PropertyShape ;
+
+ro_str:Bestemmingsplangebied_beleidsmatigVerantwoorlijkeOverheid a sh:PropertyShape ;
+  sh:path ro:beleidsmatigVerantwoordelijkeOverheid ;
+  sh:class ro:Overheid ;
+  sh:nodeKind sh:IRI ;
+  sh:minCount 1 ;
+#  sh:maxCount 1 ; Linked Data approach would have us not concatenate national governments, therefore sh:maxCount 1 ; does not hold.
+#  sh:node ro_str:Overheden_BP is not needed for it contains all subclasses of ro:Overheid. the sh:class property is sufficient.
+.
+
+ro_str:Bestemmingsplangebied_tekstverwijzing a sh:PropertyShape ;
+  sh:path ro:tekst ;
+  sh:minCount 2 ;
+  sh:maxCount 4 ;
+  sh:node ro_str:TeksttypePG_BP ;
+  sh:and (
+    [
+      sh:qualifiedValueShape [
+        sh:path rdf:type  ;
+        sh:hasValue ro:Toelichting ;
+      ] ;
+      sh:qualifiedMinCount 1 ;
+      sh:qualifiedMaxCount 1 ;
+    ]
+    [
+      sh:qualifiedValueShape [
+        sh:path rdf:type  ;
+        sh:hasValue ro:Regels ;
+      ] ;
+      sh:qualifiedMaxCount 1 ;
+      sh:qualifiedMincount 1 ;
+    ]
+  ) ;
+.
+
+ro_str:Bestemmingsplangebied_externPlan a sh:PropertyShape ;
+  sh:path ro:externPlan ;
+  sh:maxCount 1 ;
+  sh:node ro_str:ExternPlanReferentie_BP ;
+.
+
+#TODO: Test if this works
+ro_str:ExternPlanReferentie_BP rdf:type sh:NodeShape ;
+  sh:closed true ;
+  sh:ignoredProperties (
+    ro:muteert
+    ro:vervangt
+    ro:tenGevolgeVan
+    ) ;
+.
+
+ro_str:Bestemmingsplangebied_norm a sh:PropertyShape ;
+  sh:path ro:verwijzingNorm ;
+  sh:minCount 2 ;
+  sh:maxCount 4 ;
+  sh:and ( [
+    sh:qualifiedValueShape [
+      sh:hasValue ro_beg:IMRO2012 ;
+    ] ;
+    sh:qualifiedMinCount 1 ;
+    sh:qualifiedMaxCount 1 ;
+    ]
+    [
+    sh:qualifiedValueShape [
+      sh:hasValue ro_beg:PRBP2012 ;
+    ] ;
+    sh:qualifiedMinCount 1 ;
+    sh:qualifiedMaxCount 1 ;
+    ]
+    [
+    sh:qualifiedValueShape [
+      sh:hasValue ro_beg:IMROPT2012 ;
+    ] ;
+    sh:qualifiedMaxCount 1 ;
+    ]
+    [
+    sh:qualifiedValueShape [
+      sh:hasValue ro_beg:PRABPK2012 ;
+    ] ;
+    sh:qualifiedMaxCount 1 ;
+    ]
+  )
+.
+
+ro_str:Bestemmingsplangebied_geometrie a sh:PropertyShape ;
+  sh:path ro:geometrie ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:node ro_str:VlakMultiVlak ;
+.
+
+
+#################################################################
+#    Bestemmingsvlak
+#################################################################
+
+ro_str:Bestemmingsvlak a sh:NodeShape ;
+  sh:targetClass ro:Bestemmingsvlak ;
+  sh:property
+    ro_str:Bestemmingsvlak_bestemmingshoofdgroep ,
+    ro_str:Bestemmingsvlak_artikelnummer ,
+    ro_str:Bestemmingsvlak_tekstverwijzing ,
+    ro_str:Bestemmingsvlak_label ,
+    ro_str:Bestemmingsvlak_geometrie ;
+.
+
+ro_str:Bestemmingsvlak_bestemmingshoofdgroep a sh:PropertyShape ;
+  sh:path ro:bestemmingshoofdgroep ;
+  sh:class skos:Concept ;
+  sh:nodeKind sh:IRI ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:node [
+    sh:property [
+      sh:path [ sh:inversePath skos:member ] ;
+      sh:hasValue ro_col:Bestemmingshoofdgroep
+    ]
+  ]
+.
+
+#TODO: "formaat conform SVBP2012"?
+ro_str:Bestemmingsvlak_artikelnummer a sh:PropertyShape ;
+  sh:path ro:artikelnummer ;
+  sh:nodeKind sh:Literal ;
+  sh:datatype xsd:string ;
+  sh:minCount 1 ;
+  sh:maxCount 1
+.
+
+# TODO: make TekstObjects Optional?
+ro_str:Bestemmingsvlak_tekstverwijzing a sh:PropertyShape ;
+  sh:path ro:tekstverwijzing ;
+  sh:class ro:Tekstobject ;
+  sh:nodeKind sh:IRI ;
+  sh:minCount 1 ;
+  sh:maxCount 1
+.
+
+ro_str:Bestemmingsvlak_label a sh:PropertyShape ;
+  sh:path ro:label ;
+  sh:class ro:Label ;
+  sh:nodeKind sh:IRI ;
+  sh:maxCount 1
+.
+
+ro_str:Bestemmingsvlak_geometrie a sh:PropertyShape ;
+  sh:path ro:geometrie ;
+  sh:class ogc:Geometry ;  # what to do with ro:Geometrie? having multiple approaches for geometries is not preferable..
+  sh:nodeKind sh:IRI ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:node ro_str:Surface
+.
+
+
+#################################################################
+#    Label
+#################################################################
+
+ro_str:Label a sh:NodeShape ;
+  sh:targetClass ro:Label ;
+  sh:property
+    ro_str:Label_labeltekst ,
+    ro_str:Label_positie
+.
+
+ro_str:Label_labeltekst a sh:PropertyShape ;
+  sh:path ro:labeltekst ;
+  sh:nodeKind sh:Literal ;
+  sh:datatype xsd:string ;
+  sh:minCount 1 ;
+  sh:maxCount 1
+.
+
+ro_str:Label_positie a sh:PropertyShape ;
+  sh:path ro:positie ;
+  sh:class sh:Labelpositie ;
+  sh:minCount 1
+.
+
+
+#################################################################
+#    Labelpositie
+#################################################################
+
+ro_str:Labelpositie a sh:NodeShape ;
+  sh:targetClass ro:Labelpositie ;
+  sh:property
+    ro_str:Labelpositie_plaatsingspunt ,
+    ro_str:Labelpositie_aanpijlingspunt ,
+    ro_str:Labelpositie_hoek
+.
+
+ro_str:Labelpositie_plaatsingspunt a sh:PropertyShape ;
+  sh:path ro:plaatsingspunt ;
+  sh:class
+    ogc:Geometry ,
+    gml:Point ;
+  sh:nodeKind sh:IRI ;
+  sh:minCount 1 ;
+  sh:maxCount 1
+.
+
+ro_str:Labelpositie_aanpijlingspunt a sh:PropertyShape ;
+  sh:path ro:aanpijlingspunt ;
+  sh:class
+    ogc:Geometry ,
+    gml:Point ;
+  sh:nodeKind sh:IRI ;
+  sh:maxCount 1
+.
+
+ro_str:Labelpositie_hoek a sh:PropertyShape ;
+  sh:path ro:hoek ;
+  sh:nodeKind sh:Literal ;
+  sh:datatype xsd:string ;
+  sh:maxCount 1
+.
+
+
+#################################################################
+#    Aanduiding
+#################################################################
+
+ro_str:Aanduiding a sh:Nodeshape ;
+  sh:targetClass ro:Aanduiding ;
+  sh:property
+    ro_str:Aanduiding_plangebied ,
+    ro_str:Aanduiding_bestemmingsvlak ;
+.
+
+ro_str:Aanduiding_plangebied a sh:PropertyShape ;
+  sh:path ro:plangebied ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:class ro:Bestemmingsplangebied ;
+.
+
+ro_str:Aanduiding_bestemmingsvlak a sh:PropertyShape ;
+  sh:path ro:bestemmingsvlak ;
+  sh:class ro:Bestemmingsvlak ;
+.
+
+
+#################################################################
+#    Bouwvlak
+#################################################################
+
+ro_str:Bouwvlak a sh:NodeShape ;
+  sh:targetClass ro:Bouwvlak ;
+  sh:property
+    ro_str:Bouwvlak_geometrie ,
+    ro_str:Bouwvlak_aanduiding ;
+.
+
+ro_str:Bouwvlak_geometrie a sh:PropertyShape ;
+  sh:path ro:geometrie ;
+  sh:nodeKind sh:IRI ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:node ro_str:VlakMultiVlak ;
+.
+
+ro_str:Bouwvlak_aanduiding a sh:PropertyShape ;
+  sh:path ro:aanduiding ;
+  sh:class ro:Aanduiding ;
+  sh:nodeKind sh:IRI ;
+  sh:maxCount 1 ;
+.
+
+
+#################################################################
+#    Functieaanduiding
+#################################################################
+
+ro_str:Functieaanduiding a sh:NodeShape ;
+  sh:targetClass ro:Functieaanduiding ;
+  sh:property
+    ro_str:Functieaanduiding_label ,
+    ro_str:Functieaanduiding_tekstverwijzing ,
+    ro_str:Functieaanduiding_geometrie ,
+    ro_str:Functieaanduiding_aanduiding ;
+.
+
+ro_str:Functieaanduiding_label a sh:PropertyShape ;
+
+ro_str:Functieaanduiding_tekstverwijzing a sh:PropertyShape ;
+
+ro_str:Functieaanduiding_geometrie a sh:PropertyShape ;
+
+ro_str:Functieaanduiding_aanduiding a sh:PropertyShape ;
+  sh:path ro:aanduiding ;
+  sh:class ro:Aanduiding ;
+  sh:nodeKind sh:IRI ;
+  sh:maxCount 1
+.
+
+
+#################################################################
+#    Gebiedsaanduiding
+#################################################################
+
+ro_str:Bouwaanduiding a sh:NodeShape ;
+  sh:targetClass ro:Bouwaanduiding ;
+  sh:property
+    ro_str:Bouwaanduiding_label ,
+    ro_str:Bouwaanduiding_tekstverwijzing ,
+    ro_str:Bouwaanduiding_geometrie ,
+    ro_str:Bouwaanduiding_aanduiding ;
+.
+
+ro_str:Bouwaanduiding_label a sh:PropertyShape ;
+
+ro_str:Bouwaanduiding_tekstverwijzing a sh:PropertyShape ;
+
+ro_str:Bouwaanduiding_geometrie a sh:PropertyShape ;
+
+ro_str:Bouwaanduiding_aanduiding a sh:PropertyShape ;
+  sh:path ro:aanduiding ;
+  sh:class ro:Aanduiding ;
+  sh:nodeKind sh:IRI ;
+  sh:maxCount 1
+.
+
+
+#################################################################
+#    Maatvoering
+#################################################################
+
+ro_str:Maatvoering a sh:NodeShape ;
+  sh:targetClass ro:Maatvoering ;
+  sh:property
+    ro_str:Maatvoering_symbool ,
+    ro_str:Maatvoering_maatvoeringwaarde ,
+    ro_str:Maatvoering_tekstverwijzing ,
+    ro_str:Maatvoering_geometrie ,
+    ro_str:Maatvoering_aanduiding ;
+.
+
+ro_str:Maatvoering_symbool a sh:PropertyShape ;
+  sh:path ro:symbool ;
+  sh:class ro:Symbool ;
+  sh:nodeKind sh:IRI
+.
+
+ro_str:Maatvoering_maatvoeringwaarde a sh:PropertyShape ;
+
+ro_str:Maatvoering_tekstverwijzing a sh:PropertyShape ;
+
+ro_str:Maatvoering_geometrie a sh:PropertyShape ;
+
+ro_str:Maatvoering_aanduiding a sh:PropertyShape ;
+  sh:path ro:aanduiding ;
+  sh:class ro:Aanduiding ;
+  sh:nodeKind sh:IRI ;
+  sh:maxCount 1
+.
+
+
+#################################################################
+#    Symbool
+#################################################################
+
+ro_str:Symbool a sh:NodeShape ;
+  sh:targetClass ro:Symbool ;
+  sh:property
+    ro_str:Symbool_code ,
+    ro_str:Symbool_positie ;
+.
+
+ro_str:Symbool_code a sh:PropertyShape;
+
+ro_str:Symbool_positie a sh:PropertyShape ;
+  sh:path ro:positie ;
+  sh:class sh:Labelpositie ;
+  sh:minCount 1
+.
+
+
+#################################################################
+#    Figuur
+#################################################################
+
+ro_str:Figuur a sh:NodeShape ;
+  sh:targetClass ro:Figuur ;
+  sh:property
+    ro_str:Figuur_afbeelding ,
+    ro_str:Figuur_label ,
+    ro_str:Figuur_tekstverwijzing ,
+    ro_str:Figuur_geometrie ,
+    ro_str:Figuur_aanduiding
+.
+
+ro_str:Figuur_afbeelding a sh:PropertyShape ;
+
+ro_str:Figuur_label a sh:PropertyShape ;
+
+ro_str:Figuur_tekstverwijzing a sh:PropertyShape ;
+
+ro_str:Figuur_geometrie a sh:PropertyShape ;
+
+ro_str:Figuur_aanduiding a sh:PropertyShape ;
+  sh:path ro:aanduiding ;
+  sh:class ro:Aanduiding ;
+  sh:nodeKind sh:IRI
+.
+
+
+#################################################################
+#    Gebiedsaanduiding
+#################################################################
+
+ro_str:Gebiedsaanduiding a sh:NodeShape ;
+  sh:targetClass ro:Gebiedsaanduiding ;
+  sh:property
+    ro_str:Gebiedsaanduiding_label ,
+    ro_str:Gebiedsaanduiding_artikelnummer ,
+    ro_str:Gebiedsaanduiding_tekstverwijzing ,
+    ro_str:Gebiedsaanduiding_geometrie ,
+    ro_str:Gebiedsaanduiding_aanduiding
+.
+
+ro_str:Gebiedsaanduiding_label a sh:PropertyShape ;
+
+ro_str:Gebiedsaanduiding_artikelnummer a sh:PropertyShape ;
+
+ro_str:Gebiedsaanduiding_tekstverwijzing a sh:PropertyShape ;
+
+ro_str:Gebiedsaanduiding_geometrie a sh:PropertyShape ;
+
+ro_str:Gebiedsaanduiding_aanduiding a sh:PropertyShape ;
+  sh:path ro:aanduiding ;
+  sh:class ro:Aanduiding ;
+  sh:nodeKind sh:IRI ;
+  sh:maxCount 1
+.

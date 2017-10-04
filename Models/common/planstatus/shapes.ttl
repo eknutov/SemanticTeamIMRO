@@ -13,29 +13,29 @@
 @prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 
-ro_str:Plangebied_planstatus rdf:type sh:PropertyShape ; #common
+ro_str:RuimtelijkInstrument_planstatus rdf:type sh:PropertyShape ; #common
   sh:path ro:planstatus ;
   sh:class ro:Planstatus ; #in order to avoid a blank node
-  sh:minCount 1 ; 
-  sh:maxCount 1 ; 
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
 #  sh:node ro_str:Planstatus ; instead used sh:targetClass
 .
-  
+
 ro_str:Planstatus rdf:type sh:NodeShape ; #common
   sh:targetClass ro:Planstatus
-  sh:property # and instance of class planstatus has four properties. 
+  sh:property # and instance of class planstatus has four properties.
     ro_str:Planstatus_status ,
     ro_str:Planstatus_datum ,
     ro_str:Planstatus_vaststellingsbesluit ,
     ro_str:Planstatus_besluitnummer ;
-. 
+.
 
 ro_str:Planstatus_status rdf:type sh:PropertyShape ; #common
   sh:path ro:status ; #the structuurvisieplangebied_R model.ttl file uses ro:planstatus, this is to be removed when the common model takes effect)
-  sh:class skos:Concept ; 
+  sh:class skos:Concept ;
   sh:nodeKind sh:IRI ;
   sh:minCount 1 ;
-  sh:maxCount 1 ; 
+  sh:maxCount 1 ;
   sh:node [ # I would advocate the use of a skos:Collections as defined in the bestemmingsplan model file.
     sh:property [
       sh:path [ sh:inversePath skos:member ] ;
@@ -52,26 +52,26 @@ ro_str:Planstatus_datum rdf:type sh:PropertyShape ;  #common
   sh:maxCount 1 ;
 .
 
-ro_str:Planstatus_vaststellingsbesluit 
-  rdf:type sh:PropertyShape ; 
-  sh:xone ( [ 
+ro_str:Planstatus_vaststellingsbesluit
+  rdf:type sh:PropertyShape ;
+  sh:xone ( [
     sh:and ( [
         sh:path ro:vaststellingsbesluit ;
         sh:nodeKind sh:Literal ;
-        sh:datatype xsd:string ; 
+        sh:datatype xsd:string ;
         sh:minCount 1 ;
-        sh:maxCount 1 ; 
-      ] 
+        sh:maxCount 1 ;
+      ]
       [
         sh:path ro:status ;
         sh:hasValue ro_beg:Vastgesteld_Planstatus ;
-      ] ) 
-    ] 
+      ] )
+    ]
     [
-    sh:and ( [ 
-        sh:path ro:vaststellingsbesluit ; 
+    sh:and ( [
+        sh:path ro:vaststellingsbesluit ;
         sh:maxCount 0 ;
-      ] 
+      ]
       [
         sh:not [
           sh:path ro:status ;
@@ -79,28 +79,28 @@ ro_str:Planstatus_vaststellingsbesluit
         ]
       ] )
     ] )
-.   
+.
 
-ro_str:Planstatus_besluitnummer 
-  rdf:type sh:PropertyShape ; 
+ro_str:Planstatus_besluitnummer
+  rdf:type sh:PropertyShape ;
   sh:xone ( [
     sh:and ( [
         sh:path ro:besluitnummer ;
         sh:nodeKind sh:Literal ;
-        sh:datatype xsd:string ; 
+        sh:datatype xsd:string ;
         sh:minCount 1 ;
-        sh:maxCount 1 ; 
-      ] 
+        sh:maxCount 1 ;
+      ]
       [
         sh:path ro:status ;
         sh:hasValue ro_beg:Vastgesteld_Planstatus ;
       ] )
-    ] 
+    ]
     [
-    sh:and ( [ 
-        sh:path ro:vaststellingsbesluit ; 
+    sh:and ( [
+        sh:path ro:vaststellingsbesluit ;
         sh:maxCount 0 ;
-      ] 
+      ]
       [
         sh:not [
           sh:path ro:status ;

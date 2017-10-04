@@ -45,46 +45,8 @@ ro:begrenzing
   rdfs:label "begrenzing"@nl ;
 .
 
-ro:inwinningsschaal 
+ro:inwinningsschaal
   rdf:type owl:DatatypeProperty ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "inwinningsschaal"@nl ;
-.
-
-### to be replaced by respective OGC datatypes
-ro:geometrieVlak
-  rdf:type owl:DatatypeProperty ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:subPropertyOf ro:geometrie ;
-  rdfs:label "geometrieVlak"@nl ;
-.
-ro:geometrieMultiVlak
-  rdf:type owl:DatatypeProperty ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:subPropertyOf ro:geometrie ;
-  rdfs:label "geometrieMultiVlak"@nl ;
-.
-ro:geometriePunt
-  rdf:type owl:DatatypeProperty ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:subPropertyOf ro:geometrie ;
-  rdfs:label "geometriePunt"@nl ;
-.
-ro:geometrieMultiPunt 
-  rdf:type owl:DatatypeProperty ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:subPropertyOf ro:geometrie ;
-  rdfs:label "geometrieMultiPunt"@nl ;
-.
-ro:geometriePunt
-  rdf:type owl:DatatypeProperty ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:subPropertyOf ro:geometrie ;
-  rdfs:label "geometriePunt"@nl ;
-.
-ro:geometrieMultiPunt 
-  rdf:type owl:DatatypeProperty ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:subPropertyOf ro:geometrie ;
-  rdfs:label "geometrieMultiPunt"@nl ;
 .

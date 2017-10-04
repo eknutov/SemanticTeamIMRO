@@ -24,7 +24,7 @@ De losse klasses zijn:
 - Ondergrond
 - Vaststellingsbesluit
 
-Dit maakt de data linkbaarder en daarmee ook waardevoller in ee n linked data ecosysteem.
+Dit maakt de data linkbaarder en daarmee ook waardevoller in een linked data ecosysteem.
 
 We kunnen nu bijvoorbeeld links
 
@@ -34,4 +34,4 @@ Attribuut: verwijzingNaarExternPlanInfo
 
 Deze assosiatie naar een samengesteld attribuut is gemodelleerd als volgt:
 - Een abstracte relatie `ro:externPlan`
-- En de conctrete relaties: `ro:muteert`, `ro:vervangt`, `ro:tenGevolgeVan`
+- En de concrete relaties: `ro:muteert`, `ro:vervangt`, `ro:tenGevolgeVan`

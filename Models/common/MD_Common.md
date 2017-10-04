@@ -1,4 +1,9 @@
 # Common
+## skos
+
+The skos vocabulary is located at:
+[Vocabulary](common/Other/begrip.ttl)
+This contains the entire vocabulary, both for the common and the specific parts.
 
 ## verwijzing
 
@@ -84,7 +89,7 @@ classes:
 properties:
 
 - beleidsmatigVerantoordelijkeOverheid
-- naamOverheid 
+- naamOverheid
 - overheidsCode
 
 shapes:
@@ -92,7 +97,7 @@ shapes:
 - overheden_R
 
 
-## other 
+## other
 
 classes:
 

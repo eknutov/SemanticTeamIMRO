@@ -26,6 +26,7 @@
   dc:title "Ruimtelijke Ordening vocabulaire"@nl ;
   rdfs:label "Ruimtelijke Ordening vocabulaire"@nl ;
   owl:imports <http://datashapes.org/dash> ;
+#  sh:shapesGraph :ro_str #<- TODO
 .
 
 ro:RuimtelijkPlanOfBesluit
@@ -34,6 +35,7 @@ ro:RuimtelijkPlanOfBesluit
   rdfs:label "RuimtelijkPlanOfBesluit"@nl ;
 .
 
+#TODO: use this class to replace ro:Planobject. It's currently used for the attribute '+typePlanobject: RuimtelijkPlanobject', this has to be resolved.
 ro:RuimtelijkPlanobject
   rdf:type owl:Class ;
   rdfs:label "Ruimtelijk planobject"@nl ;
@@ -59,12 +61,12 @@ ro:naam
   rdfs:label "naam"@nl ;
 .
 
-ro:plangebied
-  rdf:type owl:ObjectProperty ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:label "plangebied"@nl ;
-  rdfs:range nen3610:Plangebied ;
-.
+#ro:plangebied
+#  rdf:type owl:ObjectProperty ;
+#  rdfs:isDefinedBy :ro ;
+#  rdfs:label "plangebied"@nl ;
+#  rdfs:range nen3610:Plangebied ;
+#.
 
 ro:planobject
   rdf:type owl:ObjectProperty ;
@@ -72,6 +74,21 @@ ro:planobject
   rdfs:label "planobject"@nl ;
   rdfs:range nen3610:Planobject ;
 .
+
+ro:RuimtelijkInstrument
+  rdf:type owl:Class ;
+  dcterms:subject ro_beg:RuimtelijkInstrument ;
+  rdfs:label "Ruimtelijk Instrument"@nl ;
+  rdfs:isDefinedBy ro: ;
+.
+
+ ro:RuimtelijkInstrument
+   rdf:type owl:Class ;
+   dcterms:subject ro_beg:RuimtelijkInstrument ;
+   rdfs:label "Ruimtelijk Instrument"@nl ;
+   rdfs:isDefinedBy ro: ;
+  .
+
 
 ro:thema
   rdf:type owl:DatatypeProperty ;
@@ -99,17 +116,17 @@ ro:ondergrond
   rdfs:range ro:Ondergrond ;
 .
 
-ro:ondergrondtype  
-  rdf:type owl:ObjectProperty ; 
+ro:ondergrondtype
+  rdf:type owl:ObjectProperty ;
   rdfs:domain ro:Ondergrond ;
-  rdfs:isDefinedBy :ro ; 
+  rdfs:isDefinedBy :ro ;
   rdfs:label "ondergrondtype"@nl ;
   #TODO should probably be a class/subclass structure.
 .
 
-ro:beleid 
+ro:beleid
   rdf:type owl:ObjectProperty ;
-  rdfs:isDefinedBy :ro ; 
+  rdfs:isDefinedBy :ro ;
   rdfs:label "beleid"@nl ;
 .
 

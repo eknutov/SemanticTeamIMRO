@@ -13,14 +13,14 @@
 @prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 
-nen3610_str:GeoObject 
-  rdf:type sh:NodeShape ; #common
+nen3610_str:GeoObject
+  rdf:type sh:NodeShape ; #common 
   sh:targetClass nen3610:GeoObject ;
   sh:sparql [
       sh:message "{$this} is an instance of an abstract class." ;
       sh:prefixed ro_str:prefixes
       sh:select """
-SELECT DISTINCT $this 
+SELECT DISTINCT $this
 WHERE {
   $this rdf:type nen3610:GeoObject .
   FILTER NOT EXISTS {
@@ -40,7 +40,7 @@ WHERE {
 nen3610_str:NEN3610ID #common
   rdf:type sh:NodeShape ;
   sh:targetClass nen3610:NEN3610ID ;
-  sh:property 
+  sh:property
     nen3610_str:GeoObject_lokaalID ,
     nen3610_str:GeoObject_namespace ,
     nen3610_str:GeoObject_versie ;
@@ -80,12 +80,12 @@ nen3610_str:GeoObject_versie #common
 
 #should this be stored in another folder since it's not nen3610?
 ro_str:PlanlogischGebied rdf:type sh:NodeShape ; #shape defined for IMRO, not nen3610, therefore the prefix.
-  sh:property ro_str:naam ; 
+  sh:property ro_str:naam ;
   sh:sparql [
     sh:message "{$this} is an instance of an abstract class." ;
-    sh:prefixes ro_str:prefixes ; 
+    sh:prefixes ro_str:prefixes ;
     sh:select """
-SELECT DISTINCT $this 
+SELECT DISTINCT $this
 WHERE {
   $this rdf:type ro:PlanologischGebied  .
   FILTER NOT EXISTS {
@@ -103,12 +103,12 @@ nen3610_str:Planobject a sh:NodeShape ; #common
     sh:path nen3610:identificatie ;
 #    sh:datatype xsd:string ; already declared
     sh:maxLength 32 ;
-    ] ;  
+    ] ;
   sh:sparql [
       sh:message "{$this} is an instance of an abstract class." ;
-      sh:prefixes ro_str:prefixes ; 
+      sh:prefixes ro_str:prefixes ;
       sh:select """
-SELECT DISTINCT $this 
+SELECT DISTINCT $this
 WHERE {
   $this rdf:type ro:Planobject  .
   FILTER NOT EXISTS {
@@ -130,7 +130,7 @@ WHERE {
 
 ro_str:Plangebied rdf:type sh:NodeShape ; #common
   sh:targetClass nen3610:Plangebied ;
-  sh:property 
+  sh:property
     ro_str:Plangebied_locatieNaam ,
     ro_str:Plangebied_planstatus ,
     ro_str:Plangebied_ondergrond ;
@@ -138,12 +138,12 @@ ro_str:Plangebied rdf:type sh:NodeShape ; #common
     sh:path nen3610:identificatie ;
 #    sh:datatype xsd:string ; already declared, as well as multiplicity
     sh:maxLength 23 ;
-    ] ;  
+    ] ;
   sh:sparql [
     sh:message "{$this} is an instance of an abstract class." ;
-    sh:prefixes ro_str:prefixes ; 
+    sh:prefixes ro_str:prefixes ;
     sh:select """
-SELECT DISTINCT $this 
+SELECT DISTINCT $this
 WHERE {
   $this rdf:type ro:Plangebied  .
   FILTER NOT EXISTS {

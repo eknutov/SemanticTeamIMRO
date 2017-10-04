@@ -4,7 +4,8 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-#what about capitalisation?
+# TODO: integrate with general SKOS file.
+
 
 ro_beg:Structuurvisieplangebied_R a skos:Concept ;
 	rdfs:label "Structuurvisieplangebied_R"@nl ;
@@ -17,7 +18,7 @@ ro_beg:Structuurvisieplangebied_R a skos:Concept ;
 
 ro_beg:Idealisatie a skos:Concept ;
 	rdfs:label "Idealisatie"@nl ;
-	skos:definition "Manier waarop de geometrie ruimtelijk geïnterpreteerd moet worden."@nl ; 
+	skos:definition "Manier waarop de geometrie ruimtelijk geïnterpreteerd moet worden."@nl ;
 	skos:inScheme ro_begkr:ro ;
 .
 
@@ -25,7 +26,7 @@ ro_beg:typePlan a skos:Concept ;
   rdfs:label "typePlan"@nl ;
   skos:definition "Nadere aanduiding van het type ruimtelijk instrument."@nl ;
   skos:inScheme ro_begkr:ro ;
-. 
+.
 
 
 ######### planstatus
@@ -157,7 +158,7 @@ ro_col:Idealisatie_2 a skos:Collection ;
   skos:prefLabel "Idealisatie_2"@nl ;
   skos:member
     ro_beg:exact ,
-    ro_beg:indicatief 
+    ro_beg:indicatief
 .
 ro_col:Idealisatie_3 a skos:Collection ;
   rdfs:label "Idealisatie_3"@nl ;
@@ -193,4 +194,3 @@ ro_beg:cartografischFiguur a skos:Concept ;
   skos:prefLabel "Cartografisch figuur"@nl ;
   skos-thes:broaderGeneric ro_beg:Idealisatie ;
 .
-

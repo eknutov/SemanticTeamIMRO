@@ -15,12 +15,10 @@
 
 ### tekst
 
-#this nodeshape depicts the possible classes
-
 #here we define that all instances of ro:Tekst should have a reference to the tekst as a string.
 ro_str:Tekst rdf:type sh:NodeShape ;
   sh:targetClass ro:Tekst ;
-  sh:property [ 
+  sh:property [
     sh:path ro:tekstverwijzing ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
@@ -28,10 +26,22 @@ ro_str:Tekst rdf:type sh:NodeShape ;
     ] ;
 .
 
+rostr:TeksttypePG_BP rdf:type sh:NodeShape ;
+  sh:property [
+    sh:path rdf:type
+    sh:in (
+      ro:Regels
+      ro:Toelichting
+      ro:BijlageBijRegels
+      ro:BijlageBijToelichting
+    )
+  ]
+
+
 ro_str:Teksttype_SV rdf:type sh:NodeShape ;
   sh:property [
     sh:path rdf:type ;
-    sh:in ( 
+    sh:in (
       ro:Beleid
       ro:Toelichting
     ) ] ;
@@ -40,7 +50,7 @@ ro_str:Teksttype_SV rdf:type sh:NodeShape ;
 ro_str:TeksttypePG_SV rdf:type sh:NodeShape ;
   sh:property [
     sh:path rdf:type ;
-    sh:in ( 
+    sh:in (
       ro:Besluitdocument
       ro:Bijlage
       ro:Toelichting
@@ -50,9 +60,9 @@ ro_str:TeksttypePG_SV rdf:type sh:NodeShape ;
 ro_str:Teksttype_PSV rdf:type sh:NodeShape ;
   sh:property [
     sh:path rdf:type ;
-    sh:in ( 
+    sh:in (
       ro:Beleid
-      ro:Beleid_Gemandateerd_aan_GS
+      ro:Beleid_Gemandateerd_aan_GS #TODO: adjusted to Naming Conventions
       ro:Toelichting
     ) ] ;
 .
@@ -64,8 +74,8 @@ ro_str:Illustratie #illutration is an entity of type either kaart or afbeelding 
   sh:property [
     sh:path ro:illustratieverwijzing ;
 #    sh:datatype xsd:string ; #object can be a hyperlink, would we want to store it as a string?
-    sh:minCount 1 ; 
-    sh:maxCount 1 ; 
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
   ]
 .
 
@@ -96,7 +106,7 @@ ro_str:cartografieInfo rdf:type sh:NodeShape ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
     sh:datatype xsd:string ;
-    ]  
+    ]
   sh:property [
     sh:path ro:symboolCode ;
     sh:maxCount 1 ;
@@ -115,40 +125,40 @@ ro_str:ExternPlanReferentiePG_SV rdf:type sh:NodeShape ;
     ro:uitgewerktIn
     ro:gebruiktInformatieUit
     ro:tenGevolgeVan
-    ) #include other properties such as rdf:type of is there a better solution? 
+    ) #include other properties such as rdf:type of is there a better solution?
       # it's in a blanknode, there are no other predicates.
-. 
+.
 # we could include a sh:SPARQL to make sure all objects are of type ro:PlanologischGebeid?
 
 #what will happen if we don't have an IRI for a external plan?
 
 #this nodeshape is no longer required for the role predicates point to IRIs, containing a idn and name.
 #ro_str:ExternPlan rdf:type sh:NodeShape ;
-#  sh:property 
+#  sh:property
 #    ro_str:naamExternPlan ,
 #    ro_str:idn # ,
-##    ro_str:rolExternPlan 
+##    ro_str:rolExternPlan
 #.
 
 ro_str:naamExternPlan rdf:type sh:PropertyShape ;
-  sh:path ro:naam ; 
-  sh:minCount 1 ; 
-  sh:maxCount 1 ; 
-  sh:datatype xsd:string ; 
+  sh:path ro:naam ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:datatype xsd:string ;
 .
 
-ro_str:idn rdf:type sh:PropertyShape ; 
-  sh:path ro:idn ; 
-  sh:maxCount 1 ; 
-  sh:datatype xsd:string 
+ro_str:idn rdf:type sh:PropertyShape ;
+  sh:path ro:idn ;
+  sh:maxCount 1 ;
+  sh:datatype xsd:string
 .
 
 # roles are now defined as predicates.
 #ro_str:rolExternPlan rdf:type sh:PropertyShape ;
-#  sh:path ro:rolExternPlan ; 
-#  sh:minCount 1 ; 
-#  sh:maxCount 1 ; 
-#  sh:node ro_str:RolExternPlanPG_SV 
+#  sh:path ro:rolExternPlan ;
+#  sh:minCount 1 ;
+#  sh:maxCount 1 ;
+#  sh:node ro_str:RolExternPlanPG_SV
 #.
 
 ro_str:ExternPlanReferentie_SV rdf:type sh:NodeShape ;

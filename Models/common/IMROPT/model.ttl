@@ -1,0 +1,672 @@
+
+#################################################################
+#    TekstObject
+#
+# TODO: see DOCO ontology
+#################################################################
+
+ro:Tekstobject a owl:Class ;
+  rdfs:label "Tekstobject"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf doco:Section ;
+.
+
+ro:identificatie a owl:DatatypeProperty ;
+  rdfs:label "identificatie"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:domain ro:Tekstobject ;
+.
+
+ro:volgnummer a owl:DatatypeProperty ;
+  rdfs:label "volgnummer"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:domain ro:Tekstobject ;
+.
+
+ro:niveau a owl:DatatypeProperty ;
+  rdfs:label "niveau"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:domain ro:Tekstobject ;
+.
+
+ro:titel a owl:ObjectProperty ;
+  rdfs:label "titel"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:domain ro:Tekstobject ;
+  rdfs:subPropertyOf pattern:containsAsHeader ;
+.
+
+ro:externeVerwijzing a owl:DatatypeProperty ;
+  rdfs:label "externe verwijzing"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:domain ro:Tekstobject ;
+.
+
+ro:tekst a owl:DatatypeProperty ;
+  rdfs:label "tekst"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:domain ro:Tekstobject ;
+  rdfs:subPropertyOf c4o:hasContent ;
+.
+
+ro:interneVerwijzing a owl:ObjectProperty ;
+  rdfs:label "interneVerwijzing"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:domain ro:Tekstobject ;
+  rdfs:range ro:Tekstobject ;
+.
+
+ro:ouder a owl:ObjectProperty ;
+  rdfs:label "ouder"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:domain ro:Tekstobject ;
+  rdfs:range ro:Tekstobject ;
+  rdfs:subPropertyOf pattern:isContainedBy
+.
+
+ro:naamPraktijkRichtlijn a owl:ObjectProperty ;
+  rdfs:label "naam praktijkrichtlijn"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:domain ro:Tekstobject ;
+.
+
+# TODO: see DOCO ontology
+ro:Titel a owl:Class ;
+  rdfs:label "Titel"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf doco:SectionTitle ;
+.
+
+ro:titellabel a owl:DatatypeProperty ;
+  rdfs:label "titellabel"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:domain ro:Titel ;
+.
+
+ro:titelnummer a owl:DatatypeProperty ;
+  rdfs:label "titelnummer"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:domain ro:Titel ;
+.
+
+ro:titelnaam a owl:DatatypeProperty ;
+  rdfs:label "titelnaam"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:domain ro:Titel ;
+.
+
+#################################################################
+#    Planteksten Regels
+#################################################################
+
+ro:Document a owl:Class ;
+  rdfs:label "document"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Document
+.
+
+ro:Regels a owl:Class ;
+  rdfs:label "regels"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Regels
+.
+
+ro:InleidendeRegels a owl:Class ;
+  rdfs:label "inleidende regels"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:InleidendeRegels
+.
+
+ro:Begrippen a owl:Class ;
+  rdfs:label "begrippen"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Begrippen
+.
+
+ro:WijzeVanMeten a owl:Class ;
+  rdfs:label "wijze van meten"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:WijzeVanMeten
+.
+
+ro:Bestemmingsregels a owl:Class ;
+  rdfs:label "bestemmingsregels"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Bestemmingsregels
+.
+
+ro:Bestemming a owl:Class ;
+  rdfs:label "bestemming"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Bestemming
+.
+
+ro:Bestemmingsomschrijving a owl:Class ;
+  rdfs:label "bestemmingsomschrijving"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Bestemmingsomschrijving
+.
+
+ro:Bouwregels a owl:Class ;
+  rdfs:label "bouwregels"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Bouwregels
+.
+
+ro:NadereEisen a owl:Class ;
+  rdfs:label "nadere eisen"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:NadereEisen
+.
+
+ro:AfwijkenVanDeBouwregels a owl:Class ;
+  rdfs:label "afwijken van de bouwregels"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:AfwijkenVanDeBouwregels
+.
+
+ro:SpecifiekeGebruiksregels a owl:Class ;
+  rdfs:label "specifieke gebruiksregels"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:SpecifiekeGebruiksregels
+.
+
+ro:AfwijkenVanDeGebruiksregels a owl:Class ;
+  rdfs:label "afwijken van de gebruiksregels"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:AfwijkenVanDeGebruiksregels
+.
+
+ro:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden a owl:Class ;
+  rdfs:label "omgevingsvergunning voor het uitvoeren van werken, geen bouwwerk zijnde, of van werkzaamheden "@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden
+.
+
+ro:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk a owl:Class ;
+  rdfs:label "omgevingsvergunning voor het slopen van een bouwwerk "@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk
+.
+
+ro:Wijzigingsbevoegdheid a owl:Class ;
+  rdfs:label "wijzigingsbevoegdheid"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Wijzigingsbevoegdheid
+.
+
+ro:VoorlopigeBestemming a owl:Class ;
+  rdfs:label "voorlopige bestemming"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:VoorlopigeBestemming
+.
+
+ro:Bestemmingsomschrijving a owl:Class ;
+  rdfs:label "bestemmingsomschrijving"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Bestemmingsomschrijving
+.
+
+ro:Bouwregels a owl:Class ;
+  rdfs:label "bouwregels"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Bouwregels
+.
+
+ro:NadereEisen a owl:Class ;
+  rdfs:label "nadere eisen"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:NadereEisen
+.
+
+ro:AfwijkenVanDeBouwregels a owl:Class ;
+  rdfs:label "afwijken van de bouwregels"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:AfwijkenVanDeBouwregels
+.
+
+ro:SpecifiekeGebruiksregels a owl:Class ;
+  rdfs:label "specifieke gebruiksregels"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:SpecifiekeGebruiksregels
+.
+
+ro:AfwijkenVanDeGebruiksregels a owl:Class ;
+  rdfs:label "afwijken van de gebruiksregels"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:AfwijkenVanDeGebruiksregels
+.
+
+ro:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden a owl:Class ;
+  rdfs:label "omgevingsvergunning voor het uitvoeren van werken, geen bouwwerk zijnde, of van werkzaamheden "@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden
+.
+
+ro:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk a owl:Class ;
+  rdfs:label "omgevingsvergunning voor het slopen van een bouwwerk "@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk
+.
+
+ro:Wijzigingsbevoegdheid a owl:Class ;
+  rdfs:label "wijzigingsbevoegdheid"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Wijzigingsbevoegdheid
+.
+
+ro:GeldigheidstermijnVanDeVoorlopigeBestemming a owl:Class ;
+  rdfs:label "geldigheidstermijn van de voorlopige bestemming"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:GeldigheidstermijnVanDeVoorlopigeBestemming
+.
+
+ro:DefinitieveBestemmingBijVoorlopigeBestemming a owl:Class ;
+  rdfs:label "definitieve bestemming bij voorlopige bestemming"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:DefinitieveBestemmingBijVoorlopigeBestemming
+.
+
+ro:Bestemmingsomschrijving a owl:Class ;
+  rdfs:label "bestemmingsomschrijving"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Bestemmingsomschrijving
+.
+
+ro:Bouwregels a owl:Class ;
+  rdfs:label "bouwregels"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Bouwregels
+.
+
+ro:NadereEisen a owl:Class ;
+  rdfs:label "nadere eisen"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:NadereEisen
+.
+
+ro:AfwijkenVanDeBouwregels a owl:Class ;
+  rdfs:label "afwijken van de bouwregels"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:AfwijkenVanDeBouwregels
+.
+
+ro:SpecifiekeGebruiksregels a owl:Class ;
+  rdfs:label "specifieke gebruiksregels"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:SpecifiekeGebruiksregels
+.
+
+ro:AfwijkenVanDeGebruiksregels a owl:Class ;
+  rdfs:label "afwijken van de gebruiksregels"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:AfwijkenVanDeGebruiksregels
+.
+
+ro:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden a owl:Class ;
+  rdfs:label "omgevingsvergunning voor het uitvoeren van werken, geen bouwwerk zijnde, of van werkzaamheden "@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden
+.
+
+ro:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk a owl:Class ;
+  rdfs:label "omgevingsvergunning voor het slopen van een bouwwerk "@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk
+.
+
+ro:Wijzigingsbevoegdheid a owl:Class ;
+  rdfs:label "wijzigingsbevoegdheid"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Wijzigingsbevoegdheid
+.
+
+ro:UitTeWerkenBestemming a owl:Class ;
+  rdfs:label "uit te werken bestemming"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:UitTeWerkenBestemming
+.
+
+ro:Bestemmingsomschrijving a owl:Class ;
+  rdfs:label "bestemmingsomschrijving"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Bestemmingsomschrijving
+.
+
+ro:Uitwerkingsregels a owl:Class ;
+  rdfs:label "uitwerkingsregels"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Uitwerkingsregels
+.
+
+ro:Bouwregels a owl:Class ;
+  rdfs:label "bouwregels"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Bouwregels
+.
+
+ro:AfwijkenVanDeBouwregels a owl:Class ;
+  rdfs:label "afwijken van de bouwregels"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:AfwijkenVanDeBouwregels
+.
+
+ro:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden a owl:Class ;
+  rdfs:label "omgevingsvergunning voor het uitvoeren van werken, geen bouwwerk zijnde, of van werkzaamheden"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden
+.
+
+ro:Dubbelbestemming_Tekstobject a owl:Class ;
+  rdfs:label "dubbelbestemming (Tekstobject)"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Dubbelbestemming_Tekstobject
+.
+
+ro:Bestemmingsomschrijving a owl:Class ;
+  rdfs:label "bestemmingsomschrijving"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Bestemmingsomschrijving
+.
+
+ro:Bouwregels a owl:Class ;
+  rdfs:label "bouwregels"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Bouwregels
+.
+
+ro:NadereEisen a owl:Class ;
+  rdfs:label "nadere eisen"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:NadereEisen
+.
+
+ro:AfwijkenVanDeBouwregels a owl:Class ;
+  rdfs:label "afwijken van de bouwregels"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:AfwijkenVanDeBouwregels
+.
+
+ro:SpecifiekeGebruiksregels a owl:Class ;
+  rdfs:label "specifieke gebruiksregels"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:SpecifiekeGebruiksregels
+.
+
+ro:AfwijkenVanDeGebruiksregels a owl:Class ;
+  rdfs:label "afwijken van de gebruiksregels"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:AfwijkenVanDeGebruiksregels
+.
+
+ro:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden a owl:Class ;
+  rdfs:label "omgevingsvergunning voor het uitvoeren van werken, geen bouwwerk zijnde, of van werkzaamheden "@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden
+.
+
+ro:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk a owl:Class ;
+  rdfs:label "omgevingsvergunning voor het slopen van een bouwwerk "@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk
+.
+
+ro:Wijzigingsbevoegdheid a owl:Class ;
+  rdfs:label "wijzigingsbevoegdheid"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Wijzigingsbevoegdheid
+.
+
+ro:AlgemeneRegels a owl:Class ;
+  rdfs:label "algemene regels"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:AlgemeneRegels
+.
+
+ro:Anti_dubbeltelregel a owl:Class ;
+  rdfs:label "anti-dubbeltelregel"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Anti_dubbeltelregel
+.
+
+ro:AlgemeneBouwregels a owl:Class ;
+  rdfs:label "algemene bouwregels"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:AlgemeneBouwregels
+.
+
+ro:AlgemeneGebruiksregels a owl:Class ;
+  rdfs:label "algemene gebruiksregels"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:AlgemeneGebruiksregels
+.
+
+ro:AlgemeneAanduidingsregels a owl:Class ;
+  rdfs:label "algemene aanduidingsregels"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:AlgemeneAanduidingsregels
+.
+
+ro:AlgemeneAfwijkingsregels a owl:Class ;
+  rdfs:label "algemene afwijkingsregels"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:AlgemeneAfwijkingsregels
+.
+
+ro:AlgemeneWijzigingsregels a owl:Class ;
+  rdfs:label "algemene wijzigingsregels"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:AlgemeneWijzigingsregels
+.
+
+ro:VerwezenlijkingInDeNaasteToekomst a owl:Class ;
+  rdfs:label "verwezenlijking in de naaste toekomst"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:VerwezenlijkingInDeNaasteToekomst
+.
+
+ro:AlgemeneProcedureregels a owl:Class ;
+  rdfs:label "algemene procedureregels"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:AlgemeneProcedureregels
+.
+
+ro:OverigeRegels a owl:Class ;
+  rdfs:label "overige regels"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:OverigeRegels
+.
+
+ro:Overgangs_EnSlotregels a owl:Class ;
+  rdfs:label "overgangs- en slotregels"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Overgangs_EnSlotregels
+.
+
+ro:Overgangsrecht a owl:Class ;
+  rdfs:label "overgangsrecht"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Overgangsrecht
+.
+
+ro:Slotregel a owl:Class ;
+  rdfs:label "slotregel"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Lid
+.
+
+ro:Lid a owl:Class ;
+  rdfs:label "lid"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Document
+.
+
+ro:Sublid a owl:Class ;
+  rdfs:label "sublid"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Sublid
+.
+
+ro:SubSubLid a owl:Class ;
+  rdfs:label "subsublid"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:SubSubLid
+.
+
+ro:SubSubSubLid a owl:Class ;
+  rdfs:label "subsubsublid"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:SubSubSubLid
+.
+
+ro:BijlagenBijRegels a owl:Class ;
+  rdfs:label "bijlagen bij regels"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:BijlagenBijRegels
+.
+
+ro:BijlageBijRegels a owl:Class ;
+  rdfs:label "bijlage bij regels"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:BijlageBijRegels
+.
+
+ro:Deel a owl:Class ;
+  rdfs:label "deel"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Deel
+.
+
+ro:Hoofdstuk a owl:Class ;
+  rdfs:label "hoofdstuk"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Hoofdstuk
+.
+
+ro:Paragraaf a owl:Class ;
+  rdfs:label "paragraaf"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Paragraaf
+.
+
+ro:Subparagraaf a owl:Class ;
+  rdfs:label "subparagraaf"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Subparagraaf
+.
+
+ro:Subsubparagraaf a owl:Class ;
+  rdfs:label "subsubparagraaf"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Subsubparagraaf
+.
+
+ro:Subsubsubparagraaf a owl:Class ;
+  rdfs:label "subsubsubparagraaf"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Subsubsubparagraaf
+.
+
+ro:Toelichting a owl:Class ;
+  rdfs:label "toelichting"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Toelichting
+.
+
+ro:BijlagenBijToelichting a owl:Class ;
+  rdfs:label "bijlagen bij toelichting"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:BijlagenBijToelichting
+.
+
+ro:BijlageBijToelichting a owl:Class ;
+  rdfs:label "bijlage bij toelichting"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:BijlageBijToelichting
+.
+
+ro:Overig_Tekstobject a owl:Class ;
+  rdfs:label "Overig (TekstObject)"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Overig_Tekstobject
+.

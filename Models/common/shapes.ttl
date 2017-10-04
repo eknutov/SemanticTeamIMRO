@@ -13,16 +13,21 @@
 @prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 
-
+ro_str:RuimtelijkInstrument a sh:Nodeshape ;
+  sh:targetClass ro:RuimtelijkInstrument ;
+  sh:property
+    ro_str:RuimtelijkInstrument_planstatus ;
+.
 
 ro_str:naam rdf:type sh:PropertyShape ; #TODO: ScopedName
   sh:path ro:naam ;
-  sh:minCount 1 ; 
-  sh:maxCount 1 ; 
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
   sh:datatype xsd:string ;
 .
 
-ro_str:Plangebied_locatieNaam 
+#TODO: convert to RuimtelijkInstrument
+ro_str:Plangebied_locatieNaam
   rdf:type sh:PropertyShape ; #common
   sh:path ro:locatieNaam ;
   sh:nodeKind sh:Literal ;
@@ -35,8 +40,8 @@ ro_str:Plangebied_ondergrond a sh:PropertyShape ;
   sh:node ro_str:Plangebied_Ondergrond ;
 .
 
-ro_str:Plangebied_Ondergrond a sh:NodeShape ; #
-  sh:property 
+ro_str:Plangebied_Ondergrond a sh:NodeShape ;
+  sh:property
     ro:Ondergrond_ondergrondtype ,
     ro:ondergrond_datum ;
 .
@@ -51,20 +56,20 @@ ro_str:Plangebied_Ondergrond a sh:NodeShape ; #
 #.
 
 #should be discussed with team
-#plangebied ro:ondergrond X . x is an instance of class ro:Ondergrond 
+#plangebied ro:ondergrond X . x is an instance of class ro:Ondergrond
 # x ro:ondergrondtype Y . y is a named skos:concept
 # x ro:datum Z . z is a date in xsd:date format
-    
-ro_str:Ondergrond_ondergrondtype 
-  rdf:type sh:PropertyShape ; 
+
+ro_str:Ondergrond_ondergrondtype
+  rdf:type sh:PropertyShape ;
   sh:path ro:ondergrondtype ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
 .
 
-ro_str:ondergrond_datum 
-  rdf:type sh:PropertyShape ; 
-  sh:path ro:datum ; 
+ro_str:ondergrond_datum
+  rdf:type sh:PropertyShape ;
+  sh:path ro:datum ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
 .
@@ -90,13 +95,13 @@ ro_str:prefixes #should we store this here?
 
 ro_str:RuimtelijkPlanOfBesluit_SV
   rdf:type sh:NodeShape ;
-  sh:in ( 
-    ro:Structuurvisie 
+  sh:in (
+    ro:Structuurvisie
     ) ;
 .
 
 ro_str:BeleidInfo_RSV rdf:type sh:NodeShape ; #treated as a blank node
-  sh:property 
+  sh:property
     BeleidInfo_RSV_belang ,
     BeleidInfo_RSV_rol ,
     BeleidInfo_RSV_instrument ;

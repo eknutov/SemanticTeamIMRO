@@ -20,14 +20,14 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ro:verwijzing 
+ro:verwijzing
   rdf:type rdf:Property ;
   rdfs:label "verwijzing"@nl ;
   rdfs:isDefinedBy :ro ;
 .
 
-
 ### Tekst
+#TODO: adjusted to Naming Conventions
 
 ro:tekstReferentie
   rdf:type owl:AnnotationProperty ;
@@ -213,32 +213,33 @@ ro:symboolCode
 ro:externPlan
   rdf:type owl:ObjectProperty ;
   rdfs:label "extern plan"@nl ;
-  rdfs:isDefinedBy :ro ; 
+  rdfs:isDefinedBy :ro ;
   rdfs:subPropertyOf ro:verwijzing ;
 .
 
-ro:idn
-  rdf:type owl:DatatypeProperty ;
-  rdfs:domain ro:ExternPlan ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:label "idn"@nl ;
-.
+#redundant if we point to IRIs of external plans.
+#ro:idn
+#  rdf:type owl:DatatypeProperty ;
+#  rdfs:domain ro:ExternPlan ;
+#  rdfs:isDefinedBy :ro ;
+#  rdfs:label "idn"@nl ;
+#.
 
-ro:muteert 
+ro:muteert
   rdf:type owl:ObjectProperty ;
   rdfs:subPropertyOf ro:externPlan ;
   rdfs:isDefinedBy :ro ;
   dcterms:subject ro_beg:muteert ;
 .
 
-ro:vervangt 
+ro:vervangt
   rdf:type owl:ObjectProperty ;
   rdfs:subPropertyOf ro:externPlan ;
   rdfs:isDefinedBy :ro ;
   dcterms:subject ro_beg:vervangt ;
 .
 
-ro:uitTeWerkenIn 
+ro:uitTeWerkenIn
   rdf:type owl:ObjectProperty ;
   rdfs:subPropertyOf ro:externPlan ;
   rdfs:isDefinedBy :ro ;
@@ -252,14 +253,14 @@ ro:uitgewerktIn
 #  dcterms:subject ro_beg: ;
 .
 
-ro:gebruiktInformatieUit 
+ro:gebruiktInformatieUit
   rdf:type owl:ObjectProperty ; #does this IRI deviate too much from 'informatie in extern plan/besluit'?
   rdfs:subPropertyOf ro:externPlan ;
   rdfs:isDefinedBy :ro ;
 #  dcterms:subject ro_beg:vervangt ;
 .
 
-ro:tenGevolgeVan 
+ro:tenGevolgeVan
   rdf:type owl:ObjectProperty ;
   rdfs:subPropertyOf ro:externPlan ;
   rdfs:isDefinedBy :ro ;
