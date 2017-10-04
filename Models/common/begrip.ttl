@@ -3,6 +3,11 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
+@prefix ro_begkr: <http://data.informatiehuisruimte.nl/id/begrippenkader/> .
+@prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix skos-thes: <http://www.w3.org/2004/02/skos/extensions#> . #TODO: replace with working URI
 
 #what about capitalisation?
 #Things from bestemmingsplangbied are still to be added.
@@ -12,7 +17,7 @@ ro_beg:Structuurvisieplangebied_R a skos:Concept ;
 	skos:prefLabel "Structuurvisieplangebied_R"@nl ;
 	skos-thes:broaderGeneric: ro_beg:Plangebied ;
 	skos:definition "Gebied, of gebieden, binnen de grenzen van een Rijksstructuurvise."@nl ;
-	skos:inScheme ro_begkr:ro
+	skos:inScheme ro_begkr:ro ;
 	skos:notation "Rijks structuurvisie"
 .
 
