@@ -1,0 +1,142 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ogc: <http://www.opengis.net/ont/geosparql#> .
+@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
+@prefix gml: <http://www.opengis.net/ont/gml#> .
+@prefix nen3610_str: <http://data.informatiehuisruimte.nl/def/nen3610/> .
+@prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
+@prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
+@prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
+@prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+ro_str:RuimtelijkInstrument a sh:Nodeshape ;
+  sh:targetClass ro:RuimtelijkInstrument ;
+  sh:property
+    ro_str:RuimtelijkInstrument_planstatus ;
+.
+
+ro_str:naam rdf:type sh:PropertyShape ; #TODO: ScopedName
+  sh:path ro:naam ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:datatype xsd:string ;
+.
+
+#TODO: convert to RuimtelijkInstrument
+ro_str:Plangebied_locatieNaam
+  rdf:type sh:PropertyShape ; #common
+  sh:path ro:locatieNaam ;
+  sh:nodeKind sh:Literal ;
+  sh:datatype xsd:string ;
+.
+
+ro_str:Plangebied_ondergrond a sh:PropertyShape ;
+  sh:path ro:ondergrond ;
+  sh:minCount 1 ;
+  sh:node ro_str:Plangebied_Ondergrond ;
+.
+
+ro_str:Plangebied_Ondergrond a sh:NodeShape ;
+  sh:property
+    ro:Ondergrond_ondergrondtype ,
+    ro:ondergrond_datum ;
+.
+
+#think this was the same as ro_str:naam at nen3610:planologischgebied
+#ro_str:Plangebied_naam a sh:PropertyShape ;
+#  sh:path ro:naam ;
+#  sh:nodeKind sh:Literal ;
+#  sh:datatype xsd:string ;
+#  sh:minCount 1 ;
+#  sh:maxCount 1
+#.
+
+#should be discussed with team
+#plangebied ro:ondergrond X . x is an instance of class ro:Ondergrond
+# x ro:ondergrondtype Y . y is a named skos:concept
+# x ro:datum Z . z is a date in xsd:date format
+
+ro_str:Ondergrond_ondergrondtype
+  rdf:type sh:PropertyShape ;
+  sh:path ro:ondergrondtype ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+.
+
+ro_str:ondergrond_datum
+  rdf:type sh:PropertyShape ;
+  sh:path ro:datum ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+.
+
+ro_str:prefixes #should we store this here?
+  sh:declare [
+      sh:namespace "http://data.informatiehuisruimte.nl/def/ro#"^^xsd:anyURI ;
+      sh:prefix "ro" ;
+    ] ;
+  sh:declare [
+      sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+      sh:prefix "rdf" ;
+    ] ;
+  sh:declare [
+      sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ;
+      sh:prefix "rdfs" ;
+    ] ;
+  sh:declare [
+      sh:namespace "http://data.informatiehuisruimte.nl/def/nen3610#"^^xsd:anyURI ;
+      sh:prefix "nen3610" ;
+    ] ;
+.
+
+ro_str:RuimtelijkPlanOfBesluit_SV
+  rdf:type sh:NodeShape ;
+  sh:in (
+    ro:Structuurvisie
+    ) ;
+.
+
+ro_str:BeleidInfo_RSV rdf:type sh:NodeShape ; #treated as a blank node
+  sh:property
+    BeleidInfo_RSV_belang ,
+    BeleidInfo_RSV_rol ,
+    BeleidInfo_RSV_instrument ;
+.
+
+ro_str:BeleidInfo_RSV_belang rdf:type sh:PropertyShape ;
+  sh:path ro:belang ;
+  sh:datatype xsd:string ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+.
+
+ro_str:BeleidInfo_RSV_rol rdf:type sh:PropertyShape ;
+  sh:path ro:rol ;
+  sh:datatype xsd:string ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+.
+
+ro_str:BeleidInfo_RSV_instrument rdf:type sh:PropertyShape ;
+  sh:path ro:instrument ;
+  sh:maxCount 1 ;
+  sh:in (
+    ro:amvb #were instuments named individuals?
+    ro:beheersverordening
+    ro:bestemmingsplan
+    ro:bestuurlijkeAfspraken
+    ro:coordinatieregeling
+    ro:inpassingsplan
+    ro:omgevingsvergunning
+    ro:proactieveAanwijzing
+    ro:reactieveAanwijzing
+    ro:verordening
+    ro:voorbereidingsbesluit
+    ro:vooroverleg
+    ro:zienswijze
+  )
+.

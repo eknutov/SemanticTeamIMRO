@@ -1,0 +1,275 @@
+@prefix : <http://data.informatiehuisruimte.nl/def/> .
+@prefix c4o: <http://purl.org/spar/biro/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix doco: <http://purl.org/spar/doco/> .
+@prefix gml: <http://www.opengis.net/ont/gml#> .
+@prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
+@prefix ogc: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pattern: <http://www.essepuntato.it/2008/12/pattern#> .
+@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
+@prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
+@prefix ro_nen3610_beg: <http://data.informatiehuisruimte.nl/nen3610/id/begrip/> .
+@prefix ro_sym: <http://data.informatiehuisruimte.nl/ro/id/symbool/> .
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ro:verwijzing
+  rdf:type rdf:Property ;
+  rdfs:label "verwijzing"@nl ;
+  rdfs:isDefinedBy :ro ;
+.
+
+### Tekst
+#TODO: adjusted to Naming Conventions
+
+ro:tekstReferentie
+  rdf:type owl:AnnotationProperty ;
+  rdfs:label "tekstverwijzing"@nl ;
+.
+
+ro:Tekst
+  rdf:type owl:Class ;
+  rdfs:label "Tekst"@nl ;
+  rdfs:subClassOf owl:Thing ;
+.
+
+ro:Toelichting
+  rdf:type owl:Class ;
+  rdfs:label "Toelichting"@nl ;
+  rdfs:subClassOf ro:Tekst ;
+.
+
+ro:Beleid
+  rdf:type owl:Class ;
+  rdfs:label "Beleid"@nl ;
+  rdfs:subClassOf ro:Tekst ;
+.
+
+ro:Regel_met_Voorbereidingsbescherming
+  rdf:type owl:Class ;
+  rdfs:label "Regel met Voorbereidingsbescherming"@nl ;
+  rdfs:subClassOf ro:Tekst ;
+.
+
+ro:Regel_zonder_Voorbereidingsbescherming
+  rdf:type owl:Class ;
+  rdfs:label "Regel zonder Voorbereidingsbescherming"@nl ;
+  rdfs:subClassOf ro:Tekst ;
+.
+
+ro:Regels
+  rdf:type owl:Class ;
+  rdfs:label "Regels"@nl ;
+  rdfs:subClassOf ro:Tekst ;
+.
+
+ro:Beleid_Gemandateerd_aan_GS
+  rdf:type owl:Class ;
+  rdfs:label "Beleid Gemandateerd aan GS"@nl ;
+  rdfs:subClassOf ro:Tekst ;
+.
+
+ro:Besluitdocument
+  rdf:type owl:Class ;
+  rdfs:label "Besluitdocument"@nl ;
+  rdfs:subClassOf ro:Tekst ;
+.
+
+ro:Besluittekst
+  rdf:type owl:Class ;
+  rdfs:label "Besluittekst"@nl ;
+  rdfs:subClassOf ro:Tekst ;
+.
+
+ro:Bijlage
+  rdf:type owl:Class ;
+  rdfs:label "Bijlage"@nl ;
+  rdfs:subClassOf ro:Tekst ;
+.
+
+ro:Bijlage_Besluitdocument
+  rdf:type owl:Class ;
+  rdfs:label "Bijlage Besluitdocument"@nl ;
+  rdfs:subClassOf ro:Tekst ;
+.
+
+ro:Bijlage_Besluittekst
+  rdf:type owl:Class ;
+  rdfs:label "Bijlage Besluittekst"@nl ;
+  rdfs:subClassOf ro:Tekst ;
+.
+
+ro:Bijlage_Regel_met_voorbereidingsbescherming
+  rdf:type owl:Class ;
+  rdfs:label "Bijlage Regel met voorbereidingsbescherming"@nl ;
+  rdfs:subClassOf ro:Tekst ;
+.
+
+ro:Bijlage_Regel_zonder_voorbereidingsbescherming
+  rdf:type owl:Class ;
+  rdfs:label "Bijlage Regel zonder voorbereidingsbescherming"@nl ;
+  rdfs:subClassOf ro:Tekst ;
+.
+
+ro:Bijlage_Regels
+  rdf:type owl:Class ;
+  rdfs:label "Bijlage Regels"@nl ;
+  rdfs:subClassOf ro:Tekst ;
+.
+
+ro:Bijlage_Toelichting
+  rdf:type owl:Class ;
+  rdfs:label "Bijlage Toelichting"@nl ;
+  rdfs:subClassOf ro:Tekst ;
+.
+
+ro:Document
+  rdf:type owl:Class ;
+  rdfs:label "Document"@nl ;
+  rdfs:subClassOf ro:Tekst ;
+.
+
+
+### Illustratie
+
+ro:Illustratie
+  rdf:type owl:Class ;
+  rdfs:label "Illustratie"@nl ;
+  rdfs:subClassOf owl:Thing ;
+.
+
+ro:Afbeelding
+  rdf:type owl:Class ;
+  rdfs:label "Afbeelding"@nl ;
+  rdfs:subClassOf ro:Illustratie ;
+.
+
+ro:Kaart
+  rdf:type owl:Class ;
+  rdfs:label "Kaart"@nl ;
+  rdfs:subClassOf ro:Illustratie ;
+.
+
+ro:illustratie
+  rdf:type owl:AnnotationProperty ;
+  rdfs:label "illustratie"@nl ;
+  rdfs:subPropertyOf ro:verwijzing ;
+.
+
+ro:afbeeldingReferentie
+  rdf:type owl:AnnotationProperty ;
+  rdfs:label "afbeeldingReferentie"@nl ;
+  rdfs:subPropertyOf ro:illustratie ;
+.
+
+ro:kaartReferentie
+  rdf:type owl:AnnotationProperty ;
+  rdfs:label "kaartReferentie"@nl ;
+  rdfs:subPropertyOf ro:illustratie ;
+.
+
+ro:illustratieverwijzing #no longer used in any shapes, forgot to remove?
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "illustratieverwijzing"@nl ;
+.
+
+ro:legendaNaam
+  rdf:type owl:DatatypeProperty ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:label "legenda naam"@nl ;
+.
+
+### cartografie
+
+ro:cartografie
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "cartografie"@nl ;
+.
+
+ro:kaartNaam
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "kaart naam"@nl ;
+.
+
+ro:kaartNummer
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "kaart nummer"@nl ;
+.
+
+ro:symboolCode
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "symbool code"@nl ;
+.
+
+### extern plan
+
+ro:externPlan
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "extern plan"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:subPropertyOf ro:verwijzing ;
+.
+
+#redundant if we point to IRIs of external plans.
+#ro:idn
+#  rdf:type owl:DatatypeProperty ;
+#  rdfs:domain ro:ExternPlan ;
+#  rdfs:isDefinedBy :ro ;
+#  rdfs:label "idn"@nl ;
+#.
+
+ro:muteert
+  rdf:type owl:ObjectProperty ;
+  rdfs:subPropertyOf ro:externPlan ;
+  rdfs:isDefinedBy :ro ;
+  dcterms:subject ro_beg:muteert ;
+.
+
+ro:vervangt
+  rdf:type owl:ObjectProperty ;
+  rdfs:subPropertyOf ro:externPlan ;
+  rdfs:isDefinedBy :ro ;
+  dcterms:subject ro_beg:vervangt ;
+.
+
+ro:uitTeWerkenIn
+  rdf:type owl:ObjectProperty ;
+  rdfs:subPropertyOf ro:externPlan ;
+  rdfs:isDefinedBy :ro ;
+#  dcterms:subject ro_beg: ;
+.
+
+ro:uitgewerktIn
+  rdf:type owl:ObjectProperty ;
+  rdfs:subPropertyOf ro:externPlan ;
+  rdfs:isDefinedBy :ro ;
+#  dcterms:subject ro_beg: ;
+.
+
+ro:gebruiktInformatieUit
+  rdf:type owl:ObjectProperty ; #does this IRI deviate too much from 'informatie in extern plan/besluit'?
+  rdfs:subPropertyOf ro:externPlan ;
+  rdfs:isDefinedBy :ro ;
+#  dcterms:subject ro_beg:vervangt ;
+.
+
+ro:tenGevolgeVan
+  rdf:type owl:ObjectProperty ;
+  rdfs:subPropertyOf ro:externPlan ;
+  rdfs:isDefinedBy :ro ;
+  dcterms:subject ro_beg:tenGevolgeVan ;
+.
+
+### norm
+
+ro:verwijzingNorm
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "verwijzing norm"@nl ;
+.

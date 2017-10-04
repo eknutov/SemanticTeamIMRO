@@ -1,0 +1,172 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ogc: <http://www.opengis.net/ont/geosparql#> .
+@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
+@prefix gml: <http://www.opengis.net/ont/gml#> .
+@prefix nen3610_str: <http://data.informatiehuisruimte.nl/def/nen3610/> .
+@prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
+@prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
+@prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
+@prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+### tekst
+
+#here we define that all instances of ro:Tekst should have a reference to the tekst as a string.
+ro_str:Tekst rdf:type sh:NodeShape ;
+  sh:targetClass ro:Tekst ;
+  sh:property [
+    sh:path ro:tekstverwijzing ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+    ] ;
+.
+
+rostr:TeksttypePG_BP rdf:type sh:NodeShape ;
+  sh:property [
+    sh:path rdf:type
+    sh:in (
+      ro:Regels
+      ro:Toelichting
+      ro:BijlageBijRegels
+      ro:BijlageBijToelichting
+    )
+  ]
+
+
+ro_str:Teksttype_SV rdf:type sh:NodeShape ;
+  sh:property [
+    sh:path rdf:type ;
+    sh:in (
+      ro:Beleid
+      ro:Toelichting
+    ) ] ;
+.
+
+ro_str:TeksttypePG_SV rdf:type sh:NodeShape ;
+  sh:property [
+    sh:path rdf:type ;
+    sh:in (
+      ro:Besluitdocument
+      ro:Bijlage
+      ro:Toelichting
+    ) ] ;
+.
+
+ro_str:Teksttype_PSV rdf:type sh:NodeShape ;
+  sh:property [
+    sh:path rdf:type ;
+    sh:in (
+      ro:Beleid
+      ro:Beleid_Gemandateerd_aan_GS #TODO: adjusted to Naming Conventions
+      ro:Toelichting
+    ) ] ;
+.
+
+### illustratie
+
+ro_str:Illustratie #illutration is an entity of type either kaart or afbeelding with a reference to its storage location. We don't need sh:in in this case.
+  rdf:type sh:NodeShape ;
+  sh:property [
+    sh:path ro:illustratieverwijzing ;
+#    sh:datatype xsd:string ; #object can be a hyperlink, would we want to store it as a string?
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ]
+.
+
+ro_str:Illustratie_legendaNaam rdf:type sh:NodeShape ; #can I treat a nodeshape as a propertyshape?
+  sh:path ro:legendaNaam ;
+  sh:datatype xsd:string ;
+  sh:maxCount 1 ;
+.
+
+ro_str:Illustratie_IllustratieNaam rdf:type sh:NodeShape ; #can I treat a nodeshape as a propertyshape?
+  sh:path ro:illustratieNaam ;
+  sh:datatype xsd:string ;
+  sh:maxCount 1 ;
+.
+
+### cartografie
+
+# TODO clean up.
+ro_str:cartografieInfo rdf:type sh:NodeShape ;
+  sh:property [
+    sh:path ro:kaartNaam ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+    ]
+  sh:property [
+    sh:path ro:kaartNummer ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+    ]
+  sh:property [
+    sh:path ro:symboolCode ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+    ]
+.
+
+### extern plan
+
+ro_str:ExternPlanReferentiePG_SV rdf:type sh:NodeShape ;
+  sh:closed true ; # this construct is used to restrict the allowed predicates from the blank node.
+  sh:ignoredProperties (
+    ro:muteert
+    ro:vervangt
+    ro:uitTeWerkenIn
+    ro:uitgewerktIn
+    ro:gebruiktInformatieUit
+    ro:tenGevolgeVan
+    ) #include other properties such as rdf:type of is there a better solution?
+      # it's in a blanknode, there are no other predicates.
+.
+# we could include a sh:SPARQL to make sure all objects are of type ro:PlanologischGebeid?
+
+#what will happen if we don't have an IRI for a external plan?
+
+#this nodeshape is no longer required for the role predicates point to IRIs, containing a idn and name.
+#ro_str:ExternPlan rdf:type sh:NodeShape ;
+#  sh:property
+#    ro_str:naamExternPlan ,
+#    ro_str:idn # ,
+##    ro_str:rolExternPlan
+#.
+
+ro_str:naamExternPlan rdf:type sh:PropertyShape ;
+  sh:path ro:naam ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:datatype xsd:string ;
+.
+
+ro_str:idn rdf:type sh:PropertyShape ;
+  sh:path ro:idn ;
+  sh:maxCount 1 ;
+  sh:datatype xsd:string
+.
+
+# roles are now defined as predicates.
+#ro_str:rolExternPlan rdf:type sh:PropertyShape ;
+#  sh:path ro:rolExternPlan ;
+#  sh:minCount 1 ;
+#  sh:maxCount 1 ;
+#  sh:node ro_str:RolExternPlanPG_SV
+#.
+
+ro_str:ExternPlanReferentie_SV rdf:type sh:NodeShape ;
+  sh:closed true ;
+  sh:ignoredProperties (
+    ro:uitTeWerkenIn
+    ro:uitgewerktIn
+    ro:gebruiktInformatieUit
+    ro:tenGevolgeVan
+    )
+.
