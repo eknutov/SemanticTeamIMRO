@@ -373,7 +373,7 @@ ro_str:Bouwaanduiding_aanduiding a sh:PropertyShape ;
   sh:path ro:aanduiding ;
   sh:class ro:Aanduiding ;
   sh:nodeKind sh:IRI ;
-  sh:maxCount 1
+  sh:maxCount 1 ;
 .
 
 
@@ -394,14 +394,38 @@ ro_str:Maatvoering a sh:NodeShape ;
 ro_str:Maatvoering_symbool a sh:PropertyShape ;
   sh:path ro:symbool ;
   sh:class ro:Symbool ;
-  sh:nodeKind sh:IRI
+  sh:nodeKind sh:IRI ;
 .
 
+#TODO what to do when class is not ro:Omvang
 ro_str:Maatvoering_maatvoeringwaarde a sh:PropertyShape ;
+  sh:path ro:maatvoeringWaarde ;
+  sh:nodeKind sh:IRI ;
+  sh:class ro:Omvang
+  sh:node [
+    sh:path ro:waarde ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:nodeKind sh:Literal ;
+    sh:datatype xsd:string ; #altough the literal contains numbers, a string would suit better I think due to the needed pattern in TODO.
+#    sh:pattern "" # should adhere to some pattern, TODO
+  ] ;
+.
 
 ro_str:Maatvoering_tekstverwijzing a sh:PropertyShape ;
+  sh:path ro:tekst ;
+  sh:nodeKind sh:IRI ;
+  sh:maxCount 1 ;
+  sh:node ro_str:Teksttype_BP ;
+.
 
 ro_str:Maatvoering_geometrie a sh:PropertyShape ;
+  sh:path ro:geometrie ;
+  sh:nodeKind sh:IRI ;
+  sh:minCount 1 ;
+  sh:maxcount 1 ;
+  sh:node ro_str:Surface ;
+.
 
 ro_str:Maatvoering_aanduiding a sh:PropertyShape ;
   sh:path ro:aanduiding ;
