@@ -304,7 +304,7 @@ ro_str:Functieaanduiding_label a sh:PropertyShape ;
   sh:path ro:label ;
   sh:class ro:Label ;
   sh:nodeKind sh:IRI ;
-  sh:maxCount 1
+  sh:maxCount 1 ;
 .
 
 ro_str:Functieaanduiding_tekstverwijzing a sh:PropertyShape ;
@@ -343,12 +343,32 @@ ro_str:Bouwaanduiding a sh:NodeShape ;
     ro_str:Bouwaanduiding_aanduiding ;
 .
 
+#same as the label for functieaanduiding.
 ro_str:Bouwaanduiding_label a sh:PropertyShape ;
+  sh:path ro:label ;
+  sh:class ro:Label ;
+  sh:nodeKind sh:IRI ;
+  sh:maxCount 1 ;
+.
 
+#same for Functieaanduiding
 ro_str:Bouwaanduiding_tekstverwijzing a sh:PropertyShape ;
+  sh:path ro:tekst ;
+  sh:nodeKind sh:IRI ;
+  sh:maxCount 1 ;
+  sh:node ro_str:Teksttype_BP ;
+.
 
+#same for Functieaanduiding
 ro_str:Bouwaanduiding_geometrie a sh:PropertyShape ;
+  sh:path ro:geometrie ;
+  sh:nodeKind sh:IRI ;
+  sh:minCount 1 ;
+  sh:maxcount 1 ;
+  sh:node ro_str:Surface ;
+.
 
+#same for Functieaanduiding
 ro_str:Bouwaanduiding_aanduiding a sh:PropertyShape ;
   sh:path ro:aanduiding ;
   sh:class ro:Aanduiding ;
