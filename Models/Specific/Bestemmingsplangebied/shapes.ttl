@@ -447,6 +447,12 @@ ro_str:Symbool a sh:NodeShape ;
 .
 
 ro_str:Symbool_code a sh:PropertyShape;
+  sh:path ro:code ;
+  sh:mincount 1 ;
+  sh:maxCount 1 ;
+  sh:nodeKind sh:Literal ;
+  sh:datatype xsd:String ;
+.
 
 ro_str:Symbool_positie a sh:PropertyShape ;
   sh:path ro:positie ;
@@ -462,20 +468,63 @@ ro_str:Symbool_positie a sh:PropertyShape ;
 ro_str:Figuur a sh:NodeShape ;
   sh:targetClass ro:Figuur ;
   sh:property
-    ro_str:Figuur_afbeelding ,
+    ro_str:Figuur_naam ,
+    ro_str:Figuur_illustratie ,
     ro_str:Figuur_label ,
     ro_str:Figuur_tekstverwijzing ,
     ro_str:Figuur_geometrie ,
     ro_str:Figuur_aanduiding
 .
 
-ro_str:Figuur_afbeelding a sh:PropertyShape ;
+ro_str:Figuur_naam a sh:PropertyShape ;
+  sh:path ro:naam ;
+  sh:node ro_str:Figuren ;
+.
+
+ro_str:Figuur_illustratie a sh:PropertyShape ;
+  sh:xone (
+   [
+     sh:and (
+       [
+         sh:path ro:naam ;
+         sh:hasValue "dwarsprofiel" ;
+       ]
+       [
+         sh:path ro:illustratie ;
+         sh:class ro:Afbeelding ; #TODO: make sure all instances of roÏllustratie have a name.
+         sh:minCount 1 ;
+         sh:maxCount 1 ;
+       ]
+     )
+   ]
+   [
+     sh:path ro:illustratie ;
+     sh:maxCount 0 ;
+   ]
+  ) ;
+.
 
 ro_str:Figuur_label a sh:PropertyShape ;
+  sh:path ro:label ;
+  sh:class ro:Label ;
+  sh:nodeKind sh:IRI ;
+  sh:maxCount 1 ;
+.
 
+#TODO: include ro:tekst a owl:AnnotationProperty to the common section.
 ro_str:Figuur_tekstverwijzing a sh:PropertyShape ;
+  sh:path ro:tekst ;
+  sh:maxCount 1 ;
+  sh:node ro_str:Teksttype_BP ;
+.
 
 ro_str:Figuur_geometrie a sh:PropertyShape ;
+  sh:path ro:geometrie ;
+  sh:nodeKind sh:IRI ;
+  sh:minCount 1 ;
+  sh:maxcount 1 ;
+  sh:node ro_str:LijnMultiLijn ;
+.
 
 ro_str:Figuur_aanduiding a sh:PropertyShape ;
   sh:path ro:aanduiding ;
@@ -483,6 +532,26 @@ ro_str:Figuur_aanduiding a sh:PropertyShape ;
   sh:nodeKind sh:IRI
 .
 
+#is this the way do deal with the codelist? or make namedIndividuals with a string attribute?
+ro_str:Figuren a sh:Nodeshape ;
+  sh:or (
+    [ sh:in (
+        "as van de weg"
+        "dwarsprofiel"
+        "gevellijn"
+        "hartleiding - brandstof"
+        "hartlijn leiding - gas"
+        "hartlijn leiding - hoogspanning"
+        "hartlijn leiding - hoogspanningsverbinding"
+        "hartlijn leiding - olie"
+        "hartlijn leiding - riool"
+        "hartlijn leiding - water"
+        "relatie"
+      )
+    ]
+    [ sh:pattern "(^hartlijn leiding - [a-z ]*)" ]
+    )
+.
 
 #################################################################
 #    Gebiedsaanduiding
