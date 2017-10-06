@@ -28,7 +28,7 @@ ro:Plan a owl:Class .
 
 
 #################################################################
-#    Bestemmingsplangebied -> Bestemmingsplan
+#    Bestemmingsplangebied <- Bestemmingsplan
 #################################################################
 
 #ro:Bestemmingsplangebied a owl:Class ;
@@ -42,31 +42,32 @@ ro:Bestemmingsplan a owl:Class ;
   rdfs:label "Bestemmingsplan"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Plan ;
-  dcterms:subject ro_beg:Bestemmingsplan ; ;
+  dcterms:subject ro_beg:Bestemmingsplan ;
+
 .
 
 ro:Inpassingsplan a owl:Class ;
   rdfs:label "Inpassingsplan"@nl ;
   rdfs:isDefinedBy :ro ;
-  rdfs:subClassOf ro:Bestemmingsplan ; ;
+  rdfs:subClassOf ro:Bestemmingsplan ;
 .
 
 ro:Rijksbestemmingsplan a owl:Class ;
   rdfs:label "Rijksbestemmingsplan"@nl ;
   rdfs:isDefinedBy :ro ;
-  rdfs:subClassOf ro:Bestemmingsplan ; ;
+  rdfs:subClassOf ro:Bestemmingsplan ;
 .
 
 ro:Uitwerkingsplan a owl:Class ;
   rdfs:label "Uitwerkingsplan"@nl ;
   rdfs:isDefinedBy :ro ;
-  rdfs:subClassOf ro:Bestemmingsplan ; ;
+  rdfs:subClassOf ro:Bestemmingsplan ;
 .
 
 ro:Wijzigingsplan a owl:Class ;
   rdfs:label "Wijzigingsplan"@nl ;
   rdfs:isDefinedBy :ro ;
-  rdfs:subClassOf ro:Bestemmingsplan ; ;
+  rdfs:subClassOf ro:Bestemmingsplan ;
 .
 
 #################################################################
