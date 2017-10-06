@@ -1,3 +1,19 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ogc: <http://www.opengis.net/ont/geosparql#> .
+@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
+@prefix gml: <http://www.opengis.net/ont/gml#> .
+@prefix nen3610_str: <http://data.informatiehuisruimte.nl/def/nen3610/> .
+@prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
+@prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
+@prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
+@prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
+
 
 #################################################################
 #    Bestemmingsplangebied
@@ -16,6 +32,7 @@ ro_str:Bestemmingsplangebied a sh:NodeShape ;
 
 # TODO: ??
 ro_str:Bestemmingsplangebied_type a sh:PropertyShape ;
+.
 
 ro_str:Bestemmingsplangebied_beleidsmatigVerantwoorlijkeOverheid a sh:PropertyShape ;
   sh:path ro:beleidsmatigVerantwoordelijkeOverheid ;
@@ -401,7 +418,7 @@ ro_str:Maatvoering_symbool a sh:PropertyShape ;
 ro_str:Maatvoering_maatvoeringwaarde a sh:PropertyShape ;
   sh:path ro:maatvoeringWaarde ;
   sh:nodeKind sh:IRI ;
-  sh:class ro:Omvang
+  sh:class ro:Omvang ;
   sh:node [
     sh:path ro:waarde ;
     sh:minCount 1 ;
@@ -560,20 +577,57 @@ ro_str:Figuren a sh:Nodeshape ;
 ro_str:Gebiedsaanduiding a sh:NodeShape ;
   sh:targetClass ro:Gebiedsaanduiding ;
   sh:property
-    ro_str:Gebiedsaanduiding_label ,
+    ro_str:Gebiedsaanduiding_naam ,
+#    ro_str:Gebiedsaanduiding_gebiedsaanduidinggroep , <- this is incorporated at the class hierarchy
     ro_str:Gebiedsaanduiding_artikelnummer ,
     ro_str:Gebiedsaanduiding_tekstverwijzing ,
+    ro_str:Gebiedsaanduiding_label ,
     ro_str:Gebiedsaanduiding_geometrie ,
     ro_str:Gebiedsaanduiding_aanduiding
 .
 
-ro_str:Gebiedsaanduiding_label a sh:PropertyShape ;
+#TODO again, what to do with codelists.
+ro_str:Gebiedsaanduiding_naam a sh:Propertyshape ;
+  sh:path ro:naam ;
+#  sh:node ro_str:Gebiedsaanduidingen ;
+.
 
 ro_str:Gebiedsaanduiding_artikelnummer a sh:PropertyShape ;
+  sh:path ro:artikelnummer ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:nodeKind sh:Literal ;
+  sh:datatype xsd:string ;
+.
 
 ro_str:Gebiedsaanduiding_tekstverwijzing a sh:PropertyShape ;
+  sh:path ro:tekst ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:node ro_str:Teksttype_BP ;
+.
 
+ro_str:Gebiedsaanduiding_label a sh:PropertyShape ;
+  sh:path ro:label ;
+  sh:class ro:Label ;
+  sh:nodeKind sh:IRI ;
+  sh:maxCount 1 ;
+# the current constraint on ro:labeltekst should be overwritten as the data is a integer here.
+#  sh:node [
+#    sh:path ro:labeltekst ;
+#    sh:nodeKind sh:Literal ;
+#    sh:datatype xsd:integer ;
+#    sh:minCount 1 ;
+#    sh:maxCount 1 ;
+#  ]
+.
 ro_str:Gebiedsaanduiding_geometrie a sh:PropertyShape ;
+  sh:path ro:geometrie ;
+  sh:nodeKind sh:IRI ;
+  sh:minCount 1 ;
+  sh:maxcount 1 ;
+  sh:node ro_str:VlakMultiVlak ;
+.
 
 ro_str:Gebiedsaanduiding_aanduiding a sh:PropertyShape ;
   sh:path ro:aanduiding ;
