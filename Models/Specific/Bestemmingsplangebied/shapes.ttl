@@ -13,28 +13,66 @@
 @prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
+@prefix dct: <http://udfr.org/docs/onto/> .
 
+#Dummy section, Should be moved to/recreated in common in due time.
 
+ro_str:Plan a sh:NodeShape ;
+  sh:property
+    ro_str:Plan_spatial ,
+    ro_str:Plan_hasPart
+.
+
+ro_str:Plan_spatial a sh:PropertyShape ;
+  sh:path dct:spatial ;
+  sh:class ro:Plangebied ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+.
+
+ro_str:Plan_hasPart a sh:PropertyShape ;
+  sh:path dct:hasPart ;
+  sh:class ro:Planobject ;
+.
+
+ro_str:Planobject a sh:NodeShape ;
+  sh:property ro_str:Planobject_isPartOf ;
+.
+
+ro_str:Planobject_isPartOf a sh:PropertyShape ;
+  sh:path dct:isPartOf ;
+  sh:class ro:Plan ;
+.
+
+ro_str:Plangebied a sh:NodeShape ;
+  sh:property ro_str:Plangebied_geometry
+.
+
+ro_str:Plangebied_geometrie a sh:PropertyShape ;
+  sh:path ro:geometry ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+.
 #################################################################
-#    Bestemmingsplangebied
+#    Bestemmingsplangebied -> now Bestemmingsplan
 #################################################################
 
-ro_str:Bestemmingsplangebied a sh:NodeShape ;
+ro_str:Bestemmingsplan a sh:NodeShape ;
   sh:targetClass ro:Bestemmingsplangebied ;
   sh:property
-    ro_str:Bestemmingsplangebied_type , #would .._typeRuimtelijkInstrument suit better?
-    ro_str:Bestemmingsplangebied_beleidsmatigVerantwoorlijkeOverheid ,
-    ro_str:Bestemmingsplangebied_tekstverwijzing ,
-    ro_str:Bestemmingsplangebied_externPlan ,
-    ro_str:Bestemmingsplangebied_norm ,
-    ro_str:Bestemmingsplangebied_geometrie ;
+#    ro_str:Bestemmingsplan_type ,
+    ro_str:Bestemmingsplan_beleidsmatigVerantwoorlijkeOverheid ,
+    ro_str:Bestemmingsplan_tekstverwijzing ,
+    ro_str:Bestemmingsplan_externPlan ,
+    ro_str:Bestemmingsplan_norm ,
+    ro_str:Bestemmingsplan_Plangebied_geometrie , # <- extra constraints for plangebied specific for bestemmingsplan.
+    ro_str:Bestemmingsplan_hasPart ,
+    ro_str:Bestemmingsplan_spatial
 .
 
-# TODO: ??
-ro_str:Bestemmingsplangebied_type a sh:PropertyShape ;
-.
+# ro_str:Bestemmingsplan_type a sh:PropertyShape .
 
-ro_str:Bestemmingsplangebied_beleidsmatigVerantwoorlijkeOverheid a sh:PropertyShape ;
+ro_str:Bestemmingsplan_beleidsmatigVerantwoorlijkeOverheid a sh:PropertyShape ;
   sh:path ro:beleidsmatigVerantwoordelijkeOverheid ;
   sh:class ro:Overheid ;
   sh:nodeKind sh:IRI ;
@@ -43,7 +81,7 @@ ro_str:Bestemmingsplangebied_beleidsmatigVerantwoorlijkeOverheid a sh:PropertySh
 #  sh:node ro_str:Overheden_BP is not needed for it contains all subclasses of ro:Overheid. the sh:class property is sufficient.
 .
 
-ro_str:Bestemmingsplangebied_tekstverwijzing a sh:PropertyShape ;
+ro_str:Bestemmingsplan_tekstverwijzing a sh:PropertyShape ;
   sh:path ro:tekst ;
   sh:minCount 2 ;
   sh:maxCount 4 ;
@@ -68,7 +106,7 @@ ro_str:Bestemmingsplangebied_tekstverwijzing a sh:PropertyShape ;
   ) ;
 .
 
-ro_str:Bestemmingsplangebied_externPlan a sh:PropertyShape ;
+ro_str:Bestemmingsplan_externPlan a sh:PropertyShape ;
   sh:path ro:externPlan ;
   sh:maxCount 1 ;
   sh:node ro_str:ExternPlanReferentie_BP ;
@@ -84,7 +122,7 @@ ro_str:ExternPlanReferentie_BP rdf:type sh:NodeShape ;
     ) ;
 .
 
-ro_str:Bestemmingsplangebied_norm a sh:PropertyShape ;
+ro_str:Bestemmingsplan_norm a sh:PropertyShape ;
   sh:path ro:verwijzingNorm ;
   sh:minCount 2 ;
   sh:maxCount 4 ;
@@ -117,13 +155,27 @@ ro_str:Bestemmingsplangebied_norm a sh:PropertyShape ;
   )
 .
 
-ro_str:Bestemmingsplangebied_geometrie a sh:PropertyShape ;
+ro_str:Bestemmingsplan_Plangebied_geometrie a sh:PropertyShape ;
   sh:path ro:geometrie ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
   sh:node ro_str:VlakMultiVlak ;
 .
 
+ro_str:Bestemmingsplan_hasPart a sh:PropertyShape ;
+  sh:path dct:hasPart ;
+  sh:in (
+    ro:Aanduiding
+    ro:Bestemmingsvlak
+  )
+.
+
+ro_str:Bestemmingsplan_spatial a sh:PropertyShape ;
+  sh:path dct:spatial ;
+  sh:class ro:Plangebied ;
+  sh:minCount 1  ;
+  sh:maxCount 1 ;
+.
 
 #################################################################
 #    Bestemmingsvlak
@@ -136,7 +188,9 @@ ro_str:Bestemmingsvlak a sh:NodeShape ;
     ro_str:Bestemmingsvlak_artikelnummer ,
     ro_str:Bestemmingsvlak_tekstverwijzing ,
     ro_str:Bestemmingsvlak_label ,
-    ro_str:Bestemmingsvlak_geometrie ;
+    ro_str:Bestemmingsvlak_geometrie ,
+    ro_str:Bestemmingsvlak_isPartOf ,
+    ro_str:Bestemmingsvlak_hasPart #in IMRO this relation is the other way around.. As discussed this was our understanding of the model. should still look into this more. and see if dct:hasPart truly is the way to go.
 .
 
 ro_str:Bestemmingsvlak_bestemmingshoofdgroep a sh:PropertyShape ;
@@ -187,7 +241,17 @@ ro_str:Bestemmingsvlak_geometrie a sh:PropertyShape ;
   sh:node ro_str:Surface
 .
 
+ro_str:Bestemmingsvlak_isPartOf a sh:PropertyShape ;
+  sh:path dct:isPartOf ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:class ro:Bestemmingsplan ;
+.
 
+ro_str:Bestemmingsvlak_hasPart a sh:PropertyShape ;
+  sh:path dct:hasPart ;
+  sh:class ro:Aanduiding ;
+.
 #################################################################
 #    Label
 #################################################################
@@ -261,7 +325,8 @@ ro_str:Aanduiding a sh:Nodeshape ;
   sh:targetClass ro:Aanduiding ;
   sh:property
     ro_str:Aanduiding_plangebied ,
-    ro_str:Aanduiding_bestemmingsvlak ;
+    ro_str:Aanduiding_bestemmingsvlak ,
+    ro_str:Aanduiding_isPartOf
 .
 
 ro_str:Aanduiding_plangebied a sh:PropertyShape ;
@@ -274,6 +339,13 @@ ro_str:Aanduiding_plangebied a sh:PropertyShape ;
 ro_str:Aanduiding_bestemmingsvlak a sh:PropertyShape ;
   sh:path ro:bestemmingsvlak ;
   sh:class ro:Bestemmingsvlak ;
+.
+
+ro_str:Aanduiding_isPartOf a sh:PropertyShape ;
+  sh:path dct:isPartOf ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:class ro:Bestemmingsplan ;
 .
 
 

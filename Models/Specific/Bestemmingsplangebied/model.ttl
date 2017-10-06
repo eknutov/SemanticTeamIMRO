@@ -21,21 +21,27 @@
 @prefix : <http://data.informatiehuisruimte.nl/def/> .
 @base <http://data.informatiehuisruimte.nl/def/ro#> .
 
+
+#Dummy section, Should be moved to/recreated in common in due time.
+
+ro:Plan a owl:Class .
+
+
 #################################################################
 #    Bestemmingsplangebied
 #################################################################
 
-ro:Bestemmingsplangebied a owl:Class ;
-  rdfs:label "Bestemmingsplangebied"@nl ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:subClassOf ro:RuimtelijkInstrument ;
-  dcterms:subject ro_beg:Bestemmingsplangebied ; ;
-.
+#ro:Bestemmingsplangebied a owl:Class ;
+#  rdfs:label "Bestemmingsplangebied"@nl ;
+#  rdfs:isDefinedBy :ro ;
+#  rdfs:subClassOf ro:RuimtelijkInstrument ;
+#  dcterms:subject ro_beg:Bestemmingsplangebied ; ;
+#.
 
 ro:Bestemmingsplan a owl:Class ;
   rdfs:label "Bestemmingsplan"@nl ;
   rdfs:isDefinedBy :ro ;
-  rdfs:subClassOf ro:Bestemmingsplangebied ;
+  rdfs:subClassOf ro:Plan ;
   dcterms:subject ro_beg:Bestemmingsplan ; ;
 .
 
@@ -70,7 +76,7 @@ ro:Wijzigingsplan a owl:Class ;
 ro:Bestemmingsvlak a owl:Class ;
   rdfs:label "Bestemmingsvlak"@nl ;
   rdfs:isDefinedBy :ro ;
-  rdfs:subClassOf ro:RuimtelijkObject ; ;
+  rdfs:subClassOf ro:Planobject ; ;
 .
 
 ro:Enkelbestemming a owl:Class ;
