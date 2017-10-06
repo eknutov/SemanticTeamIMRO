@@ -58,7 +58,7 @@ ro_str:Plangebied_geometrie a sh:PropertyShape ;
 #################################################################
 
 ro_str:Bestemmingsplan a sh:NodeShape ;
-  sh:targetClass ro:Bestemmingsplangebied ;
+  sh:targetClass ro:Bestemmingsplan ;
   sh:property
 #    ro_str:Bestemmingsplan_type ,
     ro_str:Bestemmingsplan_beleidsmatigVerantwoorlijkeOverheid ,
@@ -324,17 +324,17 @@ ro_str:Labelpositie_hoek a sh:PropertyShape ;
 ro_str:Aanduiding a sh:Nodeshape ;
   sh:targetClass ro:Aanduiding ;
   sh:property
-    ro_str:Aanduiding_plangebied ,
-    ro_str:Aanduiding_bestemmingsvlak ,
+#    ro_str:Aanduiding_plangebied ,
+#    ro_str:Aanduiding_bestemmingsvlak ,
     ro_str:Aanduiding_isPartOf
 .
 
-ro_str:Aanduiding_plangebied a sh:PropertyShape ;
-  sh:path ro:plangebied ;
-  sh:minCount 1 ;
-  sh:maxCount 1 ;
-  sh:class ro:Bestemmingsplangebied ;
-.
+#ro_str:Aanduiding_plangebied a sh:PropertyShape ;
+#  sh:path ro:plangebied ;
+#  sh:minCount 1 ;
+#  sh:maxCount 1 ;
+#  sh:class ro:Bestemmingsplangebied ;
+#.
 
 ro_str:Aanduiding_bestemmingsvlak a sh:PropertyShape ;
   sh:path ro:bestemmingsvlak ;
@@ -343,9 +343,21 @@ ro_str:Aanduiding_bestemmingsvlak a sh:PropertyShape ;
 
 ro_str:Aanduiding_isPartOf a sh:PropertyShape ;
   sh:path dct:isPartOf ;
-  sh:minCount 1 ;
-  sh:maxCount 1 ;
-  sh:class ro:Bestemmingsplan ;
+  sh:and (
+    [
+      sh:qualifiedValueShape [
+        sh:path rdf:type ;
+        sh:hasValue ro:Bestemmingsplan ;
+      ]
+      sh:qualifiedMinCount 1 ;
+      sh:qualifiedMaxCount 1 ;
+    ]
+    [
+      sh:qualifiedValueShape [
+        sh:path rdf:type ;
+        sh:hasValue ro:Bestemmingsvlak ;
+      ]
+    ]
 .
 
 
