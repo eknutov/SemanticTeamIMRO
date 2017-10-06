@@ -1,5 +1,6 @@
 @prefix : <http://data.informatiehuisruimte.nl/def/> .
 @prefix c4o: <http://purl.org/spar/biro/> .
+@prefix dbp: <http://dbpedia.org/resource/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix doco: <http://purl.org/spar/doco/> .
@@ -17,16 +18,33 @@
 @prefix ro_nen3610_beg: <http://data.informatiehuisruimte.nl/nen3610/id/begrip/> .
 @prefix ro_sym: <http://data.informatiehuisruimte.nl/ro/id/symbool/> .
 @prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 :ro
+<<<<<<< HEAD
   a owl:Ontology ;
   dc:description "TODO"@nl ;
   dc:title "Ruimtelijke Ordening vocabulaire"@nl ;
   rdfs:label "Ruimtelijke Ordening vocabulaire"@nl ;
+=======
+  rdf:type owl:Ontology, voaf:Vocabulary ;
+  dc:description "Dit is een vocabulaire dat gebruikt kan worden voor het beschrijven van ruimtelijke instrumenten (beleidsstukken die worden gebruikt voor ruimtelijke ordening). Dit vocabulaire is afgeleid van het Informatiemodel Ruimtelijke Ordening 2012 (IMRO2012)."@nl ;
+  dc:title "Vocabulaire voor ruimtelijke ordening"@nl ;
+  rdfs:label "Vocabulaire voor ruimtelijke ordening"@nl ;
+>>>>>>> 27b02a4... Added some ontology metadata
   owl:imports <http://datashapes.org/dash> ;
-#  sh:shapesGraph :ro_str #<- TODO
+  rdfs:seeAlso <http://ro-standaarden.geonovum.nl/2012/IMRO/1.2/IMRO2012-v1.2.pdf> ;
+  sh:shapesGraph :ro_str ;
+  voaf:extends :nen3610 ;
+  dc:coverage dbp:Netherlands;
+  dc:language "nl";
+  dc:publisher dbp:Kadaster;
+  owl:versionInfo "0.1.0";
+  dc:created "2017-10-04"^^xsd:date;
+  dc:modified "2017-10-06"^^xsd:date;
 .
 
 #################################################################
