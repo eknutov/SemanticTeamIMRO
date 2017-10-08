@@ -1,0 +1,4863 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dctypes: <http://purl.org/dc/dcmitype/> .
+@prefix skos-thes: <http://purl.org/iso25964/skos-thes#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
+@prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
+@prefix ro_nen3610_beg: <http://data.informatiehuisruimte.nl/nen3610/id/begrip/> .
+@prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
+@prefix ro_begkr: <http://data.informatiehuisruimte.nl/id/begrippenkader/> .
+@prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
+@prefix ro_sym: <http://data.informatiehuisruimte.nl/ro/id/symbool/> .
+@prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
+@prefix : <http://data.informatiehuisruimte.nl/def/> .
+
+ro_beg:Structuurvisieplangebied_R a skos:Concept ;
+	rdfs:label "Structuurvisieplangebied_R"@nl ;
+	skos:prefLabel "Structuurvisieplangebied_R"@nl ;
+	skos-thes:broaderGeneric ro_beg:Plangebied ;
+	skos:definition "Gebied, of gebieden, binnen de grenzen van een Rijksstructuurvise."@nl ;
+	skos:inScheme ro_begkr:ro ;
+	skos:notation "Rijks structuurvisie" .
+
+ro_beg:Idealisatie a skos:Concept ;
+	rdfs:label "Idealisatie"@nl ;
+	skos:definition "Manier waarop de geometrie ruimtelijk geïnterpreteerd moet worden."@nl ;
+	skos:inScheme ro_begkr:ro ;
+	skos:prefLabel "Idealisatie"@nl ;
+	skos:topConceptOf ro_begkr:ro .
+
+ro_beg:typePlan a skos:Concept ;
+	rdfs:label "typePlan"@nl ;
+	skos:definition "Nadere aanduiding van het type ruimtelijk instrument."@nl ;
+	skos:inScheme ro_begkr:ro .
+
+ro_col:Planstatussen a skos:Collection ;
+	rdfs:label "Planstatussen"@nl ;
+	skos:prefLabel "Planstatussen"@nl ;
+	skos:member ro_beg:Concept_Planstatus , ro_beg:Voorontwerp_Planstatus , ro_beg:Ontwerp_Planstatus , ro_beg:Vastgesteld_Planstatus , ro_beg:Geconsolideerd_Planstatus .
+
+ro_beg:Planstatus a skos:Concept ;
+	rdfs:label "Planstatus"@nl ;
+	skos:prefLabel "Planstatus"@nl ;
+	skos:topConceptOf ro_begkr:ro ;
+	skos:inScheme ro_begkr:ro .
+
+ro_beg:Concept_Planstatus a skos:Concept ;
+	rdfs:label "Concept (planstatus)"@nl ;
+	skos:prefLabel "Concept"@nl ;
+	skos:definition "TODO"@nl ;
+	skos:inScheme ro_begkr:ro ;
+	skos-thes:broaderGeneric ro_beg:Planstatus ;
+	skos:notation "concept" .
+
+ro_beg:Voorontwerp_Planstatus a skos:Concept ;
+	rdfs:label "Voorontwerp (planstatus)"@nl ;
+	skos:prefLabel "Voorontwerp"@nl ;
+	skos:definition "TODO"@nl ;
+	skos:inScheme ro_begkr:ro ;
+	skos-thes:broaderGeneric ro_beg:Planstatus ;
+	skos:notation "voorontwerp" .
+
+ro_beg:Ontwerp_Planstatus a skos:Concept ;
+	rdfs:label "Ontwerp (planstatus)"@nl ;
+	skos:prefLabel "Ontwerp"@nl ;
+	skos:definition "TODO"@nl ;
+	skos:inScheme ro_begkr:ro ;
+	skos-thes:broaderGeneric ro_beg:Planstatus ;
+	skos:notation "ontwerp" .
+
+ro_beg:Vastgesteld_Planstatus a skos:Concept ;
+	rdfs:label "Vastgesteld (planstatus)"@nl ;
+	skos:prefLabel "Vastgesteld"@nl ;
+	skos:definition "TODO"@nl ;
+	skos:inScheme ro_begkr:ro ;
+	skos-thes:broaderGeneric ro_beg:Planstatus ;
+	skos:notation "vastgesteld" .
+
+ro_beg:Geconsolideerd_Planstatus a skos:Concept ;
+	rdfs:label "Geconsolideerd (planstatus)"@nl ;
+	skos:prefLabel "Geconsolideerd"@nl ;
+	skos:definition "TODO"@nl ;
+	skos:inScheme ro_begkr:ro ;
+	skos-thes:broaderGeneric ro_beg:Planstatus ;
+	skos:notation "geconsolideerd" .
+
+ro_col:Normen a skos:Collection ;
+	rdfs:label "Normen"@nl ;
+	skos:prefLabel "Normen"@nl ;
+	skos:member ro_beg:IMRO2012 , ro_beg:PRBP2012 , ro_beg:IMROPT2012 , ro_beg:PRABPK2012 .
+
+ro_beg:Norm a skos:Concept ;
+	rdfs:label "Norm"@nl ;
+	skos:prefLabel "Norm"@nl ;
+	skos:altLabel "Praktijkrichtlijn"@nl ;
+	skos:topConceptOf ro_begkr:ro ;
+	skos:inScheme ro_begkr:ro .
+
+ro_beg:IMRO2012 a skos:Concept ;
+	rdfs:label "IMRO2012"@nl ;
+	skos:prefLabel "IMRO2012"@nl ;
+	skos-thes:broaderGeneric ro_beg:Norm ;
+	skos:notation "IMRO2012" .
+
+ro_beg:PRBP2012 a skos:Concept ;
+	rdfs:label "PRBP2012"@nl ;
+	skos:prefLabel "PRBP2012"@nl ;
+	skos-thes:broaderGeneric ro_beg:Norm ;
+	skos:notation "PRBP2012" .
+
+ro_beg:IMROPT2012 a skos:Concept ;
+	rdfs:label "IMROPT2012"@nl ;
+	skos:prefLabel "IMROPT2012"@nl ;
+	skos-thes:broaderGeneric ro_beg:Norm ;
+	skos:notation "IMROPT2012" .
+
+ro_beg:PRABPK2012 a skos:Concept ;
+	rdfs:label "PRABPK2012"@nl ;
+	skos:prefLabel "PRABPK2012"@nl ;
+	skos-thes:broaderGeneric ro_beg:Norm ;
+	skos:notation "PRABPK2012" .
+
+ro_beg:PRpSV2012 a skos:Concept ;
+	rdfs:label "PRpSV2012"@nl ;
+	skos:prefLabel "PRpSV2012"@nl ;
+	skos-thes:broaderGeneric ro_beg:Norm ;
+	skos:notation "PRpSV2012" .
+
+ro_col:Idealisatie_1 a skos:Collection ;
+	rdfs:label "Idealisatie_1"@nl ;
+	skos:prefLabel "Idealisatie_1"@nl ;
+	skos:member ro_beg:exact .
+
+ro_col:Idealisatie_2 a skos:Collection ;
+	rdfs:label "Idealisatie_2"@nl ;
+	skos:prefLabel "Idealisatie_2"@nl ;
+	skos:member ro_beg:exact , ro_beg:indicatief .
+
+ro_col:Idealisatie_3 a skos:Collection ;
+	rdfs:label "Idealisatie_3"@nl ;
+	skos:prefLabel "Idealisatie_3"@nl ;
+	skos:member ro_beg:exact , ro_beg:indicatief , ro_beg:cartografischFiguur .
+
+ro_beg:exact a skos:Concept ;
+	rdfs:label "exact"@nl ;
+	skos:prefLabel "Exact"@nl ;
+	skos-thes:broaderGeneric ro_beg:Idealisatie .
+
+ro_beg:indicatief a skos:Concept ;
+	rdfs:label "indicatief"@nl ;
+	skos:prefLabel "Indicatief"@nl ;
+	skos-thes:broaderGeneric ro_beg:Idealisatie .
+
+ro_beg:cartografischFiguur a skos:Concept ;
+	rdfs:label "cartografisch figuur"@nl ;
+	skos:prefLabel "Cartografisch figuur"@nl ;
+	skos-thes:broaderGeneric ro_beg:Idealisatie .
+
+ro:Geometrie a owl:Class ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:label "Geometrie"@nl .
+
+ro:geometrie a owl:ObjectProperty ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:label "geometrie"@nl .
+
+ro:idealisatie a owl:ObjectProperty ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:label "idealisatie"@nl .
+
+ro:begrenzing a owl:ObjectProperty ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:label "begrenzing"@nl .
+
+ro:inwinningsschaal a owl:DatatypeProperty ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:label "inwinningsschaal"@nl .
+
+ro_str:Idealisatie_1 a sh:NodeShape ;
+	sh:in _:node1brtujth0x1 ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Enumeratie> ;
+	rdfs:label "Idealisatie_1" .
+
+_:node1brtujth0x1 rdf:first ro:exact ;
+	rdf:rest rdf:nil .
+
+ro_str:Idealisatie_2 a sh:NodeShape ;
+	sh:in _:node1brtujth0x2 ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Enumeratie> ;
+	rdfs:label "Idealisatie_2" .
+
+_:node1brtujth0x2 rdf:first ro:exact ;
+	rdf:rest _:node1brtujth0x3 .
+
+_:node1brtujth0x3 rdf:first ro:indicatief ;
+	rdf:rest rdf:nil .
+
+ro_str:Idealisatie_3 a sh:NodeShape ;
+	sh:in _:node1brtujth0x4 ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Enumeratie> ;
+	rdfs:label "Idealisatie_3" .
+
+_:node1brtujth0x4 rdf:first ro:exact ;
+	rdf:rest _:node1brtujth0x5 .
+
+_:node1brtujth0x5 rdf:first ro:indicatief ;
+	rdf:rest _:node1brtujth0x6 .
+
+_:node1brtujth0x6 rdf:first ro:cartografischFiguur ;
+	rdf:rest rdf:nil .
+
+ro_str:PuntLijnVlak a sh:NodeShape ;
+	sh:xone _:node1brtujth0x7 , _:node1brtujth0x12 .
+
+_:node1brtujth0x7 rdf:first ro_str:Point ;
+	rdf:rest _:node1brtujth0x8 .
+
+_:node1brtujth0x8 rdf:first ro_str:Curve ;
+	rdf:rest _:node1brtujth0x9 .
+
+_:node1brtujth0x9 rdf:first ro_str:Surface ;
+	rdf:rest rdf:nil .
+
+ro_str:VlakMultiVlak a sh:NodeShape ;
+	sh:xone _:node1brtujth0x10 .
+
+_:node1brtujth0x10 rdf:first ro_str:Surface ;
+	rdf:rest _:node1brtujth0x11 .
+
+_:node1brtujth0x11 rdf:first ro_str:MultiSurface ;
+	rdf:rest rdf:nil .
+
+_:node1brtujth0x12 rdf:first ro_str:Point ;
+	rdf:rest _:node1brtujth0x13 .
+
+_:node1brtujth0x13 rdf:first ro_str:Curve ;
+	rdf:rest _:node1brtujth0x14 .
+
+_:node1brtujth0x14 rdf:first ro_str:Surface ;
+	rdf:rest _:node1brtujth0x15 .
+
+_:node1brtujth0x15 rdf:first ro_str:MultiPoint ;
+	rdf:rest _:node1brtujth0x16 .
+
+_:node1brtujth0x16 rdf:first ro_str:MultiCurve ;
+	rdf:rest _:node1brtujth0x17 .
+
+_:node1brtujth0x17 rdf:first ro_str:MultiSurface ;
+	rdf:rest rdf:nil .
+
+ro_str:LijnMultiLijn a sh:NodeShape ;
+	sh:xone _:node1brtujth0x18 .
+
+_:node1brtujth0x18 rdf:first ro_str:Curve ;
+	rdf:rest _:node1brtujth0x19 .
+
+_:node1brtujth0x19 rdf:first ro_str:MultiCurve ;
+	rdf:rest rdf:nil .
+
+ro_str:Point a sh:NodeShape ;
+	sh:class <http://www.opengis.net/ont/gml#Point> .
+
+ro_str:MultiPoint a sh:NodeShape ;
+	sh:class <http://www.opengis.net/ont/gml#MultiPoint> .
+
+ro_str:Surface a sh:NodeShape ;
+	sh:class <http://www.opengis.net/ont/gml#Surface> .
+
+ro_str:MultiSurface a sh:NodeShape ;
+	sh:class <http://www.opengis.net/ont/gml#MultiSurface> .
+
+ro_str:Curve a sh:NodeShape ;
+	sh:class <http://www.opengis.net/ont/gml#Curve> .
+
+ro_str:MultiCurve a sh:NodeShape ;
+	sh:class <http://www.opengis.net/ont/gml#MultiCurve> .
+
+ro:Tekstobject a owl:Class ;
+	rdfs:label "Tekstobject"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf <http://purl.org/spar/doco/Section> .
+
+ro:identificatie a owl:DatatypeProperty ;
+	rdfs:label "identificatie"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:domain ro:Tekstobject .
+
+ro:volgnummer a owl:DatatypeProperty ;
+	rdfs:label "volgnummer"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:domain ro:Tekstobject .
+
+ro:niveau a owl:DatatypeProperty ;
+	rdfs:label "niveau"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:domain ro:Tekstobject .
+
+ro:titel a owl:ObjectProperty ;
+	rdfs:label "titel"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:domain ro:Tekstobject ;
+	rdfs:subPropertyOf <http://www.essepuntato.it/2008/12/pattern#containsAsHeader> .
+
+ro:externeVerwijzing a owl:DatatypeProperty ;
+	rdfs:label "externe verwijzing"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:domain ro:Tekstobject .
+
+ro:tekst a owl:DatatypeProperty ;
+	rdfs:label "tekst"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:domain ro:Tekstobject ;
+	rdfs:subPropertyOf <http://purl.org/spar/biro/hasContent> .
+
+ro:interneVerwijzing a owl:ObjectProperty ;
+	rdfs:label "interneVerwijzing"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:domain ro:Tekstobject ;
+	rdfs:range ro:Tekstobject .
+
+ro:ouder a owl:ObjectProperty ;
+	rdfs:label "ouder"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:domain ro:Tekstobject ;
+	rdfs:range ro:Tekstobject ;
+	rdfs:subPropertyOf <http://www.essepuntato.it/2008/12/pattern#isContainedBy> .
+
+ro:naamPraktijkRichtlijn a owl:ObjectProperty ;
+	rdfs:label "naam praktijkrichtlijn"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:domain ro:Tekstobject .
+
+ro:Titel a owl:Class ;
+	rdfs:label "Titel"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf <http://purl.org/spar/doco/SectionTitle> .
+
+ro:titellabel a owl:DatatypeProperty ;
+	rdfs:label "titellabel"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:domain ro:Titel .
+
+ro:titelnummer a owl:DatatypeProperty ;
+	rdfs:label "titelnummer"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:domain ro:Titel .
+
+ro:titelnaam a owl:DatatypeProperty ;
+	rdfs:label "titelnaam"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:domain ro:Titel .
+
+ro:Document a owl:Class ;
+	rdfs:label "Document"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject , ro:Tekst ;
+	dcterms:subject ro_beg:Document .
+
+ro:Regels a owl:Class ;
+	rdfs:label "Regels"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject , ro:Tekst ;
+	dcterms:subject ro_beg:Regels .
+
+ro:InleidendeRegels a owl:Class ;
+	rdfs:label "Inleidende regels"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:InleidendeRegels .
+
+ro:Begrippen a owl:Class ;
+	rdfs:label "Begrippen"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:Begrippen .
+
+ro:WijzeVanMeten a owl:Class ;
+	rdfs:label "Wijze van meten"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:WijzeVanMeten .
+
+ro:Bestemmingsregels a owl:Class ;
+	rdfs:label "Bestemmingsregels"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:Bestemmingsregels .
+
+ro:Bestemming a owl:Class ;
+	rdfs:label "Bestemming"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:Bestemming .
+
+ro:Bestemmingsomschrijving a owl:Class ;
+	rdfs:label "Bestemmingsomschrijving"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:Bestemmingsomschrijving .
+
+ro:Bouwregels a owl:Class ;
+	rdfs:label "Bouwregels"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:Bouwregels .
+
+ro:NadereEisen a owl:Class ;
+	rdfs:label "Nadere eisen"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:NadereEisen .
+
+ro:AfwijkenVanDeBouwregels a owl:Class ;
+	rdfs:label "Afwijken van de bouwregels"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:AfwijkenVanDeBouwregels .
+
+ro:SpecifiekeGebruiksregels a owl:Class ;
+	rdfs:label "Specifieke gebruiksregels"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:SpecifiekeGebruiksregels .
+
+ro:AfwijkenVanDeGebruiksregels a owl:Class ;
+	rdfs:label "Afwijken van de gebruiksregels"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:AfwijkenVanDeGebruiksregels .
+
+ro:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden a owl:Class ;
+	rdfs:label "Omgevingsvergunning voor het uitvoeren van werken, geen bouwwerk zijnde, of van werkzaamheden"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden .
+
+ro:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk a owl:Class ;
+	rdfs:label "Omgevingsvergunning voor het slopen van een bouwwerk "@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk .
+
+ro:Wijzigingsbevoegdheid a owl:Class ;
+	rdfs:label "Wijzigingsbevoegdheid"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:Wijzigingsbevoegdheid .
+
+ro:VoorlopigeBestemming a owl:Class ;
+	rdfs:label "Voorlopige bestemming"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:VoorlopigeBestemming .
+
+ro:GeldigheidstermijnVanDeVoorlopigeBestemming a owl:Class ;
+	rdfs:label "Geldigheidstermijn van de voorlopige bestemming"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:GeldigheidstermijnVanDeVoorlopigeBestemming .
+
+ro:DefinitieveBestemmingBijVoorlopigeBestemming a owl:Class ;
+	rdfs:label "Definitieve bestemming bij voorlopige bestemming"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:DefinitieveBestemmingBijVoorlopigeBestemming .
+
+ro:UitTeWerkenBestemming a owl:Class ;
+	rdfs:label "Uit te werken bestemming"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:UitTeWerkenBestemming .
+
+ro:Uitwerkingsregels a owl:Class ;
+	rdfs:label "Uitwerkingsregels"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:Uitwerkingsregels .
+
+ro:Dubbelbestemming_Tekstobject a owl:Class ;
+	rdfs:label "Dubbelbestemming (Tekstobject)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:Dubbelbestemming_Tekstobject .
+
+ro:AlgemeneRegels a owl:Class ;
+	rdfs:label "Algemene regels"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:AlgemeneRegels .
+
+ro:Anti_dubbeltelregel a owl:Class ;
+	rdfs:label "Anti-dubbeltelregel"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:Anti_dubbeltelregel .
+
+ro:AlgemeneBouwregels a owl:Class ;
+	rdfs:label "Algemene bouwregels"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:AlgemeneBouwregels .
+
+ro:AlgemeneGebruiksregels a owl:Class ;
+	rdfs:label "Algemene gebruiksregels"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:AlgemeneGebruiksregels .
+
+ro:AlgemeneAanduidingsregels a owl:Class ;
+	rdfs:label "Algemene aanduidingsregels"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:AlgemeneAanduidingsregels .
+
+ro:AlgemeneAfwijkingsregels a owl:Class ;
+	rdfs:label "Algemene afwijkingsregels"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:AlgemeneAfwijkingsregels .
+
+ro:AlgemeneWijzigingsregels a owl:Class ;
+	rdfs:label "Algemene wijzigingsregels"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:AlgemeneWijzigingsregels .
+
+ro:VerwezenlijkingInDeNaasteToekomst a owl:Class ;
+	rdfs:label "Verwezenlijking in de naaste toekomst"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:VerwezenlijkingInDeNaasteToekomst .
+
+ro:AlgemeneProcedureregels a owl:Class ;
+	rdfs:label "Algemene procedureregels"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:AlgemeneProcedureregels .
+
+ro:OverigeRegels a owl:Class ;
+	rdfs:label "Overige regels"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:OverigeRegels .
+
+ro:Overgangs_EnSlotregels a owl:Class ;
+	rdfs:label "Overgangs- en slotregels"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:Overgangs_EnSlotregels .
+
+ro:Overgangsrecht a owl:Class ;
+	rdfs:label "Overgangsrecht"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:Overgangsrecht .
+
+ro:Slotregel a owl:Class ;
+	rdfs:label "Slotregel"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:Lid .
+
+ro:Lid a owl:Class ;
+	rdfs:label "Lid"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:Document .
+
+ro:Sublid a owl:Class ;
+	rdfs:label "Sublid"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:Sublid .
+
+ro:SubSublid a owl:Class ;
+	rdfs:label "Sub-sublid"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:SubSublid .
+
+ro:SubSubSublid a owl:Class ;
+	rdfs:label "Sub-sub-sublid"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:SubSubSublid .
+
+ro:BijlagenBijRegels a owl:Class ;
+	rdfs:label "Bijlagen bij regels"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:BijlagenBijRegels .
+
+ro:BijlageBijRegels a owl:Class ;
+	rdfs:label "Bijlage bij regels"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:BijlageBijRegels .
+
+ro:Deel a owl:Class ;
+	rdfs:label "Deel"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:Deel .
+
+ro:Hoofdstuk a owl:Class ;
+	rdfs:label "Hoofdstuk"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:Hoofdstuk .
+
+ro:Paragraaf a owl:Class ;
+	rdfs:label "Paragraaf"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:Paragraaf .
+
+ro:Subparagraaf a owl:Class ;
+	rdfs:label "Subparagraaf"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:Subparagraaf .
+
+ro:SubSubparagraaf a owl:Class ;
+	rdfs:label "Sub-subparagraaf"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:SubSubparagraaf .
+
+ro:SubSubSubparagraaf a owl:Class ;
+	rdfs:label "Sub-sub-subparagraaf"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:SubSubSubparagraaf .
+
+ro:Toelichting a owl:Class ;
+	rdfs:label "Toelichting"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject , ro:Tekst ;
+	dcterms:subject ro_beg:Toelichting .
+
+ro:BijlagenBijToelichting a owl:Class ;
+	rdfs:label "Bijlagen bij toelichting"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:BijlagenBijToelichting .
+
+ro:BijlageBijToelichting a owl:Class ;
+	rdfs:label "Bijlage bij toelichting"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:BijlageBijToelichting .
+
+ro:Overig_Tekstobject a owl:Class ;
+	rdfs:label "Overig (TekstObject)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Tekstobject ;
+	dcterms:subject ro_beg:Overig_Tekstobject .
+
+ro_str:Tekstobject a sh:NodeShape ;
+	sh:targetClass ro:Tekstobject ;
+	sh:property ro_str:Tekstobject_verwijzingNaarPlangebied , ro_str:Tekstobject_volgnummer , ro_str:Tekstobject_niveau , ro_str:Tekstobject_typeTekst , ro_str:Tekstobject_titel , ro_str:Tekstobject_externeVerwijzing , ro_str:Tekstobject_tekst , ro_str:Tekstobject_naamPraktijkRichtlijn .
+
+ro_str:Tekstobject_verwijzingNaarPlangebied a sh:PropertyShape ;
+	sh:path ro:plangebied ;
+	sh:class ro:Plangebied ;
+	sh:nodeKind sh:IRI ;
+	sh:minCount 1 ;
+	sh:maxCount 1 .
+
+ro_str:Tekstobject_volgnummer a sh:PropertyShape ;
+	sh:path ro:volgnummer ;
+	sh:nodeKind sh:Literal ;
+	sh:datatype xsd:integer ;
+	sh:minCount 1 ;
+	sh:maxCount 1 .
+
+ro_str:Tekstobject_niveau a sh:PropertyShape ;
+	sh:path ro:niveau ;
+	sh:nodeKind sh:Literal ;
+	sh:datatype xsd:integer ;
+	sh:minCount 1 ;
+	sh:maxCount 1 .
+
+ro_str:Tekstobject_typeTekst a sh:PropertyShape ;
+	sh:path ro:typeTekst ;
+	sh:class ro:Plangebied ;
+	sh:nodeKind sh:IRI ;
+	sh:maxCount 1 .
+
+ro_str:Tekstobject_titel a sh:PropertyShape ;
+	sh:path ro:titel ;
+	sh:class ro:Titel ;
+	sh:nodeKind sh:IRI ;
+	sh:minCount 1 ;
+	sh:maxCount 1 .
+
+ro_str:Tekstobject_externeVerwijzing a sh:PropertyShape ;
+	sh:path ro:externeVerwijzing ;
+	sh:nodeKind sh:Literal ;
+	sh:datatype xsd:string .
+
+ro_str:Tekstobject_tekst a sh:PropertyShape ;
+	sh:path ro:tekst ;
+	sh:nodeKind sh:Literal ;
+	sh:datatype rdf:XMLLiteral ;
+	sh:maxCount 1 .
+
+ro_str:Tekstobject_naamPraktijkRichtlijn a sh:PropertyShape ;
+	sh:path ro:naamPraktijkRichtlijn ;
+	sh:class skos:Concept ;
+	sh:nodeKind sh:IRI ;
+	sh:maxCount 1 ;
+	sh:shape _:node1brtujth0x20 .
+
+_:node1brtujth0x22 sh:inversePath skos:member .
+
+_:node1brtujth0x21 sh:path _:node1brtujth0x22 ;
+	sh:targetNode ro_col:PraktijkRichtlijnNaam .
+
+_:node1brtujth0x20 sh:property _:node1brtujth0x21 .
+
+ro_str:Titel a sh:NodeShape ;
+	sh:targetClass ro:Titel ;
+	sh:property ro_str:Overheid_titellabel , ro_str:Overheid_titelnummer , ro_str:Overheid_titelnaam .
+
+ro_str:Overheid_titellabel a sh:PropertyShape ;
+	sh:path ro:titellabel ;
+	sh:nodeKind sh:Literal ;
+	sh:datatype xsd:string ;
+	sh:maxCount 1 .
+
+ro_str:Overheid_titelnummer a sh:PropertyShape ;
+	sh:path ro:titelnummer ;
+	sh:nodeKind sh:Literal ;
+	sh:datatype xsd:string ;
+	sh:maxCount 1 .
+
+ro_str:Overheid_titelnaam a sh:PropertyShape ;
+	sh:path ro:titelnaam ;
+	sh:nodeKind sh:Literal ;
+	sh:datatype xsd:string ;
+	sh:maxCount 1 .
+
+ro_str:PT_Document a sh:NodeShape ;
+	sh:targetClass ro:Document ;
+	sh:property ro_str:PT_Document_ouder .
+
+ro_str:PT_Document_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class <http://data.informatiehuisruimte.nl/def/ro#> ;
+	sh:minCount 1 ;
+	sh:maxCount 1 .
+
+ro_str:PT_Regels a sh:NodeShape ;
+	sh:targetClass ro:Regels ;
+	sh:property ro_str:PT_Regels_ouder .
+
+ro_str:PT_Regels_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:Document ;
+	sh:minCount 1 ;
+	sh:maxCount 1 .
+
+ro_str:PT_InleidendeRegels a sh:NodeShape ;
+	sh:targetClass ro:InleidendeRegels ;
+	sh:property ro_str:PT_InleidendeRegels_ouder .
+
+ro_str:PT_InleidendeRegels_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:Regels ;
+	sh:maxCount 1 .
+
+ro_str:PT_Begrippen a sh:NodeShape ;
+	sh:targetClass ro:Begrippen ;
+	sh:property ro_str:PT_Begrippen_ouder .
+
+ro_str:PT_Begrippen_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:InleidendeRegels ;
+	sh:maxCount 1 .
+
+ro_str:PT_WijzeVanMeten a sh:NodeShape ;
+	sh:targetClass ro:WijzeVanMeten ;
+	sh:property ro_str:PT_WijzeVanMeten_ouder .
+
+ro_str:PT_WijzeVanMeten_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:InleidendeRegels ;
+	sh:maxCount 1 .
+
+ro_str:PT_Bestemmingsregels a sh:NodeShape ;
+	sh:targetClass ro:Bestemmingsregels ;
+	sh:property ro_str:PT_Bestemmingsregels_ouder .
+
+ro_str:PT_Bestemmingsregels_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:Regels ;
+	sh:maxCount 1 .
+
+ro_str:PT_Bestemming a sh:NodeShape ;
+	sh:targetClass ro:Bestemming ;
+	sh:property ro_str:PT_Bestemming_ouder .
+
+ro_str:PT_Bestemming_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:Bestemmingsregels .
+
+ro_str:PT_Bestemmingsomschrijving a sh:NodeShape ;
+	sh:targetClass ro:Bestemmingsomschrijving ;
+	sh:property ro_str:PT_Bestemmingsomschrijving_ouder .
+
+ro_str:PT_Bestemmingsomschrijving_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:Bestemming , ro:VoorlopigeBestemming , ro:DefinitieveBestemmingBijVoorlopigeBestemming , ro:UitTeWerkenBestemming , ro:Dubbelbestemming_Tekstobject ;
+	sh:maxCount 1 .
+
+ro_str:PT_Bouwregels a sh:NodeShape ;
+	sh:targetClass ro:Bouwregels ;
+	sh:property ro_str:PT_Bouwregels_ouder .
+
+ro_str:PT_Bouwregels_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:Bestemming , ro:VoorlopigeBestemming , ro:DefinitieveBestemmingBijVoorlopigeBestemming , ro:UitTeWerkenBestemming , ro:Dubbelbestemming_Tekstobject ;
+	sh:maxCount 1 .
+
+ro_str:PT_NadereEisen a sh:NodeShape ;
+	sh:targetClass ro:NadereEisen ;
+	sh:property ro_str:PT_NadereEisen_ouder .
+
+ro_str:PT_NadereEisen_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:Bestemming , ro:VoorlopigeBestemming , ro:DefinitieveBestemmingBijVoorlopigeBestemming , ro:Dubbelbestemming_Tekstobject ;
+	sh:maxCount 1 .
+
+ro_str:PT_AfwijkenVanDeBouwregels a sh:NodeShape ;
+	sh:targetClass ro:AfwijkenVanDeBouwregels ;
+	sh:property ro_str:PT_AfwijkenVanDeBouwregels_ouder .
+
+ro_str:PT_AfwijkenVanDeBouwregels_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:Bestemming , ro:VoorlopigeBestemming , ro:DefinitieveBestemmingBijVoorlopigeBestemming , ro:UitTeWerkenBestemming , ro:Dubbelbestemming_Tekstobject ;
+	sh:maxCount 1 .
+
+ro_str:PT_SpecifiekeGebruiksregels a sh:NodeShape ;
+	sh:targetClass ro:SpecifiekeGebruiksregels ;
+	sh:property ro_str:PT_SpecifiekeGebruiksregels_ouder .
+
+ro_str:PT_SpecifiekeGebruiksregels_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:Bestemming , ro:VoorlopigeBestemming , ro:DefinitieveBestemmingBijVoorlopigeBestemming , ro:Dubbelbestemming_Tekstobject ;
+	sh:maxCount 1 .
+
+ro_str:PT_AfwijkenVanDeGebruiksregels a sh:NodeShape ;
+	sh:targetClass ro:AfwijkenVanDeGebruiksregels ;
+	sh:property ro_str:PT_AfwijkenVanDeGebruiksregels_ouder .
+
+ro_str:PT_AfwijkenVanDeGebruiksregels_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:Bestemming , ro:VoorlopigeBestemming , ro:DefinitieveBestemmingBijVoorlopigeBestemming , ro:Dubbelbestemming_Tekstobject ;
+	sh:maxCount 1 .
+
+ro_str:PT_OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden a sh:NodeShape ;
+	sh:targetClass ro:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden ;
+	sh:property ro_str:PT_OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden_ouder .
+
+ro_str:PT_OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:Bestemming , ro:VoorlopigeBestemming , ro:DefinitieveBestemmingBijVoorlopigeBestemming , ro:UitTeWerkenBestemming , ro:Dubbelbestemming_Tekstobject ;
+	sh:maxCount 1 .
+
+ro_str:PT_OmgevingsvergunningVoorHetSlopenVanEenBouwwerk a sh:NodeShape ;
+	sh:targetClass ro:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk ;
+	sh:property ro_str:PT_OmgevingsvergunningVoorHetSlopenVanEenBouwwerk_ouder .
+
+ro_str:PT_OmgevingsvergunningVoorHetSlopenVanEenBouwwerk_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:Bestemming , ro:VoorlopigeBestemming , ro:DefinitieveBestemmingBijVoorlopigeBestemming , ro:Dubbelbestemming_Tekstobject ;
+	sh:maxCount 1 .
+
+ro_str:PT_Wijzigingsbevoegdheid a sh:NodeShape ;
+	sh:targetClass ro:Wijzigingsbevoegdheid ;
+	sh:property ro_str:PT_Wijzigingsbevoegdheid_ouder .
+
+ro_str:PT_Wijzigingsbevoegdheid_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:Bestemming , ro:VoorlopigeBestemming , ro:DefinitieveBestemmingBijVoorlopigeBestemming , ro:Dubbelbestemming_Tekstobject ;
+	sh:maxCount 1 .
+
+ro_str:PT_VoorlopigeBestemming a sh:NodeShape ;
+	sh:targetClass ro:VoorlopigeBestemming ;
+	sh:property ro_str:PT_VoorlopigeBestemming_ouder .
+
+ro_str:PT_VoorlopigeBestemming_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:Bestemmingsregels .
+
+ro_str:PT_GeldigheidstermijnVanDeVoorlopigeBestemming a sh:NodeShape ;
+	sh:targetClass ro:GeldigheidstermijnVanDeVoorlopigeBestemming ;
+	sh:property ro_str:PT_GeldigheidstermijnVanDeVoorlopigeBestemming_ouder .
+
+ro_str:PT_GeldigheidstermijnVanDeVoorlopigeBestemming_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:VoorlopigeBestemming ;
+	sh:maxCount 1 .
+
+ro_str:PT_DefinitieveBestemmingBijVoorlopigeBestemming a sh:NodeShape ;
+	sh:targetClass ro:DefinitieveBestemmingBijVoorlopigeBestemming ;
+	sh:property ro_str:PT_DefinitieveBestemmingBijVoorlopigeBestemming_ouder .
+
+ro_str:PT_DefinitieveBestemmingBijVoorlopigeBestemming_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:VoorlopigeBestemming ;
+	sh:maxCount 1 .
+
+ro_str:PT_UitTeWerkenBestemming a sh:NodeShape ;
+	sh:targetClass ro:UitTeWerkenBestemming ;
+	sh:property ro_str:PT_UitTeWerkenBestemming_ouder .
+
+ro_str:PT_UitTeWerkenBestemming_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:Bestemmingsregels .
+
+ro_str:PT_Uitwerkingsregels a sh:NodeShape ;
+	sh:targetClass ro:Uitwerkingsregels ;
+	sh:property ro_str:PT_Uitwerkingsregels_ouder .
+
+ro_str:PT_Uitwerkingsregels_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:UitTeWerkenBestemming ;
+	sh:maxCount 1 .
+
+ro_str:PT_Dubbelbestemming a sh:NodeShape ;
+	sh:targetClass ro:Dubbelbestemming_Tekstobject ;
+	sh:property ro_str:PT_Dubbelbestemming_ouder .
+
+ro_str:PT_Dubbelbestemming_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:Bestemmingsregels .
+
+ro_str:PT_AlgemeneRegels a sh:NodeShape ;
+	sh:targetClass ro:AlgemeneRegels ;
+	sh:property ro_str:PT_AlgemeneRegels_ouder .
+
+ro_str:PT_AlgemeneRegels_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:Regels ;
+	sh:maxCount 1 .
+
+ro_str:PT_Anti_dubbeltelregel a sh:NodeShape ;
+	sh:targetClass ro:Anti_dubbeltelregel ;
+	sh:property ro_str:PT_Anti_dubbeltelregel_ouder .
+
+ro_str:PT_Anti_dubbeltelregel_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:AlgemeneRegels ;
+	sh:maxCount 1 .
+
+ro_str:PT_AlgemeneBouwregels a sh:NodeShape ;
+	sh:targetClass ro:AlgemeneBouwregels ;
+	sh:property ro_str:PT_AlgemeneBouwregels_ouder .
+
+ro_str:PT_AlgemeneBouwregels_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:AlgemeneRegels ;
+	sh:maxCount 1 .
+
+ro_str:PT_AlgemeneGebruiksregels a sh:NodeShape ;
+	sh:targetClass ro:AlgemeneGebruiksregels ;
+	sh:property ro_str:PT_AlgemeneGebruiksregels_ouder .
+
+ro_str:PT_AlgemeneGebruiksregels_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:AlgemeneRegels ;
+	sh:maxCount 1 .
+
+ro_str:PT_AlgemeneAanduidingsregels a sh:NodeShape ;
+	sh:targetClass ro:AlgemeneAanduidingsregels ;
+	sh:property ro_str:PT_AlgemeneAanduidingsregels_ouder .
+
+ro_str:PT_AlgemeneAanduidingsregels_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:AlgemeneRegels .
+
+ro_str:PT_AlgemeneAfwijkingsregels a sh:NodeShape ;
+	sh:targetClass ro:AlgemeneAfwijkingsregels ;
+	sh:property ro_str:PT_AlgemeneAfwijkingsregels_ouder .
+
+ro_str:PT_AlgemeneAfwijkingsregels_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:AlgemeneRegels ;
+	sh:maxCount 1 .
+
+ro_str:PT_AlgemeneWijzigingsregels a sh:NodeShape ;
+	sh:targetClass ro:AlgemeneWijzigingsregels ;
+	sh:property ro_str:PT_AlgemeneWijzigingsregels_ouder .
+
+ro_str:PT_AlgemeneWijzigingsregels_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:AlgemeneRegels ;
+	sh:maxCount 1 .
+
+ro_str:PT_VerwezenlijkingInDeNaasteToekomst a sh:NodeShape ;
+	sh:targetClass ro:VerwezenlijkingInDeNaasteToekomst ;
+	sh:property ro_str:PT_VerwezenlijkingInDeNaasteToekomst_ouder .
+
+ro_str:PT_VerwezenlijkingInDeNaasteToekomst_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:AlgemeneRegels ;
+	sh:maxCount 1 .
+
+ro_str:PT_AlgemeneProcedureregels a sh:NodeShape ;
+	sh:targetClass ro:AlgemeneProcedureregels ;
+	sh:property ro_str:PT_AlgemeneProcedureregels_ouder .
+
+ro_str:PT_AlgemeneProcedureregels_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:AlgemeneRegels ;
+	sh:maxCount 1 .
+
+ro_str:PT_OverigeRegels a sh:NodeShape ;
+	sh:targetClass ro:OverigeRegels ;
+	sh:property ro_str:PT_OverigeRegels_ouder .
+
+ro_str:PT_OverigeRegels_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:AlgemeneRegels ;
+	sh:maxCount 1 .
+
+ro_str:PT_Overgangs_EnSlotregels a sh:NodeShape ;
+	sh:targetClass ro:Overgangs_EnSlotregels ;
+	sh:property ro_str:PT_Overgangs_EnSlotregels_ouder .
+
+ro_str:PT_Overgangs_EnSlotregels_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:Regels ;
+	sh:maxCount 1 .
+
+ro_str:PT_Overgangsrecht a sh:NodeShape ;
+	sh:targetClass ro:Overgangsrecht ;
+	sh:property ro_str:PT_Overgangsrecht_ouder .
+
+ro_str:PT_Overgangsrecht_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:Overgangs_EnSlotregels ;
+	sh:maxCount 1 .
+
+ro_str:PT_Slotregel a sh:NodeShape ;
+	sh:targetClass ro:Slotregel ;
+	sh:property ro_str:PT_Slotregel_ouder .
+
+ro_str:PT_Slotregel_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:Overgangs_EnSlotregels ;
+	sh:maxCount 1 .
+
+ro_str:PT_Lid a sh:NodeShape ;
+	sh:targetClass ro:Lid ;
+	sh:property ro_str:PT_Lid_ouder .
+
+ro_str:PT_Lid_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:or _:node1brtujth0x23 .
+
+_:node1brtujth0x24 sh:class ro:WijzeVanMeten .
+
+_:node1brtujth0x23 rdf:first _:node1brtujth0x24 ;
+	rdf:rest _:node1brtujth0x25 .
+
+_:node1brtujth0x26 sh:class ro:Begrippen .
+
+_:node1brtujth0x25 rdf:first _:node1brtujth0x26 ;
+	rdf:rest _:node1brtujth0x27 .
+
+_:node1brtujth0x28 sh:class ro:Anti_dubbeltelregel .
+
+_:node1brtujth0x27 rdf:first _:node1brtujth0x28 ;
+	rdf:rest _:node1brtujth0x29 .
+
+_:node1brtujth0x30 sh:class ro:AlgemeneBouwregels .
+
+_:node1brtujth0x29 rdf:first _:node1brtujth0x30 ;
+	rdf:rest _:node1brtujth0x31 .
+
+_:node1brtujth0x32 sh:class ro:AlgemeneGebruiksregels .
+
+_:node1brtujth0x31 rdf:first _:node1brtujth0x32 ;
+	rdf:rest _:node1brtujth0x33 .
+
+_:node1brtujth0x34 sh:class ro:AlgemeneAanduidingsregels .
+
+_:node1brtujth0x33 rdf:first _:node1brtujth0x34 ;
+	rdf:rest _:node1brtujth0x35 .
+
+_:node1brtujth0x36 sh:class ro:AlgemeneAfwijkingsregels .
+
+_:node1brtujth0x35 rdf:first _:node1brtujth0x36 ;
+	rdf:rest _:node1brtujth0x37 .
+
+_:node1brtujth0x38 sh:class ro:AlgemeneWijzigingsregels .
+
+_:node1brtujth0x37 rdf:first _:node1brtujth0x38 ;
+	rdf:rest _:node1brtujth0x39 .
+
+_:node1brtujth0x40 sh:class ro:VerwerkelijkingInDeNaasteToekomst .
+
+_:node1brtujth0x39 rdf:first _:node1brtujth0x40 ;
+	rdf:rest _:node1brtujth0x41 .
+
+_:node1brtujth0x42 sh:class ro:AlgemeneProcedureregels .
+
+_:node1brtujth0x41 rdf:first _:node1brtujth0x42 ;
+	rdf:rest _:node1brtujth0x43 .
+
+_:node1brtujth0x44 sh:class ro:OverigeRegels .
+
+_:node1brtujth0x43 rdf:first _:node1brtujth0x44 ;
+	rdf:rest _:node1brtujth0x45 .
+
+_:node1brtujth0x46 sh:class ro:Overgangsrecht .
+
+_:node1brtujth0x45 rdf:first _:node1brtujth0x46 ;
+	rdf:rest _:node1brtujth0x47 .
+
+_:node1brtujth0x48 sh:class ro:Slotregel .
+
+_:node1brtujth0x47 rdf:first _:node1brtujth0x48 ;
+	rdf:rest rdf:nil .
+
+ro_str:PT_Sublid a sh:NodeShape ;
+	sh:targetClass ro:Sublid ;
+	sh:property ro_str:PT_Sublid_ouder .
+
+ro_str:PT_Sublid_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:Lid .
+
+ro_str:PT_SubSublid a sh:NodeShape ;
+	sh:targetClass ro:SubSublid ;
+	sh:property ro_str:PT_SubSublid_ouder .
+
+ro_str:PT_SubSublid_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:Sublid .
+
+ro_str:PT_SubSubSublid a sh:NodeShape ;
+	sh:targetClass ro:SubSubSublid ;
+	sh:property ro_str:PT_SubSubSublid_ouder .
+
+ro_str:PT_SubSubSublid_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:SubSublid .
+
+ro_str:PT_BijlagenBijRegels a sh:NodeShape ;
+	sh:targetClass ro:BijlagenBijRegels ;
+	sh:property ro_str:PT_BijlagenBijRegels_ouder .
+
+ro_str:PT_BijlagenBijRegels_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:or _:node1brtujth0x49 ;
+	sh:maxCount 1 .
+
+_:node1brtujth0x50 sh:class ro:Document .
+
+_:node1brtujth0x49 rdf:first _:node1brtujth0x50 ;
+	rdf:rest _:node1brtujth0x51 .
+
+_:node1brtujth0x52 sh:class ro:Regels .
+
+_:node1brtujth0x51 rdf:first _:node1brtujth0x52 ;
+	rdf:rest rdf:nil .
+
+ro_str:PT_BijlageBijRegels a sh:NodeShape ;
+	sh:targetClass ro:BijlageBijRegels ;
+	sh:property ro_str:PT_BijlageBijRegels_ouder .
+
+ro_str:PT_BijlageBijRegels_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:BijlagenBijRegels .
+
+ro_str:PT_Deel a sh:NodeShape ;
+	sh:targetClass ro:Deel ;
+	sh:property ro_str:PT_Deel_ouder .
+
+ro_str:PT_Deel_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:or _:node1brtujth0x53 .
+
+_:node1brtujth0x54 sh:class ro:BijlageBijRegels .
+
+_:node1brtujth0x53 rdf:first _:node1brtujth0x54 ;
+	rdf:rest _:node1brtujth0x55 .
+
+_:node1brtujth0x56 sh:class ro:Toelichting .
+
+_:node1brtujth0x55 rdf:first _:node1brtujth0x56 ;
+	rdf:rest _:node1brtujth0x57 .
+
+_:node1brtujth0x58 sh:class ro:BijlageBijToelichting .
+
+_:node1brtujth0x57 rdf:first _:node1brtujth0x58 ;
+	rdf:rest rdf:nil .
+
+ro_str:PT_Hoofdstuk a sh:NodeShape ;
+	sh:targetClass ro:Hoofdstuk ;
+	sh:property ro_str:PT_Hoofdstuk_ouder .
+
+ro_str:PT_Hoofdstuk_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:or _:node1brtujth0x59 .
+
+_:node1brtujth0x60 sh:class ro:BijlageBijRegels .
+
+_:node1brtujth0x59 rdf:first _:node1brtujth0x60 ;
+	rdf:rest _:node1brtujth0x61 .
+
+_:node1brtujth0x62 sh:class ro:Deel .
+
+_:node1brtujth0x61 rdf:first _:node1brtujth0x62 ;
+	rdf:rest _:node1brtujth0x63 .
+
+_:node1brtujth0x64 sh:class ro:Toelichting .
+
+_:node1brtujth0x63 rdf:first _:node1brtujth0x64 ;
+	rdf:rest _:node1brtujth0x65 .
+
+_:node1brtujth0x66 sh:class ro:BijlageBijToelichting .
+
+_:node1brtujth0x65 rdf:first _:node1brtujth0x66 ;
+	rdf:rest rdf:nil .
+
+ro_str:PT_Paragraaf a sh:NodeShape ;
+	sh:targetClass ro:Paragraaf ;
+	sh:property ro_str:PT_Paragraaf_ouder .
+
+ro_str:PT_Paragraaf_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:Hoofdstuk .
+
+ro_str:PT_Subparagraaf a sh:NodeShape ;
+	sh:targetClass ro:Subparagraaf ;
+	sh:property ro_str:PT_Subparagraaf_ouder .
+
+ro_str:PT_Subparagraaf_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:Paragraaf .
+
+ro_str:PT_SubSubparagraaf a sh:NodeShape ;
+	sh:targetClass ro:SubSubparagraaf ;
+	sh:property ro_str:PT_SubSubparagraaf_ouder .
+
+ro_str:PT_SubSubparagraaf_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:Subparagraaf .
+
+ro_str:PT_SubSubSubparagraaf a sh:NodeShape ;
+	sh:targetClass ro:SubSubSubparagraaf ;
+	sh:property ro_str:PT_SubSubSubparagraaf_ouder .
+
+ro_str:PT_SubSubSubparagraaf_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:SubSubparagraaf .
+
+ro_str:PT_Overig_Tekstobject a sh:NodeShape ;
+	sh:targetClass ro:Overig_Tekstobject ;
+	sh:property ro_str:PT_Overig_Tekstobject_ouder .
+
+ro_str:PT_Toelichting a sh:NodeShape ;
+	sh:targetClass ro:Toelichting ;
+	sh:property ro_str:PT_Toelichting_ouder .
+
+ro_str:PT_Toelichting_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:Document ;
+	sh:minCount 1 ;
+	sh:maxCount 1 .
+
+ro_str:PT_BijlagenBijToelichting a sh:NodeShape ;
+	sh:targetClass ro:BijlagenBijToelichting ;
+	sh:property ro_str:PT_BijlagenBijToelichting_ouder .
+
+ro_str:PT_BijlagenBijToelichting_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:or _:node1brtujth0x67 ;
+	sh:maxCount 1 .
+
+_:node1brtujth0x68 sh:class ro:Document .
+
+_:node1brtujth0x67 rdf:first _:node1brtujth0x68 ;
+	rdf:rest _:node1brtujth0x69 .
+
+_:node1brtujth0x70 sh:class ro:Toelichting .
+
+_:node1brtujth0x69 rdf:first _:node1brtujth0x70 ;
+	rdf:rest rdf:nil .
+
+ro_str:PT_BijlageBijToelichting a sh:NodeShape ;
+	sh:targetClass ro:BijlageBijToelichting ;
+	sh:property ro_str:PT_BijlageBijToelichting_ouder .
+
+ro_str:PT_BijlageBijToelichting_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:class ro:BijlagenBijToelichting .
+
+ro_str:PT_Overig_Tekstobject_ouder a sh:PropertyShape ;
+	sh:path ro:ouder ;
+	sh:or _:node1brtujth0x71 .
+
+_:node1brtujth0x72 sh:class ro:Lid .
+
+_:node1brtujth0x71 rdf:first _:node1brtujth0x72 ;
+	rdf:rest _:node1brtujth0x73 .
+
+_:node1brtujth0x74 sh:class ro:Sublid .
+
+_:node1brtujth0x73 rdf:first _:node1brtujth0x74 ;
+	rdf:rest _:node1brtujth0x75 .
+
+_:node1brtujth0x76 sh:class ro:SubSublid .
+
+_:node1brtujth0x75 rdf:first _:node1brtujth0x76 ;
+	rdf:rest _:node1brtujth0x77 .
+
+_:node1brtujth0x78 sh:class ro:SubSubSublid .
+
+_:node1brtujth0x77 rdf:first _:node1brtujth0x78 ;
+	rdf:rest _:node1brtujth0x79 .
+
+_:node1brtujth0x80 sh:class ro:Hoofdstuk .
+
+_:node1brtujth0x79 rdf:first _:node1brtujth0x80 ;
+	rdf:rest _:node1brtujth0x81 .
+
+_:node1brtujth0x82 sh:class ro:Paragraaf .
+
+_:node1brtujth0x81 rdf:first _:node1brtujth0x82 ;
+	rdf:rest _:node1brtujth0x83 .
+
+_:node1brtujth0x84 sh:class ro:Subparagraaf .
+
+_:node1brtujth0x83 rdf:first _:node1brtujth0x84 ;
+	rdf:rest _:node1brtujth0x85 .
+
+_:node1brtujth0x86 sh:class ro:SubSubparagraaf .
+
+_:node1brtujth0x85 rdf:first _:node1brtujth0x86 ;
+	rdf:rest _:node1brtujth0x87 .
+
+_:node1brtujth0x88 sh:class ro:SubSubSubparagraaf .
+
+_:node1brtujth0x87 rdf:first _:node1brtujth0x88 ;
+	rdf:rest rdf:nil .
+
+:ro a owl:Ontology ;
+	dc:description "TODO"@nl ;
+	dc:title "Ruimtelijke Ordening vocabulaire"@nl ;
+	rdfs:label "Ruimtelijke Ordening vocabulaire"@nl ;
+	owl:imports <http://datashapes.org/dash> .
+
+ro:Plangebied a owl:Class ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:label "Plangebied"@nl ;
+	rdfs:subClassOf nen3610:PlanologischGebied ;
+	dcterms:subject _:node1brtujth0x89 .
+
+_:node1brtujth0x89 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:Planobject a owl:Class ;
+	rdfs:label "Planobject"@nl ;
+	rdfs:subClassOf nen3610:PlanologischGebied ;
+	dcterms:subject _:node1brtujth0x90 .
+
+_:node1brtujth0x90 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:RuimtelijkPlanOfBesluit a owl:Class ;
+	rdfs:isdefinedBy :ro ;
+	rdfs:label "RuimtelijkPlanOfBesluit"@nl ;
+	dcterms:subject _:node1brtujth0x91 .
+
+_:node1brtujth0x91 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:RuimtelijkPlanobject a owl:Class ;
+	rdfs:label "Ruimtelijk planobject"@nl ;
+	rdfs:subClassOf owl:Thing ;
+	dcterms:subject _:node1brtujth0x92 .
+
+_:node1brtujth0x92 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:Structuurvisie a owl:Class ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:label "Structuurvisie"@nl ;
+	rdfs:subClassOf ro:RuimtelijkPlanOfBesluit ;
+	dcterms:subject _:node1brtujth0x93 .
+
+_:node1brtujth0x93 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:locatieNaam a owl:AnnotationProperty ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:label "locatie naam"@nl ;
+	dcterms:subject _:node1brtujth0x94 .
+
+_:node1brtujth0x94 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:naam a owl:AnnotationProperty ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:label "naam"@nl ;
+	dcterms:subject _:node1brtujth0x95 .
+
+_:node1brtujth0x95 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:planobject a owl:ObjectProperty ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:label "planobject"@nl ;
+	rdfs:range nen3610:Planobject ;
+	dcterms:subject _:node1brtujth0x96 .
+
+_:node1brtujth0x96 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:RuimtelijkInstrument a owl:Class ;
+	dcterms:subject ro_beg:RuimtelijkInstrument , _:node1brtujth0x97 , _:node1brtujth0x98 ;
+	rdfs:label "Ruimtelijk Instrument"@nl ;
+	rdfs:isDefinedBy <http://data.informatiehuisruimte.nl/def/ro#> .
+
+_:node1brtujth0x97 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+_:node1brtujth0x98 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:thema a owl:DatatypeProperty ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:label "thema"@nl ;
+	dcterms:subject _:node1brtujth0x99 .
+
+_:node1brtujth0x99 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:typePlan a owl:ObjectProperty ;
+	dcterms:subject ro_beg:typePlan , _:node1brtujth0x100 ;
+	rdfs:label "typePlan"@nl .
+
+_:node1brtujth0x100 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:Ondergrond a owl:Class ;
+	rdfs:label "Ondergrond"@nl ;
+	rdfs:subClassOf owl:Thing ;
+	dcterms:subject _:node1brtujth0x101 .
+
+_:node1brtujth0x101 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:ondergrond a owl:ObjectProperty ;
+	rdfs:domain nen3610:Plangebied ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:label "ondergrond"@nl ;
+	rdfs:range ro:Ondergrond ;
+	dcterms:subject _:node1brtujth0x102 .
+
+_:node1brtujth0x102 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:ondergrondtype a owl:ObjectProperty ;
+	rdfs:domain ro:Ondergrond ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:label "ondergrondtype"@nl ;
+	dcterms:subject _:node1brtujth0x103 .
+
+_:node1brtujth0x103 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:beleid a owl:ObjectProperty ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:label "beleid"@nl ;
+	dcterms:subject _:node1brtujth0x104 .
+
+_:node1brtujth0x104 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:belang a owl:DatatypeProperty ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:label "belang"@nl ;
+	dcterms:subject _:node1brtujth0x105 .
+
+_:node1brtujth0x105 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:rol a owl:DatatypeProperty ;
+	rdfs:label "rol"@nl ;
+	rdfs:isDefinedBy :ro ;
+	dcterms:subject _:node1brtujth0x106 .
+
+_:node1brtujth0x106 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:Instrument a owl:Class ;
+	rdfs:label "Instrument"@nl ;
+	rdfs:subClassOf owl:Thing ;
+	dcterms:subject _:node1brtujth0x107 .
+
+_:node1brtujth0x107 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:instrument a owl:ObjectProperty ;
+	rdfs:label "instrument"@nl ;
+	rdfs:isDefinedBy :ro ;
+	dcterms:subject _:node1brtujth0x108 , _:node1brtujth0x109 ;
+	rdfs:range ro:Instrument .
+
+_:node1brtujth0x108 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+_:node1brtujth0x109 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:amvb a ro:Instrument , owl:NamedIndividual ;
+	rdfs:label "amvb"@nl ;
+	dcterms:subject _:node1brtujth0x110 .
+
+_:node1brtujth0x110 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:beheersverordening a ro:Instrument , owl:NamedIndividual ;
+	rdfs:label "beheersverordening"@nl ;
+	dcterms:subject _:node1brtujth0x111 .
+
+_:node1brtujth0x111 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:bestuurlijkeAfspraken a ro:Instrument , owl:NamedIndividual ;
+	rdfs:label "bestuurlijke afspraken"@nl ;
+	dcterms:subject _:node1brtujth0x112 .
+
+_:node1brtujth0x112 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:coordinatieregeling a ro:Instrument , owl:NamedIndividual ;
+	rdfs:label "coordinatieregeling"@nl ;
+	dcterms:subject _:node1brtujth0x113 .
+
+_:node1brtujth0x113 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:inpassingsplan a ro:Instrument , owl:NamedIndividual ;
+	rdfs:label "inpassingsplan"@nl ;
+	dcterms:subject _:node1brtujth0x114 .
+
+_:node1brtujth0x114 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:omgevingsvergunning a ro:Instrument , owl:NamedIndividual ;
+	rdfs:label "omgevingsvergunning"@nl ;
+	dcterms:subject _:node1brtujth0x115 .
+
+_:node1brtujth0x115 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:proactieveAanwijzing a ro:Instrument , owl:NamedIndividual ;
+	rdfs:label "proactieve aanwijzing"@nl ;
+	dcterms:subject _:node1brtujth0x116 .
+
+_:node1brtujth0x116 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:reactieveAanwijzing a ro:Instrument , owl:NamedIndividual ;
+	rdfs:label "reactieve aanwijzing"@nl ;
+	dcterms:subject _:node1brtujth0x117 .
+
+_:node1brtujth0x117 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:vooroverleg a ro:Instrument , owl:NamedIndividual ;
+	rdfs:label "vooroverleg"@nl ;
+	dcterms:subject _:node1brtujth0x118 .
+
+_:node1brtujth0x118 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:zienswijze a ro:Instrument , owl:NamedIndividual ;
+	rdfs:label "zienswijze"@nl ;
+	dcterms:subject _:node1brtujth0x119 .
+
+_:node1brtujth0x119 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:verordening a ro:Instrument , owl:NamedIndividual ;
+	rdfs:label "verordening"@nl ;
+	dcterms:subject _:node1brtujth0x120 .
+
+_:node1brtujth0x120 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:voorbereidingsbesluit a ro:Instrument , owl:NamedIndividual ;
+	rdfs:label "voorbereidingsbesluit"@nl ;
+	dcterms:subject _:node1brtujth0x121 .
+
+_:node1brtujth0x121 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+nen3610:GeoObject a owl:Class ;
+	dcterms:subject ro_nen3610_beg:GeoObject ;
+	rdfs:label "GeoObject"@nl .
+
+nen3610:NEN3610ID a owl:Class ;
+	dcterms:subject ro_nen3610_beg:NEN3610ID ;
+	rdfs:label "NEN3610ID"@nl .
+
+nen3610:PlanologischGebied a owl:Class ;
+	dcterms:subject ro_nen3610_beg:PlanologischGebied ;
+	rdfs:label "Planologisch gebied"@nl ;
+	rdfs:subClassOf nen3610:GeoObject .
+
+nen3610:identificatie a owl:ObjectProperty ;
+	rdfs:domain nen3610:GeoObject ;
+	rdfs:label "identificatie"@nl ;
+	rdfs:range nen3610:NEN3610ID .
+
+nen3610:lokaalID a owl:DatatypeProperty ;
+	rdfs:domain nen3610:NEN3610ID ;
+	rdfs:label "lokaalID"@nl .
+
+nen3610:namespace a owl:DatatypeProperty ;
+	rdfs:domain nen3610:NEN3610ID ;
+	rdfs:label "namespace"@nl .
+
+nen3610:versie a owl:DatatypeProperty ;
+	rdfs:domain nen3610:NEN3610ID ;
+	rdfs:label "versie"@nl .
+
+nen3610:Plangebied a owl:Class ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:label "Plangebied"@nl ;
+	rdfs:subClassOf nen3610:PlanologischGebied .
+
+nen3610:Planobject a owl:Class ;
+	rdfs:label "Planobject"@nl ;
+	rdfs:subClassOf nen3610:PlanologischGebied .
+
+<http://data.informatiehuisruimte.nl/def/nen3610/GeoObject> a sh:NodeShape ;
+	sh:targetClass nen3610:GeoObject ;
+	sh:sparql _:node1brtujth0x122 ;
+	sh:property _:node1brtujth0x123 .
+
+_:node1brtujth0x122 sh:message "{$this} is an instance of an abstract class." ;
+	sh:prefixed ro_str:prefixes ;
+	sh:select """
+SELECT DISTINCT $this
+WHERE {
+  $this rdf:type nen3610:GeoObject .
+  FILTER NOT EXISTS {
+    $this rdf:type ?class .
+    ?class rdfs:subClassOf nen3610:GeoObject .
+  }
+}""" .
+
+_:node1brtujth0x123 sh:path nen3610:identificatie ;
+	sh:class nen3610:NEN3610ID ;
+	sh:maxCount 1 ;
+	sh:minCount 1 .
+
+<http://data.informatiehuisruimte.nl/def/nen3610/NEN3610ID> a sh:NodeShape ;
+	sh:targetClass nen3610:NEN3610ID ;
+	sh:property <http://data.informatiehuisruimte.nl/def/nen3610/GeoObject_lokaalID> , <http://data.informatiehuisruimte.nl/def/nen3610/GeoObject_namespace> , <http://data.informatiehuisruimte.nl/def/nen3610/GeoObject_versie> .
+
+<http://data.informatiehuisruimte.nl/def/nen3610/GeoObject_lokaalID> a sh:PropertyShape ;
+	sh:path nen3610:lokaalID ;
+	sh:datatype xsd:string ;
+	sh:description "Unieke identificatiecode binnen een registratie"@nl ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:pattern "([a-z0-9A-Z\\.\\,\\-]*\\w)" .
+
+<http://data.informatiehuisruimte.nl/def/nen3610/GeoObject_namespace> a sh:PropertyShape ;
+	sh:path nen3610:namespace ;
+	sh:datatype xsd:string ;
+	sh:description "Unieke verwijzing naar een registratie van objecten"@nl ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:pattern "([a-z0-9A-Z\\.\\,\\-]*\\w)" .
+
+<http://data.informatiehuisruimte.nl/def/nen3610/GeoObject_versie> a sh:PropertyShape ;
+	sh:path nen3610:versie ;
+	sh:datatype xsd:string ;
+	sh:description "Versie-aanduiding binnen een registratie"@nl ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal .
+
+ro_str:PlanlogischGebied a sh:NodeShape ;
+	sh:property ro_str:naam ;
+	sh:sparql _:node1brtujth0x124 .
+
+_:node1brtujth0x124 sh:message "{$this} is an instance of an abstract class." ;
+	sh:prefixes ro_str:prefixes ;
+	sh:select """
+SELECT DISTINCT $this
+WHERE {
+  $this rdf:type ro:PlanologischGebied  .
+  FILTER NOT EXISTS {
+    $this rdf:type ?class .
+    ?class rdfs:subClassOf ro:PlanologischGebied  .
+  }
+}""" .
+
+<http://data.informatiehuisruimte.nl/def/nen3610/Planobject> a sh:NodeShape ;
+	sh:targetClass nen3610:Planobject ;
+	sh:property _:node1brtujth0x125 ;
+	sh:sparql _:node1brtujth0x126 .
+
+_:node1brtujth0x125 sh:path nen3610:identificatie ;
+	sh:maxLength 32 .
+
+_:node1brtujth0x126 sh:message "{$this} is an instance of an abstract class." ;
+	sh:prefixes ro_str:prefixes ;
+	sh:select """
+SELECT DISTINCT $this
+WHERE {
+  $this rdf:type ro:Planobject  .
+  FILTER NOT EXISTS {
+    $this rdf:type ?class .
+    ?class rdfs:subClassOf ro:Planobject  .
+  }
+}""" .
+
+ro_str:Plangebied a sh:NodeShape ;
+	sh:targetClass nen3610:Plangebied , ro:Plangebied ;
+	sh:property ro_str:Plangebied_locatieNaam , ro_str:Plangebied_planstatus , ro_str:Plangebied_ondergrond , _:node1brtujth0x127 , ro_str:Plangebied_geometry ;
+	sh:sparql _:node1brtujth0x128 ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Objecttype> ;
+	rdfs:label "Plangebied shape" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+	<http://bp4mc2.org/def/kkg/id/begrip/indicatieAbstractObject> "nee" .
+
+_:node1brtujth0x127 sh:path nen3610:identificatie ;
+	sh:maxLength 23 .
+
+_:node1brtujth0x128 sh:message "{$this} is an instance of an abstract class." ;
+	sh:prefixes ro_str:prefixes ;
+	sh:select """
+SELECT DISTINCT $this
+WHERE {
+  $this rdf:type ro:Plangebied  .
+  FILTER NOT EXISTS {
+    $this rdf:type ?class .
+    ?class rdfs:subClassOf ro:Plangebied  .
+  }
+}""" .
+
+ro:Overheid a owl:Class ;
+	rdfs:label "Overheden"@nl .
+
+ro:NationaleOverheid a owl:Class ;
+	rdfs:label "nationale overheid"@nl ;
+	rdfs:subClassOf ro:Overheid .
+
+ro:ProvincialeOverheid a owl:Class ;
+	rdfs:label "provinciale overheid"@nl ;
+	rdfs:subClassOf ro:Overheid .
+
+ro:GemeentelijkeOverheid a owl:Class ;
+	rdfs:label "gemeentelijke overheid"@nl ;
+	rdfs:subClassOf ro:Overheid .
+
+ro:Deelgemeente_Stadsdeel a owl:Class ;
+	rdfs:label "Deelgemeente/Stadsdeel"@nl ;
+	rdfs:subClassOf ro:Overheid .
+
+ro:beleidsmatigVerantwoordelijkeOverheid a owl:ObjectProperty ;
+	rdfs:domain nen3610:Plangebied ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:label "beleidsmatigerantwoordelijke overheid"@nl ;
+	rdfs:range ro:Overheid .
+
+ro:naamOverheid a owl:AnnotationProperty ;
+	rdfs:domain ro:Overheid ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:label "naam overheid"@nl .
+
+ro:overheidsCode a owl:AnnotationProperty ;
+	rdfs:domain ro:Overheid ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:label "overheids code"@nl .
+
+ro_str:Overheid a sh:NodeShape ;
+	sh:targetClass ro:Overheid ;
+	sh:Property ro_str:overheidsNaam , ro_str:overheidsCode .
+
+ro_str:overheidsNaam a sh:PropertyShape ;
+	sh:path ro:overheidsNaam ;
+	sh:minCount 1 ;
+	sh:maxCount 1 ;
+	sh:datatype xsd:string .
+
+ro_str:overheidsCode a sh:PropertyShape ;
+	sh:path ro:overheidsCode ;
+	sh:minCount 1 ;
+	sh:maxCount 1 ;
+	sh:datatype xsd:string .
+
+ro_str:Overheden_R a sh:NodeShape ;
+	sh:property _:node1brtujth0x129 , _:node1brtujth0x131 , _:node1brtujth0x132 .
+
+_:node1brtujth0x129 sh:path rdf:type ;
+	sh:in _:node1brtujth0x130 .
+
+_:node1brtujth0x130 rdf:first ro:NationaleOverheid ;
+	rdf:rest rdf:nil .
+
+_:node1brtujth0x131 sh:path ro:overheidsCode ;
+	sh:hasValue "0000" .
+
+_:node1brtujth0x132 sh:path ro:overheidsNaam ;
+	sh:pattern "^(ministerie)\\s" .
+
+ro_str:Overheden_P a sh:NodeShape ;
+	sh:property _:node1brtujth0x133 , _:node1brtujth0x135 , _:node1brtujth0x136 .
+
+_:node1brtujth0x133 sh:path rdf:type ;
+	sh:in _:node1brtujth0x134 .
+
+_:node1brtujth0x134 rdf:first ro:ProvincialeOverheid ;
+	rdf:rest rdf:nil .
+
+_:node1brtujth0x135 sh:path ro:overheidsCode ;
+	sh:pattern "99[0-9][0-9]" .
+
+_:node1brtujth0x136 sh:path ro:overheidsNaam ;
+	sh:pattern "^(provincie)\\s" .
+
+ro:Planstatus a owl:Class ;
+	rdfs:label "Planstatus"@nl ;
+	rdfs:isDefinedBy :ro .
+
+ro:status a owl:ObjectProperty ;
+	rdfs:label "status"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:domain ro:Planstatus .
+
+ro:vaststellingsbesluit a owl:ObjectProperty ;
+	rdfs:label "vaststellingsbesluit"@nl ;
+	rdfs:domain ro:Planstatus .
+
+ro:besluitnummer a owl:DatatypeProperty ;
+	rdfs:label "besluitnummer"@nl ;
+	rdfs:domain ro:Planstatus .
+
+ro:toekenningsdatum a owl:DatatypeProperty ;
+	rdfs:label "toekenningsdatum"@nl ;
+	rdfs:domain ro:Planstatus ;
+	rdfs:range xsd:date .
+
+ro_str:RuimtelijkInstrument_planstatus a sh:PropertyShape ;
+	sh:path ro:planstatus ;
+	sh:class ro:Planstatus ;
+	sh:minCount 1 ;
+	sh:maxCount 1 .
+
+ro_str:Planstatus a sh:NodeShape ;
+	sh:targetClass ro:Planstatus ;
+	sh:property ro_str:Planstatus_status , ro_str:Planstatus_datum , ro_str:Planstatus_vaststellingsbesluit , ro_str:Planstatus_besluitnummer .
+
+ro_str:Planstatus_status a sh:PropertyShape ;
+	sh:path ro:status ;
+	sh:class skos:Concept ;
+	sh:nodeKind sh:IRI ;
+	sh:minCount 1 ;
+	sh:maxCount 1 ;
+	sh:node _:node1brtujth0x137 .
+
+_:node1brtujth0x139 sh:inversePath skos:member .
+
+_:node1brtujth0x138 sh:path _:node1brtujth0x139 ;
+	sh:hasValue ro_col:Planstatussen .
+
+_:node1brtujth0x137 sh:property _:node1brtujth0x138 .
+
+ro_str:Planstatus_datum a sh:PropertyShape ;
+	sh:path ro:datum ;
+	sh:nodeKind sh:Literal ;
+	sh:datatype xsd:date ;
+	sh:minCount 1 ;
+	sh:maxCount 1 .
+
+ro_str:Planstatus_vaststellingsbesluit a sh:PropertyShape ;
+	sh:xone _:node1brtujth0x140 .
+
+_:node1brtujth0x143 sh:path ro:vaststellingsbesluit ;
+	sh:nodeKind sh:Literal ;
+	sh:datatype xsd:string ;
+	sh:minCount 1 ;
+	sh:maxCount 1 .
+
+_:node1brtujth0x142 rdf:first _:node1brtujth0x143 ;
+	rdf:rest _:node1brtujth0x144 .
+
+_:node1brtujth0x145 sh:path ro:status ;
+	sh:hasValue ro_beg:Vastgesteld_Planstatus .
+
+_:node1brtujth0x144 rdf:first _:node1brtujth0x145 ;
+	rdf:rest rdf:nil .
+
+_:node1brtujth0x141 sh:and _:node1brtujth0x142 .
+
+_:node1brtujth0x140 rdf:first _:node1brtujth0x141 ;
+	rdf:rest _:node1brtujth0x146 .
+
+_:node1brtujth0x149 sh:path ro:vaststellingsbesluit ;
+	sh:maxCount 0 .
+
+_:node1brtujth0x148 rdf:first _:node1brtujth0x149 ;
+	rdf:rest _:node1brtujth0x150 .
+
+_:node1brtujth0x152 sh:path ro:status ;
+	sh:hasValue ro_beg:Vastgesteld_Planstatus .
+
+_:node1brtujth0x151 sh:not _:node1brtujth0x152 .
+
+_:node1brtujth0x150 rdf:first _:node1brtujth0x151 ;
+	rdf:rest rdf:nil .
+
+_:node1brtujth0x147 sh:and _:node1brtujth0x148 .
+
+_:node1brtujth0x146 rdf:first _:node1brtujth0x147 ;
+	rdf:rest rdf:nil .
+
+ro_str:Planstatus_besluitnummer a sh:PropertyShape ;
+	sh:xone _:node1brtujth0x153 .
+
+_:node1brtujth0x156 sh:path ro:besluitnummer ;
+	sh:nodeKind sh:Literal ;
+	sh:datatype xsd:string ;
+	sh:minCount 1 ;
+	sh:maxCount 1 .
+
+_:node1brtujth0x155 rdf:first _:node1brtujth0x156 ;
+	rdf:rest _:node1brtujth0x157 .
+
+_:node1brtujth0x158 sh:path ro:status ;
+	sh:hasValue ro_beg:Vastgesteld_Planstatus .
+
+_:node1brtujth0x157 rdf:first _:node1brtujth0x158 ;
+	rdf:rest rdf:nil .
+
+_:node1brtujth0x154 sh:and _:node1brtujth0x155 .
+
+_:node1brtujth0x153 rdf:first _:node1brtujth0x154 ;
+	rdf:rest _:node1brtujth0x159 .
+
+_:node1brtujth0x162 sh:path ro:vaststellingsbesluit ;
+	sh:maxCount 0 .
+
+_:node1brtujth0x161 rdf:first _:node1brtujth0x162 ;
+	rdf:rest _:node1brtujth0x163 .
+
+_:node1brtujth0x165 sh:path ro:status ;
+	sh:hasValue ro_beg:Vastgesteld_Planstatus .
+
+_:node1brtujth0x164 sh:not _:node1brtujth0x165 .
+
+_:node1brtujth0x163 rdf:first _:node1brtujth0x164 ;
+	rdf:rest rdf:nil .
+
+_:node1brtujth0x160 sh:and _:node1brtujth0x161 .
+
+_:node1brtujth0x159 rdf:first _:node1brtujth0x160 ;
+	rdf:rest rdf:nil .
+
+ro_str:RuimtelijkInstrument a sh:Nodeshape ;
+	sh:targetClass ro:RuimtelijkInstrument ;
+	sh:property ro_str:RuimtelijkInstrument_planstatus .
+
+ro_str:naam a sh:PropertyShape ;
+	sh:path ro:naam ;
+	sh:minCount 1 ;
+	sh:maxCount 1 ;
+	sh:datatype xsd:string .
+
+ro_str:Plangebied_locatieNaam a sh:PropertyShape ;
+	sh:path ro:locatieNaam ;
+	sh:nodeKind sh:Literal ;
+	sh:datatype xsd:string .
+
+ro_str:Plangebied_ondergrond a sh:PropertyShape ;
+	sh:path ro:ondergrond ;
+	sh:minCount 1 ;
+	sh:node ro_str:Plangebied_Ondergrond .
+
+ro_str:Plangebied_Ondergrond a sh:NodeShape ;
+	sh:property ro:Ondergrond_ondergrondtype , ro:ondergrond_datum .
+
+ro_str:Ondergrond_ondergrondtype a sh:PropertyShape ;
+	sh:path ro:ondergrondtype ;
+	sh:minCount 1 ;
+	sh:maxCount 1 .
+
+ro_str:ondergrond_datum a sh:PropertyShape ;
+	sh:path ro:datum ;
+	sh:minCount 1 ;
+	sh:maxCount 1 .
+
+_:node1brtujth0x166 sh:namespace "http://data.informatiehuisruimte.nl/def/ro#"^^xsd:anyURI ;
+	sh:prefix "ro" .
+
+ro_str:prefixes sh:declare _:node1brtujth0x166 , _:node1brtujth0x167 , _:node1brtujth0x168 , _:node1brtujth0x169 .
+
+_:node1brtujth0x167 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+	sh:prefix "rdf" .
+
+_:node1brtujth0x168 sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ;
+	sh:prefix "rdfs" .
+
+_:node1brtujth0x169 sh:namespace "http://data.informatiehuisruimte.nl/def/nen3610#"^^xsd:anyURI ;
+	sh:prefix "nen3610" .
+
+ro_str:RuimtelijkPlanOfBesluit_SV a sh:NodeShape ;
+	sh:in _:node1brtujth0x170 .
+
+_:node1brtujth0x170 rdf:first ro:Structuurvisie ;
+	rdf:rest rdf:nil .
+
+ro_str:BeleidInfo_RSV a sh:NodeShape ;
+	sh:property ro_str:BeleidInfo_RSV_belang , ro_str:BeleidInfo_RSV_rol , ro_str:BeleidInfo_RSV_instrument .
+
+ro_str:BeleidInfo_RSV_belang a sh:PropertyShape ;
+	sh:path ro:belang ;
+	sh:datatype xsd:string ;
+	sh:minCount 1 ;
+	sh:maxCount 1 .
+
+ro_str:BeleidInfo_RSV_rol a sh:PropertyShape ;
+	sh:path ro:rol ;
+	sh:datatype xsd:string ;
+	sh:minCount 1 ;
+	sh:maxCount 1 .
+
+ro_str:BeleidInfo_RSV_instrument a sh:PropertyShape ;
+	sh:path ro:instrument ;
+	sh:maxCount 1 ;
+	sh:in _:node1brtujth0x171 .
+
+_:node1brtujth0x171 rdf:first ro:amvb ;
+	rdf:rest _:node1brtujth0x172 .
+
+_:node1brtujth0x172 rdf:first ro:beheersverordening ;
+	rdf:rest _:node1brtujth0x173 .
+
+_:node1brtujth0x173 rdf:first ro:bestemmingsplan ;
+	rdf:rest _:node1brtujth0x174 .
+
+_:node1brtujth0x174 rdf:first ro:bestuurlijkeAfspraken ;
+	rdf:rest _:node1brtujth0x175 .
+
+_:node1brtujth0x175 rdf:first ro:coordinatieregeling ;
+	rdf:rest _:node1brtujth0x176 .
+
+_:node1brtujth0x176 rdf:first ro:inpassingsplan ;
+	rdf:rest _:node1brtujth0x177 .
+
+_:node1brtujth0x177 rdf:first ro:omgevingsvergunning ;
+	rdf:rest _:node1brtujth0x178 .
+
+_:node1brtujth0x178 rdf:first ro:proactieveAanwijzing ;
+	rdf:rest _:node1brtujth0x179 .
+
+_:node1brtujth0x179 rdf:first ro:reactieveAanwijzing ;
+	rdf:rest _:node1brtujth0x180 .
+
+_:node1brtujth0x180 rdf:first ro:verordening ;
+	rdf:rest _:node1brtujth0x181 .
+
+_:node1brtujth0x181 rdf:first ro:voorbereidingsbesluit ;
+	rdf:rest _:node1brtujth0x182 .
+
+_:node1brtujth0x182 rdf:first ro:vooroverleg ;
+	rdf:rest _:node1brtujth0x183 .
+
+_:node1brtujth0x183 rdf:first ro:zienswijze ;
+	rdf:rest rdf:nil .
+
+ro:verwijzing a rdf:Property ;
+	rdfs:label "verwijzing"@nl ;
+	rdfs:isDefinedBy :ro .
+
+ro:tekstReferentie a owl:AnnotationProperty ;
+	rdfs:label "tekstverwijzing"@nl .
+
+ro:Tekst a owl:Class ;
+	rdfs:label "Tekst"@nl ;
+	rdfs:subClassOf owl:Thing .
+
+ro:Beleid a owl:Class ;
+	rdfs:label "Beleid"@nl ;
+	rdfs:subClassOf ro:Tekst .
+
+ro:Regel_met_Voorbereidingsbescherming a owl:Class ;
+	rdfs:label "Regel met Voorbereidingsbescherming"@nl ;
+	rdfs:subClassOf ro:Tekst .
+
+ro:Regel_zonder_Voorbereidingsbescherming a owl:Class ;
+	rdfs:label "Regel zonder Voorbereidingsbescherming"@nl ;
+	rdfs:subClassOf ro:Tekst .
+
+ro:Beleid_Gemandateerd_aan_GS a owl:Class ;
+	rdfs:label "Beleid Gemandateerd aan GS"@nl ;
+	rdfs:subClassOf ro:Tekst .
+
+ro:Besluitdocument a owl:Class ;
+	rdfs:label "Besluitdocument"@nl ;
+	rdfs:subClassOf ro:Tekst .
+
+ro:Besluittekst a owl:Class ;
+	rdfs:label "Besluittekst"@nl ;
+	rdfs:subClassOf ro:Tekst .
+
+ro:Bijlage a owl:Class ;
+	rdfs:label "Bijlage"@nl ;
+	rdfs:subClassOf ro:Tekst .
+
+ro:Bijlage_Besluitdocument a owl:Class ;
+	rdfs:label "Bijlage Besluitdocument"@nl ;
+	rdfs:subClassOf ro:Tekst .
+
+ro:Bijlage_Besluittekst a owl:Class ;
+	rdfs:label "Bijlage Besluittekst"@nl ;
+	rdfs:subClassOf ro:Tekst .
+
+ro:Bijlage_Regel_met_voorbereidingsbescherming a owl:Class ;
+	rdfs:label "Bijlage Regel met voorbereidingsbescherming"@nl ;
+	rdfs:subClassOf ro:Tekst .
+
+ro:Bijlage_Regel_zonder_voorbereidingsbescherming a owl:Class ;
+	rdfs:label "Bijlage Regel zonder voorbereidingsbescherming"@nl ;
+	rdfs:subClassOf ro:Tekst .
+
+ro:Bijlage_Regels a owl:Class ;
+	rdfs:label "Bijlage Regels"@nl ;
+	rdfs:subClassOf ro:Tekst .
+
+ro:Bijlage_Toelichting a owl:Class ;
+	rdfs:label "Bijlage Toelichting"@nl ;
+	rdfs:subClassOf ro:Tekst .
+
+ro:Illustratie a owl:Class ;
+	rdfs:label "Illustratie"@nl ;
+	rdfs:subClassOf owl:Thing .
+
+ro:Afbeelding a owl:Class ;
+	rdfs:label "Afbeelding"@nl ;
+	rdfs:subClassOf ro:Illustratie .
+
+ro:Kaart a owl:Class ;
+	rdfs:label "Kaart"@nl ;
+	rdfs:subClassOf ro:Illustratie .
+
+ro:illustratie a owl:AnnotationProperty ;
+	rdfs:label "illustratie"@nl ;
+	rdfs:subPropertyOf ro:verwijzing .
+
+ro:afbeeldingReferentie a owl:AnnotationProperty ;
+	rdfs:label "afbeeldingReferentie"@nl ;
+	rdfs:subPropertyOf ro:illustratie .
+
+ro:kaartReferentie a owl:AnnotationProperty ;
+	rdfs:label "kaartReferentie"@nl ;
+	rdfs:subPropertyOf ro:illustratie .
+
+ro:illustratieverwijzing a owl:ObjectProperty ;
+	rdfs:label "illustratieverwijzing"@nl .
+
+ro:legendaNaam a owl:DatatypeProperty ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:label "legenda naam"@nl .
+
+ro:cartografie a owl:ObjectProperty ;
+	rdfs:label "cartografie"@nl .
+
+ro:kaartNaam a owl:DatatypeProperty ;
+	rdfs:label "kaart naam"@nl .
+
+ro:kaartNummer a owl:DatatypeProperty ;
+	rdfs:label "kaart nummer"@nl .
+
+ro:symboolCode a owl:DatatypeProperty ;
+	rdfs:label "symbool code"@nl .
+
+ro:externPlan a owl:ObjectProperty ;
+	rdfs:label "extern plan"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subPropertyOf ro:verwijzing .
+
+ro:muteert a owl:ObjectProperty ;
+	rdfs:label "muteert"@nl ;
+	rdfs:subPropertyOf ro:externPlan ;
+	rdfs:isDefinedBy :ro ;
+	dcterms:subject ro_beg:muteert .
+
+ro:vervangt a owl:ObjectProperty ;
+	rdfs:label "vervangt"@nl ;
+	rdfs:subPropertyOf ro:externPlan ;
+	rdfs:isDefinedBy :ro ;
+	dcterms:subject ro_beg:vervangt .
+
+ro:uitTeWerkenIn a owl:ObjectProperty ;
+	rdfs:label "uit te werken in"@nl ;
+	rdfs:subPropertyOf ro:externPlan ;
+	rdfs:isDefinedBy :ro .
+
+ro:uitgewerktIn a owl:ObjectProperty ;
+	rdfs:label "uitgewerkt in"@nl ;
+	rdfs:subPropertyOf ro:externPlan ;
+	rdfs:isDefinedBy :ro .
+
+ro:gebruiktInformatieUit a owl:ObjectProperty ;
+	rdfs:label "TODO"@nl ;
+	rdfs:subPropertyOf ro:externPlan ;
+	rdfs:isDefinedBy :ro .
+
+ro:tenGevolgeVan a owl:ObjectProperty ;
+	rdfs:label "ten gevolge van"@nl ;
+	rdfs:subPropertyOf ro:externPlan ;
+	rdfs:isDefinedBy :ro ;
+	dcterms:subject ro_beg:tenGevolgeVan .
+
+ro:verwijzingNorm a owl:DatatypeProperty ;
+	rdfs:label "verwijzing norm"@nl ;
+	dcterms:subject _:node1brtujth0x184 .
+
+_:node1brtujth0x184 skos:definition "TODO"@nl .
+
+ro_str:Tekst a sh:NodeShape ;
+	sh:targetClass ro:Tekst ;
+	sh:property _:node1brtujth0x185 .
+
+_:node1brtujth0x185 sh:path ro:tekstverwijzing ;
+	sh:minCount 1 ;
+	sh:maxCount 1 ;
+	sh:datatype xsd:string .
+
+ro_str:TeksttypePG_BP a sh:NodeShape ;
+	sh:property _:node1brtujth0x186 .
+
+_:node1brtujth0x186 sh:path rdf:type ;
+	sh:in _:node1brtujth0x187 .
+
+_:node1brtujth0x187 rdf:first ro:Regels ;
+	rdf:rest _:node1brtujth0x188 .
+
+_:node1brtujth0x188 rdf:first ro:Toelichting ;
+	rdf:rest _:node1brtujth0x189 .
+
+_:node1brtujth0x189 rdf:first ro:BijlageBijRegels ;
+	rdf:rest _:node1brtujth0x190 .
+
+_:node1brtujth0x190 rdf:first ro:BijlageBijToelichting ;
+	rdf:rest rdf:nil .
+
+ro_str:Teksttype_SV a sh:NodeShape ;
+	sh:property _:node1brtujth0x191 .
+
+_:node1brtujth0x191 sh:path rdf:type ;
+	sh:in _:node1brtujth0x192 .
+
+_:node1brtujth0x192 rdf:first ro:Beleid ;
+	rdf:rest _:node1brtujth0x193 .
+
+_:node1brtujth0x193 rdf:first ro:Toelichting ;
+	rdf:rest rdf:nil .
+
+ro_str:TeksttypePG_SV a sh:NodeShape ;
+	sh:property _:node1brtujth0x194 .
+
+_:node1brtujth0x194 sh:path rdf:type ;
+	sh:in _:node1brtujth0x195 .
+
+_:node1brtujth0x195 rdf:first ro:Besluitdocument ;
+	rdf:rest _:node1brtujth0x196 .
+
+_:node1brtujth0x196 rdf:first ro:Bijlage ;
+	rdf:rest _:node1brtujth0x197 .
+
+_:node1brtujth0x197 rdf:first ro:Toelichting ;
+	rdf:rest rdf:nil .
+
+ro_str:Teksttype_BP a sh:NodeShape ;
+	sh:property _:node1brtujth0x198 .
+
+_:node1brtujth0x198 sh:path rdf:type ;
+	sh:in _:node1brtujth0x199 .
+
+_:node1brtujth0x199 rdf:first ro:Regels ;
+	rdf:rest rdf:nil .
+
+ro_str:Teksttype_PSV a sh:NodeShape ;
+	sh:property _:node1brtujth0x200 .
+
+_:node1brtujth0x200 sh:path rdf:type ;
+	sh:in _:node1brtujth0x201 .
+
+_:node1brtujth0x201 rdf:first ro:Beleid ;
+	rdf:rest _:node1brtujth0x202 .
+
+_:node1brtujth0x202 rdf:first ro:Beleid_Gemandateerd_aan_GS ;
+	rdf:rest _:node1brtujth0x203 .
+
+_:node1brtujth0x203 rdf:first ro:Toelichting ;
+	rdf:rest rdf:nil .
+
+ro_str:Illustratie a sh:NodeShape ;
+	sh:property _:node1brtujth0x204 .
+
+_:node1brtujth0x204 sh:path ro:illustratieverwijzing ;
+	sh:minCount 1 ;
+	sh:maxCount 1 .
+
+ro_str:Illustratie_legendaNaam a sh:NodeShape ;
+	sh:path ro:legendaNaam ;
+	sh:datatype xsd:string ;
+	sh:maxCount 1 .
+
+ro_str:Illustratie_IllustratieNaam a sh:NodeShape ;
+	sh:path ro:illustratieNaam ;
+	sh:datatype xsd:string ;
+	sh:maxCount 1 .
+
+ro_str:cartografieInfo a sh:NodeShape ;
+	sh:property _:node1brtujth0x205 , _:node1brtujth0x206 , _:node1brtujth0x207 .
+
+_:node1brtujth0x205 sh:path ro:kaartNaam ;
+	sh:minCount 1 ;
+	sh:maxCount 1 ;
+	sh:datatype xsd:string .
+
+_:node1brtujth0x206 sh:path ro:kaartNummer ;
+	sh:minCount 1 ;
+	sh:maxCount 1 ;
+	sh:datatype xsd:string .
+
+_:node1brtujth0x207 sh:path ro:symboolCode ;
+	sh:maxCount 1 ;
+	sh:datatype xsd:string .
+
+ro_str:ExternPlanReferentiePG_SV a sh:NodeShape ;
+	sh:closed true ;
+	sh:ignoredProperties _:node1brtujth0x208 .
+
+_:node1brtujth0x208 rdf:first ro:muteert ;
+	rdf:rest _:node1brtujth0x209 .
+
+_:node1brtujth0x209 rdf:first ro:vervangt ;
+	rdf:rest _:node1brtujth0x210 .
+
+_:node1brtujth0x210 rdf:first ro:uitTeWerkenIn ;
+	rdf:rest _:node1brtujth0x211 .
+
+_:node1brtujth0x211 rdf:first ro:uitgewerktIn ;
+	rdf:rest _:node1brtujth0x212 .
+
+_:node1brtujth0x212 rdf:first ro:gebruiktInformatieUit ;
+	rdf:rest _:node1brtujth0x213 .
+
+_:node1brtujth0x213 rdf:first ro:tenGevolgeVan ;
+	rdf:rest rdf:nil .
+
+ro_str:naamExternPlan a sh:PropertyShape ;
+	sh:path ro:naam ;
+	sh:minCount 1 ;
+	sh:maxCount 1 ;
+	sh:datatype xsd:string .
+
+ro_str:idn a sh:PropertyShape ;
+	sh:path ro:idn ;
+	sh:maxCount 1 ;
+	sh:datatype xsd:string .
+
+ro_str:ExternPlanReferentie_SV a sh:NodeShape ;
+	sh:closed true ;
+	sh:ignoredProperties _:node1brtujth0x214 .
+
+_:node1brtujth0x214 rdf:first ro:uitTeWerkenIn ;
+	rdf:rest _:node1brtujth0x215 .
+
+_:node1brtujth0x215 rdf:first ro:uitgewerktIn ;
+	rdf:rest _:node1brtujth0x216 .
+
+_:node1brtujth0x216 rdf:first ro:gebruiktInformatieUit ;
+	rdf:rest _:node1brtujth0x217 .
+
+_:node1brtujth0x217 rdf:first ro:tenGevolgeVan ;
+	rdf:rest rdf:nil .
+
+ro:Plan a owl:Class ;
+	rdfs:label "Plan"@nl ;
+	dcterms:subject _:node1brtujth0x218 .
+
+_:node1brtujth0x218 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:Bestemmingsplan a owl:Class ;
+	rdfs:label "Bestemmingsplan"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Plan ;
+	dcterms:subject ro_beg:Bestemmingsplan , _:node1brtujth0x219 .
+
+_:node1brtujth0x219 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:Inpassingsplan a owl:Class ;
+	rdfs:label "Inpassingsplan"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Bestemmingsplan ;
+	dcterms:subject _:node1brtujth0x220 .
+
+_:node1brtujth0x220 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:Rijksbestemmingsplan a owl:Class ;
+	rdfs:label "Rijksbestemmingsplan"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Bestemmingsplan ;
+	dcterms:subject _:node1brtujth0x221 .
+
+_:node1brtujth0x221 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:Uitwerkingsplan a owl:Class ;
+	rdfs:label "Uitwerkingsplan"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Bestemmingsplan ;
+	dcterms:subject _:node1brtujth0x222 .
+
+_:node1brtujth0x222 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:Wijzigingsplan a owl:Class ;
+	rdfs:label "Wijzigingsplan"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Bestemmingsplan ;
+	dcterms:subject _:node1brtujth0x223 .
+
+_:node1brtujth0x223 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:Bestemmingsvlak a owl:Class ;
+	rdfs:label "Bestemmingsvlak"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Planobject ;
+	dcterms:subject _:node1brtujth0x224 .
+
+_:node1brtujth0x224 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:Enkelbestemming a owl:Class ;
+	rdfs:label "Enkelbestemming"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Bestemmingsvlak ;
+	dcterms:subject _:node1brtujth0x225 .
+
+_:node1brtujth0x225 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:Dubbelbestemming a owl:Class ;
+	rdfs:label "Dubbelbestemming"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Bestemmingsvlak ;
+	dcterms:subject _:node1brtujth0x226 .
+
+_:node1brtujth0x226 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:bestemmingshoofdgroep a owl:ObjectProperty ;
+	rdfs:label "bestemmingshoofdgroep"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:domain ro:Bestemmingsvlak ;
+	dcterms:subject _:node1brtujth0x227 .
+
+_:node1brtujth0x227 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:artikelnummer a owl:DatatypeProperty ;
+	rdfs:label "artikelnummer"@nl ;
+	rdfs:isDefinedBy :ro ;
+	dcterms:subject _:node1brtujth0x228 .
+
+_:node1brtujth0x228 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:label a owl:AnnotationProperty ;
+	rdfs:label "label"@nl ;
+	rdfs:isDefinedBy :ro ;
+	dcterms:subject _:node1brtujth0x229 .
+
+_:node1brtujth0x229 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:Aanduiding a owl:Class ;
+	rdfs:label "Aanduiding"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:RuimtelijkObject ;
+	dcterms:subject _:node1brtujth0x230 .
+
+_:node1brtujth0x230 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:bestemmingsvlak a owl:ObjectProperty ;
+	rdfs:label "bestemmingsvlak"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:range ro:Bestemmingvlak ;
+	dcterms:subject _:node1brtujth0x231 .
+
+_:node1brtujth0x231 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:Bouwvlak a owl:Class ;
+	rdfs:label "Bouwvlak"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Aanduiding ;
+	dcterms:subject _:node1brtujth0x232 .
+
+_:node1brtujth0x232 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:Functieaanduiding a owl:Class ;
+	rdfs:label "Functieaanduiding"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Aanduiding ;
+	dcterms:subject _:node1brtujth0x233 .
+
+_:node1brtujth0x233 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:Bouwaanduiding a owl:Class ;
+	rdfs:label "Bouwaanduiding"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Aanduiding ;
+	dcterms:subject _:node1brtujth0x234 .
+
+_:node1brtujth0x234 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:Maatvoering a owl:Class ;
+	rdfs:label "Maatvoering"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Aanduiding ;
+	dcterms:subject _:node1brtujth0x235 .
+
+_:node1brtujth0x235 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:symboolPlaatsing a owl:AnnotationProperty ;
+	rdfs:label "symbool plaatsing"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:domain ro:Maatvoering ;
+	dcterms:subject _:node1brtujth0x236 .
+
+_:node1brtujth0x236 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:symbool a owl:AnnotationProperty ;
+	rdfs:label "symbol"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:range ro:Symbool ;
+	dcterms:subject _:node1brtujth0x237 .
+
+_:node1brtujth0x237 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:Symbool a owl:Class ;
+	rdfs:label "Symbool"@nl ;
+	rdfs:isDefinedBy :ro ;
+	dcterms:subject _:node1brtujth0x238 .
+
+_:node1brtujth0x238 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro_sym:s100 a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s100" .
+
+ro_sym:s101 a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s101" .
+
+ro_sym:s102 a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s102" .
+
+ro_sym:s103 a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s103" .
+
+ro_sym:s104 a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s104" .
+
+ro_sym:s105 a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s105" .
+
+ro_sym:s106 a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s106" .
+
+ro_sym:s107 a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s107" .
+
+ro_sym:s108 a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s108" .
+
+ro_sym:s109 a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s109" .
+
+ro_sym:s110 a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s110" .
+
+ro_sym:s111 a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s111" .
+
+ro_sym:s112 a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s112" .
+
+ro_sym:s113 a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s113" .
+
+ro_sym:s114 a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s114" .
+
+ro_sym:s115 a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s115" .
+
+ro_sym:s116 a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s116" .
+
+ro_sym:s117 a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s117" .
+
+ro_sym:s118 a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s118" .
+
+ro_sym:s119 a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s119" .
+
+ro_sym:s120 a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s120" .
+
+ro_sym:s121 a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s121" .
+
+ro_sym:s122 a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s122" .
+
+ro_sym:s123 a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s123" .
+
+ro_sym:s124 a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s124" .
+
+ro_sym:s125 a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s125" .
+
+ro_sym:s126 a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s126" .
+
+ro_sym:s127 a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s127" .
+
+ro_sym:s128a a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s128a" .
+
+ro_sym:s128b a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s128b" .
+
+ro_sym:s128c a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s128c" .
+
+ro_sym:s128d a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s128d" .
+
+ro_sym:s128e a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s128e" .
+
+ro_sym:s128f a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s128f" .
+
+ro_sym:s128g a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s128g" .
+
+ro_sym:s128h a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s128h" .
+
+ro_sym:s128i a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s128i" .
+
+ro_sym:s128j a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s128j" .
+
+ro_sym:s128k a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s128k" .
+
+ro_sym:s128l a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s128l" .
+
+ro_sym:s128m a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s128m" .
+
+ro_sym:s128n a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s128n" .
+
+ro_sym:s128o a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s128o" .
+
+ro_sym:s128p a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s128p" .
+
+ro_sym:s128q a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s128q" .
+
+ro_sym:s128r a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s128r" .
+
+ro_sym:s128s a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s128s" .
+
+ro_sym:s128t a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s128t" .
+
+ro_sym:s128u a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s128u" .
+
+ro_sym:s128v a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s128v" .
+
+ro_sym:s128w a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s128w" .
+
+ro_sym:s128x a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s128x" .
+
+ro_sym:s128y a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s128y" .
+
+ro_sym:s128z a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s128z" .
+
+ro_sym:s128aa a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s128aa" .
+
+ro_sym:s128ab a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s128ab" .
+
+ro_sym:s128ac a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s128ac" .
+
+ro_sym:s128ad a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s128ad" .
+
+ro_sym:s128ae a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s128ae" .
+
+ro_sym:s128af a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s128af" .
+
+ro_sym:s129a a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s129a" .
+
+ro_sym:s129b a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s129b" .
+
+ro_sym:s129c a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s129c" .
+
+ro_sym:s129d a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s129d" .
+
+ro_sym:s129e a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s129e" .
+
+ro_sym:s129f a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s129f" .
+
+ro_sym:s129g a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s129g" .
+
+ro_sym:s129h a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s129h" .
+
+ro_sym:s129i a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s129i" .
+
+ro_sym:s129j a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s129j" .
+
+ro_sym:s129k a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s129k" .
+
+ro_sym:s129l a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s129l" .
+
+ro_sym:s129m a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s129m" .
+
+ro_sym:s129n a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s129n" .
+
+ro_sym:s129o a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s129o" .
+
+ro_sym:s129p a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s129p" .
+
+ro_sym:s129q a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s129q" .
+
+ro_sym:s129r a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s129r" .
+
+ro_sym:s129s a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s129s" .
+
+ro_sym:s129t a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s129t" .
+
+ro_sym:s129u a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s129u" .
+
+ro_sym:s129v a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s129v" .
+
+ro_sym:s129w a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s129w" .
+
+ro_sym:s129x a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s129x" .
+
+ro_sym:s129y a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s129y" .
+
+ro_sym:s129z a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s129z" .
+
+ro_sym:s129aa a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s129aa" .
+
+ro_sym:s129ab a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s129ab" .
+
+ro_sym:s130a a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s130a" .
+
+ro_sym:s130b a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s130b" .
+
+ro_sym:s130c a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s130c" .
+
+ro_sym:s130d a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s130d" .
+
+ro_sym:s130e a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s130e" .
+
+ro_sym:s130f a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s130f" .
+
+ro_sym:s130g a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s130g" .
+
+ro_sym:s130h a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s130h" .
+
+ro_sym:s130i a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s130i" .
+
+ro_sym:s130j a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s130j" .
+
+ro_sym:s130k a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s130k" .
+
+ro_sym:s130l a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s130l" .
+
+ro_sym:s130m a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s130m" .
+
+ro_sym:s130n a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s130n" .
+
+ro_sym:s130o a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s130o" .
+
+ro_sym:s130p a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s130p" .
+
+ro_sym:s130q a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s130q" .
+
+ro_sym:s130r a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s130r" .
+
+ro_sym:s130s a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s130s" .
+
+ro_sym:s130t a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s130t" .
+
+ro_sym:s130u a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s130u" .
+
+ro_sym:s130v a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s130v" .
+
+ro_sym:s130w a ro:Symbool , owl:NamedIndividual ;
+	ro:code "s130w" .
+
+ro:omvang a owl:DatatypeProperty ;
+	rdfs:label "omvang"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:domain ro:Maatvoering ;
+	rdfs:range ro:Omvang ;
+	dcterms:subject ro_beg:Omvang .
+
+ro:Omvang a owl:Class ;
+	rdfs:label "Omvang"@nl ;
+	rdfs:isDefinedBy :ro ;
+	dcterms:subject ro_beg:Omvang .
+
+ro:omvangwaarde a owl:DatatypeProperty ;
+	rdfs:label "omvangwaarde"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:domain ro:Omvang ;
+	dcterms:subject ro_beg:omvangwaarde .
+
+ro:Aantal_Omvang a owl:Class ;
+	rdfs:label "Aantal (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:Aantal_Omvang .
+
+ro:AantalBedrijven_Omvang a owl:Class ;
+	rdfs:label "Aantal bedrijven (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:AantalBedrijven_Omvang .
+
+ro:MaximumAantalBedrijven_Omvang a owl:Class ;
+	rdfs:label "Maximum aantal bedrijven (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MaximumAantalBedrijven_Omvang .
+
+ro:MinimumAantalBedrijven_Omvang a owl:Class ;
+	rdfs:label "Minimum aantal bedrijven (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MinimumAantalBedrijven_Omvang .
+
+ro:AantalBezoekers_Omvang a owl:Class ;
+	rdfs:label "Aantal bezoekers (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:AantalBezoekers_Omvang .
+
+ro:MaximumAantalBezoekers_Omvang a owl:Class ;
+	rdfs:label "Maximum aantal bezoekers (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MaximumAantalBezoekers_Omvang .
+
+ro:MinimumAantalBezoekers_Omvang a owl:Class ;
+	rdfs:label "Minimum aantal bezoekers (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MinimumAantalBezoekers_Omvang .
+
+ro:AantalBouwlagen_Omvang a owl:Class ;
+	rdfs:label "Aantal bouwlagen (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:AantalBouwlagen_Omvang .
+
+ro:MaximumAantalBouwlagen_Omvang a owl:Class ;
+	rdfs:label "Maximum aantal bouwlagen (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MaximumAantalBouwlagen_Omvang .
+
+ro:MinimumAantalBouwlagen_Omvang a owl:Class ;
+	rdfs:label "Minimum aantal bouwlagen (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MinimumAantalBouwlagen_Omvang .
+
+ro:AantalGebouwen_Omvang a owl:Class ;
+	rdfs:label "Aantal gebouwen (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:AantalGebouwen_Omvang .
+
+ro:MaximumAantalGebouwen_Omvang a owl:Class ;
+	rdfs:label "Maximum aantal gebouwen (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MaximumAantalGebouwen_Omvang .
+
+ro:MinimumAantalGebouwen_Omvang a owl:Class ;
+	rdfs:label "Minimum aantal gebouwen (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MinimumAantalGebouwen_Omvang .
+
+ro:AantalParkeerplaatsen_Omvang a owl:Class ;
+	rdfs:label "Aantal parkeerplaatsen (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:AantalParkeerplaatsen_Omvang .
+
+ro:MaximumAantalParkeerplaatsen_Omvang a owl:Class ;
+	rdfs:label "Maximum aantal parkeerplaatsen (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MaximumAantalParkeerplaatsen_Omvang .
+
+ro:MinimumAantalParkeerplaatsen_Omvang a owl:Class ;
+	rdfs:label "Minimum aantal parkeerplaatsen (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MinimumAantalParkeerplaatsen_Omvang .
+
+ro:AantalRijstroken_Omvang a owl:Class ;
+	rdfs:label "Aantal rijstroken (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:AantalRijstroken_Omvang .
+
+ro:MaximumAantalRijstroken_Omvang a owl:Class ;
+	rdfs:label "Maximum aantal rijstroken (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MaximumAantalRijstroken_Omvang .
+
+ro:MinimumAantalRijstroken_Omvang a owl:Class ;
+	rdfs:label "Minimum aantal rijstroken (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MinimumAantalRijstroken_Omvang .
+
+ro:AantalSporen_Omvang a owl:Class ;
+	rdfs:label "Aantal sporen (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:AantalSporen_Omvang .
+
+ro:MaximumAantalSporen_Omvang a owl:Class ;
+	rdfs:label "Maximum aantal sporen (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MaximumAantalSporen_Omvang .
+
+ro:MinimumAantalSporen_Omvang a owl:Class ;
+	rdfs:label "Minimum aantal sporen (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MinimumAantalSporen_Omvang .
+
+ro:AantalWinkels_Omvang a owl:Class ;
+	rdfs:label "Aantal winkels (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:AantalWinkels_Omvang .
+
+ro:MaximumAantalWinkels_Omvang a owl:Class ;
+	rdfs:label "Maximum aantal winkels (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MaximumAantalWinkels_Omvang .
+
+ro:MinimumAantalWinkels_Omvang a owl:Class ;
+	rdfs:label "Minimum aantal winkels (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MinimumAantalWinkels_Omvang .
+
+ro:AantalWooneenheden_Omvang a owl:Class ;
+	rdfs:label "Aantal wooneenheden (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:AantalWooneenheden_Omvang .
+
+ro:MaximumAantalWooneenheden_Omvang a owl:Class ;
+	rdfs:label "Maximum aantal wooneenheden (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MaximumAantalWooneenheden_Omvang .
+
+ro:MinimumAantalWooneenheden_Omvang a owl:Class ;
+	rdfs:label "Minimum aantal wooneenheden (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MinimumAantalWooneenheden_Omvang .
+
+ro:Maatvoering_Omvang a owl:Class ;
+	rdfs:label "Maatvoering (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:Maatvoering_Omvang .
+
+ro:BebouwdOppervlak_m2_Omvang a owl:Class ;
+	rdfs:label "Bebouwd oppervlak (m2) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:BebouwdOppervlak_m2_Omvang .
+
+ro:MaximumBebouwdOppervlak_m2_Omvang a owl:Class ;
+	rdfs:label "Maximum bebouwd oppervlak (m2) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MaximumBebouwdOppervlak_m2_Omvang .
+
+ro:MinimumBebouwdOppervlak_m2_Omvang a owl:Class ;
+	rdfs:label "Minimum bebouwd oppervlak (m2) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MinimumBebouwdOppervlak_m2_Omvang .
+
+ro:Breedte_m_Omvang a owl:Class ;
+	rdfs:label "Breedte (m) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:Breedte_m_Omvang .
+
+ro:MaximumBreedte_m_Omvang a owl:Class ;
+	rdfs:label "Maximum breedte (m) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MaximumBreedte_m_Omvang .
+
+ro:MinimumBreedte_m_Omvang a owl:Class ;
+	rdfs:label "Minimum breedte (m) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MinimumBreedte_m_Omvang .
+
+ro:Dakhelling_graden_Omvang a owl:Class ;
+	rdfs:label "Dakhelling (graden) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:Dakhelling_graden_Omvang .
+
+ro:MaximumDakhelling_graden_Omvang a owl:Class ;
+	rdfs:label "Maximum dakhelling (graden) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MaximumDakhelling_graden_Omvang .
+
+ro:MinimumDakhelling_graden_Omvang a owl:Class ;
+	rdfs:label "Minimum dakhelling (graden) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MinimumDakhelling_graden_Omvang .
+
+ro:Diepte_m_Omvang a owl:Class ;
+	rdfs:label "Diepte (m) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:Diepte_m_Omvang .
+
+ro:MaximumDiepte_m_Omvang a owl:Class ;
+	rdfs:label "Maximum diepte (m) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MaximumDiepte_m_Omvang .
+
+ro:MinimumDiepte_m_Omvang a owl:Class ;
+	rdfs:label "Minimum diepte (m) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MinimumDiepte_m_Omvang .
+
+ro:Hoogte_m_Omvang a owl:Class ;
+	rdfs:label "Hoogte (m) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:Hoogte_m_Omvang .
+
+ro:MaximumHoogte_m_Omvang a owl:Class ;
+	rdfs:label "Maximum hoogte (m) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MaximumHoogte_m_Omvang .
+
+ro:MinimumHoogte_m_Omvang a owl:Class ;
+	rdfs:label "Minimum hoogte (m) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MinimumHoogte_m_Omvang .
+
+ro:Bouwhoogte_m_Omvang a owl:Class ;
+	rdfs:label "Bouwhoogte (m) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:Bouwhoogte_m_Omvang .
+
+ro:MaximumBouwhoogte_m_Omvang a owl:Class ;
+	rdfs:label "Maximum bouwhoogte (m) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MaximumBouwhoogte_m_Omvang .
+
+ro:MinimumBouwhoogte_m_Omvang a owl:Class ;
+	rdfs:label "Minimum bouwhoogte (m) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MinimumBouwhoogte_m_Omvang .
+
+ro:Goothoogte_m_Omvang a owl:Class ;
+	rdfs:label "Goothoogte (m) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:Goothoogte_m_Omvang .
+
+ro:MaximumGoothoogte_m_Omvang a owl:Class ;
+	rdfs:label "Maximum goothoogte (m) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MaximumGoothoogte_m_Omvang .
+
+ro:MinimumGoothoogte_m_Omvang a owl:Class ;
+	rdfs:label "Minimum goothoogte (m) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MinimumGoothoogte_m_Omvang .
+
+ro:HoogteliggingVlak_m_Omvang a owl:Class ;
+	rdfs:label "Hoogteligging vlak (m) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:HoogteliggingVlak_m_Omvang .
+
+ro:MaximumHoogteliggingVlak_m_Omvang a owl:Class ;
+	rdfs:label "Maximum hoogteligging vlak (m) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MaximumHoogteliggingVlak_m_Omvang .
+
+ro:MinimumHoogteliggingVlak_m_Omvang a owl:Class ;
+	rdfs:label "Minimum hoogteligging vlak (m) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MinimumHoogteliggingVlak_m_Omvang .
+
+ro:Lengte_m_Omvang a owl:Class ;
+	rdfs:label "Lengte (m) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:Lengte_m_Omvang .
+
+ro:MaximumLengte_m_Omvang a owl:Class ;
+	rdfs:label "Maximum lengte (m) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MaximumLengte_m_Omvang .
+
+ro:MinimumLengte_m_Omvang a owl:Class ;
+	rdfs:label "Minimum lengte (m) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MinimumLengte_m_Omvang .
+
+ro:Oppervlakte_m2_Omvang a owl:Class ;
+	rdfs:label "Oppervlakte (m2) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:Oppervlakte_m2_Omvang .
+
+ro:MaximumOppervlakte_m2_Omvang a owl:Class ;
+	rdfs:label "Maximum oppervlakte (m2) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MaximumOppervlakte_m2_Omvang .
+
+ro:MinimumOppervlakte_m2_Omvang a owl:Class ;
+	rdfs:label "Minimum oppervlakte (m2) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MinimumOppervlakte_m2_Omvang .
+
+ro:Vloeroppervlakte_m2_Omvang a owl:Class ;
+	rdfs:label "Vloeroppervlakte (m2) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:Vloeroppervlakte_m2_Omvang .
+
+ro:Vloeroppervlakte_Bruto_m2_Omvang a owl:Class ;
+	rdfs:label "Vloeroppervlakte, bruto (m2) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:Vloeroppervlakte_Bruto_m2_Omvang .
+
+ro:Vloeroppervlakte_Netto_m2_Omvang a owl:Class ;
+	rdfs:label "Vloeroppervlakte, netto (m2) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:Vloeroppervlakte_Netto_m2_Omvang .
+
+ro:Vloeroppervlakte_Bvo_m2_Omvang a owl:Class ;
+	rdfs:label "Vloeroppervlakte; bvo (m2) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:Vloeroppervlakte_Bvo_m2_Omvang .
+
+ro:Vloeroppervlakte_Vvo_m2_Omvang a owl:Class ;
+	rdfs:label "Vloeroppervlakte; vvo (m2) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:Vloeroppervlakte_Vvo_m2_Omvang .
+
+ro:MaximumVloeroppervlakte_m2_Omvang a owl:Class ;
+	rdfs:label "Maximum vloeroppervlakte (m2) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MaximumVloeroppervlakte_m2_Omvang .
+
+ro:MaximumVloeroppervlakte_Bruto_m2_Omvang a owl:Class ;
+	rdfs:label "Maximum vloeroppervlakte; bruto (m2) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MaximumVloeroppervlakte_Bruto_m2_Omvang .
+
+ro:MaximumVloeroppervlakte_Netto_m2_Omvang a owl:Class ;
+	rdfs:label "Maximum vloeroppervlakte; netto (m2) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MaximumVloeroppervlakte_Netto_m2_Omvang .
+
+ro:MaximumVloeroppervlakte_Bvo_m2_Omvang a owl:Class ;
+	rdfs:label "Maximum vloeroppervlakte; bvo (m2) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MaximumVloeroppervlakte_Bvo_m2_Omvang .
+
+ro:MaximumVloeroppervlakte_Vvo_m2_Omvang a owl:Class ;
+	rdfs:label "Maximum vloeroppervlakte; vvo (m2) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MaximumVloeroppervlakte_Vvo_m2_Omvang .
+
+ro:MinimumVloeroppervlakte_m2_Omvang a owl:Class ;
+	rdfs:label "Minimum vloeroppervlakte (m2) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MinimumVloeroppervlakte_m2_Omvang .
+
+ro:MinimumVloeroppervlakte_Bruto_m2_Omvang a owl:Class ;
+	rdfs:label "Minimum vloeroppervlakte; bruto (m2) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MinimumVloeroppervlakte_Bruto_m2_Omvang .
+
+ro:MinimumVloeroppervlakte_Netto_m2_Omvang a owl:Class ;
+	rdfs:label "Minimum vloeroppervlakte; netto (m2) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MinimumVloeroppervlakte_Netto_m2_Omvang .
+
+ro:MinimumVloeroppervlakte_Bvo_m2_Omvang a owl:Class ;
+	rdfs:label "Minimum vloeroppervlakte; bvo (m2) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MinimumVloeroppervlakte_Bvo_m2_Omvang .
+
+ro:MinimumVloeroppervlakte_Vvo_m2_Omvang a owl:Class ;
+	rdfs:label "Minimum vloeroppervlakte; vvo (m2) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MinimumVloeroppervlakte_Vvo_m2_Omvang .
+
+ro:Volume_m3_Omvang a owl:Class ;
+	rdfs:label "Volume (m3) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:Volume_m3_Omvang .
+
+ro:MaximumVolume_m3_Omvang a owl:Class ;
+	rdfs:label "Maximum volume (m3) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MaximumVolume_m3_Omvang .
+
+ro:MinimumVolume_m3_Omvang a owl:Class ;
+	rdfs:label "Minimum volume (m3) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MinimumVolume_m3_Omvang .
+
+ro:Bebouwingspercentage_p_Omvang a owl:Class ;
+	rdfs:label "Bebouwingspercentage (%) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:Bebouwingspercentage_p_Omvang .
+
+ro:MaximumBebouwingspercentage_p_Omvang a owl:Class ;
+	rdfs:label "Maximum bebouwingspercentage (%) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MaximumBebouwingspercentage_p_Omvang .
+
+ro:MinimumBebouwingspercentage_p_Omvang a owl:Class ;
+	rdfs:label "Minimum bebouwingspercentage (%) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MinimumBebouwingspercentage_p_Omvang .
+
+ro:AantalAaneenTeBouwenWooneenheden_Omvang a owl:Class ;
+	rdfs:label "Aantal aaneen te bouwen wooneenheden (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:AantalAaneenTeBouwenWooneenheden_Omvang .
+
+ro:MaximumAantalAaneenTeBouwenWooneenheden_Omvang a owl:Class ;
+	rdfs:label "Maximum aantal aaneen te bouwen wooneenheden (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MaximumAantalAaneenTeBouwenWooneenheden_Omvang .
+
+ro:MinimumAantalAaneenTeBouwenWooneenheden_Omvang a owl:Class ;
+	rdfs:label "Minimum aantal aaneen te bouwen wooneenheden (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MinimumAantalAaneenTeBouwenWooneenheden_Omvang .
+
+ro:VerticaleBouwdiepte_m_Omvang a owl:Class ;
+	rdfs:label "Verticale bouwdiepte (m) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:VerticaleBouwdiepte_m_Omvang .
+
+ro:MaximumVerticaleBouwdiepte_m_Omvang a owl:Class ;
+	rdfs:label "Maximum verticale bouwdiepte (m) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MaximumVerticaleBouwdiepte_m_Omvang .
+
+ro:MinimumVerticaleBouwdiepte_m_Omvang a owl:Class ;
+	rdfs:label "Minimum verticale bouwdiepte (m) (Omvang)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Omvang ;
+	dcterms:subject ro_beg:MinimumVerticaleBouwdiepte_m_Omvang .
+
+ro:maatvoeringWaarde a owl:ObjectProperty ;
+	rdfs:label "Maatvoeringwaarde"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:domain ro:Maatvoering ;
+	rdfs:range ro:Omvang ;
+	dcterms:subject _:node1brtujth0x239 .
+
+_:node1brtujth0x239 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:waarde a owl:DatatypeProperty ;
+	rdfs:label "waarde"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:domain ro:Maatvoeringwaarde ;
+	dcterms:subject _:node1brtujth0x240 .
+
+_:node1brtujth0x240 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:Figuur a owl:Class ;
+	rdfs:label "Figuur"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Aanduiding ;
+	dcterms:subject _:node1brtujth0x241 .
+
+_:node1brtujth0x241 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:Gebiedsaanduiding a owl:Class ;
+	rdfs:label "Gebiedsaanduiding"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Aanduiding ;
+	dcterms:subject ro_beg:Gebiedsaanduiding .
+
+ro:Geluidzone_Gebiedsaanduiding a owl:Class ;
+	rdfs:label "Geluidzone (Gebiedsaanduiding)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Gebiedsaanduiding ;
+	dcterms:subject ro_beg:Geluidzone_Gebiedsaanduiding .
+
+ro:Luchtvaartverkeerzone_Gebiedsaanduiding a owl:Class ;
+	rdfs:label "Luchtvaartverkeerzone (Gebiedsaanduiding)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Gebiedsaanduiding ;
+	dcterms:subject ro_beg:Luchtvaartverkeerzone_Gebiedsaanduiding .
+
+ro:Milieuzone_Gebiedsaanduiding a owl:Class ;
+	rdfs:label "Milieuzone (Gebiedsaanduiding)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Gebiedsaanduiding ;
+	dcterms:subject ro_beg:Milieuzone_Gebiedsaanduiding .
+
+ro:Reconstructiewetzone_Gebiedsaanduiding a owl:Class ;
+	rdfs:label "Reconstructiewetzone (Gebiedsaanduiding)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Gebiedsaanduiding ;
+	dcterms:subject ro_beg:Reconstructiewetzone_Gebiedsaanduiding .
+
+ro:Veiligheidszone_Gebiedsaanduiding a owl:Class ;
+	rdfs:label "Veiligheidszone (Gebiedsaanduiding)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Gebiedsaanduiding ;
+	dcterms:subject ro_beg:Veiligheidszone_Gebiedsaanduiding .
+
+ro:Vrijwaringszone_Gebiedsaanduiding a owl:Class ;
+	rdfs:label "Vrijwaringszone (Gebiedsaanduiding)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Gebiedsaanduiding ;
+	dcterms:subject ro_beg:Vrijwaringszone_Gebiedsaanduiding .
+
+ro:Wetgevingzone_Gebiedsaanduiding a owl:Class ;
+	rdfs:label "Wetgevingzone (Gebiedsaanduiding)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Gebiedsaanduiding ;
+	dcterms:subject ro_beg:Wetgevingzone_Gebiedsaanduiding .
+
+ro:OverigeZone_Gebiedsaanduiding a owl:Class ;
+	rdfs:label "Overige zone (Gebiedsaanduiding)"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:subClassOf ro:Gebiedsaanduiding ;
+	dcterms:subject ro_beg:OverigeZone_Gebiedsaanduiding .
+
+ro:Label a owl:Class ;
+	rdfs:label "Label"@nl ;
+	rdfs:isDefinedBy :ro ;
+	dcterms:subject _:node1brtujth0x242 .
+
+_:node1brtujth0x242 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:labeltekst a owl:DatatypeProperty ;
+	rdfs:label "labeltekst"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:domain ro:Label ;
+	dcterms:subject _:node1brtujth0x243 .
+
+_:node1brtujth0x243 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:positie a owl:AnnotationProperty ;
+	rdfs:label "positie"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:range ro:Labelpositie ;
+	dcterms:subject _:node1brtujth0x244 .
+
+_:node1brtujth0x244 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:Labelpositie a owl:Class ;
+	rdfs:label "Labelpositie"@nl ;
+	rdfs:isDefinedBy :ro ;
+	dcterms:subject _:node1brtujth0x245 .
+
+_:node1brtujth0x245 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:plaatsingspunt a owl:ObjectProperty ;
+	rdfs:subPropertyOf geo:hasGeometry ;
+	rdfs:label "plaatsingspunt"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:domain ro:Labelpositie ;
+	dcterms:subject _:node1brtujth0x246 .
+
+_:node1brtujth0x246 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:aanpijlingspunt a owl:ObjectProperty ;
+	rdfs:subPropertyOf geo:hasGeometry ;
+	rdfs:label "aanpijlingspunt"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:domain ro:Labelpositie ;
+	dcterms:subject _:node1brtujth0x247 .
+
+_:node1brtujth0x247 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:hoek a owl:DatatypeProperty ;
+	rdfs:label "hoek"@nl ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:domain ro:Labelpositie ;
+	dcterms:subject _:node1brtujth0x248 .
+
+_:node1brtujth0x248 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro:code a owl:DatatypeProperty ;
+	rdfs:label "code"@nl ;
+	rdfs:isDefinedBy :ro ;
+	dcterms:subject _:node1brtujth0x249 .
+
+_:node1brtujth0x249 dcterms:source :ro ;
+	skos:defintion "TODO"@nl .
+
+ro_str:Plan a sh:NodeShape ;
+	sh:property ro_str:Plan_spatial , ro_str:Plan_hasPart ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Objecttype> ;
+	rdfs:label "Plan shape" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+	<http://bp4mc2.org/def/kkg/id/begrip/indicatieAbstractObject> "ja" .
+
+ro_str:Plan_spatial a sh:PropertyShape ;
+	sh:path <http://udfr.org/docs/onto/spatial> ;
+	sh:class ro:Plangebied ;
+	sh:minCount 1 ;
+	sh:maxCount 1 ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+ro_str:Plan_hasPart a sh:PropertyShape ;
+	sh:path <http://udfr.org/docs/onto/hasPart> ;
+	sh:class ro:Planobject ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+ro_str:Planobject a sh:NodeShape ;
+	sh:targetClass ro:Planobject ;
+	sh:property ro_str:Planobject_isPartOf ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Objecttype> ;
+	rdfs:label "Planobject" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+	<http://bp4mc2.org/def/kkg/id/begrip/indicatieAbstractObject> "ja" .
+
+ro_str:Planobject_isPartOf a sh:PropertyShape ;
+	sh:path <http://udfr.org/docs/onto/isPartOf> ;
+	sh:class ro:Plan ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "is part of (Planobject)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+ro_str:Plangebied_geometrie a sh:PropertyShape ;
+	sh:path ro:geometry ;
+	sh:minCount 1 ;
+	sh:maxCount 1 ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "geometrie (Plangebied)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+ro_str:Bestemmingsplan a sh:NodeShape ;
+	sh:targetClass ro:Bestemmingsplan ;
+	sh:property ro_str:Bestemmingsplan_beleidsmatigVerantwoorlijkeOverheid , ro_str:Bestemmingsplan_tekstverwijzing , ro_str:Bestemmingsplan_externPlan , ro_str:Bestemmingsplan_norm , ro_str:Bestemmingsplan_Plangebied_geometrie , ro_str:Bestemmingsplan_hasPart , ro_str:Bestemmingsplan_spatial ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Objecttype> ;
+	rdfs:label "Bestemmingsplan shape" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+	<http://bp4mc2.org/def/kkg/id/begrip/indicatieAbstractObject> "nee" .
+
+ro_str:Bestemmingsplan_beleidsmatigVerantwoorlijkeOverheid a sh:PropertyShape ;
+	sh:path ro:beleidsmatigVerantwoordelijkeOverheid ;
+	sh:class ro:Overheid ;
+	sh:nodeKind sh:IRI ;
+	sh:minCount 1 ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "beleidsmatig verantwoordelijke overheid (Bestemmingsplan)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+ro_str:Bestemmingsplan_tekstverwijzing a sh:PropertyShape ;
+	sh:path ro:tekst ;
+	sh:minCount 2 ;
+	sh:maxCount 4 ;
+	sh:node ro_str:TeksttypePG_BP ;
+	sh:and _:node1brtujth0x250 ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "tekstverwijzing (Bestemmingsplan)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+_:node1brtujth0x252 sh:path rdf:type ;
+	sh:hasValue ro:Toelichting .
+
+_:node1brtujth0x251 sh:qualifiedValueShape _:node1brtujth0x252 ;
+	sh:qualifiedMinCount 1 ;
+	sh:qualifiedMaxCount 1 .
+
+_:node1brtujth0x250 rdf:first _:node1brtujth0x251 ;
+	rdf:rest _:node1brtujth0x253 .
+
+_:node1brtujth0x255 sh:path rdf:type ;
+	sh:hasValue ro:Regels .
+
+_:node1brtujth0x254 sh:qualifiedValueShape _:node1brtujth0x255 ;
+	sh:qualifiedMaxCount 1 ;
+	sh:qualifiedMincount 1 .
+
+_:node1brtujth0x253 rdf:first _:node1brtujth0x254 ;
+	rdf:rest rdf:nil .
+
+ro_str:Bestemmingsplan_externPlan a sh:PropertyShape ;
+	sh:path ro:externPlan ;
+	sh:maxCount 1 ;
+	sh:node ro_str:ExternPlanReferentie_BP .
+
+ro_str:ExternPlanReferentie_BP a sh:NodeShape ;
+	sh:closed true ;
+	sh:ignoredProperties _:node1brtujth0x256 .
+
+_:node1brtujth0x256 rdf:first ro:muteert ;
+	rdf:rest _:node1brtujth0x257 .
+
+_:node1brtujth0x257 rdf:first ro:vervangt ;
+	rdf:rest _:node1brtujth0x258 .
+
+_:node1brtujth0x258 rdf:first ro:tenGevolgeVan ;
+	rdf:rest rdf:nil .
+
+ro_str:Bestemmingsplan_norm a sh:PropertyShape ;
+	sh:path ro:verwijzingNorm ;
+	sh:minCount 2 ;
+	sh:maxCount 4 ;
+	sh:and _:node1brtujth0x259 ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Enumeratie> ;
+	rdfs:label "norm (Bestemmingsplan)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+_:node1brtujth0x261 sh:hasValue ro_beg:IMRO2012 ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Enumeratiewaarde> ;
+	rdfs:label "norm (Bestemmingsplan) IMRO2012" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+_:node1brtujth0x260 sh:qualifiedValueShape _:node1brtujth0x261 ;
+	sh:qualifiedMinCount 1 ;
+	sh:qualifiedMaxCount 1 .
+
+_:node1brtujth0x259 rdf:first _:node1brtujth0x260 ;
+	rdf:rest _:node1brtujth0x262 .
+
+_:node1brtujth0x264 sh:hasValue ro_beg:PRBP2012 ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Enumeratiewaarde> ;
+	rdfs:label "norm (Bestemmingsplan) PRBP2012" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+_:node1brtujth0x263 sh:qualifiedValueShape _:node1brtujth0x264 ;
+	sh:qualifiedMinCount 1 ;
+	sh:qualifiedMaxCount 1 .
+
+_:node1brtujth0x262 rdf:first _:node1brtujth0x263 ;
+	rdf:rest _:node1brtujth0x265 .
+
+_:node1brtujth0x267 sh:hasValue ro_beg:IMROPT2012 ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Enumeratiewaarde> ;
+	rdfs:label "norm (Bestemmingsplan) IMROPT2012" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+_:node1brtujth0x266 sh:qualifiedValueShape _:node1brtujth0x267 ;
+	sh:qualifiedMaxCount 1 .
+
+_:node1brtujth0x265 rdf:first _:node1brtujth0x266 ;
+	rdf:rest _:node1brtujth0x268 .
+
+_:node1brtujth0x270 sh:hasValue ro_beg:PRABPK2012 ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Enumeratiewaarde> ;
+	rdfs:label "norm (Bestemmingsplan) PRABPK2012" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+_:node1brtujth0x269 sh:qualifiedValueShape _:node1brtujth0x270 ;
+	sh:qualifiedMaxCount 1 .
+
+_:node1brtujth0x268 rdf:first _:node1brtujth0x269 ;
+	rdf:rest rdf:nil .
+
+ro_str:Bestemmingsplan_Plangebied_geometrie a sh:PropertyShape ;
+	sh:path ro:geometrie ;
+	sh:minCount 1 ;
+	sh:maxCount 1 ;
+	sh:node ro_str:VlakMultiVlak ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "geometrie (Bestemmingsplan)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+ro_str:Bestemmingsplan_hasPart a sh:PropertyShape ;
+	sh:path <http://udfr.org/docs/onto/hasPart> ;
+	sh:in _:node1brtujth0x271 ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "has part (Bestemmingsplan)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+_:node1brtujth0x271 rdf:first ro:Aanduiding ;
+	rdf:rest _:node1brtujth0x272 .
+
+_:node1brtujth0x272 rdf:first ro:Bestemmingsvlak ;
+	rdf:rest rdf:nil .
+
+ro_str:Bestemmingsplan_spatial a sh:PropertyShape ;
+	sh:path <http://udfr.org/docs/onto/spatial> ;
+	sh:class ro:Plangebied ;
+	sh:minCount 1 ;
+	sh:maxCount 1 ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "spatial (Bestemmingsplan)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+ro_str:Bestemmingsvlak a sh:NodeShape ;
+	sh:targetClass ro:Bestemmingsvlak ;
+	sh:property ro_str:Bestemmingsvlak_bestemmingshoofdgroep , ro_str:Bestemmingsvlak_artikelnummer , ro_str:Bestemmingsvlak_tekstverwijzing , ro_str:Bestemmingsvlak_label , ro_str:Bestemmingsvlak_geometrie , ro_str:Bestemmingsvlak_isPartOf , ro_str:Bestemmingsvlak_hasPart ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Objecttype> ;
+	rdfs:label "Bestemmingsvlak shape" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+	<http://bp4mc2.org/def/kkg/id/begrip/indicatieAbstractObject> "nee" .
+
+ro_str:Bestemmingsvlak_bestemmingshoofdgroep a sh:PropertyShape ;
+	sh:path ro:bestemmingshoofdgroep ;
+	sh:class skos:Concept ;
+	sh:nodeKind sh:IRI ;
+	sh:minCount 1 ;
+	sh:maxCount 1 ;
+	sh:node _:node1brtujth0x273 ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Enumeratie> ;
+	rdfs:label "bestemmingshoofdgroep (Bestemmingsvlak)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+_:node1brtujth0x275 sh:inversePath skos:member .
+
+_:node1brtujth0x274 sh:path _:node1brtujth0x275 ;
+	sh:hasValue ro_col:Bestemmingshoofdgroep .
+
+_:node1brtujth0x273 sh:property _:node1brtujth0x274 .
+
+ro_str:Bestemmingsvlak_artikelnummer a sh:PropertyShape ;
+	sh:path ro:artikelnummer ;
+	sh:nodeKind sh:Literal ;
+	sh:datatype xsd:string ;
+	sh:minCount 1 ;
+	sh:maxCount 1 ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Attribuutsoort> ;
+	rdfs:label "artikelnummer (Bestemmingsvlak)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+	<http://bp4mc2.org/def/kkg/id/begrip/domeinType> "string" ;
+	<http://www.w3.org/2016/05/ldqd#trustworthiness> "TODO" .
+
+ro_str:Bestemmingsvlak_tekstverwijzing a sh:PropertyShape ;
+	sh:path ro:tekstverwijzing ;
+	sh:class ro:Tekstobject ;
+	sh:nodeKind sh:IRI ;
+	sh:minCount 1 ;
+	sh:maxCount 1 ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "tekstverwijzing (Bestemmingsvlak)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+ro_str:Bestemmingsvlak_label a sh:PropertyShape ;
+	sh:path ro:label ;
+	sh:class ro:Label ;
+	sh:nodeKind sh:IRI ;
+	sh:maxCount 1 ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "label (Bestemmingsvlak)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+ro_str:Bestemmingsvlak_geometrie a sh:PropertyShape ;
+	sh:path ro:geometrie ;
+	sh:class geo:Geometry ;
+	sh:nodeKind sh:IRI ;
+	sh:minCount 1 ;
+	sh:maxCount 1 ;
+	sh:node ro_str:Surface ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "geometrie (Bestemmingsvlak)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+ro_str:Bestemmingsvlak_isPartOf a sh:PropertyShape ;
+	sh:path <http://udfr.org/docs/onto/isPartOf> ;
+	sh:minCount 1 ;
+	sh:maxCount 1 ;
+	sh:class ro:Bestemmingsplan ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "is part of (Bestemmingsvlak)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+ro_str:Bestemmingsvlak_hasPart a sh:PropertyShape ;
+	sh:path <http://udfr.org/docs/onto/hasPart> ;
+	sh:class ro:Aanduiding ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "has part (Bestemmingsvlak)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+ro_str:Label a sh:NodeShape ;
+	sh:targetClass ro:Label ;
+	sh:property ro_str:Label_labeltekst , ro_str:Label_positie ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Objecttype> ;
+	rdfs:label "Label shape" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+	<http://bp4mc2.org/def/kkg/id/begrip/indicatieAbstractObject> "nee" .
+
+ro_str:Label_labeltekst a sh:PropertyShape ;
+	sh:path ro:labeltekst ;
+	sh:nodeKind sh:Literal ;
+	sh:datatype xsd:string ;
+	sh:minCount 1 ;
+	sh:maxCount 1 ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Attribuutsoort> ;
+	rdfs:label "labeltekst (Label)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+	<http://bp4mc2.org/def/kkg/id/begrip/domeinType> "string" ;
+	<http://www.w3.org/2016/05/ldqd#trustworthiness> "TODO" .
+
+ro_str:Label_positie a sh:PropertyShape ;
+	sh:path ro:positie ;
+	sh:class sh:Labelpositie ;
+	sh:minCount 1 ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "positie (Label)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+ro_str:Labelpositie a sh:NodeShape ;
+	sh:targetClass ro:Labelpositie ;
+	sh:property ro_str:Labelpositie_plaatsingspunt , ro_str:Labelpositie_aanpijlingspunt , ro_str:Labelpositie_hoek ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Objecttype> ;
+	rdfs:label "Labelpositie shape" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+	<http://bp4mc2.org/def/kkg/id/begrip/indicatieAbstractObject> "nee" .
+
+ro_str:Labelpositie_plaatsingspunt a sh:PropertyShape ;
+	sh:path ro:plaatsingspunt ;
+	sh:class geo:Geometry , <http://www.opengis.net/ont/gml#Point> ;
+	sh:nodeKind sh:IRI ;
+	sh:minCount 1 ;
+	sh:maxCount 1 ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "plaatsingspunt (Labelpositie)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+ro_str:Labelpositie_aanpijlingspunt a sh:PropertyShape ;
+	sh:path ro:aanpijlingspunt ;
+	sh:class geo:Geometry , <http://www.opengis.net/ont/gml#Point> ;
+	sh:nodeKind sh:IRI ;
+	sh:maxCount 1 ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "aanpijlingspunt (Labelpositie)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+ro_str:Labelpositie_hoek a sh:PropertyShape ;
+	sh:path ro:hoek ;
+	sh:nodeKind sh:Literal ;
+	sh:datatype xsd:string ;
+	sh:maxCount 1 ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Attribuutsoort> ;
+	rdfs:label "hoek (Labelpositie)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+	<http://bp4mc2.org/def/kkg/id/begrip/domeinType> "string" ;
+	<http://www.w3.org/2016/05/ldqd#trustworthiness> "TODO" .
+
+ro_str:Aanduiding a sh:Nodeshape ;
+	sh:targetClass ro:Aanduiding ;
+	sh:property ro_str:Aanduiding_isPartOf ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Objecttype> ;
+	rdfs:label "Aanduiding shape" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+	<http://bp4mc2.org/def/kkg/id/begrip/indicatieAbstractObject> "nee" .
+
+ro_str:Aanduiding_bestemmingsvlak a sh:PropertyShape ;
+	sh:path ro:bestemmingsvlak ;
+	sh:class ro:Bestemmingsvlak ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "bestemmingsvlak (Aanduiding)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+ro_str:Aanduiding_isPartOf a sh:PropertyShape ;
+	sh:path <http://udfr.org/docs/onto/isPartOf> ;
+	sh:and _:node1brtujth0x276 ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "is part of (Aanduiding)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+_:node1brtujth0x278 sh:path rdf:type ;
+	sh:hasValue ro:Bestemmingsplan .
+
+_:node1brtujth0x277 sh:qualifiedValueShape _:node1brtujth0x278 ;
+	sh:qualifiedMinCount 1 ;
+	sh:qualifiedMaxCount 1 .
+
+_:node1brtujth0x276 rdf:first _:node1brtujth0x277 ;
+	rdf:rest _:node1brtujth0x279 .
+
+_:node1brtujth0x281 sh:path rdf:type ;
+	sh:hasValue ro:Bestemmingsvlak .
+
+_:node1brtujth0x280 sh:qualifiedValueShape _:node1brtujth0x281 .
+
+_:node1brtujth0x279 rdf:first _:node1brtujth0x280 ;
+	rdf:rest rdf:nil .
+
+ro_str:Bouwvlak a sh:NodeShape ;
+	sh:targetClass ro:Bouwvlak ;
+	sh:property ro_str:Bouwvlak_geometrie , ro_str:Bouwvlak_aanduiding ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Objecttype> ;
+	rdfs:label "Bouwvlak shape" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+	<http://bp4mc2.org/def/kkg/id/begrip/indicatieAbstractObject> "nee" .
+
+ro_str:Bouwvlak_geometrie a sh:PropertyShape ;
+	sh:path ro:geometrie ;
+	sh:nodeKind sh:IRI ;
+	sh:minCount 1 ;
+	sh:maxCount 1 ;
+	sh:node ro_str:VlakMultiVlak ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "geometrie (Bouwvlak)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+ro_str:Bouwvlak_aanduiding a sh:PropertyShape ;
+	sh:path ro:aanduiding ;
+	sh:class ro:Aanduiding ;
+	sh:nodeKind sh:IRI ;
+	sh:maxCount 1 ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "aanduiding (Bouwvlak)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+ro_str:Functieaanduiding a sh:NodeShape ;
+	sh:targetClass ro:Functieaanduiding ;
+	sh:property ro_str:Functieaanduiding_label , ro_str:Functieaanduiding_tekstverwijzing , ro_str:Functieaanduiding_geometrie , ro_str:Functieaanduiding_aanduiding ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Objecttype> ;
+	rdfs:label "Functieaanduiding shape" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+	<http://bp4mc2.org/def/kkg/id/begrip/indicatieAbstractObject> "nee" .
+
+ro_str:Functieaanduiding_label a sh:PropertyShape ;
+	sh:path ro:label ;
+	sh:class ro:Label ;
+	sh:nodeKind sh:IRI ;
+	sh:maxCount 1 ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "Label (Functieaanduiding)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+ro_str:Functieaanduiding_tekstverwijzing a sh:PropertyShape ;
+	sh:path ro:tekst ;
+	sh:nodeKind sh:IRI ;
+	sh:maxCount 1 ;
+	sh:node ro_str:Teksttype_BP ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "tekstverwijzing (Functieaanduiding)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+ro_str:Functieaanduiding_geometrie a sh:PropertyShape ;
+	sh:path ro:geometrie ;
+	sh:nodeKind sh:IRI ;
+	sh:minCount 1 ;
+	sh:maxcount 1 ;
+	sh:node ro_str:Surface ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "geometrie (Functieaanduiding)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+ro_str:Functieaanduiding_aanduiding a sh:PropertyShape ;
+	sh:path ro:aanduiding ;
+	sh:class ro:Aanduiding ;
+	sh:nodeKind sh:IRI ;
+	sh:maxCount 1 ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "aanduiding (Functieaanduiding)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+ro_str:Bouwaanduiding a sh:NodeShape ;
+	sh:targetClass ro:Bouwaanduiding ;
+	sh:property ro_str:Bouwaanduiding_label , ro_str:Bouwaanduiding_tekstverwijzing , ro_str:Bouwaanduiding_geometrie , ro_str:Bouwaanduiding_aanduiding ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Objecttype> ;
+	rdfs:label "Bouwaanduiding shape" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+	<http://bp4mc2.org/def/kkg/id/begrip/indicatieAbstractObject> "nee" .
+
+ro_str:Bouwaanduiding_label a sh:PropertyShape ;
+	sh:path ro:label ;
+	sh:class ro:Label ;
+	sh:nodeKind sh:IRI ;
+	sh:maxCount 1 ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "label (Bouwaanduiding)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+ro_str:Bouwaanduiding_tekstverwijzing a sh:PropertyShape ;
+	sh:path ro:tekst ;
+	sh:nodeKind sh:IRI ;
+	sh:maxCount 1 ;
+	sh:node ro_str:Teksttype_BP ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "tekstverwijzing (Bouwaanduiding)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+ro_str:Bouwaanduiding_geometrie a sh:PropertyShape ;
+	sh:path ro:geometrie ;
+	sh:nodeKind sh:IRI ;
+	sh:minCount 1 ;
+	sh:maxcount 1 ;
+	sh:node ro_str:Surface ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "geometrie (Bouwaanduiding)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+ro_str:Bouwaanduiding_aanduiding a sh:PropertyShape ;
+	sh:path ro:aanduiding ;
+	sh:class ro:Aanduiding ;
+	sh:nodeKind sh:IRI ;
+	sh:maxCount 1 ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "aanduiding (Bouwaanduiding)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+ro_str:Maatvoering a sh:NodeShape ;
+	sh:targetClass ro:Maatvoering ;
+	sh:property ro_str:Maatvoering_symbool , ro_str:Maatvoering_maatvoeringwaarde , ro_str:Maatvoering_tekstverwijzing , ro_str:Maatvoering_geometrie , ro_str:Maatvoering_aanduiding ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Objecttype> ;
+	rdfs:label "Maatvoering shape" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+	<http://bp4mc2.org/def/kkg/id/begrip/indicatieAbstractObject> "nee" .
+
+ro_str:Maatvoering_symbool a sh:PropertyShape ;
+	sh:path ro:symbool ;
+	sh:class ro:Symbool ;
+	sh:nodeKind sh:IRI ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "symbool (Maatvoering)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+ro_str:Maatvoering_maatvoeringwaarde a sh:PropertyShape ;
+	sh:path ro:maatvoeringWaarde ;
+	sh:nodeKind sh:IRI ;
+	sh:class ro:Omvang ;
+	sh:node _:node1brtujth0x282 ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "maatvoeringWaarde (Maatvoering)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+_:node1brtujth0x282 sh:path ro:waarde ;
+	sh:minCount 1 ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:datatype xsd:string ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Attribuutsoort> ;
+	rdfs:label "waarde (Maatvoering)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+	<http://bp4mc2.org/def/kkg/id/begrip/domeinType> "string" ;
+	<http://www.w3.org/2016/05/ldqd#trustworthiness> "TODO" .
+
+ro_str:Maatvoering_tekstverwijzing a sh:PropertyShape ;
+	sh:path ro:tekst ;
+	sh:nodeKind sh:IRI ;
+	sh:maxCount 1 ;
+	sh:node ro_str:Teksttype_BP ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "tekstverwijzing (Maatvoering)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+ro_str:Maatvoering_geometrie a sh:PropertyShape ;
+	sh:path ro:geometrie ;
+	sh:nodeKind sh:IRI ;
+	sh:minCount 1 ;
+	sh:maxcount 1 ;
+	sh:node ro_str:Surface ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "geometrie (Maatvoering)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+ro_str:Maatvoering_aanduiding a sh:PropertyShape ;
+	sh:path ro:aanduiding ;
+	sh:class ro:Aanduiding ;
+	sh:nodeKind sh:IRI ;
+	sh:maxCount 1 ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "aanduiding (Maatvoering)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+ro_str:Symbool a sh:NodeShape ;
+	sh:targetClass ro:Symbool ;
+	sh:property ro_str:Symbool_code , ro_str:Symbool_positie ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Objecttype> ;
+	rdfs:label "Symbool shape" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+	<http://bp4mc2.org/def/kkg/id/begrip/indicatieAbstractObject> "nee" .
+
+ro_str:Symbool_code a sh:PropertyShape ;
+	sh:path ro:code ;
+	sh:mincount 1 ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:datatype xsd:String ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Attribuutsoort> ;
+	rdfs:label "code (Symbool)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+	<http://bp4mc2.org/def/kkg/id/begrip/domeinType> "string" ;
+	<http://www.w3.org/2016/05/ldqd#trustworthiness> "TODO" .
+
+ro_str:Symbool_positie a sh:PropertyShape ;
+	sh:path ro:positie ;
+	sh:class sh:Labelpositie ;
+	sh:minCount 1 ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "positie (Symbool)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+ro_str:Figuur a sh:NodeShape ;
+	sh:targetClass ro:Figuur ;
+	sh:property ro_str:Figuur_naam , ro_str:Figuur_illustratie , ro_str:Figuur_label , ro_str:Figuur_tekstverwijzing , ro_str:Figuur_geometrie , ro_str:Figuur_aanduiding ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Objecttype> ;
+	rdfs:label "Figuur shape" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+	<http://bp4mc2.org/def/kkg/id/begrip/indicatieAbstractObject> "nee" .
+
+ro_str:Figuur_naam a sh:PropertyShape ;
+	sh:path ro:naam ;
+	sh:node ro_str:Figuren ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "naam (Figuur)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+ro_str:Figuur_illustratie a sh:PropertyShape ;
+	sh:xone _:node1brtujth0x283 .
+
+_:node1brtujth0x286 sh:path ro:naam ;
+	sh:hasValue "dwarsprofiel" .
+
+_:node1brtujth0x285 rdf:first _:node1brtujth0x286 ;
+	rdf:rest _:node1brtujth0x287 .
+
+_:node1brtujth0x288 sh:path ro:illustratie ;
+	sh:class ro:Afbeelding ;
+	sh:minCount 1 ;
+	sh:maxCount 1 .
+
+_:node1brtujth0x287 rdf:first _:node1brtujth0x288 ;
+	rdf:rest rdf:nil .
+
+_:node1brtujth0x284 sh:and _:node1brtujth0x285 .
+
+_:node1brtujth0x283 rdf:first _:node1brtujth0x284 ;
+	rdf:rest _:node1brtujth0x289 .
+
+_:node1brtujth0x290 sh:path ro:illustratie ;
+	sh:maxCount 0 .
+
+_:node1brtujth0x289 rdf:first _:node1brtujth0x290 ;
+	rdf:rest rdf:nil .
+
+ro_str:Figuur_label a sh:PropertyShape ;
+	sh:path ro:label ;
+	sh:class ro:Label ;
+	sh:nodeKind sh:IRI ;
+	sh:maxCount 1 ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "label (Figuur)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+ro_str:Figuur_tekstverwijzing a sh:PropertyShape ;
+	sh:path ro:tekst ;
+	sh:maxCount 1 ;
+	sh:node ro_str:Teksttype_BP ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "tekstverwijzing (Figuur)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+ro_str:Figuur_geometrie a sh:PropertyShape ;
+	sh:path ro:geometrie ;
+	sh:nodeKind sh:IRI ;
+	sh:minCount 1 ;
+	sh:maxcount 1 ;
+	sh:node ro_str:LijnMultiLijn ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "geometrie (Figuur)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+ro_str:Figuur_aanduiding a sh:PropertyShape ;
+	sh:path ro:aanduiding ;
+	sh:class ro:Aanduiding ;
+	sh:nodeKind sh:IRI ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "aanduiding (Figuur)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+ro_str:Figuren a sh:Nodeshape ;
+	sh:or _:node1brtujth0x291 ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Codelijst> ;
+	rdfs:label "Figuren" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+	dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012> .
+
+_:node1brtujth0x293 rdf:first "as van de weg" ;
+	rdf:rest _:node1brtujth0x294 .
+
+_:node1brtujth0x294 rdf:first "dwarsprofiel" ;
+	rdf:rest _:node1brtujth0x295 .
+
+_:node1brtujth0x295 rdf:first "gevellijn" ;
+	rdf:rest _:node1brtujth0x296 .
+
+_:node1brtujth0x296 rdf:first "hartleiding - brandstof" ;
+	rdf:rest _:node1brtujth0x297 .
+
+_:node1brtujth0x297 rdf:first "hartlijn leiding - gas" ;
+	rdf:rest _:node1brtujth0x298 .
+
+_:node1brtujth0x298 rdf:first "hartlijn leiding - hoogspanning" ;
+	rdf:rest _:node1brtujth0x299 .
+
+_:node1brtujth0x299 rdf:first "hartlijn leiding - hoogspanningsverbinding" ;
+	rdf:rest _:node1brtujth0x300 .
+
+_:node1brtujth0x300 rdf:first "hartlijn leiding - olie" ;
+	rdf:rest _:node1brtujth0x301 .
+
+_:node1brtujth0x301 rdf:first "hartlijn leiding - riool" ;
+	rdf:rest _:node1brtujth0x302 .
+
+_:node1brtujth0x302 rdf:first "hartlijn leiding - water" ;
+	rdf:rest _:node1brtujth0x303 .
+
+_:node1brtujth0x303 rdf:first "relatie" ;
+	rdf:rest rdf:nil .
+
+_:node1brtujth0x292 sh:in _:node1brtujth0x293 .
+
+_:node1brtujth0x291 rdf:first _:node1brtujth0x292 ;
+	rdf:rest _:node1brtujth0x304 .
+
+_:node1brtujth0x305 sh:pattern "(^hartlijn leiding - [a-z ]*)" .
+
+_:node1brtujth0x304 rdf:first _:node1brtujth0x305 ;
+	rdf:rest rdf:nil .
+
+ro_str:Gebiedsaanduiding a sh:NodeShape ;
+	sh:targetClass ro:Gebiedsaanduiding ;
+	sh:property ro_str:Gebiedsaanduiding_naam , ro_str:Gebiedsaanduiding_artikelnummer , ro_str:Gebiedsaanduiding_tekstverwijzing , ro_str:Gebiedsaanduiding_label , ro_str:Gebiedsaanduiding_geometrie , ro_str:Gebiedsaanduiding_aanduiding ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Objecttype> ;
+	rdfs:label "Gebiedsaanduiding shape" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+	<http://bp4mc2.org/def/kkg/id/begrip/indicatieAbstractObject> "nee" .
+
+ro_str:Gebiedsaanduiding_naam a sh:Propertyshape ;
+	sh:path ro:naam .
+
+ro_str:Gebiedsaanduiding_artikelnummer a sh:PropertyShape ;
+	sh:path ro:artikelnummer ;
+	sh:minCount 1 ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:datatype xsd:string ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Attribuutsoort> ;
+	rdfs:label "artikelnummer (Gebiedsaanduiding)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+	<http://bp4mc2.org/def/kkg/id/begrip/domeinType> "string" ;
+	<http://www.w3.org/2016/05/ldqd#trustworthiness> "TODO" .
+
+ro_str:Gebiedsaanduiding_tekstverwijzing a sh:PropertyShape ;
+	sh:path ro:tekst ;
+	sh:minCount 1 ;
+	sh:maxCount 1 ;
+	sh:node ro_str:Teksttype_BP ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "tekstverwijzing (Gebiedsaanduiding)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+ro_str:Gebiedsaanduiding_label a sh:PropertyShape ;
+	sh:path ro:label ;
+	sh:class ro:Label ;
+	sh:nodeKind sh:IRI ;
+	sh:maxCount 1 ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "label (Gebiedsaanduiding)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+ro_str:Gebiedsaanduiding_geometrie a sh:PropertyShape ;
+	sh:path ro:geometrie ;
+	sh:nodeKind sh:IRI ;
+	sh:minCount 1 ;
+	sh:maxcount 1 ;
+	sh:node ro_str:VlakMultiVlak ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "geometrie (Gebiedsaanduiding)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+ro_str:Gebiedsaanduiding_aanduiding a sh:PropertyShape ;
+	sh:path ro:aanduiding ;
+	sh:class ro:Aanduiding ;
+	sh:nodeKind sh:IRI ;
+	sh:maxCount 1 ;
+	<http://www.omg.org/spec/UML/20131001/stereotype> <http://bp4mc2.org/def/kkg/id/begrip/Relatiesoort> ;
+	rdfs:label "aanduiding (Gebiedsaanduiding)" ;
+	<http://www.w3.org/ns/prov#generatedAtTime> "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime .
+
+ro:Structuurvisieplangebied_P a owl:Class ;
+	dcterms:subject ro_beg:Structuurvisieplangebied_P ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:label "Structuurvisieplangebied_P"@nl ;
+	rdfs:subClassOf nen3610:Plangebied .
+
+ro:Structuurvisiegebied_P a owl:Class ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:label "Structuurvisiegebied_P"@nl ;
+	rdfs:subClassOf nen3610:Planobject .
+
+ro:Structuurvisiecomplex_P a owl:Class ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:label "Structuurvisiegebied_P"@nl ;
+	rdfs:subClassOf nen3610:Planobject .
+
+ro_str:Structuurvisieplangebied_P a sh:NodeShape ;
+	sh:targetClass ro:Structuurvisieplangebied_P ;
+	sh:property ro_str:Structuurvisieplangebied_P_typePlan , ro_str:Structuurvisieplangebied_P_beleidsmatigVerantwoordelijkeOverheid , ro_str:Structuurvisieplangebied_P_illustratieverwijzing , ro_str:Structuurvisieplangebied_P_tekstverwijzing , ro_str:Structuurvisieplangebied_P_externPlan , ro_str:Structuurvisieplangebied_P_verwijzingNorm , ro_str:Structuurvisieplangebied_P_begrenzing ;
+	sh:sparql _:node1brtujth0x306 .
+
+_:node1brtujth0x306 sh:message "At least one Structuurvisieplangebied_P should have {$this} as its ro:plangebied." ;
+	sh:prefixes ro_str:prefixes ;
+	sh:select """
+SELECT $this
+WHERE {
+  $this rdf:type ro:Structuurvisieplangebied_P .
+  FILTER NOT EXISTS {
+    ?structuurvisiegebied ro:plangebied $this ;
+           rdf:type ro:Structuurvisiegebied_P .
+  }
+}
+""" .
+
+ro_str:Structuurvisieplangebied_P_typePlan a sh:PropertyShape ;
+	sh:path ro:typePlan ;
+	sh:minCount 1 ;
+	sh:maxCount 1 ;
+	sh:node ro_str:RuimtelijkPlanOfBesluit_SV .
+
+ro_str:Structuurvisieplangebied_P_beleidsmatigVerantwoordelijkeOverheid a sh:PropertyShape ;
+	sh:path ro:beleidsmatigerantwoordelijkeOverheid ;
+	sh:minCount 1 ;
+	sh:node ro_str:Overheden_P .
+
+ro_str:Structuurvisieplangebied_P_illustratieverwijzing a sh:PropertyShape ;
+	sh:path ro:illustratie ;
+	sh:class ro:Illustratie ;
+	sh:node ro_str:Illustratie .
+
+ro_str:Structuurvisieplangebied_P_tekstverwijzing a sh:PropertyShape ;
+	sh:path ro:tekst ;
+	sh:minCount 1 ;
+	sh:maxCount 3 ;
+	sh:node ro_str:TeksttypePG_SV ;
+	sh:and _:node1brtujth0x307 .
+
+_:node1brtujth0x309 sh:path rdf:type ;
+	sh:hasValue ro:Document .
+
+_:node1brtujth0x308 sh:qualifiedValueShape _:node1brtujth0x309 ;
+	sh:qualifiedMinCount 1 ;
+	sh:qualifiedMaxCount 1 .
+
+_:node1brtujth0x307 rdf:first _:node1brtujth0x308 ;
+	rdf:rest _:node1brtujth0x310 .
+
+_:node1brtujth0x312 sh:path rdf:type ;
+	sh:hasValue ro:Bijlage .
+
+_:node1brtujth0x311 sh:qualifiedValueShape _:node1brtujth0x312 ;
+	sh:qualifiedMaxCount 1 .
+
+_:node1brtujth0x310 rdf:first _:node1brtujth0x311 ;
+	rdf:rest rdf:nil .
+
+ro_str:Structuurvisieplangebied_P_externPlan a sh:PropertyShape ;
+	sh:path ro:externPlan ;
+	sh:maxCount 1 ;
+	sh:node ro_str:ExternPlanReferentiePG_SV .
+
+ro_str:Structuurvisieplangebied_R_verwijzingNorm a sh:PropertyShape ;
+	sh:path ro:verwijzingNorm ;
+	sh:minCount 2 ;
+	sh:maxCount 3 ;
+	sh:and _:node1brtujth0x313 , _:node1brtujth0x338 .
+
+_:node1brtujth0x315 sh:hasValue ro_beg:IMRO2012 .
+
+_:node1brtujth0x314 sh:qualifiedValueShape _:node1brtujth0x315 ;
+	sh:qualifiedMinCount 1 ;
+	sh:qualifiedMaxCount 1 .
+
+_:node1brtujth0x313 rdf:first _:node1brtujth0x314 ;
+	rdf:rest _:node1brtujth0x316 .
+
+_:node1brtujth0x318 sh:hasValue ro_beg:PRpSV2012 .
+
+_:node1brtujth0x317 sh:qualifiedValueShape _:node1brtujth0x318 ;
+	sh:qualifiedMinCount 1 ;
+	sh:qualifiedMaxCount 1 .
+
+_:node1brtujth0x316 rdf:first _:node1brtujth0x317 ;
+	rdf:rest _:node1brtujth0x319 .
+
+_:node1brtujth0x321 sh:hasValue ro_beg:IMROPT2012 .
+
+_:node1brtujth0x320 sh:qualifiedValueShape _:node1brtujth0x321 ;
+	sh:qualifiedMaxCount 1 .
+
+_:node1brtujth0x319 rdf:first _:node1brtujth0x320 ;
+	rdf:rest rdf:nil .
+
+ro_str:Structuurvisieplangebied_P_begrenzing a sh:PropertyShape ;
+	sh:path ro:begrenzing ;
+	sh:minCount 1 ;
+	sh:maxCount 1 ;
+	sh:class ro:Geometrie ;
+	sh:node ro_str:Structuurvisieplangebied_P_Geometrie .
+
+ro_str:Structuurvisieplangebied_P_Geometrie a sh:NodeShape ;
+	sh:property ro_str:Structuurvisieplangebied_P_Geometrie_geometrie , ro_str:Structuurvisieplangebied_P_Geometrie_inwinningsschaal , ro_str:Structuurvisieplangebied_P_Geometrie_idealisatie .
+
+ro_str:Structuurvisieplangebied_P_Geometrie_geometrie a sh:PropertyShape ;
+	sh:path ro:geometrie ;
+	sh:minCount 1 ;
+	sh:maxCount 1 .
+
+ro_str:Structuurvisieplangebied_P_Geometrie_inwinningsschaal a sh:PropertyShape ;
+	sh:path ro:inwinningsschaal ;
+	sh:maxCount 1 ;
+	sh:datatype xsd:integer .
+
+ro_str:Structuurvisieplangebied_P_Geometrie_idealisatie a sh:PropertyShape ;
+	sh:path ro:idealisatie ;
+	sh:minCount 1 ;
+	sh:maxCount 1 ;
+	sh:node ro_str:Idealisatie_1 .
+
+ro_str:Structuurvisiegebied_P a sh:NodeShape ;
+	sh:targetClass ro:Structuurvisiegebied_P ;
+	sh:property ro_str:Structuurvisiegebied_P_thema , ro_str:Structuurvisiegebied_P_beleid , ro_str:Structuurvisiegebied_P_tekstVerwijzing , ro_str:Structuurvisiegebied_P_illustratieVerwijzing , ro_str:Structuurvisiegebied_P_externPlan , ro_str:Structuurvisiegebied_P_cartografie , ro_str:Structuurvisiegebied_P_plangebied , ro_str:Structuurvisiegebied_P_begrenzing .
+
+ro_str:Structuurvisiegebied_P_thema a sh:PropertyShape ;
+	sh:path ro:thema ;
+	sh:minCount 1 ;
+	sh:datatype xsd:string .
+
+ro_str:Structuurvisiegebied_P_beleid a sh:PropertyShape ;
+	sh:path ro:beleid ;
+	sh:minCount 1 ;
+	sh:node ro_str:BeleidInfo_PSV .
+
+ro_str:BeleidInfo_PSV a sh:NodeShape ;
+	sh:property ro_str:BeleidInfo_PSV_belang , ro_str:BeleidInfo_PSV_rol , ro_str:BeleidInfo_PSV_instrument .
+
+ro_str:BeleidInfo_PSV_belang a sh:PropertyShape ;
+	sh:path ro:belang ;
+	sh:datatype xsd:string ;
+	sh:minCount 1 ;
+	sh:maxCount 1 .
+
+ro_str:BeleidInfo_PSV_rol a sh:PropertyShape ;
+	sh:path ro:rol ;
+	sh:datatype xsd:string ;
+	sh:minCount 1 ;
+	sh:maxCount 1 .
+
+ro_str:BeleidInfo_PSV_instrument a sh:PropertyShape ;
+	sh:path ro:instrument ;
+	sh:maxCount 1 ;
+	sh:in _:node1brtujth0x322 .
+
+_:node1brtujth0x322 rdf:first ro:bestuurlijkeAfspraken ;
+	rdf:rest _:node1brtujth0x323 .
+
+_:node1brtujth0x323 rdf:first ro:coordinatieregeling ;
+	rdf:rest _:node1brtujth0x324 .
+
+_:node1brtujth0x324 rdf:first ro:inpassingsplan ;
+	rdf:rest _:node1brtujth0x325 .
+
+_:node1brtujth0x325 rdf:first ro:omgevingsvergunning ;
+	rdf:rest _:node1brtujth0x326 .
+
+_:node1brtujth0x326 rdf:first ro:proactieveAanwijzing ;
+	rdf:rest _:node1brtujth0x327 .
+
+_:node1brtujth0x327 rdf:first ro:reactieveAanwijzing ;
+	rdf:rest _:node1brtujth0x328 .
+
+_:node1brtujth0x328 rdf:first ro:verordening ;
+	rdf:rest _:node1brtujth0x329 .
+
+_:node1brtujth0x329 rdf:first ro:vooroverleg ;
+	rdf:rest _:node1brtujth0x330 .
+
+_:node1brtujth0x330 rdf:first ro:zienswijze ;
+	rdf:rest rdf:nil .
+
+ro_str:Structuurvisiegebied_P_tekstVerwijzing a sh:PropertyShape ;
+	sh:path ro:tekst ;
+	sh:minCount 1 ;
+	sh:node ro_str:Teksttype_PSV .
+
+ro_str:Structuurvisiegebied_P_illustratieVerwijzing a sh:PropertyShape ;
+	sh:path ro:illustratie ;
+	sh:class ro:Illustratie ;
+	sh:node ro_str:Illustratie , ro_str:Illustratie_illustratieNaam , ro_str:Illustratie_legendaNaam .
+
+ro_str:Structuurvisiegebied_P_externPlan a sh:PropertyShape ;
+	sh:path ro:externPlan ;
+	sh:maxCount 1 ;
+	sh:node ro_str:ExternPlanReferentie_SV .
+
+ro_str:Structuurvisiegebied_P_cartografie a sh:PropertyShape ;
+	sh:path ro:cartografie ;
+	sh:node ro_str:cartografieInfo .
+
+ro_str:Structuurvisiegebied_P_plangebied a sh:PropertyShape ;
+	sh:path ro:plangebied ;
+	sh:minCount 1 ;
+	sh:maxCount 1 ;
+	sh:class ro:Structuurvisieplangebied_P .
+
+ro_str:Structuurvisiegebied_P_begrenzing a sh:PropertyShape ;
+	sh:path ro:begrenzing ;
+	sh:class ro:Geometrie ;
+	sh:minCount 1 ;
+	sh:node ro_str:Structuurvisiegebied_P_Geometrie .
+
+ro_str:Structuurvisiegebied_R_Geometrie a sh:NodeShape ;
+	sh:property ro_str:Structuurvisiegebied_P_Geometrie_geometrie , ro_str:Structuurvisiegebied_P_Geometrie_inwinningsschaal , ro_str:Structuurvisiegebied_P_Geometrie_idealisatie , ro_str:Structuurvisiegebied_R_Geometrie_geometrie , ro_str:Structuurvisiegebied_R_Geometrie_idealisatie .
+
+ro_str:Structuurvisiegebied_P_Geometrie_geometrie a sh:PropertyShape ;
+	sh:path ro:geometrie ;
+	sh:minCount 1 ;
+	sh:maxCount 1 .
+
+ro_str:Structuurvisiegebied_P_Geometrie_inwinningsschaal a sh:PropertyShape ;
+	sh:path ro:idealisatie ;
+	sh:maxCount 1 ;
+	sh:datatype xsd:integer ;
+	sh:node ro_str:Idealisatie_3 .
+
+ro_str:Structuurvisiegebied_P_Geometrie_idealisatie a sh:PropertyShape ;
+	sh:path ro:idealisatie ;
+	sh:minCount 1 ;
+	sh:maxCount 1 ;
+	sh:node ro_str:Idealisatie_3 .
+
+ro_str:Structuurvisiecomplex_P a sh:NodeShape ;
+	sh:targetClass ro:Structuurvisiecomplex_R ;
+	sh:property ro_str:Structuurvisiecomplex_P_thema , ro_str:Structuurvisiecomplex_P_beleid , ro_str:Structuurvisiecomplex_P_planobject , ro_str:Structuurvisiegebied_P_tekstVerwijzing , ro_str:Structuurvisiegebied_P_illustratieVerwijzing , ro_str:Structuurvisiegebied_P_externPlan , ro_str:Structuurvisiegebied_P_cartografie , ro_str:Structuurvisiegebied_P_plangebied , ro_str:Structuurvisiecomplex_P_begrenzing .
+
+ro_str:Structuurvisiecomplex_P_thema a sh:PropertyShape ;
+	sh:path ro:thema ;
+	sh:datatype xsd:string .
+
+ro_str:Structuurvisiecomplex_P_beleid a sh:PropertyShape ;
+	sh:path ro:beleid ;
+	sh:node ro_str:BeleidInfo_RSV .
+
+ro_str:Structuurvisiecomplex_P_planobject a sh:PropertyShape ;
+	sh:path ro:planobject ;
+	sh:minCount 1 ;
+	sh:class nen3610:Planobject .
+
+ro_str:Structuurvisiecomplex_P_begrenzing a sh:PropertyShape ;
+	sh:path ro:begrenzing ;
+	sh:class ro:Geometrie ;
+	sh:node ro_str:Structuurvisiegebied_P_Geometrie .
+
+ro:Structuurvisiecomplex_R a owl:Class ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:label "Structuurvisiegebied_R"@nl ;
+	rdfs:subClassOf nen3610:Planobject .
+
+ro:Structuurvisiegebied_R a owl:Class ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:label "Structuurvisiegebied_R"@nl ;
+	rdfs:subClassOf nen3610:Planobject .
+
+ro:Structuurvisieplangebied_R a owl:Class ;
+	dcterms:subject ro_beg:Structuurvisieplangebied_R ;
+	rdfs:isDefinedBy :ro ;
+	rdfs:label "Structuurvisieplangebied_R"@nl ;
+	rdfs:subClassOf nen3610:Plangebied .
+
+ro_str:Structuurvisieplangebied_R a sh:NodeShape ;
+	sh:targetClass ro:Structuurvisieplangebied_R ;
+	sh:property ro_str:Structuurvisieplangebied_R_typePlan , ro_str:Structuurvisieplangebied_R_beleidsmatigVerantwoordelijkeOverheid , ro_str:Structuurvisieplangebied_R_illustratieverwijzing , ro_str:Structuurvisieplangebied_R_tekstverwijzing , ro_str:Structuurvisieplangebied_R_externPlan , ro_str:Structuurvisieplantgebied_R_verwijzingNorm , ro_str:Structuurvisieplangebied_R_begrenzing ;
+	sh:sparql _:node1brtujth0x331 .
+
+_:node1brtujth0x331 sh:message "At least one Structuurvisieplangebied_R should have {$this} as its ro:plangebied." ;
+	sh:prefixes ro_str:prefixes ;
+	sh:select """
+SELECT $this
+WHERE {
+  $this rdf:type ro:Structuurvisieplangebied_R .
+  FILTER NOT EXISTS {
+    ?structuurvisiegebied ro:plangebied $this ;
+           rdf:type ro:Structuurvisiegebied_R .
+  }
+}
+""" .
+
+ro_str:Structuurvisieplangebied_R_typePlan a sh:PropertyShape ;
+	sh:path ro:typePlan ;
+	sh:minCount 1 ;
+	sh:maxCount 1 ;
+	sh:node ro_str:RuimtelijkPlanOfBesluit_SV .
+
+ro_str:Structuurvisieplangebied_R_beleidsmatigVerantwoordelijkeOverheid a sh:PropertyShape ;
+	sh:path ro:beleidsmatigVerantwoordelijkeOverheid ;
+	sh:minCount 1 ;
+	sh:node ro_str:Overheden_R .
+
+ro_str:Structuurvisieplangebied_R_illustratieverwijzing a sh:PropertyShape ;
+	sh:path ro:illustratie ;
+	sh:class ro:Illustratie ;
+	sh:minCount 1 ;
+	sh:node ro_str:Illustratie .
+
+ro_str:Structuurvisieplangebied_R_tekstverwijzing a sh:PropertyShape ;
+	sh:path ro:tekst ;
+	sh:minCount 1 ;
+	sh:maxCount 3 ;
+	sh:node ro_str:TeksttypePG_SV ;
+	sh:and _:node1brtujth0x332 .
+
+_:node1brtujth0x334 sh:path rdf:type ;
+	sh:hasValue ro:Document .
+
+_:node1brtujth0x333 sh:qualifiedValueShape _:node1brtujth0x334 ;
+	sh:qualifiedMinCount 1 ;
+	sh:qualifiedMaxCount 1 .
+
+_:node1brtujth0x332 rdf:first _:node1brtujth0x333 ;
+	rdf:rest _:node1brtujth0x335 .
+
+_:node1brtujth0x337 sh:path rdf:type ;
+	sh:hasValue ro:Bijlage .
+
+_:node1brtujth0x336 sh:qualifiedValueShape _:node1brtujth0x337 ;
+	sh:qualifiedMaxCount 1 .
+
+_:node1brtujth0x335 rdf:first _:node1brtujth0x336 ;
+	rdf:rest rdf:nil .
+
+ro_str:Structuurvisieplangebied_R_externPlan a sh:PropertyShape ;
+	sh:path ro:externPlan ;
+	sh:maxCount 1 ;
+	sh:node ro_str:ExternPlanReferentiePG_SV .
+
+_:node1brtujth0x340 sh:hasValue ro_beg:IMRO2012 .
+
+_:node1brtujth0x339 sh:qualifiedValueShape _:node1brtujth0x340 ;
+	sh:qualifiedMinCount 1 ;
+	sh:qualifiedMaxCount 1 .
+
+_:node1brtujth0x338 rdf:first _:node1brtujth0x339 ;
+	rdf:rest _:node1brtujth0x341 .
+
+_:node1brtujth0x343 sh:hasValue ro_beg:PRBP2012 .
+
+_:node1brtujth0x342 sh:qualifiedValueShape _:node1brtujth0x343 ;
+	sh:qualifiedMinCount 1 ;
+	sh:qualifiedMaxCount 1 .
+
+_:node1brtujth0x341 rdf:first _:node1brtujth0x342 ;
+	rdf:rest _:node1brtujth0x344 .
+
+_:node1brtujth0x346 sh:hasValue ro_beg:IMROPT2012 .
+
+_:node1brtujth0x345 sh:qualifiedValueShape _:node1brtujth0x346 ;
+	sh:qualifiedMaxCount 1 .
+
+_:node1brtujth0x344 rdf:first _:node1brtujth0x345 ;
+	rdf:rest rdf:nil .
+
+ro_str:Structuurvisieplangebied_R_begrenzing a sh:PropertyShape ;
+	sh:path ro:begrenzing ;
+	sh:minCount 1 ;
+	sh:maxCount 1 ;
+	sh:class ro:Geometrie ;
+	sh:node ro_str:Structuurvisieplangebied_R_Geometrie .
+
+ro_str:Structuurvisieplangebied_R_Geometrie a sh:NodeShape ;
+	sh:property ro_str:Structuurvisieplangebied_R_Geometrie_geometrie , ro_str:Structuurvisieplangebied_R_Geometrie_idealisatie .
+
+ro_str:Structuurvisieplangebied_R_Geometrie_geometrie a sh:PropertyShape ;
+	sh:path ro:geometrie ;
+	sh:minCount 1 ;
+	sh:maxCount 1 ;
+	sh:node ro_str:VlakMultiVlak .
+
+ro_str:Structuurvisieplangebied_R_Geometrie_idealisatie a sh:PropertyShape ;
+	sh:path ro:idealisatie ;
+	sh:minCount 1 ;
+	sh:maxCount 1 ;
+	sh:node ro_str:Idealisatie_1 .
+
+ro_str:Structuurvisiegebied_R a sh:NodeShape ;
+	sh:targetClass ro:Structuurvisiegebied_R ;
+	sh:property ro_str:Structuurvisiegebied_R_thema , ro_str:Structuurvisiegebied_R_beleid , ro_str:Structuurvisiegebied_R_tekstVerwijzing , ro_str:Structuurvisiegebied_R_illustratieVerwijzing , ro_str:Structuurvisiegebied_R_externPlan , ro_str:Structuurvisiegebied_R_cartografie , ro_str:Structuurvisiegebied_R_plangebied , ro_str:Structuurvisiegebied_R_begrenzing .
+
+ro_str:Structuurvisiegebied_R_thema a sh:PropertyShape ;
+	sh:path ro:thema ;
+	sh:minCount 1 ;
+	sh:datatype xsd:string .
+
+ro_str:Structuurvisiegebied_R_beleid a sh:PropertyShape ;
+	sh:path ro:beleid ;
+	sh:minCount 1 ;
+	sh:node ro_str:BeleidInfo_RSV .
+
+ro_str:Structuurvisiegebied_R_tekstVerwijzing a sh:PropertyShape ;
+	sh:path ro:tekst ;
+	sh:minCount 1 ;
+	sh:node ro_str:Teksttype_SV .
+
+ro_str:Structuurvisiegebied_R_illustratieVerwijzing a sh:PropertyShape ;
+	sh:path ro:illustratie ;
+	sh:class ro:Illustratie ;
+	sh:node ro_str:Illustratie_legendaNaam , ro_str:Illustratie .
+
+ro_str:Structuurvisiegebied_R_externPlan a sh:PropertyShape ;
+	sh:path ro:externPlan ;
+	sh:maxCount 1 ;
+	sh:node ro_str:ExternPlanReferentie_SV .
+
+ro_str:Structuurvisiegebied_R_cartografie a sh:PropertyShape ;
+	sh:path ro:cartografie ;
+	sh:node ro_str:cartografieInfo .
+
+ro_str:Structuurvisiegebied_R_plangebied a sh:PropertyShape ;
+	sh:path ro:plangebied ;
+	sh:minCount 1 ;
+	sh:maxCount 1 ;
+	sh:class ro:Structuurvisieplangebied_R .
+
+ro_str:Structuurvisiegebied_R_begrenzing a sh:PropertyShape ;
+	sh:path ro:begrenzing ;
+	sh:class ro:Geometrie ;
+	sh:node ro_str:Structuurvisiegebied_R_Geometrie .
+
+ro_str:Structuurvisiegebied_R_Geometrie_geometrie a sh:PropertyShape ;
+	sh:path ro:geometrie ;
+	sh:minCount 1 ;
+	sh:maxCount 1 ;
+	sh:node ro_str:PuntLijnVlakMulti .
+
+ro_str:Structuurvisiegebied_R_Geometrie_idealisatie a sh:PropertyShape ;
+	sh:path ro:idealisatie ;
+	sh:minCount 1 ;
+	sh:maxCount 1 ;
+	sh:node ro_str:Idealisatie_3 .
+
+ro_str:Structuurvisiecomplex_R a sh:NodeShape ;
+	sh:targetClass ro:Structuurvisiecomplex_R ;
+	sh:property ro_str:Structuurvisiecomplex_R_thema , ro_str:Structuurvisiecomplex_R_beleid , ro_str:Structuurvisiecomplex_R_planobject , ro_str:Structuurvisiegebied_R_tekstVerwijzing , ro_str:Structuurvisiegebied_R_illustratieVerwijzing , ro_str:Structuurvisiegebied_R_externPlan , ro_str:Structuurvisiegebied_R_cartografie , ro_str:Structuurvisiegebied_R_plangebied , ro_str:Structuurvisiegebied_R_begrenzing .
+
+ro_str:Structuurvisiecomplex_R_thema a sh:PropertyShape ;
+	sh:path ro:thema ;
+	sh:datatype xsd:string .
+
+ro_str:Structuurvisiecomplex_R_beleid a sh:PropertyShape ;
+	sh:path ro:beleid ;
+	sh:node ro_str:BeleidInfo_RSV .
+
+ro_str:Structuurvisiecomplex_R_planobject a sh:PropertyShape ;
+	sh:path ro:planobject ;
+	sh:minCount 1 ;
+	sh:class nen3610:Planobject .

@@ -28,7 +28,7 @@ ro_str:Tekst rdf:type sh:NodeShape ;
 
 ro_str:TeksttypePG_BP rdf:type sh:NodeShape ;
   sh:property [
-    sh:path rdf:type
+    sh:path rdf:type ;
     sh:in (
       ro:Regels
       ro:Toelichting
@@ -106,22 +106,23 @@ ro_str:Illustratie_IllustratieNaam rdf:type sh:NodeShape ; #can I treat a nodesh
 
 # TODO clean up.
 ro_str:cartografieInfo rdf:type sh:NodeShape ;
-  sh:property [
-    sh:path ro:kaartNaam ;
-    sh:minCount 1 ;
-    sh:maxCount 1 ;
-    sh:datatype xsd:string ;
-    ]
-  sh:property [
-    sh:path ro:kaartNummer ;
-    sh:minCount 1 ;
-    sh:maxCount 1 ;
-    sh:datatype xsd:string ;
-    ]
-  sh:property [
-    sh:path ro:symboolCode ;
-    sh:maxCount 1 ;
-    sh:datatype xsd:string ;
+  sh:property
+    [
+      sh:path ro:kaartNaam ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+      sh:datatype xsd:string ;
+    ] ,
+    [
+      sh:path ro:kaartNummer ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+      sh:datatype xsd:string ;
+    ] ,
+    [
+      sh:path ro:symboolCode ;
+      sh:maxCount 1 ;
+      sh:datatype xsd:string ;
     ]
 .
 

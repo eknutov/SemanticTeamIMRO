@@ -102,9 +102,9 @@ ro_str:RuimtelijkPlanOfBesluit_SV
 
 ro_str:BeleidInfo_RSV rdf:type sh:NodeShape ; #treated as a blank node
   sh:property
-    BeleidInfo_RSV_belang ,
-    BeleidInfo_RSV_rol ,
-    BeleidInfo_RSV_instrument ;
+    ro_str:BeleidInfo_RSV_belang ,
+    ro_str:BeleidInfo_RSV_rol ,
+    ro_str:BeleidInfo_RSV_instrument ;
 .
 
 ro_str:BeleidInfo_RSV_belang rdf:type sh:PropertyShape ;

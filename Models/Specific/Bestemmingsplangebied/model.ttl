@@ -24,7 +24,14 @@
 
 #Dummy section, Should be moved to/recreated in common in due time.
 
-ro:Plan a owl:Class .
+ro:Plan a owl:Class ;
+  rdfs:label "Plan"@nl ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
+.
 
 
 #################################################################
@@ -43,31 +50,55 @@ ro:Bestemmingsplan a owl:Class ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Plan ;
   dcterms:subject ro_beg:Bestemmingsplan ;
-
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:Inpassingsplan a owl:Class ;
   rdfs:label "Inpassingsplan"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Bestemmingsplan ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:Rijksbestemmingsplan a owl:Class ;
   rdfs:label "Rijksbestemmingsplan"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Bestemmingsplan ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:Uitwerkingsplan a owl:Class ;
   rdfs:label "Uitwerkingsplan"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Bestemmingsplan ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:Wijzigingsplan a owl:Class ;
   rdfs:label "Wijzigingsplan"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Bestemmingsplan ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 #################################################################
@@ -77,19 +108,34 @@ ro:Wijzigingsplan a owl:Class ;
 ro:Bestemmingsvlak a owl:Class ;
   rdfs:label "Bestemmingsvlak"@nl ;
   rdfs:isDefinedBy :ro ;
-  rdfs:subClassOf ro:Planobject ; ;
+  rdfs:subClassOf ro:Planobject ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:Enkelbestemming a owl:Class ;
   rdfs:label "Enkelbestemming"@nl ;
   rdfs:isDefinedBy :ro ;
-  rdfs:subClassOf ro:Bestemmingsvlak ; ;
+  rdfs:subClassOf ro:Bestemmingsvlak ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:Dubbelbestemming a owl:Class ;
   rdfs:label "Dubbelbestemming"@nl ;
   rdfs:isDefinedBy :ro ;
-  rdfs:subClassOf ro:Bestemmingsvlak ; ;
+  rdfs:subClassOf ro:Bestemmingsvlak ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:bestemmingshoofdgroep a owl:ObjectProperty ;
@@ -97,16 +143,31 @@ ro:bestemmingshoofdgroep a owl:ObjectProperty ;
   rdfs:isDefinedBy :ro ;
   rdfs:domain ro:Bestemmingsvlak ;
 #  rdfs:range skos:Concept ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:artikelnummer a owl:DatatypeProperty ;
   rdfs:label "artikelnummer"@nl ;
-  rdfs:isDefinedBy :ro ; ;
+  rdfs:isDefinedBy :ro ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:label a owl:AnnotationProperty ;
   rdfs:label "label"@nl ;
-  rdfs:isDefinedBy :ro ; ;
+  rdfs:isDefinedBy :ro ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 
@@ -117,31 +178,56 @@ ro:label a owl:AnnotationProperty ;
 ro:Aanduiding a owl:Class ;
   rdfs:label "Aanduiding"@nl ;
   rdfs:isDefinedBy :ro ;
-  rdfs:subClassOf ro:RuimtelijkObject ; ;
+  rdfs:subClassOf ro:RuimtelijkObject ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:bestemmingsvlak a owl:ObjectProperty ;
   rdfs:label "bestemmingsvlak"@nl ;
   rdfs:isDefinedBy :ro ;
-  rdfs:range ro:Bestemmingvlak ; ;
+  rdfs:range ro:Bestemmingvlak ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:Bouwvlak a owl:Class ;
   rdfs:label "Bouwvlak"@nl ;
   rdfs:isDefinedBy :ro ;
-  rdfs:subClassOf ro:Aanduiding ; ;
+  rdfs:subClassOf ro:Aanduiding ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:Functieaanduiding a owl:Class ;
   rdfs:label "Functieaanduiding"@nl ;
   rdfs:isDefinedBy :ro ;
-  rdfs:subClassOf ro:Aanduiding ; ;
+  rdfs:subClassOf ro:Aanduiding ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:Bouwaanduiding a owl:Class ;
   rdfs:label "Bouwaanduiding"@nl ;
   rdfs:isDefinedBy :ro ;
-  rdfs:subClassOf ro:Aanduiding ; ;
+  rdfs:subClassOf ro:Aanduiding ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ###############
@@ -151,7 +237,12 @@ ro:Bouwaanduiding a owl:Class ;
 ro:Maatvoering a owl:Class ;
   rdfs:label "Maatvoering"@nl ;
   rdfs:isDefinedBy :ro ;
-  rdfs:subClassOf ro:Aanduiding ; ;
+  rdfs:subClassOf ro:Aanduiding ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ###############
@@ -162,18 +253,33 @@ ro:Maatvoering a owl:Class ;
 ro:symboolPlaatsing a owl:AnnotationProperty ;
   rdfs:label "symbool plaatsing"@nl ;
   rdfs:isDefinedBy :ro ;
-  rdfs:domain ro:Maatvoering ; ;
+  rdfs:domain ro:Maatvoering ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:symbool a owl:AnnotationProperty ; #or should this be an objectproperty?
   rdfs:label "symbol"@nl ;
   rdfs:isDefinedBy :ro ;
-  rdfs:range ro:Symbool ; ;
+  rdfs:range ro:Symbool ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:Symbool a owl:Class ;
   rdfs:label "Symbool"@nl ;
-  rdfs:isDefinedBy :ro ; ;
+  rdfs:isDefinedBy :ro ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro_sym:s100 a ro:Symbool, owl:NamedIndividual ; ro:code "s100" .
@@ -297,7 +403,7 @@ ro:omvang a owl:DatatypeProperty ;
   rdfs:isDefinedBy :ro ;
   rdfs:domain ro:Maatvoering ;
   rdfs:range ro:Omvang ;
-  dcterms:subject ro_beg:Omvang ; ;
+  dcterms:subject ro_beg:Omvang ;
 .
 
 ro:Omvang a owl:Class ;
@@ -925,13 +1031,23 @@ ro:maatvoeringWaarde a owl:ObjectProperty ;
   rdfs:label "Maatvoeringwaarde"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:domain ro:Maatvoering ;
-  rdfs:range ro:Omvang ; ;
+  rdfs:range ro:Omvang ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:waarde a owl:DatatypeProperty ;
   rdfs:label "waarde"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:domain ro:Maatvoeringwaarde ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 #rdf:type
@@ -950,6 +1066,11 @@ ro:Figuur a owl:Class ;
   rdfs:label "Figuur"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Aanduiding ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ###############
@@ -1025,13 +1146,23 @@ ro:OverigeZone_Gebiedsaanduiding a owl:Class ;
 
 ro:Label a owl:Class ;
   rdfs:label "Label"@nl ;
-  rdfs:isDefinedBy :ro ; ;
+  rdfs:isDefinedBy :ro ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:labeltekst a owl:DatatypeProperty ;
   rdfs:label "labeltekst"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:domain ro:Label ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 #################################################################
@@ -1042,11 +1173,21 @@ ro:positie a owl:AnnotationProperty ;
   rdfs:label "positie"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:range ro:Labelpositie ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:Labelpositie a owl:Class ;
   rdfs:label "Labelpositie"@nl ;
   rdfs:isDefinedBy :ro ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:plaatsingspunt a owl:ObjectProperty ;
@@ -1054,6 +1195,11 @@ ro:plaatsingspunt a owl:ObjectProperty ;
   rdfs:label "plaatsingspunt"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:domain ro:Labelpositie ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:aanpijlingspunt a owl:ObjectProperty ;
@@ -1061,12 +1207,22 @@ ro:aanpijlingspunt a owl:ObjectProperty ;
   rdfs:label "aanpijlingspunt"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:domain ro:Labelpositie ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:hoek a owl:DatatypeProperty ;
   rdfs:label "hoek"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:domain ro:Labelpositie ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 #################################################################
@@ -1076,4 +1232,9 @@ ro:hoek a owl:DatatypeProperty ;
 ro:code a owl:DatatypeProperty ;
   rdfs:label "code"@nl ;
   rdfs:isDefinedBy :ro ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .

@@ -12,30 +12,43 @@
 @prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
 @prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-
+### kkg ###
+@prefix uml: <http://www.omg.org/spec/UML/20131001/>.
+@prefix kkg: <http://bp4mc2.org/def/kkg/id/begrip/> .
+@prefix ldqd: <http://www.w3.org/2016/05/ldqd#>.
+@prefix prov: <http://www.w3.org/ns/prov#> .
 
 # include a shape for geometrie?  all is now in the specific shapes. Can probably extract some common parts.
 
 
 ro_str:Idealisatie_1 rdf:type sh:NodeShape ;
- sh:in (
-  ro:exact # perhaps skos:concepts suit better.
-  )
+  sh:in (
+    ro:exact # perhaps skos:concepts suit better.
+  ) ;
+  ### kkg ###
+  uml:stereotype kkg:Enumeratie ;
+  rdfs:label "Idealisatie_1" ;
 .
 
 ro_str:Idealisatie_2 rdf:type sh:NodeShape ;
- sh:in (
-  ro:exact # perhaps skos:concepts suit better.
-  ro:indicatief
-  )
+  sh:in (
+    ro:exact # perhaps skos:concepts suit better.
+    ro:indicatief
+  ) ;
+  ### kkg ###
+  uml:stereotype kkg:Enumeratie ;
+  rdfs:label "Idealisatie_2" ;
 .
 
 ro_str:Idealisatie_3 rdf:type sh:NodeShape ;
- sh:in (
-  ro:exact # perhaps skos:concepts suit better.
-  ro:indicatief
-  ro:cartografischFiguur
-  )
+  sh:in (
+    ro:exact # perhaps skos:concepts suit better.
+    ro:indicatief
+    ro:cartografischFiguur
+  ) ;
+  ### kkg ###
+  uml:stereotype kkg:Enumeratie ;
+  rdfs:label "Idealisatie_3" ;
 .
 
 #################################################################

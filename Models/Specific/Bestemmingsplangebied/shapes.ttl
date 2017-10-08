@@ -15,12 +15,22 @@
 @prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
 @prefix dct: <http://udfr.org/docs/onto/> .
 
+### kkg ###
+@prefix uml: <http://www.omg.org/spec/UML/20131001/>.
+@prefix kkg: <http://bp4mc2.org/def/kkg/id/begrip/> .
+@prefix ldqd: <http://www.w3.org/2016/05/ldqd#>.
+@prefix prov: <http://www.w3.org/ns/prov#> .
 #Dummy section, Should be moved to/recreated in common in due time.
 
 ro_str:Plan a sh:NodeShape ;
   sh:property
     ro_str:Plan_spatial ,
-    ro_str:Plan_hasPart
+    ro_str:Plan_hasPart ;
+  ### kkg ###
+  uml:stereotype kkg:Objecttype ;
+  rdfs:label "Plan shape" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+  kkg:indicatieAbstractObject "ja"; # Waarom geen boolean?
 .
 
 ro_str:Plan_spatial a sh:PropertyShape ;
@@ -28,30 +38,56 @@ ro_str:Plan_spatial a sh:PropertyShape ;
   sh:class ro:Plangebied ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 ro_str:Plan_hasPart a sh:PropertyShape ;
   sh:path dct:hasPart ;
   sh:class ro:Planobject ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 ro_str:Planobject a sh:NodeShape ;
+  sh:targetClass ro:Planobject ;
   sh:property ro_str:Planobject_isPartOf ;
+  ### kkg ###
+  uml:stereotype kkg:Objecttype ;
+  rdfs:label "Planobject" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+  kkg:indicatieAbstractObject "ja";
 .
 
 ro_str:Planobject_isPartOf a sh:PropertyShape ;
   sh:path dct:isPartOf ;
   sh:class ro:Plan ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "is part of (Planobject)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 ro_str:Plangebied a sh:NodeShape ;
-  sh:property ro_str:Plangebied_geometry
+  sh:targetClass ro:Plangebied ;
+  sh:property ro_str:Plangebied_geometry ;
+  ### kkg ###
+  uml:stereotype kkg:Objecttype ;
+  rdfs:label "Plangebied shape" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+  kkg:indicatieAbstractObject "nee"; # Waarom geen boolean?
 .
 
 ro_str:Plangebied_geometrie a sh:PropertyShape ;
   sh:path ro:geometry ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "geometrie (Plangebied)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 #################################################################
 #    Bestemmingsplangebied -> now Bestemmingsplan
@@ -67,7 +103,12 @@ ro_str:Bestemmingsplan a sh:NodeShape ;
     ro_str:Bestemmingsplan_norm ,
     ro_str:Bestemmingsplan_Plangebied_geometrie , # <- extra constraints for plangebied specific for bestemmingsplan.
     ro_str:Bestemmingsplan_hasPart ,
-    ro_str:Bestemmingsplan_spatial
+    ro_str:Bestemmingsplan_spatial ;
+  ### kkg ###
+  uml:stereotype kkg:Objecttype ;
+  rdfs:label "Bestemmingsplan shape" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+  kkg:indicatieAbstractObject "nee";
 .
 
 # ro_str:Bestemmingsplan_type a sh:PropertyShape .
@@ -79,6 +120,10 @@ ro_str:Bestemmingsplan_beleidsmatigVerantwoorlijkeOverheid a sh:PropertyShape ;
   sh:minCount 1 ;
 #  sh:maxCount 1 ; Linked Data approach would have us not concatenate national governments, therefore sh:maxCount 1 ; does not hold.
 #  sh:node ro_str:Overheden_BP is not needed for it contains all subclasses of ro:Overheid. the sh:class property is sufficient.
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "beleidsmatig verantwoordelijke overheid (Bestemmingsplan)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 ro_str:Bestemmingsplan_tekstverwijzing a sh:PropertyShape ;
@@ -104,12 +149,17 @@ ro_str:Bestemmingsplan_tekstverwijzing a sh:PropertyShape ;
       sh:qualifiedMincount 1 ;
     ]
   ) ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "tekstverwijzing (Bestemmingsplan)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 ro_str:Bestemmingsplan_externPlan a sh:PropertyShape ;
-  sh:path ro:externPlan ;
+  sh:path ro:externPlan ; # Pano: This shape will not be triggered, since only sub properties of ro:externPlan will be used.
   sh:maxCount 1 ;
   sh:node ro_str:ExternPlanReferentie_BP ;
+  ### kkg ###
 .
 
 #TODO: Test if this works
@@ -119,7 +169,9 @@ ro_str:ExternPlanReferentie_BP rdf:type sh:NodeShape ;
     ro:muteert
     ro:vervangt
     ro:tenGevolgeVan
-    ) ;
+  ) ;
+  ### kkg ###
+  # Pano: I don't understand this one.
 .
 
 ro_str:Bestemmingsplan_norm a sh:PropertyShape ;
@@ -129,6 +181,10 @@ ro_str:Bestemmingsplan_norm a sh:PropertyShape ;
   sh:and ( [
     sh:qualifiedValueShape [
       sh:hasValue ro_beg:IMRO2012 ;
+      ### kkg ###
+      uml:stereotype kkg:Enumeratiewaarde ;
+      rdfs:label "norm (Bestemmingsplan) IMRO2012" ;
+      prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
     ] ;
     sh:qualifiedMinCount 1 ;
     sh:qualifiedMaxCount 1 ;
@@ -136,6 +192,10 @@ ro_str:Bestemmingsplan_norm a sh:PropertyShape ;
     [
     sh:qualifiedValueShape [
       sh:hasValue ro_beg:PRBP2012 ;
+      ### kkg ###
+      uml:stereotype kkg:Enumeratiewaarde ;
+      rdfs:label "norm (Bestemmingsplan) PRBP2012" ;
+      prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
     ] ;
     sh:qualifiedMinCount 1 ;
     sh:qualifiedMaxCount 1 ;
@@ -143,16 +203,28 @@ ro_str:Bestemmingsplan_norm a sh:PropertyShape ;
     [
     sh:qualifiedValueShape [
       sh:hasValue ro_beg:IMROPT2012 ;
+      ### kkg ###
+      uml:stereotype kkg:Enumeratiewaarde ;
+      rdfs:label "norm (Bestemmingsplan) IMROPT2012" ;
+      prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
     ] ;
     sh:qualifiedMaxCount 1 ;
     ]
     [
     sh:qualifiedValueShape [
       sh:hasValue ro_beg:PRABPK2012 ;
+      ### kkg ###
+      uml:stereotype kkg:Enumeratiewaarde ;
+      rdfs:label "norm (Bestemmingsplan) PRABPK2012" ;
+      prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
     ] ;
     sh:qualifiedMaxCount 1 ;
     ]
-  )
+  ) ;
+  ### kkg ###
+  uml:stereotype kkg:Enumeratie ;
+  rdfs:label "norm (Bestemmingsplan)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 ro_str:Bestemmingsplan_Plangebied_geometrie a sh:PropertyShape ;
@@ -160,6 +232,10 @@ ro_str:Bestemmingsplan_Plangebied_geometrie a sh:PropertyShape ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
   sh:node ro_str:VlakMultiVlak ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "geometrie (Bestemmingsplan)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 ro_str:Bestemmingsplan_hasPart a sh:PropertyShape ;
@@ -167,7 +243,11 @@ ro_str:Bestemmingsplan_hasPart a sh:PropertyShape ;
   sh:in (
     ro:Aanduiding
     ro:Bestemmingsvlak
-  )
+  ) ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "has part (Bestemmingsplan)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 ro_str:Bestemmingsplan_spatial a sh:PropertyShape ;
@@ -175,6 +255,10 @@ ro_str:Bestemmingsplan_spatial a sh:PropertyShape ;
   sh:class ro:Plangebied ;
   sh:minCount 1  ;
   sh:maxCount 1 ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "spatial (Bestemmingsplan)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 #################################################################
@@ -190,7 +274,12 @@ ro_str:Bestemmingsvlak a sh:NodeShape ;
     ro_str:Bestemmingsvlak_label ,
     ro_str:Bestemmingsvlak_geometrie ,
     ro_str:Bestemmingsvlak_isPartOf ,
-    ro_str:Bestemmingsvlak_hasPart #in IMRO this relation is the other way around.. As discussed this was our understanding of the model. should still look into this more. and see if dct:hasPart truly is the way to go.
+    ro_str:Bestemmingsvlak_hasPart ; #in IMRO this relation is the other way around.. As discussed this was our understanding of the model. should still look into this more. and see if dct:hasPart truly is the way to go.
+    ### kkg ###
+    uml:stereotype kkg:Objecttype ;
+    rdfs:label "Bestemmingsvlak shape" ;
+    prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+    kkg:indicatieAbstractObject "nee";
 .
 
 ro_str:Bestemmingsvlak_bestemmingshoofdgroep a sh:PropertyShape ;
@@ -204,7 +293,11 @@ ro_str:Bestemmingsvlak_bestemmingshoofdgroep a sh:PropertyShape ;
       sh:path [ sh:inversePath skos:member ] ;
       sh:hasValue ro_col:Bestemmingshoofdgroep
     ]
-  ]
+  ] ;
+  ### kkg ###
+  uml:stereotype kkg:Enumeratie ;
+  rdfs:label "bestemmingshoofdgroep (Bestemmingsvlak)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 #TODO: "formaat conform SVBP2012"?
@@ -213,7 +306,13 @@ ro_str:Bestemmingsvlak_artikelnummer a sh:PropertyShape ;
   sh:nodeKind sh:Literal ;
   sh:datatype xsd:string ;
   sh:minCount 1 ;
-  sh:maxCount 1
+  sh:maxCount 1 ;
+  ### kkg ###
+  uml:stereotype kkg:Attribuutsoort ;
+  rdfs:label "artikelnummer (Bestemmingsvlak)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+  kkg:domeinType "string" ;
+  ldqd:trustworthiness "TODO" ;
 .
 
 # TODO: make TekstObjects Optional?
@@ -222,14 +321,22 @@ ro_str:Bestemmingsvlak_tekstverwijzing a sh:PropertyShape ;
   sh:class ro:Tekstobject ;
   sh:nodeKind sh:IRI ;
   sh:minCount 1 ;
-  sh:maxCount 1
+  sh:maxCount 1 ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "tekstverwijzing (Bestemmingsvlak)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 ro_str:Bestemmingsvlak_label a sh:PropertyShape ;
   sh:path ro:label ;
   sh:class ro:Label ;
   sh:nodeKind sh:IRI ;
-  sh:maxCount 1
+  sh:maxCount 1 ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "label (Bestemmingsvlak)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 ro_str:Bestemmingsvlak_geometrie a sh:PropertyShape ;
@@ -238,7 +345,11 @@ ro_str:Bestemmingsvlak_geometrie a sh:PropertyShape ;
   sh:nodeKind sh:IRI ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
-  sh:node ro_str:Surface
+  sh:node ro_str:Surface ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "geometrie (Bestemmingsvlak)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 ro_str:Bestemmingsvlak_isPartOf a sh:PropertyShape ;
@@ -246,11 +357,19 @@ ro_str:Bestemmingsvlak_isPartOf a sh:PropertyShape ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
   sh:class ro:Bestemmingsplan ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "is part of (Bestemmingsvlak)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 ro_str:Bestemmingsvlak_hasPart a sh:PropertyShape ;
   sh:path dct:hasPart ;
   sh:class ro:Aanduiding ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "has part (Bestemmingsvlak)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 #################################################################
 #    Label
@@ -260,7 +379,12 @@ ro_str:Label a sh:NodeShape ;
   sh:targetClass ro:Label ;
   sh:property
     ro_str:Label_labeltekst ,
-    ro_str:Label_positie
+    ro_str:Label_positie ;
+  ### kkg ###
+  uml:stereotype kkg:Objecttype ;
+  rdfs:label "Label shape" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+  kkg:indicatieAbstractObject "nee";
 .
 
 ro_str:Label_labeltekst a sh:PropertyShape ;
@@ -268,13 +392,23 @@ ro_str:Label_labeltekst a sh:PropertyShape ;
   sh:nodeKind sh:Literal ;
   sh:datatype xsd:string ;
   sh:minCount 1 ;
-  sh:maxCount 1
+  sh:maxCount 1 ;
+  ### kkg ###
+  uml:stereotype kkg:Attribuutsoort ;
+  rdfs:label "labeltekst (Label)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+  kkg:domeinType "string" ;
+  ldqd:trustworthiness "TODO" ;
 .
 
 ro_str:Label_positie a sh:PropertyShape ;
   sh:path ro:positie ;
   sh:class sh:Labelpositie ;
-  sh:minCount 1
+  sh:minCount 1 ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "positie (Label)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 
@@ -287,7 +421,12 @@ ro_str:Labelpositie a sh:NodeShape ;
   sh:property
     ro_str:Labelpositie_plaatsingspunt ,
     ro_str:Labelpositie_aanpijlingspunt ,
-    ro_str:Labelpositie_hoek
+    ro_str:Labelpositie_hoek ;
+  ### kkg ###
+  uml:stereotype kkg:Objecttype ;
+  rdfs:label "Labelpositie shape" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+  kkg:indicatieAbstractObject "nee";
 .
 
 ro_str:Labelpositie_plaatsingspunt a sh:PropertyShape ;
@@ -297,7 +436,11 @@ ro_str:Labelpositie_plaatsingspunt a sh:PropertyShape ;
     gml:Point ;
   sh:nodeKind sh:IRI ;
   sh:minCount 1 ;
-  sh:maxCount 1
+  sh:maxCount 1 ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "plaatsingspunt (Labelpositie)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 ro_str:Labelpositie_aanpijlingspunt a sh:PropertyShape ;
@@ -306,14 +449,24 @@ ro_str:Labelpositie_aanpijlingspunt a sh:PropertyShape ;
     ogc:Geometry ,
     gml:Point ;
   sh:nodeKind sh:IRI ;
-  sh:maxCount 1
+  sh:maxCount 1 ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "aanpijlingspunt (Labelpositie)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 ro_str:Labelpositie_hoek a sh:PropertyShape ;
   sh:path ro:hoek ;
   sh:nodeKind sh:Literal ;
   sh:datatype xsd:string ;
-  sh:maxCount 1
+  sh:maxCount 1 ;
+  ### kkg ###
+  uml:stereotype kkg:Attribuutsoort ;
+  rdfs:label "hoek (Labelpositie)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+  kkg:domeinType "string" ;
+  ldqd:trustworthiness "TODO" ;
 .
 
 
@@ -326,7 +479,12 @@ ro_str:Aanduiding a sh:Nodeshape ;
   sh:property
 #    ro_str:Aanduiding_plangebied ,
 #    ro_str:Aanduiding_bestemmingsvlak ,
-    ro_str:Aanduiding_isPartOf
+    ro_str:Aanduiding_isPartOf ;
+  ### kkg ###
+  uml:stereotype kkg:Objecttype ;
+  rdfs:label "Aanduiding shape" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+  kkg:indicatieAbstractObject "nee";
 .
 
 #ro_str:Aanduiding_plangebied a sh:PropertyShape ;
@@ -339,6 +497,10 @@ ro_str:Aanduiding a sh:Nodeshape ;
 ro_str:Aanduiding_bestemmingsvlak a sh:PropertyShape ;
   sh:path ro:bestemmingsvlak ;
   sh:class ro:Bestemmingsvlak ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "bestemmingsvlak (Aanduiding)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 ro_str:Aanduiding_isPartOf a sh:PropertyShape ;
@@ -348,7 +510,7 @@ ro_str:Aanduiding_isPartOf a sh:PropertyShape ;
       sh:qualifiedValueShape [
         sh:path rdf:type ;
         sh:hasValue ro:Bestemmingsplan ;
-      ]
+      ] ;
       sh:qualifiedMinCount 1 ;
       sh:qualifiedMaxCount 1 ;
     ]
@@ -358,6 +520,11 @@ ro_str:Aanduiding_isPartOf a sh:PropertyShape ;
         sh:hasValue ro:Bestemmingsvlak ;
       ]
     ]
+  );
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "is part of (Aanduiding)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 
@@ -370,6 +537,11 @@ ro_str:Bouwvlak a sh:NodeShape ;
   sh:property
     ro_str:Bouwvlak_geometrie ,
     ro_str:Bouwvlak_aanduiding ;
+  ### kkg ###
+  uml:stereotype kkg:Objecttype ;
+  rdfs:label "Bouwvlak shape" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+  kkg:indicatieAbstractObject "nee";
 .
 
 ro_str:Bouwvlak_geometrie a sh:PropertyShape ;
@@ -378,6 +550,10 @@ ro_str:Bouwvlak_geometrie a sh:PropertyShape ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
   sh:node ro_str:VlakMultiVlak ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "geometrie (Bouwvlak)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 ro_str:Bouwvlak_aanduiding a sh:PropertyShape ;
@@ -385,6 +561,10 @@ ro_str:Bouwvlak_aanduiding a sh:PropertyShape ;
   sh:class ro:Aanduiding ;
   sh:nodeKind sh:IRI ;
   sh:maxCount 1 ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "aanduiding (Bouwvlak)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 
@@ -399,6 +579,11 @@ ro_str:Functieaanduiding a sh:NodeShape ;
     ro_str:Functieaanduiding_tekstverwijzing ,
     ro_str:Functieaanduiding_geometrie ,
     ro_str:Functieaanduiding_aanduiding ;
+  ### kkg ###
+  uml:stereotype kkg:Objecttype ;
+  rdfs:label "Functieaanduiding shape" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+  kkg:indicatieAbstractObject "nee";
 .
 
 ro_str:Functieaanduiding_label a sh:PropertyShape ;
@@ -406,6 +591,10 @@ ro_str:Functieaanduiding_label a sh:PropertyShape ;
   sh:class ro:Label ;
   sh:nodeKind sh:IRI ;
   sh:maxCount 1 ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "Label (Functieaanduiding)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 ro_str:Functieaanduiding_tekstverwijzing a sh:PropertyShape ;
@@ -413,6 +602,10 @@ ro_str:Functieaanduiding_tekstverwijzing a sh:PropertyShape ;
   sh:nodeKind sh:IRI ;
   sh:maxCount 1 ;
   sh:node ro_str:Teksttype_BP ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "tekstverwijzing (Functieaanduiding)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 ro_str:Functieaanduiding_geometrie a sh:PropertyShape ;
@@ -421,13 +614,21 @@ ro_str:Functieaanduiding_geometrie a sh:PropertyShape ;
   sh:minCount 1 ;
   sh:maxcount 1 ;
   sh:node ro_str:Surface ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "geometrie (Functieaanduiding)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 ro_str:Functieaanduiding_aanduiding a sh:PropertyShape ;
   sh:path ro:aanduiding ;
   sh:class ro:Aanduiding ;
   sh:nodeKind sh:IRI ;
-  sh:maxCount 1
+  sh:maxCount 1 ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "aanduiding (Functieaanduiding)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 
@@ -442,6 +643,11 @@ ro_str:Bouwaanduiding a sh:NodeShape ;
     ro_str:Bouwaanduiding_tekstverwijzing ,
     ro_str:Bouwaanduiding_geometrie ,
     ro_str:Bouwaanduiding_aanduiding ;
+  ### kkg ###
+  uml:stereotype kkg:Objecttype ;
+  rdfs:label "Bouwaanduiding shape" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+  kkg:indicatieAbstractObject "nee";
 .
 
 #same as the label for functieaanduiding.
@@ -450,6 +656,10 @@ ro_str:Bouwaanduiding_label a sh:PropertyShape ;
   sh:class ro:Label ;
   sh:nodeKind sh:IRI ;
   sh:maxCount 1 ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "label (Bouwaanduiding)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 #same for Functieaanduiding
@@ -458,6 +668,10 @@ ro_str:Bouwaanduiding_tekstverwijzing a sh:PropertyShape ;
   sh:nodeKind sh:IRI ;
   sh:maxCount 1 ;
   sh:node ro_str:Teksttype_BP ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "tekstverwijzing (Bouwaanduiding)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 #same for Functieaanduiding
@@ -467,6 +681,10 @@ ro_str:Bouwaanduiding_geometrie a sh:PropertyShape ;
   sh:minCount 1 ;
   sh:maxcount 1 ;
   sh:node ro_str:Surface ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "geometrie (Bouwaanduiding)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 #same for Functieaanduiding
@@ -475,6 +693,10 @@ ro_str:Bouwaanduiding_aanduiding a sh:PropertyShape ;
   sh:class ro:Aanduiding ;
   sh:nodeKind sh:IRI ;
   sh:maxCount 1 ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "aanduiding (Bouwaanduiding)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 
@@ -490,12 +712,21 @@ ro_str:Maatvoering a sh:NodeShape ;
     ro_str:Maatvoering_tekstverwijzing ,
     ro_str:Maatvoering_geometrie ,
     ro_str:Maatvoering_aanduiding ;
+  ### kkg ###
+  uml:stereotype kkg:Objecttype ;
+  rdfs:label "Maatvoering shape" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+  kkg:indicatieAbstractObject "nee";
 .
 
 ro_str:Maatvoering_symbool a sh:PropertyShape ;
   sh:path ro:symbool ;
   sh:class ro:Symbool ;
   sh:nodeKind sh:IRI ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "symbool (Maatvoering)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 #TODO what to do when class is not ro:Omvang
@@ -510,7 +741,17 @@ ro_str:Maatvoering_maatvoeringwaarde a sh:PropertyShape ;
     sh:nodeKind sh:Literal ;
     sh:datatype xsd:string ; #altough the literal contains numbers, a string would suit better I think due to the needed pattern in TODO.
 #    sh:pattern "" # should adhere to some pattern, TODO
+    ### kkg ###
+    uml:stereotype kkg:Attribuutsoort ;
+    rdfs:label "waarde (Maatvoering)" ;
+    prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+    kkg:domeinType "string" ;
+    ldqd:trustworthiness "TODO" ;
   ] ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "maatvoeringWaarde (Maatvoering)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 ro_str:Maatvoering_tekstverwijzing a sh:PropertyShape ;
@@ -518,6 +759,10 @@ ro_str:Maatvoering_tekstverwijzing a sh:PropertyShape ;
   sh:nodeKind sh:IRI ;
   sh:maxCount 1 ;
   sh:node ro_str:Teksttype_BP ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "tekstverwijzing (Maatvoering)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 ro_str:Maatvoering_geometrie a sh:PropertyShape ;
@@ -526,13 +771,21 @@ ro_str:Maatvoering_geometrie a sh:PropertyShape ;
   sh:minCount 1 ;
   sh:maxcount 1 ;
   sh:node ro_str:Surface ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "geometrie (Maatvoering)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 ro_str:Maatvoering_aanduiding a sh:PropertyShape ;
   sh:path ro:aanduiding ;
   sh:class ro:Aanduiding ;
   sh:nodeKind sh:IRI ;
-  sh:maxCount 1
+  sh:maxCount 1 ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "aanduiding (Maatvoering)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 
@@ -545,6 +798,11 @@ ro_str:Symbool a sh:NodeShape ;
   sh:property
     ro_str:Symbool_code ,
     ro_str:Symbool_positie ;
+  ### kkg ###
+  uml:stereotype kkg:Objecttype ;
+  rdfs:label "Symbool shape" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+  kkg:indicatieAbstractObject "nee";
 .
 
 ro_str:Symbool_code a sh:PropertyShape;
@@ -553,12 +811,22 @@ ro_str:Symbool_code a sh:PropertyShape;
   sh:maxCount 1 ;
   sh:nodeKind sh:Literal ;
   sh:datatype xsd:String ;
+  ### kkg ###
+  uml:stereotype kkg:Attribuutsoort ;
+  rdfs:label "code (Symbool)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+  kkg:domeinType "string" ;
+  ldqd:trustworthiness "TODO" ;
 .
 
 ro_str:Symbool_positie a sh:PropertyShape ;
   sh:path ro:positie ;
   sh:class sh:Labelpositie ;
-  sh:minCount 1
+  sh:minCount 1 ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "positie (Symbool)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 
@@ -574,12 +842,21 @@ ro_str:Figuur a sh:NodeShape ;
     ro_str:Figuur_label ,
     ro_str:Figuur_tekstverwijzing ,
     ro_str:Figuur_geometrie ,
-    ro_str:Figuur_aanduiding
+    ro_str:Figuur_aanduiding ;
+  ### kkg ###
+  uml:stereotype kkg:Objecttype ;
+  rdfs:label "Figuur shape" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+  kkg:indicatieAbstractObject "nee";
 .
 
 ro_str:Figuur_naam a sh:PropertyShape ;
   sh:path ro:naam ;
   sh:node ro_str:Figuren ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "naam (Figuur)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 ro_str:Figuur_illustratie a sh:PropertyShape ;
@@ -603,6 +880,8 @@ ro_str:Figuur_illustratie a sh:PropertyShape ;
      sh:maxCount 0 ;
    ]
   ) ;
+  ### kkg ###
+  # ? TODO
 .
 
 ro_str:Figuur_label a sh:PropertyShape ;
@@ -610,6 +889,10 @@ ro_str:Figuur_label a sh:PropertyShape ;
   sh:class ro:Label ;
   sh:nodeKind sh:IRI ;
   sh:maxCount 1 ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "label (Figuur)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 #TODO: include ro:tekst a owl:AnnotationProperty to the common section.
@@ -617,6 +900,10 @@ ro_str:Figuur_tekstverwijzing a sh:PropertyShape ;
   sh:path ro:tekst ;
   sh:maxCount 1 ;
   sh:node ro_str:Teksttype_BP ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "tekstverwijzing (Figuur)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 ro_str:Figuur_geometrie a sh:PropertyShape ;
@@ -625,12 +912,20 @@ ro_str:Figuur_geometrie a sh:PropertyShape ;
   sh:minCount 1 ;
   sh:maxcount 1 ;
   sh:node ro_str:LijnMultiLijn ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "geometrie (Figuur)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 ro_str:Figuur_aanduiding a sh:PropertyShape ;
   sh:path ro:aanduiding ;
   sh:class ro:Aanduiding ;
-  sh:nodeKind sh:IRI
+  sh:nodeKind sh:IRI ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "aanduiding (Figuur)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 #is this the way do deal with the codelist? or make namedIndividuals with a string attribute?
@@ -651,7 +946,13 @@ ro_str:Figuren a sh:Nodeshape ;
       )
     ]
     [ sh:pattern "(^hartlijn leiding - [a-z ]*)" ]
-    )
+    ) ;
+
+  ### kkg ###
+  uml:stereotype kkg:Codelijst ;
+  rdfs:label "Figuren" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012> ;
 .
 
 #################################################################
@@ -667,7 +968,12 @@ ro_str:Gebiedsaanduiding a sh:NodeShape ;
     ro_str:Gebiedsaanduiding_tekstverwijzing ,
     ro_str:Gebiedsaanduiding_label ,
     ro_str:Gebiedsaanduiding_geometrie ,
-    ro_str:Gebiedsaanduiding_aanduiding
+    ro_str:Gebiedsaanduiding_aanduiding ;
+  ### kkg ###
+  uml:stereotype kkg:Objecttype ;
+  rdfs:label "Gebiedsaanduiding shape" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+  kkg:indicatieAbstractObject "nee";
 .
 
 #TODO again, what to do with codelists.
@@ -682,6 +988,12 @@ ro_str:Gebiedsaanduiding_artikelnummer a sh:PropertyShape ;
   sh:maxCount 1 ;
   sh:nodeKind sh:Literal ;
   sh:datatype xsd:string ;
+  ### kkg ###
+  uml:stereotype kkg:Attribuutsoort ;
+  rdfs:label "artikelnummer (Gebiedsaanduiding)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
+  kkg:domeinType "string" ;
+  ldqd:trustworthiness "TODO" ;
 .
 
 ro_str:Gebiedsaanduiding_tekstverwijzing a sh:PropertyShape ;
@@ -689,6 +1001,10 @@ ro_str:Gebiedsaanduiding_tekstverwijzing a sh:PropertyShape ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
   sh:node ro_str:Teksttype_BP ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "tekstverwijzing (Gebiedsaanduiding)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 ro_str:Gebiedsaanduiding_label a sh:PropertyShape ;
@@ -704,6 +1020,10 @@ ro_str:Gebiedsaanduiding_label a sh:PropertyShape ;
 #    sh:minCount 1 ;
 #    sh:maxCount 1 ;
 #  ]
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "label (Gebiedsaanduiding)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 ro_str:Gebiedsaanduiding_geometrie a sh:PropertyShape ;
   sh:path ro:geometrie ;
@@ -711,11 +1031,19 @@ ro_str:Gebiedsaanduiding_geometrie a sh:PropertyShape ;
   sh:minCount 1 ;
   sh:maxcount 1 ;
   sh:node ro_str:VlakMultiVlak ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "geometrie (Gebiedsaanduiding)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .
 
 ro_str:Gebiedsaanduiding_aanduiding a sh:PropertyShape ;
   sh:path ro:aanduiding ;
   sh:class ro:Aanduiding ;
   sh:nodeKind sh:IRI ;
-  sh:maxCount 1
+  sh:maxCount 1 ;
+  ### kkg ###
+  uml:stereotype kkg:Relatiesoort ;
+  rdfs:label "aanduiding (Gebiedsaanduiding)" ;
+  prov:generatedAtTime "2010-07-20T00:00:00.000+02:00"^^xsd:dateTime ;
 .

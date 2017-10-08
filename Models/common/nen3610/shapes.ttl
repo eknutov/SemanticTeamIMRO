@@ -14,11 +14,11 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 
 nen3610_str:GeoObject
-  rdf:type sh:NodeShape ; #common 
+  rdf:type sh:NodeShape ; #common
   sh:targetClass nen3610:GeoObject ;
   sh:sparql [
       sh:message "{$this} is an instance of an abstract class." ;
-      sh:prefixed ro_str:prefixes
+      sh:prefixed ro_str:prefixes ;
       sh:select """
 SELECT DISTINCT $this
 WHERE {

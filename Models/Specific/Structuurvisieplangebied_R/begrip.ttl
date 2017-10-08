@@ -1,19 +1,23 @@
-@prefix begrip: <http://data.informatiehuisruimte.nl/ro/id/begrip#> .
+# @prefix begrip: <http://data.informatiehuisruimte.nl/ro/id/begrip#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+@prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
+@prefix ro_begkr: <http://data.informatiehuisruimte.nl/id/begrippenkader/> .
+@prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
+@prefix skos-thes: <http://purl.org/iso25964/skos-thes#> .
 # TODO: integrate with general SKOS file.
 
 
 ro_beg:Structuurvisieplangebied_R a skos:Concept ;
 	rdfs:label "Structuurvisieplangebied_R"@nl ;
 	skos:prefLabel "Structuurvisieplangebied_R"@nl ;
-	skos-thes:broaderGeneric: ro_beg:Plangebied ;
+	skos-thes:broaderGeneric ro_beg:Plangebied ;
 	skos:definition "Gebied, of gebieden, binnen de grenzen van een Rijksstructuurvise."@nl ;
-	skos:inScheme ro_begkr:ro
-	skos:notation "Rijks structuurvisie"
+	skos:inScheme ro_begkr:ro ;
+	skos:notation "Rijks structuurvisie" ;
 .
 
 ro_beg:Idealisatie a skos:Concept ;

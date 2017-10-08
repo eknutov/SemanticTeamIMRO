@@ -29,10 +29,38 @@
 #  sh:shapesGraph :ro_str #<- TODO
 .
 
+ro:Plangebied
+  rdf:type owl:Class ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:label "Plangebied"@nl ;
+  rdfs:subClassOf nen3610:PlanologischGebied ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
+.
+
+ro:Planobject
+  rdf:type owl:Class ;
+  rdfs:label "Planobject"@nl ;
+  rdfs:subClassOf nen3610:PlanologischGebied ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
+.
+
 ro:RuimtelijkPlanOfBesluit
   rdf:type owl:Class ;
   rdfs:isdefinedBy :ro ;
   rdfs:label "RuimtelijkPlanOfBesluit"@nl ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 #TODO: use this class to replace ro:Planobject. It's currently used for the attribute '+typePlanobject: RuimtelijkPlanobject', this has to be resolved.
@@ -40,6 +68,11 @@ ro:RuimtelijkPlanobject
   rdf:type owl:Class ;
   rdfs:label "Ruimtelijk planobject"@nl ;
   rdfs:subClassOf owl:Thing ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:Structuurvisie
@@ -47,18 +80,33 @@ ro:Structuurvisie
   rdfs:isDefinedBy :ro ;
   rdfs:label "Structuurvisie"@nl ;
   rdfs:subClassOf ro:RuimtelijkPlanOfBesluit ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:locatieNaam
   rdf:type owl:AnnotationProperty ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "locatie naam"@nl ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:naam
   rdf:type owl:AnnotationProperty ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "naam"@nl ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 #ro:plangebied
@@ -73,6 +121,11 @@ ro:planobject
   rdfs:isDefinedBy :ro ;
   rdfs:label "planobject"@nl ;
   rdfs:range nen3610:Planobject ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:RuimtelijkInstrument
@@ -80,6 +133,11 @@ ro:RuimtelijkInstrument
   dcterms:subject ro_beg:RuimtelijkInstrument ;
   rdfs:label "Ruimtelijk Instrument"@nl ;
   rdfs:isDefinedBy ro: ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
  ro:RuimtelijkInstrument
@@ -87,6 +145,11 @@ ro:RuimtelijkInstrument
    dcterms:subject ro_beg:RuimtelijkInstrument ;
    rdfs:label "Ruimtelijk Instrument"@nl ;
    rdfs:isDefinedBy ro: ;
+   # temp voor kkg
+   dcterms:subject [
+     dcterms:source :ro ;
+     skos:defintion "TODO"@nl ;
+   ]
   .
 
 
@@ -94,18 +157,33 @@ ro:thema
   rdf:type owl:DatatypeProperty ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "thema"@nl ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:typePlan
   rdf:type owl:ObjectProperty ;
   dcterms:subject ro_beg:typePlan ;
   rdfs:label "typePlan"@nl ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:Ondergrond
   rdf:type owl:Class ;
   rdfs:label "Ondergrond"@nl ;
   rdfs:subClassOf owl:Thing ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:ondergrond
@@ -114,6 +192,11 @@ ro:ondergrond
   rdfs:isDefinedBy :ro ;
   rdfs:label "ondergrond"@nl ;
   rdfs:range ro:Ondergrond ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:ondergrondtype
@@ -122,24 +205,44 @@ ro:ondergrondtype
   rdfs:isDefinedBy :ro ;
   rdfs:label "ondergrondtype"@nl ;
   #TODO should probably be a class/subclass structure.
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:beleid
   rdf:type owl:ObjectProperty ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "beleid"@nl ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:belang
   rdf:type owl:DatatypeProperty ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "belang"@nl ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:rol
   rdf:type owl:DatatypeProperty ;
   rdfs:label "rol"@nl ;
   rdfs:isDefinedBy :ro ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ### instruments
@@ -150,11 +253,21 @@ ro:Instrument
   rdf:type owl:Class ;
   rdfs:label "Instrument"@nl ;
   rdfs:subClassOf owl:Thing ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 ro:instrument
   rdf:type owl:ObjectProperty ;
   rdfs:label "instrument"@nl ;
   rdfs:isDefinedBy :ro ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:instrument
@@ -162,76 +275,141 @@ ro:instrument
   rdfs:isDefinedBy :ro ;
   rdfs:label "instrument"@nl ;
   rdfs:range ro:Instrument ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:amvb
   rdf:type ro:Instrument ;
   rdf:type owl:NamedIndividual ;
   rdfs:label "amvb"@nl ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:beheersverordening
   rdf:type ro:Instrument ;
   rdf:type owl:NamedIndividual ;
   rdfs:label "beheersverordening"@nl ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:bestuurlijkeAfspraken
   rdf:type ro:Instrument ;
   rdf:type owl:NamedIndividual ;
   rdfs:label "bestuurlijke afspraken"@nl ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:coordinatieregeling
   rdf:type ro:Instrument ;
   rdf:type owl:NamedIndividual ;
   rdfs:label "coordinatieregeling"@nl ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:inpassingsplan
   rdf:type ro:Instrument ;
   rdf:type owl:NamedIndividual ;
   rdfs:label "inpassingsplan"@nl ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:omgevingsvergunning
   rdf:type ro:Instrument ;
   rdf:type owl:NamedIndividual ;
   rdfs:label "omgevingsvergunning"@nl ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:proactieveAanwijzing
   rdf:type ro:Instrument ;
   rdf:type owl:NamedIndividual ;
   rdfs:label "proactieve aanwijzing"@nl ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:reactieveAanwijzing
   rdf:type ro:Instrument ;
   rdf:type owl:NamedIndividual ;
   rdfs:label "reactieve aanwijzing"@nl ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:vooroverleg
   rdf:type ro:Instrument ;
   rdf:type owl:NamedIndividual ;
   rdfs:label "vooroverleg"@nl ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:zienswijze
   rdf:type ro:Instrument ;
   rdf:type owl:NamedIndividual ;
   rdfs:label "zienswijze"@nl ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:verordening
   rdf:type ro:Instrument ;
   rdf:type owl:NamedIndividual ;
   rdfs:label "verordening"@nl ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .
 
 ro:voorbereidingsbesluit
   rdf:type ro:Instrument ;
   rdf:type owl:NamedIndividual ;
   rdfs:label "voorbereidingsbesluit"@nl ;
+  # temp voor kkg
+  dcterms:subject [
+    dcterms:source :ro ;
+    skos:defintion "TODO"@nl ;
+  ]
 .

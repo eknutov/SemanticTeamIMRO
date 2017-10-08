@@ -1,3 +1,8 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
+@prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
+@prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
+
 
 #################################################################
 #    Tekstobject
@@ -974,26 +979,26 @@ ro_str:PT_Sublid_ouder a sh:PropertyShape ;
   sh:class ro:Lid ;
 .
 
-ro_str:PT_Subsublid a sh:NodeShape ;
-  sh:targetClass ro:Subsublid ;
+ro_str:PT_SubSublid a sh:NodeShape ;
+  sh:targetClass ro:SubSublid ;
   sh:property
-    ro_str:PT_Subsublid_ouder ;
+    ro_str:PT_SubSublid_ouder ;
 .
 
-ro_str:PT_Subsublid_ouder a sh:PropertyShape ;
+ro_str:PT_SubSublid_ouder a sh:PropertyShape ;
   sh:path ro:ouder ;
   sh:class ro:Sublid ;
 .
 
-ro_str:PT_Subsubsublid a sh:NodeShape ;
-  sh:targetClass ro:Subsubsublid ;
+ro_str:PT_SubSubSublid a sh:NodeShape ;
+  sh:targetClass ro:SubSubSublid ;
   sh:property
-    ro_str:PT_Subsubsublid_ouder ;
+    ro_str:PT_SubSubSublid_ouder ;
 .
 
-ro_str:PT_Subsubsublid_ouder a sh:PropertyShape ;
+ro_str:PT_SubSubSublid_ouder a sh:PropertyShape ;
   sh:path ro:ouder ;
-  sh:class ro:Subsublid ;
+  sh:class ro:SubSublid ;
 .
 
 ro_str:PT_BijlagenBijRegels a sh:NodeShape ;
@@ -1093,26 +1098,26 @@ ro_str:PT_Subparagraaf_ouder a sh:PropertyShape ;
   sh:class ro:Paragraaf ;
 .
 
-ro_str:PT_Subsubparagraaf a sh:NodeShape ;
-  sh:targetClass ro:Subsubparagraaf ;
+ro_str:PT_SubSubparagraaf a sh:NodeShape ;
+  sh:targetClass ro:SubSubparagraaf ;
   sh:property
-    ro_str:PT_Subsubparagraaf_ouder ;
+    ro_str:PT_SubSubparagraaf_ouder ;
 .
 
-ro_str:PT_Subsubparagraaf_ouder a sh:PropertyShape ;
+ro_str:PT_SubSubparagraaf_ouder a sh:PropertyShape ;
   sh:path ro:ouder ;
   sh:class ro:Subparagraaf ;
 .
 
-ro_str:PT_Subsubsubparagraaf a sh:NodeShape ;
-  sh:targetClass ro:Subsubsubparagraaf ;
+ro_str:PT_SubSubSubparagraaf a sh:NodeShape ;
+  sh:targetClass ro:SubSubSubparagraaf ;
   sh:property
-    ro_str:PT_Subsubsubparagraaf_ouder ;
+    ro_str:PT_SubSubSubparagraaf_ouder ;
 .
 
-ro_str:PT_Subsubsubparagraaf_ouder a sh:PropertyShape ;
+ro_str:PT_SubSubSubparagraaf_ouder a sh:PropertyShape ;
   sh:path ro:ouder ;
-  sh:class ro:Subsubparagraaf ;
+  sh:class ro:SubSubparagraaf ;
 .
 
 ro_str:PT_Overig_Tekstobject a sh:NodeShape ;
@@ -1189,10 +1194,10 @@ ro_str:PT_Overig_Tekstobject_ouder a sh:PropertyShape ;
       sh:class ro:Subparagraaf ;
     ]
     [
-      sh:class ro:Subsubparagraaf ;
+      sh:class ro:SubSubparagraaf ;
     ]
     [
-      sh:class ro:Subsubsubparagraaf ;
+      sh:class ro:SubSubSubparagraaf ;
     ]
   )
 .

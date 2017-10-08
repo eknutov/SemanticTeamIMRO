@@ -227,6 +227,7 @@ ro:externPlan
 
 ro:muteert
   rdf:type owl:ObjectProperty ;
+  rdfs:label "muteert"@nl ;
   rdfs:subPropertyOf ro:externPlan ;
   rdfs:isDefinedBy :ro ;
   dcterms:subject ro_beg:muteert ;
@@ -234,6 +235,7 @@ ro:muteert
 
 ro:vervangt
   rdf:type owl:ObjectProperty ;
+  rdfs:label "vervangt"@nl ;
   rdfs:subPropertyOf ro:externPlan ;
   rdfs:isDefinedBy :ro ;
   dcterms:subject ro_beg:vervangt ;
@@ -241,6 +243,7 @@ ro:vervangt
 
 ro:uitTeWerkenIn
   rdf:type owl:ObjectProperty ;
+  rdfs:label "uit te werken in"@nl ;
   rdfs:subPropertyOf ro:externPlan ;
   rdfs:isDefinedBy :ro ;
 #  dcterms:subject ro_beg: ;
@@ -248,6 +251,7 @@ ro:uitTeWerkenIn
 
 ro:uitgewerktIn
   rdf:type owl:ObjectProperty ;
+  rdfs:label "uitgewerkt in"@nl ;
   rdfs:subPropertyOf ro:externPlan ;
   rdfs:isDefinedBy :ro ;
 #  dcterms:subject ro_beg: ;
@@ -255,6 +259,7 @@ ro:uitgewerktIn
 
 ro:gebruiktInformatieUit
   rdf:type owl:ObjectProperty ; #does this IRI deviate too much from 'informatie in extern plan/besluit'?
+  rdfs:label "TODO"@nl ;
   rdfs:subPropertyOf ro:externPlan ;
   rdfs:isDefinedBy :ro ;
 #  dcterms:subject ro_beg:vervangt ;
@@ -262,6 +267,7 @@ ro:gebruiktInformatieUit
 
 ro:tenGevolgeVan
   rdf:type owl:ObjectProperty ;
+  rdfs:label "ten gevolge van"@nl ;
   rdfs:subPropertyOf ro:externPlan ;
   rdfs:isDefinedBy :ro ;
   dcterms:subject ro_beg:tenGevolgeVan ;
@@ -272,4 +278,8 @@ ro:tenGevolgeVan
 ro:verwijzingNorm
   rdf:type owl:DatatypeProperty ;
   rdfs:label "verwijzing norm"@nl ;
+  # temp voor kkg validatie
+  dcterms:subject [
+    skos:definition "TODO"@nl ;
+  ]
 .
