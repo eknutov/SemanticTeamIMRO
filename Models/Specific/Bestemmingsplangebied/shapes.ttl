@@ -1,23 +1,78 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ogc: <http://www.opengis.net/ont/geosparql#> .
+@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
+@prefix gml: <http://www.opengis.net/ont/gml#> .
+@prefix nen3610_str: <http://data.informatiehuisruimte.nl/def/nen3610/> .
+@prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
+@prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
+@prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
+@prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
+@prefix dct: <http://udfr.org/docs/onto/> .
 
-#################################################################
-#    Bestemmingsplangebied
-#################################################################
+#Dummy section, Should be moved to/recreated in common in due time.
 
-ro_str:Bestemmingsplangebied a sh:NodeShape ;
-  sh:targetClass ro:Bestemmingsplangebied ;
+ro_str:Plan a sh:NodeShape ;
   sh:property
-    ro_str:Bestemmingsplangebied_type , #would .._typeRuimtelijkInstrument suit better?
-    ro_str:Bestemmingsplangebied_beleidsmatigVerantwoorlijkeOverheid ,
-    ro_str:Bestemmingsplangebied_tekstverwijzing ,
-    ro_str:Bestemmingsplangebied_externPlan ,
-    ro_str:Bestemmingsplangebied_norm ,
-    ro_str:Bestemmingsplangebied_geometrie ;
+    ro_str:Plan_spatial ,
+    ro_str:Plan_hasPart
 .
 
-# TODO: ??
-ro_str:Bestemmingsplangebied_type a sh:PropertyShape ;
+ro_str:Plan_spatial a sh:PropertyShape ;
+  sh:path dct:spatial ;
+  sh:class ro:Plangebied ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+.
 
-ro_str:Bestemmingsplangebied_beleidsmatigVerantwoorlijkeOverheid a sh:PropertyShape ;
+ro_str:Plan_hasPart a sh:PropertyShape ;
+  sh:path dct:hasPart ;
+  sh:class ro:Planobject ;
+.
+
+ro_str:Planobject a sh:NodeShape ;
+  sh:property ro_str:Planobject_isPartOf ;
+.
+
+ro_str:Planobject_isPartOf a sh:PropertyShape ;
+  sh:path dct:isPartOf ;
+  sh:class ro:Plan ;
+.
+
+ro_str:Plangebied a sh:NodeShape ;
+  sh:property ro_str:Plangebied_geometry
+.
+
+ro_str:Plangebied_geometrie a sh:PropertyShape ;
+  sh:path ro:geometry ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+.
+#################################################################
+#    Bestemmingsplangebied -> now Bestemmingsplan
+#################################################################
+
+ro_str:Bestemmingsplan a sh:NodeShape ;
+  sh:targetClass ro:Bestemmingsplan ;
+  sh:property
+#    ro_str:Bestemmingsplan_type ,
+    ro_str:Bestemmingsplan_beleidsmatigVerantwoorlijkeOverheid ,
+    ro_str:Bestemmingsplan_tekstverwijzing ,
+    ro_str:Bestemmingsplan_externPlan ,
+    ro_str:Bestemmingsplan_norm ,
+    ro_str:Bestemmingsplan_Plangebied_geometrie , # <- extra constraints for plangebied specific for bestemmingsplan.
+    ro_str:Bestemmingsplan_hasPart ,
+    ro_str:Bestemmingsplan_spatial
+.
+
+# ro_str:Bestemmingsplan_type a sh:PropertyShape .
+
+ro_str:Bestemmingsplan_beleidsmatigVerantwoorlijkeOverheid a sh:PropertyShape ;
   sh:path ro:beleidsmatigVerantwoordelijkeOverheid ;
   sh:class ro:Overheid ;
   sh:nodeKind sh:IRI ;
@@ -26,7 +81,7 @@ ro_str:Bestemmingsplangebied_beleidsmatigVerantwoorlijkeOverheid a sh:PropertySh
 #  sh:node ro_str:Overheden_BP is not needed for it contains all subclasses of ro:Overheid. the sh:class property is sufficient.
 .
 
-ro_str:Bestemmingsplangebied_tekstverwijzing a sh:PropertyShape ;
+ro_str:Bestemmingsplan_tekstverwijzing a sh:PropertyShape ;
   sh:path ro:tekst ;
   sh:minCount 2 ;
   sh:maxCount 4 ;
@@ -51,7 +106,7 @@ ro_str:Bestemmingsplangebied_tekstverwijzing a sh:PropertyShape ;
   ) ;
 .
 
-ro_str:Bestemmingsplangebied_externPlan a sh:PropertyShape ;
+ro_str:Bestemmingsplan_externPlan a sh:PropertyShape ;
   sh:path ro:externPlan ;
   sh:maxCount 1 ;
   sh:node ro_str:ExternPlanReferentie_BP ;
@@ -67,7 +122,7 @@ ro_str:ExternPlanReferentie_BP rdf:type sh:NodeShape ;
     ) ;
 .
 
-ro_str:Bestemmingsplangebied_norm a sh:PropertyShape ;
+ro_str:Bestemmingsplan_norm a sh:PropertyShape ;
   sh:path ro:verwijzingNorm ;
   sh:minCount 2 ;
   sh:maxCount 4 ;
@@ -100,13 +155,27 @@ ro_str:Bestemmingsplangebied_norm a sh:PropertyShape ;
   )
 .
 
-ro_str:Bestemmingsplangebied_geometrie a sh:PropertyShape ;
+ro_str:Bestemmingsplan_Plangebied_geometrie a sh:PropertyShape ;
   sh:path ro:geometrie ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
   sh:node ro_str:VlakMultiVlak ;
 .
 
+ro_str:Bestemmingsplan_hasPart a sh:PropertyShape ;
+  sh:path dct:hasPart ;
+  sh:in (
+    ro:Aanduiding
+    ro:Bestemmingsvlak
+  )
+.
+
+ro_str:Bestemmingsplan_spatial a sh:PropertyShape ;
+  sh:path dct:spatial ;
+  sh:class ro:Plangebied ;
+  sh:minCount 1  ;
+  sh:maxCount 1 ;
+.
 
 #################################################################
 #    Bestemmingsvlak
@@ -119,7 +188,9 @@ ro_str:Bestemmingsvlak a sh:NodeShape ;
     ro_str:Bestemmingsvlak_artikelnummer ,
     ro_str:Bestemmingsvlak_tekstverwijzing ,
     ro_str:Bestemmingsvlak_label ,
-    ro_str:Bestemmingsvlak_geometrie ;
+    ro_str:Bestemmingsvlak_geometrie ,
+    ro_str:Bestemmingsvlak_isPartOf ,
+    ro_str:Bestemmingsvlak_hasPart #in IMRO this relation is the other way around.. As discussed this was our understanding of the model. should still look into this more. and see if dct:hasPart truly is the way to go.
 .
 
 ro_str:Bestemmingsvlak_bestemmingshoofdgroep a sh:PropertyShape ;
@@ -170,7 +241,17 @@ ro_str:Bestemmingsvlak_geometrie a sh:PropertyShape ;
   sh:node ro_str:Surface
 .
 
+ro_str:Bestemmingsvlak_isPartOf a sh:PropertyShape ;
+  sh:path dct:isPartOf ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:class ro:Bestemmingsplan ;
+.
 
+ro_str:Bestemmingsvlak_hasPart a sh:PropertyShape ;
+  sh:path dct:hasPart ;
+  sh:class ro:Aanduiding ;
+.
 #################################################################
 #    Label
 #################################################################
@@ -243,20 +324,40 @@ ro_str:Labelpositie_hoek a sh:PropertyShape ;
 ro_str:Aanduiding a sh:Nodeshape ;
   sh:targetClass ro:Aanduiding ;
   sh:property
-    ro_str:Aanduiding_plangebied ,
-    ro_str:Aanduiding_bestemmingsvlak ;
+#    ro_str:Aanduiding_plangebied ,
+#    ro_str:Aanduiding_bestemmingsvlak ,
+    ro_str:Aanduiding_isPartOf
 .
 
-ro_str:Aanduiding_plangebied a sh:PropertyShape ;
-  sh:path ro:plangebied ;
-  sh:minCount 1 ;
-  sh:maxCount 1 ;
-  sh:class ro:Bestemmingsplangebied ;
-.
+#ro_str:Aanduiding_plangebied a sh:PropertyShape ;
+#  sh:path ro:plangebied ;
+#  sh:minCount 1 ;
+#  sh:maxCount 1 ;
+#  sh:class ro:Bestemmingsplangebied ;
+#.
 
 ro_str:Aanduiding_bestemmingsvlak a sh:PropertyShape ;
   sh:path ro:bestemmingsvlak ;
   sh:class ro:Bestemmingsvlak ;
+.
+
+ro_str:Aanduiding_isPartOf a sh:PropertyShape ;
+  sh:path dct:isPartOf ;
+  sh:and (
+    [
+      sh:qualifiedValueShape [
+        sh:path rdf:type ;
+        sh:hasValue ro:Bestemmingsplan ;
+      ] ;
+      sh:qualifiedMinCount 1 ;
+      sh:qualifiedMaxCount 1 ;
+    ]
+    [
+      sh:qualifiedValueShape [
+        sh:path rdf:type ;
+        sh:hasValue ro:Bestemmingsvlak ;
+      ]
+    ]
 .
 
 
@@ -301,10 +402,26 @@ ro_str:Functieaanduiding a sh:NodeShape ;
 .
 
 ro_str:Functieaanduiding_label a sh:PropertyShape ;
+  sh:path ro:label ;
+  sh:class ro:Label ;
+  sh:nodeKind sh:IRI ;
+  sh:maxCount 1 ;
+.
 
 ro_str:Functieaanduiding_tekstverwijzing a sh:PropertyShape ;
+  sh:path ro:tekst ;
+  sh:nodeKind sh:IRI ;
+  sh:maxCount 1 ;
+  sh:node ro_str:Teksttype_BP ;
+.
 
 ro_str:Functieaanduiding_geometrie a sh:PropertyShape ;
+  sh:path ro:geometrie ;
+  sh:nodeKind sh:IRI ;
+  sh:minCount 1 ;
+  sh:maxcount 1 ;
+  sh:node ro_str:Surface ;
+.
 
 ro_str:Functieaanduiding_aanduiding a sh:PropertyShape ;
   sh:path ro:aanduiding ;
@@ -327,17 +444,37 @@ ro_str:Bouwaanduiding a sh:NodeShape ;
     ro_str:Bouwaanduiding_aanduiding ;
 .
 
+#same as the label for functieaanduiding.
 ro_str:Bouwaanduiding_label a sh:PropertyShape ;
+  sh:path ro:label ;
+  sh:class ro:Label ;
+  sh:nodeKind sh:IRI ;
+  sh:maxCount 1 ;
+.
 
+#same for Functieaanduiding
 ro_str:Bouwaanduiding_tekstverwijzing a sh:PropertyShape ;
+  sh:path ro:tekst ;
+  sh:nodeKind sh:IRI ;
+  sh:maxCount 1 ;
+  sh:node ro_str:Teksttype_BP ;
+.
 
+#same for Functieaanduiding
 ro_str:Bouwaanduiding_geometrie a sh:PropertyShape ;
+  sh:path ro:geometrie ;
+  sh:nodeKind sh:IRI ;
+  sh:minCount 1 ;
+  sh:maxcount 1 ;
+  sh:node ro_str:Surface ;
+.
 
+#same for Functieaanduiding
 ro_str:Bouwaanduiding_aanduiding a sh:PropertyShape ;
   sh:path ro:aanduiding ;
   sh:class ro:Aanduiding ;
   sh:nodeKind sh:IRI ;
-  sh:maxCount 1
+  sh:maxCount 1 ;
 .
 
 
@@ -358,14 +495,38 @@ ro_str:Maatvoering a sh:NodeShape ;
 ro_str:Maatvoering_symbool a sh:PropertyShape ;
   sh:path ro:symbool ;
   sh:class ro:Symbool ;
-  sh:nodeKind sh:IRI
+  sh:nodeKind sh:IRI ;
 .
 
+#TODO what to do when class is not ro:Omvang
 ro_str:Maatvoering_maatvoeringwaarde a sh:PropertyShape ;
+  sh:path ro:maatvoeringWaarde ;
+  sh:nodeKind sh:IRI ;
+  sh:class ro:Omvang ;
+  sh:node [
+    sh:path ro:waarde ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:nodeKind sh:Literal ;
+    sh:datatype xsd:string ; #altough the literal contains numbers, a string would suit better I think due to the needed pattern in TODO.
+#    sh:pattern "" # should adhere to some pattern, TODO
+  ] ;
+.
 
 ro_str:Maatvoering_tekstverwijzing a sh:PropertyShape ;
+  sh:path ro:tekst ;
+  sh:nodeKind sh:IRI ;
+  sh:maxCount 1 ;
+  sh:node ro_str:Teksttype_BP ;
+.
 
 ro_str:Maatvoering_geometrie a sh:PropertyShape ;
+  sh:path ro:geometrie ;
+  sh:nodeKind sh:IRI ;
+  sh:minCount 1 ;
+  sh:maxcount 1 ;
+  sh:node ro_str:Surface ;
+.
 
 ro_str:Maatvoering_aanduiding a sh:PropertyShape ;
   sh:path ro:aanduiding ;
@@ -387,6 +548,12 @@ ro_str:Symbool a sh:NodeShape ;
 .
 
 ro_str:Symbool_code a sh:PropertyShape;
+  sh:path ro:code ;
+  sh:mincount 1 ;
+  sh:maxCount 1 ;
+  sh:nodeKind sh:Literal ;
+  sh:datatype xsd:String ;
+.
 
 ro_str:Symbool_positie a sh:PropertyShape ;
   sh:path ro:positie ;
@@ -402,20 +569,63 @@ ro_str:Symbool_positie a sh:PropertyShape ;
 ro_str:Figuur a sh:NodeShape ;
   sh:targetClass ro:Figuur ;
   sh:property
-    ro_str:Figuur_afbeelding ,
+    ro_str:Figuur_naam ,
+    ro_str:Figuur_illustratie ,
     ro_str:Figuur_label ,
     ro_str:Figuur_tekstverwijzing ,
     ro_str:Figuur_geometrie ,
     ro_str:Figuur_aanduiding
 .
 
-ro_str:Figuur_afbeelding a sh:PropertyShape ;
+ro_str:Figuur_naam a sh:PropertyShape ;
+  sh:path ro:naam ;
+  sh:node ro_str:Figuren ;
+.
+
+ro_str:Figuur_illustratie a sh:PropertyShape ;
+  sh:xone (
+   [
+     sh:and (
+       [
+         sh:path ro:naam ;
+         sh:hasValue "dwarsprofiel" ;
+       ]
+       [
+         sh:path ro:illustratie ;
+         sh:class ro:Afbeelding ; #TODO: make sure all instances of roÏllustratie have a name.
+         sh:minCount 1 ;
+         sh:maxCount 1 ;
+       ]
+     )
+   ]
+   [
+     sh:path ro:illustratie ;
+     sh:maxCount 0 ;
+   ]
+  ) ;
+.
 
 ro_str:Figuur_label a sh:PropertyShape ;
+  sh:path ro:label ;
+  sh:class ro:Label ;
+  sh:nodeKind sh:IRI ;
+  sh:maxCount 1 ;
+.
 
+#TODO: include ro:tekst a owl:AnnotationProperty to the common section.
 ro_str:Figuur_tekstverwijzing a sh:PropertyShape ;
+  sh:path ro:tekst ;
+  sh:maxCount 1 ;
+  sh:node ro_str:Teksttype_BP ;
+.
 
 ro_str:Figuur_geometrie a sh:PropertyShape ;
+  sh:path ro:geometrie ;
+  sh:nodeKind sh:IRI ;
+  sh:minCount 1 ;
+  sh:maxcount 1 ;
+  sh:node ro_str:LijnMultiLijn ;
+.
 
 ro_str:Figuur_aanduiding a sh:PropertyShape ;
   sh:path ro:aanduiding ;
@@ -423,6 +633,26 @@ ro_str:Figuur_aanduiding a sh:PropertyShape ;
   sh:nodeKind sh:IRI
 .
 
+#is this the way do deal with the codelist? or make namedIndividuals with a string attribute?
+ro_str:Figuren a sh:Nodeshape ;
+  sh:or (
+    [ sh:in (
+        "as van de weg"
+        "dwarsprofiel"
+        "gevellijn"
+        "hartleiding - brandstof"
+        "hartlijn leiding - gas"
+        "hartlijn leiding - hoogspanning"
+        "hartlijn leiding - hoogspanningsverbinding"
+        "hartlijn leiding - olie"
+        "hartlijn leiding - riool"
+        "hartlijn leiding - water"
+        "relatie"
+      )
+    ]
+    [ sh:pattern "(^hartlijn leiding - [a-z ]*)" ]
+    )
+.
 
 #################################################################
 #    Gebiedsaanduiding
@@ -431,20 +661,57 @@ ro_str:Figuur_aanduiding a sh:PropertyShape ;
 ro_str:Gebiedsaanduiding a sh:NodeShape ;
   sh:targetClass ro:Gebiedsaanduiding ;
   sh:property
-    ro_str:Gebiedsaanduiding_label ,
+    ro_str:Gebiedsaanduiding_naam ,
+#    ro_str:Gebiedsaanduiding_gebiedsaanduidinggroep , <- this is incorporated at the class hierarchy
     ro_str:Gebiedsaanduiding_artikelnummer ,
     ro_str:Gebiedsaanduiding_tekstverwijzing ,
+    ro_str:Gebiedsaanduiding_label ,
     ro_str:Gebiedsaanduiding_geometrie ,
     ro_str:Gebiedsaanduiding_aanduiding
 .
 
-ro_str:Gebiedsaanduiding_label a sh:PropertyShape ;
+#TODO again, what to do with codelists.
+ro_str:Gebiedsaanduiding_naam a sh:Propertyshape ;
+  sh:path ro:naam ;
+#  sh:node ro_str:Gebiedsaanduidingen ;
+.
 
 ro_str:Gebiedsaanduiding_artikelnummer a sh:PropertyShape ;
+  sh:path ro:artikelnummer ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:nodeKind sh:Literal ;
+  sh:datatype xsd:string ;
+.
 
 ro_str:Gebiedsaanduiding_tekstverwijzing a sh:PropertyShape ;
+  sh:path ro:tekst ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:node ro_str:Teksttype_BP ;
+.
 
+ro_str:Gebiedsaanduiding_label a sh:PropertyShape ;
+  sh:path ro:label ;
+  sh:class ro:Label ;
+  sh:nodeKind sh:IRI ;
+  sh:maxCount 1 ;
+# the current constraint on ro:labeltekst should be overwritten as the data is a integer here.
+#  sh:node [
+#    sh:path ro:labeltekst ;
+#    sh:nodeKind sh:Literal ;
+#    sh:datatype xsd:integer ;
+#    sh:minCount 1 ;
+#    sh:maxCount 1 ;
+#  ]
+.
 ro_str:Gebiedsaanduiding_geometrie a sh:PropertyShape ;
+  sh:path ro:geometrie ;
+  sh:nodeKind sh:IRI ;
+  sh:minCount 1 ;
+  sh:maxcount 1 ;
+  sh:node ro_str:VlakMultiVlak ;
+.
 
 ro_str:Gebiedsaanduiding_aanduiding a sh:PropertyShape ;
   sh:path ro:aanduiding ;

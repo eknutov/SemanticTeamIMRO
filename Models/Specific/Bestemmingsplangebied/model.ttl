@@ -21,46 +21,53 @@
 @prefix : <http://data.informatiehuisruimte.nl/def/> .
 @base <http://data.informatiehuisruimte.nl/def/ro#> .
 
+
+#Dummy section, Should be moved to/recreated in common in due time.
+
+ro:Plan a owl:Class .
+
+
 #################################################################
-#    Bestemmingsplangebied
+#    Bestemmingsplangebied <- Bestemmingsplan
 #################################################################
 
-ro:Bestemmingsplangebied a owl:Class ;
-  rdfs:label "Bestemmingsplangebied"@nl ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:subClassOf ro:RuimtelijkInstrument ;
-  dcterms:subject ro_beg:Bestemmingsplangebied ; ;
-.
+#ro:Bestemmingsplangebied a owl:Class ;
+#  rdfs:label "Bestemmingsplangebied"@nl ;
+#  rdfs:isDefinedBy :ro ;
+#  rdfs:subClassOf ro:RuimtelijkInstrument ;
+#  dcterms:subject ro_beg:Bestemmingsplangebied ; ;
+#.
 
 ro:Bestemmingsplan a owl:Class ;
   rdfs:label "Bestemmingsplan"@nl ;
   rdfs:isDefinedBy :ro ;
-  rdfs:subClassOf ro:Bestemmingsplangebied ;
-  dcterms:subject ro_beg:Bestemmingsplan ; ;
+  rdfs:subClassOf ro:Plan ;
+  dcterms:subject ro_beg:Bestemmingsplan ;
+
 .
 
 ro:Inpassingsplan a owl:Class ;
   rdfs:label "Inpassingsplan"@nl ;
   rdfs:isDefinedBy :ro ;
-  rdfs:subClassOf ro:Bestemmingsplangebied ; ;
+  rdfs:subClassOf ro:Bestemmingsplan ;
 .
 
 ro:Rijksbestemmingsplan a owl:Class ;
   rdfs:label "Rijksbestemmingsplan"@nl ;
   rdfs:isDefinedBy :ro ;
-  rdfs:subClassOf ro:Bestemmingsplangebied ; ;
+  rdfs:subClassOf ro:Bestemmingsplan ;
 .
 
 ro:Uitwerkingsplan a owl:Class ;
   rdfs:label "Uitwerkingsplan"@nl ;
   rdfs:isDefinedBy :ro ;
-  rdfs:subClassOf ro:Bestemmingsplangebied ; ;
+  rdfs:subClassOf ro:Bestemmingsplan ;
 .
 
 ro:Wijzigingsplan a owl:Class ;
   rdfs:label "Wijzigingsplan"@nl ;
   rdfs:isDefinedBy :ro ;
-  rdfs:subClassOf ro:Bestemmingsplangebied ; ;
+  rdfs:subClassOf ro:Bestemmingsplan ;
 .
 
 #################################################################
@@ -70,7 +77,7 @@ ro:Wijzigingsplan a owl:Class ;
 ro:Bestemmingsvlak a owl:Class ;
   rdfs:label "Bestemmingsvlak"@nl ;
   rdfs:isDefinedBy :ro ;
-  rdfs:subClassOf ro:RuimtelijkObject ; ;
+  rdfs:subClassOf ro:Planobject ; ;
 .
 
 ro:Enkelbestemming a owl:Class ;
@@ -159,7 +166,7 @@ ro:symboolPlaatsing a owl:AnnotationProperty ;
 .
 
 ro:symbool a owl:AnnotationProperty ; #or should this be an objectproperty?
-  rdfs:label "symbol"@nl ;
+  rdfs:label "symbool"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:range ro:Symbool ; ;
 .
@@ -167,6 +174,11 @@ ro:symbool a owl:AnnotationProperty ; #or should this be an objectproperty?
 ro:Symbool a owl:Class ;
   rdfs:label "Symbool"@nl ;
   rdfs:isDefinedBy :ro ; ;
+.
+
+ro:code a owl:DatatypeProperty ;
+  rdfs:label "code"@nl ;
+  rdfs:isDefinedBy :ro ;
 .
 
 ro_sym:s100 a ro:Symbool, owl:NamedIndividual ; ro:code "s100" .
@@ -1060,13 +1072,4 @@ ro:hoek a owl:DatatypeProperty ;
   rdfs:label "hoek"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:domain ro:Labelpositie ;
-.
-
-#################################################################
-#    Algemene eigenschappen
-#################################################################
-
-ro:code a owl:DatatypeProperty ;
-  rdfs:label "code"@nl ;
-  rdfs:isDefinedBy :ro ;
 .
