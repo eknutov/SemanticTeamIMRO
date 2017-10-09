@@ -20,25 +20,34 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+## #Dummy section, Should be moved to/recreated in common in due time.
+
+#should probably be somewhere in 'common' as all three structuurvisieplangebied_X use these.
+ro:Structuurvisie a owl:Class ;
+  rdfs:subClassOf ro:Plan ;
+  rdfs:label "Structuurvisie"@nl ;
+  rdfs:comment ""@nl ;
+  rdfs:isDefinedBy :ro ;
+.
 
 ro:Structuurvisieplangebied_P
   rdf:type owl:Class ;
   dcterms:subject ro_beg:Structuurvisieplangebied_P ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "Structuurvisieplangebied_P"@nl ;
-  rdfs:subClassOf nen3610:Plangebied ;
+  rdfs:subClassOf ro:Structuurvisie ;
 .
 
 ro:Structuurvisiegebied_P
   rdf:type owl:Class ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "Structuurvisiegebied_P"@nl ;
-  rdfs:subClassOf nen3610:Planobject ;
+  rdfs:subClassOf ro:Planobject ;
 .
 
 ro:Structuurvisiecomplex_P
   rdf:type owl:Class ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "Structuurvisiegebied_P"@nl ;
-  rdfs:subClassOf nen3610:Planobject ;
+  rdfs:subClassOf ro:Planobject ;
 .
