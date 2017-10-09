@@ -20,9 +20,6 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-## #Dummy section, Should be moved to/recreated in common in due time.
-
-#should probably be somewhere in 'common' as all three structuurvisieplangebied_X use these.
 
 #################################################################
 #    Structuurvisie
@@ -37,35 +34,22 @@ ro:Structuurvisie a owl:Class ;
 
 
 #################################################################
-#    Structuurvisieplan_P
+#    Structuurvisiegebied
 #################################################################
 
-#should we also remove 'plan'?
-ro:Structuurvisieplan_P a owl:Class ;
-  dcterms:subject ro_beg:Structuurvisieplangebied_P ; # <-- alter SKOS name to ro_beg:Structuurvisieplan_P
+ro:Structuurvisiegebied a owl:Class ;
   rdfs:isDefinedBy :ro ;
-  rdfs:label "Structuurvisieplan_P"@nl ;
-  rdfs:subClassOf ro:Structuurvisie ;
-.
-
-
-#################################################################
-#    Structuurvisiegebied_P
-#################################################################
-
-ro:Structuurvisiegebied_P a owl:Class ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:label "Structuurvisiegebied_P"@nl ;
+  rdfs:label "Structuurvisiegebied"@nl ;
   rdfs:subClassOf ro:Planobject ;
 .
 
 
 #################################################################
-#    Structuurvisiecomplex_P
+#    Structuurvisiecomplex
 #################################################################
 
-ro:Structuurvisiecomplex_P a owl:Class ;
+ro:Structuurvisiecomplex a owl:Class ;
   rdfs:isDefinedBy :ro ;
-  rdfs:label "Structuurvisiegebied_P"@nl ;
+  rdfs:label "Structuurvisiegebied"@nl ;
   rdfs:subClassOf ro:Planobject ;
 .

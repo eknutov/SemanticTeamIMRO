@@ -1,0 +1,200 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ogc: <http://www.opengis.net/ont/geosparql#> .
+@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
+@prefix gml: <http://www.opengis.net/ont/gml#> .
+@prefix nen3610_str: <http://data.informatiehuisruimte.nl/def/nen3610/> .
+@prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
+@prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
+@prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
+@prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+
+#################################################################
+#    Structuurvisie
+#################################################################
+
+ro:Structuurvisie a sh:NodeShape ;
+  sh:targetClass ro:Structuurvisie ;
+  sh:property
+    ro_str:Structuurvisie_illustratieverwijzing ,
+    ro_str:Structuurvisie_tekstverwijzing ,
+    ro_str:Structuurvisie_ondergrond ,
+    ro_str:Structuurvisie_externPlan ,
+    ro_str:Structuurvisie_norm ,
+    ro_str:Structuurvisie_spatial #covers ro:geometrie and ro:idealisatie, structuurvisie_P defines ro:inwinningsschaal in addition.
+.
+
+ro_str:Structuurvisie_illustratieverwijzing a sh:PropertyShape ;
+  sh:path ro:illustratie ;
+  sh:class ro:Illustratie ; #either afbeelding or kaart. TODO: make ro:Illustratie an abstract class.
+#  sh:node ro_str:Illustratie ;  #no longer needed since the IRI is the reference.
+.
+
+#TODO: use IMROPT if norm == ro_beg:IMROPT
+ro_str:Structuurvisie_tekstverwijzing
+  a sh:PropertyShape ;
+    sh:path ro:tekst ;
+    sh:minCount 1 ;
+    sh:maxCount 3 ;
+    sh:node ro_str:TeksttypePG_SV ;
+    sh:and (
+      [
+        sh:qualifiedValueShape [
+          sh:path rdf:type  ;
+          sh:hasValue ro:Document ;
+        ] ;
+        sh:qualifiedMinCount 1 ;
+        sh:qualifiedMaxCount 1 ;
+      ] [
+        sh:qualifiedValueShape [
+          sh:path  rdf:type  ;
+          sh:hasValue ro:Bijlage ;
+        ] ;
+        sh:qualifiedMaxCount 1 ;
+      ]
+    ) ;
+.
+
+#maybe remove the blank node
+ro_str:Structuurvisie_externPlan a sh:PropertyShape ;
+  sh:path ro:externPlan ;
+  sh:maxCount 1 ;
+  sh:node ro_str:ExternPlanReferentiePG_SV ;
+.
+
+#TODO: change property 'verwijzingNorm' into ro:norm .
+ro_str:Structuurvisie_norm a sh:PropertyShape ;
+  sh:path ro:verwijzingNorm ;
+  sh:minCount 2 ;
+  sh:maxCount 3 ;
+  sh:and ( [
+    sh:qualifiedValueShape [
+      sh:hasValue ro_beg:IMRO2012 ;
+
+      ] ;
+    sh:qualifiedMinCount 1 ;
+    sh:qualifiedMaxCount 1 ;
+    ]
+    [
+    sh:qualifiedValueShape [
+      sh:hasValue ro_beg:PRpSV2012 ;
+    ] ;
+    sh:qualifiedMinCount 1 ;
+    sh:qualifiedMaxCount 1 ;
+    ]
+    [
+    sh:qualifiedValueShape [
+      sh:hasValue ro_beg:IMROPT2012 ;
+    ] ;
+    sh:qualifiedMaxCount 1 ;
+  ]
+  )
+.
+
+ro_str:Structuurvisie_spatial a sh:PropertyShape ;
+  sh:path dct:spatial ;
+  sh:class ro:Plangebied ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:node ro_str:Structuurvisie_Plangebied #TODO similar construct for bestemmingsplan.
+.
+
+ro_str:Structuurvisie_Plangebied a sh:NodeShape ;
+  sh:property
+    ro_str:Structuurvisie_Plangebied_geometrie ,
+    ro_str:Structuurvisie_Plangebied_idealisatie
+.
+
+ro_str:Structuurvisie_Plangebied_geometrie a sh:PropertyShape ;
+  sh:path ro:geometrie ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:node ro_str:VlakMultiVlak ;
+.
+
+ro_str:Structuurvisie_Plangebied_idealisatie a sh:PropertyShape ;
+  sh:path ro:idealisatie ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:node ro_str:Idealisatie_1 ;
+.
+
+
+#################################################################
+#    Structuurvisiegebied
+#################################################################
+
+ro_str:Structuurvisiegebied a sh:NodeShape ;
+    sh:targetClass ro:Structuurvisiegebied ;
+    sh:property
+      ro_str:Structuurvisiegebied_thema ,
+      ro_str:Structuurvisiegebied_illustratieVerwijzing , #partially common
+      ro_str:Structuurvisiegebied_externPlan ,
+      ro_str:Structuurvisiegebied_cartografie , #TODO: add hoofdkaart == nummer 1
+      ro_str:Structuurvisiegebied_begrenzing
+.
+
+ro_str:Structuurvisiegebied_thema a sh:PropertyShape ;
+  sh:minCount 1 ;
+  sh:datatype xsd:string ;
+.
+
+# Illustratie shapes should be corrected.
+ro_str:Structuurvisiegebied_illustratieVerwijzing a sh:PropertyShape ;
+  sh:path ro:illustratie ;
+  sh:class ro:Illustratie ;
+  sh:node ro_str:Illustratie ;
+  sh:node ro_str:Illustratie_legendaNaam
+.
+
+ro_str:Structuurvisiegebied_externPlan a sh:PropertyShape ;
+  sh:path ro:externPlan ;
+  sh:maxCount 1 ;
+  sh:node ro_str:ExternPlanReferentie_SV ;
+.
+
+ro_str:Structuurvisiegebied_cartografie a sh:PropertyShape ; #perhaps applicable for all planobjects?
+  sh:path ro:cartografie ;
+  sh:node ro_str:cartografieInfo ;
+.
+
+ro_str:Structuurvisiegebied_P_begrenzing rdf:type sh:PropertyShape ;
+  sh:path ro:begrenzing ;
+  sh:class ro:Geometrie ;
+  sh:minCount 1 ;
+  sh:node ro_str:Structuurvisiegebied_Geometrie ;
+.
+
+ro_str:Structuurvisiegebied_R_Geometrie rdf:type sh:NodeShape ;
+  sh:property
+    ro_str:Structuurvisiegebied_Geometrie_geometrie , #perhaps we can make these properties of the class.
+    ro_str:Structuurvisiegebied_Geometrie_idealisatie ;
+.
+
+ro_str:Structuurvisiegebied_Geometrie_geometrie rdf:type sh:PropertyShape ;
+  sh:path ro:geometrie ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:node ro_str:PuntLijnVlakMulti ;
+.
+
+ro_str:Structuurvisiegebied_Geometrie_idealisatie rdf:type sh:PropertyShape ;
+  sh:path ro:idealisatie ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:node ro_str:Idealisatie_3 ;
+.
+
+
+#################################################################
+#    Structuurvisiecomplex
+#################################################################
+
+ro_str:Structuurvisiecomplex rdf:type sh:NodeShape ;
+    sh:targetClass ro:Structuurvisiecomplex ;
+    sh:property
