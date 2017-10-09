@@ -23,6 +23,11 @@
 ## #Dummy section, Should be moved to/recreated in common in due time.
 
 #should probably be somewhere in 'common' as all three structuurvisieplangebied_X use these.
+
+#################################################################
+#    Structuurvisie
+#################################################################
+
 ro:Structuurvisie a owl:Class ;
   rdfs:subClassOf ro:Plan ;
   rdfs:label "Structuurvisie"@nl ;
@@ -30,23 +35,36 @@ ro:Structuurvisie a owl:Class ;
   rdfs:isDefinedBy :ro ;
 .
 
-ro:Structuurvisieplangebied_P
-  rdf:type owl:Class ;
-  dcterms:subject ro_beg:Structuurvisieplangebied_P ;
+
+#################################################################
+#    Structuurvisieplan_P
+#################################################################
+
+#should we also remove 'plan'?
+ro:Structuurvisieplan_P a owl:Class ;
+  dcterms:subject ro_beg:Structuurvisieplangebied_P ; # <-- alter SKOS name to ro_beg:Structuurvisieplan_P
   rdfs:isDefinedBy :ro ;
-  rdfs:label "Structuurvisieplangebied_P"@nl ;
+  rdfs:label "Structuurvisieplan_P"@nl ;
   rdfs:subClassOf ro:Structuurvisie ;
 .
 
-ro:Structuurvisiegebied_P
-  rdf:type owl:Class ;
+
+#################################################################
+#    Structuurvisiegebied_P
+#################################################################
+
+ro:Structuurvisiegebied_P a owl:Class ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "Structuurvisiegebied_P"@nl ;
   rdfs:subClassOf ro:Planobject ;
 .
 
-ro:Structuurvisiecomplex_P
-  rdf:type owl:Class ;
+
+#################################################################
+#    Structuurvisiecomplex_P
+#################################################################
+
+ro:Structuurvisiecomplex_P a owl:Class ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "Structuurvisiegebied_P"@nl ;
   rdfs:subClassOf ro:Planobject ;
