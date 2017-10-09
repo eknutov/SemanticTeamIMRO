@@ -348,7 +348,7 @@ ro_str:Aanduiding_isPartOf a sh:PropertyShape ;
       sh:qualifiedValueShape [
         sh:path rdf:type ;
         sh:hasValue ro:Bestemmingsplan ;
-      ]
+      ] ;
       sh:qualifiedMinCount 1 ;
       sh:qualifiedMaxCount 1 ;
     ]
