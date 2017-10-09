@@ -14,7 +14,7 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 ### kkg ###
 @prefix uml: <http://www.omg.org/spec/UML/20131001/>.
-@prefix kkg: <http://bp4mc2.org/def/kkg/id/begrip/> .
+@prefix kkg: <http://bp4mc2.org/kkg/id/begrip/> .
 @prefix ldqd: <http://www.w3.org/2016/05/ldqd#>.
 @prefix prov: <http://www.w3.org/ns/prov#> .
 
