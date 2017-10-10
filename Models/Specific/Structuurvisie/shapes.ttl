@@ -136,7 +136,8 @@ ro_str:Structuurvisiegebied a sh:NodeShape ;
       ro_str:Structuurvisiegebied_illustratieVerwijzing , #partially common
       ro_str:Structuurvisiegebied_externPlan ,
       ro_str:Structuurvisiegebied_cartografie , #TODO: add hoofdkaart == nummer 1
-      ro_str:Structuurvisiegebied_begrenzing
+      ro_str:Structuurvisiegebied_begrenzing ,
+      ro_str:Structuurvisiegebied_isPartOf
 .
 
 ro_str:Structuurvisiegebied_thema a sh:PropertyShape ;
@@ -190,11 +191,31 @@ ro_str:Structuurvisiegebied_Geometrie_idealisatie rdf:type sh:PropertyShape ;
   sh:node ro_str:Idealisatie_3 ;
 .
 
+ro_str:Structuurvisiegebied_isPartOf a sh:PropertyShape ; #the specialisation specify a sh:class constraint.
+  sh:path dct:isPartOf ;
+  sh:minCount 1 ;
+  sh:maxcount 1 ;
+.
 
 #################################################################
-#    Structuurvisiecomplex
+#    Structuurvisiecomplex <- actually largely equals Structuurvisiegebied
 #################################################################
 
-ro_str:Structuurvisiecomplex rdf:type sh:NodeShape ;
+ro_str:Structuurvisiecomplex a sh:NodeShape ;
     sh:targetClass ro:Structuurvisiecomplex ;
     sh:property
+      ro_str:Structuurvisiegebied_thema ,  # same as ro:structuurvisiegebied_illustratieVerwijzing
+      ro_str:Structuurvisiegebied_illustratieVerwijzing ,  # same as ro:structuurvisiegebied_illustratieVerwijzing
+      ro_str:Structuurvisiegebied_externPlan , # same as ro_str:Structuurvisiegebied_externPlan
+      ro_str:Structuurvisiegebied_cartografie , # same as ro_str:Structuurvisiegebied_cartografie
+      ro_str:Structuurvisiegebied_begrenzing ,  # same as ro:structuurvisiegebied_illustratieVerwijzing
+      ro_str:Structuurvisiecomplex_hasPart ,
+      ro_str:Structuurvisiegebied_isPartOf # same as ro:structuurvisiegebied_isPartOf
+.
+
+ro_str:Structuurvisiecomplex_hasPart rdf:type sh:PropertyShape ;
+  sh:path ro:hasPart ;
+  sh:minCount 1 ;
+  sh:class ro:Planobject ;
+  #TODO: only structuurvisiecomplex and structuurvisiegebied
+.

@@ -87,7 +87,7 @@ ro_str:Structuurvisiegebied_P rdf:type sh:NodeShape ;
       ro_str:Structuurvisiegebied_P_beleid ,
       ro_str:Structuurvisiegebied_P_tekstVerwijzing ,
       ro_str:Structuurvisiegebied_P_illustratieVerwijzing , #partially common
-      ro_str:Structuurvisiegebied_P_plangebied ,
+      ro_str:Structuurvisiegebied_P_plangebied , #isPartOf
       ro_str:Structuurvisiegebied_P_begrenzing
 .
 
@@ -152,10 +152,8 @@ ro_str:Structuurvisiegebied_P_illustratieVerwijzing rdf:type sh:PropertyShape ;
   sh:node ro_str:Illustratie_illustratieNaam
 .
 
-ro_str:Structuurvisiegebied_P_plangebied rdf:type sh:PropertyShape ; #same as for structuurvisieplangebied_R, perhaps lose P_ and keep use the same sh:PropertyShape.
+ro_str:Structuurvisiegebied_P_plangebied rdf:type sh:PropertyShape ;
   sh:path ro:plangebied ;
-  sh:minCount 1 ;
-  sh:maxCount 1 ;
   sh:class ro:Structuurvisieplangebied_P ;
 .
 
@@ -165,16 +163,16 @@ ro_str:Structuurvisiegebied_P_begrenzing rdf:type sh:PropertyShape ;
 .
 
 #partially defined by ro_str:Structuurvisiegebied.
-ro_str:Structuurvisiegebied_R_Geometrie rdf:type sh:NodeShape ;
+ro_str:Structuurvisiegebied_P_Geometrie rdf:type sh:NodeShape ;
   sh:property
     ro_str:Structuurvisiegebied_P_Geometrie_inwinningsschaal
 .
 
 ro_str:Structuurvisiegebied_P_Geometrie_inwinningsschaal rdf:type sh:PropertyShape ;
-  sh:path ro:idealisatie ;
+  sh:path ro:inwinningschaal ;
   sh:maxCount 1 ;
   sh:datatype xsd:integer ;
-  sh:node ro_str:Idealisatie_3 ;
+  #TODO: not same as plangebied_inwinningsschaal
 .
 
 
@@ -185,35 +183,19 @@ ro_str:Structuurvisiegebied_P_Geometrie_inwinningsschaal rdf:type sh:PropertySha
 ro_str:Structuurvisiecomplex_P rdf:type sh:NodeShape ;
     sh:targetClass ro:Structuurvisiecomplex_R ;
     sh:property
-      ro_str:Structuurvisiecomplex_P_thema ,
       ro_str:Structuurvisiecomplex_P_beleid ,
-      ro_str:Structuurvisiecomplex_P_planobject ,
       ro_str:Structuurvisiegebied_P_tekstVerwijzing , #copied
-      ro_str:Structuurvisiegebied_P_illustratieVerwijzing , #copied
-      ro_str:Structuurvisiegebied_P_externPlan , #copied
-      ro_str:Structuurvisiegebied_P_cartografie , #copied
-      ro_str:Structuurvisiegebied_P_plangebied , #copied
-      ro_str:Structuurvisiecomplex_P_begrenzing
+      ro_str:Structuurvisiegebied_P_begrenzing , #covers the inwinningschaal part.
+      ro_str:Structuurvisiecomplex_P_isPartOf # multiplicity is defined in the superclass shape.
 .
 
-ro_str:Structuurvisiecomplex_P_thema rdf:type sh:PropertyShape ; #same as for structuurvisieplangebied_R, perhaps lose P_ and keep use the same sh:PropertyShape.
-  sh:path ro:thema ;
-  sh:datatype xsd:string ;
-.
-
-ro_str:Structuurvisiecomplex_P_beleid rdf:type sh:PropertyShape ; #same as for structuurvisieplangebied_R, perhaps lose P_ and keep use the same sh:PropertyShape.
+ro_str:Structuurvisiecomplex_P_beleid rdf:type sh:PropertyShape ;
   sh:path ro:beleid ;
-  sh:node ro_str:BeleidInfo_RSV ;
-.
-
-ro_str:Structuurvisiecomplex_P_planobject rdf:type sh:PropertyShape ; #same as for structuurvisieplangebied_R, perhaps lose P_ and keep use the same sh:PropertyShape.
-  sh:path ro:planobject ;
   sh:minCount 1 ;
-  sh:class nen3610:Planobject ;
+  sh:node ro_str:BeleidInfo_PSV ;
 .
 
-ro_str:Structuurvisiecomplex_P_begrenzing rdf:type sh:PropertyShape ;
-  sh:path ro:begrenzing ;
-  sh:class ro:Geometrie ;
-  sh:node ro_str:Structuurvisiegebied_P_Geometrie ; #copied
+ro_str:Structuurvisiecomplex_P_isPartOf a sh:PropertyShape ;
+  sh:path dct:isPartOf ;
+  sh:class ro:Structuurvisie_P ;
 .
