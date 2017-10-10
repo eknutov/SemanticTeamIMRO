@@ -141,6 +141,7 @@ ro_str:Structuurvisiegebied a sh:NodeShape ;
 .
 
 ro_str:Structuurvisiegebied_thema a sh:PropertyShape ;
+  sh:path ro:thema ;
   sh:minCount 1 ;
   sh:datatype xsd:string ;
 .
@@ -204,13 +205,18 @@ ro_str:Structuurvisiegebied_isPartOf a sh:PropertyShape ; #the specialisation sp
 ro_str:Structuurvisiecomplex a sh:NodeShape ;
     sh:targetClass ro:Structuurvisiecomplex ;
     sh:property
-      ro_str:Structuurvisiegebied_thema ,  # same as ro:structuurvisiegebied_illustratieVerwijzing
+      ro_str:Structuurvisiecomplex_thema ,
       ro_str:Structuurvisiegebied_illustratieVerwijzing ,  # same as ro:structuurvisiegebied_illustratieVerwijzing
       ro_str:Structuurvisiegebied_externPlan , # same as ro_str:Structuurvisiegebied_externPlan
       ro_str:Structuurvisiegebied_cartografie , # same as ro_str:Structuurvisiegebied_cartografie
       ro_str:Structuurvisiegebied_begrenzing ,  # same as ro:structuurvisiegebied_illustratieVerwijzing
       ro_str:Structuurvisiecomplex_hasPart ,
       ro_str:Structuurvisiegebied_isPartOf # same as ro:structuurvisiegebied_isPartOf
+.
+
+ro_str:Structuurvisiecomplex_thema a sh:PropertyShape ;
+ sh:path ro:thema ;
+ sh:datatype xsd:string ;
 .
 
 ro_str:Structuurvisiecomplex_hasPart rdf:type sh:PropertyShape ;

@@ -181,12 +181,12 @@ ro_str:Structuurvisiegebied_P_Geometrie_inwinningsschaal rdf:type sh:PropertySha
 #################################################################
 
 ro_str:Structuurvisiecomplex_P rdf:type sh:NodeShape ;
-    sh:targetClass ro:Structuurvisiecomplex_R ;
-    sh:property
-      ro_str:Structuurvisiecomplex_P_beleid ,
-      ro_str:Structuurvisiegebied_P_tekstVerwijzing , #copied
-      ro_str:Structuurvisiegebied_P_begrenzing , #covers the inwinningschaal part.
-      ro_str:Structuurvisiecomplex_P_isPartOf # multiplicity is defined in the superclass shape.
+  sh:targetClass ro:Structuurvisiecomplex_P ;
+  sh:property
+    ro_str:Structuurvisiecomplex_P_beleid ,
+    ro_str:Structuurvisiegebied_P_tekstVerwijzing , #copied
+    ro_str:Structuurvisiegebied_P_begrenzing , #covers the inwinningschaal part.
+    ro_str:Structuurvisiecomplex_P_isPartOf # multiplicity is defined in the superclass shape.
 .
 
 ro_str:Structuurvisiecomplex_P_beleid rdf:type sh:PropertyShape ;
@@ -198,4 +198,40 @@ ro_str:Structuurvisiecomplex_P_beleid rdf:type sh:PropertyShape ;
 ro_str:Structuurvisiecomplex_P_isPartOf a sh:PropertyShape ;
   sh:path dct:isPartOf ;
   sh:class ro:Structuurvisie_P ;
+.
+
+
+#################################################################
+#    Structuurvisieverklaring_P
+#################################################################
+
+ro_str:Structuurvisieverklaring_P rdf:type sh:NodeShape ;
+  sh:targetClass ro:Structuurvisieverklaring_P ;
+  sh:property
+    ro_str:Structuurvisiecomplex_thema , #copied
+    ro_str:Structuurvisieverklaring_P_tekstVerwijzing ,
+    ro_str:Structuurvisieverklaring_illustratieverwijzing ,
+    ro_str:Structuurvisiegebied_cartografie #copied
+.
+
+ro_str:Structuurvisieverklaring_P_tekstVerwijzing a sh:PropertyShape ;
+  sh:path ro:tekst ;
+  sh:node ro_str:TeksttypeP_PSV ;
+
+ro_str:TeksttypeP_PSV rdf:type sh:NodeShape ;
+  sh:property [
+    sh:path rdf:type
+    sh:in (
+      ro:Toelichting
+    )
+  ]
+.
+
+ro_str:Structuurvisieverklaring_illustratieverwijzing a sh:PropertyShape ;
+  sh:path ro:illustratie ;
+  sh:class ro:Illustratie ;
+  sh:node
+    ro_str:Illustratie ,
+    ro_str:Illustratie_legendaNaam ,
+    ro_str:Illustratie_illustratieNaam
 .
