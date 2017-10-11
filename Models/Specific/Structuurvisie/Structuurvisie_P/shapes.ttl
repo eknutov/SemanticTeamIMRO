@@ -24,20 +24,6 @@ ro_str:Structuurvisie_P a sh:NodeShape ;
     ro_str:Structuurvisie_P_beleidsmatigVerantwoordelijkeOverheid ,
     ro_str:Structuurvisie_P_hasPart ,
     ro_str:Structuurvisie_P_spatial ;
-  sh:sparql [
-      sh:message "At least one Structuurvisie_P should have {$this} as its ro:plangebied." ;
-      sh:prefixes ro_str:prefixes
-      sh:select """
-SELECT $this
-WHERE {
-  $this rdf:type ro:Structuurvisieplan_P .
-  FILTER NOT EXISTS {
-    ?structuurvisiegebied ro:plangebied $this ;
-           rdf:type ro:Structuurvisiegebied_P .
-  }
-}
-""" ;
-    ] ;
 .
 
 ro_str:Structuurvisie_P_beleidsmatigVerantwoordelijkeOverheid
@@ -52,6 +38,7 @@ ro_str:Structuurvisie_P_hasPart a sh:PropertyShape ;
   sh:in (
     ro:Structuurvisiegebied_P
     ro:Structuurvisiecomplex_P
+    ro:Structuurvisieverklaring_P
   ) ;
   sh:qualifiedValueShape [
     sh:hasValue ro:Structuurvisiegebied_P
@@ -87,7 +74,7 @@ ro_str:Structuurvisiegebied_P rdf:type sh:NodeShape ;
       ro_str:Structuurvisiegebied_P_beleid ,
       ro_str:Structuurvisiegebied_P_tekstVerwijzing ,
       ro_str:Structuurvisiegebied_P_illustratieVerwijzing , #partially common
-      ro_str:Structuurvisiegebied_P_plangebied , #isPartOf
+      ro_str:Structuurvisiegebied_P_isPartOf ,
       ro_str:Structuurvisiegebied_P_begrenzing
 .
 
@@ -152,13 +139,18 @@ ro_str:Structuurvisiegebied_P_illustratieVerwijzing rdf:type sh:PropertyShape ;
   sh:node ro_str:Illustratie_illustratieNaam
 .
 
-ro_str:Structuurvisiegebied_P_plangebied rdf:type sh:PropertyShape ;
-  sh:path ro:plangebied ;
+ro_str:Structuurvisiegebied_P_isPartOf rdf:type sh:PropertyShape ;
+  sh:path ro:isPartOf ;
+#  sh:minCount 1 ; #inherited
+#  sh:maxCount 1 ; #inherited
   sh:class ro:Structuurvisieplangebied_P ;
 .
 
 ro_str:Structuurvisiegebied_P_begrenzing rdf:type sh:PropertyShape ;
   sh:path ro:begrenzing ;
+#  sh:class ro:Geometrie ;
+  sh:minCount 1 ;
+#  sh:node ro_str:Structuurvisiegebied_Geometrie ;
   sh:node ro_str:Structuurvisiegebied_P_Geometrie ;
 .
 
@@ -185,6 +177,7 @@ ro_str:Structuurvisiecomplex_P rdf:type sh:NodeShape ;
   sh:property
     ro_str:Structuurvisiecomplex_P_beleid ,
     ro_str:Structuurvisiegebied_P_tekstVerwijzing , #copied
+    ro_str:Structuurvisiegebied_P_illustratieverwijzing ,
     ro_str:Structuurvisiegebied_P_begrenzing , #covers the inwinningschaal part.
     ro_str:Structuurvisiecomplex_P_isPartOf # multiplicity is defined in the superclass shape.
 .
@@ -211,7 +204,8 @@ ro_str:Structuurvisieverklaring_P rdf:type sh:NodeShape ;
     ro_str:Structuurvisiecomplex_thema , #copied
     ro_str:Structuurvisieverklaring_P_tekstVerwijzing ,
     ro_str:Structuurvisieverklaring_illustratieverwijzing ,
-    ro_str:Structuurvisiegebied_cartografie #copied
+    ro_str:Structuurvisiegebied_cartografie , #copied
+    ro_str:Structuurvisieverklaring_isPartOf
 .
 
 ro_str:Structuurvisieverklaring_P_tekstVerwijzing a sh:PropertyShape ;

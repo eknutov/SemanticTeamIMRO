@@ -101,7 +101,7 @@ ro_str:Structuurvisie_spatial a sh:PropertyShape ;
   sh:class ro:Plangebied ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
-  sh:node ro_str:Structuurvisie_Plangebied #TODO similar construct for bestemmingsplan.
+  sh:node ro_str:Structuurvisie_Plangebied #TODO similar construct at bestemmingsplan.
 .
 
 ro_str:Structuurvisie_Plangebied a sh:NodeShape ;
@@ -165,14 +165,13 @@ ro_str:Structuurvisiegebied_cartografie a sh:PropertyShape ; #perhaps applicable
   sh:node ro_str:cartografieInfo ;
 .
 
-ro_str:Structuurvisiegebied_P_begrenzing rdf:type sh:PropertyShape ;
+ro_str:Structuurvisiegebied_begrenzing rdf:type sh:PropertyShape ;
   sh:path ro:begrenzing ;
-  sh:class ro:Geometrie ;
-  sh:minCount 1 ;
+  sh:class ro:Geometrie ; #no cardinality
   sh:node ro_str:Structuurvisiegebied_Geometrie ;
 .
 
-ro_str:Structuurvisiegebied_R_Geometrie rdf:type sh:NodeShape ;
+ro_str:Structuurvisiegebied_Geometrie rdf:type sh:NodeShape ;
   sh:property
     ro_str:Structuurvisiegebied_Geometrie_geometrie , #perhaps we can make these properties of the class.
     ro_str:Structuurvisiegebied_Geometrie_idealisatie ;
@@ -203,20 +202,20 @@ ro_str:Structuurvisiegebied_isPartOf a sh:PropertyShape ; #the specialisation sp
 #################################################################
 
 ro_str:Structuurvisiecomplex a sh:NodeShape ;
-    sh:targetClass ro:Structuurvisiecomplex ;
-    sh:property
-      ro_str:Structuurvisiecomplex_thema ,
-      ro_str:Structuurvisiegebied_illustratieVerwijzing ,  # same as ro:structuurvisiegebied_illustratieVerwijzing
-      ro_str:Structuurvisiegebied_externPlan , # same as ro_str:Structuurvisiegebied_externPlan
-      ro_str:Structuurvisiegebied_cartografie , # same as ro_str:Structuurvisiegebied_cartografie
-      ro_str:Structuurvisiegebied_begrenzing ,  # same as ro:structuurvisiegebied_illustratieVerwijzing
-      ro_str:Structuurvisiecomplex_hasPart ,
-      ro_str:Structuurvisiegebied_isPartOf # same as ro:structuurvisiegebied_isPartOf
+  sh:targetClass ro:Structuurvisiecomplex ;
+  sh:property
+    ro_str:Structuurvisiecomplex_thema ,
+    ro_str:Structuurvisiegebied_illustratieVerwijzing ,  #copied same as ro:structuurvisiegebied_illustratieVerwijzing
+    ro_str:Structuurvisiegebied_externPlan , #copied same as ro_str:Structuurvisiegebied_externPlan
+    ro_str:Structuurvisiegebied_cartografie , #copied same as ro_str:Structuurvisiegebied_cartografie
+    ro_str:Structuurvisiegebied_begrenzing ,  #copied same as ro:structuurvisiegebied_illustratieVerwijzing
+    ro_str:Structuurvisiecomplex_hasPart ,
+    ro_str:Structuurvisiegebied_isPartOf #copied same as ro:structuurvisiegebied_isPartOf
 .
 
 ro_str:Structuurvisiecomplex_thema a sh:PropertyShape ;
- sh:path ro:thema ;
- sh:datatype xsd:string ;
+  sh:path ro:thema ;
+  sh:datatype xsd:string ;
 .
 
 ro_str:Structuurvisiecomplex_hasPart rdf:type sh:PropertyShape ;

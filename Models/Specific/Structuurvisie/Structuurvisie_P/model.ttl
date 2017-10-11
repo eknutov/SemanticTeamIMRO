@@ -59,8 +59,8 @@ ro:Structuurvisiecomplex_P a owl:Class ;
 #    Structuurvisieverklaring
 #################################################################
 
-ro:Structuurvisieverklaring a owl:Class ;
+ro:Structuurvisieverklaring_P a owl:Class ;
   rdfs:isDefinedBy :ro ;
-  rdfs:label "Structuurvisieverklaring"@nl ;
+  rdfs:label "Structuurvisieverklaring_P"@nl ;
   rdfs:subClassOf ro:Planobject;
 .
