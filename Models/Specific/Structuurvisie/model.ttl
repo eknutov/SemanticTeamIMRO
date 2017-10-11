@@ -21,24 +21,35 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 
-ro:Structuurvisieplangebied_P
-  rdf:type owl:Class ;
-  dcterms:subject ro_beg:Structuurvisieplangebied_P ;
+#################################################################
+#    Structuurvisie
+#################################################################
+
+ro:Structuurvisie a owl:Class ;
+  rdfs:subClassOf ro:Plan ;
+  rdfs:label "Structuurvisie"@nl ;
+  rdfs:comment ""@nl ;
   rdfs:isDefinedBy :ro ;
-  rdfs:label "Structuurvisieplangebied_P"@nl ;
-  rdfs:subClassOf nen3610:Plangebied ;
 .
 
-ro:Structuurvisiegebied_P
-  rdf:type owl:Class ;
+
+#################################################################
+#    Structuurvisiegebied
+#################################################################
+
+ro:Structuurvisiegebied a owl:Class ;
   rdfs:isDefinedBy :ro ;
-  rdfs:label "Structuurvisiegebied_P"@nl ;
-  rdfs:subClassOf nen3610:Planobject ;
+  rdfs:label "Structuurvisiegebied"@nl ;
+  rdfs:subClassOf ro:Planobject ;
 .
 
-ro:Structuurvisiecomplex_P
-  rdf:type owl:Class ;
+
+#################################################################
+#    Structuurvisiecomplex
+#################################################################
+
+ro:Structuurvisiecomplex a owl:Class ;
   rdfs:isDefinedBy :ro ;
-  rdfs:label "Structuurvisiegebied_P"@nl ;
-  rdfs:subClassOf nen3610:Planobject ;
+  rdfs:label "Structuurvisiegebied"@nl ;
+  rdfs:subClassOf ro:Planobject ;
 .

@@ -1,0 +1,133 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ogc: <http://www.opengis.net/ont/geosparql#> .
+@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
+@prefix gml: <http://www.opengis.net/ont/gml#> .
+@prefix nen3610_str: <http://data.informatiehuisruimte.nl/def/nen3610/> .
+@prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
+@prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
+@prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
+@prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+
+#################################################################
+#    Structuurvisie+R
+#################################################################
+
+
+ro_str:Structuurvisie_R rdf:type sh:NodeShape ;
+  sh:targetClass ro:Structuurvisie_R ;
+  sh:property
+    ro_str:Structuurvisie_R_beleidsmatigVerantwoordelijkeOverheid ,
+    ro_str:Structuurvisie_R_hasPart ,
+
+.
+
+# This is old&unused. kept for inspiration later on, perhaps.
+#    ro_str:Structuurvisie_R_illustratieverwijzing ,
+#    ro_str:Structuurvisie_R_tekstverwijzing ,
+#    ro_str:Structuurvisie_R_externPlan ,
+#    ro_str:Structuurvisieplantgebied_R_verwijzingNorm , # bestemmingsplangebied seems to have ocl constraints included, others do not
+#    ro_str:Structuurvisie_R_begrenzing ;
+#  sh:sparql [
+#      sh:message "At least one Structuurvisie_R should have {$this} as its ro:plangebied." ;
+#      sh:prefixes ro_str:prefixes
+#      sh:select """
+#SELECT $this
+#WHERE {
+#  $this rdf:type ro:Structuurvisie_R .
+#  FILTER NOT EXISTS {
+#    ?structuurvisiegebied ro:plangebied $this ;
+#           rdf:type ro:Structuurvisiegebied_R .
+#  }
+#}
+#""" ;
+#    ] ;
+# TODO: make all shapes closed for internal testing.
+#    sh:closed true ; # f
+#    sh:ignoredProperties (
+#      ro:naam
+#      nen3610:identificatie
+#      rdf:type
+#      rdfs:label
+#      rdfs:subClassOf
+#      rdfs:isDefinedBy
+#      dcterms:subject
+#    ) ;
+#.
+
+
+ro_str:Structuurvisie_R_beleidsmatigVerantwoordelijkeOverheid
+  rdf:type sh:PropertyShape ;
+  sh:path ro:beleidsmatigVerantwoordelijkeOverheid ;
+  sh:minCount 1 ;
+#  sh:maxCount 1 ; #the gml files concatenates the names of the ministries, resulting in a single instance. resulting in a sh:maxCount 1 ; however, if we can seperate these again, I think we'll have a more robust knowledge graph.
+  sh:node ro_str:Overheden_R
+.
+
+ro_str:Structuurvisie_R_hasPart a sh:PropertyShape ;
+  sh:path ( dct:hasPart rdf:type ) ;
+  sh:in (
+    ro:Structuurvisiegebied_R
+    ro:Structuurvisiecomplex_R
+  ) ;
+  sh:qualifiedValueShape [
+    sh:hasValue ro:Structuurvisiegebied_R ;
+  ] ;
+  sh:qualifiedMinCount 1 ;
+.
+
+
+#################################################################
+#    Structuurvisiegebied_R
+#################################################################
+
+ro_str:Structuurvisiegebied_R rdf:type sh:NodeShape ;
+    sh:targetClass ro:Structuurvisiegebied_R ;
+    sh:property
+      ro_str:Structuurvisiegebied_R_beleid ,
+      ro_str:Structuurvisiegebied_R_tekstVerwijzing ,
+      ro_str:Structuurvisiegebied_R_isPartOfy ,
+.
+
+
+ro_str:Structuurvisiegebied_R_beleid rdf:type sh:PropertyShape ;
+  sh:path ro:beleid ;
+  sh:minCount 1 ;
+  sh:node ro_str:BeleidInfo_RSV ;
+.
+
+ro_str:Structuurvisiegebied_R_tekstVerwijzing rdf:type sh:PropertyShape ;
+  sh:path ro:tekst ;
+  sh:minCount 1 ;
+  sh:node ro_str:Teksttype_SV
+.
+
+ro_str:Structuurvisiegebied_R_isPartOf rdf:type sh:PropertyShape ;
+  sh:path ro:isPartOf ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:class ro:Structuurvisie_R ;
+.
+
+
+#################################################################
+#    Structuurvisiecomplex_R
+#################################################################
+
+ro_str:Structuurvisiecomplex_R rdf:type sh:NodeShape ;
+    sh:targetClass ro:Structuurvisiecomplex_R ;
+    sh:property
+      ro_str:Structuurvisiecomplex_R_beleid ,
+      ro_str:Structuurvisiegebied_R_tekstVerwijzing ,#copied
+      ro_str:Structuurvisiegebied_R_isPartOf, #copied 
+.
+
+ro_str:Structuurvisiecomplex_R_beleid rdf:type sh:PropertyShape ;
+  sh:path ro:beleid ;
+  sh:node ro_str:BeleidInfo_RSV ;
+.

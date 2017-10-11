@@ -1,0 +1,56 @@
+@prefix : <http://data.informatiehuisruimte.nl/def/> .
+@prefix c4o: <http://purl.org/spar/biro/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix doco: <http://purl.org/spar/doco/> .
+@prefix gml: <http://www.opengis.net/ont/gml#> .
+@prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
+@prefix ogc: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pattern: <http://www.essepuntato.it/2008/12/pattern#> .
+@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
+@prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
+@prefix ro_nen3610_beg: <http://data.informatiehuisruimte.nl/nen3610/id/begrip/> .
+@prefix ro_sym: <http://data.informatiehuisruimte.nl/ro/id/symbool/> .
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+#################################################################
+#    Structuurvisie_R
+#################################################################
+
+#should we also remove 'plan'? I think so.
+ro:Structuurvisie_R a owl:Class ;
+  dcterms:subject ro_beg:Structuurvisieplangebied_R ; # <-- alter SKOS name to ro_beg:Structuurvisie_R
+  rdfs:isDefinedBy :ro ;
+  rdfs:label "Structuurvisie_R"@nl ;
+  rdfs:subClassOf ro:Structuurvisie ;
+.
+
+
+#################################################################
+#    Structuurvisiegebied_R
+#################################################################
+
+ro:Structuurvisiegebied_R a owl:Class ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:label "Structuurvisiegebied_R"@nl ;
+  rdfs:subClassOf ro:Planobject ;
+.
+
+
+#################################################################
+#    Structuurvisiecomplex_R
+#################################################################
+
+ro:Structuurvisiecomplex_R a owl:Class ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:label "Structuurvisiegebied_R"@nl ;
+  rdfs:subClassOf ro:Planobject ;
+.
