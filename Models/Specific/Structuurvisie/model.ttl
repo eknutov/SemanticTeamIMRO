@@ -20,7 +20,6 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-
 #################################################################
 #    Structuurvisie
 #################################################################
@@ -28,8 +27,9 @@
 ro:Structuurvisie a owl:Class ;
   rdfs:subClassOf ro:Plan ;
   rdfs:label "Structuurvisie"@nl ;
-  rdfs:comment ""@nl ;
-  rdfs:isDefinedBy :ro ;
+  rdfs:comment "Een plan met als doel de structuurvisie vast te leggen wat betrekking heeft op een bepaald gebied."@nl ;
+  dcterms:subject ro_beg:Structuurvisie ;
+  rdfs:isDefinedBy :ro
 .
 
 
@@ -40,7 +40,9 @@ ro:Structuurvisie a owl:Class ;
 ro:Structuurvisiegebied a owl:Class ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "Structuurvisiegebied"@nl ;
-  rdfs:subClassOf ro:Planobject ;
+  rdfs:comment "Een gebied waar waar een bepaald beleid op uitgevoerd wordt wat deel uitmaakt van een Structuurvisie."@nl ;
+  dcterms:subject ro_beg:Structuurvisiegebied ;
+  rdfs:subClassOf ro:Planobject
 .
 
 
@@ -51,5 +53,7 @@ ro:Structuurvisiegebied a owl:Class ;
 ro:Structuurvisiecomplex a owl:Class ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "Structuurvisiegebied"@nl ;
-  rdfs:subClassOf ro:Planobject ;
+  rdfs:comment "Een groep Planobjecten, bestaande uit Structuurvisiegebieden en Structuurvisiecomplexen."@nl ;
+  dcterms:subject ro_beg:Structuurvisiecomplex ;
+  rdfs:subClassOf ro:Planobject
 .

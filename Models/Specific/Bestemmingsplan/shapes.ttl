@@ -163,7 +163,7 @@ ro_str:Bestemmingsplan_Plangebied_geometrie a sh:PropertyShape ;
 .
 
 ro_str:Bestemmingsplan_hasPart a sh:PropertyShape ;
-  sh:path dct:hasPart ;
+  sh:path ( dct:hasPart rdf:type ) ;
   sh:in (
     ro:Aanduiding
     ro:Bestemmingsvlak
@@ -336,10 +336,10 @@ ro_str:Aanduiding a sh:Nodeshape ;
 #  sh:class ro:Bestemmingsplangebied ;
 #.
 
-ro_str:Aanduiding_bestemmingsvlak a sh:PropertyShape ;
-  sh:path ro:bestemmingsvlak ;
-  sh:class ro:Bestemmingsvlak ;
-.
+#ro_str:Aanduiding_bestemmingsvlak a sh:PropertyShape ;
+#  sh:path ro:bestemmingsvlak ;
+#  sh:class ro:Bestemmingsvlak ;
+#.
 
 ro_str:Aanduiding_isPartOf a sh:PropertyShape ;
   sh:path dct:isPartOf ;

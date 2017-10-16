@@ -9,8 +9,1092 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix skos-thes: <http://www.w3.org/2004/02/skos/extensions#> . #TODO: replace with working URI
 
-#what about capitalisation?
-#Things from bestemmingsplangbied are still to be added.
+#################################################################
+#    Plan
+#################################################################
+
+ #TODO
+
+ ro_beg:Plangebied a skos:Concept ;
+   rdfs:label "Plangebied"@nl ;
+   skos:prefLabel "Plangebied"@nl ;
+   skos-thes:broaderGeneric ro_nen3610_beg:PlanologischGebied ;
+   skos:inScheme ro_begkr:ro ;
+   skos:definition "Het object dat het gebied, of de gebieden, binnen de plangrenzen representeert."@nl ;
+   skos:scopeNote "Omvat het totale gebied van een benoemd ruimtelijk instrument. Bijvoorbeeld een bestemmingsplan, een structuurvisie een gebiedsgericht besluit."@nl ;
+   dcterms:source
+     <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012> ,
+     <jci1.31:c:BWBR0020449&hoofdstuk=3&afdeling=3.1&artikel=3.1&lid=1&z=2016-04-14&g=2016-04-14> ,
+     <jci1.31:c:BWBR0020449&hoofdstuk=3&afdeling=3.5&paragraaf=3.5.1&artikel=3.26&lid=3&z=2016-04-14&g=2016-04-14> ,
+     <jci1.31:c:BWBR0020449&hoofdstuk=3&afdeling=3.5&paragraaf=3.5.2&artikel=3.28&lid=3&z=2016-04-14&g=2016-04-14>
+.
+
+ro_beg:Planobject a skos:Concept ;
+  rdfs:label "Planobject"@nl ;
+  skos:prefLabel "Planobject"@nl ;
+  skos-thes:broaderPartitive ro_nen3610_beg:PlanologischGebied ;
+  skos:inScheme ro_begkr:ro ;
+  skos:definition "Objecten waar een plan uit samengesteld is."@nl ;
+  skos:scopeNote "Dit zijn de planobjecten waar een benoemd instrument uit de klasse Plan uit opgebouwd is. Bijvoorbeeld een object Bestemmingsvlak een object Aanduiding, Besluitvlak etc. Het zijn de ruimtelijke objecten waar de planinformatie aan gekoppeld is."@nl ;
+  dcterms:source
+    <https://www.nen.nl/NEN-Shop/Norm/NEN-36102011-nl.htm> ,
+    <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+#################################################################
+#    Bestemmingsplan
+#################################################################
+
+#note: 'ro:bestemmingsplangebied' has been replaced by 'ro:Bestemmingsplan'.
+#ro_beg:Bestemmingsplangebied a skos:Concept ;
+#  rdfs:label "Bestemmingsplangebied"@nl ;
+#  skos:prefLabel "Bestemmingsplangebied"@nl ;
+#  skos-thes:broaderGeneric ro_beg:Plangebied ;
+#  skos:inScheme ro_begkr:ro ;
+#  skos:definition "Gebied, of de gebieden, binnen de grenzen van het bestemmingsplan."@nl ;
+#  skos:scopeNote "Het object (de klasse) Bestemmingsplangebied is het object dat het gebied, of de gebieden, binnen de plangrenzen geometrisch representeert. Aan dit object worden de algemene eigenschappen van het plangebied als attribuut gekoppeld."@nl ;
+#  dcterms:source
+#    <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>,
+#    <jci1.31:c:BWBR0020449&hoofdstuk=3&afdeling=3.1&artikel=3.1&lid=1&z=2016-04-14&g=2016-04-14> .
+
+ro_beg:Bestemmingsplan a skos:Concept ;
+  rdfs:label "Bestemmingsplan"@nl ;
+  skos:prefLabel "Bestemmingsplan"@nl ;
+  skos-thes:broaderGeneric ro_beg:Plan ; # TODO: create ro_beg:Plan .
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "bestemmingsplan" ;
+.
+
+ro_beg:Inpassingsplan a skos:Concept ;
+  rdfs:label "Inpassingsplan"@nl ;
+  skos:prefLabel "Inpassingsplan"@nl ;
+  skos-thes:broaderGeneric ro_beg:Bestemmingsplan ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "inpassingsplan"
+.
+
+ro_beg:Rijksbestemmingsplan a skos:Concept ;
+  rdfs:label "Rijksbestemmingsplan"@nl ;
+  skos:prefLabel "Rijksbestemmingsplan"@nl ;
+  skos-thes:broaderGeneric ro_beg:Bestemmingsplan ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "rijksbestemmingsplan"
+.
+
+ro_beg:Uitwerkingsplan a skos:Concept ;
+  rdfs:label "Uitwerkingsplan"@nl ;
+  skos:prefLabel "Uitwerkingsplan"@nl ;
+  skos-thes:broaderGeneric ro_beg:Bestemmingsplan ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "uitwerkingsplan"
+.
+
+ro_beg:Wijzigingsplan a skos:Concept ;
+  rdfs:label "Wijzigingsplan"@nl ;
+  skos:prefLabel "Wijzigingsplan"@nl ;
+  skos-thes:broaderGeneric ro_beg:Bestemmingsplan ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "wijzigingsplan"
+.
+
+
+#################################################################
+#    Bestemmingsvlak
+#################################################################
+
+
+ro_beg:Bestemmingsvlak a skos:Concept ;
+  rdfs:label "Bestemmingsvlak"@nl ;
+  skos:prefLabel "Bestemmingsvlak"@nl ;
+  skos-thes:broaderGeneric ro_beg:Planobject ; #TODO planobject
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "bestemmingsvlak"
+.
+
+ro_beg:Enkelbestemming a skos:Concept ;
+  rdfs:label "Enkelbestemming"@nl ;
+  skos:prefLabel "Enkelbestemming"@nl ;
+  skos-thes:broaderGeneric ro_beg:Bestemmingsvlak ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "enkelbestemming"
+.
+
+ro_beg:Dubbelbestemming a skos:Concept ;
+  rdfs:label "Dubbelbestemming"@nl ;
+  skos:prefLabel "Dubbelbestemming"@nl ;
+  skos-thes:broaderGeneric ro_beg:Bestemmingsvlak ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "dubbelbestemming"
+.
+
+#TODO:
+
+ro_beg:bestemmingshoofdgroep a skos:Concept .
+
+ro_col:Bestemmingshoofdgroep a skos:Collection .
+
+ro_col:Bestemmingshoofdgroep_E a skos:Collection .
+
+ro_col:Bestemmingshoofdgroep_D a skos:Collection .
+
+
+#################################################################
+#    Aanduiding
+#################################################################
+
+ro_beg:Aanduiding a skos:Concept ;
+  rdfs:label "Aanduiding"@nl ;
+	skos:prefLabel "Aanduiding"@nl ;
+	skos-thes:broaderGeneric ro_beg:Planobject ;
+	skos:inScheme ro_begkr:ro ;
+	skos:notation "aanduiding"
+.
+
+ro_beg:Bouwvlak a skos:Concept ;
+  rdfs:label "Bouwvlak"@nl ;
+	skos:prefLabel "Bouwvlak"@nl ;
+	skos-thes:broaderGeneric ro_beg:Aanduiding ;
+	skos:inScheme ro_begkr:ro ;
+	skos:notation "bouwvlak"
+.
+
+ro_beg:Functieaanduiding a skos:Concept ;
+  rdfs:label "Functieaanduiding"@nl ;
+	skos:prefLabel "Functieaanduiding"@nl ;
+	skos-thes:broaderGeneric ro_beg:Aanduiding ;
+	skos:inScheme ro_begkr:ro ;
+	skos:notation "functieaanduiding"
+.
+
+ro_beg:Bouwaanduiding a skos:Concept ;
+  rdfs:label "Bouwaanduiding"@nl ;
+	skos:prefLabel "Bouwaanduiding"@nl ;
+	skos-thes:broaderGeneric ro_beg:Aanduiding ;
+	skos:inScheme ro_begkr:ro ;
+	skos:notation "bouwaanduiding"
+.
+
+ro_beg:Maatvoering a skos:Concept ;
+  rdfs:label "Maatvoering"@nl ;
+	skos:prefLabel "Maatvoering"@nl ;
+	skos-thes:broaderGeneric ro_beg:Aanduiding ;
+	skos:inScheme ro_begkr:ro ;
+	skos:notation "maatvoering"
+.
+
+ro_beg:Symbool a skos:Concept ;
+  rdfs:label "Symbool"@nl ;
+	skos:prefLabel "Symbool"@nl ;
+	skos:inScheme ro_begkr:ro ;
+	skos:notation "symbool"
+.
+
+ro_beg:Figuur a skos:Concept ;
+  rdfs:label "Figuur"@nl ;
+	skos:prefLabel "Figuur"@nl ;
+	skos-thes:broaderGeneric ro_beg:Aanduiding ;
+	skos:inScheme ro_begkr:ro ;
+	skos:notation "figuur"
+.
+
+# to Pano: why is it no longer a specialisation of aanduiding?
+#ro_beg:Gebiedsaanduiding a skos:Concept ;
+#  rdfs:label "Gebiedsaanduiding"@nl ;
+#  skos:prefLabel "Gebiedsaanduiding"@nl ;
+#  skos:topConceptOf ro_begkr:ro ;
+#  skos:inScheme ro_begkr:ro ;
+#  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+#.
+
+ro_beg:Gebiedsaanduiding a skos:Concept ;
+  rdfs:label "Gebiedsaanduiding"@nl ;
+  skos:prefLabel "Gebiedsaanduiding"@nl ;
+  skos-thes:broaderGeneric ro_beg:Aanduiding ;
+  skos:inScheme ro_begkr:ro ;
+	skos:notation "gebiedsaanduiding" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:Geluidzone_Gebiedsaanduiding a skos:Concept ;
+  rdfs:label "Geluidzone (Gebiedsaanduiding)"@nl ;
+  skos:prefLabel "Geluidzone (Gebiedsaanduiding)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Gebiedsaanduiding ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "geluidzone" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:Luchtvaartverkeerzone_Gebiedsaanduiding a skos:Concept ;
+  rdfs:label "Luchtvaartverkeerzone (Gebiedsaanduiding)"@nl ;
+  skos:prefLabel "Luchtvaartverkeerzone (Gebiedsaanduiding)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Gebiedsaanduiding ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "luchtvaartverkeerzone" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:Milieuzone_Gebiedsaanduiding a skos:Concept ;
+  rdfs:label "Milieuzone (Gebiedsaanduiding)"@nl ;
+  skos:prefLabel "Milieuzone (Gebiedsaanduiding)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Gebiedsaanduiding ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "milieuzone" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:Reconstructiewetzone_Gebiedsaanduiding a skos:Concept ;
+  rdfs:label "Reconstructiewetzone (Gebiedsaanduiding)"@nl ;
+  skos:prefLabel "Reconstructiewetzone (Gebiedsaanduiding)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Gebiedsaanduiding ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "reconstructiewetzone" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:Veiligheidszone_Gebiedsaanduiding a skos:Concept ;
+  rdfs:label "Veiligheidszone (Gebiedsaanduiding)"@nl ;
+  skos:prefLabel "Veiligheidszone (Gebiedsaanduiding)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Gebiedsaanduiding ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "veiligheidszone" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:Vrijwaringszone_Gebiedsaanduiding a skos:Concept ;
+  rdfs:label "Vrijwaringszone (Gebiedsaanduiding)"@nl ;
+  skos:prefLabel "Vrijwaringszone (Gebiedsaanduiding)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Gebiedsaanduiding ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "vrijwaringszone" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:Wetgevingzone_Gebiedsaanduiding a skos:Concept ;
+  rdfs:label "Wetgevingzone (Gebiedsaanduiding)"@nl ;
+  skos:prefLabel "Wetgevingzone (Gebiedsaanduiding)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Gebiedsaanduiding ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "wetgevingzone" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:OverigeZone_Gebiedsaanduiding a skos:Concept ;
+  rdfs:label "Overige zone (Gebiedsaanduiding)"@nl ;
+  skos:prefLabel "Overige zone (Gebiedsaanduiding)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Gebiedsaanduiding ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "overige zone" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+####################################
+#    Omvang
+####################################
+
+ro_beg:Omvang a skos:Concept ;
+  rdfs:label "Omvang"@nl ;
+  skos:prefLabel "Omvang"@nl ;
+  skos:topConceptOf ro_begkr:ro ;
+  skos:inScheme ro_begkr:ro ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:omvangwaarde a skos:Concept ;
+  rdfs:label "omvangwaarde"@nl ;
+  skos:preflabel "omvangwaarde"@nl ;
+  skos:topConceptOf ro_begkr:ro ;
+  skos:inScheme ro_begkr:ro ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+
+ro_beg:Aantal_Omvang a skos:Concept ;
+  rdfs:label "Aantal (Omvang)"@nl ;
+  skos:prefLabel "Aantal (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "aantal" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:AantalBedrijven_Omvang a skos:Concept ;
+  rdfs:label "Aantal bedrijven (Omvang)"@nl ;
+  skos:prefLabel "Aantal bedrijven (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "aantal bedrijven" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MaximumAantalBedrijven_Omvang a skos:Concept ;
+  rdfs:label "Maximum aantal bedrijven (Omvang)"@nl ;
+  skos:prefLabel "Maximum aantal bedrijven (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "maximum aantal bedrijven" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MinimumAantalBedrijven_Omvang a skos:Concept ;
+  rdfs:label "Minimum aantal bedrijven (Omvang)"@nl ;
+  skos:prefLabel "Minimum aantal bedrijven (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "minimum aantal bedrijven" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:AantalBezoekers_Omvang a skos:Concept ;
+  rdfs:label "Aantal bezoekers (Omvang)"@nl ;
+  skos:prefLabel "Aantal bezoekers (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "aantal bezoekers" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MaximumAantalBezoekers_Omvang a skos:Concept ;
+  rdfs:label "Maximum aantal bezoekers (Omvang)"@nl ;
+  skos:prefLabel "Maximum aantal bezoekers (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "maximum aantal bezoekers" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MinimumAantalBezoekers_Omvang a skos:Concept ;
+  rdfs:label "Minimum aantal bezoekers (Omvang)"@nl ;
+  skos:prefLabel "Minimum aantal bezoekers (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "minimum aantal bezoekers" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:AantalBouwlagen_Omvang a skos:Concept ;
+  rdfs:label "Aantal bouwlagen (Omvang)"@nl ;
+  skos:prefLabel "Aantal bouwlagen (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "aantal bouwlagen" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MaximumAantalBouwlagen_Omvang a skos:Concept ;
+  rdfs:label "Maximum aantal bouwlagen (Omvang)"@nl ;
+  skos:prefLabel "Maximum aantal bouwlagen (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "maximum aantal bouwlagen" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MinimumAantalBouwlagen_Omvang a skos:Concept ;
+  rdfs:label "Minimum aantal bouwlagen (Omvang)"@nl ;
+  skos:prefLabel "Minimum aantal bouwlagen (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "minimum aantal bouwlagen" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:AantalGebouwen_Omvang a skos:Concept ;
+  rdfs:label "Aantal gebouwen (Omvang)"@nl ;
+  skos:prefLabel "Aantal gebouwen (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "aantal gebouwen" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MaximumAantalGebouwen_Omvang a skos:Concept ;
+  rdfs:label "Maximum aantal gebouwen (Omvang)"@nl ;
+  skos:prefLabel "Maximum aantal gebouwen (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "maximum aantal gebouwen" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MinimumAantalGebouwen_Omvang a skos:Concept ;
+  rdfs:label "Minimum aantal gebouwen (Omvang)"@nl ;
+  skos:prefLabel "Minimum aantal gebouwen (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "minimum aantal gebouwen" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:AantalParkeerplaatsen_Omvang a skos:Concept ;
+  rdfs:label "Aantal parkeerplaatsen (Omvang)"@nl ;
+  skos:prefLabel "Aantal parkeerplaatsen (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "aantal parkeerplaatsen" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MaximumAantalParkeerplaatsen_Omvang a skos:Concept ;
+  rdfs:label "Maximum aantal parkeerplaatsen (Omvang)"@nl ;
+  skos:prefLabel "Maximum aantal parkeerplaatsen (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "maximum aantal parkeerplaatsen" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MinimumAantalParkeerplaatsen_Omvang a skos:Concept ;
+  rdfs:label "Minimum aantal parkeerplaatsen (Omvang)"@nl ;
+  skos:prefLabel "Minimum aantal parkeerplaatsen (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "minimum aantal parkeerplaatsen" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:AantalRijstroken_Omvang a skos:Concept ;
+  rdfs:label "Aantal rijstroken (Omvang)"@nl ;
+  skos:prefLabel "Aantal rijstroken (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "aantal rijstroken" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MaximumAantalRijstroken_Omvang a skos:Concept ;
+  rdfs:label "Maximum aantal rijstroken (Omvang)"@nl ;
+  skos:prefLabel "Maximum aantal rijstroken (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "maximum aantal rijstroken" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MinimumAantalRijstroken_Omvang a skos:Concept ;
+  rdfs:label "Minimum aantal rijstroken (Omvang)"@nl ;
+  skos:prefLabel "Minimum aantal rijstroken (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "minimum aantal rijstroken" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:AantalSporen_Omvang a skos:Concept ;
+  rdfs:label "Aantal sporen (Omvang)"@nl ;
+  skos:prefLabel "Aantal sporen (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "aantal sporen" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MaximumAantalSporen_Omvang a skos:Concept ;
+  rdfs:label "Maximum aantal sporen (Omvang)"@nl ;
+  skos:prefLabel "Maximum aantal sporen (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "maximum aantal sporen" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MinimumAantalSporen_Omvang a skos:Concept ;
+  rdfs:label "Minimum aantal sporen (Omvang)"@nl ;
+  skos:prefLabel "Minimum aantal sporen (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "minimum aantal sporen" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:AantalWinkels_Omvang a skos:Concept ;
+  rdfs:label "Aantal winkels (Omvang)"@nl ;
+  skos:prefLabel "Aantal winkels (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "aantal winkels" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MaximumAantalWinkels_Omvang a skos:Concept ;
+  rdfs:label "Maximum aantal winkels (Omvang)"@nl ;
+  skos:prefLabel "Maximum aantal winkels (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "maximum aantal winkels" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MinimumAantalWinkels_Omvang a skos:Concept ;
+  rdfs:label "Minimum aantal winkels (Omvang)"@nl ;
+  skos:prefLabel "Minimum aantal winkels (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "minimum aantal winkels" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:AantalWooneenheden_Omvang a skos:Concept ;
+  rdfs:label "Aantal wooneenheden (Omvang)"@nl ;
+  skos:prefLabel "Aantal wooneenheden (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "aantal wooneenheden" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MaximumAantalWooneenheden_Omvang a skos:Concept ;
+  rdfs:label "Maximum aantal wooneenheden (Omvang)"@nl ;
+  skos:prefLabel "Maximum aantal wooneenheden (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "maximum aantal wooneenheden" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MinimumAantalWooneenheden_Omvang a skos:Concept ;
+  rdfs:label "Minimum aantal wooneenheden (Omvang)"@nl ;
+  skos:prefLabel "Minimum aantal wooneenheden (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "minimum aantal wooneenheden" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:Maatvoering_Omvang a skos:Concept ;
+  rdfs:label "Maatvoering (Omvang)"@nl ;
+  skos:prefLabel "Maatvoering (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "maatvoering" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:BebouwdOppervlak_m2_Omvang a skos:Concept ;
+  rdfs:label "Bebouwd oppervlak (m2) (Omvang)"@nl ;
+  skos:prefLabel "Bebouwd oppervlak (m2) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "bebouwd oppervlak (m2)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MaximumBebouwdOppervlak_m2_Omvang a skos:Concept ;
+  rdfs:label "Maximum bebouwd oppervlak (m2) (Omvang)"@nl ;
+  skos:prefLabel "Maximum bebouwd oppervlak (m2) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "maximum bebouwd oppervlak (m2)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MinimumBebouwdOppervlak_m2_Omvang a skos:Concept ;
+  rdfs:label "Minimum bebouwd oppervlak (m2) (Omvang)"@nl ;
+  skos:prefLabel "Minimum bebouwd oppervlak (m2) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "minimum bebouwd oppervlak (m2)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:Breedte_m_Omvang a skos:Concept ;
+  rdfs:label "Breedte (m) (Omvang)"@nl ;
+  skos:prefLabel "Breedte (m) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "breedte (m)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MaximumBreedte_m_Omvang a skos:Concept ;
+  rdfs:label "Maximum breedte (m) (Omvang)"@nl ;
+  skos:prefLabel "Maximum breedte (m) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "maximum breedte (m)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MinimumBreedte_m_Omvang a skos:Concept ;
+  rdfs:label "Minimum breedte (m) (Omvang)"@nl ;
+  skos:prefLabel "Minimum breedte (m) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "minimum breedte (m)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:Dakhelling_graden_Omvang a skos:Concept ;
+  rdfs:label "Dakhelling (graden) (Omvang)"@nl ;
+  skos:prefLabel "Dakhelling (graden) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "dakhelling (graden)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MaximumDakhelling_graden_Omvang a skos:Concept ;
+  rdfs:label "Maximum dakhelling (graden) (Omvang)"@nl ;
+  skos:prefLabel "Maximum dakhelling (graden) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "maximum dakhelling (graden)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MinimumDakhelling_graden_Omvang a skos:Concept ;
+  rdfs:label "Minimum dakhelling (graden) (Omvang)"@nl ;
+  skos:prefLabel "Minimum dakhelling (graden) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "minimum dakhelling (graden)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:Diepte_m_Omvang a skos:Concept ;
+  rdfs:label "Diepte (m) (Omvang)"@nl ;
+  skos:prefLabel "Diepte (m) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "diepte (m)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MaximumDiepte_m_Omvang a skos:Concept ;
+  rdfs:label "Maximum diepte (m) (Omvang)"@nl ;
+  skos:prefLabel "Maximum diepte (m) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "maximum diepte (m)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MinimumDiepte_m_Omvang a skos:Concept ;
+  rdfs:label "Minimum diepte (m) (Omvang)"@nl ;
+  skos:prefLabel "Minimum diepte (m) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "minimum diepte (m)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:Hoogte_m_Omvang a skos:Concept ;
+  rdfs:label "Hoogte (m) (Omvang)"@nl ;
+  skos:prefLabel "Hoogte (m) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "hoogte (m)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MaximumHoogte_m_Omvang a skos:Concept ;
+  rdfs:label "Maximum hoogte (m) (Omvang)"@nl ;
+  skos:prefLabel "Maximum hoogte (m) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "maximum hoogte (m)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MinimumHoogte_m_Omvang a skos:Concept ;
+  rdfs:label "Minimum hoogte (m) (Omvang)"@nl ;
+  skos:prefLabel "Minimum hoogte (m) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "minimum hoogte (m)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:Bouwhoogte_m_Omvang a skos:Concept ;
+  rdfs:label "Bouwhoogte (m) (Omvang)"@nl ;
+  skos:prefLabel "Bouwhoogte (m) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "bouwhoogte (m)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MaximumBouwhoogte_m_Omvang a skos:Concept ;
+  rdfs:label "Maximum bouwhoogte (m) (Omvang)"@nl ;
+  skos:prefLabel "Maximum bouwhoogte (m) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "maximum bouwhoogte (m)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MinimumBouwhoogte_m_Omvang a skos:Concept ;
+  rdfs:label "Minimum bouwhoogte (m) (Omvang)"@nl ;
+  skos:prefLabel "Minimum bouwhoogte (m) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "minimum bouwhoogte (m)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:Goothoogte_m_Omvang a skos:Concept ;
+  rdfs:label "Goothoogte (m) (Omvang)"@nl ;
+  skos:prefLabel "Goothoogte (m) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "goothoogte (m)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MaximumGoothoogte_m_Omvang a skos:Concept ;
+  rdfs:label "Maximum goothoogte (m) (Omvang)"@nl ;
+  skos:prefLabel "Maximum goothoogte (m) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "maximum goothoogte (m)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MinimumGoothoogte_m_Omvang a skos:Concept ;
+  rdfs:label "Minimum goothoogte (m) (Omvang)"@nl ;
+  skos:prefLabel "Minimum goothoogte (m) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "minimum goothoogte (m)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:HoogteliggingVlak_m_Omvang a skos:Concept ;
+  rdfs:label "Hoogteligging vlak (m) (Omvang)"@nl ;
+  skos:prefLabel "Hoogteligging vlak (m) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "hoogteligging vlak (m)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MaximumHoogteliggingVlak_m_Omvang a skos:Concept ;
+  rdfs:label "Maximum hoogteligging vlak (m) (Omvang)"@nl ;
+  skos:prefLabel "Maximum hoogteligging vlak (m) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "maximum hoogteligging vlak (m)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MinimumHoogteliggingVlak_m_Omvang a skos:Concept ;
+  rdfs:label "Minimum hoogteligging vlak (m) (Omvang)"@nl ;
+  skos:prefLabel "Minimum hoogteligging vlak (m) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "minimum hoogteligging vlak (m)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:Lengte_m_Omvang a skos:Concept ;
+  rdfs:label "Lengte (m) (Omvang)"@nl ;
+  skos:prefLabel "Lengte (m) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "lengte (m)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MaximumLengte_m_Omvang a skos:Concept ;
+  rdfs:label "Maximum lengte (m) (Omvang)"@nl ;
+  skos:prefLabel "Maximum lengte (m) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "maximum lengte (m)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MinimumLengte_m_Omvang a skos:Concept ;
+  rdfs:label "Minimum lengte (m) (Omvang)"@nl ;
+  skos:prefLabel "Minimum lengte (m) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "minimum lengte (m)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:Oppervlakte_m2_Omvang a skos:Concept ;
+  rdfs:label "Oppervlakte (m2) (Omvang)"@nl ;
+  skos:prefLabel "Oppervlakte (m2) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "oppervlakte (m2)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MaximumOppervlakte_m2_Omvang a skos:Concept ;
+  rdfs:label "Maximum oppervlakte (m2) (Omvang)"@nl ;
+  skos:prefLabel "Maximum oppervlakte (m2) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "maximum oppervlakte (m2)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MinimumOppervlakte_m2_Omvang a skos:Concept ;
+  rdfs:label "Minimum oppervlakte (m2) (Omvang)"@nl ;
+  skos:prefLabel "Minimum oppervlakte (m2) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "minimum oppervlakte (m2)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:Vloeroppervlakte_m2_Omvang a skos:Concept ;
+  rdfs:label "Vloeroppervlakte (m2) (Omvang)"@nl ;
+  skos:prefLabel "Vloeroppervlakte (m2) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "vloeroppervlakte (m2)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:Vloeroppervlakte_Bruto_m2_Omvang a skos:Concept ;
+  rdfs:label "Vloeroppervlakte, bruto (m2) (Omvang)"@nl ;
+  skos:prefLabel "Vloeroppervlakte, bruto (m2) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "vloeroppervlakte, bruto (m2)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:Vloeroppervlakte_Netto_m2_Omvang a skos:Concept ;
+  rdfs:label "Vloeroppervlakte, netto (m2) (Omvang)"@nl ;
+  skos:prefLabel "Vloeroppervlakte, netto (m2) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "vloeroppervlakte, netto (m2)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:Vloeroppervlakte_Bvo_m2_Omvang a skos:Concept ;
+  rdfs:label "Vloeroppervlakte; bvo (m2) (Omvang)"@nl ;
+  skos:prefLabel "Vloeroppervlakte; bvo (m2) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "vloeroppervlakte; bvo (m2)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:Vloeroppervlakte_Vvo_m2_Omvang a skos:Concept ;
+  rdfs:label "Vloeroppervlakte; vvo (m2) (Omvang)"@nl ;
+  skos:prefLabel "Vloeroppervlakte; vvo (m2) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "vloeroppervlakte; vvo (m2)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MaximumVloeroppervlakte_m2_Omvang a skos:Concept ;
+  rdfs:label "Maximum vloeroppervlakte (m2) (Omvang)"@nl ;
+  skos:prefLabel "Maximum vloeroppervlakte (m2) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "maximum vloeroppervlakte (m2)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MaximumVloeroppervlakte_Bruto_m2_Omvang a skos:Concept ;
+  rdfs:label "Maximum vloeroppervlakte; bruto (m2) (Omvang)"@nl ;
+  skos:prefLabel "Maximum vloeroppervlakte; bruto (m2) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "maximum vloeroppervlakte; bruto (m2)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MaximumVloeroppervlakte_Netto_m2_Omvang a skos:Concept ;
+  rdfs:label "Maximum vloeroppervlakte; netto (m2) (Omvang)"@nl ;
+  skos:prefLabel "Maximum vloeroppervlakte; netto (m2) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "maximum vloeroppervlakte; netto (m2)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MaximumVloeroppervlakte_Bvo_m2_Omvang a skos:Concept ;
+  rdfs:label "Maximum vloeroppervlakte; bvo (m2) (Omvang)"@nl ;
+  skos:prefLabel "Maximum vloeroppervlakte; bvo (m2) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "maximum vloeroppervlakte; bvo (m2)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MaximumVloeroppervlakte_Vvo_m2_Omvang a skos:Concept ;
+  rdfs:label "Maximum vloeroppervlakte; vvo (m2) (Omvang)"@nl ;
+  skos:prefLabel "Maximum vloeroppervlakte; vvo (m2) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "maximum vloeroppervlakte; vvo (m2)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MinimumVloeroppervlakte_m2_Omvang a skos:Concept ;
+  rdfs:label "Minimum vloeroppervlakte (m2) (Omvang)"@nl ;
+  skos:prefLabel "Minimum vloeroppervlakte (m2) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "minimum vloeroppervlakte (m2)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MinimumVloeroppervlakte_Bruto_m2_Omvang a skos:Concept ;
+  rdfs:label "Minimum vloeroppervlakte; bruto (m2) (Omvang)"@nl ;
+  skos:prefLabel "Minimum vloeroppervlakte; bruto (m2) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "minimum vloeroppervlakte; bruto (m2)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MinimumVloeroppervlakte_Netto_m2_Omvang a skos:Concept ;
+  rdfs:label "Minimum vloeroppervlakte; netto (m2) (Omvang)"@nl ;
+  skos:prefLabel "Minimum vloeroppervlakte; netto (m2) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "minimum vloeroppervlakte; netto (m2)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MinimumVloeroppervlakte_Bvo_m2_Omvang a skos:Concept ;
+  rdfs:label "Minimum vloeroppervlakte; bvo (m2) (Omvang)"@nl ;
+  skos:prefLabel "Minimum vloeroppervlakte; bvo (m2) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "minimum vloeroppervlakte; bvo (m2)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MinimumVloeroppervlakte_Vvo_m2_Omvang a skos:Concept ;
+  rdfs:label "Minimum vloeroppervlakte; vvo (m2) (Omvang)"@nl ;
+  skos:prefLabel "Minimum vloeroppervlakte; vvo (m2) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "minimum vloeroppervlakte; vvo (m2)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:Volume_m3_Omvang a skos:Concept ;
+  rdfs:label "Volume (m3) (Omvang)"@nl ;
+  skos:prefLabel "Volume (m3) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "volume (m3)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MaximumVolume_m3_Omvang a skos:Concept ;
+  rdfs:label "Maximum volume (m3) (Omvang)"@nl ;
+  skos:prefLabel "Maximum volume (m3) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "maximum volume (m3)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MinimumVolume_m3_Omvang a skos:Concept ;
+  rdfs:label "Minimum volume (m3) (Omvang)"@nl ;
+  skos:prefLabel "Minimum volume (m3) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "minimum volume (m3)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:Bebouwingspercentage_p_Omvang a skos:Concept ;
+  rdfs:label "Bebouwingspercentage (%) (Omvang)"@nl ;
+  skos:prefLabel "Bebouwingspercentage (%) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "bebouwingspercentage (%)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MaximumBebouwingspercentage_p_Omvang a skos:Concept ;
+  rdfs:label "Maximum bebouwingspercentage (%) (Omvang)"@nl ;
+  skos:prefLabel "Maximum bebouwingspercentage (%) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "maximum bebouwingspercentage (%)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MinimumBebouwingspercentage_p_Omvang a skos:Concept ;
+  rdfs:label "Minimum bebouwingspercentage (%) (Omvang)"@nl ;
+  skos:prefLabel "Minimum bebouwingspercentage (%) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "minimum bebouwingspercentage (%)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:AantalAaneenTeBouwenWooneenheden_Omvang a skos:Concept ;
+  rdfs:label "Aantal aaneen te bouwen wooneenheden (Omvang)"@nl ;
+  skos:prefLabel "Aantal aaneen te bouwen wooneenheden (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "aantal aaneen te bouwen wooneenheden" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MaximumAantalAaneenTeBouwenWooneenheden_Omvang a skos:Concept ;
+  rdfs:label "Maximum aantal aaneen te bouwen wooneenheden (Omvang)"@nl ;
+  skos:prefLabel "Maximum aantal aaneen te bouwen wooneenheden (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "maximum aantal aaneen te bouwen wooneenheden" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MinimumAantalAaneenTeBouwenWooneenheden_Omvang a skos:Concept ;
+  rdfs:label "Minimum aantal aaneen te bouwen wooneenheden (Omvang)"@nl ;
+  skos:prefLabel "Minimum aantal aaneen te bouwen wooneenheden (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "minimum aantal aaneen te bouwen wooneenheden" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:VerticaleBouwdiepte_m_Omvang a skos:Concept ;
+  rdfs:label "Verticale bouwdiepte (m) (Omvang)"@nl ;
+  skos:prefLabel "Verticale bouwdiepte (m) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "verticale bouwdiepte (m)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MaximumVerticaleBouwdiepte_m_Omvang a skos:Concept ;
+  rdfs:label "Maximum verticale bouwdiepte (m) (Omvang)"@nl ;
+  skos:prefLabel "Maximum verticale bouwdiepte (m) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "maximum verticale bouwdiepte (m)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+ro_beg:MinimumVerticaleBouwdiepte_m_Omvang a skos:Concept ;
+  rdfs:label "Minimum verticale bouwdiepte (m) (Omvang)"@nl ;
+  skos:prefLabel "Minimum verticale bouwdiepte (m) (Omvang)"@nl ;
+  skos-thes:broaderGeneric ro_beg:Omvang ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "minimum verticale bouwdiepte (m)" ;
+  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+.
+
+
+#################################################################
+#  Structuurvisie
+#################################################################
+
+ro_beg:Structuurvisie a skos:Concept ;
+	rdfs:label "Structuurvisie"@nl ;
+	skos:prefLabel "Structuurvisie"@nl ;
+	skos-thes:broaderGeneric: ro_beg:Plan ;
+	skos:definition "Gebied, of gebieden, binnen de grenzen van een structuurvise."@nl ;
+	skos:inScheme ro_begkr:ro ;
+	skos:notation "structuurvisie"
+.
 
 ro_beg:Structuurvisieplangebied_R a skos:Concept ;
 	rdfs:label "Structuurvisieplangebied_R"@nl ;
@@ -21,21 +1105,72 @@ ro_beg:Structuurvisieplangebied_R a skos:Concept ;
 	skos:notation "Rijks structuurvisie"
 .
 
+#################################################################
+#  Idealisatie
+#################################################################
+
+#collections are not really used..
+
+ro_col:Idealisatie_1 a skos:Collection ;
+  rdfs:label "Idealisatie_1"@nl ;
+  skos:prefLabel "Idealisatie_1"@nl ;
+  skos:member
+    ro_beg:exact
+.
+
+ro_col:Idealisatie_2 a skos:Collection ;
+  rdfs:label "Idealisatie_2"@nl ;
+  skos:prefLabel "Idealisatie_2"@nl ;
+  skos:member
+    ro_beg:exact ,
+    ro_beg:indicatief
+.
+
+ro_col:Idealisatie_3 a skos:Collection ;
+  rdfs:label "Idealisatie_3"@nl ;
+  skos:prefLabel "Idealisatie_3"@nl ;
+  skos:member
+    ro_beg:exact ,
+    ro_beg:indicatief ,
+    ro_beg:cartografischFiguur
+.
+
 ro_beg:Idealisatie a skos:Concept ;
-	rdfs:label "Idealisatie"@nl ;
-	skos:definition "Manier waarop de geometrie ruimtelijk geïnterpreteerd moet worden."@nl ;
-	skos:inScheme ro_begkr:ro ;
+  rdfs:label "Idealisatie"@nl ;
+  skos:prefLabel "Idealisatie"@nl ;
+  skos:topConceptOf ro_begkr:ro ;
+  skos:definition "Manier waarop de geometrie ruimtelijk geïnterpreteerd moet worden."@nl ;
+  skos:inScheme ro_begkr:ro
 .
 
-ro_beg:typePlan a skos:Concept ;
-  rdfs:label "typePlan"@nl ;
-  skos:definition "Nadere aanduiding van het type ruimtelijk instrument."@nl ;
+ro_beg:exact a skos:Concept ;
+  rdfs:label "exact"@nl ;
+  skos:prefLabel "exact"@nl ;
   skos:inScheme ro_begkr:ro ;
+  skos:notation "exact" ;
+  skoss-thes:broaderGeneric ro_beg:Idealisatie ;
+.
+
+ro_beg:indicatief a skos:Concept ;
+  rdfs:label "indicatief"@nl ;
+  skos:prefLabel "indicatief"@nl ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "indicatief" ;
+  skoss-thes:broaderGeneric ro_beg:Idealisatie ;
+.
+
+ro_beg:cartografischFiguur a skos:Concept ;
+  rdfs:label "Cartografisch Figuur"@nl ;
+  skos:prefLabel "Cartografisch Figuur"@nl ;
+  skos:inScheme ro_begkr:ro ;
+  skos:notation "cartografisch figuur" ;
+  skoss-thes:broaderGeneric ro_beg:Idealisatie ;
 .
 
 
-######### planstatus
-
+#################################################################
+#  Planstatus
+#################################################################
 
 ro_col:Planstatussen a skos:Collection ;
   rdfs:label "Planstatussen"@nl ;
@@ -100,17 +1235,20 @@ ro_beg:Geconsolideerd_Planstatus a skos:Concept ;
   skos:notation "geconsolideerd"
 .
 
-########## NORMEN
+#################################################################
+#  Norm
+#################################################################
 
-ro_col:Normen a skos:Collection ;
-  rdfs:label "Normen"@nl ;
-  skos:prefLabel "Normen"@nl ;
-  skos:member
-    ro_beg:IMRO2012 ,
-    ro_beg:PRBP2012 ,
-    ro_beg:IMROPT2012 ,
-    ro_beg:PRABPK2012
-.
+#not used
+#ro_col:Normen a skos:Collection ;
+#  rdfs:label "Normen"@nl ;
+#  skos:prefLabel "Normen"@nl ;
+#  skos:member
+#    ro_beg:IMRO2012 ,
+#    ro_beg:PRBP2012 ,
+#    ro_beg:IMROPT2012 ,
+#    ro_beg:PRABPK2012
+#.
 
 ro_beg:Norm a skos:Concept ;
   rdfs:label "Norm"@nl ;
@@ -154,57 +1292,3 @@ ro_beg:PRpSV2012 a skos:Concept ; #new from structuurvisieplangebied_P.
   skos-thes:broaderGeneric ro_beg:Norm ;
   skos:notation "PRpSV2012"
 .
-###### idealisatie
-
-ro_col:Idealisatie_1 a skos:Collection ;
-  rdfs:label "Idealisatie_1"@nl ;
-  skos:prefLabel "Idealisatie_1"@nl ;
-  skos:member
-    ro_beg:exact #is this even worth it?
-.
-
-ro_col:Idealisatie_2 a skos:Collection ;
-  rdfs:label "Idealisatie_2"@nl ;
-  skos:prefLabel "Idealisatie_2"@nl ;
-  skos:member
-    ro_beg:exact ,
-    ro_beg:indicatief
-.
-ro_col:Idealisatie_3 a skos:Collection ;
-  rdfs:label "Idealisatie_3"@nl ;
-  skos:prefLabel "Idealisatie_3"@nl ;
-  skos:member
-    ro_beg:exact ,
-    ro_beg:indicatief ,
-    ro_beg:cartografischFiguur
-.
-
-ro_beg:Idealisatie a skos:Concept ;
-  rdfs:label "Idealisatie"@nl ;
-  skos:prefLabel "Idealisatie"@nl ;
-  skos:topConceptOf ro_begkr:ro ;
-  skos:definition "Manier waarop de geometrie ruimtelijk geïnterpreteerd moet worden."@nl ;
-  skos:inScheme ro_begkr:ro
-.
-
-#what about skos notation?
-ro_beg:exact a skos:Concept ;
-  rdfs:label "exact"@nl ;
-  skos:prefLabel "Exact"@nl ;
-  skos-thes:broaderGeneric ro_beg:Idealisatie ;
-.
-
-ro_beg:indicatief a skos:Concept ;
-  rdfs:label "indicatief"@nl ;
-  skos:prefLabel "Indicatief"@nl ;
-  skos-thes:broaderGeneric ro_beg:Idealisatie ;
-.
-
-ro_beg:cartografischFiguur a skos:Concept ;
-  rdfs:label "cartografisch figuur"@nl ;
-  skos:prefLabel "Cartografisch figuur"@nl ;
-  skos-thes:broaderGeneric ro_beg:Idealisatie ;
-.
-
-
-#TODO instruments
