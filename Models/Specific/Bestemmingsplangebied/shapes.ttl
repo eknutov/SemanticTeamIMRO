@@ -65,7 +65,6 @@ ro_str:Bestemmingsplan a sh:NodeShape ;
     ro_str:Bestemmingsplan_tekstverwijzing ,
     ro_str:Bestemmingsplan_externPlan ,
     ro_str:Bestemmingsplan_norm ,
-    ro_str:Bestemmingsplan_Plangebied_geometrie , # <- extra constraints for plangebied specific for bestemmingsplan.
     ro_str:Bestemmingsplan_hasPart ,
     ro_str:Bestemmingsplan_spatial
 .
@@ -155,12 +154,7 @@ ro_str:Bestemmingsplan_norm a sh:PropertyShape ;
   )
 .
 
-ro_str:Bestemmingsplan_Plangebied_geometrie a sh:PropertyShape ;
-  sh:path ro:geometrie ;
-  sh:minCount 1 ;
-  sh:maxCount 1 ;
-  sh:node ro_str:VlakMultiVlak ;
-.
+
 
 ro_str:Bestemmingsplan_hasPart a sh:PropertyShape ;
   sh:path dct:hasPart ;
@@ -173,8 +167,16 @@ ro_str:Bestemmingsplan_hasPart a sh:PropertyShape ;
 ro_str:Bestemmingsplan_spatial a sh:PropertyShape ;
   sh:path dct:spatial ;
   sh:class ro:Plangebied ;
-  sh:minCount 1  ;
+  sh:minCount 1 ;
   sh:maxCount 1 ;
+  sh:node ro_str:Bestemmingsplan_spatial_geometrie , # <- extra constraints for plangebied specific for bestemmingsplan.
+.
+
+ro_str:Bestemmingsplan_spatial_geometrie a sh:PropertyShape ;
+  sh:path ro:geometrie ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:node ro_str:VlakMultiVlak ;
 .
 
 #################################################################
