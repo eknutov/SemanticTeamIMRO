@@ -25,9 +25,8 @@
 #    Structuurvisie_R
 #################################################################
 
-#should we also remove 'plan'? I think so.
 ro:Structuurvisie_R a owl:Class ;
-  dcterms:subject ro_beg:Structuurvisieplangebied_R ; # <-- alter SKOS name to ro_beg:Structuurvisie_R
+  dcterms:subject ro_beg:Structuurvisie_R ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "Structuurvisie_R"@nl ;
   rdfs:subClassOf ro:Structuurvisie ;
@@ -39,9 +38,10 @@ ro:Structuurvisie_R a owl:Class ;
 #################################################################
 
 ro:Structuurvisiegebied_R a owl:Class ;
+  dcterms:subject ro_beg:Structuurvisiegebied_R ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "Structuurvisiegebied_R"@nl ;
-  rdfs:subClassOf ro:Planobject ;
+  rdfs:subClassOf ro:Structuurvisiegebied ;
 .
 
 
@@ -50,7 +50,8 @@ ro:Structuurvisiegebied_R a owl:Class ;
 #################################################################
 
 ro:Structuurvisiecomplex_R a owl:Class ;
+  dcterms:subject ro_beg:Structuurvisiecomplex_R ;
   rdfs:isDefinedBy :ro ;
-  rdfs:label "Structuurvisiegebied_R"@nl ;
-  rdfs:subClassOf ro:Planobject ;
+  rdfs:label "Structuurvisiecomplex_R"@nl ;
+  rdfs:subClassOf ro:Structuurvisiecomplex ;
 .

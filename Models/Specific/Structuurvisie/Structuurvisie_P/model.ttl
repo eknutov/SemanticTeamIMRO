@@ -26,7 +26,7 @@
 #################################################################
 
 ro:Structuurvisie_P a owl:Class ;
-  dcterms:subject ro_beg:Structuurvisieplangebied_P ; # <-- alter SKOS name to ro_beg:Structuurvisie_P
+  dcterms:subject ro_beg:Structuurvisie_P ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "Structuurvisie_P"@nl ;
   rdfs:subClassOf ro:Structuurvisie ;
@@ -38,6 +38,7 @@ ro:Structuurvisie_P a owl:Class ;
 #################################################################
 
 ro:Structuurvisiegebied_P a owl:Class ;
+  dcterms:subject ro_beg:Structuurvisiegebied_P ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "Structuurvisiegebied_P"@nl ;
   rdfs:subClassOf ro:Structuurvisiegebied ;
@@ -49,9 +50,10 @@ ro:Structuurvisiegebied_P a owl:Class ;
 #################################################################
 
 ro:Structuurvisiecomplex_P a owl:Class ;
+  dcterms:subject ro_beg:Structuurvisiecomplex_P ;
   rdfs:isDefinedBy :ro ;
-  rdfs:label "Structuurvisiegebied_P"@nl ;
-  rdfs:subClassOf ro:Structuurvisiecomplex;
+  rdfs:label "Structuurvisiecomplex_P"@nl ;
+  rdfs:subClassOf ro:Structuurvisiecomplex ;
 .
 
 
@@ -60,7 +62,8 @@ ro:Structuurvisiecomplex_P a owl:Class ;
 #################################################################
 
 ro:Structuurvisieverklaring_P a owl:Class ;
+  dcterms:subject ro_beg:Structuurvisieverkaring_P ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "Structuurvisieverklaring_P"@nl ;
-  rdfs:subClassOf ro:Planobject;
+  rdfs:subClassOf ro:Planobject ;
 .
