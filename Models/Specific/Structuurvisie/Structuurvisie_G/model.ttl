@@ -1,3 +1,4 @@
+.
 @prefix : <http://data.informatiehuisruimte.nl/def/> .
 @prefix c4o: <http://purl.org/spar/biro/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
@@ -22,48 +23,37 @@
 
 
 #################################################################
-#    Structuurvisie_P
+#    Structuurvisie_G
 #################################################################
 
-ro:Structuurvisie_P a owl:Class ;
-  dcterms:subject ro_beg:Structuurvisie_P ;
+
+ro:Structuurvisie_G a owl:Class ;
+  dcterms:subject ro_beg:Structuurvisie_G ;
   rdfs:isDefinedBy :ro ;
-  rdfs:label "Structuurvisie_P"@nl ;
+  rdfs:label "Structuurvisie_G"@nl ;
   rdfs:subClassOf ro:Structuurvisie ;
 .
 
 
 #################################################################
-#    Structuurvisiegebied_P
+#    Structuurvisiegebied_G
 #################################################################
 
-ro:Structuurvisiegebied_P a owl:Class ;
-  dcterms:subject ro_beg:Structuurvisiegebied_P ;
+ro:Structuurvisiegebied_G a owl:Class ;
+  dcterms:subject ro_beg:Structuurvisiegebied_G ;
   rdfs:isDefinedBy :ro ;
-  rdfs:label "Structuurvisiegebied_P"@nl ;
-  rdfs:subClassOf ro:Structuurvisiegebied ;
+  rdfs:label "Structuurvisiegebied_G"@nl ;
+  rdfs:subClassOf ro:Planobject ;
 .
 
 
 #################################################################
-#    Structuurvisiecomplex_P
+#    Structuurvisiecomplex_G
 #################################################################
 
-ro:Structuurvisiecomplex_P a owl:Class ;
-  dcterms:subject ro_beg:Structuurvisiecomplex_P ;
+ro:Structuurvisiecomplex_R a owl:Class ;
+  dcterms:subject ro_beg:Structuurvisiecomplex_G ;
   rdfs:isDefinedBy :ro ;
-  rdfs:label "Structuurvisiecomplex_P"@nl ;
-  rdfs:subClassOf ro:Structuurvisiecomplex ;
-.
-
-
-#################################################################
-#    Structuurvisieverklaring
-#################################################################
-
-ro:Structuurvisieverklaring_P a owl:Class ;
-  dcterms:subject ro_beg:Structuurvisieverkaring_P ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:label "Structuurvisieverklaring_P"@nl ;
+  rdfs:label "Structuurvisiegebied_G"@nl ;
   rdfs:subClassOf ro:Planobject ;
 .
