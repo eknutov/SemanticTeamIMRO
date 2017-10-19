@@ -12,7 +12,7 @@
 @prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
 @prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-
+@prefix dct: <http://udfr.org/docs/onto/> .
 
 #################################################################
 #    Structuurvisie_P
