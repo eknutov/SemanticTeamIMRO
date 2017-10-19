@@ -12,10 +12,10 @@
 @prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
 @prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-
+@prefix dct: <http://udfr.org/docs/onto/> .
 
 #################################################################
-#    Structuurvisie+R
+#    Structuurvisie_R
 #################################################################
 
 
@@ -24,7 +24,6 @@ ro_str:Structuurvisie_R rdf:type sh:NodeShape ;
   sh:property
     ro_str:Structuurvisie_R_beleidsmatigVerantwoordelijkeOverheid ,
     ro_str:Structuurvisie_R_hasPart ,
-
 .
 
 # This is old&unused. kept for inspiration later on, perhaps.
@@ -91,7 +90,7 @@ ro_str:Structuurvisiegebied_R rdf:type sh:NodeShape ;
     sh:property
       ro_str:Structuurvisiegebied_R_beleid ,
       ro_str:Structuurvisiegebied_R_tekstVerwijzing ,
-      ro_str:Structuurvisiegebied_R_isPartOfy ,
+      ro_str:Structuurvisiegebied_R_isPartOf ,
 .
 
 
@@ -114,6 +113,46 @@ ro_str:Structuurvisiegebied_R_isPartOf rdf:type sh:PropertyShape ;
   sh:class ro:Structuurvisie_R ;
 .
 
+ro_str:BeleidInfo_RSV rdf:type sh:NodeShape ; #treated as a blank node
+  sh:property
+    BeleidInfo_RSV_belang ,
+    BeleidInfo_RSV_rol ,
+    BeleidInfo_RSV_instrument ;
+.
+
+ro_str:BeleidInfo_RSV_belang rdf:type sh:PropertyShape ;
+  sh:path ro:belang ;
+  sh:datatype xsd:string ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+.
+
+ro_str:BeleidInfo_RSV_rol rdf:type sh:PropertyShape ;
+  sh:path ro:rol ;
+  sh:datatype xsd:string ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+.
+
+ro_str:BeleidInfo_RSV_instrument rdf:type sh:PropertyShape ;
+  sh:path ro:instrument ;
+  sh:maxCount 1 ;
+  sh:in (
+    ro:amvb #were instuments named individuals?
+    ro:beheersverordening
+    ro:bestemmingsplan
+    ro:bestuurlijkeAfspraken
+    ro:coordinatieregeling
+    ro:inpassingsplan
+    ro:omgevingsvergunning
+    ro:proactieveAanwijzing
+    ro:reactieveAanwijzing
+    ro:verordening
+    ro:voorbereidingsbesluit
+    ro:vooroverleg
+    ro:zienswijze
+  )
+.
 
 #################################################################
 #    Structuurvisiecomplex_R
@@ -124,7 +163,7 @@ ro_str:Structuurvisiecomplex_R rdf:type sh:NodeShape ;
     sh:property
       ro_str:Structuurvisiecomplex_R_beleid ,
       ro_str:Structuurvisiegebied_R_tekstVerwijzing ,#copied
-      ro_str:Structuurvisiegebied_R_isPartOf, #copied 
+      ro_str:Structuurvisiegebied_R_isPartOf, #copied
 .
 
 ro_str:Structuurvisiecomplex_R_beleid rdf:type sh:PropertyShape ;

@@ -69,3 +69,19 @@ ro_str:Overheden_P a sh:NodeShape ;
     sh:pattern "^(provincie)\\s" ;
     ] ;
 .
+
+ro_str:Overheden_G a sh:NodeShape ;
+  sh:property [
+    sh:path rdf:type ;
+    sh:in (
+      ro:GemeentelijkeOverheid
+      ro:Deelgemeente_Stadsdeel #uses cbs-code for  respective 'gemeente'
+    ) ] ;
+  sh:property [
+    sh:path ro:overheidsNaam ;
+    sh:or ( [ #TODO make dependent on rdf:type
+      sh:pattern "^(gemeente)\\s" ; ]
+    [
+      sh:pattern "^(deelgemeente/stadsdeel)\\s" ; ]
+    ) ] ;
+.
