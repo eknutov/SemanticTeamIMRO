@@ -16,25 +16,26 @@
 
 # include a shape for geometrie?  all is now in the specific shapes. Can probably extract some common parts.
 
+#not really used..
 
 ro_str:Idealisatie_1 rdf:type sh:NodeShape ;
  sh:in (
-  ro:exact # perhaps skos:concepts suit better.
+  ro_beg:exact # perhaps skos:concepts suit better.
   )
 .
 
 ro_str:Idealisatie_2 rdf:type sh:NodeShape ;
  sh:in (
-  ro:exact # perhaps skos:concepts suit better.
+  ro_beg:exact # perhaps skos:concepts suit better.
   ro:indicatief
   )
 .
 
 ro_str:Idealisatie_3 rdf:type sh:NodeShape ;
  sh:in (
-  ro:exact # perhaps skos:concepts suit better.
-  ro:indicatief
-  ro:cartografischFiguur
+  ro_beg:exact # perhaps skos:concepts suit better.
+  ro_beg:indicatief
+  ro_beg:cartografischFiguur
   )
 .
 
