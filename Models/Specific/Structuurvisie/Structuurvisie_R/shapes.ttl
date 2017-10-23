@@ -23,7 +23,7 @@ ro_str:Structuurvisie_R rdf:type sh:NodeShape ;
   sh:targetClass ro:Structuurvisie_R ;
   sh:property
     ro_str:Structuurvisie_R_beleidsmatigVerantwoordelijkeOverheid ,
-    ro_str:Structuurvisie_R_hasPart ,
+    ro_str:Structuurvisie_R_hasPart
 .
 
 # This is old&unused. kept for inspiration later on, perhaps.
@@ -90,7 +90,7 @@ ro_str:Structuurvisiegebied_R rdf:type sh:NodeShape ;
     sh:property
       ro_str:Structuurvisiegebied_R_beleid ,
       ro_str:Structuurvisiegebied_R_tekstVerwijzing ,
-      ro_str:Structuurvisiegebied_R_isPartOf ,
+      ro_str:Structuurvisiegebied_R_isPartOf
 .
 
 
