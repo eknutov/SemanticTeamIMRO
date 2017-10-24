@@ -81,9 +81,9 @@ ro_str:Structuurvisiegebied_G_isPartOf rdf:type sh:PropertyShape ;
 
 ro_str:BeleidInfo_GSV rdf:type sh:NodeShape ; #treated as a blank node
   sh:property
-    BeleidInfo_GSV_belang ,
-    BeleidInfo_GSV_rol ,
-    BeleidInfo_GSV_instrument ;
+    ro_str:BeleidInfo_GSV_belang ,
+    ro_str:BeleidInfo_GSV_rol ,
+    ro_str:BeleidInfo_GSV_instrument ;
 .
 
 ro_str:BeleidInfo_GSV_belang rdf:type sh:PropertyShape ;

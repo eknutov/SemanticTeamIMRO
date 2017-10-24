@@ -10,6 +10,7 @@
 @prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
 @prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
 @prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
+@prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
 @prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 
@@ -97,7 +98,7 @@ ro_str:Structuurvisie_norm a sh:PropertyShape ;
 .
 
 ro_str:Structuurvisie_spatial a sh:PropertyShape ;
-  sh:path dct:spatial ;
+  sh:path dcterms:spatial ;
   sh:class ro:Plangebied ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
@@ -192,7 +193,7 @@ ro_str:Structuurvisiegebied_Geometrie_idealisatie rdf:type sh:PropertyShape ;
 .
 
 ro_str:Structuurvisiegebied_isPartOf a sh:PropertyShape ; #the specialisation specify a sh:class constraint.
-  sh:path dct:isPartOf ;
+  sh:path dcterms:isPartOf ;
   sh:minCount 1 ;
   sh:maxcount 1 ;
 .
