@@ -1,5 +1,5 @@
-Before the definition of done/ready is discussed, a short introduction on the process the m-team uses is discussed. The model is partitioned into several parts which each can be modelled independently (this does not mean that there is no overlap). 
-During the modelling of these partitions, the team identifies and discusses commonalities between the partitions and add these to a seperate 'common model' graph/file/folder. In such a way that, a super class / subclass relation is estabished between the common file and all its partitions. 
+The model is partitioned into several parts which each can be modelled independently (this does not mean that there is no overlap).
+During the modelling of these partitions commonalities between the partitions were identified and discussed in such a way that, a super class / subclass relation is established between the common file and its partitions.
 All partitions inherit classes, properties and shapes defined in the common folder and only specific, non-common, classes/properties/shapes are described in the partitions.  
 
 ## DoR
@@ -7,11 +7,13 @@ All partitions inherit classes, properties and shapes defined in the common fold
 This section describes all resources required in order to start working on a model.
 
 - a set of examples documents, that cover all aspects of the model as a set.
+- TODO: a test examples have to be manufactured in order to test/validate the model readiness
+- See [examples](examples) for more information)
 
 
 ## DoD
 
-This section describes when a model is defined as done. 
+This section describes when a model is defined as done.
 For this we distinguish between the model in its entirety (such as the entire IMRO2012 standard) and parts of the model which are independently modelled and stored.
 
 
@@ -30,6 +32,5 @@ The model is done when:
 - semantics are uniformly represented
 - metadata about the model is included
 - versioning is included
-- the model is tested on examples. 
+- the model is tested on examples.
 - a thesauri is included with all relevant concepts in skos.
-

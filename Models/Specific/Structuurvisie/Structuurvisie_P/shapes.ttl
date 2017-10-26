@@ -92,9 +92,9 @@ ro_str:Structuurvisiegebied_P_beleid rdf:type sh:PropertyShape ;
 
 ro_str:BeleidInfo_PSV rdf:type sh:NodeShape ; #treated as a blank node
   sh:property
-    BeleidInfo_PSV_belang ,
-    BeleidInfo_PSV_rol ,
-    BeleidInfo_PSV_instrument ;
+    ro_str:BeleidInfo_PSV_belang ,
+    ro_str:BeleidInfo_PSV_rol ,
+    ro_str:BeleidInfo_PSV_instrument
 .
 
 ro_str:BeleidInfo_PSV_belang rdf:type sh:PropertyShape ;
