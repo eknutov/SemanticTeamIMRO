@@ -35,7 +35,7 @@ see **INSPIRE/KKG**
 * INSPIRE docs <http://inspire-eu-rdf.github.io/inspire-rdf-guidelines/>
 
 concepts        
-[comment]: # (ekn: The purpose of listing concepts in this readme? Maybe we can have a separate file juts listing the concept names for the reference and convenience or generate that from TTL file.)
+[comment]: # (ekn: The purpose of listing concepts in this readme? Maybe we can have a separate file juts listing the concept names for the reference and convenience or generate that from TTL file)
 
 **model**
 - namespace ends with #
@@ -71,7 +71,7 @@ TBD
 ### MetaData
 We want to provide meaningful metadata for vocabularies, so they can be easily used, found and int?
 An example of a well annotated vocabulary:
-[comment]: # (ekn: TODO - example of the annotated vocabulary)
+[comment]: # (ekn: TODO - example of the annotated vocabulary.)
 
 > All strings, if meaningful should be supplemented with a dutch language tag "@nl" unless they are written in English (international standard, etc. ) then "@en"
 > MORE EXAMPLES TO FOLLOW HERE
@@ -86,7 +86,7 @@ example 1: typePlan could better be named typeInstrument, because it denotes the
 ```
 example 2: identifiers are complex constructs in INSPIRE and similar models, to ensure global uniqueness. In RDF, a resource identifier (URI) is globally unique by default.
 ```
-[comment]: # (ekn: example 3 name and label can be semantically different, label provides a readable resource's name, however name can denote many things (like schema:giveName) or simply be a machine readable (e.g. colour name/id: B9D3EE but the label would be "grey") it is obviously ok to use label but not because it is more "general", but rathe more descriptive for humans)
+[comment]: # (ekn: example 3 name and label can be semantically different, label provides a readable resource's name, however name can denote many things (like schema:giveName) or simply be a machine readable (e.g. colour name/id: B9D3EE but the label would be "grey") it is obviously ok to use label but not because it is more "general", but rathe more descriptive for humans.)
 ```
 example 3: For a property like 'naam' (name) a more general RDF property can be used (rdf:label). This makes the data easier to consume on the data web.
 ```
