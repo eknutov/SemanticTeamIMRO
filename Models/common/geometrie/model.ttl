@@ -19,6 +19,7 @@
 @prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: <http://schema.org/> .
 
 
 ro:Geometrie
@@ -27,25 +28,25 @@ ro:Geometrie
   rdfs:label "Geometrie"@nl ;
 .
 
-ro:geometrie
+ro:geometrie                            # PuntLijnVlakMulti
   rdf:type owl:ObjectProperty ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "geometrie"@nl ;
 .
 
-ro:idealisatie
+ro:idealisatie                          # Idealisatie_1, Idealisatie_2, Idealisatie_3
   rdf:type owl:ObjectProperty ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "idealisatie"@nl ;
 .
 
-ro:begrenzing
+ro:begrenzing                           # [0..*]
   rdf:type owl:ObjectProperty ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "begrenzing"@nl ;
 .
 
-ro:inwinningsschaal
+ro:inwinningsschaal                     # interger [0..1]
   rdf:type owl:DatatypeProperty ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "inwinningsschaal"@nl ;

@@ -22,11 +22,20 @@
    skos:inScheme ro_begkr:ro ;
    skos:definition "Het object dat het gebied, of de gebieden, binnen de plangrenzen representeert."@nl ;
    skos:scopeNote "Omvat het totale gebied van een benoemd ruimtelijk instrument. Bijvoorbeeld een bestemmingsplan, een structuurvisie een gebiedsgericht besluit."@nl ;
+   # ekn: dcterms:source is misleading here as it usually refers to the resource from which it is derived, here it only refers to the source of the original standard document
+   # ekn: best to use ZZZ
    dcterms:source
      <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012> ,
+     # actual PDF file as a source: http://ro-standaarden.geonovum.nl/2012/IMRO/1.2/IMRO2012-v1.2.pdf
+     # these standard references are quire broad, applied not just to the Plangebied (which is article 6.2.3)
+     # ekn: makes sense to move standards' sources outside of the classes and reference only iof those are very specific
+     #
      <jci1.31:c:BWBR0020449&hoofdstuk=3&afdeling=3.1&artikel=3.1&lid=1&z=2016-04-14&g=2016-04-14> ,
      <jci1.31:c:BWBR0020449&hoofdstuk=3&afdeling=3.5&paragraaf=3.5.1&artikel=3.26&lid=3&z=2016-04-14&g=2016-04-14> ,
      <jci1.31:c:BWBR0020449&hoofdstuk=3&afdeling=3.5&paragraaf=3.5.2&artikel=3.28&lid=3&z=2016-04-14&g=2016-04-14>
+     # ekn: how to resolve the links to chapters/articles above ??
+     # Juriconnect standard PDF URL: https://www.forumstandaardisatie.nl/sites/bfs/files/Juriconnect_Standaard_BWB_1_3_1.pdf
+     #
 .
 
 ro_beg:Planobject a skos:Concept ;

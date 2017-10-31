@@ -4,7 +4,7 @@
 - [Model blocks overview](IMRO_overview.png)
 **Common**
 - [Common constructs](common/MD_common.md)
-- [Common geometrie](common/geometrie/..)                       <!-- TODO -->
+- [Common geometrie](common/geometrie/..)                      <!-- TODO -->
 - [NEN3610 standard](common/nen3610/..)                        <!-- TODO -->
 - [IMPORT](common/IMROPT/..)                                   <!-- what is this IMPORT? -->
 - [Overheid](common/overheid/MD_Overheid.md)

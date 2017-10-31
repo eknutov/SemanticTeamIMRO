@@ -27,6 +27,8 @@ gitflow
 
 ## Style
 
+### used constructs
+Maintained list of used constructs: [User constructs](used_constructs.md)
 [comment]: # (ekn: Moved a used constructs listing to a separate file for convenience used_constructs.md otherwise this readme becomes overwhelming)
 
 ### Naming conventions
