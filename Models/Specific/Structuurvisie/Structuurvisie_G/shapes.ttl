@@ -4,7 +4,7 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix ogc: <http://www.opengis.net/ont/geosparql#> .
-@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
+@prefix pdok: <http://data.pdok.nl/def/pdok#> .
 @prefix gml: <http://www.opengis.net/ont/gml#> .
 @prefix nen3610_str: <http://data.informatiehuisruimte.nl/def/nen3610/> .
 @prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
@@ -15,7 +15,7 @@
 @prefix dct: <http://udfr.org/docs/onto/> .
 
 #################################################################
-#    Structuurvisie_G
+#    Structuurvisie_G / Structuurvisieplangebied_G
 #################################################################
 
 

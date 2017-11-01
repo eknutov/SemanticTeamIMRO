@@ -151,7 +151,7 @@ ro_str:ExternPlanReferentiePG_SV rdf:type sh:NodeShape ;
 ##    ro_str:rolExternPlan
 #.
 
-ro_str:naamExternPlan rdf:type sh:PropertyShape ;
+ro_str:naamExternPlan rdf:type sh:PropertyShape ;   # ekn: not used anymore as no longer required (see above NodeShape)
   sh:path ro:naam ;
   sh:minCount 1 ;
   sh:maxCount 1 ;

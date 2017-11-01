@@ -1,5 +1,5 @@
 @prefix : <http://data.informatiehuisruimte.nl/def/> .
-@prefix c4o: <http://purl.org/spar/biro/> .
+@prefix biro: <http://purl.org/spar/biro/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix doco: <http://purl.org/spar/doco/> .

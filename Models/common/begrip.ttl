@@ -1198,7 +1198,7 @@ ro_beg:Structuurvisieverklaring_P a skos:Concept ;
 
 
 #################################################################
-#  Structuurvisie_G
+#  Structuurvisie_G / Structuurvisieplangebied_G
 #################################################################
 
 ro_beg:Structuurvisie_G a skos:Concept ;
@@ -1234,6 +1234,7 @@ ro_beg:Structuurvisiecomplex_G a skos:Concept ;
 #################################################################
 
 #collections are not really used here
+# ekn: ? not really? how do we use collection then? 
 
 ro_col:Idealisatie_1 a skos:Collection ;
   rdfs:label "Idealisatie_1"@nl ;

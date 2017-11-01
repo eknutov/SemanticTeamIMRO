@@ -5,7 +5,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix schema: <http://schema.org/> .
 @prefix ogc: <http://www.opengis.net/ont/geosparql#> .
-@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
+@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .    # ekn: pdok_pdok ? what is the origin of this?
 @prefix gml: <http://www.opengis.net/ont/gml#> .
 @prefix nen3610_str: <http://data.informatiehuisruimte.nl/def/nen3610/> .
 @prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
@@ -19,6 +19,14 @@
 
 #not really used..
 
+#################################################################
+ro_str:inwinningsschaal a sh:PropertyShape ;   #NodeShape
+  sh:path ro:inwinningsschaal ;
+  sh:maxCount 1 ;
+  sh:datatype xsd:string ;
+.
+
+#################################################################
 ro_str:Idealisatie_1
   rdf:type sh:NodeShape ;
   sh:in (
@@ -34,7 +42,7 @@ ro_str:Idealisatie_2 rdf:type sh:NodeShape ;
 .
 
 ro_str:Idealisatie_3 rdf:type sh:NodeShape ;
-  sh:in (
+  sh:in (                       # ekn: allowed list of values
     ro_beg:exact                # perhaps skos:concepts suit better.
     ro_beg:indicatief
     ro_beg:cartografischFiguur

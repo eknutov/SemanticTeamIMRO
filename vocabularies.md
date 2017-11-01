@@ -25,7 +25,7 @@ general list:
 
 specialized:
 * **NEN3610** [URI](http://data.informatiehuisruimte.nl/def/nen3610#)
-* **PDOK_PDOK** [URI](http://data.pdok.nl/def/pdok#)
+* **PDOK** [URI](http://data.pdok.nl/def/pdok#)
 * **RO** [URI](http://data.informatiehuisruimte.nl/def/ro#)
 * **RO_BEG** [URI](http://data.informatiehuisruimte.nl/ro/id/begrip/)
 * **RO_NEN3610_BEG** [URI](http://data.informatiehuisruimte.nl/nen3610/id/begrip/)

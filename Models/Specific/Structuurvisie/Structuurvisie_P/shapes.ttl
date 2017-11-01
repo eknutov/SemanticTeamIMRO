@@ -146,9 +146,9 @@ ro_str:Structuurvisiegebied_P_isPartOf rdf:type sh:PropertyShape ;
   sh:class ro:Structuurvisieplangebied_P ;
 .
 
-ro_str:Structuurvisiegebied_P_begrenzing rdf:type sh:PropertyShape ;
+ro_str:Structuurvisiegebied_P_begrenzing rdf:type sh:PropertyShape ;  # ekn: similarity in definition, see Structuurvisie/shapes.ttl
   sh:path ro:begrenzing ;
-#  sh:class ro:Geometrie ;
+#  sh:class ro:Geometrie ;          # ekn ro:geometrie - oblectproperty ?
   sh:minCount 1 ;
 #  sh:node ro_str:Structuurvisiegebied_Geometrie ;
   sh:node ro_str:Structuurvisiegebied_P_Geometrie ;

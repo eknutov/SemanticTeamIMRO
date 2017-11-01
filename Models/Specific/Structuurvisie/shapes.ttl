@@ -167,7 +167,9 @@ ro_str:Structuurvisiegebied_cartografie a sh:PropertyShape ; #perhaps applicable
 
 ro_str:Structuurvisiegebied_begrenzing rdf:type sh:PropertyShape ;
   sh:path ro:begrenzing ;
-  sh:class ro:Geometrie ; #no cardinality
+  sh:class ro:Geometrie ; #no cardinality             # ekn: using ro:geometrie ? (LCASE)
+                                                      # only one place using Geometry class and not sh:path to geometry property
+                                                      # ekn: see Structuurvisiegebied_P_begrenzing (../Struktuurvisie_P)
   sh:node ro_str:Structuurvisiegebied_Geometrie ;
 .
 
@@ -185,10 +187,11 @@ ro_str:Structuurvisiegebied_Geometrie_geometrie rdf:type sh:PropertyShape ;
 .
 
 ro_str:Structuurvisiegebied_Geometrie_idealisatie rdf:type sh:PropertyShape ;
-  sh:path ro:idealisatie ;
+  sh:path ro:idealisatie ;              # ekn: why ro:idealisatie shape can't have the node thus specify the value nodes
   sh:minCount 1 ;
   sh:maxCount 1 ;
-  sh:node ro_str:Idealisatie_3 ;
+  sh:node ro_str:Idealisatie_3 ;        # all values of ... idealisatie... must have this shape
+                                        # ekn: all values, requirement ? why not use sh:in here directly ?
 .
 
 ro_str:Structuurvisiegebied_isPartOf a sh:PropertyShape ; #the specialisation specify a sh:class constraint.

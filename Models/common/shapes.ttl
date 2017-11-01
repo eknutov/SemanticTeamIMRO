@@ -13,14 +13,15 @@
 @prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 
-ro_str:RuimtelijkInstrument a sh:Nodeshape ;
+ro_str:RuimtelijkInstrument a sh:Nodeshape ;        # ekn:  using a to define type?
   sh:targetClass ro:RuimtelijkInstrument ;
   sh:property
     ro_str:RuimtelijkInstrument_planstatus ;
 .
 
-ro_str:naam rdf:type sh:PropertyShape ; #TODO: ScopedName
+ro_str:naam a sh:PropertyShape ; #TODO: ScopedName   # ekn: was using rdf:type to define the type?
   sh:path ro:naam ;
+  sh:predicate rdfs:label ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
   sh:datatype xsd:string ;

@@ -22,14 +22,14 @@
 @prefix schema: <http://schema.org/> .
 
 
-ro:Geometrie
+ro:Geometrie                            # geosparql:Geometry 	MultiSurface, Point, Surface
   rdf:type owl:Class ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "Geometrie"@nl ;
 .
 
 ro:geometrie                            # PuntLijnVlakMulti
-  rdf:type owl:ObjectProperty ;
+  rdf:type owl:ObjectProperty ;         # ekn: using rdf:Property ?
   rdfs:isDefinedBy :ro ;
   rdfs:label "geometrie"@nl ;
 .
@@ -47,7 +47,7 @@ ro:begrenzing                           # [0..*]
 .
 
 ro:inwinningsschaal                     # interger [0..1]
-  rdf:type owl:DatatypeProperty ;
-  rdfs:isDefinedBy :ro ;
+  rdf:type owl:DatatypeProperty ;       # ekn: only used in shape for Structuurvisiegebied_P_Geometrie_inwinningsschaal
+  rdfs:isDefinedBy :ro ;                # ekn: why not define the shape for the inwinningsschaal ? at least type?
   rdfs:label "inwinningsschaal"@nl ;
 .

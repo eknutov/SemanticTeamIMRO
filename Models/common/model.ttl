@@ -1,5 +1,5 @@
 @prefix : <http://data.informatiehuisruimte.nl/def/> .
-@prefix c4o: <http://purl.org/spar/biro/> .
+@prefix biro: <http://purl.org/spar/biro/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix doco: <http://purl.org/spar/doco/> .
@@ -16,24 +16,32 @@
 @prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
 @prefix ro_nen3610_beg: <http://data.informatiehuisruimte.nl/nen3610/id/begrip/> .
 @prefix ro_sym: <http://data.informatiehuisruimte.nl/ro/id/symbool/> .
-@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
+#@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .   # ekn: we are not using sparql service anywhere, how did this appear? purpose?
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
 
+
+#################################################################
+#    :RO ontology (Ruimtelijke Ordening)
+#################################################################
 :ro
   rdf:type owl:Ontology ;
   dc:description "TODO"@nl ;
   dc:title "Ruimtelijke Ordening vocabulaire"@nl ;
   rdfs:label "Ruimtelijke Ordening vocabulaire"@nl ;
-  owl:imports <http://datashapes.org/dash> ;
+  owl:imports <http://datashapes.org/dash> ;            # ekn: purpose to import DASH/SHACL vocabulary here? it includes shacl ...
+  owl:imports sh: ;
 #  sh:shapesGraph :ro_str #<- TODO
 .
 
-ro:RuimtelijkPlanOfBesluit
-  rdf:type owl:Class ;
-  rdfs:isdefinedBy :ro ;
-  rdfs:label "RuimtelijkPlanOfBesluit"@nl ;
-.
+#################################################################
+# removed
+#ro:RuimtelijkPlanOfBesluit
+#  rdf:type owl:Class ;
+#  rdfs:isdefinedBy :ro ;
+#  rdfs:label "RuimtelijkPlanOfBesluit"@nl ;
+#.
 
 #TODO: use this class to replace ro:Planobject. It's currently used for the attribute '+typePlanobject: RuimtelijkPlanobject', this has to be resolved.
 ro:RuimtelijkPlanobject
@@ -42,12 +50,14 @@ ro:RuimtelijkPlanobject
   rdfs:subClassOf owl:Thing ;
 .
 
-ro:Structuurvisie
-  rdf:type owl:Class ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:label "Structuurvisie"@nl ;
-  rdfs:subClassOf ro:RuimtelijkPlanOfBesluit ;
-.
+#################################################################
+# moved to ../Struktuurvisie/model.ttl
+#ro:Structuurvisie
+#  rdf:type owl:Class ;
+#  rdfs:isDefinedBy :ro ;
+#  rdfs:label "Structuurvisie"@nl ;
+#  rdfs:subClassOf ro:RuimtelijkPlanOfBesluit ;
+#.
 
 ro:locatieNaam
   rdf:type owl:AnnotationProperty ;
@@ -55,10 +65,12 @@ ro:locatieNaam
   rdfs:label "locatie naam"@nl ;
 .
 
-ro:naam
-  rdf:type owl:AnnotationProperty ;
-  rdfs:isDefinedBy :ro ;
+ro:naam                                 # ekn: ??? name of the name? why not use the name as rdfs:label for each resource where name is required?
+  rdf:type owl:AnnotationProperty ;     # ekn: OWL annotation properties: owl:versionInfo, rdfs:label, rdfs:comment, rdfs:seeAlso, rdfs:isDefinedBy
+                                        # ekn: type -> rdf:Property
+  rdfs:isDefinedBy :ro ;                # ekn: why not foaf:name ?
   rdfs:label "naam"@nl ;
+  rdfs:comment "algemeen naam"@nl ;
 .
 
 #ro:plangebied

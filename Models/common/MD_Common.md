@@ -102,7 +102,7 @@ shapes:
 classes:
 
 - :ro
-- ro:RuimtelijkplanOfBesluit
+<!-- ro:RuimtelijkplanOfBesluit ekn: removed from the model -->  
 - ro:Structuurvisie
 - ro:Ondergrond
 - ro:Instrument
