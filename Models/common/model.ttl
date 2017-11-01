@@ -29,26 +29,6 @@
 #  sh:shapesGraph :ro_str #<- TODO
 .
 
-ro:RuimtelijkPlanOfBesluit
-  rdf:type owl:Class ;
-  rdfs:isdefinedBy :ro ;
-  rdfs:label "RuimtelijkPlanOfBesluit"@nl ;
-.
-
-#TODO: use this class to replace ro:Planobject. It's currently used for the attribute '+typePlanobject: RuimtelijkPlanobject', this has to be resolved.
-ro:RuimtelijkPlanobject
-  rdf:type owl:Class ;
-  rdfs:label "Ruimtelijk planobject"@nl ;
-  rdfs:subClassOf owl:Thing ;
-.
-
-ro:Structuurvisie
-  rdf:type owl:Class ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:label "Structuurvisie"@nl ;
-  rdfs:subClassOf ro:RuimtelijkPlanOfBesluit ;
-.
-
 ro:locatieNaam
   rdf:type owl:AnnotationProperty ;
   rdfs:isDefinedBy :ro ;
@@ -68,38 +48,17 @@ ro:naam
 #  rdfs:range nen3610:Plangebied ;
 #.
 
-ro:planobject
-  rdf:type owl:ObjectProperty ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:label "planobject"@nl ;
-  rdfs:range nen3610:Planobject ;
-.
-
-ro:RuimtelijkInstrument
-  rdf:type owl:Class ;
-  dcterms:subject ro_beg:RuimtelijkInstrument ;
-  rdfs:label "Ruimtelijk Instrument"@nl ;
-  rdfs:isDefinedBy ro: ;
-.
-
- ro:RuimtelijkInstrument
-   rdf:type owl:Class ;
-   dcterms:subject ro_beg:RuimtelijkInstrument ;
-   rdfs:label "Ruimtelijk Instrument"@nl ;
-   rdfs:isDefinedBy ro: ;
-  .
-
+# ro:planobject
+#   rdf:type owl:ObjectProperty ;
+#   rdfs:isDefinedBy :ro ;
+#   rdfs:label "planobject"@nl ;
+#   rdfs:range nen3610:Planobject ;
+# .
 
 ro:thema
   rdf:type owl:DatatypeProperty ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "thema"@nl ;
-.
-
-ro:typePlan
-  rdf:type owl:ObjectProperty ;
-  dcterms:subject ro_beg:typePlan ;
-  rdfs:label "typePlan"@nl ;
 .
 
 ro:Ondergrond
@@ -110,18 +69,17 @@ ro:Ondergrond
 
 ro:ondergrond
   rdf:type owl:ObjectProperty ;
-  rdfs:domain nen3610:Plangebied ;
+  rdfs:domain ro:Plan ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "ondergrond"@nl ;
   rdfs:range ro:Ondergrond ;
 .
 
-ro:ondergrondtype
-  rdf:type owl:ObjectProperty ;
+ro:ondergronddatum
+  rdf:type owl:DatatypeProperty ;
   rdfs:domain ro:Ondergrond ;
   rdfs:isDefinedBy :ro ;
-  rdfs:label "ondergrondtype"@nl ;
-  #TODO should probably be a class/subclass structure.
+  rdfs:label "ondergronddatum"@nl ;
 .
 
 ro:beleid
@@ -150,11 +108,6 @@ ro:Instrument
   rdf:type owl:Class ;
   rdfs:label "Instrument"@nl ;
   rdfs:subClassOf owl:Thing ;
-.
-ro:instrument
-  rdf:type owl:ObjectProperty ;
-  rdfs:label "instrument"@nl ;
-  rdfs:isDefinedBy :ro ;
 .
 
 ro:instrument

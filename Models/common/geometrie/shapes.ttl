@@ -20,23 +20,23 @@
 #not really used..
 
 ro_str:Idealisatie_1 rdf:type sh:NodeShape ;
- sh:in (
-  ro_beg:exact # perhaps skos:concepts suit better.
+  sh:in (
+    ro_beg:exact
   )
 .
 
 ro_str:Idealisatie_2 rdf:type sh:NodeShape ;
- sh:in (
-  ro_beg:exact # perhaps skos:concepts suit better.
-  ro:indicatief
+  sh:in (
+    ro_beg:exact
+    ro_beg:indicatief
   )
 .
 
 ro_str:Idealisatie_3 rdf:type sh:NodeShape ;
- sh:in (
-  ro_beg:exact # perhaps skos:concepts suit better.
-  ro_beg:indicatief
-  ro_beg:cartografischFiguur
+  sh:in (
+    ro_beg:exact
+    ro_beg:indicatief
+    ro_beg:cartografischFiguur
   )
 .
 
@@ -59,7 +59,7 @@ ro_str:VlakMultiVlak a sh:NodeShape ;
   )
 .
 
-ro_str:PuntLijnVlak a sh:NodeShape ;
+ro_str:PuntLijnVlakMulti a sh:NodeShape ;
   sh:xone (
     ro_str:Point
     ro_str:Curve
