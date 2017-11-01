@@ -14,7 +14,7 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 
 ro_str:RuimtelijkInstrument_planstatus rdf:type sh:PropertyShape ; #common
-  sh:path ro:planstatus ;
+  sh:path ro:planstatus ;             # ekn: planstatus is not defined anywhere
   sh:class ro:Planstatus ; #in order to avoid a blank node
   sh:minCount 1 ;
   sh:maxCount 1 ;

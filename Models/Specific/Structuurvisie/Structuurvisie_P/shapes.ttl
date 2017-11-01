@@ -151,7 +151,7 @@ ro_str:Structuurvisiegebied_P_begrenzing rdf:type sh:PropertyShape ;  # ekn: sim
 #  sh:class ro:Geometrie ;          # ekn ro:geometrie - oblectproperty ?
   sh:minCount 1 ;
 #  sh:node ro_str:Structuurvisiegebied_Geometrie ;
-  sh:node ro_str:Structuurvisiegebied_P_Geometrie ;
+  sh:node ro_str:Structuurvisiegebied_P_Geometrie ;     # ekn : tone property od one property - of one property
 .
 
 #partially defined by ro_str:Structuurvisiegebied.

@@ -167,7 +167,7 @@ ro_str:PT_Begrippen a sh:NodeShape ;    # ekn:
     ro_str:PT_Begrippen_ouder ;         # ekn: only this place where it is used
 .
 
-ro_str:PT_Begrippen_ouder a sh:PropertyShape ;  # ekn: 
+ro_str:PT_Begrippen_ouder a sh:PropertyShape ;  # ekn:
   sh:path ro:ouder ;
   sh:class ro:InleidendeRegels ;
   sh:maxCount 1 ;

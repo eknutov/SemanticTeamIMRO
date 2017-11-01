@@ -1234,7 +1234,7 @@ ro_beg:Structuurvisiecomplex_G a skos:Concept ;
 #################################################################
 
 #collections are not really used here
-# ekn: ? not really? how do we use collection then? 
+# ekn: ? not really? how do we use collection then?
 
 ro_col:Idealisatie_1 a skos:Collection ;
   rdfs:label "Idealisatie_1"@nl ;

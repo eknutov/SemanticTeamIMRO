@@ -94,12 +94,12 @@ ro:RuimtelijkInstrument
   rdfs:isDefinedBy ro: ;
 .
 
- ro:RuimtelijkInstrument
-   rdf:type owl:Class ;
-   dcterms:subject ro_beg:RuimtelijkInstrument ;
-   rdfs:label "Ruimtelijk Instrument"@nl ;
-   rdfs:isDefinedBy ro: ;
-  .
+# ro:RuimtelijkInstrument
+#   rdf:type owl:Class ;
+#   dcterms:subject ro_beg:RuimtelijkInstrument ;
+#   rdfs:label "Ruimtelijk Instrument"@nl ;
+#   rdfs:isDefinedBy ro: ;
+#  .
 
 
 ro:thema
@@ -108,11 +108,11 @@ ro:thema
   rdfs:label "thema"@nl ;
 .
 
-ro:typePlan
-  rdf:type owl:ObjectProperty ;
-  dcterms:subject ro_beg:typePlan ;
-  rdfs:label "typePlan"@nl ;
-.
+#ro:typePlan
+#  rdf:type owl:ObjectProperty ;
+#  dcterms:subject ro_beg:typePlan ;
+#  rdfs:label "typePlan"@nl ;
+#.
 
 ro:Ondergrond
   rdf:type owl:Class ;
@@ -163,7 +163,7 @@ ro:Instrument
   rdfs:label "Instrument"@nl ;
   rdfs:subClassOf owl:Thing ;
 .
-ro:instrument
+ro:instrument                       # ekn: why is here the double definition ? Pano has deleted this and comments
   rdf:type owl:ObjectProperty ;
   rdfs:label "instrument"@nl ;
   rdfs:isDefinedBy :ro ;
