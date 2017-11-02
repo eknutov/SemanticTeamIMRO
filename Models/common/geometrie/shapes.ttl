@@ -3,9 +3,8 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix schema: <http://schema.org/> .
 @prefix ogc: <http://www.opengis.net/ont/geosparql#> .
-@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .    # ekn: pdok_pdok ? what is the origin of this?
+@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
 @prefix gml: <http://www.opengis.net/ont/gml#> .
 @prefix nen3610_str: <http://data.informatiehuisruimte.nl/def/nen3610/> .
 @prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
@@ -18,49 +17,24 @@
 
 # include a shape for geometrie?  all is now in the specific shapes. Can probably extract some common parts.
 
-#not really used..
-
-<<<<<<< HEAD
-#################################################################
-ro_str:inwinningsschaal a sh:PropertyShape ;   #NodeShape
-  sh:path ro:inwinningsschaal ;
-  sh:maxCount 1 ;
-  sh:datatype xsd:string ;
-.
 
 #################################################################
-ro_str:Idealisatie_1
-  rdf:type sh:NodeShape ;
-  sh:in (
-    ro_beg:exact    # perhaps skos:concepts suit better.
-=======
-ro_str:Idealisatie_1 rdf:type sh:NodeShape ;
+ro_str:Idealisatie_1 rdf:type sh:NodeShape ;      # ekn: no reference to Idealisatie_1 (need to define relationship)
   sh:in (
     ro_beg:exact
->>>>>>> dc4ca4fbc4a62db9a5a95ed50b23c0b959df5cbb
   )
 .
 
-ro_str:Idealisatie_2 rdf:type sh:NodeShape ;
+ro_str:Idealisatie_2 rdf:type sh:NodeShape ;      # ekn: no reference to Idealisatie_2
   sh:in (
-<<<<<<< HEAD
-    ro_beg:exact              # perhaps skos:concepts suit better.
-    ro:indicatief
-=======
     ro_beg:exact
     ro_beg:indicatief
->>>>>>> dc4ca4fbc4a62db9a5a95ed50b23c0b959df5cbb
   )
 .
 
 ro_str:Idealisatie_3 rdf:type sh:NodeShape ;
-<<<<<<< HEAD
-  sh:in (                       # ekn: allowed list of values
-    ro_beg:exact                # perhaps skos:concepts suit better.
-=======
   sh:in (
     ro_beg:exact
->>>>>>> dc4ca4fbc4a62db9a5a95ed50b23c0b959df5cbb
     ro_beg:indicatief
     ro_beg:cartografischFiguur
   )

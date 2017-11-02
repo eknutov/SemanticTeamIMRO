@@ -15,7 +15,7 @@ Main model constructs used designing the model are listed here for the reference
 - [rdfs:label](https://www.w3.org/TR/rdf-schema/#ch_label)
 - [rdfs:subClassOf](https://www.w3.org/TR/rdf-schema/#ch_subclassof)
 - [rdfs:subPropertyOf](https://www.w3.org/TR/rdf-schema/#ch_subpropertyof)
-- [rdfs:isDefinedBy](https://www.w3.org/TR/rdf-schema/#ch_isdefinedby)
+- [rdfs:isDefinedBy](https://www.w3.org/TR/rdf-schema/#h_isdefinedby)
 
 ### RDF:
 - [rdf:type](https://www.w3.org/TR/2004/REC-rdf-schema-20040210/#ch_type)
