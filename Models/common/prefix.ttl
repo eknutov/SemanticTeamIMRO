@@ -18,7 +18,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 
-# prefixes specific to Infromatiehuis Ruimte
+# prefixes specific to Informatiehuis Ruimte
 @prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
 @prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
 @prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
