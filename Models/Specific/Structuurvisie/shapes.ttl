@@ -111,10 +111,10 @@ ro_str:Structuurvisie_Plangebied a sh:NodeShape ;
 .
 
 ro_str:Structuurvisie_Plangebied_geometrie a sh:PropertyShape ;
-  sh:path ro:geometrie ;
+  #sh:path ro:geometrie ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
-  sh:node ro_str:VlakMultiVlak ;
+  sh:path ro_str:VlakMultiVlak ;
 .
 
 ro_str:Structuurvisie_Plangebied_idealisatie a sh:PropertyShape ;
@@ -167,7 +167,7 @@ ro_str:Structuurvisiegebied_cartografie a sh:PropertyShape ; #perhaps applicable
 
 ro_str:Structuurvisiegebied_begrenzing rdf:type sh:PropertyShape ;
   sh:path ro:begrenzing ;
-  sh:class ro:Geometrie ; #no cardinality             # ekn: using ro:geometrie ? (LCASE)
+  sh:class ogc:Geometrie ; #no cardinality             # ekn: using ro:geometrie ? (LCASE)
                                                       # only one place using Geometry class and not sh:path to geometry property
                                                       # ekn: see Structuurvisiegebied_P_begrenzing (../Struktuurvisie_P)
   sh:node ro_str:Structuurvisiegebied_Geometrie ;
