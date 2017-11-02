@@ -11,6 +11,7 @@
 @prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
 @prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
 @prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
+@prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
 @prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 
@@ -19,6 +20,7 @@
 
 #not really used..
 
+<<<<<<< HEAD
 #################################################################
 ro_str:inwinningsschaal a sh:PropertyShape ;   #NodeShape
   sh:path ro:inwinningsschaal ;
@@ -31,19 +33,34 @@ ro_str:Idealisatie_1
   rdf:type sh:NodeShape ;
   sh:in (
     ro_beg:exact    # perhaps skos:concepts suit better.
+=======
+ro_str:Idealisatie_1 rdf:type sh:NodeShape ;
+  sh:in (
+    ro_beg:exact
+>>>>>>> dc4ca4fbc4a62db9a5a95ed50b23c0b959df5cbb
   )
 .
 
 ro_str:Idealisatie_2 rdf:type sh:NodeShape ;
   sh:in (
+<<<<<<< HEAD
     ro_beg:exact              # perhaps skos:concepts suit better.
     ro:indicatief
+=======
+    ro_beg:exact
+    ro_beg:indicatief
+>>>>>>> dc4ca4fbc4a62db9a5a95ed50b23c0b959df5cbb
   )
 .
 
 ro_str:Idealisatie_3 rdf:type sh:NodeShape ;
+<<<<<<< HEAD
   sh:in (                       # ekn: allowed list of values
     ro_beg:exact                # perhaps skos:concepts suit better.
+=======
+  sh:in (
+    ro_beg:exact
+>>>>>>> dc4ca4fbc4a62db9a5a95ed50b23c0b959df5cbb
     ro_beg:indicatief
     ro_beg:cartografischFiguur
   )
@@ -68,7 +85,7 @@ ro_str:VlakMultiVlak a sh:NodeShape ;
   )
 .
 
-ro_str:PuntLijnVlak a sh:NodeShape ;
+ro_str:PuntLijnVlakMulti a sh:NodeShape ;
   sh:xone (
     ro_str:Point
     ro_str:Curve

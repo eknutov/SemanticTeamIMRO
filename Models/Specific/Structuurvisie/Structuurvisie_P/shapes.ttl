@@ -94,7 +94,11 @@ ro_str:BeleidInfo_PSV rdf:type sh:NodeShape ; #treated as a blank node
   sh:property
     ro_str:BeleidInfo_PSV_belang ,
     ro_str:BeleidInfo_PSV_rol ,
+<<<<<<< HEAD
     ro_str:BeleidInfo_PSV_instrument
+=======
+    ro_str:BeleidInfo_PSV_instrument ;
+>>>>>>> dc4ca4fbc4a62db9a5a95ed50b23c0b959df5cbb
 .
 
 ro_str:BeleidInfo_PSV_belang rdf:type sh:PropertyShape ;
@@ -211,10 +215,11 @@ ro_str:Structuurvisieverklaring_P rdf:type sh:NodeShape ;
 ro_str:Structuurvisieverklaring_P_tekstVerwijzing a sh:PropertyShape ;
   sh:path ro:tekst ;
   sh:node ro_str:TeksttypeP_PSV ;
+.
 
 ro_str:TeksttypeP_PSV rdf:type sh:NodeShape ;
   sh:property [
-    sh:path rdf:type
+    sh:path rdf:type ;
     sh:in (
       ro:Toelichting
     )

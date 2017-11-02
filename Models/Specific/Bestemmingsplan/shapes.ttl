@@ -169,7 +169,7 @@ ro_str:Bestemmingsplan_spatial a sh:PropertyShape ;
   sh:class ro:Plangebied ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
-  sh:node ro_str:Bestemmingsplan_spatial_geometrie , # <- extra constraints for plangebied specific for bestemmingsplan.
+  sh:node ro_str:Bestemmingsplan_spatial_geometrie ; # <- extra constraints for plangebied specific for bestemmingsplan.
 .
 
 ro_str:Bestemmingsplan_spatial_geometrie a sh:PropertyShape ;
@@ -360,6 +360,7 @@ ro_str:Aanduiding_isPartOf a sh:PropertyShape ;
         sh:hasValue ro:Bestemmingsvlak ;
       ]
     ]
+  )
 .
 
 

@@ -21,33 +21,53 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix schema: <http://schema.org/> .
 
+<<<<<<< HEAD
 
 ro:Geometrie                            # geosparql:Geometry 	MultiSurface, Point, Surface
+=======
+ro:Geometrie
+>>>>>>> dc4ca4fbc4a62db9a5a95ed50b23c0b959df5cbb
   rdf:type owl:Class ;
+  rdfs:subClassOf ogc:Geometry ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "Geometrie"@nl ;
 .
 
+<<<<<<< HEAD
 ro:geometrie                            # PuntLijnVlakMulti
   rdf:type owl:ObjectProperty ;         # ekn: using rdf:Property ?
+=======
+ro:geometrie
+  rdf:type owl:ObjectProperty ;
+  rdfs:subPropertyOf ogc:hasGeometry ;
+>>>>>>> dc4ca4fbc4a62db9a5a95ed50b23c0b959df5cbb
   rdfs:isDefinedBy :ro ;
   rdfs:label "geometrie"@nl ;
 .
 
 ro:idealisatie                          # Idealisatie_1, Idealisatie_2, Idealisatie_3
   rdf:type owl:ObjectProperty ;
+  rdfs:domain ro:Geometrie ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "idealisatie"@nl ;
 .
 
 ro:begrenzing                           # [0..*]
   rdf:type owl:ObjectProperty ;
+  rdfs:subPropertyOf ogc:hasGeometry ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "begrenzing"@nl ;
 .
 
+<<<<<<< HEAD
 ro:inwinningsschaal                     # interger [0..1]
   rdf:type owl:DatatypeProperty ;       # ekn: only used in shape for Structuurvisiegebied_P_Geometrie_inwinningsschaal
   rdfs:isDefinedBy :ro ;                # ekn: why not define the shape for the inwinningsschaal ? at least type?
+=======
+ro:inwinningsschaal
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain ro:Geometrie ;
+  rdfs:isDefinedBy :ro ;
+>>>>>>> dc4ca4fbc4a62db9a5a95ed50b23c0b959df5cbb
   rdfs:label "inwinningsschaal"@nl ;
 .

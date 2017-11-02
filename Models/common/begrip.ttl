@@ -6,6 +6,7 @@
 @prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
 @prefix ro_begkr: <http://data.informatiehuisruimte.nl/id/begrippenkader/> .
 @prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
+@prefix ro_nen3610_beg: <http://data.informatiehuisruimte.nl/nen3610/id/begrip/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix skos-thes: <http://www.w3.org/2004/02/skos/extensions#> . #TODO: replace with working URI
 
@@ -1273,7 +1274,7 @@ ro_beg:exact a skos:Concept ;
   skos:prefLabel "exact"@nl ;
   skos:inScheme ro_begkr:ro ;
   skos:notation "exact" ;
-  skoss-thes:broaderGeneric ro_beg:Idealisatie ;
+  skos-thes:broaderGeneric ro_beg:Idealisatie ;
 .
 
 ro_beg:indicatief a skos:Concept ;
@@ -1281,7 +1282,7 @@ ro_beg:indicatief a skos:Concept ;
   skos:prefLabel "indicatief"@nl ;
   skos:inScheme ro_begkr:ro ;
   skos:notation "indicatief" ;
-  skoss-thes:broaderGeneric ro_beg:Idealisatie ;
+  skos-thes:broaderGeneric ro_beg:Idealisatie ;
 .
 
 ro_beg:cartografischFiguur a skos:Concept ;
@@ -1289,7 +1290,7 @@ ro_beg:cartografischFiguur a skos:Concept ;
   skos:prefLabel "Cartografisch Figuur"@nl ;
   skos:inScheme ro_begkr:ro ;
   skos:notation "cartografisch figuur" ;
-  skoss-thes:broaderGeneric ro_beg:Idealisatie ;
+  skos-thes:broaderGeneric ro_beg:Idealisatie ;
 .
 
 

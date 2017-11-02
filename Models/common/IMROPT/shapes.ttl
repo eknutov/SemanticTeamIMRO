@@ -1,3 +1,7 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
+@prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
+@prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
 
 #################################################################
 #    Tekstobject
