@@ -1,0 +1,163 @@
+<http://data.informatiehuisruimte.nl/def/ro#Instrumentgebied> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://data.informatiehuisruimte.nl/def/nen3610#PlanologischGebied> .
+<http://data.informatiehuisruimte.nl/def/ro#Instrumentgebied> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.opengis.net/ont/geosparql#Feature> .
+<http://data.informatiehuisruimte.nl/def/ro#Instrumentgebied> <http://www.w3.org/2000/01/rdf-schema#label> "instrumentgebied"@nl .
+<http://data.informatiehuisruimte.nl/def/ro#Instrumentgebied> <http://www.w3.org/2000/01/rdf-schema#label> "plangebied"@nl .
+<http://data.informatiehuisruimte.nl/def/ro#Instrumentgebied> <http://www.w3.org/2000/01/rdf-schema#label> "gebied"@nl .
+<http://data.informatiehuisruimte.nl/def/ro#Instrumentgebied> <http://www.w3.org/2000/01/rdf-schema#comment> "Het gebied waarop een omgevingsinstrument betrekking heeft."@nl .
+<http://data.informatiehuisruimte.nl/def/ro#Instrumentgebied> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://data.informatiehuisruimte.nl/def/ro#> .
+<http://data.informatiehuisruimte.nl/def/ro#Instrumentdeelgebied> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://data.informatiehuisruimte.nl/def/nen3610#PlanologischGebied> .
+<http://data.informatiehuisruimte.nl/def/ro#Instrumentdeelgebied> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.opengis.net/ont/geosparql#Feature> .
+<http://data.informatiehuisruimte.nl/def/ro#Instrumentdeelgebied> <http://www.w3.org/2000/01/rdf-schema#label> "instrumentdeelgebied"@nl .
+<http://data.informatiehuisruimte.nl/def/ro#Instrumentdeelgebied> <http://www.w3.org/2000/01/rdf-schema#comment> "Een gebied binnen een met een omgevingsinstrument geassocieerd gebied."@nl .
+<http://data.informatiehuisruimte.nl/def/ro#Instrumentdeelgebied> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://data.informatiehuisruimte.nl/def/ro#> .
+<http://data.informatiehuisruimte.nl/def/ro#Instrumentobject> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://data.informatiehuisruimte.nl/def/nen3610#PlanologischGebied> .
+<http://data.informatiehuisruimte.nl/def/ro#Instrumentobject> <http://www.w3.org/2000/01/rdf-schema#label> "instrumentobject"@nl .
+<http://data.informatiehuisruimte.nl/def/ro#Instrumentobject> <http://www.w3.org/2000/01/rdf-schema#comment> "Ruimtelijk object in een instrumentgebied."@nl .
+<http://data.informatiehuisruimte.nl/def/ro#Instrumentobject> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://data.informatiehuisruimte.nl/def/ro#> .
+<http://data.informatiehuisruimte.nl/def/ro#Omgevingsinstrument> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://data.informatiehuisruimte.nl/def/ro#Omgevingsinstrument> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://data.informatiehuisruimte.nl/def/ro#Omgevingsinstrument> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://rdfs.org/ns/void#Dataset> .
+<http://data.informatiehuisruimte.nl/def/ro#Omgevingsinstrument> <http://www.w3.org/2000/01/rdf-schema#label> "Omgevingsinstrument"@nl .
+<http://data.informatiehuisruimte.nl/def/ro#Omgevingsinstrument> <http://www.w3.org/2000/01/rdf-schema#label> "ruimtelijk instrument"@nl .
+<http://data.informatiehuisruimte.nl/def/ro#Omgevingsinstrument> <http://www.w3.org/2000/01/rdf-schema#comment> "Een ruimtelijk instrument of omgevingsinstrument is een middel om beleid op het gebied van ruimtelijke ordening vast te stellen. Voorbeelden van dit soort instrumenten zijn plannen, visies en besluiten."@nl .
+<http://data.informatiehuisruimte.nl/def/ro#Omgevingsinstrument> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://data.informatiehuisruimte.nl/def/ro#> .
+<http://data.informatiehuisruimte.nl/def/ro#Overheid> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://data.informatiehuisruimte.nl/def/ro#Overheid> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://data.informatiehuisruimte.nl/def/ro#Overheid> <http://www.w3.org/2000/01/rdf-schema#label> "overheid"@nl .
+<http://data.informatiehuisruimte.nl/def/ro#Overheid> <http://www.w3.org/2000/01/rdf-schema#comment> "Een overheid is het hoogste bevoegd gezag in een gebied."@nl .
+<http://data.informatiehuisruimte.nl/def/ro#Overheid> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://data.informatiehuisruimte.nl/def/ro#> .
+<http://data.informatiehuisruimte.nl/def/ro#Statustoekenning> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://data.informatiehuisruimte.nl/def/ro#Statustoekenning> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://data.informatiehuisruimte.nl/def/ro#Statustoekenning> <http://www.w3.org/2000/01/rdf-schema#label> "statustoekenning"@nl .
+<http://data.informatiehuisruimte.nl/def/ro#Statustoekenning> <http://www.w3.org/2000/01/rdf-schema#comment> "Toekenning van een status aan een omgevingsinstrument."@nl .
+<http://data.informatiehuisruimte.nl/def/ro#Statustoekenning> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://data.informatiehuisruimte.nl/def/ro#> .
+<http://data.informatiehuisruimte.nl/def/ro#Vaststelling> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://data.informatiehuisruimte.nl/def/ro#Vaststelling> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://data.informatiehuisruimte.nl/def/ro#Vaststelling> <http://www.w3.org/2000/01/rdf-schema#label> "vastelling"@nl .
+<http://data.informatiehuisruimte.nl/def/ro#Vaststelling> <http://www.w3.org/2000/01/rdf-schema#comment> "De vaststellng van het ruimtelijk instrument door de beleidsmatig verantwoordelijke overheid."@nl .
+<http://data.informatiehuisruimte.nl/def/ro#Vaststelling> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://data.informatiehuisruimte.nl/def/ro#> .
+<http://data.informatiehuisruimte.nl/def/ro#Tekst> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://data.informatiehuisruimte.nl/def/ro#Tekst> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://data.informatiehuisruimte.nl/def/ro#Tekst> <http://www.w3.org/2000/01/rdf-schema#label> "tekst"@nl .
+<http://data.informatiehuisruimte.nl/def/ro#Tekst> <http://www.w3.org/2000/01/rdf-schema#comment> "Een aan het omgevingsinstrument gerelateerd tekstdocument of tekstfragment."@nl .
+<http://data.informatiehuisruimte.nl/def/ro#Tekst> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://data.informatiehuisruimte.nl/def/ro#> .
+<http://data.informatiehuisruimte.nl/def/ro#Ondergrond> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://data.informatiehuisruimte.nl/def/ro#Ondergrond> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://data.informatiehuisruimte.nl/def/ro#Ondergrond> <http://www.w3.org/2000/01/rdf-schema#label> "ondergrond"@nl .
+<http://data.informatiehuisruimte.nl/def/ro#Ondergrond> <http://www.w3.org/2000/01/rdf-schema#comment> "Een geografische dataset die als ondergrond voor de geografie van het omgevingsinstrument is gebruikt."@nl .
+<http://data.informatiehuisruimte.nl/def/ro#Ondergrond> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://data.informatiehuisruimte.nl/def/ro#> .
+<http://data.informatiehuisruimte.nl/def/ro#typeInstrument> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data.informatiehuisruimte.nl/def/ro#typeInstrument> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://data.informatiehuisruimte.nl/def/ro#typeInstrument> <http://www.w3.org/2000/01/rdf-schema#label> "type omgevingsinstrument"@nl .
+<http://data.informatiehuisruimte.nl/def/ro#typeInstrument> <http://www.w3.org/2000/01/rdf-schema#comment> "Relatie naar het soort omgevingsinstrument."@nl .
+<http://data.informatiehuisruimte.nl/def/ro#typeInstrument> <http://www.w3.org/2000/01/rdf-schema#domain> <http://data.informatiehuisruimte.nl/def/ro#Omgevingsinstrument> .
+<http://data.informatiehuisruimte.nl/def/ro#typeInstrument> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2004/02/skos/core#Concept> .
+<http://data.informatiehuisruimte.nl/def/ro#typeInstrument> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://data.informatiehuisruimte.nl/def/ro#> .
+<http://data.informatiehuisruimte.nl/def/ro#beleidsmatigVerantwoordelijkeOverheid> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data.informatiehuisruimte.nl/def/ro#beleidsmatigVerantwoordelijkeOverheid> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://data.informatiehuisruimte.nl/def/ro#beleidsmatigVerantwoordelijkeOverheid> <http://www.w3.org/2000/01/rdf-schema#label> "beleidsmatig verantwoordelijke overheid"@nl .
+<http://data.informatiehuisruimte.nl/def/ro#beleidsmatigVerantwoordelijkeOverheid> <http://www.w3.org/2000/01/rdf-schema#comment> "Relatie naar de overheid die beleidsmatig verantwoordelijk is voor het omgevingsinstrument."@nl .
+<http://data.informatiehuisruimte.nl/def/ro#beleidsmatigVerantwoordelijkeOverheid> <http://www.w3.org/2000/01/rdf-schema#domain> <http://data.informatiehuisruimte.nl/def/ro#Omgevingsinstrument> .
+<http://data.informatiehuisruimte.nl/def/ro#beleidsmatigVerantwoordelijkeOverheid> <http://www.w3.org/2000/01/rdf-schema#range> <http://data.informatiehuisruimte.nl/def/ro#Overheid> .
+<http://data.informatiehuisruimte.nl/def/ro#beleidsmatigVerantwoordelijkeOverheid> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://data.informatiehuisruimte.nl/def/ro#> .
+<http://data.informatiehuisruimte.nl/def/ro#beleidsmatigVerantwoordelijkeOverheidsafdeling> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data.informatiehuisruimte.nl/def/ro#beleidsmatigVerantwoordelijkeOverheidsafdeling> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://data.informatiehuisruimte.nl/def/ro#beleidsmatigVerantwoordelijkeOverheidsafdeling> <http://www.w3.org/2000/01/rdf-schema#label> "beleidsmatig verantwoordelijke overheidsafdeling"@nl .
+<http://data.informatiehuisruimte.nl/def/ro#beleidsmatigVerantwoordelijkeOverheidsafdeling> <http://www.w3.org/2000/01/rdf-schema#comment> "Naam van een afdeling van een overheid die beleidsmatig verantwoordelijk is voor het omgevingsinstrument."@nl .
+<http://data.informatiehuisruimte.nl/def/ro#beleidsmatigVerantwoordelijkeOverheidsafdeling> <http://www.w3.org/2000/01/rdf-schema#domain> <http://data.informatiehuisruimte.nl/def/ro#Omgevingsinstrument> .
+<http://data.informatiehuisruimte.nl/def/ro#beleidsmatigVerantwoordelijkeOverheidsafdeling> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://data.informatiehuisruimte.nl/def/ro#beleidsmatigVerantwoordelijkeOverheidsafdeling> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://data.informatiehuisruimte.nl/def/ro#> .
+<http://data.informatiehuisruimte.nl/def/ro#overheidscode> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data.informatiehuisruimte.nl/def/ro#overheidscode> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://data.informatiehuisruimte.nl/def/ro#overheidscode> <http://www.w3.org/2000/01/rdf-schema#domain> <http://data.informatiehuisruimte.nl/def/ro#Overheid> .
+<http://data.informatiehuisruimte.nl/def/ro#overheidscode> <http://www.w3.org/2000/01/rdf-schema#label> "identificatiecode van de overheid"@nl .
+<http://data.informatiehuisruimte.nl/def/ro#overheidscode> <http://www.w3.org/2000/01/rdf-schema#comment> "CBS-code van de beleidsmatig verantwoordelijke overheid."@nl .
+<http://data.informatiehuisruimte.nl/def/ro#overheidscode> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://data.informatiehuisruimte.nl/def/ro#overheidscode> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://data.informatiehuisruimte.nl/def/ro#> .
+<http://data.informatiehuisruimte.nl/def/ro#typeOverheid> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data.informatiehuisruimte.nl/def/ro#typeOverheid> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://data.informatiehuisruimte.nl/def/ro#typeOverheid> <http://www.w3.org/2000/01/rdf-schema#label> "type overheid"@nl .
+<http://data.informatiehuisruimte.nl/def/ro#typeOverheid> <http://www.w3.org/2000/01/rdf-schema#comment> "Het soort overheid."@nl .
+<http://data.informatiehuisruimte.nl/def/ro#typeOverheid> <http://www.w3.org/2000/01/rdf-schema#domain> <http://data.informatiehuisruimte.nl/def/ro#Overheid> .
+<http://data.informatiehuisruimte.nl/def/ro#typeOverheid> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2004/02/skos/core#Concept> .
+<http://data.informatiehuisruimte.nl/def/ro#typeOverheid> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://data.informatiehuisruimte.nl/def/ro#> .
+<http://data.informatiehuisruimte.nl/def/ro#normadressant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data.informatiehuisruimte.nl/def/ro#normadressant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://data.informatiehuisruimte.nl/def/ro#normadressant> <http://www.w3.org/2000/01/rdf-schema#label> "normadressant"@nl .
+<http://data.informatiehuisruimte.nl/def/ro#normadressant> <http://www.w3.org/2000/01/rdf-schema#comment> "Aanduiding van de instantie aan wie het instrument gericht is."@nl .
+<http://data.informatiehuisruimte.nl/def/ro#normadressant> <http://www.w3.org/2000/01/rdf-schema#domain> <http://data.informatiehuisruimte.nl/def/ro#Omgevingsinstrument> .
+<http://data.informatiehuisruimte.nl/def/ro#normadressant> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2004/02/skos/core#Concept> .
+<http://data.informatiehuisruimte.nl/def/ro#normadressant> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://data.informatiehuisruimte.nl/def/ro#> .
+<http://data.informatiehuisruimte.nl/def/ro#status> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data.informatiehuisruimte.nl/def/ro#status> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://data.informatiehuisruimte.nl/def/ro#status> <http://www.w3.org/2000/01/rdf-schema#label> "status"@nl .
+<http://data.informatiehuisruimte.nl/def/ro#status> <http://www.w3.org/2000/01/rdf-schema#comment> "Aanduiding van de ontwikkelingsfase van een omgevingsinstrument."@nl .
+<http://data.informatiehuisruimte.nl/def/ro#status> <http://www.w3.org/2000/01/rdf-schema#domain> <http://data.informatiehuisruimte.nl/def/ro#Statustoekenning> .
+<http://data.informatiehuisruimte.nl/def/ro#status> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2004/02/skos/core#Concept> .
+<http://data.informatiehuisruimte.nl/def/ro#status> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://data.informatiehuisruimte.nl/def/ro#> .
+<http://data.informatiehuisruimte.nl/def/ro#toekenningsdatum> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data.informatiehuisruimte.nl/def/ro#toekenningsdatum> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://data.informatiehuisruimte.nl/def/ro#toekenningsdatum> <http://www.w3.org/2000/01/rdf-schema#label> "toekenningsdatum"@nl .
+<http://data.informatiehuisruimte.nl/def/ro#toekenningsdatum> <http://www.w3.org/2000/01/rdf-schema#comment> "Datum waarop de status is toegekend."@nl .
+<http://data.informatiehuisruimte.nl/def/ro#toekenningsdatum> <http://www.w3.org/2000/01/rdf-schema#domain> <http://data.informatiehuisruimte.nl/def/ro#Statustoekenning> .
+<http://data.informatiehuisruimte.nl/def/ro#toekenningsdatum> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date> .
+<http://data.informatiehuisruimte.nl/def/ro#toekenningsdatum> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://data.informatiehuisruimte.nl/def/ro#> .
+<http://data.informatiehuisruimte.nl/def/ro#vaststellingsbesluitnummer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data.informatiehuisruimte.nl/def/ro#vaststellingsbesluitnummer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://data.informatiehuisruimte.nl/def/ro#vaststellingsbesluitnummer> <http://www.w3.org/2000/01/rdf-schema#label> "vaststellingsbesluitnummer"@nl .
+<http://data.informatiehuisruimte.nl/def/ro#vaststellingsbesluitnummer> <http://www.w3.org/2000/01/rdf-schema#comment> "Nummer van het vaststellingsbesluit van een omgevingsinstrument."@nl .
+<http://data.informatiehuisruimte.nl/def/ro#vaststellingsbesluitnummer> <http://www.w3.org/2000/01/rdf-schema#domain> <http://data.informatiehuisruimte.nl/def/ro#Vaststelling> .
+<http://data.informatiehuisruimte.nl/def/ro#vaststellingsbesluitnummer> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://data.informatiehuisruimte.nl/def/ro#vaststellingsbesluitnummer> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://data.informatiehuisruimte.nl/def/ro#> .
+<http://data.informatiehuisruimte.nl/def/ro#vaststellingsbesluitverwijzing> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data.informatiehuisruimte.nl/def/ro#vaststellingsbesluitverwijzing> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://data.informatiehuisruimte.nl/def/ro#vaststellingsbesluitverwijzing> <http://www.w3.org/2000/01/rdf-schema#label> "vaststellingsbesluitverwijzing"@nl .
+<http://data.informatiehuisruimte.nl/def/ro#vaststellingsbesluitverwijzing> <http://www.w3.org/2000/01/rdf-schema#comment> "Verwijzing naar het vaststellingsbesluit van een omgevingsinstrument."@nl .
+<http://data.informatiehuisruimte.nl/def/ro#vaststellingsbesluitverwijzing> <http://www.w3.org/2000/01/rdf-schema#domain> <http://data.informatiehuisruimte.nl/def/ro#Vaststelling> .
+<http://data.informatiehuisruimte.nl/def/ro#vaststellingsbesluitverwijzing> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://data.informatiehuisruimte.nl/def/ro#> .
+<http://data.informatiehuisruimte.nl/def/ro#gerelateerdeTekst> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data.informatiehuisruimte.nl/def/ro#gerelateerdeTekst> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjecttProperty> .
+<http://data.informatiehuisruimte.nl/def/ro#gerelateerdeTekst> <http://www.w3.org/2000/01/rdf-schema#label> "gerelateerde tekst"@nl .
+<http://data.informatiehuisruimte.nl/def/ro#gerelateerdeTekst> <http://www.w3.org/2000/01/rdf-schema#comment> "Koppeling naar een gerelateerde tekst."@nl .
+<http://data.informatiehuisruimte.nl/def/ro#gerelateerdeTekst> <http://www.w3.org/2000/01/rdf-schema#domain> <http://data.informatiehuisruimte.nl/def/ro#Omgevingsinstrument> .
+<http://data.informatiehuisruimte.nl/def/ro#gerelateerdeTekst> <http://www.w3.org/2000/01/rdf-schema#range> <http://data.informatiehuisruimte.nl/def/ro#Tekst> .
+<http://data.informatiehuisruimte.nl/def/ro#gerelateerdeTekst> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://data.informatiehuisruimte.nl/def/ro#> .
+<http://data.informatiehuisruimte.nl/def/ro#identificatie> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data.informatiehuisruimte.nl/def/ro#identificatie> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://data.informatiehuisruimte.nl/def/ro#identificatie> <http://www.w3.org/2000/01/rdf-schema#label> "identificatie"@nl .
+<http://data.informatiehuisruimte.nl/def/ro#identificatie> <http://www.w3.org/2000/01/rdf-schema#comment> "Identificatie van de tekst."@nl .
+<http://data.informatiehuisruimte.nl/def/ro#identificatie> <http://www.w3.org/2000/01/rdf-schema#domain> <http://data.informatiehuisruimte.nl/def/ro#Tekst> .
+<http://data.informatiehuisruimte.nl/def/ro#identificatie> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://data.informatiehuisruimte.nl/def/ro#identificatie> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://data.informatiehuisruimte.nl/def/ro#> .
+<http://data.informatiehuisruimte.nl/def/ro#teksttype> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data.informatiehuisruimte.nl/def/ro#teksttype> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://data.informatiehuisruimte.nl/def/ro#teksttype> <http://www.w3.org/2000/01/rdf-schema#label> "teksttype"@nl .
+<http://data.informatiehuisruimte.nl/def/ro#teksttype> <http://www.w3.org/2000/01/rdf-schema#comment> "Het soort tekst."@nl .
+<http://data.informatiehuisruimte.nl/def/ro#teksttype> <http://www.w3.org/2000/01/rdf-schema#domain> <http://data.informatiehuisruimte.nl/def/ro#Tekst> .
+<http://data.informatiehuisruimte.nl/def/ro#teksttype> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2004/02/skos/core#Concept> .
+<http://data.informatiehuisruimte.nl/def/ro#teksttype> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://data.informatiehuisruimte.nl/def/ro#> .
+<http://data.informatiehuisruimte.nl/def/ro#ondergrondtype> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data.informatiehuisruimte.nl/def/ro#ondergrondtype> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://data.informatiehuisruimte.nl/def/ro#ondergrondtype> <http://www.w3.org/2000/01/rdf-schema#label> "ondergrondtype"@nl .
+<http://data.informatiehuisruimte.nl/def/ro#ondergrondtype> <http://www.w3.org/2000/01/rdf-schema#comment> "De soort ondergrond die voor het omgevingsinstrument is gebruikt."@nl .
+<http://data.informatiehuisruimte.nl/def/ro#ondergrondtype> <http://www.w3.org/2000/01/rdf-schema#domain> <http://data.informatiehuisruimte.nl/def/ro#Ondergrond> .
+<http://data.informatiehuisruimte.nl/def/ro#ondergrondtype> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2004/02/skos/core#Concept> .
+<http://data.informatiehuisruimte.nl/def/ro#ondergrondtype> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://data.informatiehuisruimte.nl/def/ro#> .
+<http://data.informatiehuisruimte.nl/def/ro#ondergronddatum> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data.informatiehuisruimte.nl/def/ro#ondergronddatum> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://data.informatiehuisruimte.nl/def/ro#ondergronddatum> <http://www.w3.org/2000/01/rdf-schema#label> "ondergronddatum"@nl .
+<http://data.informatiehuisruimte.nl/def/ro#ondergronddatum> <http://www.w3.org/2000/01/rdf-schema#comment> "Datum van de versie van de ondergrond"@nl .
+<http://data.informatiehuisruimte.nl/def/ro#ondergronddatum> <http://www.w3.org/2000/01/rdf-schema#domain> <http://data.informatiehuisruimte.nl/def/ro#Ondergrond> .
+<http://data.informatiehuisruimte.nl/def/ro#ondergronddatum> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date> .
+<http://data.informatiehuisruimte.nl/def/ro#ondergronddatum> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://data.informatiehuisruimte.nl/def/ro#> .
+<http://data.informatiehuisruimte.nl/def/ro#idealisatie> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data.informatiehuisruimte.nl/def/ro#idealisatie> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://data.informatiehuisruimte.nl/def/ro#idealisatie> <http://www.w3.org/2000/01/rdf-schema#label> "idealisatie"@nl .
+<http://data.informatiehuisruimte.nl/def/ro#idealisatie> <http://www.w3.org/2000/01/rdf-schema#comment> "De manier waarop de geometrie opgevat moet worden."@nl .
+<http://data.informatiehuisruimte.nl/def/ro#idealisatie> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.opengis.net/ont/geosparql#Geometry> .
+<http://data.informatiehuisruimte.nl/def/ro#idealisatie> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2004/02/skos/core#Concept> .
+<http://data.informatiehuisruimte.nl/def/ro#idealisatie> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://data.informatiehuisruimte.nl/def/ro#> .
+<http://data.informatiehuisruimte.nl/def/ro#ProvincialeVerordening> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://data.informatiehuisruimte.nl/def/ro#Omgevingsinstrument> .
+<http://data.informatiehuisruimte.nl/def/ro#ProvincialeVerordening> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://data.informatiehuisruimte.nl/def/ro#> .
+<http://data.informatiehuisruimte.nl/def/ro#ProvincialeVerordening> <http://www.w3.org/2000/01/rdf-schema#label> "Provinciale verordening"@nl .
+<http://data.informatiehuisruimte.nl/def/ro#ProvincialeVerordening> <http://www.w3.org/2000/01/rdf-schema#comment> "Een provinciale verordening regelt een aantal zaken die de gemeenten moeten vertalen in bestemmingsplannen. Het gaat om regels voor de inhoud van bestemmingsplannen, maar ook om eventueel daaraan voorafgaande projectbesluiten en beheersverordeningen."@nl .
