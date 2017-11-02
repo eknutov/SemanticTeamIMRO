@@ -73,7 +73,6 @@ ro:naam                                 # ekn: ??? name of the name? why not use
                                         # ekn: type -> rdf:Property
   rdfs:isDefinedBy :ro ;                # ekn: why not foaf:name ?
   rdfs:label "naam"@nl ;
-  rdfs:comment "algemeen naam"@nl ;
 .
 
 #ro:plangebied
