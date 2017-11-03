@@ -12,8 +12,8 @@
 @prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
 @prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefic locn: <http://www.w3.org/ns/locn#> .
-
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix dct: <http://purl.org/dc/terms/> .
 
 #################################################################
 #    Plan
@@ -95,20 +95,6 @@ ro_str:Plangebied_geometrie a sh:PropertyShape ;
   sh:maxCount 1 ;
 .
 
-#ro_str:naam rdf:type sh:PropertyShape ; #TODO: ScopedName
-#  sh:path ro:naam ;
-#  sh:minCount 1 ;
-#  sh:maxCount 1 ;
-#  sh:datatype xsd:string ;
-#.
-
-#ro_str:Plangebied_locatieNaam
-#  rdf:type sh:PropertyShape ; #common
-#  sh:path ro:locatieNaam ;
-#  sh:nodeKind sh:Literal ;
-#  sh:datatype xsd:string ;
-#.
-
 #################################################################
 #    Ondergrond
 #################################################################
@@ -132,6 +118,11 @@ ro_str:ondergrond_datum
   sh:minCount 1 ;
   sh:maxCount 1 ;
 .
+
+#################################################################
+#    Prefixes
+#################################################################
+
 
 ro_str:prefixes #should we store this here?
   sh:declare [

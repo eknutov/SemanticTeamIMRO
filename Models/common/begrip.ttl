@@ -14,7 +14,13 @@
 #    Plan
 #################################################################
 
- #TODO
+ro_beg:Plan a skos:Concept ;
+  rdfs:label "Plan"@nl ;
+  skos:prefLabel "Plan"@nl ;
+  skos:inScheme ro_begkr:ro ;
+  skos:definition "TODO"@nl ;
+  skos:scopeNote "TODO"@nl
+.
 
  ro_beg:Plangebied a skos:Concept ;
    rdfs:label "Plangebied"@nl ;
@@ -1407,4 +1413,149 @@ ro_beg:PRpSV2012 a skos:Concept ; #new from structuurvisieplangebied_P.
   skos:prefLabel "PRpSV2012"@nl ;
   skos-thes:broaderGeneric ro_beg:Norm ;
   skos:notation "PRpSV2012"
+.
+
+#################################################################
+#  Ondergronden
+#################################################################
+
+
+ro_beg:Ondergrond a skos:Concept ;
+  rdfs:label "Grootschalige basiskaart"@nl ;
+  skos:prefLabel "Grootschalige basiskaart"@nl ;
+  skos:altLabel "GBK"@nl ;
+  skos-thes:broaderGeneric ro_beg:Ondergrond ;
+  skos:topConceptOf ro_begkr:ro ;
+  skos:inScheme ro_begkr:ro
+.
+
+ro_beg:GrootschaligeBasiskaart a skos:Concept ;
+  rdfs:label "Grootschalige basiskaart"@nl ;
+  skos:prefLabel "Grootschalige basiskaart"@nl ;
+  skos:altLabel "GBK"@nl ;
+  skos-thes:broaderGeneric ro_beg:Ondergrond ;
+  skos:inScheme ro_begkr:ro
+.
+
+ro_beg:BasisregistratieGrootschaligeTopografie a skos:Concept ;
+  rdfs:label "Basisregistratie grootschalige topografie"@nl ;
+  skos:prefLabel "Basisregistratie grootschalige topografie"@nl ;
+  skos:altLabel "BGT"@nl ;
+  skos-thes:broaderGeneric ro_beg:Ondergrond ;
+  skos:inScheme ro_begkr:ro
+.
+
+ro_beg:BasisregistratieTopografie a skos:Concept ;
+  rdfs:label "Basisregistratie topografie"@nl ;
+  skos:prefLabel "Basisregistratie topografie"@nl ;
+  skos:altLabel "BRT"@nl ;
+  skos-thes:broaderGeneric ro_beg:Ondergrond ;
+  skos:inScheme ro_begkr:ro
+.
+
+ro_beg:BasisregistratieKadaster a skos:Concept ;
+  rdfs:label "Basisregistratie kadaster"@nl ;
+  skos:prefLabel "Basisregistratie kadaster"@nl ;
+  skos:altLabel "BRK"@nl ;
+  skos-thes:broaderGeneric ro_beg:Ondergrond ;
+  skos:inScheme ro_begkr:ro
+.
+
+
+#################################################################
+#  Instrumenten
+#################################################################
+
+
+ro_beg:Instrument a skos:Concept ;
+  rdfs:label "Instrument"@nl ;
+  skos:prefLabel "Instrument"@nl ;
+  skos:topConceptOf ro_begkr:ro ;
+  skos:inScheme ro_begkr:ro
+.
+
+ro_beg:amvb a skos:Concept ;
+  rdfs:label "amvb"@nl ;
+  skos:prefLabel "amvb"@nl ;
+  skos:altLabel "Algemene Maatregel van Bestuur"@nl ;
+  skos-thes:broaderGeneric ro_beg:Instrument
+  skos:inScheme ro_begkr:ro
+.
+
+ro_beg:beheersverordening a skos:Concept ;
+  rdfs:label "beheersverordening"@nl ;
+  skos:prefLabel "beheersverordening"@nl ;
+  skos-thes:broaderGeneric ro_beg:Instrument
+  skos:inScheme ro_begkr:ro
+.
+
+ro_beg:bestuurlijkeAfspraken a skos:Concept ;
+  rdfs:label "bestuurlijke afspraken"@nl ;
+  skos:prefLabel "bestuurlijke afspraken"@nl ;
+  skos-thes:broaderGeneric ro_beg:Instrument
+  skos:inScheme ro_begkr:ro
+.
+
+ro_beg:coordinatieregeling a skos:Concept ;
+  rdfs:label "coordinatie regeling"@nl ;
+  skos:prefLabel "coordinatie regeling"@nl ;
+  skos-thes:broaderGeneric ro_beg:Instrument
+  skos:inScheme ro_begkr:ro
+.
+
+ro_beg:inpassingsplan a skos:Concept ;
+  rdfs:label "inpassingsplan"@nl ;
+  skos:prefLabel "inpassingsplan"@nl ;
+  skos-thes:broaderGeneric ro_beg:Instrument ;
+  skos:notation "IMRO2012"
+  skos:inScheme ro_begkr:ro
+.
+
+ro_beg:omgevingsvergunning a skos:Concept ;
+  rdfs:label "omgevingsvergunning"@nl ;
+  skos:prefLabel "omgevingsvergunning"@nl ;
+  skos-thes:broaderGeneric ro_beg:Instrument
+  skos:inScheme ro_begkr:ro
+.
+
+ro_beg:proactieveAanwijzing a skos:Concept ;
+  rdfs:label "proactieve aanwijzing"@nl ;
+  skos:prefLabel "proactieve aanwijzing"@nl ;
+  skos-thes:broaderGeneric ro_beg:Instrument
+  skos:inScheme ro_begkr:ro
+.
+
+ro_beg:reactieveAanwijzing a skos:Concept ;
+  rdfs:label "reactieve aanwijzing"@nl ;
+  skos:prefLabel "reactieve aanwijzing"@nl ;
+  skos-thes:broaderGeneric ro_beg:Instrument
+  skos:inScheme ro_begkr:ro
+.
+
+ro_beg:vooroverleg a skos:Concept ;
+  rdfs:label "vooroverleg"@nl ;
+  skos:prefLabel "vooroverleg"@nl ;
+  skos-thes:broaderGeneric ro_beg:Instrument
+  skos:inScheme ro_begkr:ro
+.
+
+ro_beg:zienswijze a skos:Concept ;
+  rdfs:label "zienswijze"@nl ;
+  skos:prefLabel "zienswijze"@nl ;
+  skos-thes:broaderGeneric ro_beg:Instrument
+  skos:inScheme ro_begkr:ro
+.
+
+ro_beg:verordening a skos:Concept ;
+  rdfs:label "verordening"@nl ;
+  skos:prefLabel "verordening"@nl ;
+  skos-thes:broaderGeneric ro_beg:Instrument
+  skos:inScheme ro_begkr:ro
+.
+
+ro_beg:voorbereidingsbesluit a skos:Concept ;
+  rdfs:label "voorbereidingsbesluit"@nl ;
+  skos:prefLabel "voorbereidingsbesluit"@nl ;
+  skos-thes:broaderGeneric ro_beg:Instrument
+  skos:inScheme ro_begkr:ro
 .

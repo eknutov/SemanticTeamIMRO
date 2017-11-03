@@ -48,7 +48,7 @@ ro:Plangebied a owl:Class ;
   rdfs:subClassOf nen3610:PlanologischGebied
 .
 
-ro:Planobject a owl:Class
+ro:Planobject a owl:Class ;
   rdfs:label "Planobject"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:comment "Ruimtelijk object welke zich bevindt in een bijbehorend plangebied."@nl ;
@@ -98,31 +98,36 @@ ro:thema a owl:DatatypeProperty ;             #is this a datatype/annotation or 
 ro:Ondergrond a owl:Class ;
   rdfs:label "Ondergrond"@nl ;
   rdfs:isDefinedBy :ro ;
+  dcterms:subject ro_beg:Ondergrond ;
   rdfs:comment "naamgeving van de gebruikte ondergrond bij het instrument."@nl
 .
 
-ro:GrootschaligeBasiskaart a owl:Class ; #(GBK)
+ro:GrootschaligeBasiskaart a owl:Class ;
   rdfs:subClassOf ro:Ondergrond ;
   rdfs:isDefinedBy :ro ;
+  dcterms:subject ro_beg:GrootschaligeBasiskaart ;
   rdfs:label "Grootschalige basiskaart"@nl
 .
 
-ro:BasisregistratieGrootschaligeTopografie a owl:Class ; #(BGT)
+ro:BasisregistratieGrootschaligeTopografie a owl:Class ;
   rdfs:subClassOf ro:Ondergrond ;
   rdfs:isDefinedBy :ro ;
+  dcterms:subject ro_beg:BasisregistratieGrootschaligeTopografie ;
   rdfs:label "Basisregistratie grootschalige topografie"@nl
 .
 
-ro:BasisregistratieTopografie a owl:Class ; #(BRT)
+ro:BasisregistratieTopografie a owl:Class ;
   rdfs:subClassOf ro:Ondergrond ;
   rdfs:isDefinedBy :ro ;
+  dcterms:subject ro_beg:BasisregistratieTopografie ;
   rdfs:label "Basisregistratie topografie"@nl
 .
 
-ro:BasisregistratieKadaster a owl:Class ; #(BRK)
+ro:BasisregistratieKadaster a owl:Class ;
   rdfs:subClassOf ro:Ondergrond ;
   rdfs:isDefinedBy :ro ;
-  rdfs:label "Basisregistratie kadaster"@nl
+  rdfs:label "Basisregistratie kadaster"@nl ;
+  dcterms:subject ro_beg:BasisregistratieKadaster
 .
 
 ro:ondergrond a owl:ObjectProperty ;
@@ -155,4 +160,11 @@ ro:belang a owl:DatatypeProperty ;
 ro:rol a owl:DatatypeProperty ;
   rdfs:label "rol"@nl ;
   rdfs:isDefinedBy :ro
+.
+
+ro:instrument
+  a owl:ObjectProperty ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:label "instrument"@nl ;
+  rdfs:range ro_beg:Instrument ;
 .
