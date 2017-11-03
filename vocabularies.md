@@ -1,8 +1,6 @@
 
 ## Vocabularies
 
-(add vocabularies in this list in categories)
-
 * Vocabularies collection **Linked Open Vocabularies** [URL](http://lov.okfn.org/dataset/lov)
 
 general list:
@@ -12,16 +10,20 @@ general list:
 * **XSD**  [Homepage](http://www.w3.org/2001/XMLSchema) [URI](http://www.w3.org/2001/XMLSchema)
 * **DC** [Homepage](http://purl.org/dc/elements/1.1/)
 * **DCTERMS** [Homepage](http://purl.org/dc/terms/)
+* **SCHEMA** [URI](http://schema.org/)
 * **DOCO** [Homepage](http://purl.org/spar/doco/)
 * **OWL** [URI](http://www.w3.org/2002/07/owl#)
 * **RDF** [URI](http://www.w3.org/1999/02/22-rdf-syntax-ns#)
 * **RDFS** [URI](http://www.w3.org/2000/01/rdf-schema#)
+* **SHACL** [Homepage](https://www.w3.org/TR/shacl/)
 * **SD** [URI](http://www.w3.org/ns/sparql-service-description#)
 * **PROV** [Homepage](http://www.w3.org/TR/prov-o/) [URI](http://www.w3.org/ns/prov#)
+* **BiRO** [URI](http://purl.org/spar/biro/)
+* **C4O** [URI](http://purl.org/spar/c4o)
+* **FRBR** [URI](http://vocab.org/frbr/core#)
 * **PATTERN** [URI](http://www.essepuntato.it/2008/12/pattern#)
 
 specialized:
-
 * **NEN3610** [URI](http://data.informatiehuisruimte.nl/def/nen3610#)
 * **PDOK_PDOK** [URI](http://data.pdok.nl/def/pdok#)
 * **RO** [URI](http://data.informatiehuisruimte.nl/def/ro#)
