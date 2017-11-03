@@ -1,0 +1,154 @@
+# common prefixes
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix doco: <http://purl.org/spar/doco/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix gml: <http://www.opengis.net/ont/gml#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix ogc: <http://www.opengis.net/ont/geosparql#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# prefixes specific to Informatiehuis Ruimte
+@prefix imro: <http://data.imro.com/def/> .
+@prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
+@prefix nen3610_str: <http://data.informatiehuisruimte.nl/def/nen3610/> .
+@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
+@prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
+@prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
+@prefix ro_begkr: <http://data.informatiehuisruimte.nl/id/begrippenkader/> .
+@prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
+@prefix ro_nen3610_beg: <http://data.informatiehuisruimte.nl/nen3610/id/begrip/> .
+@prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
+@prefix ro_sym: <http://data.informatiehuisruimte.nl/ro/id/symbool/> .
+
+# TODO: Once correct, split the file to one file for each of the three subclasses of ro:Besluit.
+
+# This will be defined in the common folder, it is put here pending finalization of the common shapes
+ro_str:Plan a sh:NodeShape;
+  sh:targetClass ro:Plan;
+  sh:property ro_str:Plan_hasPart;
+.
+
+# This will be defined in the common folder, it is put here pending finalization of the common shapes
+ro_str:Plan_hasPart a sh:PropertyShape;
+  sh:property [
+    sh:path dc:hasPart;
+    sh:nodeKind sh:IRI;
+    sh:minCount 1;
+    sh:class ro:Planobject;
+  ];
+.
+
+
+
+ro_str:ProvincialeVerordening a sh:NodeShape;
+  sh:targetClass ro:ProvincialeVerordening;
+  sh:property ro_str:ProvincialeVerordening_hasPart;
+.
+
+ro_str:AMVB a sh:NodeShape;
+  sh:targetClass ro:AMVB;
+  sh:property ro_str:AMVB_hasPart;
+.
+
+ro_str:OverigGebiedsgerichtBesluit a sh:NodeShape;
+  sh:targetClass ro:OverigGebiedsgerichtBesluit;
+  sh:property ro_str:OverigGebiedsgerichtBesluit_hasPart;
+.
+
+
+
+ro_str:ProvincialeVerordening_hasPart a sh:NodeShape;
+  sh:targetClass ro:Planobject;
+  sh:property
+    ro_str:ProvincialeVerordening-AMVB_Planobject_subject,
+    ro_str:ProvincialeVerordening-AMVB_Planobject_kaart,
+    ro_str:ProvincialeVerordening_Planobject_tekst;
+.
+
+ro_str:AMVB_hasPart a sh:NodeShape;
+  sh:targetClass ro:Planobject;
+  sh:property
+    ro_str:ProvincialeVerordening-AMVB_Planobject_subject,
+    ro_str:ProvincialeVerordening-AMVB_Planobject_kaart,
+    ro_str:AMVB_Planobject_tekst;
+.
+
+ro_str:OverigGebiedsgerichtBesluit_hasPart a sh:NodeShape;
+  sh:targetClass ro:Planobject;
+  sh:property
+    ro_str:OverigGebiedsgerichtBesluit_Planobject_tekst,
+    ro_str:OverigGebiedsgerichtBesluit_Planobject_geometry;
+.
+
+
+
+
+ro_str:ProvincialeVerordening-AMVB_Planobject_subject a sh:PropertyShapeShape;
+  sh:property [
+    sh:path dc:subject;
+    sh:nodeKind sh:Literal;
+    sh:datatype xsd:string;
+    sh:minCount 1;
+  ];
+.
+
+ro_str:ProvincialeVerordening-AMVB_Planobject_kaart a sh:PropertyShapeShape;
+  sh:property [
+    sh:path ro:kaart;
+    sh:class ro:Kaart;
+  ];
+.
+
+ro_str:Besluit_Planobject_tekst a sh:PropertyShapeShape;
+  sh:property [
+    sh:path ro:tekst;
+    sh:nodeKind sh:;
+    sh:minCount 1;
+    sh:class ro:Tekst;
+  ];
+.
+
+ro_str:ProvincialeVerordening_tekst
+  a sh:PropertyShape;
+  sh:property [
+    sh:path ro:tekst;
+    sh:minCount 1;
+    sh:maxCount 6;
+    sh:node ro_str:ProvincialeVerordening_tekst_teksttype;
+  ];
+.
+
+ro_str:ProvincialeVerordening_tekst_teksttype
+  a sh:PropertyShape;
+  # TODO: add additional constraints:
+  # each type can only occur once
+  # bijlage (appendix) can only occur when the text it is an appendix to occurs.
+  sh:property [
+    sh:path ro:teksttype;
+    sh:in ( 
+      ro_beg:Besluitdocument
+      ro_beg:Regels
+      ro_beg:Toelichting
+      ro_beg:BijlageBijBesluitdocument
+      ro_beg:BijlageBijRegels
+      ro_beg:BijlageBijToelichting
+    );
+  ];
+.
+
+
+
+
+# naam: rdfs:label
+# thema: dc:subject
+# verwijzingnaarTekstInfo:  ro:tekst -> ro:Tekst
+# verwijzingNaarIllustratieInfo: ro:illustratie -> ro:Illustratie
+# cartografie: ro:kaart -> ro:Kaart
+# geometrie: ogc:geometry > ogc:Geometry

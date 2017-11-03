@@ -1,0 +1,105 @@
+@prefix ex: <http://www.example.com/> .
+
+
+# common prefixes
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix doco: <http://purl.org/spar/doco/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix gml: <http://www.opengis.net/ont/gml#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix ogc: <http://www.opengis.net/ont/geosparql#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# prefixes specific to Informatiehuis Ruimte
+@prefix imro: <http://data.imro.com/def/> .
+@prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
+@prefix nen3610_str: <http://data.informatiehuisruimte.nl/def/nen3610/> .
+@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
+@prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
+@prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
+@prefix ro_begkr: <http://data.informatiehuisruimte.nl/id/begrippenkader/> .
+@prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
+@prefix ro_nen3610_beg: <http://data.informatiehuisruimte.nl/nen3610/id/begrip/> .
+@prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
+@prefix ro_sym: <http://data.informatiehuisruimte.nl/ro/id/symbool/> .
+
+
+# Examples of ro:Besluit (at the moment only complete for besluitvlakken (modelled as Planobjects))
+# TODO: Once correct, split the file to one file for each of the three subclasses of ro:Besluit.
+
+# Example of ro:ProvincialeVerordening
+
+ex:PV1 a ro:ProvincialeVerordening, ro:Besluit, void:Dataset;
+  rdfs:label "provinciale verordering 1";
+  dc:hasPart ex:PlanobjectA;
+.
+
+ex:PlanobjectPV1_A a ro:Planobject;
+  void:inDataSet ex:PV1;
+  dc:isPartOf ex:PV1;
+  rdfs:label "Zuid-Limburg";
+  ro:tekst ex:Tekst1;
+  ro:illustratie ex:Illustratie1;
+  ro:kaart ex:Kaart1;
+  ogc:geometry ex:Geom1;
+  dc:hasPart ex:PlanobjectPV1_A1;
+  dc:hasPart ex:PlanobjectPV1_A2;
+.
+
+ex:TesktPV1_1 a ro:Document, ro:Tekst;
+  void:inDataSet ex:PV1;
+  ro:identificatie "document 1";
+  ro:teksttype ro_beg:Toelichting;
+.
+
+ex:IllustratiePV1_1 a ro:Document, ro:Illustratie;
+  void:inDataSet ex:PV1;
+  ro:identificatie "C:/images/plaatje1.png";
+  ro:illustratietype ro_beg:Kaart;
+  ro:legendanaam "Overzichtskaart";
+.
+
+ex:KaartPV1_1 a ro:Kaart;
+  void:inDataSet ex:PV1;
+  rdfs:label "De hoofdkaart";
+  dc:identifier "1"^^xsd:integer;
+  ro:symboolcode "12345";
+.
+
+ex:GeomPV1_1 a ogc:Geometry;
+  void:inDataSet ex:PV1;
+  ogc:asWKT "POLYGON((3.3080 50.7504,3.3079 53.5764,7.2275 53.5764,7.2275 50.7504,3.3080 50.7504))"^^ogc:wktLiteral;
+  ro:idealisatie ro_beg:Indicatief;
+.
+
+ex:PlanobjectPV1_A1 a ro:Planobject;
+  void:inDataSet ex:PV1;
+  dc:isPartOf ex:PlanobjectPV1_A;
+  rdfs:label "Gulpen";
+.
+
+ex:PlanobjectPV1_A2 a ro:Planobject;
+  void:inDataSet ex:PV1;
+  dc:isPartOf ex:PlanobjectPV1_A;
+  rdfs:label "Eijsden";
+.
+
+# Example of ro:AMVB
+
+ex:AMVB1 a ro:AMVB, ro:Besluit, void:Dataset;
+  rdfs:label "Algmene maatregel van bestuur 1";
+  dc:hasPart ex:PlanobjectAMVB1_A;
+.
+
+ex:PlanobjectAMVB1_A a ro:Planobject;
+  void:inDataSet ex:AMVB1;
+  dc:isPartOf ex:AMVB1;
+  rdfs:label "Apeldoorn";
+.

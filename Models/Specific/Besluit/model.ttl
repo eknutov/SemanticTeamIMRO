@@ -1,0 +1,65 @@
+# common prefixes
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix doco: <http://purl.org/spar/doco/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix gml: <http://www.opengis.net/ont/gml#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix ogc: <http://www.opengis.net/ont/geosparql#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# prefixes specific to Informatiehuis Ruimte
+@prefix imro: <http://data.imro.com/def/> .
+@prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
+@prefix nen3610_str: <http://data.informatiehuisruimte.nl/def/nen3610/> .
+@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
+@prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
+@prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
+@prefix ro_begkr: <http://data.informatiehuisruimte.nl/id/begrippenkader/> .
+@prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
+@prefix ro_nen3610_beg: <http://data.informatiehuisruimte.nl/nen3610/id/begrip/> .
+@prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
+@prefix ro_sym: <http://data.informatiehuisruimte.nl/ro/id/symbool/> .
+
+### Classes
+
+ro:Besluit a owl:Class, rdfs:Class;
+  rdfs:subClassOf ro:Plan;
+  rdfs:isDefinedBy ro:;
+  dc:subject ro_beg:Besluit;
+  rdfs:label "Besluit"@nl;
+  rdfs:comment "Een provinciale verordening, algemene maatregel van bestuur of overig gebiedsgericht besluit. In het IMRO zijn deze drie soorten beleidsinstrumenten sterk gelijkend."@nl;
+.
+
+ro:ProvincialeVerordening a owl:Class, rdfs:Class;
+  rdfs:subClassOf ro:Besluit;
+  rdfs:isDefinedBy ro:;
+  dc:subject ro_beg:ProvincialeVerordening;
+  rdfs:label "Provinciale verordening"@nl;
+  rdfs:comment "Een provinciale verordening regelt een aantal zaken die de gemeenten moeten vertalen in bestemmingsplannen. Het gaat om regels voor de inhoud van bestemmingsplannen, maar ook om eventueel daaraan voorafgaande projectbesluiten en beheersverordeningen."@nl;
+.
+
+ro:AMVB a owl:Class, rdfs:Class;
+  rdfs:subClassOf ro:Besluit;
+  rdfs:isDefinedBy ro:;
+  dc:subject ro_beg:AMVB;
+  rdfs:label "Algemene Maatregel van Bestuur (AMvB)"@nl;
+  rdfs:comment "Een Algemene Maatregel van Bestuur (AMvB) is een instrument waarmee de Minister regels kan geven omtrent de inhoud van bestemmingsplannen en provinciale inpassingsplannen, daaraan voorafgaande projectbesluiten en beheersverordeningen. Het is daarbij niet altijd noodzakelijk dat er ook een specifiek gebied van het Nederlands grondgebied gedefinieerd wordt. Met betrekking tot dat laatste vallen AMvB’s in twee groepen uiteen: een groep waarin regels gekoppeld zijn aan geografisch geduide gebieden en een groep waarin regels gesteld worden voor het hele land of minder direct aangegeven gebieden."@nl;
+.
+
+ro:OverigGebiedsgerichtBesluit a owl:Class, rdfs:Class;
+  rdfs:subClassOf ro:Besluit;
+  rdfs:isDefinedBy ro:;
+  dc:subject ro_beg:OverigGebiedsgerichtBesluit;
+  rdfs:label "Overig gebiedsgericht besluit"@nl;
+  rdfs:comment "Overige Gebiedsgerichte besluiten zijn beleidsinstrumenten waarmee nog niet voldoende ervaring is opgedaan om er aparte modellen voor te maken. Onder deze groep vallen de besluittypen Aanwijzingsbesluit (proactieve aanwijzing), Beheersverordening, Exploitatieplan, Gerechtelijke uitspraak, Omgevingsvergunning (voormalig Wro projectbesluit), Omgevingsvergunning (voormalig Chw projectuitvoeringsbesluit), Reactieve aanwijzing en Voorbereidingsbesluit."@nl;
+.
+
+
+### Properties
