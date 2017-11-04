@@ -17,7 +17,7 @@ ro_str:Overheid a sh:NodeShape ;
   sh:targetClass ro:Overheid ;
   sh:Property
     ro_str:overheidsNaam ,
-    ro_str:overheidsCode ;
+    ro_str:overheidsCode
 .
 
 ro_str:overheidsNaam a sh:PropertyShape ;
@@ -45,12 +45,10 @@ ro_str:Overheden_R a sh:NodeShape ;
   sh:property [
     sh:path ro:overheidsCode ;
     sh:hasValue "0000" ; # would the use of sh:pattern be preffered for consistency's sake?
-#    sh:datatype xsd:string ;  # see next property
   ] ;
   sh:property [
     sh:path ro:overheidsNaam ;
     sh:pattern "^(ministerie)\\s" ;
-#    sh:datatype xsd:string ; # already specified in ro_str:overheidsNaam
     ]
 .
 
@@ -83,5 +81,5 @@ ro_str:Overheden_G a sh:NodeShape ;
       sh:pattern "^(gemeente)\\s" ; ]
     [
       sh:pattern "^(deelgemeente/stadsdeel)\\s" ; ]
-    ) ] ;
+    ) ] 
 .
