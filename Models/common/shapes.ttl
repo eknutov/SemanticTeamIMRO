@@ -80,7 +80,8 @@ ro_str:Plan_dataset a sh:propertyShape ;
 ro_str:Planobject a sh:NodeShape ;
   sh:targetClass ro:Planobject ;
   sh:property
-    ro_str:Planobject_isPartOf
+    ro_str:Planobject_isPartOf ,
+    ro_str:Planobject_identificatie_lokaalID ,
     ro_str:Plan_label
 .
 
@@ -91,6 +92,12 @@ ro_str:Planobject_isPartOf a sh:PropertyShape ;
   sh:maxCount 1
 .
 
+ro_str:Planobject_identificatie_lokaalID a sh:PropertyShape ;
+  sh:path ( nen3610:identificatie nen3610:lokaalID ) ;
+  sh:datatype xsd:string ;
+  sh:maxLength 32
+.
+
 #################################################################
 #    Plangebied
 #################################################################
@@ -98,7 +105,14 @@ ro_str:Planobject_isPartOf a sh:PropertyShape ;
 ro_str:Plangebied a sh:NodeShape ;
   sh:targetClass ro:Plangebied ;
   sh:property
-    ro_str:Plangebied_geometry
+    ro_str:Plangebied_geometry ,
+    ro_str:Plangebied_identificatie_lokaalID
+.
+
+ro_str:Plangebied_identificatie_lokaalID a sh:PropertyShape ;
+  sh:path ( nen3610:identificatie nen3610:lokaalID ) ;
+  sh:datatype xsd:string ;
+  sh:maxLength 23
 .
 
 ro_str:Plangebied_geometrie a sh:PropertyShape ;
