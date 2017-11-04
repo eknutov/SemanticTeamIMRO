@@ -111,18 +111,18 @@ ro_str:Bestemmingsplan_externPlan a sh:PropertyShape ;
   sh:node ro_str:ExternPlanReferentie_BP ;
 .
 
-#TODO: Test if this works
-ro_str:ExternPlanReferentie_BP rdf:type sh:NodeShape ;
-  sh:closed true ;
-  sh:ignoredProperties (
-    ro:muteert
-    ro:vervangt
-    ro:tenGevolgeVan
-    ) ;
-.
+
+#ro_str:ExternPlanReferentie_BP rdf:type sh:NodeShape ;
+#  sh:closed true ;
+#  sh:ignoredProperties (
+#    ro:muteert
+#    ro:vervangt
+#    ro:tenGevolgeVan
+#    ) ;
+#.
 
 ro_str:Bestemmingsplan_norm a sh:PropertyShape ;
-  sh:path ro:verwijzingNorm ;
+  sh:path ro:norm ;
   sh:minCount 2 ;
   sh:maxCount 4 ;
   sh:and ( [

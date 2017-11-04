@@ -20,201 +20,209 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ro:verwijzing
-  rdf:type rdf:Property ;
+ro:verwijzing a rdf:Property ;
   rdfs:label "verwijzing"@nl ;
   rdfs:isDefinedBy :ro ;
 .
 
-### Tekst
-#TODO: adjusted to Naming Conventions
+### TODO DOCO?
 
-ro:tekstReferentie
-  rdf:type owl:AnnotationProperty ;
-  rdfs:label "tekstverwijzing"@nl ;
-.
+#################################################################
+#    Tekst
+#################################################################
 
-ro:Tekst
-  rdf:type owl:Class ;
+#ro:tekstReferentie a owl:AnnotationProperty ;
+#  rdfs:label "tekstverwijzing"@nl ;
+#.
+
+ro:Tekst a owl:Class ;
   rdfs:label "Tekst"@nl ;
   rdfs:subClassOf owl:Thing ;
+  rdfs:isDefinedBy :ro
 .
 
-ro:Toelichting
-  rdf:type owl:Class ;
+ro:tekst a owl:ObjectProperty ;
+  rdfs:label "tekst"@nl ;
+  rdfs:isDefinedBy :ro
+.
+
+ro:Toelichting a owl:Class ;
   rdfs:label "Toelichting"@nl ;
   rdfs:subClassOf ro:Tekst ;
+  rdfs:isDefinedBy :ro
 .
 
-ro:Beleid
-  rdf:type owl:Class ;
+ro:Beleid a owl:Class ;
   rdfs:label "Beleid"@nl ;
   rdfs:subClassOf ro:Tekst ;
+  rdfs:isDefinedBy :ro
 .
 
-ro:Regel_met_Voorbereidingsbescherming
-  rdf:type owl:Class ;
+ro:Regel_met_Voorbereidingsbescherming a owl:Class ;
   rdfs:label "Regel met Voorbereidingsbescherming"@nl ;
   rdfs:subClassOf ro:Tekst ;
 .
 
-ro:Regel_zonder_Voorbereidingsbescherming
-  rdf:type owl:Class ;
+ro:Regel_zonder_Voorbereidingsbescherming a owl:Class ;
   rdfs:label "Regel zonder Voorbereidingsbescherming"@nl ;
   rdfs:subClassOf ro:Tekst ;
+  rdfs:isDefinedBy :ro
 .
 
-ro:Regels
-  rdf:type owl:Class ;
+ro:Regels a owl:Class ;
   rdfs:label "Regels"@nl ;
   rdfs:subClassOf ro:Tekst ;
+  rdfs:isDefinedBy :ro
 .
 
-ro:Beleid_Gemandateerd_aan_GS
-  rdf:type owl:Class ;
+ro:Beleid_Gemandateerd_aan_GS a owl:Class ;
   rdfs:label "Beleid Gemandateerd aan GS"@nl ;
   rdfs:subClassOf ro:Tekst ;
+  rdfs:isDefinedBy :ro
 .
 
-ro:Besluitdocument
-  rdf:type owl:Class ;
+ro:Besluitdocument a owl:Class ;
   rdfs:label "Besluitdocument"@nl ;
   rdfs:subClassOf ro:Tekst ;
+  rdfs:isDefinedBy :ro
 .
 
-ro:Besluittekst
-  rdf:type owl:Class ;
+ro:Besluittekst a owl:Class ;
   rdfs:label "Besluittekst"@nl ;
   rdfs:subClassOf ro:Tekst ;
+  rdfs:isDefinedBy :ro
 .
 
-ro:Bijlage
-  rdf:type owl:Class ;
+ro:Bijlage a owl:Class ;
   rdfs:label "Bijlage"@nl ;
   rdfs:subClassOf ro:Tekst ;
+  rdfs:isDefinedBy :ro
 .
 
-ro:Bijlage_Besluitdocument
-  rdf:type owl:Class ;
+ro:Bijlage_Besluitdocument a owl:Class ;
   rdfs:label "Bijlage Besluitdocument"@nl ;
   rdfs:subClassOf ro:Tekst ;
+  rdfs:isDefinedBy :ro
 .
 
-ro:Bijlage_Besluittekst
-  rdf:type owl:Class ;
+ro:Bijlage_Besluittekst a owl:Class ;
   rdfs:label "Bijlage Besluittekst"@nl ;
   rdfs:subClassOf ro:Tekst ;
+  rdfs:isDefinedBy :ro
 .
 
-ro:Bijlage_Regel_met_voorbereidingsbescherming
-  rdf:type owl:Class ;
+ro:Bijlage_Regel_met_voorbereidingsbescherming a owl:Class ;
   rdfs:label "Bijlage Regel met voorbereidingsbescherming"@nl ;
   rdfs:subClassOf ro:Tekst ;
 .
 
-ro:Bijlage_Regel_zonder_voorbereidingsbescherming
-  rdf:type owl:Class ;
+ro:Bijlage_Regel_zonder_voorbereidingsbescherming a owl:Class ;
   rdfs:label "Bijlage Regel zonder voorbereidingsbescherming"@nl ;
   rdfs:subClassOf ro:Tekst ;
+  rdfs:isDefinedBy :ro
 .
 
-ro:Bijlage_Regels
-  rdf:type owl:Class ;
+ro:Bijlage_Regels a owl:Class ;
   rdfs:label "Bijlage Regels"@nl ;
   rdfs:subClassOf ro:Tekst ;
+  rdfs:isDefinedBy :ro
 .
 
-ro:Bijlage_Toelichting
-  rdf:type owl:Class ;
+ro:Bijlage_Toelichting a owl:Class ;
   rdfs:label "Bijlage Toelichting"@nl ;
   rdfs:subClassOf ro:Tekst ;
+  rdfs:isDefinedBy :ro
 .
 
-ro:Document
-  rdf:type owl:Class ;
+ro:Document a owl:Class ;
   rdfs:label "Document"@nl ;
   rdfs:subClassOf ro:Tekst ;
+  rdfs:isDefinedBy :ro
 .
 
+#################################################################
+#    Illustratie
+#################################################################
 
-### Illustratie
-
-ro:Illustratie
-  rdf:type owl:Class ;
+ro:Illustratie a owl:Class ;
   rdfs:label "Illustratie"@nl ;
-  rdfs:subClassOf owl:Thing ;
+  rdfs:isDefinedBy :ro
 .
 
-ro:Afbeelding
-  rdf:type owl:Class ;
+ro:Afbeelding a owl:Class ;
   rdfs:label "Afbeelding"@nl ;
   rdfs:subClassOf ro:Illustratie ;
+  rdfs:isDefinedBy :ro
 .
 
-ro:Kaart
-  rdf:type owl:Class ;
+ro:Kaart a owl:Class ;
   rdfs:label "Kaart"@nl ;
   rdfs:subClassOf ro:Illustratie ;
+  rdfs:isDefinedBy :ro
 .
 
-ro:illustratie
-  rdf:type owl:AnnotationProperty ;
-  rdfs:label "illustratie"@nl ;
-  rdfs:subPropertyOf ro:verwijzing ;
+ro:illustratie a owl:AnnotationProperty ;
+  rdfs:label "illustratie"@nl
+  rdfs:isDefinedBy :ro
 .
 
-ro:afbeeldingReferentie
-  rdf:type owl:AnnotationProperty ;
-  rdfs:label "afbeeldingReferentie"@nl ;
-  rdfs:subPropertyOf ro:illustratie ;
-.
-
-ro:kaartReferentie
-  rdf:type owl:AnnotationProperty ;
-  rdfs:label "kaartReferentie"@nl ;
-  rdfs:subPropertyOf ro:illustratie ;
-.
-
-ro:illustratieverwijzing #no longer used in any shapes, forgot to remove?
-  rdf:type owl:ObjectProperty ;
-  rdfs:label "illustratieverwijzing"@nl ;
-.
-
-ro:legendaNaam
-  rdf:type owl:DatatypeProperty ;
+ro:legendaNaam a owl:AnnotationProperty ;
   rdfs:isDefinedBy :ro ;
-  rdfs:label "legenda naam"@nl ;
+  rdfs:label "legenda naam"@nl
 .
 
-### cartografie
+ro:illustratieNaam a owl:AnnotationProperty ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:label "illustratie naam"@nl
+.
 
-ro:cartografie
-  rdf:type owl:ObjectProperty ;
+#ro:afbeeldingReferentie
+#  rdf:type owl:AnnotationProperty ;
+#  rdfs:label "afbeeldingReferentie"@nl ;
+#  rdfs:subPropertyOf ro:illustratie ;
+#.
+
+#ro:kaartReferentie
+#  rdf:type owl:AnnotationProperty ;
+#  rdfs:label "kaartReferentie"@nl ;
+#  rdfs:subPropertyOf ro:illustratie ;
+#.
+
+#ro:illustratieverwijzing a owl:Class ;
+#  rdfs:label "illustratieverwijzing"@nl ;
+#.
+
+#################################################################
+#    Cartografie
+#################################################################
+
+ro:cartografie a owl:ObjectProperty ;
   rdfs:label "cartografie"@nl ;
+  rdfs:isDefinedBy :ro
 .
 
-ro:kaartNaam
-  rdf:type owl:DatatypeProperty ;
+ro:kaartNaam a owl:AnnotationProperty ;
   rdfs:label "kaart naam"@nl ;
+  rdfs:isDefinedBy :ro
 .
 
-ro:kaartNummer
-  rdf:type owl:DatatypeProperty ;
+ro:kaartNummer a owl:DatatypeProperty ;
   rdfs:label "kaart nummer"@nl ;
+  rdfs:isDefinedBy :ro
 .
 
-ro:symboolCode
-  rdf:type owl:DatatypeProperty ;
+ro:symboolCode a owl:DatatypeProperty ;
   rdfs:label "symbool code"@nl ;
+  rdfs:isDefinedBy :ro
 .
 
-### extern plan
+#################################################################
+#    Extern plan
+#################################################################
 
-ro:externPlan
-  rdf:type owl:ObjectProperty ;
+ro:externPlan a owl:ObjectProperty ;
   rdfs:label "extern plan"@nl ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:subPropertyOf ro:verwijzing ;
+  rdfs:isDefinedBy :ro
 .
 
 #redundant if we point to IRIs of external plans.
@@ -222,54 +230,51 @@ ro:externPlan
 #  rdf:type owl:DatatypeProperty ;
 #  rdfs:domain ro:ExternPlan ;
 #  rdfs:isDefinedBy :ro ;
-#  rdfs:label "idn"@nl ;
+#  rdfs:label "idn"@nl
 #.
 
-ro:muteert
-  rdf:type owl:ObjectProperty ;
+ro:muteert a owl:ObjectProperty ;
   rdfs:subPropertyOf ro:externPlan ;
   rdfs:isDefinedBy :ro ;
-  dcterms:subject ro_beg:muteert ;
+  dcterms:subject ro_beg:muteert
 .
 
-ro:vervangt
-  rdf:type owl:ObjectProperty ;
+ro:vervangt a owl:ObjectProperty ;
   rdfs:subPropertyOf ro:externPlan ;
   rdfs:isDefinedBy :ro ;
-  dcterms:subject ro_beg:vervangt ;
+  dcterms:subject ro_beg:vervangt
 .
 
-ro:uitTeWerkenIn
-  rdf:type owl:ObjectProperty ;
+ro:uitTeWerkenIn a owl:ObjectProperty ;
   rdfs:subPropertyOf ro:externPlan ;
   rdfs:isDefinedBy :ro ;
-#  dcterms:subject ro_beg: ;
+  dcterms:subject ro_beg:uitTeWerkenIn
 .
 
-ro:uitgewerktIn
-  rdf:type owl:ObjectProperty ;
+ro:uitgewerktIn a owl:ObjectProperty ;
   rdfs:subPropertyOf ro:externPlan ;
   rdfs:isDefinedBy :ro ;
-#  dcterms:subject ro_beg: ;
+  dcterms:subject ro_beg:uitgewerktIn
 .
 
-ro:gebruiktInformatieUit
-  rdf:type owl:ObjectProperty ; #does this IRI deviate too much from 'informatie in extern plan/besluit'?
+ro:gebruiktInformatieUit a owl:ObjectProperty ; #does this IRI deviate too much from 'informatie in extern plan/besluit'?
   rdfs:subPropertyOf ro:externPlan ;
   rdfs:isDefinedBy :ro ;
-#  dcterms:subject ro_beg:vervangt ;
+  dcterms:subject ro_beg:gebruiktInformatieUit
 .
 
-ro:tenGevolgeVan
-  rdf:type owl:ObjectProperty ;
+ro:tenGevolgeVan a owl:ObjectProperty ;
   rdfs:subPropertyOf ro:externPlan ;
   rdfs:isDefinedBy :ro ;
-  dcterms:subject ro_beg:tenGevolgeVan ;
+  dcterms:subject ro_beg:tenGevolgeVan
 .
 
-### norm
+#################################################################
+#    norm
+#################################################################
 
-ro:verwijzingNorm
-  rdf:type owl:DatatypeProperty ;
+
+ro:norm a owl:ObjectProperty ;
   rdfs:label "verwijzing norm"@nl ;
+  rdfs:isDefinedBy
 .

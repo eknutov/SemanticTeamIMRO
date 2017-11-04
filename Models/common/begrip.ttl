@@ -1559,3 +1559,14 @@ ro_beg:voorbereidingsbesluit a skos:Concept ;
   skos-thes:broaderGeneric ro_beg:Instrument
   skos:inScheme ro_begkr:ro
 .
+
+#################################################################
+#  Rol extern Plan TODO
+#################################################################
+
+ro_beg:muteert a skos:Concept .
+ro_beg:vervang a skos:Concept .
+ro_beg:uitTeWerkenIn a skos:Concept .
+ro_beg:uitgewerktIn a skos:Concept .
+ro_beg:gebruiktInformatieUit a skos:Concept .
+ro_beg:tenGevolgeVan a skos:Concept .
