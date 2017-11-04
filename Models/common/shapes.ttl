@@ -29,7 +29,8 @@ ro_str:Plan a sh:NodeShape ;
     ro_str:Plan_label ,          #formerly ro_str:naam
     ro_str:Plan_geographicName , #formerly ro_str:Plangebied_locatieNaam
     ro_str:Plan_ondergrond ,
-    ro_str:Plan_dataset
+    ro_str:Plan_dataset ,
+    ro_str:Plan_planstatus
 .
 
 ro_str:Plan_spatial a sh:PropertyShape ;
@@ -72,6 +73,12 @@ ro_str:Plan_dataset a sh:propertyShape ;
   sh:qualifiedMaxCount 1 ;
 .
 
+ro_str:Plan_planstatus rdf:type sh:PropertyShape ;
+  sh:path ro:planstatus ;
+  sh:class ro:Planstatus ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+.
 
 #################################################################
 #    Planobject

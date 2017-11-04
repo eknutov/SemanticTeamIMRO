@@ -20,35 +20,36 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-#should probably be used at ro:RuimtelijkInstrument, not at its subclasses
-ro:Planstatus
-  rdf:type owl:Class ;
+#################################################################
+#    Planstatus
+#################################################################
+
+ro:Planstatus a owl:Class ;
   rdfs:label "Planstatus"@nl ;
-  rdfs:isDefinedBy :ro ;
+  rdfs:isDefinedBy :ro
 .
 
 ro:status a owl:ObjectProperty ;
   rdfs:label "status"@nl ;
   rdfs:isDefinedBy :ro ;
-  rdfs:domain ro:Planstatus  ;
+  rdfs:domain ro:Planstatus
 .
 
-ro:vaststellingsbesluit
-  rdf:type owl:ObjectProperty ;
+ro:vaststellingsbesluit a owl:ObjectProperty ;
   rdfs:label "vaststellingsbesluit"@nl ;
   rdfs:domain ro:Planstatus ;
+  rdfs:isDefinedBy :ro
 .
 
-ro:besluitnummer
-  rdf:type owl:DatatypeProperty ;
+ro:besluitnummer a owl:DatatypeProperty ;
   rdfs:label "besluitnummer"@nl ;
   rdfs:domain ro:Planstatus ;
+  rdfs:isDefinedBy :ro
 .
 
-#TODO: Align with specific models
-ro:toekenningsdatum #this property was reused somewhere else, should it still be in this folder?
-  rdf:type owl:DatatypeProperty ;
+ro:toekenningsdatum a owl:DatatypeProperty ;
   rdfs:label "toekenningsdatum"@nl ;
   rdfs:domain ro:Planstatus ;
   rdfs:range xsd:date ;
+  rdfs:isDefinedBy :ro
 .
