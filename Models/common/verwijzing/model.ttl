@@ -58,12 +58,12 @@ ro:Beleid a owl:Class ;
   rdfs:isDefinedBy :ro
 .
 
-ro:Regel_met_Voorbereidingsbescherming a owl:Class ;
+ro:RegelMetVoorbereidingsbescherming a owl:Class ;
   rdfs:label "Regel met Voorbereidingsbescherming"@nl ;
   rdfs:subClassOf ro:Tekst ;
 .
 
-ro:Regel_zonder_Voorbereidingsbescherming a owl:Class ;
+ro:RegelZonderVoorbereidingsbescherming a owl:Class ;
   rdfs:label "Regel zonder Voorbereidingsbescherming"@nl ;
   rdfs:subClassOf ro:Tekst ;
   rdfs:isDefinedBy :ro
@@ -75,7 +75,7 @@ ro:Regels a owl:Class ;
   rdfs:isDefinedBy :ro
 .
 
-ro:Beleid_Gemandateerd_aan_GS a owl:Class ;
+ro:BeleidGemandateerdAanGS a owl:Class ;
   rdfs:label "Beleid Gemandateerd aan GS"@nl ;
   rdfs:subClassOf ro:Tekst ;
   rdfs:isDefinedBy :ro
@@ -99,36 +99,36 @@ ro:Bijlage a owl:Class ;
   rdfs:isDefinedBy :ro
 .
 
-ro:Bijlage_Besluitdocument a owl:Class ;
+ro:BijlageBesluitdocument a owl:Class ;
   rdfs:label "Bijlage Besluitdocument"@nl ;
   rdfs:subClassOf ro:Tekst ;
   rdfs:isDefinedBy :ro
 .
 
-ro:Bijlage_Besluittekst a owl:Class ;
+ro:BijlageBesluittekst a owl:Class ;
   rdfs:label "Bijlage Besluittekst"@nl ;
   rdfs:subClassOf ro:Tekst ;
   rdfs:isDefinedBy :ro
 .
 
-ro:Bijlage_Regel_met_voorbereidingsbescherming a owl:Class ;
+ro:BijlageRegelMetVoorbereidingsbescherming a owl:Class ;
   rdfs:label "Bijlage Regel met voorbereidingsbescherming"@nl ;
   rdfs:subClassOf ro:Tekst ;
 .
 
-ro:Bijlage_Regel_zonder_voorbereidingsbescherming a owl:Class ;
+ro:BijlageRegelZonderVoorbereidingsbescherming a owl:Class ;
   rdfs:label "Bijlage Regel zonder voorbereidingsbescherming"@nl ;
   rdfs:subClassOf ro:Tekst ;
   rdfs:isDefinedBy :ro
 .
 
-ro:Bijlage_Regels a owl:Class ;
+ro:BijlageRegels a owl:Class ;
   rdfs:label "Bijlage Regels"@nl ;
   rdfs:subClassOf ro:Tekst ;
   rdfs:isDefinedBy :ro
 .
 
-ro:Bijlage_Toelichting a owl:Class ;
+ro:BijlageToelichting a owl:Class ;
   rdfs:label "Bijlage Toelichting"@nl ;
   rdfs:subClassOf ro:Tekst ;
   rdfs:isDefinedBy :ro
@@ -260,7 +260,7 @@ ro:uitgewerktIn a owl:ObjectProperty ;
 ro:gebruiktInformatieUit a owl:ObjectProperty ; #does this IRI deviate too much from 'informatie in extern plan/besluit'?
   rdfs:subPropertyOf ro:externPlan ;
   rdfs:isDefinedBy :ro ;
-  dcterms:subject ro_beg:gebruiktInformatieUit
+  dcterms:subject ro_beg:gebruiktInformatieUit ;
 .
 
 ro:tenGevolgeVan a owl:ObjectProperty ;

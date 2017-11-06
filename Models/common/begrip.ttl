@@ -1568,5 +1568,7 @@ ro_beg:muteert a skos:Concept .
 ro_beg:vervang a skos:Concept .
 ro_beg:uitTeWerkenIn a skos:Concept .
 ro_beg:uitgewerktIn a skos:Concept .
-ro_beg:gebruiktInformatieUit a skos:Concept .
+ro_beg:gebruiktInformatieUit a skos:Concept ;
+  skos:notation "informatie in extern plan/besluit" .
+  
 ro_beg:tenGevolgeVan a skos:Concept .
