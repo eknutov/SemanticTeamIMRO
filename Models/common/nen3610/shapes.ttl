@@ -13,8 +13,7 @@
 @prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 
-nen3610_str:GeoObject
-  rdf:type sh:NodeShape ; #common
+nen3610_str:GeoObject a sh:NodeShape ;
   sh:targetClass nen3610:GeoObject ;
   sh:sparql [
       sh:message "{$this} is an instance of an abstract class." ;
@@ -29,48 +28,46 @@ WHERE {
   }
 }""" ;
     ] ;
-  sh:property [
-    sh:path nen3610:identificatie ;
-    sh:class nen3610:NEN3610ID ; #should this be a blank node? don't think so.
-    sh:maxCount 1 ;
-    sh:minCount 1 ;
-    ] ;
+  sh:property
+    nen3610_str:GeoObject_identificatie
 .
 
-nen3610_str:NEN3610ID #common
-  rdf:type sh:NodeShape ;
+nen3610_str:GeoObject_identificatie a sh:PropertyShape ;
+    sh:path nen3610:identificatie ;
+    sh:class nen3610:NEN3610ID ;
+    sh:maxCount 1 ;
+    sh:minCount 1
+.
+
+nen3610_str:NEN3610ID a sh:NodeShape ;
   sh:targetClass nen3610:NEN3610ID ;
   sh:property
     nen3610_str:GeoObject_lokaalID ,
     nen3610_str:GeoObject_namespace ,
-    nen3610_str:GeoObject_versie ;
-#   sh:targetClass nen3610:NEN3610ID ; # unnecessary due to the sh:node at nen3610_str:GeoObject_lokaalID?
+    nen3610_str:GeoObject_versie
 .
 
-nen3610_str:GeoObject_lokaalID #common different string lengths for plangebied/object
-  rdf:type sh:PropertyShape ;
+nen3610_str:GeoObject_lokaalID a sh:PropertyShape ; #TODO: different string lengths for plangebied/object
   sh:path nen3610:lokaalID ;
   sh:datatype xsd:string ;
   sh:description "Unieke identificatiecode binnen een registratie"@nl ;
   sh:maxCount 1 ;
   sh:minCount 1 ;
   sh:nodeKind sh:Literal ;
-  sh:pattern "([a-z0-9A-Z\\.\\,\\-]*\\w)" ; # special characters had to be escaped in Topbraid Composer.
+  sh:pattern "([a-z0-9A-Z\\.\\,\\-]*\\w)"  # special characters had to be escaped in Topbraid Composer not sure if all shacl engines require this.
 .
 
-nen3610_str:GeoObject_namespace #common
-  rdf:type sh:PropertyShape ;
+nen3610_str:GeoObject_namespace a sh:PropertyShape ;
   sh:path nen3610:namespace ;
   sh:datatype xsd:string ;
   sh:description "Unieke verwijzing naar een registratie van objecten"@nl ;
   sh:maxCount 1 ;
   sh:minCount 1 ;
   sh:nodeKind sh:Literal ;
-  sh:pattern "([a-z0-9A-Z\\.\\,\\-]*\\w)" ;
+  sh:pattern "([a-z0-9A-Z\\.\\,\\-]*\\w)"
 .
 
-nen3610_str:GeoObject_versie #common
-  rdf:type sh:PropertyShape ;
+nen3610_str:GeoObject_versie a sh:PropertyShape ;
   sh:path nen3610:versie ;
   sh:datatype xsd:string ;
   sh:description "Versie-aanduiding binnen een registratie"@nl ;
@@ -78,47 +75,48 @@ nen3610_str:GeoObject_versie #common
   sh:nodeKind sh:Literal ;
 .
 
-#should this be stored in another folder since it's not nen3610?
-ro_str:PlanlogischGebied rdf:type sh:NodeShape ; #shape defined for IMRO, not nen3610, therefore the prefix.
-  sh:property ro_str:naam ;
-  sh:sparql [
-    sh:message "{$this} is an instance of an abstract class." ;
-    sh:prefixes ro_str:prefixes ;
-    sh:select """
-SELECT DISTINCT $this
-WHERE {
-  $this rdf:type ro:PlanologischGebied  .
-  FILTER NOT EXISTS {
-    $this rdf:type ?class .
-    ?class rdfs:subClassOf ro:PlanologischGebied  .
-  }
-}""" ;
-    ] ;
-#  sh:property ro_str:Planobject_plangebied
-.
+#ro_str:PlanlogischGebied a sh:NodeShape ; #shape defined for IMRO, not nen3610, therefore the prefix.
+#  sh:property ro_str:naam ;
+#  sh:sparql [
+#    sh:message "{$this} is an instance of an abstract class." ;
+#    sh:prefixes ro_str:prefixes ;
+#    sh:select """
+#SELECT DISTINCT $this
+#WHERE {
+#  $this rdf:type ro:PlanologischGebied  .
+#  FILTER NOT EXISTS {
+#    $this rdf:type ?class .
+#    ?class rdfs:subClassOf ro:PlanologischGebied  .
+#  }
+#}""" ;
+#    ] ;
+##  sh:property ro_str:Planobject_plangebied
+#.
 
-nen3610_str:Planobject a sh:NodeShape ; #common
-  sh:targetClass nen3610:Planobject ;
-  sh:property [
-    sh:path nen3610:identificatie ;
+#nen3610_str:Planobject a sh:NodeShape ; #common
+#  sh:targetClass nen3610:Planobject ;
+#  sh:property [
+#    sh:path nen3610:identificatie ;
 #    sh:datatype xsd:string ; already declared
-    sh:maxLength 32 ;
-    ] ;
-  sh:sparql [
-      sh:message "{$this} is an instance of an abstract class." ;
-      sh:prefixes ro_str:prefixes ;
-      sh:select """
-SELECT DISTINCT $this
-WHERE {
-  $this rdf:type ro:Planobject  .
-  FILTER NOT EXISTS {
-    $this rdf:type ?class .
-    ?class rdfs:subClassOf ro:Planobject  .
-  }
-}""" ;
-    ] ;
-#  sh:property ro_str:Planobject_plangebied
-.
+#    sh:maxLength 32 ;
+#    ] ;
+#  sh:sparql [
+#      sh:message "{$this} is an instance of an abstract class." ;
+#      sh:prefixes ro_str:prefixes ;
+#      sh:select """
+#SELECT DISTINCT $this
+#WHERE {
+#  $this rdf:type ro:Planobject  .
+#  FILTER NOT EXISTS {
+#    $this rdf:type ?class .
+#    ?class rdfs:subClassOf ro:Planobject  .
+#  }
+#}""" ;
+#    ]
+##  sh:property ro_str:Planobject_plangebied
+#.
+
+
 #ro_str:Planobject_plangebied a sh:PropertyShape ;
 #  sh:path ro:plangebied ;
 #  sh:class ro:Plangebied ;
@@ -128,28 +126,28 @@ WHERE {
 #.
 ## not all 'besluitvakken' have a planobject, some have a 'besluitgebied'
 
-ro_str:Plangebied rdf:type sh:NodeShape ; #common
-  sh:targetClass nen3610:Plangebied ;
-  sh:property
-    ro_str:Plangebied_locatieNaam ,
-    ro_str:Plangebied_planstatus ,
-    ro_str:Plangebied_ondergrond ;
-  sh:property [
-    sh:path nen3610:identificatie ;
-#    sh:datatype xsd:string ; already declared, as well as multiplicity
-    sh:maxLength 23 ;
-    ] ;
-  sh:sparql [
-    sh:message "{$this} is an instance of an abstract class." ;
-    sh:prefixes ro_str:prefixes ;
-    sh:select """
-SELECT DISTINCT $this
-WHERE {
-  $this rdf:type ro:Plangebied  .
-  FILTER NOT EXISTS {
-    $this rdf:type ?class .
-    ?class rdfs:subClassOf ro:Plangebied  .
-  }
-}""" ;
-    ] ;
-.
+#ro_str:Plangebied rdf:type sh:NodeShape ;
+#  sh:targetClass nen3610:Plangebied ;
+#  sh:property
+#    ro_str:Plangebied_locatieNaam ,
+#    ro_str:Plangebied_planstatus ,
+#    ro_str:Plangebied_ondergrond ;
+#  sh:property [
+#    sh:path nen3610:identificatie ;
+##    sh:datatype xsd:string ; already declared, as well as multiplicity
+#    sh:maxLength 23 ;
+#    ] ;
+#  sh:sparql [
+#    sh:message "{$this} is an instance of an abstract class." ;
+#    sh:prefixes ro_str:prefixes ;
+#    sh:select """
+#SELECT DISTINCT $this
+#WHERE {
+#  $this rdf:type ro:Plangebied  .
+#  FILTER NOT EXISTS {
+#    $this rdf:type ?class .
+#    ?class rdfs:subClassOf ro:Plangebied  .
+#  }
+#}""" ;
+#    ] ;
+#.

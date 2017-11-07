@@ -20,57 +20,50 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ro:Overheid
-  rdf:type owl:Class ;
+#################################################################
+#    Overheid
+#################################################################
+
+
+ro:Overheid a owl:Class ;
   rdfs:label "Overheden"@nl ;
 .
 
-ro:NationaleOverheid
-  rdf:type owl:Class ;
+ro:NationaleOverheid a owl:Class ;
   rdfs:label "nationale overheid"@nl ;
   rdfs:subClassOf ro:Overheid ;
 .
 
-ro:ProvincialeOverheid
-  rdf:type owl:Class ;
+ro:ProvincialeOverheid a owl:Class ;
   rdfs:label "provinciale overheid"@nl ;
   rdfs:subClassOf ro:Overheid ;
 .
 
-ro:GemeentelijkeOverheid
-  rdf:type owl:Class ;
+ro:GemeentelijkeOverheid a owl:Class ;
   rdfs:label "gemeentelijke overheid"@nl ;
   rdfs:subClassOf ro:Overheid ;
 .
 
-ro:Deelgemeente_Stadsdeel
-  rdf:type owl:Class ;
+ro:Deelgemeente_Stadsdeel a owl:Class ;
   rdfs:label "Deelgemeente/Stadsdeel"@nl ;
   rdfs:subClassOf ro:Overheid ;
 .
 
-ro:beleidsmatigVerantwoordelijkeOverheid
-  rdf:type owl:ObjectProperty ;
+ro:beleidsmatigVerantwoordelijkeOverheid a owl:ObjectProperty ;
   rdfs:domain nen3610:Plangebied ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "beleidsmatigerantwoordelijke overheid"@nl ;
   rdfs:range ro:Overheid ;
 .
 
-ro:naamOverheid # use ro:naam?
-  rdf:type owl:AnnotationProperty ;
+ro:naamOverheid a owl:AnnotationProperty ;
   rdfs:domain ro:Overheid ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "naam overheid"@nl ;
 .
-# TODO: change to ro:code, not to forget the SHACL shapes.
-ro:overheidsCode
-  rdf:type owl:AnnotationProperty ;
+
+ro:overheidsCode a owl:AnnotationProperty ;
   rdfs:domain ro:Overheid ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "overheids code"@nl ;
 .
-#ro:code a owl:DatatypeProperty ;
-#  rdfs:label "code"@nl ;
-#  rdfs:isDefinedBy :ro
-#.

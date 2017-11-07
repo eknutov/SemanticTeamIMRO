@@ -226,7 +226,7 @@ ro_str:Structuurvisieverklaring_illustratieverwijzing a sh:PropertyShape ;
   sh:path ro:illustratie ;
   sh:class ro:Illustratie ;
   sh:node
-    ro_str:Illustratie ,
+#    ro_str:Illustratie ,
     ro_str:Illustratie_legendaNaam ,
     ro_str:Illustratie_illustratieNaam
 .
