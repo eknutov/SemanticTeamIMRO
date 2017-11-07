@@ -20,61 +20,39 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-nen3610:GeoObject
-  rdf:type owl:Class ;
+nen3610:GeoObject a owl:Class ;
   dcterms:subject ro_nen3610_beg:GeoObject ;
-  rdfs:label "GeoObject"@nl ;
+  rdfs:label "GeoObject"@nl
 .
 
-nen3610:NEN3610ID
-  rdf:type owl:Class ;
+nen3610:NEN3610ID a owl:Class ;
   dcterms:subject ro_nen3610_beg:NEN3610ID ;
-  rdfs:label "NEN3610ID"@nl ;
+  rdfs:label "NEN3610ID"@nl
 .
 
-nen3610:PlanologischGebied
-  rdf:type owl:Class ;
+nen3610:PlanologischGebied a owl:Class ;
   dcterms:subject ro_nen3610_beg:PlanologischGebied ;
   rdfs:label "Planologisch gebied"@nl ;
-  rdfs:subClassOf nen3610:GeoObject ;
+  rdfs:subClassOf nen3610:GeoObject
 .
 
-nen3610:identificatie
-  rdf:type owl:ObjectProperty ; #functional object property to blank node?
-  rdfs:domain nen3610:GeoObject ;
+nen3610:identificatie a owl:ObjectProperty ; #functional object property to blank node?
   rdfs:label "identificatie"@nl ;
-  rdfs:range nen3610:NEN3610ID ;
+  rdfs:domain nen3610:GeoObject ;
+  rdfs:range nen3610:NEN3610ID
 .
 
-nen3610:lokaalID
-  rdf:type owl:DatatypeProperty ;
+nen3610:lokaalID a owl:DatatypeProperty ;
   rdfs:domain nen3610:NEN3610ID ;
-  rdfs:label "lokaalID"@nl ;
+  rdfs:label "lokaalID"@nl
 .
 
-nen3610:namespace
-  rdf:type owl:DatatypeProperty ;
+nen3610:namespace a owl:DatatypeProperty ;
   rdfs:domain nen3610:NEN3610ID ;
-  rdfs:label "namespace"@nl ;
+  rdfs:label "namespace"@nl
 .
 
-nen3610:versie
-  rdf:type owl:DatatypeProperty ;
+nen3610:versie a owl:DatatypeProperty ;
   rdfs:domain nen3610:NEN3610ID ;
-  rdfs:label "versie"@nl ;
-.
-
-#TODO: Remove all its instances.... iets mee doen
-
-nen3610:Plangebied
-  rdf:type owl:Class ;
-  rdfs:isDefinedBy :ro ;
-  rdfs:label "Plangebied"@nl ;
-  rdfs:subClassOf nen3610:PlanologischGebied ;
-.
-
-nen3610:Planobject
-  rdf:type owl:Class ;
-  rdfs:label "Planobject"@nl ;
-  rdfs:subClassOf nen3610:PlanologischGebied ;
+  rdfs:label "versie"@nl
 .

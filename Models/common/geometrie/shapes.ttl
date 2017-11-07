@@ -15,24 +15,20 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 
 
-# include a shape for geometrie?  all is now in the specific shapes. Can probably extract some common parts.
-
-#not really used..
-
-ro_str:Idealisatie_1 rdf:type sh:NodeShape ;
+ro_str:Idealisatie_1 a sh:NodeShape ;
   sh:in (
     ro_beg:exact
   )
 .
 
-ro_str:Idealisatie_2 rdf:type sh:NodeShape ;
+ro_str:Idealisatie_2 a sh:NodeShape ;
   sh:in (
     ro_beg:exact
     ro_beg:indicatief
   )
 .
 
-ro_str:Idealisatie_3 rdf:type sh:NodeShape ;
+ro_str:Idealisatie_3 a sh:NodeShape ;
   sh:in (
     ro_beg:exact
     ro_beg:indicatief

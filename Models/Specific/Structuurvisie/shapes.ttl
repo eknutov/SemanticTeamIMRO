@@ -151,7 +151,7 @@ ro_str:Structuurvisiegebied_thema a sh:PropertyShape ;
 ro_str:Structuurvisiegebied_illustratieVerwijzing a sh:PropertyShape ;
   sh:path ro:illustratie ;
   sh:class ro:Illustratie ;
-  sh:node ro_str:Illustratie ;
+#  sh:node ro_str:Illustratie ;
   sh:node ro_str:Illustratie_legendaNaam
 .
 

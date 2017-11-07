@@ -20,36 +20,31 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ro:Geometrie
-  rdf:type owl:Class ;
+ro:Geometrie a owl:Class ;
   rdfs:subClassOf ogc:Geometry ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "Geometrie"@nl ;
 .
 
-ro:geometrie
-  rdf:type owl:ObjectProperty ;
+ro:geometrie a owl:ObjectProperty ;
   rdfs:subPropertyOf ogc:hasGeometry ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "geometrie"@nl ;
 .
 
-ro:idealisatie
-  rdf:type owl:ObjectProperty ;
+ro:idealisatie a owl:ObjectProperty ;
   rdfs:domain ro:Geometrie ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "idealisatie"@nl ;
 .
 
-ro:begrenzing
-  rdf:type owl:ObjectProperty ;
+ro:begrenzing a owl:ObjectProperty ;
   rdfs:subPropertyOf ogc:hasGeometry ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "begrenzing"@nl ;
 .
 
-ro:inwinningsschaal
-  rdf:type owl:DatatypeProperty ;
+ro:inwinningsschaal a owl:DatatypeProperty ;
   rdfs:domain ro:Geometrie ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "inwinningsschaal"@nl ;
