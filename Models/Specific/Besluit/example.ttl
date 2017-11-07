@@ -1,6 +1,5 @@
 @prefix ex: <http://www.example.com/> .
 
-
 # common prefixes
 @prefix dc: <http://purl.org/dc/terms/> .
 @prefix doco: <http://purl.org/spar/doco/> .
@@ -8,6 +7,7 @@
 @prefix gml: <http://www.opengis.net/ont/gml#> .
 @prefix locn: <http://www.w3.org/ns/locn#> .
 @prefix ogc: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
@@ -36,27 +36,29 @@
 
 # Example of ro:ProvincialeVerordening
 
-ex:PV1 a ro:ProvincialeVerordening, ro:Besluit, void:Dataset;
+ex:PV1 a ro:ProvincialeVerordening, ro:Plan, ro:Besluit, void:Dataset;
   rdfs:label "provinciale verordering 1";
-  dc:hasPart ex:PlanobjectA;
+  dc:hasPart ex:PlanobjectPV1_A;
 .
 
 ex:PlanobjectPV1_A a ro:Planobject;
   void:inDataSet ex:PV1;
   dc:isPartOf ex:PV1;
   rdfs:label "Zuid-Limburg";
-  ro:tekst ex:Tekst1;
-  ro:illustratie ex:Illustratie1;
-  ro:kaart ex:Kaart1;
+  dc:subject "demogafie";
+  ro:tekst ex:TekstPV1_1;
+  ro:illustratie ex:IllustratiePV1_1;
+  ro:kaart ex:KaartPV1_1;
   ogc:geometry ex:Geom1;
   dc:hasPart ex:PlanobjectPV1_A1;
   dc:hasPart ex:PlanobjectPV1_A2;
 .
 
-ex:TesktPV1_1 a ro:Document, ro:Tekst;
+ex:TekstPV1_1 a ro:Document, ro:Tekst;
   void:inDataSet ex:PV1;
   ro:identificatie "document 1";
   ro:teksttype ro_beg:Toelichting;
+  ro:normadressant ro_beg:Gemeenteraad;
 .
 
 ex:IllustratiePV1_1 a ro:Document, ro:Illustratie;
@@ -83,12 +85,14 @@ ex:PlanobjectPV1_A1 a ro:Planobject;
   void:inDataSet ex:PV1;
   dc:isPartOf ex:PlanobjectPV1_A;
   rdfs:label "Gulpen";
+  dc:subject "demogafie";
 .
 
 ex:PlanobjectPV1_A2 a ro:Planobject;
   void:inDataSet ex:PV1;
   dc:isPartOf ex:PlanobjectPV1_A;
   rdfs:label "Eijsden";
+  dc:subject "demogafie";
 .
 
 # Example of ro:AMVB
@@ -102,4 +106,24 @@ ex:PlanobjectAMVB1_A a ro:Planobject;
   void:inDataSet ex:AMVB1;
   dc:isPartOf ex:AMVB1;
   rdfs:label "Apeldoorn";
+  dc:subject "milieuvervuiling";
+.
+
+# Example of ro:OverigGebiedsgerichtBesluit
+ex:OGB1 a ro:OverigGebiedsgerichtBesluit, ro:Besluit, void:Dataset;
+  rdfs:label "Overig besluit 1";
+  dc:hasPart ex:PlanobjectOGB1_A;
+.
+
+ex:PlanobjectOGB1_A a ro:Planobject;
+  void:inDataSet ex:OGB1;
+  dc:isPartOf ex:OGB1;
+  rdfs:label "Groningen";
+  ogc:geometry ex:GeomOGB1_A;
+.
+
+ex:GeomOGB1_1 a ogc:Geometry;
+  void:inDataSet ex:OGB1;
+  ogc:asWKT "POLYGON((3.3080 50.7504,3.3079 53.5764,7.2275 53.5764,7.2275 50.7504,3.3080 50.7504))"^^ogc:wktLiteral;
+  ro:idealisatie ro_beg:Indicatief;
 .
