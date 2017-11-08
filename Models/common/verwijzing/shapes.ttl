@@ -95,13 +95,13 @@ ro_str:Teksttype_PSV a sh:NodeShape ;
 #  ]
 #.
 
-ro_str:Illustratie_legendaNaam rdf:type sh:NodeShape ; #can I treat a nodeshape as a propertyshape?
+ro_str:Illustratie_legendaNaam a sh:NodeShape ; #can I treat a nodeshape as a propertyshape?
   sh:path ro:legendaNaam ;
   sh:datatype xsd:string ;
   sh:maxCount 1 ;
 .
 
-ro_str:Illustratie_IllustratieNaam rdf:type sh:NodeShape ; #can I treat a nodeshape as a propertyshape?
+ro_str:Illustratie_IllustratieNaam a sh:NodeShape ; #can I treat a nodeshape as a propertyshape?
   sh:path ro:illustratieNaam ;
   sh:datatype xsd:string ;
   sh:maxCount 1 ;
@@ -111,9 +111,9 @@ ro_str:Illustratie_IllustratieNaam rdf:type sh:NodeShape ; #can I treat a nodesh
 #    Cartografie
 #################################################################
 
-ro_str:cartografieInfo rdf:type sh:NodeShape ;
+ro_str:cartografieInfo a sh:NodeShape ;     #[0...*] cardinality of properties
   sh:property
-    ro_str:cartografieInfo_kaartNaam ,
+    ro_str:cartografieInfo_kaartNaam ,      # kaartNaam
     ro_str:cartografieInfo_kaartNummer ,
     ro_str:cartografieInfo_symboolCode
 .
@@ -144,7 +144,7 @@ ro_str:cartografieInfo_symboolCode a sh:PropertyShape ;
 #################################################################
 
 
-ro_str:ExternPlanReferentiePG_SV rdf:type sh:NodeShape ;
+ro_str:ExternPlanReferentiePG_SV a sh:NodeShape ;
   sh:closed true ; # this construct is used to restrict the allowed predicates from the blank node.
   sh:ignoredProperties (
     ro:muteert
