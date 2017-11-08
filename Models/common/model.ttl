@@ -36,7 +36,7 @@
 ro:Plan a owl:Class ;
   rdfs:label "Plan"@nl ;
   rdfs:isDefinedBy :ro ;
-  rdfs:comment "Een plan welke regels beschrijft die geldig zijn voor een bepaald gebied."@nl ;
+  rdfs:comment "Een plan dat regels beschrijft die geldig zijn voor een bepaald gebied."@nl ;
   dcterms:subject ro_beg:Plan
 .
 
@@ -51,7 +51,7 @@ ro:Plangebied a owl:Class ;
 ro:Planobject a owl:Class ;
   rdfs:label "Planobject"@nl ;
   rdfs:isDefinedBy :ro ;
-  rdfs:comment "Ruimtelijk object welke zich bevindt in een bijbehorend plangebied."@nl ;
+  rdfs:comment "Ruimtelijk object dat zich bevindt in een bijbehorend plangebied."@nl ;
   dcterms:subject ro_beg:Planobject ;
   rdfs:subClassOf nen3610:PlanologischGebied
 .
