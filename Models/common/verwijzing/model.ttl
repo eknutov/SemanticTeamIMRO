@@ -31,8 +31,6 @@ ro:verwijzing a rdf:Property ;
 #    Tekst
 #################################################################
 
-#TODO: Not all items in the teksttype enumeration are covered yet
-
 #ro:tekstReferentie a owl:AnnotationProperty ;
 #  rdfs:label "tekstverwijzing"@nl ;
 #.

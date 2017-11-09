@@ -6,29 +6,27 @@
 #################################################################
 #    Tekstobject
 #################################################################
-
 ro_str:Tekstobject a sh:NodeShape ;
   sh:targetClass ro:Tekstobject ;
   sh:property
 #    TODO: Is this actually necessary?
-    ro_str:Tekstobject_verwijzingNaarPlan ,
+    ro_str:Tekstobject_verwijzingNaarPlangebied ,
 #    TODO: Is this actually necessary?
     ro_str:Tekstobject_volgnummer ,
 #    TODO: Is this actually necessary?
     ro_str:Tekstobject_niveau ,
 #    TODO: Is this actually necessary?
-    ro_str:TekstObject_type ,
     ro_str:Tekstobject_typeTekst ,
     ro_str:Tekstobject_titel ,
     ro_str:Tekstobject_externeVerwijzing ,
     ro_str:Tekstobject_tekst ,
     #ro_str:Tekstobject_ouder ,
-    ro_str:Tekstobject_naamPraktijkRichtlijn
+    ro_str:Tekstobject_naamPraktijkRichtlijn ;
 .
 
-ro_str:Tekstobject_verwijzingNaarPlan a sh:PropertyShape ;
-  sh:path ro:plan ;
-  sh:class ro:Plan ;
+ro_str:Tekstobject_verwijzingNaarPlangebied a sh:PropertyShape ;
+  sh:path ro:plangebied ;
+  sh:class ro:Plangebied ;
   sh:nodeKind sh:IRI ;
   sh:minCount 1 ;
   sh:maxCount 1
@@ -51,21 +49,10 @@ ro_str:Tekstobject_niveau a sh:PropertyShape ;
 .
 
 ro_str:Tekstobject_typeTekst a sh:PropertyShape ;
-  sh:qualifiedValueShape [
-    sh:path rdf:type ;
-    sh:class ro:Tekst ;
-    sh:nodeKind sh:IRI ;
-  ] ;
-  sh:qualiedMaxCount 1
-.
-
-ro_str:Tekstobject_typeTekst a sh:PropertyShape ;
-  sh:qualifiedValueShape [
-    sh:path rdf:type ;
-    sh:class ro:Tekst ;
-    sh:nodeKind sh:IRI ;
-  ] ;
-  sh:qualiedMaxCount 1
+  sh:path ro:typeTekst ;
+  sh:class ro:Plangebied ;
+  sh:nodeKind sh:IRI ;
+  sh:maxCount 1
 .
 
 ro_str:Tekstobject_titel a sh:PropertyShape ;
@@ -83,24 +70,22 @@ ro_str:Tekstobject_externeVerwijzing a sh:PropertyShape ;
 .
 
 ro_str:Tekstobject_tekst a sh:PropertyShape ;
-  sh:path ro:plantekst ;
+  sh:path ro:tekst ;
   sh:nodeKind sh:Literal ;
   sh:datatype rdf:XMLLiteral ;
   sh:maxCount 1
 .
 
 # TODO: This seems to be part of the metadata of the document. Possibly move this to a higher level?
-# Jesse: We could constrain it to only be an attibute of node with no ro:ouderID (which I think is always of type ro:Document?)
-
 ro_str:Tekstobject_naamPraktijkRichtlijn a sh:PropertyShape ;
   sh:path ro:naamPraktijkRichtlijn ;
   sh:class skos:Concept ;
   sh:nodeKind sh:IRI ;
   sh:maxCount 1 ;
-  sh:node [
+  sh:shape [
     sh:property [
       sh:path [ sh:inversePath skos:member ] ;
-      sh:hasvalue ro_col:PraktijkRichtlijnNaam
+      sh:targetNode ro_col:PraktijkRichtlijnNaam
     ]
   ]
 .
@@ -108,40 +93,29 @@ ro_str:Tekstobject_naamPraktijkRichtlijn a sh:PropertyShape ;
 #################################################################
 #    Titel
 #################################################################
-
-# Jesse: Why is Overheid in the naming here?
-#  ro_str:Titel a sh:NodeShape ;
-#    sh:targetClass ro:Titel ;
-#    sh:property
-#      ro_str:Overheid_titellabel ,
-#      ro_str:Overheid_titelnummer ,
-#      ro_str:Overheid_titelnaam ;
-#  .
-
-
 ro_str:Titel a sh:NodeShape ;
   sh:targetClass ro:Titel ;
   sh:property
-    ro_str:Titel_titellabel ,
-    ro_str:Titel_titelnummer ,
-    ro_str:Titel_titelnaam
+    ro_str:Overheid_titellabel ,
+    ro_str:Overheid_titelnummer ,
+    ro_str:Overheid_titelnaam ;
 .
 
-ro_str:Titel_titelllabel a sh:PropertyShape ;
+ro_str:Overheid_titellabel a sh:PropertyShape ;
   sh:path ro:titellabel ;
   sh:nodeKind sh:Literal ;
   sh:datatype xsd:string ;
   sh:maxCount 1
 .
 
-ro_str:Titel_titellnummer a sh:PropertyShape ;
+ro_str:Overheid_titelnummer a sh:PropertyShape ;
   sh:path ro:titelnummer ;
   sh:nodeKind sh:Literal ;
   sh:datatype xsd:string ;
   sh:maxCount 1
 .
 
-ro_str:Titel_titellnaam a sh:PropertyShape ;
+ro_str:Overheid_titelnaam a sh:PropertyShape ;
   sh:path ro:titelnaam ;
   sh:nodeKind sh:Literal ;
   sh:datatype xsd:string ;
@@ -150,29 +124,7 @@ ro_str:Titel_titellnaam a sh:PropertyShape ;
 
 
 #################################################################
-#    TekstMetadata
-#################################################################
-
-#  ro_str:TekstMetadata a sh:NodeShape ;
-#    sh:targetClass ro:TekstMetadata ;
-#    sh:property
-#     ...
-#  .
-
-
-
-#Jesse: The 'ordering' seems to depend on whether the respective plan is either a Bestemmingsplan, Structuurvisie or a Besluit.
-
-#  TODO: Rename Shapes to incorperate this distinction,
-#        and extend the contraints to target tekstobjects
-#        of which the respective plan of of a specific type
-
-#################################################################
-#    Basisindeling plannen
-#################################################################
-
-#################################################################
-#    regels
+#    Regels
 #################################################################
 
 ro_str:PT_Document a sh:NodeShape ;
@@ -974,10 +926,10 @@ ro_str:PT_Lid_ouder a sh:PropertyShape ;
   sh:path ro:ouder ;
   sh:or (
     [
-      sh:class ro:Begrippen ;
+      sh:class ro:WijzeVanMeten ;
     ]
     [
-      sh:class ro:WijzeVanMeten ;
+      sh:class ro:Begrippen ;
     ]
     [
       sh:class ro:Anti_dubbeltelregel ;
@@ -1015,10 +967,6 @@ ro_str:PT_Lid_ouder a sh:PropertyShape ;
   )
 .
 
-#################################################################
-#    Verdere onderverdeling van Klasse Tekstobject
-#################################################################
-
 ro_str:PT_Sublid a sh:NodeShape ;
   sh:targetClass ro:Sublid ;
   sh:property
@@ -1051,10 +999,6 @@ ro_str:PT_Subsubsublid_ouder a sh:PropertyShape ;
   sh:path ro:ouder ;
   sh:class ro:Subsublid ;
 .
-
-#################################################################
-#    Bijlagen bij Regels
-#################################################################
 
 ro_str:PT_BijlagenBijRegels a sh:NodeShape ;
   sh:targetClass ro:BijlagenBijRegels ;
@@ -1175,10 +1119,11 @@ ro_str:PT_Subsubsubparagraaf_ouder a sh:PropertyShape ;
   sh:class ro:Subsubparagraaf ;
 .
 
-
-#################################################################
-#    Toelichting
-#################################################################
+ro_str:PT_Overig_Tekstobject a sh:NodeShape ;
+  sh:targetClass ro:Overig_Tekstobject ;
+  sh:property
+    ro_str:PT_Overig_Tekstobject_ouder ;
+.
 
 ro_str:PT_Toelichting a sh:NodeShape ;
   sh:targetClass ro:Toelichting ;
@@ -1192,10 +1137,6 @@ ro_str:PT_Toelichting_ouder a sh:PropertyShape ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
 .
-
-#################################################################
-#    Bijlage bij Toelichting
-#################################################################
 
 ro_str:PT_BijlagenBijToelichting a sh:NodeShape ;
   sh:targetClass ro:BijlagenBijToelichting ;
@@ -1216,7 +1157,6 @@ ro_str:PT_BijlagenBijToelichting_ouder a sh:PropertyShape ;
   sh:maxCount 1 ;
 .
 
-
 ro_str:PT_BijlageBijToelichting a sh:NodeShape ;
   sh:targetClass ro:BijlageBijToelichting ;
   sh:property
@@ -1226,13 +1166,6 @@ ro_str:PT_BijlageBijToelichting a sh:NodeShape ;
 ro_str:PT_BijlageBijToelichting_ouder a sh:PropertyShape ;
   sh:path ro:ouder ;
   sh:class ro:BijlagenBijToelichting ;
-.
-
-
-ro_str:PT_Overig_Tekstobject a sh:NodeShape ;
-  sh:targetClass ro:Overig_Tekstobject ;
-  sh:property
-    ro_str:PT_Overig_Tekstobject_ouder ;
 .
 
 ro_str:PT_Overig_Tekstobject_ouder a sh:PropertyShape ;
@@ -1267,13 +1200,3 @@ ro_str:PT_Overig_Tekstobject_ouder a sh:PropertyShape ;
     ]
   )
 .
-
-
-#################################################################
-#    Basisindeling Visies
-#################################################################
-
-
-#################################################################
-#    Basisindeling Besluiten
-#################################################################
