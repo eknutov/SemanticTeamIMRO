@@ -86,11 +86,6 @@ ro:Planobject a owl:Class ;
 #   rdfs:range nen3610:Planobject ;
 # .
 
-ro:thema a owl:DatatypeProperty ;             #is this a datatype/annotation or perhaps even an objectproperty?
-  rdfs:isDefinedBy :ro ;
-  rdfs:label "thema"@nl ;
-.
-
 #################################################################
 #    Ondergrond
 #################################################################
