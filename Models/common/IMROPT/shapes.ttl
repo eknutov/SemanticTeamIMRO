@@ -1,7 +1,32 @@
+# common prefixes
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix doco: <http://purl.org/spar/doco/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix gml: <http://www.opengis.net/ont/gml#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix ogc: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# prefixes specific to Informatiehuis Ruimte
+@prefix imro: <http://data.imro.com/def/> .
+@prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
+@prefix nen3610_str: <http://data.informatiehuisruimte.nl/def/nen3610/> .
+@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
 @prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
+@prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
+@prefix ro_begkr: <http://data.informatiehuisruimte.nl/id/begrippenkader/> .
 @prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
+@prefix ro_nen3610_beg: <http://data.informatiehuisruimte.nl/nen3610/id/begrip/> .
+@prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
+@prefix ro_sym: <http://data.informatiehuisruimte.nl/ro/id/symbool/> .
 
 #################################################################
 #    Tekstobject
@@ -50,15 +75,32 @@ ro_str:Tekstobject_niveau a sh:PropertyShape ;
   sh:maxCount 1
 .
 
-ro_str:Tekstobject_typeTekst a sh:PropertyShape ;
+#Jesse: The allowed Tekstobjects depend on the type of plan. The following enumeration are defined in IMROPT:
+# - ObjecttypePlan,
+# - ObjecttypeVisie of
+# - ObjecttypeBesluit
+# e.g. if respective plan is of type ro:Structuurvisie, pick TekstObject from enumeration ObjecttypeVisie.
+# This is reflected in the following shape:
+
+ro_str:Tekstobject_type a sh:PropertyShape ;
   sh:qualifiedValueShape [
-    sh:path rdf:type ;
-    sh:class ro:Tekst ;
+    sh:xone (
+      [ sh:and (
+          [ sh:path ( ro:plan rdf:type ) ; sh:class ro:Bestemmingsplan ]
+          [ sh:path rdf:type ; sh:node ro_str:ObjecttypePlan ] ) ]
+      [ sh:and (
+          [ sh:path ( ro:plan rdf:type ) ; sh:class ro:Structuurvisie ]
+          [ sh:path rdf:type ; sh:node ro_str:ObjecttypeVisie ] ) ]
+      [ sh:and (
+          [ sh:path ( ro:plan rdf:type ) ; sh:class ro:Besluit ]
+          [ sh:path rdf:type ; sh:node ro_str:ObjecttypeBesluit ] ) ]
+    ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:qualiedMaxCount 1
 .
 
+#Jesse: Should this type not be assigned to the actual tekst? (pointed to by the predicate ro:planTekst)
 ro_str:Tekstobject_typeTekst a sh:PropertyShape ;
   sh:qualifiedValueShape [
     sh:path rdf:type ;
@@ -148,24 +190,129 @@ ro_str:Titel_titellnaam a sh:PropertyShape ;
   sh:maxCount 1
 .
 
-
-#################################################################
-#    TekstMetadata
-#################################################################
-
-#  ro_str:TekstMetadata a sh:NodeShape ;
-#    sh:targetClass ro:TekstMetadata ;
-#    sh:property
-#     ...
-#  .
-
-
-
 #Jesse: The 'ordering' seems to depend on whether the respective plan is either a Bestemmingsplan, Structuurvisie or a Besluit.
 
 #  TODO: Rename Shapes to incorperate this distinction,
 #        and extend the contraints to target tekstobjects
 #        of which the respective plan of of a specific type
+
+
+#################################################################
+#    ObjecttypePlan
+#################################################################
+
+ro:ObjecttypePlan a sh:NodeShape ;
+  sh:in (
+    ro:AfwijkenVanDeBouwregels
+    ro:afwijkenVanDeGebruiksregels
+    ro:AlgemeneAanduidingsregels
+    ro:sAlgemeneAfwijkingsregels
+    ro:AlgemeneBouwregels
+    ro:AlgemeneGebruiksregels
+    ro:AlgemeneProcedureregels
+    ro:AlgemeneRegels
+    ro:AlgemeneWijzigingsregels
+    ro:Anti-Dubbeltelregel
+    ro:Begrippen
+    ro:Bestemming
+    ro:Bestemmingsomschrijving
+    ro:Bestemmingsregels
+    ro:BijlageBijRegels
+    ro:BijlageBijToelichting
+    ro:BijlagenBijregels
+    ro:BijlagenBijtoelichting
+    ro:Bouwregels
+    ro:Deel
+    ro:DefinitieveBestemmingBijVoorlopigeBestemming
+    ro:Document
+    ro:Dubbelbestemming
+    ro:GeldigheidstermijnVanDeVoorlopigeBestemming
+    ro:Hoofdstuk
+    ro:InleidendeRegels
+    ro:Lid
+    ro:NadereEisen
+    ro:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk
+    ro:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden
+    ro:Overgangs_EnSlotregels
+    ro:Overgangsrecht
+    ro:Overig
+    ro:OverigeRegels
+    ro:Paragraaf
+    ro:Regels
+    ro:Slotregel
+    ro:SpecifiekeGebruiksregels
+    ro:Sublid
+    ro:Subparagraaf
+    ro:Subsublid
+    ro:Subsubparagraaf
+    ro:Subsubsublid
+    ro:Subsubsubparagraaf
+    ro:Toelichting
+    ro:UitTeWerkenBestemming
+    ro:Uitwerkingsregels
+    ro:VerwezenlijkingInDeNaasteToekomst
+    ro:VoorlopigeBestemming
+    ro:WijzeVanMeten
+    ro:wijzigingsbevoegdheid
+  )
+.
+#################################################################
+#    ObjecttypeVisie
+#################################################################
+
+ro_str:ObjecttypeVisie a sh:NodeShape ;
+  sh:in (
+    ro:Band
+    ro:Beleidstekst
+    ro:Bijlage
+    ro:Bijlagen
+    ro:Deel
+    ro:Document
+    ro:Hoofdstuk
+    ro:Overig
+    ro:Paragraaf
+    ro:Subparagraaf
+    ro:Subsubparagraaf
+    ro:Subsubsubparagraaf
+    ro:Toelichting
+  )
+.
+
+
+#################################################################
+#    ObjecttypeBesluit
+#################################################################
+
+ro_str:ObjecttypeBesluit a sh:NodeShape ;
+  sh:in (
+    ro:Afdeling
+    ro:Artikel
+    ro:Besluitdocument
+    ro:Besluittekst
+    ro:Bijlage
+    ro:BijlageBijRegels
+    ro:bijlageBijToelichting
+    ro:Bijlagen
+    ro:BijlagenBijRegels
+    ro:BijlagenBijToelichting
+    ro:Deel
+    ro:Hoofdstuk
+    ro:Lid
+    ro:Onderdeel
+    ro:Overig
+    ro:Paragraaf
+    ro:Regels
+    ro:Sublid
+    ro:Subonderdeel
+    ro:Subparagraaf
+    ro:Subsublid
+    ro:Subsubparagraaf
+    ro:Subsubsublid
+    ro:Subsubsubparagraaf
+    ro:Titel
+    ro:Toelichting
+  )
+.
 
 #################################################################
 #    Basisindeling plannen

@@ -6,6 +6,37 @@
 @prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
 @prefix : <http://data.informatiehuisruimte.nl/def/> .
 
+# common prefixes
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix doco: <http://purl.org/spar/doco/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix gml: <http://www.opengis.net/ont/gml#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix ogc: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# prefixes specific to Informatiehuis Ruimte
+@prefix imro: <http://data.imro.com/def/> .
+@prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
+@prefix nen3610_str: <http://data.informatiehuisruimte.nl/def/nen3610/> .
+@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
+@prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
+@prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
+@prefix ro_begkr: <http://data.informatiehuisruimte.nl/id/begrippenkader/> .
+@prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
+@prefix ro_nen3610_beg: <http://data.informatiehuisruimte.nl/nen3610/id/begrip/> .
+@prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
+@prefix ro_sym: <http://data.informatiehuisruimte.nl/ro/id/symbool/> .
+
+
 
 #Jesse: Since IMROPT is an other standard than IMRO, it should have its own ontology entity?
 
@@ -157,7 +188,7 @@ ro:naamPraktijkRichtlijn a owl:ObjectProperty ;
 
 
 #################################################################
-#    Planteksten Regels
+#    Planteksten Regels ObjecttypePlan
 #################################################################
 
 ro:Document a owl:Class ;
@@ -725,9 +756,124 @@ ro:BijlageBijToelichting a owl:Class ;
   dcterms:subject ro_beg:BijlageBijToelichting
 .
 
+#Jesse: Why is there a underscore here? is this intentional?
 ro:Overig_Tekstobject a owl:Class ;
   rdfs:label "Overig (TekstObject)"@nl ;
   rdfs:isDefinedBy :roPT ;
   rdfs:subClassOf ro:Tekstobject ;
   dcterms:subject ro_beg:Overig_Tekstobject
 .
+
+
+#################################################################
+#     ObjecttypeVisie
+#################################################################
+
+ro:Band a owl:Class ;
+  rdfs:label "band"@nl ;
+  rdfs:isDefinedBy :roPT ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:band
+.
+
+ro:Beleidstekst a owl:Class ;
+  rdfs:label "beleidstekst"@nl ;
+  rdfs:isDefinedBy :roPT ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Beleidstekst
+.
+
+ro:Bijlage a owl:Class ;
+  rdfs:label "bijlage"@nl ;
+  rdfs:isDefinedBy :roPT ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Bijlage
+.
+
+ro:Bijlagen a owl:Class ;
+  rdfs:label "bijlagen"@nl ;
+  rdfs:isDefinedBy :roPT ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Bijlagen
+.
+
+#################################################################
+#     ObjecttypeBesluit
+#################################################################
+
+ro:Afdeling a owl:Class ;
+  rdfs:label "afdeling"@nl ;
+  rdfs:isDefinedBy :roPT ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Afdeling
+.
+
+ro:Artikel a owl:Class ;
+  rdfs:label "artikel"@nl ;
+  rdfs:isDefinedBy :roPT ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Artikel
+.
+
+ro:Besluitdocument a owl:Class ;
+  rdfs:label "besluitdocument"@nl ;
+  rdfs:isDefinedBy :roPT ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Besluitdocument
+.
+
+ro:Besluittekst a owl:Class ;
+  rdfs:label "besluittekst"@nl ;
+  rdfs:isDefinedBy :roPT ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Besluittekst
+.
+
+ro:Onderdeel a owl:Class ;
+  rdfs:label "onderdeel"@nl ;
+  rdfs:isDefinedBy :roPT ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Onderdeel
+.
+
+ro:suboderdeel a owl:Class ;
+  rdfs:label "subonderdeel"@nl ;
+  rdfs:isDefinedBy :roPT ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Subonderdeel
+.
+
+#Jesse: Some overlap with Teksttype found, Should we use a new prefix specific for IMROPT and define them multiple times?
+# For instance, 'ro:Bijlage' now is a teksttype and an objecttype. do we want to keep these disjoint?
+# ro:Titel now is a Tekstobject, but also used elsewhere, where it is not a tekstobject. (tekstobject has a title, versus IS a title)
+
+ro:Titel a owl:Class ;
+  rdfs:label "titel"@nl ;
+  rdfs:isDefinedBy :roPT ;
+  rdfs:subClassOf ro:Tekstobject ;
+  dcterms:subject ro_beg:Titel
+.
+
+
+#################################################################
+#     Teksttype
+#################################################################
+
+#  beleid
+#  beleid gemandateerd aan GS
+#  besluitdocument
+#  besluittekst
+#  bijlage
+#  bijlage bij besluitdocument
+#  bijlage bij besluittekst
+#  bijlage bij regel met voorbereidingsbescherming
+#  bijlage bij regel zonder voorbereidingsbescherming
+#  bijlage bij regels
+#  bijlage bij toelichting
+#  bijlage bij voorschriften/regels
+#  document
+#  regel met voorbereidingsbescherming
+#  regel zonder voorbereidingsbescherming
+#  regels
+#  toelichting
+#  voorschriften/regels
