@@ -28,34 +28,34 @@
 @prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
 @prefix ro_sym: <http://data.informatiehuisruimte.nl/ro/id/symbool/> .
 
-ro_beg:IMROPT a skos:ConceptScheme .
+ropt_beg:IMROPT a skos:ConceptScheme .
 
 
 #################################################################
 #    Tekstobject
 #################################################################
 
-ro_beg:Tekstobject a skos:Concept ;
+ropt_beg:Tekstobject a skos:Concept ;
   rdfs:label "Tekstobject"@nl ;
   skos:prefLabel "TekstObject"@nl ;
-  skos:topConceptOf ro_beg:IMROPT ;
+  skos:topConceptOf ropt_beg:IMROPT ;
   skos:definition "Zelfstandig leesbaar stuk tekst met een titel, dsat begint met een hoofdletter en eindigt met een punt."@nl
 .
 
-ro_col:PraktijkRichtlijnNaam a skos:Collection ;
+ropt_col:PraktijkRichtlijnNaam a skos:Collection ;
   rdfs:label "PraktijkRichtlijnNaam"@nl ;
   skos:prefLabel "PraktijkRichtlijnNaam"@nl ;
   skos:member
-    ro_beg:PRPT02012
+    ropt_beg:PRPT02012
 .
-ro_beg:PraktijkRichtlijnNaam a skos:Concept ;
+ropt_beg:PraktijkRichtlijnNaam a skos:Concept ;
   rdfs:label "PraktijkRichtlijnNaam"@nl ;
   skos:prefLabel "PraktijkRichtlijnNaam"@nl ;
-  skos:topConceptOf ro_beg:IMROPT
+  skos:topConceptOf ropt_beg:IMROPT
 .
 
-ro_beg:PRPT02012 a skos:Concept ;
+ropt_beg:PRPT02012 a skos:Concept ;
   rdfs:label "PRPT02012"@nl ;
   skos:prefLabel "PRPT02012"@nl ;
-  skos-thes:broaderGeneric ro_beg:PraktijkRichtlijnNaam
+  skos-thes:broaderGeneric ropt_beg:PraktijkRichtlijnNaam
 .

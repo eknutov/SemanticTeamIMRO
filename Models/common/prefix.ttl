@@ -27,3 +27,7 @@
 @prefix ro_nen3610_beg: <http://data.informatiehuisruimte.nl/nen3610/id/begrip/> .
 @prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
 @prefix ro_sym: <http://data.informatiehuisruimte.nl/ro/id/symbool/> .
+
+@prefix ropt: <http://data.informatiehuisruimte.nl/def/ropt#> .
+@prefix ropt_str: <http://data.informatiehuisruimte.nl/def/ropt/> .
+@prefix ropt_beg: <http://data.informatiehuisruimte.nl/ropt/id/begrip/> .

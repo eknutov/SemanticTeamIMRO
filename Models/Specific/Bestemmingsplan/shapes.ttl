@@ -14,6 +14,8 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
 @prefix dct: <http://udfr.org/docs/onto/> .
+@prefix ropt: <http://data.informatiehuisruimte.nl/def/ropt#> .
+@prefix ropt_str: <http://data.informatiehuisruimte.nl/def/ropt/> .
 
 #Dummy section, Should be moved to/recreated in common in due time.
 
@@ -84,25 +86,32 @@ ro_str:Bestemmingsplan_tekstverwijzing a sh:PropertyShape ;
   sh:path ro:tekst ;
   sh:minCount 2 ;
   sh:maxCount 4 ;
-  sh:node ro_str:TeksttypePG_BP ;
-  sh:and (
+  sh:or (
     [
-      sh:qualifiedValueShape [
-        sh:path rdf:type  ;
-        sh:hasValue ro:Toelichting ;
-      ] ;
-      sh:qualifiedMinCount 1 ;
-      sh:qualifiedMaxCount 1 ;
+      sh:node ro_str:TeksttypePG_BP ;
+      sh:and (
+        [
+          sh:qualifiedValueShape [
+            sh:path rdf:type  ;
+            sh:hasValue ro:Toelichting ;
+          ] ;
+          sh:qualifiedMinCount 1 ;
+          sh:qualifiedMaxCount 1 ;
+        ]
+        [
+          sh:qualifiedValueShape [
+            sh:path rdf:type  ;
+            sh:hasValue ro:Regels ;
+          ] ;
+          sh:qualifiedMaxCount 1 ;
+          sh:qualifiedMincount 1 ;
+        ]
+      )
     ]
     [
-      sh:qualifiedValueShape [
-        sh:path rdf:type  ;
-        sh:hasValue ro:Regels ;
-      ] ;
-      sh:qualifiedMaxCount 1 ;
-      sh:qualifiedMincount 1 ;
+      sh:class ropt:Tekstobject
     ]
-  ) ;
+  )
 .
 
 ro_str:Bestemmingsplan_externPlan a sh:PropertyShape ;
