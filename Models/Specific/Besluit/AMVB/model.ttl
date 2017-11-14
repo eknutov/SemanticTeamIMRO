@@ -63,10 +63,10 @@ ro:normadressant a owl:ObjectProperty ;
 #################################################################
 
 
-ro:Besluitvlak_A a owl:Class ;
+ro:Besluitvlak a owl:Class ;
   rdfs:subClassOf ro:Planobject ;
   rdfs:isDefinedBy ro: ;
 #  dc:subject ro_beg:Besluitvlak_A ;
-  rdfs:label "Besluitvlak_A"@nl ;
+  rdfs:label "Besluitvlak"@nl ;
   rdfs:comment "Gebied, of gebieden, waarover het besluit uitspraken doet."@nl ;
 .
