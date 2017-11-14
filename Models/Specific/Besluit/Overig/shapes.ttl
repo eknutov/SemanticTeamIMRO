@@ -73,6 +73,9 @@ ro_str:Besluitgebied_X_hasPart a sh:PropertyShape ;
 
 
 ro_str:Besluitvlak_X a sh:NodeShape ;
-#  sh:property
-
+  sh:property
+    ro_str:Besluitvlak_A_tekst ,
+    ro_str:Besluitvlak_A_begrenzing
 .
+
+ 

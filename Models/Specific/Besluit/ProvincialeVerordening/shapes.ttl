@@ -45,6 +45,11 @@ ro_str:Besluitgebied_P_hasPart a sh:PropertyShape ;
 
 
 ro_str:Besluitvlak_P a sh:NodeShape ;
-#  sh:property
-
+  sh:property
+    ro_str:Besluitvlak_A_thema ,
+    ro_str:Besluitvlak_A_tekst ,
+    ro_str:Besluitvlak_A_illustratie ,
+    ro_str:Besluitvlak_A_cartografie ,
+    ro_str:Besluitvlak_A_begrenzing ,
+    ro_str:Besluitvlak_A_hasPart
 .
