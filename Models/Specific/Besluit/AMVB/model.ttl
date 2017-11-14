@@ -28,3 +28,45 @@
 @prefix ro_nen3610_beg: <http://data.informatiehuisruimte.nl/nen3610/id/begrip/> .
 @prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
 @prefix ro_sym: <http://data.informatiehuisruimte.nl/ro/id/symbool/> .
+
+
+
+#################################################################
+#    Algemene Maatregel van Bestuur
+#################################################################
+
+ro:AMVB a owl:Class ;
+  rdfs:subClassOf ro:Besluit ;
+  rdfs:isDefinedBy ro: ;
+  dc:subject ro_beg:AMVB ;
+  rdfs:label "Algemene Maatregel van Bestuur (AMvB)"@nl ;
+  rdfs:comment "Een Algemene Maatregel van Bestuur (AMvB) is een instrument waarmee de Minister regels kan geven omtrent de inhoud van bestemmingsplannen en provinciale inpassingsplannen, daaraan voorafgaande projectbesluiten en beheersverordeningen. Het is daarbij niet altijd noodzakelijk dat er ook een specifiek gebied van het Nederlands grondgebied gedefinieerd wordt. Met betrekking tot dat laatste vallen AMvB’s in twee groepen uiteen: een groep waarin regels gekoppeld zijn aan geografisch geduide gebieden en een groep waarin regels gesteld worden voor het hele land of minder direct aangegeven gebieden."@nl ;
+.
+
+#Jesse: Besluitgebied_A can either be of type AMVB or Regeling. These are sibling classes constrained identically.
+ro:Regeling a owl:Class ;
+  rdfs:subClassOf ro:Besluit ;
+  rdfs:isDefinedBy ro: ;
+  dc:subject ro_beg:Regeling ;
+  rdfs:label "Regeling"@nl
+.
+
+#Jesse: This should be moved up in the file hierarchy..
+ro:normadressant a owl:ObjectProperty ;
+  rdfs:label "normadressant"@nl ;
+  rdfS:isDefinedBy :ro ;
+  rdfs:comment "De instantie, overheid of maatschappelijke partij waar het instrument zich tot richt."@nl
+.
+
+#################################################################
+#    Besluitvlak
+#################################################################
+
+
+ro:Besluitvlak_A a owl:Class ;
+  rdfs:subClassOf ro:Planobject ;
+  rdfs:isDefinedBy ro: ;
+#  dc:subject ro_beg:Besluitvlak_A ;
+  rdfs:label "Besluitvlak_A"@nl ;
+  rdfs:comment "Gebied, of gebieden, waarover het besluit uitspraken doet."@nl ;
+.
