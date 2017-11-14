@@ -11,3 +11,40 @@
 @prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
 @prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
 @prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
+
+
+#################################################################
+#    Besluitgebied_P
+#################################################################
+
+
+ro_str:Besluitgebied_P a sh:NodeShape ;
+  sh:targetClass ro:ProvincialeVerordening ;
+  sh:property
+    ro_str:Besluitgebied_P_hasPart ,
+    ro_str:Besluitgebied_P_spatial ,
+    ro_str:Besluitgebied_P_beleidsmatigVerantwoorlijkeOverheid ,
+    ro_str:Besluitgebied_P_normadressant ,
+    ro_str:Besluitgebied_P_tekstverwijzing ,
+    ro_str:Besluitgebied_P_illustratieverwijzing ,
+    ro_str:Besluitgebied_P_externPlan ,
+    ro_str:Besluitgebied_P_norm
+.
+
+ro_str:Besluitgebied_P_hasPart a sh:PropertyShape ;
+  sh:path dc:hasPart ;
+  sh:class ro:Besluitvlak ;
+  sh:minCount 1 ;
+  sh:node ro_str:Besluitvlak_P ;
+.
+
+
+#################################################################
+#    Besluitvlak_P
+#################################################################
+
+
+ro_str:Besluitvlak_P a sh:NodeShape ;
+#  sh:property
+
+.

@@ -1,0 +1,78 @@
+# common prefixes
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix doco: <http://purl.org/spar/doco/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix gml: <http://www.opengis.net/ont/gml#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix ogc: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# prefixes specific to Informatiehuis Ruimte
+@prefix imro: <http://data.imro.com/def/> .
+@prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
+@prefix nen3610_str: <http://data.informatiehuisruimte.nl/def/nen3610/> .
+@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
+@prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
+@prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
+@prefix ro_begkr: <http://data.informatiehuisruimte.nl/id/begrippenkader/> .
+@prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
+@prefix ro_nen3610_beg: <http://data.informatiehuisruimte.nl/nen3610/id/begrip/> .
+@prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
+@prefix ro_sym: <http://data.informatiehuisruimte.nl/ro/id/symbool/> .
+
+@prefix ropt: <http://data.informatiehuisruimte.nl/def/ropt#> .
+@prefix ropt_str: <http://data.informatiehuisruimte.nl/def/ropt/> .
+@prefix ropt_beg: <http://data.informatiehuisruimte.nl/ropt/id/begrip/> .
+
+
+
+#################################################################
+#    Besluitgebied_X
+#################################################################
+
+
+ro_str:Besluitgebied_X a sh:NodeShape ;
+  sh:targetClass
+    ro:Aanwijzingsbesluit ,
+    ro:Beheersverordening ,
+    ro:Exploitatieplan ,
+    ro:GerechtelijkeUitspraak ,
+    ro:Omgevingsvergunning ,
+    ro:ReactieveAanwijzing ,
+    ro:Voorbereidingsbesluit ;
+  sh:property
+    ro_str:Besluitgebied_X_hasPart ,
+    ro_str:Besluitgebied_X_spatial ,
+    ro_str:Besluitgebied_X_beleidsmatigVerantwoorlijkeOverheid ,
+    ro_str:Besluitgebied_X_normadressant ,
+    ro_str:Besluitgebied_X_tekstverwijzing ,
+    ro_str:Besluitgebied_X_illustratieverwijzing ,
+    ro_str:Besluitgebied_X_externPlan ,
+    ro_str:Besluitgebied_X_norm
+.
+
+ro_str:Besluitgebied_X_hasPart a sh:PropertyShape ;
+  sh:path dc:hasPart ;
+  sh:class ro:Besluitvlak ;
+  sh:minCount 1 ;
+  sh:node ro_str:Besluitvlak_X ;
+.
+
+
+#################################################################
+#    Besluitvlak_X
+#################################################################
+
+
+ro_str:Besluitvlak_X a sh:NodeShape ;
+#  sh:property
+
+.
