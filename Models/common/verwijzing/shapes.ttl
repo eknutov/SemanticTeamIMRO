@@ -8,8 +8,8 @@
 @prefix gml: <http://www.opengis.net/ont/gml#> .
 @prefix nen3610_str: <http://data.informatiehuisruimte.nl/def/nen3610/> .
 @prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
-@prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
 @prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
+@prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
 @prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 
@@ -113,7 +113,7 @@ ro_str:Illustratie_IllustratieNaam a sh:NodeShape ; #can I treat a nodeshape as 
 
 ro_str:cartografieInfo a sh:NodeShape ;     #[0...*] cardinality of properties
   sh:property
-    ro_str:cartografieInfo_kaartNaam ,      # kaartNaam
+    ro_str:cartografieInfo_kaartNaam ,
     ro_str:cartografieInfo_kaartNummer ,
     ro_str:cartografieInfo_symboolCode
 .
@@ -160,7 +160,7 @@ ro_str:ExternPlanReferentiePG_SV a sh:NodeShape ;
                                 #what will happen if we don't have an IRI for a external plan?
 
 
-ro_str:ExternPlanReferentie_SV rdf:type sh:NodeShape ;
+ro_str:ExternPlanReferentie_SV a sh:NodeShape ;
   sh:closed true ;
   sh:ignoredProperties (
     ro:uitTeWerkenIn
@@ -170,7 +170,7 @@ ro_str:ExternPlanReferentie_SV rdf:type sh:NodeShape ;
     )
 .
 
-ro_str:ExternPlanReferentie_BP rdf:type sh:NodeShape ;
+ro_str:ExternPlanReferentie_BP a sh:NodeShape ;
   sh:closed true ;
   sh:ignoredProperties (
     ro:muteert
@@ -178,33 +178,3 @@ ro_str:ExternPlanReferentie_BP rdf:type sh:NodeShape ;
     ro:tenGevolgeVan
     )
 .
-
-
-#this nodeshape is no longer required for the role predicates point to IRIs, containing a idn and name.
-#ro_str:ExternPlan rdf:type sh:NodeShape ;
-#  sh:property
-#    ro_str:naamExternPlan ,
-#    ro_str:idn ,
-##    ro_str:rolExternPlan
-#.
-
-#ro_str:naamExternPlan rdf:type sh:PropertyShape ;
-#  sh:path ro:naam ;
-#  sh:minCount 1 ;
-#  sh:maxCount 1 ;
-#  sh:datatype xsd:string ;
-#.
-
-#ro_str:idn rdf:type sh:PropertyShape ;
-#  sh:path ro:idn ;
-#  sh:maxCount 1 ;
-#  sh:datatype xsd:string
-#.
-
-# roles are now defined as predicates.
-#ro_str:rolExternPlan rdf:type sh:PropertyShape ;
-#  sh:path ro:rolExternPlan ;
-#  sh:minCount 1 ;
-#  sh:maxCount 1 ;
-#  sh:node ro_str:RolExternPlanPG_SV
-#.
