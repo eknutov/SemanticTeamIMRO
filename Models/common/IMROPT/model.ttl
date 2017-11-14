@@ -4,6 +4,7 @@
 @prefix c4o: <http://purl.org/spar/biro/> .
 @prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
 @prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix : <http://data.informatiehuisruimte.nl/def/> .
 
 #################################################################
@@ -267,6 +268,7 @@ ro:AfwijkenVanDeGebruiksregels a owl:Class ;
   dcterms:subject ro_beg:AfwijkenVanDeGebruiksregels
 .
 
+# ekn: this needs to go away, this is just over the top naming
 ro:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden a owl:Class ;
   rdfs:label "omgevingsvergunning voor het uitvoeren van werken, geen bouwwerk zijnde, of van werkzaamheden "@nl ;
   rdfs:isDefinedBy :ro ;

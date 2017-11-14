@@ -1,4 +1,4 @@
-@prefix begrip: <http://data.informatiehuisruimte.nl/ro/id/begrip#> .
+
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -7,8 +7,23 @@
 @prefix ro_begkr: <http://data.informatiehuisruimte.nl/id/begrippenkader/> .
 @prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
 @prefix ro_nen3610_beg: <http://data.informatiehuisruimte.nl/nen3610/id/begrip/> .
+
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix doco: <http://purl.org/spar/doco/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix gml: <http://www.opengis.net/ont/gml#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix ogc: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix skos-thes: <http://www.w3.org/2004/02/skos/extensions#> . #TODO: replace with working URI
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 #################################################################
 #    Plan
@@ -22,14 +37,14 @@ ro_beg:Plan a skos:Concept ;
   skos:scopeNote "TODO"@nl
 .
 
- ro_beg:Plangebied a skos:Concept ;
+ro_beg:Plangebied a skos:Concept ;
    rdfs:label "Plangebied"@nl ;
    skos:prefLabel "Plangebied"@nl ;
    skos-thes:broaderGeneric ro_nen3610_beg:PlanologischGebied ;
    skos:inScheme ro_begkr:ro ;
    skos:definition "Het object dat het gebied, of de gebieden, binnen de plangrenzen representeert."@nl ;
    skos:scopeNote "Omvat het totale gebied van een benoemd ruimtelijk instrument. Bijvoorbeeld een bestemmingsplan, een structuurvisie een gebiedsgericht besluit."@nl ;
-   dcterms:source
+   dcterms:source         # ekn:
      <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012> ,
      <jci1.31:c:BWBR0020449&hoofdstuk=3&afdeling=3.1&artikel=3.1&lid=1&z=2016-04-14&g=2016-04-14> ,
      <jci1.31:c:BWBR0020449&hoofdstuk=3&afdeling=3.5&paragraaf=3.5.1&artikel=3.26&lid=3&z=2016-04-14&g=2016-04-14> ,
@@ -135,6 +150,7 @@ ro_beg:Dubbelbestemming a skos:Concept ;
 .
 
 #TODO:
+# ekn: whoever left TODO here, please specify what is on a TODO list
 
 ro_beg:bestemmingshoofdgroep a skos:Concept .
 
@@ -212,6 +228,9 @@ ro_beg:Figuur a skos:Concept ;
 #  skos:inScheme ro_begkr:ro ;
 #  dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
 #.
+
+# ekn: dcterms:source <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
+# ekn: is the same URL value for every concept, makes sense to take it out, tehre is no indication that this URL may change separately for either of the concepts/classes/resources
 
 ro_beg:Gebiedsaanduiding a skos:Concept ;
   rdfs:label "Gebiedsaanduiding"@nl ;
@@ -1478,28 +1497,28 @@ ro_beg:amvb a skos:Concept ;
   rdfs:label "amvb"@nl ;
   skos:prefLabel "amvb"@nl ;
   skos:altLabel "Algemene Maatregel van Bestuur"@nl ;
-  skos-thes:broaderGeneric ro_beg:Instrument
+  skos-thes:broaderGeneric ro_beg:Instrument ;
   skos:inScheme ro_begkr:ro
 .
 
 ro_beg:beheersverordening a skos:Concept ;
   rdfs:label "beheersverordening"@nl ;
   skos:prefLabel "beheersverordening"@nl ;
-  skos-thes:broaderGeneric ro_beg:Instrument
+  skos-thes:broaderGeneric ro_beg:Instrument ;
   skos:inScheme ro_begkr:ro
 .
 
 ro_beg:bestuurlijkeAfspraken a skos:Concept ;
   rdfs:label "bestuurlijke afspraken"@nl ;
   skos:prefLabel "bestuurlijke afspraken"@nl ;
-  skos-thes:broaderGeneric ro_beg:Instrument
+  skos-thes:broaderGeneric ro_beg:Instrument ;
   skos:inScheme ro_begkr:ro
 .
 
 ro_beg:coordinatieregeling a skos:Concept ;
   rdfs:label "coordinatie regeling"@nl ;
   skos:prefLabel "coordinatie regeling"@nl ;
-  skos-thes:broaderGeneric ro_beg:Instrument
+  skos-thes:broaderGeneric ro_beg:Instrument ;
   skos:inScheme ro_begkr:ro
 .
 
@@ -1507,56 +1526,56 @@ ro_beg:inpassingsplan a skos:Concept ;
   rdfs:label "inpassingsplan"@nl ;
   skos:prefLabel "inpassingsplan"@nl ;
   skos-thes:broaderGeneric ro_beg:Instrument ;
-  skos:notation "IMRO2012"
+  skos:notation "IMRO2012" ;
   skos:inScheme ro_begkr:ro
 .
 
 ro_beg:omgevingsvergunning a skos:Concept ;
   rdfs:label "omgevingsvergunning"@nl ;
   skos:prefLabel "omgevingsvergunning"@nl ;
-  skos-thes:broaderGeneric ro_beg:Instrument
+  skos-thes:broaderGeneric ro_beg:Instrument ;
   skos:inScheme ro_begkr:ro
 .
 
 ro_beg:proactieveAanwijzing a skos:Concept ;
   rdfs:label "proactieve aanwijzing"@nl ;
   skos:prefLabel "proactieve aanwijzing"@nl ;
-  skos-thes:broaderGeneric ro_beg:Instrument
+  skos-thes:broaderGeneric ro_beg:Instrument ;
   skos:inScheme ro_begkr:ro
 .
 
 ro_beg:reactieveAanwijzing a skos:Concept ;
   rdfs:label "reactieve aanwijzing"@nl ;
   skos:prefLabel "reactieve aanwijzing"@nl ;
-  skos-thes:broaderGeneric ro_beg:Instrument
+  skos-thes:broaderGeneric ro_beg:Instrument ;
   skos:inScheme ro_begkr:ro
 .
 
 ro_beg:vooroverleg a skos:Concept ;
   rdfs:label "vooroverleg"@nl ;
   skos:prefLabel "vooroverleg"@nl ;
-  skos-thes:broaderGeneric ro_beg:Instrument
+  skos-thes:broaderGeneric ro_beg:Instrument ;
   skos:inScheme ro_begkr:ro
 .
 
 ro_beg:zienswijze a skos:Concept ;
   rdfs:label "zienswijze"@nl ;
   skos:prefLabel "zienswijze"@nl ;
-  skos-thes:broaderGeneric ro_beg:Instrument
+  skos-thes:broaderGeneric ro_beg:Instrument ;
   skos:inScheme ro_begkr:ro
 .
 
 ro_beg:verordening a skos:Concept ;
   rdfs:label "verordening"@nl ;
   skos:prefLabel "verordening"@nl ;
-  skos-thes:broaderGeneric ro_beg:Instrument
+  skos-thes:broaderGeneric ro_beg:Instrument ;
   skos:inScheme ro_begkr:ro
 .
 
 ro_beg:voorbereidingsbesluit a skos:Concept ;
   rdfs:label "voorbereidingsbesluit"@nl ;
   skos:prefLabel "voorbereidingsbesluit"@nl ;
-  skos-thes:broaderGeneric ro_beg:Instrument
+  skos-thes:broaderGeneric ro_beg:Instrument ;
   skos:inScheme ro_begkr:ro
 .
 
@@ -1570,5 +1589,5 @@ ro_beg:uitTeWerkenIn a skos:Concept .
 ro_beg:uitgewerktIn a skos:Concept .
 ro_beg:gebruiktInformatieUit a skos:Concept ;
   skos:notation "informatie in extern plan/besluit" .
-  
+
 ro_beg:tenGevolgeVan a skos:Concept .
