@@ -1,91 +1,154 @@
+# common prefixes
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix doco: <http://purl.org/spar/doco/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix gml: <http://www.opengis.net/ont/gml#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix ogc: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# prefixes specific to Informatiehuis Ruimte
+@prefix imro: <http://data.imro.com/def/> .
+@prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
+@prefix nen3610_str: <http://data.informatiehuisruimte.nl/def/nen3610/> .
+@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
 @prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
+@prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
+@prefix ro_begkr: <http://data.informatiehuisruimte.nl/id/begrippenkader/> .
 @prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
+@prefix ro_nen3610_beg: <http://data.informatiehuisruimte.nl/nen3610/id/begrip/> .
+@prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
+@prefix ro_sym: <http://data.informatiehuisruimte.nl/ro/id/symbool/> .
+
+
+#Jesse: Since IMROPT is an other standard than IMRO, it should have its own ontology entity?
+# new prefix for IMROPT
+
+@prefix ropt: <http://data.informatiehuisruimte.nl/def/ropt#> .
+@prefix ropt_str: <http://data.informatiehuisruimte.nl/def/ropt/> .
+@prefix ropt_beg: <http://data.informatiehuisruimte.nl/ropt/id/begrip/> .
 
 #################################################################
 #    Tekstobject
 #################################################################
-ro_str:Tekstobject a sh:NodeShape ;
-  sh:targetClass ro:Tekstobject ;
+
+ropt_str:TekstObject a sh:NodeShape ;
+  sh:targetClass ropt:Tekstobject ;
   sh:property
-#    TODO: Is this actually necessary?
-    ro_str:Tekstobject_verwijzingNaarPlangebied ,
-#    TODO: Is this actually necessary?
-    ro_str:Tekstobject_volgnummer ,
-#    TODO: Is this actually necessary?
-    ro_str:Tekstobject_niveau ,
-#    TODO: Is this actually necessary?
-    ro_str:Tekstobject_typeTekst ,
-    ro_str:Tekstobject_titel ,
-    ro_str:Tekstobject_externeVerwijzing ,
-    ro_str:Tekstobject_tekst ,
-    #ro_str:Tekstobject_ouder ,
-    ro_str:Tekstobject_naamPraktijkRichtlijn ;
+    ropt_str:TekstObject_verwijzingNaarPlan ,
+    ropt_str:TekstObject_volgnummer ,
+    ropt_str:TekstObject_niveau ,
+    ropt_str:TekstObject_type ,
+    ropt_str:TekstObject_typeTekst ,
+    ropt_str:TekstObject_titel ,
+    ropt_str:TekstObject_externeVerwijzing ,
+    ropt_str:TekstObject_tekst ,
+#    ropt_str:TekstObject_ouder ,
+    ropt_str:TekstObject_naamPraktijkRichtlijn
 .
 
-ro_str:Tekstobject_verwijzingNaarPlangebied a sh:PropertyShape ;
-  sh:path ro:plangebied ;
-  sh:class ro:Plangebied ;
+ropt_str:TekstObject_verwijzingNaarPlan a sh:PropertyShape ;
+  sh:path ropt:plan ;
+  sh:class ro:Plan ;
   sh:nodeKind sh:IRI ;
   sh:minCount 1 ;
   sh:maxCount 1
 .
 
-ro_str:Tekstobject_volgnummer a sh:PropertyShape ;
-  sh:path ro:volgnummer ;
+ropt_str:TekstObject_volgnummer a sh:PropertyShape ;
+  sh:path ropt:volgnummer ;
   sh:nodeKind sh:Literal ;
   sh:datatype xsd:integer ;
   sh:minCount 1 ;
   sh:maxCount 1
 .
 
-ro_str:Tekstobject_niveau a sh:PropertyShape ;
-  sh:path ro:niveau ;
+ropt_str:TekstObject_niveau a sh:PropertyShape ;
+  sh:path ropt:niveau ;
   sh:nodeKind sh:Literal ;
   sh:datatype xsd:integer ;
   sh:minCount 1 ;
   sh:maxCount 1
 .
 
-ro_str:Tekstobject_typeTekst a sh:PropertyShape ;
-  sh:path ro:typeTekst ;
-  sh:class ro:Plangebied ;
-  sh:nodeKind sh:IRI ;
-  sh:maxCount 1
+#Jesse: The allowed Tekstobjects depend on the type of plan. The following enumeration are defined in IMROPT:
+# - ObjecttypePlan,
+# - ObjecttypeVisie of
+# - ObjecttypeBesluit
+# e.g. if respective plan is of type ro:Structuurvisie, pick TekstObject from enumeration ObjecttypeVisie.
+# This is reflected in the following shape:
+
+ropt_str:TekstObject_type a sh:PropertyShape ;
+  sh:qualifiedValueShape [
+    sh:xone (
+      [ sh:and (
+          [ sh:path ( ropt:plan rdf:type ) ; sh:class ro:Bestemmingsplan ]
+          [ sh:path rdf:type ; sh:node ropt_str:ObjecttypePlan ] ) ]
+      [ sh:and (
+          [ sh:path ( ropt:plan rdf:type ) ; sh:class ro:Structuurvisie ]
+          [ sh:path rdf:type ; sh:node ropt_str:ObjecttypeVisie ] ) ]
+      [ sh:and (
+          [ sh:path ( ropt:plan rdf:type ) ; sh:class ro:Besluit ]
+          [ sh:path rdf:type ; sh:node ropt_str:ObjecttypeBesluit ] ) ]
+    ) ;
+    sh:nodeKind sh:IRI ;
+  ] ;
+  sh:qualiedMaxCount 1
 .
 
-ro_str:Tekstobject_titel a sh:PropertyShape ;
-  sh:path ro:titel ;
-  sh:class ro:Titel ;
-  sh:nodeKind sh:IRI ;
-  sh:minCount 1 ;
-  sh:maxCount 1
+#Jesse: Should this type not be assigned to the actual tekst? (pointed to by the predicate ropt:planTekst)
+ropt_str:TekstObject_typeTekst a sh:PropertyShape ;
+  sh:qualifiedValueShape [
+    sh:path rdf:type ;
+    sh:class ro:Tekst ;
+    sh:nodeKind sh:IRI ;
+  ] ;
+  sh:qualiedMaxCount 1
 .
 
-ro_str:Tekstobject_externeVerwijzing a sh:PropertyShape ;
-  sh:path ro:externeVerwijzing ;
-  sh:nodeKind sh:Literal ;
-  sh:datatype xsd:string
-.
-
-ro_str:Tekstobject_tekst a sh:PropertyShape ;
-  sh:path ro:tekst ;
+ropt_str:TekstObject_tekst a sh:PropertyShape ;
+  sh:path ropt:tekst ;
   sh:nodeKind sh:Literal ;
   sh:datatype rdf:XMLLiteral ;
   sh:maxCount 1
 .
 
+
+ropt_str:TekstObject_titel a sh:PropertyShape ;
+  sh:path ropt:titel ;
+  sh:class ropt:Titel ;
+  sh:nodeKind sh:IRI ;
+  sh:minCount 1 ;
+  sh:maxCount 1
+.
+
+ropt_str:TekstObject_externeVerwijzing a sh:PropertyShape ;
+  sh:path ropt:externeVerwijzing ;
+  sh:nodeKind sh:Literal ;
+  sh:datatype xsd:string
+.
+
+
 # TODO: This seems to be part of the metadata of the document. Possibly move this to a higher level?
-ro_str:Tekstobject_naamPraktijkRichtlijn a sh:PropertyShape ;
-  sh:path ro:naamPraktijkRichtlijn ;
+# Jesse: We could constrain it to only be an attibute of node with no ropt:ouderID (which I think is always of type ropt:Document?)
+
+ropt_str:TekstObject_naamPraktijkRichtlijn a sh:PropertyShape ;
+  sh:path ropt:naamPraktijkRichtlijn ;
   sh:class skos:Concept ;
   sh:nodeKind sh:IRI ;
   sh:maxCount 1 ;
-  sh:shape [
+  sh:node [
     sh:property [
       sh:path [ sh:inversePath skos:member ] ;
-      sh:targetNode ro_col:PraktijkRichtlijnNaam
+      sh:hasvalue ro_col:PraktijkRichtlijnNaam
     ]
   ]
 .
@@ -93,1110 +156,1277 @@ ro_str:Tekstobject_naamPraktijkRichtlijn a sh:PropertyShape ;
 #################################################################
 #    Titel
 #################################################################
-ro_str:Titel a sh:NodeShape ;
-  sh:targetClass ro:Titel ;
+
+# Jesse: Why is Overheid in the naming here?
+#  ropt_str:Titel a sh:NodeShape ;
+#    sh:targetClass ropt:Titel ;
+#    sh:property
+#      ropt_str:Overheid_titellabel ,
+#      ropt_str:Overheid_titelnummer ,
+#      ropt_str:Overheid_titelnaam ;
+#  .
+
+
+ropt_str:Titel a sh:NodeShape ;
+  sh:targetClass ropt:Titel ;
   sh:property
-    ro_str:Overheid_titellabel ,
-    ro_str:Overheid_titelnummer ,
-    ro_str:Overheid_titelnaam ;
+    ropt_str:Titel_titellabel ,
+    ropt_str:Titel_titelnummer ,
+    ropt_str:Titel_titelnaam
 .
 
-ro_str:Overheid_titellabel a sh:PropertyShape ;
-  sh:path ro:titellabel ;
+ropt_str:Titel_titelllabel a sh:PropertyShape ;
+  sh:path ropt:titellabel ;
   sh:nodeKind sh:Literal ;
   sh:datatype xsd:string ;
   sh:maxCount 1
 .
 
-ro_str:Overheid_titelnummer a sh:PropertyShape ;
-  sh:path ro:titelnummer ;
+ropt_str:Titel_titellnummer a sh:PropertyShape ;
+  sh:path ropt:titelnummer ;
   sh:nodeKind sh:Literal ;
   sh:datatype xsd:string ;
   sh:maxCount 1
 .
 
-ro_str:Overheid_titelnaam a sh:PropertyShape ;
-  sh:path ro:titelnaam ;
+ropt_str:Titel_titellnaam a sh:PropertyShape ;
+  sh:path ropt:titelnaam ;
   sh:nodeKind sh:Literal ;
   sh:datatype xsd:string ;
   sh:maxCount 1
+.
+
+#Jesse: The 'ordering' seems to depend on whether the respective plan is either a Bestemmingsplan, Structuurvisie or a Besluit.
+
+#  TODO: Rename Shapes to incorperate this distinction,
+#        and extend the contraints to target tekstobjects
+#        of which the respective plan of of a specific type
+
+
+#################################################################
+#    ObjecttypePlan
+#################################################################
+
+ropt_str:ObjecttypePlan a sh:NodeShape ;
+  sh:in (
+    ropt:AfwijkenVanDeBouwregels
+    ropt:afwijkenVanDeGebruiksregels
+    ropt:AlgemeneAanduidingsregels
+    ropt:sAlgemeneAfwijkingsregels
+    ropt:AlgemeneBouwregels
+    ropt:AlgemeneGebruiksregels
+    ropt:AlgemeneProcedureregels
+    ropt:AlgemeneRegels
+    ropt:AlgemeneWijzigingsregels
+    ropt:Anti-Dubbeltelregel
+    ropt:Begrippen
+    ropt:Bestemming
+    ropt:Bestemmingsomschrijving
+    ropt:Bestemmingsregels
+    ropt:BijlageBijRegels
+    ropt:BijlageBijToelichting
+    ropt:BijlagenBijregels
+    ropt:BijlagenBijtoelichting
+    ropt:Bouwregels
+    ropt:Deel
+    ropt:DefinitieveBestemmingBijVoorlopigeBestemming
+    ropt:Document
+    ropt:Dubbelbestemming
+    ropt:GeldigheidstermijnVanDeVoorlopigeBestemming
+    ropt:Hoofdstuk
+    ropt:InleidendeRegels
+    ropt:Lid
+    ropt:NadereEisen
+    ropt:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk
+    ropt:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden
+    ropt:Overgangs_EnSlotregels
+    ropt:Overgangsrecht
+    ropt:Overig
+    ropt:OverigeRegels
+    ropt:Paragraaf
+    ropt:Regels
+    ropt:Slotregel
+    ropt:SpecifiekeGebruiksregels
+    ropt:Sublid
+    ropt:Subparagraaf
+    ropt:Subsublid
+    ropt:Subsubparagraaf
+    ropt:Subsubsublid
+    ropt:Subsubsubparagraaf
+    ropt:Toelichting
+    ropt:UitTeWerkenBestemming
+    ropt:Uitwerkingsregels
+    ropt:VerwezenlijkingInDeNaasteToekomst
+    ropt:VoorlopigeBestemming
+    ropt:WijzeVanMeten
+    ropt:wijzigingsbevoegdheid
+  )
+.
+#################################################################
+#    ObjecttypeVisie
+#################################################################
+
+ropt_str:ObjecttypeVisie a sh:NodeShape ;
+  sh:in (
+    ropt:Band
+    ropt:Beleidstekst
+    ropt:Bijlage
+    ropt:Bijlagen
+    ropt:Deel
+    ropt:Document
+    ropt:Hoofdstuk
+    ropt:Overig
+    ropt:Paragraaf
+    ropt:Subparagraaf
+    ropt:Subsubparagraaf
+    ropt:Subsubsubparagraaf
+    ropt:Toelichting
+  )
 .
 
 
 #################################################################
-#    Regels
+#    ObjecttypeBesluit
 #################################################################
 
-ro_str:PT_Document a sh:NodeShape ;
-  sh:targetClass ro:Document ;
-  sh:property
-    ro_str:PT_Document_ouder ;
+ropt_str:ObjecttypeBesluit a sh:NodeShape ;
+  sh:in (
+    ropt:Afdeling
+    ropt:Artikel
+    ropt:Besluitdocument
+    ropt:Besluittekst
+    ropt:Bijlage
+    ropt:BijlageBijRegels
+    ropt:bijlageBijToelichting
+    ropt:Bijlagen
+    ropt:BijlagenBijRegels
+    ropt:BijlagenBijToelichting
+    ropt:Deel
+    ropt:Hoofdstuk
+    ropt:Lid
+    ropt:Onderdeel
+    ropt:Overig
+    ropt:Paragraaf
+    ropt:Regels
+    ropt:Sublid
+    ropt:Subonderdeel
+    ropt:Subparagraaf
+    ropt:Subsublid
+    ropt:Subsubparagraaf
+    ropt:Subsubsublid
+    ropt:Subsubsubparagraaf
+    ropt:Titel
+    ropt:Toelichting
+  )
 .
 
-ro_str:PT_Document_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro: ;
+#################################################################
+#    Basisindeling plannen
+#################################################################
+
+#################################################################
+#    regels
+#################################################################
+
+ropt_str:Document a sh:NodeShape ;
+  sh:targetClass ropt:Document ;
+  sh:property
+    ropt_str:Document_ouder ;
+.
+
+ropt_str:Document_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt: ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_Regels a sh:NodeShape ;
-  sh:targetClass ro:Regels ;
+ropt_str:Regels a sh:NodeShape ;
+  sh:targetClass ropt:Regels ;
   sh:property
-    ro_str:PT_Regels_ouder ;
+    ropt_str:Regels_ouder ;
 .
 
-ro_str:PT_Regels_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:Document ;
+ropt_str:Regels_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:Document ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_InleidendeRegels a sh:NodeShape ;
-  sh:targetClass ro:InleidendeRegels ;
+ropt_str:InleidendeRegels a sh:NodeShape ;
+  sh:targetClass ropt:InleidendeRegels ;
   sh:property
-    ro_str:PT_InleidendeRegels_ouder ;
+    ropt_str:InleidendeRegels_ouder ;
 .
 
-ro_str:PT_InleidendeRegels_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:Regels ;
+ropt_str:InleidendeRegels_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:Regels ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_Begrippen a sh:NodeShape ;
-  sh:targetClass ro:Begrippen ;
+ropt_str:Begrippen a sh:NodeShape ;
+  sh:targetClass ropt:Begrippen ;
   sh:property
-    ro_str:PT_Begrippen_ouder ;
+    ropt_str:Begrippen_ouder ;
 .
 
-ro_str:PT_Begrippen_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:InleidendeRegels ;
+ropt_str:Begrippen_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:InleidendeRegels ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_WijzeVanMeten a sh:NodeShape ;
-  sh:targetClass ro:WijzeVanMeten ;
+ropt_str:WijzeVanMeten a sh:NodeShape ;
+  sh:targetClass ropt:WijzeVanMeten ;
   sh:property
-    ro_str:PT_WijzeVanMeten_ouder ;
+    ropt_str:WijzeVanMeten_ouder ;
 .
 
-ro_str:PT_WijzeVanMeten_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:InleidendeRegels ;
+ropt_str:WijzeVanMeten_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:InleidendeRegels ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_Bestemmingsregels a sh:NodeShape ;
-  sh:targetClass ro:Bestemmingsregels ;
+ropt_str:Bestemmingsregels a sh:NodeShape ;
+  sh:targetClass ropt:Bestemmingsregels ;
   sh:property
-    ro_str:PT_Bestemmingsregels_ouder ;
+    ropt_str:Bestemmingsregels_ouder ;
 .
 
-ro_str:PT_Bestemmingsregels_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:Regels ;
+ropt_str:Bestemmingsregels_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:Regels ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_Bestemming a sh:NodeShape ;
-  sh:targetClass ro:Bestemming ;
+ropt_str:Bestemming a sh:NodeShape ;
+  sh:targetClass ropt:Bestemming ;
   sh:property
-    ro_str:PT_Bestemming_ouder ;
+    ropt_str:Bestemming_ouder ;
 .
 
-ro_str:PT_Bestemming_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:Bestemmingsregels ;
+ropt_str:Bestemming_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:Bestemmingsregels ;
 .
 
-ro_str:PT_Bestemmingsomschrijving a sh:NodeShape ;
-  sh:targetClass ro:Bestemmingsomschrijving ;
+ropt_str:Bestemmingsomschrijving a sh:NodeShape ;
+  sh:targetClass ropt:Bestemmingsomschrijving ;
   sh:property
-    ro_str:PT_Bestemmingsomschrijving_ouder ;
+    ropt_str:Bestemmingsomschrijving_ouder ;
 .
 
-ro_str:PT_Bestemmingsomschrijving_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:Bestemming ;
+ropt_str:Bestemmingsomschrijving_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:Bestemming ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_Bouwregels a sh:NodeShape ;
-  sh:targetClass ro:Bouwregels ;
+ropt_str:Bouwregels a sh:NodeShape ;
+  sh:targetClass ropt:Bouwregels ;
   sh:property
-    ro_str:PT_Bouwregels_ouder ;
+    ropt_str:Bouwregels_ouder ;
 .
 
-ro_str:PT_Bouwregels_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:Bestemming ;
+ropt_str:Bouwregels_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:Bestemming ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_NadereEisen a sh:NodeShape ;
-  sh:targetClass ro:NadereEisen ;
+ropt_str:NadereEisen a sh:NodeShape ;
+  sh:targetClass ropt:NadereEisen ;
   sh:property
-    ro_str:PT_NadereEisen_ouder ;
+    ropt_str:NadereEisen_ouder ;
 .
 
-ro_str:PT_NadereEisen_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:Bestemming ;
+ropt_str:NadereEisen_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:Bestemming ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_AfwijkenVanDeBouwregels a sh:NodeShape ;
-  sh:targetClass ro:AfwijkenVanDeBouwregels ;
+ropt_str:AfwijkenVanDeBouwregels a sh:NodeShape ;
+  sh:targetClass ropt:AfwijkenVanDeBouwregels ;
   sh:property
-    ro_str:PT_AfwijkenVanDeBouwregels_ouder ;
+    ropt_str:AfwijkenVanDeBouwregels_ouder ;
 .
 
-ro_str:PT_AfwijkenVanDeBouwregels_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:Bestemming ;
+ropt_str:AfwijkenVanDeBouwregels_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:Bestemming ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_SpecifiekeGebruiksregels a sh:NodeShape ;
-  sh:targetClass ro:SpecifiekeGebruiksregels ;
+ropt_str:SpecifiekeGebruiksregels a sh:NodeShape ;
+  sh:targetClass ropt:SpecifiekeGebruiksregels ;
   sh:property
-    ro_str:PT_SpecifiekeGebruiksregels_ouder ;
+    ropt_str:SpecifiekeGebruiksregels_ouder ;
 .
 
-ro_str:PT_SpecifiekeGebruiksregels_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:Bestemming ;
+ropt_str:SpecifiekeGebruiksregels_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:Bestemming ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_AfwijkenVanDeGebruiksregels a sh:NodeShape ;
-  sh:targetClass ro:AfwijkenVanDeGebruiksregels ;
+ropt_str:AfwijkenVanDeGebruiksregels a sh:NodeShape ;
+  sh:targetClass ropt:AfwijkenVanDeGebruiksregels ;
   sh:property
-    ro_str:PT_AfwijkenVanDeGebruiksregels_ouder ;
+    ropt_str:AfwijkenVanDeGebruiksregels_ouder ;
 .
 
-ro_str:PT_AfwijkenVanDeGebruiksregels_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:Bestemming ;
+ropt_str:AfwijkenVanDeGebruiksregels_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:Bestemming ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden a sh:NodeShape ;
-  sh:targetClass ro:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden ;
+ropt_str:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden a sh:NodeShape ;
+  sh:targetClass ropt:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden ;
   sh:property
-    ro_str:PT_OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden_ouder ;
+    ropt_str:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden_ouder ;
 .
 
-ro_str:PT_OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:Bestemming ;
+ropt_str:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:Bestemming ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_OmgevingsvergunningVoorHetSlopenVanEenBouwwerk a sh:NodeShape ;
-  sh:targetClass ro:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk ;
+ropt_str:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk a sh:NodeShape ;
+  sh:targetClass ropt:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk ;
   sh:property
-    ro_str:PT_OmgevingsvergunningVoorHetSlopenVanEenBouwwerk_ouder ;
+    ropt_str:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk_ouder ;
 .
 
-ro_str:PT_OmgevingsvergunningVoorHetSlopenVanEenBouwwerk_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:Bestemming ;
+ropt_str:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:Bestemming ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_Wijzigingsbevoegdheid a sh:NodeShape ;
-  sh:targetClass ro:Wijzigingsbevoegdheid ;
+ropt_str:Wijzigingsbevoegdheid a sh:NodeShape ;
+  sh:targetClass ropt:Wijzigingsbevoegdheid ;
   sh:property
-    ro_str:PT_Wijzigingsbevoegdheid_ouder ;
+    ropt_str:Wijzigingsbevoegdheid_ouder ;
 .
 
-ro_str:PT_Wijzigingsbevoegdheid_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:Bestemming ;
+ropt_str:Wijzigingsbevoegdheid_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:Bestemming ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_VoorlopigeBestemming a sh:NodeShape ;
-  sh:targetClass ro:VoorlopigeBestemming ;
+ropt_str:VoorlopigeBestemming a sh:NodeShape ;
+  sh:targetClass ropt:VoorlopigeBestemming ;
   sh:property
-    ro_str:PT_VoorlopigeBestemming_ouder ;
+    ropt_str:VoorlopigeBestemming_ouder ;
 .
 
-ro_str:PT_VoorlopigeBestemming_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:Bestemmingsregels ;
+ropt_str:VoorlopigeBestemming_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:Bestemmingsregels ;
 .
 
-ro_str:PT_Bestemmingsomschrijving a sh:NodeShape ;
-  sh:targetClass ro:Bestemmingsomschrijving ;
+ropt_str:Bestemmingsomschrijving a sh:NodeShape ;
+  sh:targetClass ropt:Bestemmingsomschrijving ;
   sh:property
-    ro_str:PT_Bestemmingsomschrijving_ouder ;
+    ropt_str:Bestemmingsomschrijving_ouder ;
 .
 
-ro_str:PT_Bestemmingsomschrijving_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:VoorlopigeBestemming ;
+ropt_str:Bestemmingsomschrijving_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:VoorlopigeBestemming ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_Bouwregels a sh:NodeShape ;
-  sh:targetClass ro:Bouwregels ;
+ropt_str:Bouwregels a sh:NodeShape ;
+  sh:targetClass ropt:Bouwregels ;
   sh:property
-    ro_str:PT_Bouwregels_ouder ;
+    ropt_str:Bouwregels_ouder ;
 .
 
-ro_str:PT_Bouwregels_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:VoorlopigeBestemming ;
+ropt_str:Bouwregels_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:VoorlopigeBestemming ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_NadereEisen a sh:NodeShape ;
-  sh:targetClass ro:NadereEisen ;
+ropt_str:NadereEisen a sh:NodeShape ;
+  sh:targetClass ropt:NadereEisen ;
   sh:property
-    ro_str:PT_NadereEisen_ouder ;
+    ropt_str:NadereEisen_ouder ;
 .
 
-ro_str:PT_NadereEisen_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:VoorlopigeBestemming ;
+ropt_str:NadereEisen_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:VoorlopigeBestemming ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_AfwijkenVanDeBouwregels a sh:NodeShape ;
-  sh:targetClass ro:AfwijkenVanDeBouwregels ;
+ropt_str:AfwijkenVanDeBouwregels a sh:NodeShape ;
+  sh:targetClass ropt:AfwijkenVanDeBouwregels ;
   sh:property
-    ro_str:PT_AfwijkenVanDeBouwregels_ouder ;
+    ropt_str:AfwijkenVanDeBouwregels_ouder ;
 .
 
-ro_str:PT_AfwijkenVanDeBouwregels_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:VoorlopigeBestemming ;
+ropt_str:AfwijkenVanDeBouwregels_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:VoorlopigeBestemming ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_SpecifiekeGebruiksregels a sh:NodeShape ;
-  sh:targetClass ro:SpecifiekeGebruiksregels ;
+ropt_str:SpecifiekeGebruiksregels a sh:NodeShape ;
+  sh:targetClass ropt:SpecifiekeGebruiksregels ;
   sh:property
-    ro_str:PT_SpecifiekeGebruiksregels_ouder ;
+    ropt_str:SpecifiekeGebruiksregels_ouder ;
 .
 
-ro_str:PT_SpecifiekeGebruiksregels_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:VoorlopigeBestemming ;
+ropt_str:SpecifiekeGebruiksregels_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:VoorlopigeBestemming ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_AfwijkenVanDeGebruiksregels a sh:NodeShape ;
-  sh:targetClass ro:AfwijkenVanDeGebruiksregels ;
+ropt_str:AfwijkenVanDeGebruiksregels a sh:NodeShape ;
+  sh:targetClass ropt:AfwijkenVanDeGebruiksregels ;
   sh:property
-    ro_str:PT_AfwijkenVanDeGebruiksregels_ouder ;
+    ropt_str:AfwijkenVanDeGebruiksregels_ouder ;
 .
 
-ro_str:PT_AfwijkenVanDeGebruiksregels_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:VoorlopigeBestemming ;
+ropt_str:AfwijkenVanDeGebruiksregels_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:VoorlopigeBestemming ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden a sh:NodeShape ;
-  sh:targetClass ro:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden ;
+ropt_str:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden a sh:NodeShape ;
+  sh:targetClass ropt:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden ;
   sh:property
-    ro_str:PT_OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden_ouder ;
+    ropt_str:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden_ouder ;
 .
 
-ro_str:PT_OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:VoorlopigeBestemming ;
+ropt_str:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:VoorlopigeBestemming ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_OmgevingsvergunningVoorHetSlopenVanEenBouwwerk a sh:NodeShape ;
-  sh:targetClass ro:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk ;
+ropt_str:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk a sh:NodeShape ;
+  sh:targetClass ropt:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk ;
   sh:property
-    ro_str:PT_OmgevingsvergunningVoorHetSlopenVanEenBouwwerk_ouder ;
+    ropt_str:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk_ouder ;
 .
 
-ro_str:PT_OmgevingsvergunningVoorHetSlopenVanEenBouwwerk_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:VoorlopigeBestemming ;
+ropt_str:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:VoorlopigeBestemming ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_Wijzigingsbevoegdheid a sh:NodeShape ;
-  sh:targetClass ro:Wijzigingsbevoegdheid ;
+ropt_str:Wijzigingsbevoegdheid a sh:NodeShape ;
+  sh:targetClass ropt:Wijzigingsbevoegdheid ;
   sh:property
-    ro_str:PT_Wijzigingsbevoegdheid_ouder ;
+    ropt_str:Wijzigingsbevoegdheid_ouder ;
 .
 
-ro_str:PT_Wijzigingsbevoegdheid_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:VoorlopigeBestemming ;
+ropt_str:Wijzigingsbevoegdheid_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:VoorlopigeBestemming ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_GeldigheidstermijnVanDeVoorlopigeBestemming a sh:NodeShape ;
-  sh:targetClass ro:GeldigheidstermijnVanDeVoorlopigeBestemming ;
+ropt_str:GeldigheidstermijnVanDeVoorlopigeBestemming a sh:NodeShape ;
+  sh:targetClass ropt:GeldigheidstermijnVanDeVoorlopigeBestemming ;
   sh:property
-    ro_str:PT_GeldigheidstermijnVanDeVoorlopigeBestemming_ouder ;
+    ropt_str:GeldigheidstermijnVanDeVoorlopigeBestemming_ouder ;
 .
 
-ro_str:PT_GeldigheidstermijnVanDeVoorlopigeBestemming_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:VoorlopigeBestemming ;
+ropt_str:GeldigheidstermijnVanDeVoorlopigeBestemming_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:VoorlopigeBestemming ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_DefinitieveBestemmingBijVoorlopigeBestemming a sh:NodeShape ;
-  sh:targetClass ro:DefinitieveBestemmingBijVoorlopigeBestemming ;
+ropt_str:DefinitieveBestemmingBijVoorlopigeBestemming a sh:NodeShape ;
+  sh:targetClass ropt:DefinitieveBestemmingBijVoorlopigeBestemming ;
   sh:property
-    ro_str:PT_DefinitieveBestemmingBijVoorlopigeBestemming_ouder ;
+    ropt_str:DefinitieveBestemmingBijVoorlopigeBestemming_ouder ;
 .
 
-ro_str:PT_DefinitieveBestemmingBijVoorlopigeBestemming_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:VoorlopigeBestemming ;
+ropt_str:DefinitieveBestemmingBijVoorlopigeBestemming_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:VoorlopigeBestemming ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_Bestemmingsomschrijving a sh:NodeShape ;
-  sh:targetClass ro:Bestemmingsomschrijving ;
+ropt_str:Bestemmingsomschrijving a sh:NodeShape ;
+  sh:targetClass ropt:Bestemmingsomschrijving ;
   sh:property
-    ro_str:PT_Bestemmingsomschrijving_ouder ;
+    ropt_str:Bestemmingsomschrijving_ouder ;
 .
 
-ro_str:PT_Bestemmingsomschrijving_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:DefinitieveBestemmingBijVoorlopigeBestemming ;
+ropt_str:Bestemmingsomschrijving_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:DefinitieveBestemmingBijVoorlopigeBestemming ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_Bouwregels a sh:NodeShape ;
-  sh:targetClass ro:Bouwregels ;
+ropt_str:Bouwregels a sh:NodeShape ;
+  sh:targetClass ropt:Bouwregels ;
   sh:property
-    ro_str:PT_Bouwregels_ouder ;
+    ropt_str:Bouwregels_ouder ;
 .
 
-ro_str:PT_Bouwregels_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:DefinitieveBestemmingBijVoorlopigeBestemming ;
+ropt_str:Bouwregels_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:DefinitieveBestemmingBijVoorlopigeBestemming ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_NadereEisen a sh:NodeShape ;
-  sh:targetClass ro:NadereEisen ;
+ropt_str:NadereEisen a sh:NodeShape ;
+  sh:targetClass ropt:NadereEisen ;
   sh:property
-    ro_str:PT_NadereEisen_ouder ;
+    ropt_str:NadereEisen_ouder ;
 .
 
-ro_str:PT_NadereEisen_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:DefinitieveBestemmingBijVoorlopigeBestemming ;
+ropt_str:NadereEisen_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:DefinitieveBestemmingBijVoorlopigeBestemming ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_AfwijkenVanDeBouwregels a sh:NodeShape ;
-  sh:targetClass ro:AfwijkenVanDeBouwregels ;
+ropt_str:AfwijkenVanDeBouwregels a sh:NodeShape ;
+  sh:targetClass ropt:AfwijkenVanDeBouwregels ;
   sh:property
-    ro_str:PT_AfwijkenVanDeBouwregels_ouder ;
+    ropt_str:AfwijkenVanDeBouwregels_ouder ;
 .
 
-ro_str:PT_AfwijkenVanDeBouwregels_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:DefinitieveBestemmingBijVoorlopigeBestemming ;
+ropt_str:AfwijkenVanDeBouwregels_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:DefinitieveBestemmingBijVoorlopigeBestemming ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_SpecifiekeGebruiksregels a sh:NodeShape ;
-  sh:targetClass ro:SpecifiekeGebruiksregels ;
+ropt_str:SpecifiekeGebruiksregels a sh:NodeShape ;
+  sh:targetClass ropt:SpecifiekeGebruiksregels ;
   sh:property
-    ro_str:PT_SpecifiekeGebruiksregels_ouder ;
+    ropt_str:SpecifiekeGebruiksregels_ouder ;
 .
 
-ro_str:PT_SpecifiekeGebruiksregels_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:DefinitieveBestemmingBijVoorlopigeBestemming ;
+ropt_str:SpecifiekeGebruiksregels_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:DefinitieveBestemmingBijVoorlopigeBestemming ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_AfwijkenVanDeGebruiksregels a sh:NodeShape ;
-  sh:targetClass ro:AfwijkenVanDeGebruiksregels ;
+ropt_str:AfwijkenVanDeGebruiksregels a sh:NodeShape ;
+  sh:targetClass ropt:AfwijkenVanDeGebruiksregels ;
   sh:property
-    ro_str:PT_AfwijkenVanDeGebruiksregels_ouder ;
+    ropt_str:AfwijkenVanDeGebruiksregels_ouder ;
 .
 
-ro_str:PT_AfwijkenVanDeGebruiksregels_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:DefinitieveBestemmingBijVoorlopigeBestemming ;
+ropt_str:AfwijkenVanDeGebruiksregels_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:DefinitieveBestemmingBijVoorlopigeBestemming ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden a sh:NodeShape ;
-  sh:targetClass ro:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden ;
+ropt_str:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden a sh:NodeShape ;
+  sh:targetClass ropt:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden ;
   sh:property
-    ro_str:PT_OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden_ouder ;
+    ropt_str:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden_ouder ;
 .
 
-ro_str:PT_OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:DefinitieveBestemmingBijVoorlopigeBestemming ;
+ropt_str:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:DefinitieveBestemmingBijVoorlopigeBestemming ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_OmgevingsvergunningVoorHetSlopenVanEenBouwwerk a sh:NodeShape ;
-  sh:targetClass ro:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk ;
+ropt_str:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk a sh:NodeShape ;
+  sh:targetClass ropt:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk ;
   sh:property
-    ro_str:PT_OmgevingsvergunningVoorHetSlopenVanEenBouwwerk_ouder ;
+    ropt_str:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk_ouder ;
 .
 
-ro_str:PT_OmgevingsvergunningVoorHetSlopenVanEenBouwwerk_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:DefinitieveBestemmingBijVoorlopigeBestemming ;
+ropt_str:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:DefinitieveBestemmingBijVoorlopigeBestemming ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_Wijzigingsbevoegdheid a sh:NodeShape ;
-  sh:targetClass ro:Wijzigingsbevoegdheid ;
+ropt_str:Wijzigingsbevoegdheid a sh:NodeShape ;
+  sh:targetClass ropt:Wijzigingsbevoegdheid ;
   sh:property
-    ro_str:PT_Wijzigingsbevoegdheid_ouder ;
+    ropt_str:Wijzigingsbevoegdheid_ouder ;
 .
 
-ro_str:PT_Wijzigingsbevoegdheid_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:DefinitieveBestemmingBijVoorlopigeBestemming ;
+ropt_str:Wijzigingsbevoegdheid_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:DefinitieveBestemmingBijVoorlopigeBestemming ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_UitTeWerkenBestemming a sh:NodeShape ;
-  sh:targetClass ro:UitTeWerkenBestemming ;
+ropt_str:UitTeWerkenBestemming a sh:NodeShape ;
+  sh:targetClass ropt:UitTeWerkenBestemming ;
   sh:property
-    ro_str:PT_UitTeWerkenBestemming_ouder ;
+    ropt_str:UitTeWerkenBestemming_ouder ;
 .
 
-ro_str:PT_UitTeWerkenBestemming_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:Bestemmingsregels ;
+ropt_str:UitTeWerkenBestemming_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:Bestemmingsregels ;
 .
 
-ro_str:PT_Bestemmingsomschrijving a sh:NodeShape ;
-  sh:targetClass ro:Bestemmingsomschrijving ;
+ropt_str:Bestemmingsomschrijving a sh:NodeShape ;
+  sh:targetClass ropt:Bestemmingsomschrijving ;
   sh:property
-    ro_str:PT_Bestemmingsomschrijving_ouder ;
+    ropt_str:Bestemmingsomschrijving_ouder ;
 .
 
-ro_str:PT_Bestemmingsomschrijving_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:UitTeWerkenBestemming ;
+ropt_str:Bestemmingsomschrijving_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:UitTeWerkenBestemming ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_Uitwerkingsregels a sh:NodeShape ;
-  sh:targetClass ro:Uitwerkingsregels ;
+ropt_str:Uitwerkingsregels a sh:NodeShape ;
+  sh:targetClass ropt:Uitwerkingsregels ;
   sh:property
-    ro_str:PT_Uitwerkingsregels_ouder ;
+    ropt_str:Uitwerkingsregels_ouder ;
 .
 
-ro_str:PT_Uitwerkingsregels_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:UitTeWerkenBestemming ;
+ropt_str:Uitwerkingsregels_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:UitTeWerkenBestemming ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_Bouwregels a sh:NodeShape ;
-  sh:targetClass ro:Bouwregels ;
+ropt_str:Bouwregels a sh:NodeShape ;
+  sh:targetClass ropt:Bouwregels ;
   sh:property
-    ro_str:PT_Bouwregels_ouder ;
+    ropt_str:Bouwregels_ouder ;
 .
 
-ro_str:PT_Bouwregels_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:UitTeWerkenBestemming ;
+ropt_str:Bouwregels_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:UitTeWerkenBestemming ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_AfwijkenVanDeBouwregels a sh:NodeShape ;
-  sh:targetClass ro:AfwijkenVanDeBouwregels ;
+ropt_str:AfwijkenVanDeBouwregels a sh:NodeShape ;
+  sh:targetClass ropt:AfwijkenVanDeBouwregels ;
   sh:property
-    ro_str:PT_AfwijkenVanDeBouwregels_ouder ;
+    ropt_str:AfwijkenVanDeBouwregels_ouder ;
 .
 
-ro_str:PT_AfwijkenVanDeBouwregels_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:UitTeWerkenBestemming ;
+ropt_str:AfwijkenVanDeBouwregels_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:UitTeWerkenBestemming ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden a sh:NodeShape ;
-  sh:targetClass ro:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden ;
+ropt_str:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden a sh:NodeShape ;
+  sh:targetClass ropt:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden ;
   sh:property
-    ro_str:PT_OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden_ouder ;
+    ropt_str:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden_ouder ;
 .
 
-ro_str:PT_OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:UitTeWerkenBestemming ;
+ropt_str:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:UitTeWerkenBestemming ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_Dubbelbestemming a sh:NodeShape ;
-  sh:targetClass ro:Dubbelbestemming_Tekstobject ;
+ropt_str:Dubbelbestemming a sh:NodeShape ;
+  sh:targetClass ropt:Dubbelbestemming_Tekstobject ;
   sh:property
-    ro_str:PT_Dubbelbestemming_ouder ;
+    ropt_str:Dubbelbestemming_ouder ;
 .
 
-ro_str:PT_Dubbelbestemming_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:Bestemmingsregels ;
+ropt_str:Dubbelbestemming_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:Bestemmingsregels ;
 .
 
-ro_str:PT_Bestemmingsomschrijving a sh:NodeShape ;
-  sh:targetClass ro:Bestemmingsomschrijving ;
+ropt_str:Bestemmingsomschrijving a sh:NodeShape ;
+  sh:targetClass ropt:Bestemmingsomschrijving ;
   sh:property
-    ro_str:PT_Bestemmingsomschrijving_ouder ;
+    ropt_str:Bestemmingsomschrijving_ouder ;
 .
 
-ro_str:PT_Bestemmingsomschrijving_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:Dubbelbestemming_Tekstobject ;
+ropt_str:Bestemmingsomschrijving_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:Dubbelbestemming_Tekstobject ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_Bouwregels a sh:NodeShape ;
-  sh:targetClass ro:Bouwregels ;
+ropt_str:Bouwregels a sh:NodeShape ;
+  sh:targetClass ropt:Bouwregels ;
   sh:property
-    ro_str:PT_Bouwregels_ouder ;
+    ropt_str:Bouwregels_ouder ;
 .
 
-ro_str:PT_Bouwregels_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:Dubbelbestemming_Tekstobject ;
+ropt_str:Bouwregels_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:Dubbelbestemming_Tekstobject ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_NadereEisen a sh:NodeShape ;
-  sh:targetClass ro:NadereEisen ;
+ropt_str:NadereEisen a sh:NodeShape ;
+  sh:targetClass ropt:NadereEisen ;
   sh:property
-    ro_str:PT_NadereEisen_ouder ;
+    ropt_str:NadereEisen_ouder ;
 .
 
-ro_str:PT_NadereEisen_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:Dubbelbestemming_Tekstobject ;
+ropt_str:NadereEisen_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:Dubbelbestemming_Tekstobject ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_AfwijkenVanDeBouwregels a sh:NodeShape ;
-  sh:targetClass ro:AfwijkenVanDeBouwregels ;
+ropt_str:AfwijkenVanDeBouwregels a sh:NodeShape ;
+  sh:targetClass ropt:AfwijkenVanDeBouwregels ;
   sh:property
-    ro_str:PT_AfwijkenVanDeBouwregels_ouder ;
+    ropt_str:AfwijkenVanDeBouwregels_ouder ;
 .
 
-ro_str:PT_AfwijkenVanDeBouwregels_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:Dubbelbestemming_Tekstobject ;
+ropt_str:AfwijkenVanDeBouwregels_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:Dubbelbestemming_Tekstobject ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_SpecifiekeGebruiksregels a sh:NodeShape ;
-  sh:targetClass ro:SpecifiekeGebruiksregels ;
+ropt_str:SpecifiekeGebruiksregels a sh:NodeShape ;
+  sh:targetClass ropt:SpecifiekeGebruiksregels ;
   sh:property
-    ro_str:PT_SpecifiekeGebruiksregels_ouder ;
+    ropt_str:SpecifiekeGebruiksregels_ouder ;
 .
 
-ro_str:PT_SpecifiekeGebruiksregels_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:Dubbelbestemming_Tekstobject ;
+ropt_str:SpecifiekeGebruiksregels_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:Dubbelbestemming_Tekstobject ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_AfwijkenVanDeGebruiksregels a sh:NodeShape ;
-  sh:targetClass ro:AfwijkenVanDeGebruiksregels ;
+ropt_str:AfwijkenVanDeGebruiksregels a sh:NodeShape ;
+  sh:targetClass ropt:AfwijkenVanDeGebruiksregels ;
   sh:property
-    ro_str:PT_AfwijkenVanDeGebruiksregels_ouder ;
+    ropt_str:AfwijkenVanDeGebruiksregels_ouder ;
 .
 
-ro_str:PT_AfwijkenVanDeGebruiksregels_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:Dubbelbestemming_Tekstobject ;
+ropt_str:AfwijkenVanDeGebruiksregels_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:Dubbelbestemming_Tekstobject ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden a sh:NodeShape ;
-  sh:targetClass ro:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden ;
+ropt_str:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden a sh:NodeShape ;
+  sh:targetClass ropt:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden ;
   sh:property
-    ro_str:PT_OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden_ouder ;
+    ropt_str:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden_ouder ;
 .
 
-ro_str:PT_OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:Dubbelbestemming_Tekstobject ;
+ropt_str:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:Dubbelbestemming_Tekstobject ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_OmgevingsvergunningVoorHetSlopenVanEenBouwwerk a sh:NodeShape ;
-  sh:targetClass ro:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk ;
+ropt_str:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk a sh:NodeShape ;
+  sh:targetClass ropt:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk ;
   sh:property
-    ro_str:PT_OmgevingsvergunningVoorHetSlopenVanEenBouwwerk_ouder ;
+    ropt_str:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk_ouder ;
 .
 
-ro_str:PT_OmgevingsvergunningVoorHetSlopenVanEenBouwwerk_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:Dubbelbestemming_Tekstobject ;
+ropt_str:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:Dubbelbestemming_Tekstobject ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_Wijzigingsbevoegdheid a sh:NodeShape ;
-  sh:targetClass ro:Wijzigingsbevoegdheid ;
+ropt_str:Wijzigingsbevoegdheid a sh:NodeShape ;
+  sh:targetClass ropt:Wijzigingsbevoegdheid ;
   sh:property
-    ro_str:PT_Wijzigingsbevoegdheid_ouder ;
+    ropt_str:Wijzigingsbevoegdheid_ouder ;
 .
 
-ro_str:PT_Wijzigingsbevoegdheid_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:Dubbelbestemming_Tekstobject ;
+ropt_str:Wijzigingsbevoegdheid_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:Dubbelbestemming_Tekstobject ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_AlgemeneRegels a sh:NodeShape ;
-  sh:targetClass ro:AlgemeneRegels ;
+ropt_str:AlgemeneRegels a sh:NodeShape ;
+  sh:targetClass ropt:AlgemeneRegels ;
   sh:property
-    ro_str:PT_AlgemeneRegels_ouder ;
+    ropt_str:AlgemeneRegels_ouder ;
 .
 
-ro_str:PT_AlgemeneRegels_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:Regels ;
+ropt_str:AlgemeneRegels_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:Regels ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_Anti_dubbeltelregel a sh:NodeShape ;
-  sh:targetClass ro:Anti_dubbeltelregel ;
+ropt_str:Anti_dubbeltelregel a sh:NodeShape ;
+  sh:targetClass ropt:Anti_dubbeltelregel ;
   sh:property
-    ro_str:PT_Anti_dubbeltelregel_ouder ;
+    ropt_str:Anti_dubbeltelregel_ouder ;
 .
 
-ro_str:PT_Anti_dubbeltelregel_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:AlgemeneRegels ;
+ropt_str:Anti_dubbeltelregel_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:AlgemeneRegels ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_AlgemeneBouwregels a sh:NodeShape ;
-  sh:targetClass ro:AlgemeneBouwregels ;
+ropt_str:AlgemeneBouwregels a sh:NodeShape ;
+  sh:targetClass ropt:AlgemeneBouwregels ;
   sh:property
-    ro_str:PT_AlgemeneBouwregels_ouder ;
+    ropt_str:AlgemeneBouwregels_ouder ;
 .
 
-ro_str:PT_AlgemeneBouwregels_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:AlgemeneRegels ;
+ropt_str:AlgemeneBouwregels_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:AlgemeneRegels ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_AlgemeneGebruiksregels a sh:NodeShape ;
-  sh:targetClass ro:AlgemeneGebruiksregels ;
+ropt_str:AlgemeneGebruiksregels a sh:NodeShape ;
+  sh:targetClass ropt:AlgemeneGebruiksregels ;
   sh:property
-    ro_str:PT_AlgemeneGebruiksregels_ouder ;
+    ropt_str:AlgemeneGebruiksregels_ouder ;
 .
 
-ro_str:PT_AlgemeneGebruiksregels_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:AlgemeneRegels ;
+ropt_str:AlgemeneGebruiksregels_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:AlgemeneRegels ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_AlgemeneAanduidingsregels a sh:NodeShape ;
-  sh:targetClass ro:AlgemeneAanduidingsregels ;
+ropt_str:AlgemeneAanduidingsregels a sh:NodeShape ;
+  sh:targetClass ropt:AlgemeneAanduidingsregels ;
   sh:property
-    ro_str:PT_AlgemeneAanduidingsregels_ouder ;
+    ropt_str:AlgemeneAanduidingsregels_ouder ;
 .
 
-ro_str:PT_AlgemeneAanduidingsregels_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:AlgemeneRegels ;
+ropt_str:AlgemeneAanduidingsregels_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:AlgemeneRegels ;
 .
 
-ro_str:PT_AlgemeneAfwijkingsregels a sh:NodeShape ;
-  sh:targetClass ro:AlgemeneAfwijkingsregels ;
+ropt_str:AlgemeneAfwijkingsregels a sh:NodeShape ;
+  sh:targetClass ropt:AlgemeneAfwijkingsregels ;
   sh:property
-    ro_str:PT_AlgemeneAfwijkingsregels_ouder ;
+    ropt_str:AlgemeneAfwijkingsregels_ouder ;
 .
 
-ro_str:PT_AlgemeneAfwijkingsregels_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:AlgemeneRegels ;
+ropt_str:AlgemeneAfwijkingsregels_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:AlgemeneRegels ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_AlgemeneWijzigingsregels a sh:NodeShape ;
-  sh:targetClass ro:AlgemeneWijzigingsregels ;
+ropt_str:AlgemeneWijzigingsregels a sh:NodeShape ;
+  sh:targetClass ropt:AlgemeneWijzigingsregels ;
   sh:property
-    ro_str:PT_AlgemeneWijzigingsregels_ouder ;
+    ropt_str:AlgemeneWijzigingsregels_ouder ;
 .
 
-ro_str:PT_AlgemeneWijzigingsregels_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:AlgemeneRegels ;
+ropt_str:AlgemeneWijzigingsregels_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:AlgemeneRegels ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_VerwezenlijkingInDeNaasteToekomst a sh:NodeShape ;
-  sh:targetClass ro:VerwezenlijkingInDeNaasteToekomst ;
+ropt_str:VerwezenlijkingInDeNaasteToekomst a sh:NodeShape ;
+  sh:targetClass ropt:VerwezenlijkingInDeNaasteToekomst ;
   sh:property
-    ro_str:PT_VerwezenlijkingInDeNaasteToekomst_ouder ;
+    ropt_str:VerwezenlijkingInDeNaasteToekomst_ouder ;
 .
 
-ro_str:PT_VerwezenlijkingInDeNaasteToekomst_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:AlgemeneRegels ;
+ropt_str:VerwezenlijkingInDeNaasteToekomst_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:AlgemeneRegels ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_AlgemeneProcedureregels a sh:NodeShape ;
-  sh:targetClass ro:AlgemeneProcedureregels ;
+ropt_str:AlgemeneProcedureregels a sh:NodeShape ;
+  sh:targetClass ropt:AlgemeneProcedureregels ;
   sh:property
-    ro_str:PT_AlgemeneProcedureregels_ouder ;
+    ropt_str:AlgemeneProcedureregels_ouder ;
 .
 
-ro_str:PT_AlgemeneProcedureregels_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:AlgemeneRegels ;
+ropt_str:AlgemeneProcedureregels_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:AlgemeneRegels ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_OverigeRegels a sh:NodeShape ;
-  sh:targetClass ro:OverigeRegels ;
+ropt_str:OverigeRegels a sh:NodeShape ;
+  sh:targetClass ropt:OverigeRegels ;
   sh:property
-    ro_str:PT_OverigeRegels_ouder ;
+    ropt_str:OverigeRegels_ouder ;
 .
 
-ro_str:PT_OverigeRegels_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:AlgemeneRegels ;
+ropt_str:OverigeRegels_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:AlgemeneRegels ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_Overgangs_EnSlotregels a sh:NodeShape ;
-  sh:targetClass ro:Overgangs_EnSlotregels ;
+ropt_str:Overgangs_EnSlotregels a sh:NodeShape ;
+  sh:targetClass ropt:Overgangs_EnSlotregels ;
   sh:property
-    ro_str:PT_Overgangs_EnSlotregels_ouder ;
+    ropt_str:Overgangs_EnSlotregels_ouder ;
 .
 
-ro_str:PT_Overgangs_EnSlotregels_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:Regels ;
+ropt_str:Overgangs_EnSlotregels_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:Regels ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_Overgangsrecht a sh:NodeShape ;
-  sh:targetClass ro:Overgangsrecht ;
+ropt_str:Overgangsrecht a sh:NodeShape ;
+  sh:targetClass ropt:Overgangsrecht ;
   sh:property
-    ro_str:PT_Overgangsrecht_ouder ;
+    ropt_str:Overgangsrecht_ouder ;
 .
 
-ro_str:PT_Overgangsrecht_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:Overgangs_EnSlotregels ;
+ropt_str:Overgangsrecht_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:Overgangs_EnSlotregels ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_Slotregel a sh:NodeShape ;
-  sh:targetClass ro:Slotregel ;
+ropt_str:Slotregel a sh:NodeShape ;
+  sh:targetClass ropt:Slotregel ;
   sh:property
-    ro_str:PT_Slotregel_ouder ;
+    ropt_str:Slotregel_ouder ;
 .
 
-ro_str:PT_Slotregel_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:Overgangs_EnSlotregels ;
+ropt_str:Slotregel_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:Overgangs_EnSlotregels ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_Lid a sh:NodeShape ;
-  sh:targetClass ro:Lid ;
+ropt_str:Lid a sh:NodeShape ;
+  sh:targetClass ropt:Lid ;
   sh:property
-    ro_str:PT_Lid_ouder ;
+    ropt_str:Lid_ouder ;
 .
 
-ro_str:PT_Lid_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
+ropt_str:Lid_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
   sh:or (
     [
-      sh:class ro:WijzeVanMeten ;
+      sh:class ropt:Begrippen ;
     ]
     [
-      sh:class ro:Begrippen ;
+      sh:class ropt:WijzeVanMeten ;
     ]
     [
-      sh:class ro:Anti_dubbeltelregel ;
+      sh:class ropt:Anti_dubbeltelregel ;
     ]
     [
-      sh:class ro:AlgemeneBouwregels ;
+      sh:class ropt:AlgemeneBouwregels ;
     ]
     [
-      sh:class ro:AlgemeneGebruiksregels ;
+      sh:class ropt:AlgemeneGebruiksregels ;
     ]
     [
-      sh:class ro:AlgemeneAanduidingsregels ;
+      sh:class ropt:AlgemeneAanduidingsregels ;
     ]
     [
-      sh:class ro:AlgemeneAfwijkingsregels ;
+      sh:class ropt:AlgemeneAfwijkingsregels ;
     ]
     [
-      sh:class ro:AlgemeneWijzigingsregels ;
+      sh:class ropt:AlgemeneWijzigingsregels ;
     ]
     [
-      sh:class ro:VerwerkelijkingInDeNaasteToekomst ;
+      sh:class ropt:VerwerkelijkingInDeNaasteToekomst ;
     ]
     [
-      sh:class ro:AlgemeneProcedureregels ;
+      sh:class ropt:AlgemeneProcedureregels ;
     ]
     [
-      sh:class ro:OverigeRegels ;
+      sh:class ropt:OverigeRegels ;
     ]
     [
-      sh:class ro:Overgangsrecht ;
+      sh:class ropt:Overgangsrecht ;
     ]
     [
-      sh:class ro:Slotregel ;
+      sh:class ropt:Slotregel ;
     ]
   )
 .
 
-ro_str:PT_Sublid a sh:NodeShape ;
-  sh:targetClass ro:Sublid ;
+#################################################################
+#    Verdere onderverdeling van Klasse Tekstobject
+#################################################################
+
+ropt_str:Sublid a sh:NodeShape ;
+  sh:targetClass ropt:Sublid ;
   sh:property
-    ro_str:PT_Sublid_ouder ;
+    ropt_str:Sublid_ouder ;
 .
 
-ro_str:PT_Sublid_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:Lid ;
+ropt_str:Sublid_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:Lid ;
 .
 
-ro_str:PT_Subsublid a sh:NodeShape ;
-  sh:targetClass ro:Subsublid ;
+ropt_str:Subsublid a sh:NodeShape ;
+  sh:targetClass ropt:Subsublid ;
   sh:property
-    ro_str:PT_Subsublid_ouder ;
+    ropt_str:Subsublid_ouder ;
 .
 
-ro_str:PT_Subsublid_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:Sublid ;
+ropt_str:Subsublid_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:Sublid ;
 .
 
-ro_str:PT_Subsubsublid a sh:NodeShape ;
-  sh:targetClass ro:Subsubsublid ;
+ropt_str:Subsubsublid a sh:NodeShape ;
+  sh:targetClass ropt:Subsubsublid ;
   sh:property
-    ro_str:PT_Subsubsublid_ouder ;
+    ropt_str:Subsubsublid_ouder ;
 .
 
-ro_str:PT_Subsubsublid_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:Subsublid ;
+ropt_str:Subsubsublid_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:Subsublid ;
 .
 
-ro_str:PT_BijlagenBijRegels a sh:NodeShape ;
-  sh:targetClass ro:BijlagenBijRegels ;
+#################################################################
+#    Bijlagen bij Regels
+#################################################################
+
+ropt_str:BijlagenBijRegels a sh:NodeShape ;
+  sh:targetClass ropt:BijlagenBijRegels ;
   sh:property
-    ro_str:PT_BijlagenBijRegels_ouder ;
+    ropt_str:BijlagenBijRegels_ouder ;
 .
 
-ro_str:PT_BijlagenBijRegels_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
+ropt_str:BijlagenBijRegels_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
   sh:or (
     [
-      sh:class ro:Document ;
+      sh:class ropt:Document ;
     ]
     [
-      sh:class ro:Regels ;
+      sh:class ropt:Regels ;
     ]
   ) ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_BijlageBijRegels a sh:NodeShape ;
-  sh:targetClass ro:BijlageBijRegels ;
+ropt_str:BijlageBijRegels a sh:NodeShape ;
+  sh:targetClass ropt:BijlageBijRegels ;
   sh:property
-    ro_str:PT_BijlageBijRegels_ouder ;
+    ropt_str:BijlageBijRegels_ouder ;
 .
 
-ro_str:PT_BijlageBijRegels_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:BijlagenBijRegels ;
+ropt_str:BijlageBijRegels_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:BijlagenBijRegels ;
 .
 
-ro_str:PT_Deel a sh:NodeShape ;
-  sh:targetClass ro:Deel ;
+ropt_str:Deel a sh:NodeShape ;
+  sh:targetClass ropt:Deel ;
   sh:property
-    ro_str:PT_Deel_ouder ;
+    ropt_str:Deel_ouder ;
 .
 
-ro_str:PT_Deel_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
+ropt_str:Deel_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
   sh:or (
     [
-      sh:class ro:BijlageBijRegels ;
+      sh:class ropt:BijlageBijRegels ;
     ]
     [
-      sh:class ro:Toelichting ;
+      sh:class ropt:Toelichting ;
     ]
     [
-      sh:class ro:BijlageBijToelichting ;
+      sh:class ropt:BijlageBijToelichting ;
     ]
   )
 .
 
-ro_str:PT_Hoofdstuk a sh:NodeShape ;
-  sh:targetClass ro:Hoofdstuk ;
+ropt_str:Hoofdstuk a sh:NodeShape ;
+  sh:targetClass ropt:Hoofdstuk ;
   sh:property
-    ro_str:PT_Hoofdstuk_ouder ;
+    ropt_str:Hoofdstuk_ouder ;
 .
 
-ro_str:PT_Hoofdstuk_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
+ropt_str:Hoofdstuk_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
   sh:or (
     [
-      sh:class ro:BijlageBijRegels ;
+      sh:class ropt:BijlageBijRegels ;
     ]
     [
-      sh:class ro:Deel ;
+      sh:class ropt:Deel ;
     ]
     [
-      sh:class ro:Toelichting ;
+      sh:class ropt:Toelichting ;
     ]
     [
-      sh:class ro:BijlageBijToelichting ;
+      sh:class ropt:BijlageBijToelichting ;
     ]
   )
 .
 
-ro_str:PT_Paragraaf a sh:NodeShape ;
-  sh:targetClass ro:Paragraaf ;
+ropt_str:Paragraaf a sh:NodeShape ;
+  sh:targetClass ropt:Paragraaf ;
   sh:property
-    ro_str:PT_Paragraaf_ouder ;
+    ropt_str:Paragraaf_ouder ;
 .
 
-ro_str:PT_Paragraaf_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:Hoofdstuk ;
+ropt_str:Paragraaf_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:Hoofdstuk ;
 .
 
-ro_str:PT_Subparagraaf a sh:NodeShape ;
-  sh:targetClass ro:Subparagraaf ;
+ropt_str:Subparagraaf a sh:NodeShape ;
+  sh:targetClass ropt:Subparagraaf ;
   sh:property
-    ro_str:PT_Subparagraaf_ouder ;
+    ropt_str:Subparagraaf_ouder ;
 .
 
-ro_str:PT_Subparagraaf_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:Paragraaf ;
+ropt_str:Subparagraaf_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:Paragraaf ;
 .
 
-ro_str:PT_Subsubparagraaf a sh:NodeShape ;
-  sh:targetClass ro:Subsubparagraaf ;
+ropt_str:Subsubparagraaf a sh:NodeShape ;
+  sh:targetClass ropt:Subsubparagraaf ;
   sh:property
-    ro_str:PT_Subsubparagraaf_ouder ;
+    ropt_str:Subsubparagraaf_ouder ;
 .
 
-ro_str:PT_Subsubparagraaf_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:Subparagraaf ;
+ropt_str:Subsubparagraaf_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:Subparagraaf ;
 .
 
-ro_str:PT_Subsubsubparagraaf a sh:NodeShape ;
-  sh:targetClass ro:Subsubsubparagraaf ;
+ropt_str:Subsubsubparagraaf a sh:NodeShape ;
+  sh:targetClass ropt:Subsubsubparagraaf ;
   sh:property
-    ro_str:PT_Subsubsubparagraaf_ouder ;
+    ropt_str:Subsubsubparagraaf_ouder ;
 .
 
-ro_str:PT_Subsubsubparagraaf_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:Subsubparagraaf ;
+ropt_str:Subsubsubparagraaf_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:Subsubparagraaf ;
 .
 
-ro_str:PT_Overig_Tekstobject a sh:NodeShape ;
-  sh:targetClass ro:Overig_Tekstobject ;
+
+#################################################################
+#    Toelichting
+#################################################################
+
+ropt_str:Toelichting a sh:NodeShape ;
+  sh:targetClass ropt:Toelichting ;
   sh:property
-    ro_str:PT_Overig_Tekstobject_ouder ;
+    ropt_str:Toelichting_ouder ;
 .
 
-ro_str:PT_Toelichting a sh:NodeShape ;
-  sh:targetClass ro:Toelichting ;
-  sh:property
-    ro_str:PT_Toelichting_ouder ;
-.
-
-ro_str:PT_Toelichting_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:Document ;
+ropt_str:Toelichting_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:Document ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_BijlagenBijToelichting a sh:NodeShape ;
-  sh:targetClass ro:BijlagenBijToelichting ;
+#################################################################
+#    Bijlage bij Toelichting
+#################################################################
+
+ropt_str:BijlagenBijToelichting a sh:NodeShape ;
+  sh:targetClass ropt:BijlagenBijToelichting ;
   sh:property
-    ro_str:PT_BijlagenBijToelichting_ouder ;
+    ropt_str:BijlagenBijToelichting_ouder ;
 .
 
-ro_str:PT_BijlagenBijToelichting_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
+ropt_str:BijlagenBijToelichting_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
   sh:or (
     [
-      sh:class ro:Document ;
+      sh:class ropt:Document ;
     ]
     [
-      sh:class ro:Toelichting ;
+      sh:class ropt:Toelichting ;
     ]
   ) ;
   sh:maxCount 1 ;
 .
 
-ro_str:PT_BijlageBijToelichting a sh:NodeShape ;
-  sh:targetClass ro:BijlageBijToelichting ;
+
+ropt_str:BijlageBijToelichting a sh:NodeShape ;
+  sh:targetClass ropt:BijlageBijToelichting ;
   sh:property
-    ro_str:PT_BijlageBijToelichting_ouder ;
+    ropt_str:BijlageBijToelichting_ouder ;
 .
 
-ro_str:PT_BijlageBijToelichting_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
-  sh:class ro:BijlagenBijToelichting ;
+ropt_str:BijlageBijToelichting_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
+  sh:class ropt:BijlagenBijToelichting ;
 .
 
-ro_str:PT_Overig_Tekstobject_ouder a sh:PropertyShape ;
-  sh:path ro:ouder ;
+
+ropt_str:Overig_Tekstobject a sh:NodeShape ;
+  sh:targetClass ropt:Overig_Tekstobject ;
+  sh:property
+    ropt_str:Overig_Tekstobject_ouder ;
+.
+
+ropt_str:Overig_Tekstobject_ouder a sh:PropertyShape ;
+  sh:path ropt:ouder ;
   sh:or (
     [
-      sh:class ro:Lid ;
+      sh:class ropt:Lid ;
     ]
     [
-      sh:class ro:Sublid ;
+      sh:class ropt:Sublid ;
     ]
     [
-      sh:class ro:SubSublid ;
+      sh:class ropt:SubSublid ;
     ]
     [
-      sh:class ro:SubSubSublid ;
+      sh:class ropt:SubSubSublid ;
     ]
     [
-      sh:class ro:Hoofdstuk ;
+      sh:class ropt:Hoofdstuk ;
     ]
     [
-      sh:class ro:Paragraaf ;
+      sh:class ropt:Paragraaf ;
     ]
     [
-      sh:class ro:Subparagraaf ;
+      sh:class ropt:Subparagraaf ;
     ]
     [
-      sh:class ro:Subsubparagraaf ;
+      sh:class ropt:Subsubparagraaf ;
     ]
     [
-      sh:class ro:Subsubsubparagraaf ;
+      sh:class ropt:Subsubsubparagraaf ;
     ]
   )
 .
+
+
+#################################################################
+#    Basisindeling Visies
+#################################################################
+
+
+#################################################################
+#    Basisindeling Besluiten
+#################################################################
