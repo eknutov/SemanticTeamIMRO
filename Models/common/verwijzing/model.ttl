@@ -162,7 +162,7 @@ ro:Kaart a owl:Class ;
 .
 
 ro:illustratie a owl:AnnotationProperty ;
-  rdfs:label "illustratie"@nl
+  rdfs:label "illustratie"@nl ;
   rdfs:isDefinedBy :ro
 .
 
