@@ -1,13 +1,12 @@
-# common @prefix section
-@prefix dc: <http://purl.org/dc/terms/> .
+# common prefixes
+@prefix : <http://data.informatiehuisruimte.nl/def/> .
+@prefix dct: <http://purl.org/dc/terms/> .
 @prefix doco: <http://purl.org/spar/doco/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix gml: <http://www.opengis.net/ont/gml#> .
-@prefix imro: <http://data.imro.com/def/> .
 @prefix locn: <http://www.w3.org/ns/locn#> .
-@prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
-@prefix nen3610_str: <http://data.informatiehuisruimte.nl/def/nen3610/> .
 @prefix ogc: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
@@ -16,10 +15,12 @@
 @prefix voaf: <http://purl.org/vocommons/voaf#> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
+@prefix dcmit: <http://purl.org/dc/dcmitype/> .
 
 # prefixes specific to Informatiehuis Ruimte
+@prefix imro: <http://data.imro.com/def/> .
 @prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
+@prefix nen3610_str: <http://data.informatiehuisruimte.nl/def/nen3610/> .
 @prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
 @prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
 @prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
@@ -29,6 +30,12 @@
 @prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
 @prefix ro_sym: <http://data.informatiehuisruimte.nl/ro/id/symbool/> .
 
+@prefix ropt: <http://data.informatiehuisruimte.nl/def/ropt#> .
+@prefix ropt_str: <http://data.informatiehuisruimte.nl/def/ropt/> .
+@prefix ropt_beg: <http://data.informatiehuisruimte.nl/ropt/id/begrip/> .
+
+# legacy: (legacy prefix, in case someone still uses it)
+@prefix begrip: <http://data.informatiehuisruimte.nl/ro/id/begrip#> .
 
 
 #################################################################
@@ -40,7 +47,7 @@ ro:AMVB a owl:Class ;
   rdfs:isDefinedBy ro: ;
   dc:subject ro_beg:AMVB ;
   rdfs:label "Algemene Maatregel van Bestuur (AMvB)"@nl ;
-  rdfs:comment "Een Algemene Maatregel van Bestuur (AMvB) is een instrument waarmee de Minister regels kan geven omtrent de inhoud van bestemmingsplannen en provinciale inpassingsplannen, daaraan voorafgaande projectbesluiten en beheersverordeningen. Het is daarbij niet altijd noodzakelijk dat er ook een specifiek gebied van het Nederlands grondgebied gedefinieerd wordt. Met betrekking tot dat laatste vallen AMvB’s in twee groepen uiteen: een groep waarin regels gekoppeld zijn aan geografisch geduide gebieden en een groep waarin regels gesteld worden voor het hele land of minder direct aangegeven gebieden."@nl ;
+  rdfs:comment "Een Algemene Maatregel van Bestuur (AMvB) is een instrument waarmee de Minister regels kan geven omtrent de inhoud van bestemmingsplannen en provinciale inpassingsplannen, daaraan voorafgaande projectbesluiten en beheersverordeningen. Het is daarbij niet altijd noodzakelijk dat er ook een specifiek gebied van het Nederlands grondgebied gedefinieerd wordt. Met betrekking tot dat laatste vallen AMvB’s in twee groepen uiteen: een groep waarin regels gekoppeld zijn aan geografisch geduide gebieden en een groep waarin regels gesteld worden voor het hele land of minder direct aangegeven gebieden."@nl
 .
 
 #Jesse: Besluitgebied_A can either be of type AMVB or Regeling. These are sibling classes constrained identically.

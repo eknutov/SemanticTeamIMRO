@@ -1,5 +1,6 @@
 # common prefixes
-@prefix dc: <http://purl.org/dc/terms/> .
+@prefix : <http://data.informatiehuisruimte.nl/def/> .
+@prefix dct: <http://purl.org/dc/terms/> .
 @prefix doco: <http://purl.org/spar/doco/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix gml: <http://www.opengis.net/ont/gml#> .
@@ -14,6 +15,7 @@
 @prefix voaf: <http://purl.org/vocommons/voaf#> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcmit: <http://purl.org/dc/dcmitype/> .
 
 # prefixes specific to Informatiehuis Ruimte
 @prefix imro: <http://data.imro.com/def/> .
@@ -32,6 +34,9 @@
 @prefix ropt_str: <http://data.informatiehuisruimte.nl/def/ropt/> .
 @prefix ropt_beg: <http://data.informatiehuisruimte.nl/ropt/id/begrip/> .
 
+# legacy: (legacy prefix, in case someone still uses it)
+@prefix begrip: <http://data.informatiehuisruimte.nl/ro/id/begrip#> .
+
 
 
 #################################################################
@@ -43,5 +48,5 @@ ro:ProvincialeVerordening a owl:Class ;
   rdfs:isDefinedBy ro: ;
   dc:subject ro_beg:ProvincialeVerordening ;
   rdfs:label "Provinciale verordening"@nl ;
-  rdfs:comment "Een provinciale verordening regelt een aantal zaken die de gemeenten moeten vertalen in bestemmingsplannen. Het gaat om regels voor de inhoud van bestemmingsplannen, maar ook om eventueel daaraan voorafgaande projectbesluiten en beheersverordeningen."@nl;
+  rdfs:comment "Een provinciale verordening regelt een aantal zaken die de gemeenten moeten vertalen in bestemmingsplannen. Het gaat om regels voor de inhoud van bestemmingsplannen, maar ook om eventueel daaraan voorafgaande projectbesluiten en beheersverordeningen."@nl
 .

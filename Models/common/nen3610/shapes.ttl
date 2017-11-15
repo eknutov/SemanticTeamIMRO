@@ -15,19 +15,19 @@
 
 nen3610_str:GeoObject a sh:NodeShape ;
   sh:targetClass nen3610:GeoObject ;
-  sh:sparql [
-      sh:message "{$this} is an instance of an abstract class." ;
-      sh:prefixed ro_str:prefixes ;
-      sh:select """
-SELECT DISTINCT $this
-WHERE {
-  $this rdf:type nen3610:GeoObject .
-  FILTER NOT EXISTS {
-    $this rdf:type ?class .
-    ?class rdfs:subClassOf nen3610:GeoObject .
-  }
-}""" ;
-    ] ;
+#    sh:sparql [
+#        sh:message "{$this} is an instance of an abstract class." ;
+#        sh:prefixed ro_str:prefixes ;
+#        sh:select """
+#  SELECT DISTINCT $this
+#  WHERE {
+#    $this rdf:type nen3610:GeoObject .
+#    FILTER NOT EXISTS {
+#      $this rdf:type ?class .
+#      ?class rdfs:subClassOf nen3610:GeoObject .
+#    }
+#  }""" ;
+#      ] ;
   sh:property
     nen3610_str:GeoObject_identificatie
 .
@@ -72,82 +72,5 @@ nen3610_str:GeoObject_versie a sh:PropertyShape ;
   sh:datatype xsd:string ;
   sh:description "Versie-aanduiding binnen een registratie"@nl ;
   sh:maxCount 1 ;
-  sh:nodeKind sh:Literal ;
+  sh:nodeKind sh:Literal
 .
-
-#ro_str:PlanlogischGebied a sh:NodeShape ; #shape defined for IMRO, not nen3610, therefore the prefix.
-#  sh:property ro_str:naam ;
-#  sh:sparql [
-#    sh:message "{$this} is an instance of an abstract class." ;
-#    sh:prefixes ro_str:prefixes ;
-#    sh:select """
-#SELECT DISTINCT $this
-#WHERE {
-#  $this rdf:type ro:PlanologischGebied  .
-#  FILTER NOT EXISTS {
-#    $this rdf:type ?class .
-#    ?class rdfs:subClassOf ro:PlanologischGebied  .
-#  }
-#}""" ;
-#    ] ;
-##  sh:property ro_str:Planobject_plangebied
-#.
-
-#nen3610_str:Planobject a sh:NodeShape ; #common
-#  sh:targetClass nen3610:Planobject ;
-#  sh:property [
-#    sh:path nen3610:identificatie ;
-#    sh:datatype xsd:string ; already declared
-#    sh:maxLength 32 ;
-#    ] ;
-#  sh:sparql [
-#      sh:message "{$this} is an instance of an abstract class." ;
-#      sh:prefixes ro_str:prefixes ;
-#      sh:select """
-#SELECT DISTINCT $this
-#WHERE {
-#  $this rdf:type ro:Planobject  .
-#  FILTER NOT EXISTS {
-#    $this rdf:type ?class .
-#    ?class rdfs:subClassOf ro:Planobject  .
-#  }
-#}""" ;
-#    ]
-##  sh:property ro_str:Planobject_plangebied
-#.
-
-
-#ro_str:Planobject_plangebied a sh:PropertyShape ;
-#  sh:path ro:plangebied ;
-#  sh:class ro:Plangebied ;
-#  sh:nodeKind sh:IRI ;
-#  sh:minCount 1 ;
-#  sh:maxCount 1
-#.
-## not all 'besluitvakken' have a planobject, some have a 'besluitgebied'
-
-#ro_str:Plangebied rdf:type sh:NodeShape ;
-#  sh:targetClass nen3610:Plangebied ;
-#  sh:property
-#    ro_str:Plangebied_locatieNaam ,
-#    ro_str:Plangebied_planstatus ,
-#    ro_str:Plangebied_ondergrond ;
-#  sh:property [
-#    sh:path nen3610:identificatie ;
-##    sh:datatype xsd:string ; already declared, as well as multiplicity
-#    sh:maxLength 23 ;
-#    ] ;
-#  sh:sparql [
-#    sh:message "{$this} is an instance of an abstract class." ;
-#    sh:prefixes ro_str:prefixes ;
-#    sh:select """
-#SELECT DISTINCT $this
-#WHERE {
-#  $this rdf:type ro:Plangebied  .
-#  FILTER NOT EXISTS {
-#    $this rdf:type ?class .
-#    ?class rdfs:subClassOf ro:Plangebied  .
-#  }
-#}""" ;
-#    ] ;
-#.

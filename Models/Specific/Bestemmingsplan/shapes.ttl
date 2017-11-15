@@ -1,62 +1,45 @@
+# common prefixes
+@prefix : <http://data.informatiehuisruimte.nl/def/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix doco: <http://purl.org/spar/doco/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix gml: <http://www.opengis.net/ont/gml#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix ogc: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix ogc: <http://www.opengis.net/ont/geosparql#> .
-@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
-@prefix gml: <http://www.opengis.net/ont/gml#> .
-@prefix nen3610_str: <http://data.informatiehuisruimte.nl/def/nen3610/> .
+@prefix dcmit: <http://purl.org/dc/dcmitype/> .
+
+# prefixes specific to Informatiehuis Ruimte
+@prefix imro: <http://data.imro.com/def/> .
 @prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
-@prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
+@prefix nen3610_str: <http://data.informatiehuisruimte.nl/def/nen3610/> .
+@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
 @prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
-@prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
-@prefix dct: <http://udfr.org/docs/onto/> .
+@prefix ro_begkr: <http://data.informatiehuisruimte.nl/id/begrippenkader/> .
+@prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
+@prefix ro_nen3610_beg: <http://data.informatiehuisruimte.nl/nen3610/id/begrip/> .
+@prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
+@prefix ro_sym: <http://data.informatiehuisruimte.nl/ro/id/symbool/> .
+
 @prefix ropt: <http://data.informatiehuisruimte.nl/def/ropt#> .
 @prefix ropt_str: <http://data.informatiehuisruimte.nl/def/ropt/> .
+@prefix ropt_beg: <http://data.informatiehuisruimte.nl/ropt/id/begrip/> .
 
-#Dummy section, Should be moved to/recreated in common in due time.
+# legacy: (legacy prefix, in case someone still uses it)
+@prefix begrip: <http://data.informatiehuisruimte.nl/ro/id/begrip#> .
 
-ro_str:Plan a sh:NodeShape ;
-  sh:property
-    ro_str:Plan_spatial ,
-    ro_str:Plan_hasPart
-.
 
-ro_str:Plan_spatial a sh:PropertyShape ;
-  sh:path dct:spatial ;
-  sh:class ro:Plangebied ;
-  sh:minCount 1 ;
-  sh:maxCount 1 ;
-.
-
-ro_str:Plan_hasPart a sh:PropertyShape ;
-  sh:path dct:hasPart ;
-  sh:class ro:Planobject ;
-.
-
-ro_str:Planobject a sh:NodeShape ;
-  sh:property ro_str:Planobject_isPartOf ;
-.
-
-ro_str:Planobject_isPartOf a sh:PropertyShape ;
-  sh:path dct:isPartOf ;
-  sh:class ro:Plan ;
-.
-
-ro_str:Plangebied a sh:NodeShape ;
-  sh:property ro_str:Plangebied_geometry
-.
-
-ro_str:Plangebied_geometrie a sh:PropertyShape ;
-  sh:path ro:geometry ;
-  sh:minCount 1 ;
-  sh:maxCount 1 ;
-.
 #################################################################
-#    Bestemmingsplangebied -> now Bestemmingsplan
+#    Bestemmingsplan
 #################################################################
 
 ro_str:Bestemmingsplan a sh:NodeShape ;
@@ -117,7 +100,7 @@ ro_str:Bestemmingsplan_tekstverwijzing a sh:PropertyShape ;
 ro_str:Bestemmingsplan_externPlan a sh:PropertyShape ;
   sh:path ro:externPlan ;
   sh:maxCount 1 ;
-  sh:node ro_str:ExternPlanReferentie_BP ;
+  sh:node ro_str:ExternPlanReferentie_BP
 .
 
 
@@ -185,7 +168,7 @@ ro_str:Bestemmingsplan_spatial_geometrie a sh:PropertyShape ;
   sh:path ro:geometrie ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
-  sh:node ro_str:VlakMultiVlak ;
+  sh:node ro_str:VlakMultiVlak
 .
 
 #################################################################
@@ -256,12 +239,12 @@ ro_str:Bestemmingsvlak_isPartOf a sh:PropertyShape ;
   sh:path dct:isPartOf ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
-  sh:class ro:Bestemmingsplan ;
+  sh:class ro:Bestemmingsplan
 .
 
 ro_str:Bestemmingsvlak_hasPart a sh:PropertyShape ;
   sh:path dct:hasPart ;
-  sh:class ro:Aanduiding ;
+  sh:class ro:Aanduiding
 .
 #################################################################
 #    Label
@@ -381,7 +364,7 @@ ro_str:Bouwvlak a sh:NodeShape ;
   sh:targetClass ro:Bouwvlak ;
   sh:property
     ro_str:Bouwvlak_geometrie ,
-    ro_str:Bouwvlak_aanduiding ;
+    ro_str:Bouwvlak_aanduiding
 .
 
 ro_str:Bouwvlak_geometrie a sh:PropertyShape ;
@@ -389,14 +372,14 @@ ro_str:Bouwvlak_geometrie a sh:PropertyShape ;
   sh:nodeKind sh:IRI ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
-  sh:node ro_str:VlakMultiVlak ;
+  sh:node ro_str:VlakMultiVlak
 .
 
 ro_str:Bouwvlak_aanduiding a sh:PropertyShape ;
   sh:path ro:aanduiding ;
   sh:class ro:Aanduiding ;
   sh:nodeKind sh:IRI ;
-  sh:maxCount 1 ;
+  sh:maxCount 1
 .
 
 
@@ -410,21 +393,21 @@ ro_str:Functieaanduiding a sh:NodeShape ;
     ro_str:Functieaanduiding_label ,
     ro_str:Functieaanduiding_tekstverwijzing ,
     ro_str:Functieaanduiding_geometrie ,
-    ro_str:Functieaanduiding_aanduiding ;
+    ro_str:Functieaanduiding_aanduiding
 .
 
 ro_str:Functieaanduiding_label a sh:PropertyShape ;
   sh:path ro:label ;
   sh:class ro:Label ;
   sh:nodeKind sh:IRI ;
-  sh:maxCount 1 ;
+  sh:maxCount 1
 .
 
 ro_str:Functieaanduiding_tekstverwijzing a sh:PropertyShape ;
   sh:path ro:tekst ;
   sh:nodeKind sh:IRI ;
   sh:maxCount 1 ;
-  sh:node ro_str:Teksttype_BP ;
+  sh:node ro_str:Teksttype_BP
 .
 
 ro_str:Functieaanduiding_geometrie a sh:PropertyShape ;
@@ -432,7 +415,7 @@ ro_str:Functieaanduiding_geometrie a sh:PropertyShape ;
   sh:nodeKind sh:IRI ;
   sh:minCount 1 ;
   sh:maxcount 1 ;
-  sh:node ro_str:Surface ;
+  sh:node ro_str:Surface
 .
 
 ro_str:Functieaanduiding_aanduiding a sh:PropertyShape ;
@@ -453,7 +436,7 @@ ro_str:Bouwaanduiding a sh:NodeShape ;
     ro_str:Bouwaanduiding_label ,
     ro_str:Bouwaanduiding_tekstverwijzing ,
     ro_str:Bouwaanduiding_geometrie ,
-    ro_str:Bouwaanduiding_aanduiding ;
+    ro_str:Bouwaanduiding_aanduiding
 .
 
 #same as the label for functieaanduiding.
@@ -461,7 +444,7 @@ ro_str:Bouwaanduiding_label a sh:PropertyShape ;
   sh:path ro:label ;
   sh:class ro:Label ;
   sh:nodeKind sh:IRI ;
-  sh:maxCount 1 ;
+  sh:maxCount 1
 .
 
 #same for Functieaanduiding
@@ -469,7 +452,7 @@ ro_str:Bouwaanduiding_tekstverwijzing a sh:PropertyShape ;
   sh:path ro:tekst ;
   sh:nodeKind sh:IRI ;
   sh:maxCount 1 ;
-  sh:node ro_str:Teksttype_BP ;
+  sh:node ro_str:Teksttype_BP
 .
 
 #same for Functieaanduiding
@@ -478,7 +461,7 @@ ro_str:Bouwaanduiding_geometrie a sh:PropertyShape ;
   sh:nodeKind sh:IRI ;
   sh:minCount 1 ;
   sh:maxcount 1 ;
-  sh:node ro_str:Surface ;
+  sh:node ro_str:Surface
 .
 
 #same for Functieaanduiding
@@ -486,7 +469,7 @@ ro_str:Bouwaanduiding_aanduiding a sh:PropertyShape ;
   sh:path ro:aanduiding ;
   sh:class ro:Aanduiding ;
   sh:nodeKind sh:IRI ;
-  sh:maxCount 1 ;
+  sh:maxCount 1
 .
 
 
@@ -501,13 +484,13 @@ ro_str:Maatvoering a sh:NodeShape ;
     ro_str:Maatvoering_maatvoeringwaarde ,
     ro_str:Maatvoering_tekstverwijzing ,
     ro_str:Maatvoering_geometrie ,
-    ro_str:Maatvoering_aanduiding ;
+    ro_str:Maatvoering_aanduiding
 .
 
 ro_str:Maatvoering_symbool a sh:PropertyShape ;
   sh:path ro:symbool ;
   sh:class ro:Symbool ;
-  sh:nodeKind sh:IRI ;
+  sh:nodeKind sh:IRI
 .
 
 #TODO what to do when class is not ro:Omvang
@@ -522,14 +505,14 @@ ro_str:Maatvoering_maatvoeringwaarde a sh:PropertyShape ;
     sh:nodeKind sh:Literal ;
     sh:datatype xsd:string ; #altough the literal contains numbers, a string would suit better I think due to the needed pattern in TODO.
 #    sh:pattern "" # should adhere to some pattern, TODO
-  ] ;
+  ]
 .
 
 ro_str:Maatvoering_tekstverwijzing a sh:PropertyShape ;
   sh:path ro:tekst ;
   sh:nodeKind sh:IRI ;
   sh:maxCount 1 ;
-  sh:node ro_str:Teksttype_BP ;
+  sh:node ro_str:Teksttype_BP
 .
 
 ro_str:Maatvoering_geometrie a sh:PropertyShape ;
@@ -537,7 +520,7 @@ ro_str:Maatvoering_geometrie a sh:PropertyShape ;
   sh:nodeKind sh:IRI ;
   sh:minCount 1 ;
   sh:maxcount 1 ;
-  sh:node ro_str:Surface ;
+  sh:node ro_str:Surface
 .
 
 ro_str:Maatvoering_aanduiding a sh:PropertyShape ;
@@ -556,7 +539,7 @@ ro_str:Symbool a sh:NodeShape ;
   sh:targetClass ro:Symbool ;
   sh:property
     ro_str:Symbool_code ,
-    ro_str:Symbool_positie ;
+    ro_str:Symbool_positie
 .
 
 ro_str:Symbool_code a sh:PropertyShape;
@@ -564,7 +547,7 @@ ro_str:Symbool_code a sh:PropertyShape;
   sh:mincount 1 ;
   sh:maxCount 1 ;
   sh:nodeKind sh:Literal ;
-  sh:datatype xsd:String ;
+  sh:datatype xsd:String
 .
 
 ro_str:Symbool_positie a sh:PropertyShape ;
@@ -591,7 +574,7 @@ ro_str:Figuur a sh:NodeShape ;
 
 ro_str:Figuur_naam a sh:PropertyShape ;
   sh:path ro:naam ;
-  sh:node ro_str:Figuren ;
+  sh:node ro_str:Figuren
 .
 
 ro_str:Figuur_illustratie a sh:PropertyShape ;
@@ -614,21 +597,21 @@ ro_str:Figuur_illustratie a sh:PropertyShape ;
      sh:path ro:illustratie ;
      sh:maxCount 0 ;
    ]
-  ) ;
+  )
 .
 
 ro_str:Figuur_label a sh:PropertyShape ;
   sh:path ro:label ;
   sh:class ro:Label ;
   sh:nodeKind sh:IRI ;
-  sh:maxCount 1 ;
+  sh:maxCount 1
 .
 
 #TODO: include ro:tekst a owl:AnnotationProperty to the common section.
 ro_str:Figuur_tekstverwijzing a sh:PropertyShape ;
   sh:path ro:tekst ;
   sh:maxCount 1 ;
-  sh:node ro_str:Teksttype_BP ;
+  sh:node ro_str:Teksttype_BP
 .
 
 ro_str:Figuur_geometrie a sh:PropertyShape ;
@@ -636,7 +619,7 @@ ro_str:Figuur_geometrie a sh:PropertyShape ;
   sh:nodeKind sh:IRI ;
   sh:minCount 1 ;
   sh:maxcount 1 ;
-  sh:node ro_str:LijnMultiLijn ;
+  sh:node ro_str:LijnMultiLijn
 .
 
 ro_str:Figuur_aanduiding a sh:PropertyShape ;
@@ -685,7 +668,7 @@ ro_str:Gebiedsaanduiding a sh:NodeShape ;
 #TODO again, what to do with codelists.
 ro_str:Gebiedsaanduiding_naam a sh:Propertyshape ;
   sh:path ro:naam ;
-#  sh:node ro_str:Gebiedsaanduidingen ;
+#  sh:node ro_str:Gebiedsaanduidingen
 .
 
 ro_str:Gebiedsaanduiding_artikelnummer a sh:PropertyShape ;
@@ -693,14 +676,14 @@ ro_str:Gebiedsaanduiding_artikelnummer a sh:PropertyShape ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
   sh:nodeKind sh:Literal ;
-  sh:datatype xsd:string ;
+  sh:datatype xsd:string
 .
 
 ro_str:Gebiedsaanduiding_tekstverwijzing a sh:PropertyShape ;
   sh:path ro:tekst ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
-  sh:node ro_str:Teksttype_BP ;
+  sh:node ro_str:Teksttype_BP
 .
 
 ro_str:Gebiedsaanduiding_label a sh:PropertyShape ;
@@ -722,7 +705,7 @@ ro_str:Gebiedsaanduiding_geometrie a sh:PropertyShape ;
   sh:nodeKind sh:IRI ;
   sh:minCount 1 ;
   sh:maxcount 1 ;
-  sh:node ro_str:VlakMultiVlak ;
+  sh:node ro_str:VlakMultiVlak
 .
 
 ro_str:Gebiedsaanduiding_aanduiding a sh:PropertyShape ;

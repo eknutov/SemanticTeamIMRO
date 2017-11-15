@@ -1,17 +1,42 @@
+# common prefixes
+@prefix : <http://data.informatiehuisruimte.nl/def/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix doco: <http://purl.org/spar/doco/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix gml: <http://www.opengis.net/ont/gml#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix ogc: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix ogc: <http://www.opengis.net/ont/geosparql#> .
-@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
-@prefix gml: <http://www.opengis.net/ont/gml#> .
-@prefix nen3610_str: <http://data.informatiehuisruimte.nl/def/nen3610/> .
+@prefix dcmit: <http://purl.org/dc/dcmitype/> .
+
+# prefixes specific to Informatiehuis Ruimte
+@prefix imro: <http://data.imro.com/def/> .
 @prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
+@prefix nen3610_str: <http://data.informatiehuisruimte.nl/def/nen3610/> .
+@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
 @prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
-@prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
+@prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
+@prefix ro_begkr: <http://data.informatiehuisruimte.nl/id/begrippenkader/> .
 @prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ro_nen3610_beg: <http://data.informatiehuisruimte.nl/nen3610/id/begrip/> .
+@prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
+@prefix ro_sym: <http://data.informatiehuisruimte.nl/ro/id/symbool/> .
+
+@prefix ropt: <http://data.informatiehuisruimte.nl/def/ropt#> .
+@prefix ropt_str: <http://data.informatiehuisruimte.nl/def/ropt/> .
+@prefix ropt_beg: <http://data.informatiehuisruimte.nl/ropt/id/begrip/> .
+
+# legacy: (legacy prefix, in case someone still uses it)
+@prefix begrip: <http://data.informatiehuisruimte.nl/ro/id/begrip#> .
+
 
 ##################################################################
 #    Illustratie
@@ -48,7 +73,7 @@ ro_str:Teksttype_SV a sh:NodeShape ;
       ro:Beleid
       ro:Toelichting
     )
-  ] ;
+  ]
 .
 
 ro_str:TeksttypePG_SV a sh:NodeShape ;
@@ -59,7 +84,7 @@ ro_str:TeksttypePG_SV a sh:NodeShape ;
       ro:Bijlage
       ro:Toelichting
     )
-  ] ;
+  ]
 .
 
 ro_str:Teksttype_BP a sh:NodeShape ;
@@ -68,7 +93,7 @@ ro_str:Teksttype_BP a sh:NodeShape ;
     sh:in (
       ro:Regels
     )
-  ] ;
+  ]
 .
 
 ro_str:Teksttype_PSV a sh:NodeShape ;
@@ -78,7 +103,7 @@ ro_str:Teksttype_PSV a sh:NodeShape ;
       ro:Beleid
       ro:BeleidGemandateerdAanGS
       ro:Toelichting
-    ) ] ;
+    ) ]
 .
 
 #################################################################
@@ -98,17 +123,17 @@ ro_str:Teksttype_PSV a sh:NodeShape ;
 ro_str:Illustratie_legendaNaam a sh:NodeShape ; #can I treat a nodeshape as a propertyshape?
   sh:path ro:legendaNaam ;
   sh:datatype xsd:string ;
-  sh:maxCount 1 ;
+  sh:maxCount 1
 .
 
 ro_str:Illustratie_IllustratieNaam a sh:NodeShape ; #can I treat a nodeshape as a propertyshape?
   sh:path ro:illustratieNaam ;
   sh:datatype xsd:string ;
-  sh:maxCount 1 ;
+  sh:maxCount 1
 .
 
 #################################################################
-#    Cartografie
+#    Cartografie TODO @Pano
 #################################################################
 
 ro_str:cartografieInfo a sh:NodeShape ;     #[0...*] cardinality of properties

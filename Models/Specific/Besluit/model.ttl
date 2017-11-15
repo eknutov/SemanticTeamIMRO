@@ -1,5 +1,6 @@
 # common prefixes
-@prefix dc: <http://purl.org/dc/terms/> .
+@prefix : <http://data.informatiehuisruimte.nl/def/> .
+@prefix dct: <http://purl.org/dc/terms/> .
 @prefix doco: <http://purl.org/spar/doco/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix gml: <http://www.opengis.net/ont/gml#> .
@@ -14,6 +15,7 @@
 @prefix voaf: <http://purl.org/vocommons/voaf#> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcmit: <http://purl.org/dc/dcmitype/> .
 
 # prefixes specific to Informatiehuis Ruimte
 @prefix imro: <http://data.imro.com/def/> .
@@ -28,20 +30,28 @@
 @prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
 @prefix ro_sym: <http://data.informatiehuisruimte.nl/ro/id/symbool/> .
 
+@prefix ropt: <http://data.informatiehuisruimte.nl/def/ropt#> .
+@prefix ropt_str: <http://data.informatiehuisruimte.nl/def/ropt/> .
+@prefix ropt_beg: <http://data.informatiehuisruimte.nl/ropt/id/begrip/> .
+
+# legacy: (legacy prefix, in case someone still uses it)
+@prefix begrip: <http://data.informatiehuisruimte.nl/ro/id/begrip#> .
+
+
 ### Classes
 
 ro:Besluit a owl:Class ;
   rdfs:subClassOf ro:Plan ;
   rdfs:isDefinedBy ro: ;
-  dc:subject ro_beg:Besluit ;
+  dct:subject ro_beg:Besluit ;
   rdfs:label "Besluit"@nl ;
-  rdfs:comment "Een provinciale verordening, algemene maatregel van bestuur of overig gebiedsgericht besluit. In het IMRO zijn deze drie soorten beleidsinstrumenten sterk gelijkend."@nl ;
+  rdfs:comment "Een provinciale verordening, algemene maatregel van bestuur of overig gebiedsgericht besluit. In het IMRO zijn deze drie soorten beleidsinstrumenten sterk gelijkend."@nl
 .
 
 #  ro:ProvincialeVerordening a owl:Class ;
 #    rdfs:subClassOf ro:Besluit ;
 #    rdfs:isDefinedBy ro: ;
-#    dc:subject ro_beg:ProvincialeVerordening ;
+#    dct:subject ro_beg:ProvincialeVerordening ;
 #    rdfs:label "Provinciale verordening"@nl ;
 #    rdfs:comment "Een provinciale verordening regelt een aantal zaken die de gemeenten moeten vertalen in bestemmingsplannen. Het gaat om regels voor de inhoud van bestemmingsplannen, maar ook om eventueel daaraan voorafgaande projectbesluiten en beheersverordeningen."@nl ;
 #  .
@@ -49,15 +59,15 @@ ro:Besluit a owl:Class ;
 #  ro:AMVB a owl:Class, rdfs:Class;
 #    rdfs:subClassOf ro:Besluit;
 #    rdfs:isDefinedBy ro:;
-#    dc:subject ro_beg:AMVB;
+#    dct:subject ro_beg:AMVB;
 #    rdfs:label "Algemene Maatregel van Bestuur (AMvB)"@nl;
 #    rdfs:comment "Een Algemene Maatregel van Bestuur (AMvB) is een instrument waarmee de Minister regels kan geven omtrent de inhoud van bestemmingsplannen en provinciale inpassingsplannen, daaraan voorafgaande projectbesluiten en beheersverordeningen. Het is daarbij niet altijd noodzakelijk dat er ook een specifiek gebied van het Nederlands grondgebied gedefinieerd wordt. Met betrekking tot dat laatste vallen AMvB’s in twee groepen uiteen: een groep waarin regels gekoppeld zijn aan #geografisch geduide gebieden en een groep waarin regels gesteld worden voor het hele land of minder direct aangegeven gebieden."@nl;
 #  .
 
-#  ro:OverigGebiedsgerichtBesluit a owl:Class, rdfs:Class;
+#  ro:OverigGebiedsgerichtBesluit a owl:Class ;
 #    rdfs:subClassOf ro:Besluit;
 #    rdfs:isDefinedBy ro:;
-#    dc:subject ro_beg:OverigGebiedsgerichtBesluit;
+#    dct:subject ro_beg:OverigGebiedsgerichtBesluit;
 #    rdfs:label "Overig gebiedsgericht besluit"@nl;
 #    rdfs:comment "Overige gebiedsgerichte besluiten zijn beleidsinstrumenten waarmee nog niet voldoende ervaring is opgedaan om er aparte modellen voor te maken. Onder deze groep vallen de besluittypen Aanwijzingsbesluit (proactieve aanwijzing), Beheersverordening, Exploitatieplan, Gerechtelijke uitspraak, Omgevingsvergunning (voormalig Wro projectbesluit), Omgevingsvergunning (voormalig Chw projectuitvoeringsbesluit), Reactieve aanwijzing en Voorbereidingsbesluit."@nl;
 #  .
@@ -70,13 +80,13 @@ ro:Besluit a owl:Class ;
 ro:Besluitvlak a owl:Class ;
   rdfs:subClassOf ro:Planobject ;
   rdfs:isDefinedBy ro: ;
-#  dc:subject ro_beg:Besluitvlak_A ;
+#  dct:subject ro_beg:Besluitvlak_A ;
   rdfs:label "Besluitvlak"@nl ;
-  rdfs:comment "Gebied, of gebieden, waarover het besluit uitspraken doet."@nl ;
+  rdfs:comment "Gebied, of gebieden, waarover het besluit uitspraken doet."@nl
 .
 
 ro:normadressant a owl:ObjectProperty ;
   rdfs:label "normadressant"@nl ;
-  rdfS:isDefinedBy :ro ;
+  rdfs:isDefinedBy :ro ;
   rdfs:comment "De instantie, overheid of maatschappelijke partij waar het instrument zich tot richt."@nl
 .

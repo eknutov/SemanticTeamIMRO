@@ -1,5 +1,6 @@
 # common prefixes
-@prefix dc: <http://purl.org/dc/terms/> .
+@prefix : <http://data.informatiehuisruimte.nl/def/> .
+@prefix dct: <http://purl.org/dc/terms/> .
 @prefix doco: <http://purl.org/spar/doco/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix gml: <http://www.opengis.net/ont/gml#> .
@@ -14,6 +15,7 @@
 @prefix voaf: <http://purl.org/vocommons/voaf#> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcmit: <http://purl.org/dc/dcmitype/> .
 
 # prefixes specific to Informatiehuis Ruimte
 @prefix imro: <http://data.imro.com/def/> .
@@ -31,6 +33,9 @@
 @prefix ropt: <http://data.informatiehuisruimte.nl/def/ropt#> .
 @prefix ropt_str: <http://data.informatiehuisruimte.nl/def/ropt/> .
 @prefix ropt_beg: <http://data.informatiehuisruimte.nl/ropt/id/begrip/> .
+
+# legacy: (legacy prefix, in case someone still uses it)
+@prefix begrip: <http://data.informatiehuisruimte.nl/ro/id/begrip#> .
 
 
 
@@ -63,7 +68,7 @@ ro_str:Besluitgebied_X_hasPart a sh:PropertyShape ;
   sh:path dc:hasPart ;
   sh:class ro:Besluitvlak ;
   sh:minCount 1 ;
-  sh:node ro_str:Besluitvlak_X ;
+  sh:node ro_str:Besluitvlak_X
 .
 
 

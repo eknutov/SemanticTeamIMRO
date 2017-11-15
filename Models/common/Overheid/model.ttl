@@ -1,24 +1,41 @@
+# common prefixes
 @prefix : <http://data.informatiehuisruimte.nl/def/> .
-@prefix c4o: <http://purl.org/spar/biro/> .
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dct: <http://purl.org/dc/terms/> .
 @prefix doco: <http://purl.org/spar/doco/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix gml: <http://www.opengis.net/ont/gml#> .
-@prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
 @prefix ogc: <http://www.opengis.net/ont/geosparql#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix pattern: <http://www.essepuntato.it/2008/12/pattern#> .
-@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
-@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcmit: <http://purl.org/dc/dcmitype/> .
+
+# prefixes specific to Informatiehuis Ruimte
+@prefix imro: <http://data.imro.com/def/> .
+@prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
+@prefix nen3610_str: <http://data.informatiehuisruimte.nl/def/nen3610/> .
+@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
 @prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
 @prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
+@prefix ro_begkr: <http://data.informatiehuisruimte.nl/id/begrippenkader/> .
+@prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
 @prefix ro_nen3610_beg: <http://data.informatiehuisruimte.nl/nen3610/id/begrip/> .
+@prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
 @prefix ro_sym: <http://data.informatiehuisruimte.nl/ro/id/symbool/> .
-@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix ropt: <http://data.informatiehuisruimte.nl/def/ropt#> .
+@prefix ropt_str: <http://data.informatiehuisruimte.nl/def/ropt/> .
+@prefix ropt_beg: <http://data.informatiehuisruimte.nl/ropt/id/begrip/> .
+
+# legacy: (legacy prefix, in case someone still uses it)
+@prefix begrip: <http://data.informatiehuisruimte.nl/ro/id/begrip#> .
 
 #################################################################
 #    Overheid
@@ -26,44 +43,44 @@
 
 
 ro:Overheid a owl:Class ;
-  rdfs:label "Overheden"@nl ;
+  rdfs:label "Overheden"@nl
 .
 
 ro:NationaleOverheid a owl:Class ;
   rdfs:label "nationale overheid"@nl ;
-  rdfs:subClassOf ro:Overheid ;
+  rdfs:subClassOf ro:Overheid
 .
 
 ro:ProvincialeOverheid a owl:Class ;
   rdfs:label "provinciale overheid"@nl ;
-  rdfs:subClassOf ro:Overheid ;
+  rdfs:subClassOf ro:Overheid
 .
 
 ro:GemeentelijkeOverheid a owl:Class ;
   rdfs:label "gemeentelijke overheid"@nl ;
-  rdfs:subClassOf ro:Overheid ;
+  rdfs:subClassOf ro:Overheid
 .
 
 ro:Deelgemeente_Stadsdeel a owl:Class ;
   rdfs:label "Deelgemeente/Stadsdeel"@nl ;
-  rdfs:subClassOf ro:Overheid ;
+  rdfs:subClassOf ro:Overheid
 .
 
 ro:beleidsmatigVerantwoordelijkeOverheid a owl:ObjectProperty ;
   rdfs:domain nen3610:Plangebied ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "beleidsmatigerantwoordelijke overheid"@nl ;
-  rdfs:range ro:Overheid ;
+  rdfs:range ro:Overheid
 .
 
 ro:naamOverheid a owl:AnnotationProperty ;
   rdfs:domain ro:Overheid ;
   rdfs:isDefinedBy :ro ;
-  rdfs:label "naam overheid"@nl ;
+  rdfs:label "naam overheid"@nl
 .
 
 ro:overheidsCode a owl:AnnotationProperty ;
   rdfs:domain ro:Overheid ;
   rdfs:isDefinedBy :ro ;
-  rdfs:label "overheids code"@nl ;
+  rdfs:label "overheids code"@nl
 .
