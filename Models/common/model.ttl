@@ -1,24 +1,33 @@
-@prefix : <http://data.informatiehuisruimte.nl/def/> .
-@prefix c4o: <http://purl.org/spar/biro/> .
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
+# common prefixes
+@prefix dc: <http://purl.org/dc/terms/> .
 @prefix doco: <http://purl.org/spar/doco/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix gml: <http://www.opengis.net/ont/gml#> .
-@prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
 @prefix ogc: <http://www.opengis.net/ont/geosparql#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix pattern: <http://www.essepuntato.it/2008/12/pattern#> .
-@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
-@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# prefixes specific to Informatiehuis Ruimte
+@prefix imro: <http://data.imro.com/def/> .
+@prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
+@prefix nen3610_str: <http://data.informatiehuisruimte.nl/def/nen3610/> .
+@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
 @prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
 @prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
+@prefix ro_begkr: <http://data.informatiehuisruimte.nl/id/begrippenkader/> .
+@prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
 @prefix ro_nen3610_beg: <http://data.informatiehuisruimte.nl/nen3610/id/begrip/> .
+@prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
 @prefix ro_sym: <http://data.informatiehuisruimte.nl/ro/id/symbool/> .
-@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://data.informatiehuisruimte.nl/def/> .
 
 :ro
   a owl:Ontology ;
@@ -36,7 +45,7 @@
 ro:Plan a owl:Class ;
   rdfs:label "Plan"@nl ;
   rdfs:isDefinedBy :ro ;
-  rdfs:comment "Een plan welke regels beschrijft die geldig zijn voor een bepaald gebied."@nl ;
+  rdfs:comment "Een plan dat regels beschrijft die geldig zijn voor een bepaald gebied."@nl ;
   dcterms:subject ro_beg:Plan
 .
 
@@ -51,7 +60,7 @@ ro:Plangebied a owl:Class ;
 ro:Planobject a owl:Class ;
   rdfs:label "Planobject"@nl ;
   rdfs:isDefinedBy :ro ;
-  rdfs:comment "Ruimtelijk object welke zich bevindt in een bijbehorend plangebied."@nl ;
+  rdfs:comment "Ruimtelijk object dat zich bevindt in een bijbehorend plangebied."@nl ;
   dcterms:subject ro_beg:Planobject ;
   rdfs:subClassOf nen3610:PlanologischGebied
 .
@@ -162,8 +171,7 @@ ro:rol a owl:DatatypeProperty ;
   rdfs:isDefinedBy :ro
 .
 
-ro:instrument
-  a owl:ObjectProperty ;
+ro:instrument a owl:ObjectProperty ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "instrument"@nl ;
   rdfs:range ro_beg:Instrument ;

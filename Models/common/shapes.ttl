@@ -11,9 +11,8 @@
 @prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
 @prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
 @prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix locn: <http://www.w3.org/ns/locn#> .
-@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dct: <http://purl.org/dc/terms/> .      # ekn: need to replace dct: to dcterms as we also have dct: referring to
 @prefix void: <http://rdfs.org/ns/void#> .
 
 
@@ -45,7 +44,7 @@ ro_str:Plan_hasPart a sh:PropertyShape ;
   sh:class ro:Planobject ;
 .
 
-ro_str:Plan_label rdf:type sh:PropertyShape ; #TODO: ScopedName
+ro_str:Plan_label a sh:PropertyShape ; #TODO: ScopedName
   sh:path rdfs:label ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
@@ -53,7 +52,7 @@ ro_str:Plan_label rdf:type sh:PropertyShape ; #TODO: ScopedName
 .
 
 ro_str:Plan_geographicName a sh:PropertyShape ;
-  sh:path locn:geographicName ;
+  sh:path locn:geographicName ;                     # ekn: only place we use `locn: at, needs usage revision
   sh:nodeKind sh:Literal ;
   sh:datatype xsd:string ;
 .
@@ -73,7 +72,7 @@ ro_str:Plan_dataset a sh:propertyShape ;
   sh:qualifiedMaxCount 1 ;
 .
 
-ro_str:Plan_planstatus rdf:type sh:PropertyShape ;
+ro_str:Plan_planstatus a sh:PropertyShape ;
   sh:path ro:planstatus ;
   sh:class ro:Planstatus ;
   sh:minCount 1 ;
@@ -139,15 +138,13 @@ ro_str:Plangebied_Ondergrond a sh:NodeShape ;
     ro:ondergrond_datum ;
 .
 
-ro_str:Ondergrond_ondergrondtype
-  rdf:type sh:PropertyShape ;
+ro_str:Ondergrond_ondergrondtype a sh:PropertyShape ;
   sh:path ro:ondergrondtype ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
 .
 
-ro_str:ondergrond_datum
-  rdf:type sh:PropertyShape ;
+ro_str:ondergrond_datum a sh:PropertyShape ;
   sh:path ro:ondergronddatum ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
