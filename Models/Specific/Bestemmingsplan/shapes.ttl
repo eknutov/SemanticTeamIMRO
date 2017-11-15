@@ -11,9 +11,9 @@
 @prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
 @prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
 @prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
-@prefix dct: <http://udfr.org/docs/onto/> .
+@prefix dct: <http://purl.org/dc/terms/> .   # ekn: the same as dcterms, to be replaced everywhere http://udfr.org/docs/onto/ was used here before
+
 
 #Dummy section, Should be moved to/recreated in common in due time.
 
