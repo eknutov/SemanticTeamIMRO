@@ -11,8 +11,10 @@
 @prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
 @prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
 @prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
-@prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
+@prefix ro_col: <http://data.informatiehuisruimte.nl/ro/id/collectie/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ropt: <http://data.informatiehuisruimte.nl/def/ropt#> .
+@prefix ropt_str: <http://data.informatiehuisruimte.nl/def/ropt/> .
 
 
 #################################################################
@@ -37,28 +39,34 @@ ro_str:Structuurvisie_illustratieverwijzing a sh:PropertyShape ;
 .
 
 #TODO: use IMROPT if norm == ro_beg:IMROPT
-ro_str:Structuurvisie_tekstverwijzing
-  a sh:PropertyShape ;
+ro_str:Structuurvisie_tekstverwijzing a sh:PropertyShape ;
     sh:path ro:tekst ;
     sh:minCount 1 ;
     sh:maxCount 3 ;
-    sh:node ro_str:TeksttypePG_SV ;
-    sh:and (
+    sh:or (
       [
-        sh:qualifiedValueShape [
-          sh:path rdf:type  ;
-          sh:hasValue ro:Document ;
-        ] ;
-        sh:qualifiedMinCount 1 ;
-        sh:qualifiedMaxCount 1 ;
-      ] [
-        sh:qualifiedValueShape [
-          sh:path  rdf:type  ;
-          sh:hasValue ro:Bijlage ;
-        ] ;
-        sh:qualifiedMaxCount 1 ;
+        sh:node ro_str:TeksttypePG_SV ;
+        sh:and (
+          [
+            sh:qualifiedValueShape [
+              sh:path rdf:type  ;
+              sh:hasValue ro:Document ;
+            ] ;
+            sh:qualifiedMinCount 1 ;
+            sh:qualifiedMaxCount 1 ;
+          ] [
+            sh:qualifiedValueShape [
+              sh:path  rdf:type  ;
+              sh:hasValue ro:Bijlage ;
+            ] ;
+            sh:qualifiedMaxCount 1 ;
+          ]
+        ) ;
       ]
-    ) ;
+      [
+      sh:class ropt:Tekstobject
+      ]
+    )
 .
 
 #maybe remove the blank node
