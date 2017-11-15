@@ -10,7 +10,7 @@
 @prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
 @prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
 @prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
-@prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
+@prefix ro_col: <http://data.informatiehuisruimte.nl/ro/id/collectie/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 
 ro_str:Overheid a sh:NodeShape ;

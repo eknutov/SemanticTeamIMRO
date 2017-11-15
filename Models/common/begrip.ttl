@@ -6,8 +6,9 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
-@prefix ro_begkr: <http://data.informatiehuisruimte.nl/id/begrippenkader/> .
-@prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
+
+@prefix ro_begkr: <http://data.informatiehuisruimte.nl/ro/id/begrippenkader/> .
+@prefix ro_col: <http://data.informatiehuisruimte.nl/ro/id/collectie/> .
 @prefix ro_nen3610_beg: <http://data.informatiehuisruimte.nl/nen3610/id/begrip/> .
 
 @prefix dct: <http://purl.org/dc/terms/> .
@@ -22,7 +23,7 @@
 @prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix skos-thes: <http://www.w3.org/2004/02/skos/extensions#> . #TODO: replace with working URI
+@prefix skos-thes: <http://purl.org/iso25964/skos-thes#> . #TODO: replace with working URI
 @prefix voaf: <http://purl.org/vocommons/voaf#> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
