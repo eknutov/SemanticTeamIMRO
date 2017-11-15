@@ -39,7 +39,7 @@ ro_str:Besluitgebied_A a sh:NodeShape ;
   sh:targetClass ro:AMVB, ro:Regeling ;
   sh:property
     ro_str:Besluitgebied_A_hasPart ,
-    ro_str:Besluitgebied_A_spatial ,
+    ro_str:Besluitgebied_A-P_spatial ,
     ro_str:Besluitgebied_A_beleidsmatigVerantwoorlijkeOverheid ,
     ro_str:Besluitgebied_A_normadressant ,
     ro_str:Besluitgebied_A_tekstverwijzing ,
@@ -57,13 +57,13 @@ ro_str:Besluitgebied_A_hasPart a sh:PropertyShape ;
   sh:node ro_str:Besluitvlak_A ;
 .
 
-ro_str:Besluitgebied_A_spatial a sh:PropertyShape ;
+ro_str:Besluitgebied_A-P_spatial a sh:PropertyShape ;
   sh:path dc:spatial ;
 # Jesse: these are already inherited
 #  sh:class ro:Plangebied ;
 #  sh:minCount 1 ;
 #  sh:maxCount 1 ;
-  sh:node ro_str:Besluitgebied_A_Plangebied
+  sh:node ro_str:Besluitgebied_A-P_Plangebied
 .
 
 
@@ -127,7 +127,7 @@ ro_str:Besluitgebied_A_externPlan a sh:PropertyShape ;
   sh:node ro_str:ExternPlanReferentie_AMB
 .
 
-ro_str:ExternPlanReferentie_AMB rdf:type sh:NodeShape ;
+ro_str:ExternPlanReferentie_AMB a sh:NodeShape ;
   sh:closed true ;
   sh:ignoredProperties (
     ro:muteert
@@ -168,21 +168,30 @@ ro_str:Besluitgebied_A_norm a sh:PropertyShape ;
 #    Begrenzing
 #################################################################
 
-ro_str:Besluitgebied_A_Plangebied a sh:NodeShape ;
+ro_str:Besluitgebied_A-P_Plangebied a sh:NodeShape ;
   sh:property
-    ro_str:Besluitgebied_A_Plangebied_geometrie ,
-    ro_str:Besluitgebied_A_Plangebied_idealisatie
+    ro_str:Besluitgebied_A-P_Plangebied_begrenzing ,
+#    ro_str:Besluitgebied_A-P_Plangebied_idealisatie
 .
 
-ro_str:Besluitgebied_A_Plangebied_geometrie a sh:PropertyShape ;
-  sh:path ogc:geometry ;
-#  sh:class ogc:Geometry ; #Jesse: is this required? An instance here would then, for instance, be of type ogc:Geometry AND gml:Surface
+ro_str:Besluitgebied_A-P_Plangebied_begrenzing a sh:PropertyShape ;
+  sh:path ro:begrenzing ;
+  sh:class ro:Geometry ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
-  sh:node ro_str:VlakMultiVlak ;
+  sh:node
+    ro_str:Besluitgebied_A-P_geometrie ,
+    ro_str:VlakMultiVlak ,
+    ro_str:Besluitgebied_A-P_Plangebied_idealisatie
+
+
+ro_str:Besluitgebied_A-P_Plangebied_geometrie a sh:PropertyShape ;
+  sh:path ro:geometrie ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
 .
 
-ro_str:Besluitgebied_A_Plangebied_idealisatie a sh:PropertyShape ;
+ro_str:Besluitgebied_A-P_Plangebied_idealisatie a sh:PropertyShape ;
   sh:path ro:idealisatie ;
   sh:minCount 1 ;
   sh:maxCount 1 ;

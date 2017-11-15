@@ -68,14 +68,65 @@ ro_str:Besluitgebied_X_hasPart a sh:PropertyShape ;
 
 
 #################################################################
+#    Geometry
+#################################################################
+
+##Jesse: look into Geometry constructs.
+
+ro_str:Besluitgebied_X_spatial a sh:PropertyShape ;
+  sh:path dc:spatial ;
+#  sh:class ro:Plangebied ; #Jesse: already made explicit at ro_str:Plan
+  sh:node ro_str:Besluitgebied_X_Plangebied
+.
+
+ro_str:Besluitgebied_X_Plangebied a sh:NodeShape ;
+  sh:property
+    ro_str:Besluitgebied_X_Plangebied_begrenzing
+.
+
+ro_str:Besluitgebied_X_Plangebied_begrenzing a sh:PropertyShape ;
+  sh:path ro:begrenzing ;
+  sh:class ro:Geometry ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:node
+    ro_str:Besluitgebied_X_geometrie , #Jesse: Can be defined globally
+    ro_str:VlakMultiVlak #Jesse: we give the geometry an aditional class.
+.
+
+ro_str:Besluitgebied_X_geometrie a sh:PropertyShape ;
+  sh:path ro:geometrie ;
+  sh:minCount 1 ;
+  sh:maxCount 1
+.
+
+ro_str:Besluitgebied_X_beleidsmatigVerantwoorlijkeOverheid a sh:PropertyShape ;
+  sh:path ro:beleidsmatigVerantwoordelijkeOverheid ;
+  sh:class ro:Overheid ;
+  sh:minCount 1 ;
+#  sh:maxCount 1 ; #the gml files concatenates the names of the ministries, resulting in a single instance. Hence, the sh:maxCount 1. However, if we can seperate these again, I think we'll have a more robuust knowledge graph.
+.
+
+ro_str:Besluitgebied_X_normadressant a sh:PropertyShape ;
+  sh:path ro:normadressant ;
+  sh:class skos:Concept ;
+  sh:node [
+    sh:property [
+       sh:path [ sh:inversePath skos:member ] ;
+       sh:hasValue ro_col:Normadressant_XGB ;
+    ]
+  ]
+.
+
+ro_str:Besluitgebied_X_tekstverwijzing a sh:PropertyShape ;
+
+#################################################################
 #    Besluitvlak_X
 #################################################################
 
 
 ro_str:Besluitvlak_X a sh:NodeShape ;
   sh:property
-    ro_str:Besluitvlak_A_tekst ,
-    ro_str:Besluitvlak_A_begrenzing
+    ro_str:Besluitvlak_X_tekst ,
+    ro_str:Besluitvlak_X_begrenzing
 .
-
- 

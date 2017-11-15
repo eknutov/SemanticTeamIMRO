@@ -38,6 +38,23 @@ ro_str:Plan_spatial a sh:PropertyShape ;
   sh:class ro:Plangebied ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
+  sh:node
+    ro_str:begrenzing
+.
+
+ro_str:begrenzing a sh:PropertyShape ;
+  sh:path ro:begrenzing ;
+  sh:class ro:Geometry ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:node
+    ro_str:geometrie
+.
+
+ro_str:geometrie a sh:PropertyShape ;
+  sh:path ro:geometrie ;
+  sh:minCount 1 ;
+  sh:maxCount 1
 .
 
 ro_str:Plan_hasPart a sh:PropertyShape ;

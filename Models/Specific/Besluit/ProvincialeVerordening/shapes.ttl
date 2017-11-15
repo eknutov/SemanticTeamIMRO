@@ -22,7 +22,7 @@ ro_str:Besluitgebied_P a sh:NodeShape ;
   sh:targetClass ro:ProvincialeVerordening ;
   sh:property
     ro_str:Besluitgebied_P_hasPart ,
-    ro_str:Besluitgebied_P_spatial ,
+    ro_str:Besluitgebied_A-P_spatial ,
     ro_str:Besluitgebied_P_beleidsmatigVerantwoorlijkeOverheid ,
     ro_str:Besluitgebied_P_normadressant ,
     ro_str:Besluitgebied_P_tekstverwijzing ,
@@ -39,6 +39,27 @@ ro_str:Besluitgebied_P_hasPart a sh:PropertyShape ;
 .
 
 
+ro_str:Besluitgebied_P_beleidsmatigVerantwoorlijkeOverheid a sh:PropertyShape ;
+  sh:path ro:beleidsmatigVerantwoordelijkeOverheid ;
+  sh:minCount 1 ;
+#  sh:maxCount 1 ; #the gml files concatenates the names of the ministries, resulting in a single instance. Hence, the sh:maxCount 1. However, if we can seperate these again, I think we'll have a more robuust knowledge graph.
+  sh:node ro_str:Overheden_P
+.
+
+ro_str:Besluitgebied_P_normadressant a sh:PropertyShape ;
+  sh:path ro:normadressant ;
+  sh:class skos:Concept ;
+  sh:node [
+    sh:property [
+       sh:path [ sh:inversePath skos:member ] ;
+       sh:hasValue ro_col:Normadressant_PV ; #TODO: create these collections
+    ]
+  ]
+.
+
+ro_str:Besluitgebied_P_tekstverwijzing a sh:PropertyShape ;
+
+
 #################################################################
 #    Besluitvlak_P
 #################################################################
@@ -46,10 +67,10 @@ ro_str:Besluitgebied_P_hasPart a sh:PropertyShape ;
 
 ro_str:Besluitvlak_P a sh:NodeShape ;
   sh:property
-    ro_str:Besluitvlak_A_thema ,
-    ro_str:Besluitvlak_A_tekst ,
-    ro_str:Besluitvlak_A_illustratie ,
-    ro_str:Besluitvlak_A_cartografie ,
-    ro_str:Besluitvlak_A_begrenzing ,
-    ro_str:Besluitvlak_A_hasPart
+    ro_str:Besluitvlak_P_thema ,
+    ro_str:Besluitvlak_P_tekst ,
+    ro_str:Besluitvlak_P_illustratie ,
+    ro_str:Besluitvlak_P_cartografie ,
+    ro_str:Besluitvlak_P_begrenzing ,
+    ro_str:Besluitvlak_P_hasPart
 .

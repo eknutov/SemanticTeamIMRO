@@ -1,7 +1,7 @@
 @prefix : <http://data.informatiehuisruimte.nl/def/> .
 @prefix c4o: <http://purl.org/spar/biro/> .
 @prefix dbp: <http://dbpedia.org/resource/> .
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .27b02a4df137972a6dc8f4e9423aad76afafa27e
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix doco: <http://purl.org/spar/doco/> .
 @prefix gml: <http://www.opengis.net/ont/gml#> .
@@ -24,17 +24,10 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 :ro
-<<<<<<< HEAD
-  a owl:Ontology ;
-  dc:description "TODO"@nl ;
-  dc:title "Ruimtelijke Ordening vocabulaire"@nl ;
-  rdfs:label "Ruimtelijke Ordening vocabulaire"@nl ;
-=======
   rdf:type owl:Ontology, voaf:Vocabulary ;
   dc:description "Dit is een vocabulaire dat gebruikt kan worden voor het beschrijven van ruimtelijke instrumenten (beleidsstukken die worden gebruikt voor ruimtelijke ordening). Dit vocabulaire is afgeleid van het Informatiemodel Ruimtelijke Ordening 2012 (IMRO2012)."@nl ;
   dc:title "Vocabulaire voor ruimtelijke ordening"@nl ;
   rdfs:label "Vocabulaire voor ruimtelijke ordening"@nl ;
->>>>>>> 27b02a4... Added some ontology metadata
   owl:imports <http://datashapes.org/dash> ;
   rdfs:seeAlso <http://ro-standaarden.geonovum.nl/2012/IMRO/1.2/IMRO2012-v1.2.pdf> ;
   sh:shapesGraph :ro_str ;

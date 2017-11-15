@@ -21,7 +21,7 @@
 #    Structuurvisie
 #################################################################
 
-ro:Structuurvisie a sh:NodeShape ;
+ro_str:Structuurvisie a sh:NodeShape ;
   sh:targetClass ro:Structuurvisie ;
   sh:property
     ro_str:Structuurvisie_illustratieverwijzing ,

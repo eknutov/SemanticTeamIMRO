@@ -52,7 +52,7 @@ ro:Structuurvisiegebied a owl:Class ;
 
 ro:Structuurvisiecomplex a owl:Class ;
   rdfs:isDefinedBy :ro ;
-  rdfs:label "Structuurvisiegebied"@nl ;
+  rdfs:label "Structuurvisiecomplex"@nl ;
   rdfs:comment "Een groep Planobjecten, bestaande uit Structuurvisiegebieden en Structuurvisiecomplexen."@nl ;
   dcterms:subject ro_beg:Structuurvisiecomplex ;
   rdfs:subClassOf ro:Planobject

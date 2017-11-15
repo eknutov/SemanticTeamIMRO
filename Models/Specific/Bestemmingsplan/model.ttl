@@ -953,7 +953,7 @@ ro:maatvoeringWaarde a owl:ObjectProperty ;
 ro:waarde a owl:DatatypeProperty ;
   rdfs:label "waarde"@nl ;
   rdfs:isDefinedBy :ro ;
-  rdfs:domain ro:Maatvoeringwaarde ;
+  rdfs:domain ro:Omvang ;
 .
 
 #rdf:type

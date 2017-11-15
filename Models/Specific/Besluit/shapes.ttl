@@ -27,19 +27,26 @@
 @prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
 @prefix ro_sym: <http://data.informatiehuisruimte.nl/ro/id/symbool/> .
 
-# TODO: Once correct, split the file to one file for each of the three subclasses of ro:Besluit.
 
-# This will be defined in the common folder, it is put here pending finalization of the common shapes
-
-ro_str:Plan a sh:NodeShape;
-  sh:targetClass ro:Plan;
-  sh:property [
-    sh:nodeKind sh:IRI;
-    sh:path dc:hasPart;
-    sh:class ro:Planobject;
-    sh:minCount 1;
-  ];
+ro_str:Besluit a sh:NodeShape ;
+  sh:targetClass ro:Besluit ;
+  sh:property
+    ro_str:Besluit_spatial
 .
+
+ro_str:Besluit_spatial a sh:PropertyShape ;
+  sh:path dc:spatial ;
+  sh:node
+    ro_str:Besluit_Plangebied_begrenzing
+.
+
+ro_str:Besluit_Plangebied_begrenzing a sh:PropertyShape ;
+  sh:path ro:begrenzing ;
+  sh:node 
+    ro_str:VlakMultiVlak
+.
+
+
 
 
 # Provinciale verordening
@@ -80,7 +87,7 @@ ro_str:ProvincialeVerordening_Plannobject_tekst_teksttype a sh:PropertyShape;
   sh:class skos:Concept;
   sh:minCount 1;
   sh:maxCount 1;
-  sh:node [ 
+  sh:node [
     sh:property [
        sh:path [ sh:inversePath skos:member ];
        sh:hasValue ro_col:TekstypesPlanobjectProvinciaalBesluit;
@@ -91,7 +98,7 @@ ro_str:ProvincialeVerordening_Plannobject_tekst_teksttype a sh:PropertyShape;
 ro_str:ProvincialeVerordening_Plannobject_tekst_normadressant a sh:PropertyShape;
   sh:path ro:normadressant;
   sh:class skos:Concept;
-  sh:node [ 
+  sh:node [
     sh:property [
        sh:path [ sh:inversePath skos:member ];
        sh:hasValue ro_col:NormadressantenProvincialeVerorderdening;
@@ -161,7 +168,7 @@ ro_str:AMVB_Plannobject_tekst_teksttype a sh:PropertyShape;
   sh:class skos:Concept;
   sh:minCount 1;
   sh:maxCount 1;
-  sh:node [ 
+  sh:node [
     sh:property [
        sh:path [ sh:inversePath skos:member ];
        sh:hasValue ro_col:TekstypesPlanobjectAMVB;
@@ -172,7 +179,7 @@ ro_str:AMVB_Plannobject_tekst_teksttype a sh:PropertyShape;
 ro_str:AMVB_Plannobject_tekst_normadressant a sh:PropertyShape;
   sh:path ro:normadressant;
   sh:class skos:Concept;
-  sh:node [ 
+  sh:node [
     sh:property [
        sh:path [ sh:inversePath skos:member ];
        sh:hasValue ro_col:NormadressantenAMVB;
@@ -236,7 +243,7 @@ ro_str:OverigGebiedsgerichtBesluit_Plannobject_tekst_teksttype a sh:PropertyShap
   sh:class skos:Concept;
   sh:minCount 1;
   sh:maxCount 1;
-  sh:node [ 
+  sh:node [
     sh:property [
        sh:path [ sh:inversePath skos:member ];
        sh:hasValue ro_col:TekstypesPlanobjectOverigGebiedsgerichtBesluit;
@@ -247,7 +254,7 @@ ro_str:OverigGebiedsgerichtBesluit_Plannobject_tekst_teksttype a sh:PropertyShap
 ro_str:OverigGebiedsgerichtBesluit_Plannobject_tekst_normadressant a sh:PropertyShape;
   sh:path ro:normadressant;
   sh:class skos:Concept;
-  sh:node [ 
+  sh:node [
     sh:property [
        sh:path [ sh:inversePath skos:member ];
        sh:hasValue ro_col:NormadressantenOverigGebiedsgerichtBesluit;
