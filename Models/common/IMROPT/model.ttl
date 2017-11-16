@@ -1,5 +1,5 @@
 # common prefixes
-@prefix dc: <http://purl.org/dc/terms/> .
+@prefix dct: <http://purl.org/dc/terms/> .
 @prefix doco: <http://purl.org/spar/doco/> .
 @prefix pattern: <http://www.essepuntato.it/2008/12/pattern#> .
 @prefix c4o: <http://purl.org/spar/biro/> .
@@ -40,8 +40,8 @@
 
 :ropt
   a owl:Ontology ;
-  dc:description "TODO"@nl ;
-  dc:title "Ruimtelijke Ordening Planteksten vocabulaire"@nl ;
+  dct:description "TODO"@nl ;
+  dct:title "Ruimtelijke Ordening Planteksten vocabulaire"@nl ;
   rdfs:label "Ruimtelijke Ordening Planteksten vocabulaire"@nl ;
   owl:imports <http://datashapes.org/dash> ;
 #  sh:shapesGraph :ro_str #<- TODO

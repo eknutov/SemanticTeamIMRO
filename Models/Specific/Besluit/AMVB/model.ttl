@@ -46,7 +46,7 @@
 ro:AMVB a owl:Class ;
   rdfs:subClassOf ro:Besluit ;
   rdfs:isDefinedBy ro: ;
-  dc:subject ro_beg:AMVB ;
+  dct:subject ro_beg:AMVB ;
   rdfs:label "Algemene Maatregel van Bestuur (AMvB)"@nl ;
   rdfs:comment "Een Algemene Maatregel van Bestuur (AMvB) is een instrument waarmee de Minister regels kan geven omtrent de inhoud van bestemmingsplannen en provinciale inpassingsplannen, daaraan voorafgaande projectbesluiten en beheersverordeningen. Het is daarbij niet altijd noodzakelijk dat er ook een specifiek gebied van het Nederlands grondgebied gedefinieerd wordt. Met betrekking tot dat laatste vallen AMvB’s in twee groepen uiteen: een groep waarin regels gekoppeld zijn aan geografisch geduide gebieden en een groep waarin regels gesteld worden voor het hele land of minder direct aangegeven gebieden."@nl
 .
@@ -55,6 +55,6 @@ ro:AMVB a owl:Class ;
 ro:Regeling a owl:Class ;
   rdfs:subClassOf ro:Besluit ;
   rdfs:isDefinedBy ro: ;
-  dc:subject ro_beg:Regeling ;
+  dct:subject ro_beg:Regeling ;
   rdfs:label "Regeling"@nl
 .

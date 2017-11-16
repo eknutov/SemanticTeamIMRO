@@ -47,48 +47,48 @@
 ro:Aanwijzingsbesluit a owl:Class ;
   rdfs:subClassOf ro:Besluit ;
   rdfs:isDefinedBy ro: ;
-  dc:subject ro_beg:Aanwijzingsbesluit ;
+  dct:subject ro_beg:Aanwijzingsbesluit ;
   rdfs:label "aanwijzingsbesluit"@nl
 .
 
 ro:Beheersverordening  a owl:Class ;
   rdfs:subClassOf ro:Besluit ;
   rdfs:isDefinedBy ro: ;
-  dc:subject ro_beg:Beheersverordening ;
+  dct:subject ro_beg:Beheersverordening ;
   rdfs:label "beheersverordening"@nl
 .
 
 ro:Exploitatieplan a owl:Class ;
   rdfs:subClassOf ro:Besluit ;
   rdfs:isDefinedBy ro: ;
-  dc:subject ro_beg:Exploitatieplan ;
+  dct:subject ro_beg:Exploitatieplan ;
   rdfs:label "exploitatieplan"@nl
 .
 
 ro:GerechtelijkeUitspraak a owl:Class ;
   rdfs:subClassOf ro:Besluit ;
   rdfs:isDefinedBy ro: ;
-  dc:subject ro_beg:GerechtelijkeUitspraak ;
+  dct:subject ro_beg:GerechtelijkeUitspraak ;
   rdfs:label "gerechtelijke uitspraak"@nl
 .
 
 ro:Omgevingsvergunning a owl:Class ;
   rdfs:subClassOf ro:Besluit ;
   rdfs:isDefinedBy ro: ;
-  dc:subject ro_beg:Omgevingsvergunning ;
+  dct:subject ro_beg:Omgevingsvergunning ;
   rdfs:label "omgevingsvergunning"@nl
 .
 
 ro:ReactieveAanwijzing a owl:Class ;
   rdfs:subClassOf ro:Besluit ;
   rdfs:isDefinedBy ro: ;
-  dc:subject ro_beg:ReactieveAanwijzing ;
+  dct:subject ro_beg:ReactieveAanwijzing ;
   rdfs:label "reactieve aanwijzing"@nl
 .
 
 ro:Voorbereidingsbesluit a owl:Class ;
   rdfs:subClassOf ro:Besluit ;
   rdfs:isDefinedBy ro: ;
-  dc:subject ro_beg:Voorbereidingsbesluit ;
+  dct:subject ro_beg:Voorbereidingsbesluit ;
   rdfs:label "voorbereidingsbesluit"@nl
 .

@@ -12,6 +12,7 @@
 @prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix skos-thes: <http://purl.org/iso25964/skos-thes#> .
 @prefix voaf: <http://purl.org/vocommons/voaf#> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -24,8 +25,8 @@
 @prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
 @prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
 @prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
-@prefix ro_begkr: <http://data.informatiehuisruimte.nl/id/begrippenkader/> .
-@prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
+@prefix ro_begkr: <http://data.informatiehuisruimte.nl/ro/id/begrippenkader/> .
+@prefix ro_col: <http://data.informatiehuisruimte.nl/ro/id/collectie/> .
 @prefix ro_nen3610_beg: <http://data.informatiehuisruimte.nl/nen3610/id/begrip/> .
 @prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
 @prefix ro_sym: <http://data.informatiehuisruimte.nl/ro/id/symbool/> .
@@ -33,10 +34,7 @@
 @prefix ropt: <http://data.informatiehuisruimte.nl/def/ropt#> .
 @prefix ropt_str: <http://data.informatiehuisruimte.nl/def/ropt/> .
 @prefix ropt_beg: <http://data.informatiehuisruimte.nl/ropt/id/begrip/> .
-
-# legacy: (legacy prefix, in case someone still uses it)
-@prefix begrip: <http://data.informatiehuisruimte.nl/ro/id/begrip#> .
-
+@prefix ropt_col: <http://data.informatiehuisruimte.nl/ropt/id/collectie/> .
 
 #################################################################
 #    Besluitgebied_A
@@ -60,14 +58,14 @@ ro_str:Besluitgebied_A a sh:NodeShape ;
 #Jesse: a single specialisation of Planobject is used, ro:Besluitvlak (the suffixes, _A _P _X are dropped).
 # This class has unique propertyshapes given the related ro:Plan. (due to the sh:node here)
 ro_str:Besluitgebied_A_hasPart a sh:PropertyShape ;
-  sh:path dc:hasPart ;
+  sh:path dct:hasPart ;
   sh:class ro:Besluitvlak ;
   sh:minCount 1 ;
   sh:node ro_str:Besluitvlak_A
 .
 
 ro_str:Besluitgebied_A-P_spatial a sh:PropertyShape ;
-  sh:path dc:spatial ;
+  sh:path dct:spatial ;
 # Jesse: these are already inherited
 #  sh:class ro:Plangebied ;
 #  sh:minCount 1 ;
@@ -185,20 +183,21 @@ ro_str:Besluitgebied_A-P_Plangebied a sh:NodeShape ;
 
 ro_str:Besluitgebied_A-P_Plangebied_begrenzing a sh:PropertyShape ;
   sh:path ro:begrenzing ;
-  sh:class ro:Geometry ;
-  sh:minCount 1 ;
-  sh:maxCount 1 ;
-  sh:node
-    ro_str:Besluitgebied_A-P_geometrie ,
-    ro_str:VlakMultiVlak ,
-    ro_str:Besluitgebied_A-P_Plangebied_idealisatie
-
-
-ro_str:Besluitgebied_A-P_Plangebied_geometrie a sh:PropertyShape ;
-  sh:path ro:geometrie ;
-  sh:minCount 1 ;
-  sh:maxCount 1
+#Jesse Inherited
+#  sh:class ro:Geometry ;
+#  sh:minCount 1 ;
+#  sh:maxCount 1 ;
+#  sh:node
+#    ro_str:Besluitgebied_A-P_geometrie ,
+#    ro_str:VlakMultiVlak ,
+  sh:node ro_str:Besluitgebied_A-P_Plangebied_idealisatie
 .
+
+#  ro_str:Besluitgebied_A-P_Plangebied_geometrie a sh:PropertyShape ;
+#    sh:path ro:geometrie ;
+#    sh:minCount 1 ;
+#    sh:maxCount 1
+#  .
 
 ro_str:Besluitgebied_A-P_Plangebied_idealisatie a sh:PropertyShape ;
   sh:path ro:idealisatie ;
@@ -271,21 +270,13 @@ ro_str:Besluitvlak_A_cartografie a sh:PropertyShape ;
 
 ro_str:Besluitvlak_A_begrenzing a sh:PropertyShape ;
   sh:path ro:begrenzing ;
-  sh:class ogc:Geometry ;
-  sh:minCount 1 ;
-  sh:node ro_str:Besluitgebied_A_Geometry
-.
-
-ro_str:Besluitvlak_A_Geometry a sh:NodeShape ;
-  sh:property
-    ro_str:Besluitvlak_A_Geometry_geometry ,
+  sh:node
+    ro_str:Besluitgebied_A_Geometry_geometry ,
     ro_str:Besluitvlak_A_Geometry_idealisatie
 .
 
 ro_str:Besluitvlak_A_Geometrie_geometry a sh:PropertyShape ;
-  sh:path ogc:geometry ;
-  sh:minCount 1 ;
-  sh:maxCount 1 ;
+  sh:path ro:geometry ;
   sh:node ro_str:PuntLijnVlakMulti
 .
 
@@ -297,7 +288,7 @@ ro_str:Besluitvlak_A_Geometrie_idealisatie a sh:PropertyShape ;
 .
 
 ro_str:Besluitvlak_A_hasPart a sh:PropertyShape ;
-  sh:path dc:hasPart ;
+  sh:path dct:hasPart ;
   sh:class ro:Besluitvlak ;
   sh:node
     ro_str:Besluitvlak_A ,
@@ -306,7 +297,7 @@ ro_str:Besluitvlak_A_hasPart a sh:PropertyShape ;
 
 ro_str:Besluitsubvlak_A_isPartOf a sh:NodeShape ;
   sh:property [
-    sh:path dc:isPartOf ;
+    sh:path dct:isPartOf ;
     sh:class ro:AMVB, ro:Regeling ;
     sh:minCount 1 ; #Jesse: IMRO defines a min cardinality of 0, However, I don't think a part can exist without its whole.
   ]

@@ -12,6 +12,7 @@
 @prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix skos-thes: <http://purl.org/iso25964/skos-thes#> .
 @prefix voaf: <http://purl.org/vocommons/voaf#> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -24,8 +25,8 @@
 @prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
 @prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
 @prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
-@prefix ro_begkr: <http://data.informatiehuisruimte.nl/id/begrippenkader/> .
-@prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
+@prefix ro_begkr: <http://data.informatiehuisruimte.nl/ro/id/begrippenkader/> .
+@prefix ro_col: <http://data.informatiehuisruimte.nl/ro/id/collectie/> .
 @prefix ro_nen3610_beg: <http://data.informatiehuisruimte.nl/nen3610/id/begrip/> .
 @prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
 @prefix ro_sym: <http://data.informatiehuisruimte.nl/ro/id/symbool/> .
@@ -33,9 +34,7 @@
 @prefix ropt: <http://data.informatiehuisruimte.nl/def/ropt#> .
 @prefix ropt_str: <http://data.informatiehuisruimte.nl/def/ropt/> .
 @prefix ropt_beg: <http://data.informatiehuisruimte.nl/ropt/id/begrip/> .
-
-# legacy: (legacy prefix, in case someone still uses it)
-@prefix begrip: <http://data.informatiehuisruimte.nl/ro/id/begrip#> .
+@prefix ropt_col: <http://data.informatiehuisruimte.nl/ropt/id/collectie/> .
 
 
 
@@ -55,7 +54,7 @@ ro_str:Besluitgebied_X a sh:NodeShape ;
     ro:Voorbereidingsbesluit ;
   sh:property
     ro_str:Besluitgebied_X_hasPart ,
-    ro_str:Besluitgebied_X_spatial ,
+#    ro_str:Besluitgebied_X_spatial ,     #Jesse:Inherited
     ro_str:Besluitgebied_X_beleidsmatigVerantwoorlijkeOverheid ,
     ro_str:Besluitgebied_X_normadressant ,
     ro_str:Besluitgebied_X_tekstverwijzing ,
@@ -65,44 +64,10 @@ ro_str:Besluitgebied_X a sh:NodeShape ;
 .
 
 ro_str:Besluitgebied_X_hasPart a sh:PropertyShape ;
-  sh:path dc:hasPart ;
+  sh:path dct:hasPart ;
   sh:class ro:Besluitvlak ;
   sh:minCount 1 ;
   sh:node ro_str:Besluitvlak_X
-.
-
-
-#################################################################
-#    Geometry
-#################################################################
-
-##Jesse: look into Geometry constructs.
-
-ro_str:Besluitgebied_X_spatial a sh:PropertyShape ;
-  sh:path dc:spatial ;
-#  sh:class ro:Plangebied ; #Jesse: already made explicit at ro_str:Plan
-  sh:node ro_str:Besluitgebied_X_Plangebied
-.
-
-ro_str:Besluitgebied_X_Plangebied a sh:NodeShape ;
-  sh:property
-    ro_str:Besluitgebied_X_Plangebied_begrenzing
-.
-
-ro_str:Besluitgebied_X_Plangebied_begrenzing a sh:PropertyShape ;
-  sh:path ro:begrenzing ;
-  sh:class ro:Geometry ;
-  sh:minCount 1 ;
-  sh:maxCount 1 ;
-  sh:node
-    ro_str:Besluitgebied_X_geometrie , #Jesse: Can be defined globally
-    ro_str:VlakMultiVlak #Jesse: we give the geometry an aditional class.
-.
-
-ro_str:Besluitgebied_X_geometrie a sh:PropertyShape ;
-  sh:path ro:geometrie ;
-  sh:minCount 1 ;
-  sh:maxCount 1
 .
 
 ro_str:Besluitgebied_X_beleidsmatigVerantwoorlijkeOverheid a sh:PropertyShape ;
@@ -134,4 +99,15 @@ ro_str:Besluitvlak_X a sh:NodeShape ;
   sh:property
     ro_str:Besluitvlak_X_tekst ,
     ro_str:Besluitvlak_X_begrenzing
+.
+
+ro_str:Besluitvlak_X_begrenzing a sh:PropertyShape ;
+  sh:path ro:begrenzing ;
+  sh:maxCount 1 ;
+  sh:node ro_str:Besluitgebied_X_Geometry_geometry
+.
+
+ro_str:Besluitvlak_X_Geometrie_geometry a sh:PropertyShape ;
+  sh:path ro:geometry ;
+  sh:node ro_str:VlakMultiVlak
 .

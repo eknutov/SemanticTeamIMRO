@@ -43,6 +43,27 @@
 >>>>>>> master
 
 
+#################################################################
+#    Geometrie
+#################################################################
+
+ro_str:Geometrie a sh:NodeShape ;
+  sh:targetClass ro:Geometrie ;
+  sh:property
+    ro_str:Geometrie_geometrie
+.
+
+ro_str:Geometrie_geometrie a sh:PropertyShape ;
+  sh:path ro:geometrie ;
+  sh:minCount 1 ;
+  sh:maxcount 1
+.
+
+#################################################################
+#    Idealisatie
+#################################################################
+
+
 ro_str:Idealisatie_1 a sh:NodeShape ;
   sh:in (
     ro_beg:exact

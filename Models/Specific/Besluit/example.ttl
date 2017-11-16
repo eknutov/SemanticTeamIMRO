@@ -1,7 +1,7 @@
 @prefix ex: <http://www.example.com/> .
 
 # common prefixes
-@prefix dc: <http://purl.org/dc/terms/> .
+@prefix dct: <http://purl.org/dc/terms/> .
 @prefix doco: <http://purl.org/spar/doco/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix gml: <http://www.opengis.net/ont/gml#> .
@@ -39,20 +39,20 @@
 
 ex:PV1 a ro:ProvincialeVerordening, ro:Plan, ro:Besluit, void:Dataset;
   rdfs:label "provinciale verordering 1";
-  dc:hasPart ex:PlanobjectPV1_A;
+  dct:hasPart ex:PlanobjectPV1_A;
 .
 
 ex:PlanobjectPV1_A a ro:Planobject;
   void:inDataSet ex:PV1;
-  dc:isPartOf ex:PV1;
+  dct:isPartOf ex:PV1;
   rdfs:label "Zuid-Limburg";
-  dc:subject "demogafie";
+  dct:subject "demogafie";
   ro:tekst ex:TekstPV1_1;
   ro:illustratie ex:IllustratiePV1_1;
   ro:kaart ex:KaartPV1_1;
   ogc:geometry ex:Geom1;
-  dc:hasPart ex:PlanobjectPV1_A1;
-  dc:hasPart ex:PlanobjectPV1_A2;
+  dct:hasPart ex:PlanobjectPV1_A1;
+  dct:hasPart ex:PlanobjectPV1_A2;
 .
 
 ex:TekstPV1_1 a ro:Document, ro:Tekst;
@@ -72,7 +72,7 @@ ex:IllustratiePV1_1 a ro:Document, ro:Illustratie;
 ex:KaartPV1_1 a ro:Kaart;
   void:inDataSet ex:PV1;
   rdfs:label "De hoofdkaart";
-  dc:identifier "1"^^xsd:integer;
+  dct:identifier "1"^^xsd:integer;
   ro:symboolcode "12345";
 .
 
@@ -84,41 +84,41 @@ ex:GeomPV1_1 a ogc:Geometry;
 
 ex:PlanobjectPV1_A1 a ro:Planobject;
   void:inDataSet ex:PV1;
-  dc:isPartOf ex:PlanobjectPV1_A;
+  dct:isPartOf ex:PlanobjectPV1_A;
   rdfs:label "Gulpen";
-  dc:subject "demogafie";
+  dct:subject "demogafie";
 .
 
 ex:PlanobjectPV1_A2 a ro:Planobject;
   void:inDataSet ex:PV1;
-  dc:isPartOf ex:PlanobjectPV1_A;
+  dct:isPartOf ex:PlanobjectPV1_A;
   rdfs:label "Eijsden";
-  dc:subject "demogafie";
+  dct:subject "demogafie";
 .
 
 # Example of ro:AMVB
 
 ex:AMVB1 a ro:AMVB, ro:Besluit, void:Dataset;
   rdfs:label "Algmene maatregel van bestuur 1";
-  dc:hasPart ex:PlanobjectAMVB1_A;
+  dct:hasPart ex:PlanobjectAMVB1_A;
 .
 
 ex:PlanobjectAMVB1_A a ro:Planobject;
   void:inDataSet ex:AMVB1;
-  dc:isPartOf ex:AMVB1;
+  dct:isPartOf ex:AMVB1;
   rdfs:label "Apeldoorn";
-  dc:subject "milieuvervuiling";
+  dct:subject "milieuvervuiling";
 .
 
 # Example of ro:OverigGebiedsgerichtBesluit
 ex:OGB1 a ro:OverigGebiedsgerichtBesluit, ro:Besluit, void:Dataset;
   rdfs:label "Overig besluit 1";
-  dc:hasPart ex:PlanobjectOGB1_A;
+  dct:hasPart ex:PlanobjectOGB1_A;
 .
 
 ex:PlanobjectOGB1_A a ro:Planobject;
   void:inDataSet ex:OGB1;
-  dc:isPartOf ex:OGB1;
+  dct:isPartOf ex:OGB1;
   rdfs:label "Groningen";
   ogc:geometry ex:GeomOGB1_A;
 .

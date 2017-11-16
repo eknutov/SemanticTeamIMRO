@@ -12,6 +12,7 @@
 @prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix skos-thes: <http://purl.org/iso25964/skos-thes#> .
 @prefix voaf: <http://purl.org/vocommons/voaf#> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -24,7 +25,6 @@
 @prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
 @prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
 @prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
-
 @prefix ro_begkr: <http://data.informatiehuisruimte.nl/ro/id/begrippenkader/> .
 @prefix ro_col: <http://data.informatiehuisruimte.nl/ro/id/collectie/> .
 @prefix ro_nen3610_beg: <http://data.informatiehuisruimte.nl/nen3610/id/begrip/> .
@@ -34,10 +34,11 @@
 @prefix ropt: <http://data.informatiehuisruimte.nl/def/ropt#> .
 @prefix ropt_str: <http://data.informatiehuisruimte.nl/def/ropt/> .
 @prefix ropt_beg: <http://data.informatiehuisruimte.nl/ropt/id/begrip/> .
+@prefix ropt_col: <http://data.informatiehuisruimte.nl/ropt/id/collectie/> .
 
-# legacy: (legacy prefix, in case someone still uses it)
-@prefix begrip: <http://data.informatiehuisruimte.nl/ro/id/begrip#> .
-
+#################################################################
+#    Besluit
+#################################################################
 
 ro_str:Besluit a sh:NodeShape ;
   sh:targetClass ro:Besluit ;
@@ -46,7 +47,7 @@ ro_str:Besluit a sh:NodeShape ;
 .
 
 ro_str:Besluit_spatial a sh:PropertyShape ;
-  sh:path dc:spatial ;
+  sh:path dct:spatial ;
   sh:node
     ro_str:Besluit_Plangebied_begrenzing
 .
@@ -57,7 +58,21 @@ ro_str:Besluit_Plangebied_begrenzing a sh:PropertyShape ;
     ro_str:VlakMultiVlak
 .
 
+#################################################################
+#    Besluitvlak
+#################################################################
 
+ro_str:Besluitvlak a sh:NodeShape ;
+  sh:targetClass ro:Besluitvlak ;
+  sh:property
+    ro_str:Besluitvlak_begrenzing
+.
+
+ro_str:Besluitvlak_begrenzing a sh:PropertyShape ;
+  sh:path ro:begrenzing ;
+  sh:class ro:Geometry ;
+  sh:minCount 1
+.
 
 #Jesse: Below here is TODO
 
@@ -67,7 +82,7 @@ ro_str:Besluit_Plangebied_begrenzing a sh:PropertyShape ;
 ro_str:ProvincialeVerordening a sh:NodeShape;
   sh:targetClass ro:ProvincialeVerordening;
   sh:property [
-    sh:path dc:hasPart;
+    sh:path dct:hasPart;
     sh:node ro_str:ProvincialeVerordening_Planobject;
   ]
 .
@@ -83,7 +98,7 @@ ro_str:ProvincialeVerordening_Planobject a sh:NodeShape;
 
 ro_str:ProvincialeVerordening_Plannobject_subject a sh:PropertyShape;
   sh:property [
-    sh:path dc:subject;
+    sh:path dct:subject;
     sh:nodeKind sh:Literal;
     sh:minCount 1;
   ]
@@ -138,7 +153,7 @@ ro_str:ProvincialeVerordening_Plannobject_kaart a sh:PropertyShape;
 
 ro_str:ProvincialeVerordening_Plannobject_hasPart a sh:PropertyShape;
   sh:property [
-    sh:path dc:hasPart;
+    sh:path dct:hasPart;
     sh:node ro_str:ProvincialeVerordening_Planobject;
   ]
 .
@@ -148,7 +163,7 @@ ro_str:ProvincialeVerordening_Plannobject_hasPart a sh:PropertyShape;
 ro_str:AMVB a sh:NodeShape;
   sh:targetClass ro:AMVB;
   sh:property [
-    sh:path dc:hasPart;
+    sh:path dct:hasPart;
     sh:node ro_str:AMVB_Planobject;
   ]
 .
@@ -164,7 +179,7 @@ ro_str:AMVB_Planobject a sh:NodeShape;
 
 ro_str:AMVB_Plannobject_subject a sh:PropertyShape;
   sh:property [
-    sh:path dc:subject;
+    sh:path dct:subject;
     sh:nodeKind sh:Literal;
     sh:minCount 1;
   ]
@@ -219,7 +234,7 @@ ro_str:AMVB_Plannobject_kaart a sh:PropertyShape;
 
 ro_str:AMVB_Plannobject_hasPart a sh:PropertyShape;
   sh:property [
-    sh:path dc:hasPart;
+    sh:path dct:hasPart;
     sh:node ro_str:AMVB_Planobject;
   ]
 .
@@ -232,7 +247,7 @@ ro_str:AMVB_Plannobject_hasPart a sh:PropertyShape;
 ro_str:OverigGebiedsgerichtBesluit a sh:NodeShape;
   sh:targetClass ro:OverigGebiedsgerichtBesluit;
   sh:property [
-    sh:path dc:hasPart;
+    sh:path dct:hasPart;
     sh:node ro_str:OverigGebiedsgerichtBesluit_Planobject;
   ]
 .
@@ -279,7 +294,7 @@ ro_str:OverigGebiedsgerichtBesluit_Plannobject_tekst_normadressant a sh:Property
 
 ro_str:OverigGebiedsgerichtBesluit_Plannobject_hasPart a sh:PropertyShape;
   sh:property [
-    sh:path dc:hasPart;
+    sh:path dct:hasPart;
     sh:node ro_str:OverigGebiedsgerichtBesluit_Planobject;
   ]
 .
