@@ -49,7 +49,7 @@ ro_beg:Plangebied a skos:Concept ;
    skos:inScheme ro_begkr:ro ;
    skos:definition "Het object dat het gebied, of de gebieden, binnen de plangrenzen representeert."@nl ;
    skos:scopeNote "Omvat het totale gebied van een benoemd ruimtelijk instrument. Bijvoorbeeld een bestemmingsplan, een structuurvisie een gebiedsgericht besluit."@nl ;
-   dct:source         # ekn:
+   dct:source         # ekn: TODO: change
      <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012> ,
      <jci1.31:c:BWBR0020449&hoofdstuk=3&afdeling=3.1&artikel=3.1&lid=1&z=2016-04-14&g=2016-04-14> ,
      <jci1.31:c:BWBR0020449&hoofdstuk=3&afdeling=3.5&paragraaf=3.5.1&artikel=3.26&lid=3&z=2016-04-14&g=2016-04-14> ,
@@ -1605,6 +1605,7 @@ ro_beg:tenGevolgeVan a skos:Concept .
   rdfs:seeAlso <https://www.nen.nl/NEN-Shop/Norm/NEN-36102011-nl.htm>
 .
 
+# ekn: a purpose to have the same URI as seeAlso of the same thing
 <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012> a dcmit:Text ;
   rdfs:label "Informatiemodel Ruimtelijke Ordening (IMRO2012)"@nl ;
   rdfs:seeAlso <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
