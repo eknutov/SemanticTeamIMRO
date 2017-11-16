@@ -39,17 +39,17 @@
 
 
 nen3610:GeoObject a owl:Class ;
-  dcterms:subject ro_nen3610_beg:GeoObject ;
+  dct:subject ro_nen3610_beg:GeoObject ;
   rdfs:label "GeoObject"@nl
 .
 
 nen3610:NEN3610ID a owl:Class ;
-  dcterms:subject ro_nen3610_beg:NEN3610ID ;
+  dct:subject ro_nen3610_beg:NEN3610ID ;
   rdfs:label "NEN3610ID"@nl
 .
 
 nen3610:PlanologischGebied a owl:Class ;
-  dcterms:subject ro_nen3610_beg:PlanologischGebied ;
+  dct:subject ro_nen3610_beg:PlanologischGebied ;
   rdfs:label "Planologisch gebied"@nl ;
   rdfs:subClassOf nen3610:GeoObject
 .

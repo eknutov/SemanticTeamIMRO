@@ -256,37 +256,37 @@ ro:externPlan a owl:ObjectProperty ;
 ro:muteert a owl:ObjectProperty ;
   rdfs:subPropertyOf ro:externPlan ;
   rdfs:isDefinedBy :ro ;
-  dcterms:subject ro_beg:muteert
+  dct:subject ro_beg:muteert
 .
 
 ro:vervangt a owl:ObjectProperty ;
   rdfs:subPropertyOf ro:externPlan ;
   rdfs:isDefinedBy :ro ;
-  dcterms:subject ro_beg:vervangt
+  dct:subject ro_beg:vervangt
 .
 
 ro:uitTeWerkenIn a owl:ObjectProperty ;
   rdfs:subPropertyOf ro:externPlan ;
   rdfs:isDefinedBy :ro ;
-  dcterms:subject ro_beg:uitTeWerkenIn
+  dct:subject ro_beg:uitTeWerkenIn
 .
 
 ro:uitgewerktIn a owl:ObjectProperty ;
   rdfs:subPropertyOf ro:externPlan ;
   rdfs:isDefinedBy :ro ;
-  dcterms:subject ro_beg:uitgewerktIn
+  dct:subject ro_beg:uitgewerktIn
 .
 
 ro:gebruiktInformatieUit a owl:ObjectProperty ; #does this IRI deviate too much from 'informatie in extern plan/besluit'?
   rdfs:subPropertyOf ro:externPlan ;
   rdfs:isDefinedBy :ro ;
-  dcterms:subject ro_beg:gebruiktInformatieUit
+  dct:subject ro_beg:gebruiktInformatieUit
 .
 
 ro:tenGevolgeVan a owl:ObjectProperty ;
   rdfs:subPropertyOf ro:externPlan ;
   rdfs:isDefinedBy :ro ;
-  dcterms:subject ro_beg:tenGevolgeVan
+  dct:subject ro_beg:tenGevolgeVan
 .
 
 #################################################################
