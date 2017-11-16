@@ -23,6 +23,7 @@
 @prefix nen3610_str: <http://data.informatiehuisruimte.nl/def/nen3610/> .
 @prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
 @prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
+<<<<<<< HEAD
 @prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
 @prefix ro_begkr: <http://data.informatiehuisruimte.nl/id/begrippenkader/> .
 @prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
@@ -36,6 +37,12 @@
 
 # legacy: (legacy prefix, in case someone still uses it)
 @prefix begrip: <http://data.informatiehuisruimte.nl/ro/id/begrip#> .
+=======
+@prefix ro_col: <http://data.informatiehuisruimte.nl/ro/id/collectie/> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix dct: <http://purl.org/dc/terms/> .      # ekn: need to replace dct: to dcterms as we also have dct: referring to
+@prefix void: <http://rdfs.org/ns/void#> .
+>>>>>>> master
 
 
 #################################################################

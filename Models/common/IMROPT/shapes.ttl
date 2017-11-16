@@ -24,8 +24,9 @@
 @prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
 @prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
 @prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
-@prefix ro_begkr: <http://data.informatiehuisruimte.nl/id/begrippenkader/> .
-@prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
+
+@prefix ro_begkr: <http://data.informatiehuisruimte.nl/ro/id/begrippenkader/> .
+@prefix ro_col: <http://data.informatiehuisruimte.nl/ro/id/collectie/> .
 @prefix ro_nen3610_beg: <http://data.informatiehuisruimte.nl/nen3610/id/begrip/> .
 @prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
 @prefix ro_sym: <http://data.informatiehuisruimte.nl/ro/id/symbool/> .
@@ -214,7 +215,7 @@ ropt_str:ObjecttypePlan a sh:NodeShape ;
     ropt:AfwijkenVanDeBouwregels
     ropt:afwijkenVanDeGebruiksregels
     ropt:AlgemeneAanduidingsregels
-    ropt:sAlgemeneAfwijkingsregels
+    ropt:AlgemeneAfwijkingsregels
     ropt:AlgemeneBouwregels
     ropt:AlgemeneGebruiksregels
     ropt:AlgemeneProcedureregels
@@ -251,10 +252,10 @@ ropt_str:ObjecttypePlan a sh:NodeShape ;
     ropt:SpecifiekeGebruiksregels
     ropt:Sublid
     ropt:Subparagraaf
-    ropt:Subsublid
-    ropt:Subsubparagraaf
-    ropt:Subsubsublid
-    ropt:Subsubsubparagraaf
+    ropt:SubSublid
+    ropt:SubSubparagraaf
+    ropt:SubSubSublid
+    ropt:SubSubSubparagraaf
     ropt:Toelichting
     ropt:UitTeWerkenBestemming
     ropt:Uitwerkingsregels
@@ -280,8 +281,8 @@ ropt_str:ObjecttypeVisie a sh:NodeShape ;
     ropt:Overig
     ropt:Paragraaf
     ropt:Subparagraaf
-    ropt:Subsubparagraaf
-    ropt:Subsubsubparagraaf
+    ropt:SubSubparagraaf
+    ropt:SubSubSubparagraaf
     ropt:Toelichting
   )
 .
@@ -299,7 +300,7 @@ ropt_str:ObjecttypeBesluit a sh:NodeShape ;
     ropt:Besluittekst
     ropt:Bijlage
     ropt:BijlageBijRegels
-    ropt:bijlageBijToelichting
+    ropt:BijlageBijToelichting
     ropt:Bijlagen
     ropt:BijlagenBijRegels
     ropt:BijlagenBijToelichting
@@ -313,10 +314,10 @@ ropt_str:ObjecttypeBesluit a sh:NodeShape ;
     ropt:Sublid
     ropt:Subonderdeel
     ropt:Subparagraaf
-    ropt:Subsublid
-    ropt:Subsubparagraaf
-    ropt:Subsubsublid
-    ropt:Subsubsubparagraaf
+    ropt:SubSublid
+    ropt:SubSubparagraaf
+    ropt:SubSubSublid
+    ropt:SubSubSubparagraaf
     ropt:Titel
     ropt:Toelichting
   )
@@ -1186,7 +1187,7 @@ ropt_str:Sublid_ouder a sh:PropertyShape ;
 .
 
 ropt_str:Subsublid a sh:NodeShape ;
-  sh:targetClass ropt:Subsublid ;
+  sh:targetClass ropt:SubSublid ;
   sh:property
     ropt_str:Subsublid_ouder
 .
@@ -1197,14 +1198,14 @@ ropt_str:Subsublid_ouder a sh:PropertyShape ;
 .
 
 ropt_str:Subsubsublid a sh:NodeShape ;
-  sh:targetClass ropt:Subsubsublid ;
+  sh:targetClass ropt:SubSubSublid ;
   sh:property
     ropt_str:Subsubsublid_ouder
 .
 
 ropt_str:Subsubsublid_ouder a sh:PropertyShape ;
   sh:path ropt:ouder ;
-  sh:class ropt:Subsublid
+  sh:class ropt:SubSublid
 .
 
 #################################################################
@@ -1309,7 +1310,7 @@ ropt_str:Subparagraaf_ouder a sh:PropertyShape ;
 .
 
 ropt_str:Subsubparagraaf a sh:NodeShape ;
-  sh:targetClass ropt:Subsubparagraaf ;
+  sh:targetClass ropt:SubSubparagraaf ;
   sh:property
     ropt_str:Subsubparagraaf_ouder
 .
@@ -1320,14 +1321,14 @@ ropt_str:Subsubparagraaf_ouder a sh:PropertyShape ;
 .
 
 ropt_str:Subsubsubparagraaf a sh:NodeShape ;
-  sh:targetClass ropt:Subsubsubparagraaf ;
+  sh:targetClass ropt:SubSubSubparagraaf ;
   sh:property
     ropt_str:Subsubsubparagraaf_ouder
 .
 
 ropt_str:Subsubsubparagraaf_ouder a sh:PropertyShape ;
   sh:path ropt:ouder ;
-  sh:class ropt:Subsubparagraaf
+  sh:class ropt:SubSubparagraaf
 .
 
 
@@ -1415,10 +1416,10 @@ ropt_str:Overig_Tekstobject_ouder a sh:PropertyShape ;
       sh:class ropt:Subparagraaf ;
     ]
     [
-      sh:class ropt:Subsubparagraaf ;
+      sh:class ropt:SubSubparagraaf ;
     ]
     [
-      sh:class ropt:Subsubsubparagraaf ;
+      sh:class ropt:SubSubSubparagraaf ;
     ]
   )
 .

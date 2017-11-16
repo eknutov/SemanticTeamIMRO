@@ -10,8 +10,8 @@
 @prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
 @prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
 @prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
-@prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ro_col: <http://data.informatiehuisruimte.nl/ro/id/collectie/> .
+@prefix dct: <http://purl.org/dc/terms/> .
 
 nen3610_str:GeoObject a sh:NodeShape ;
   sh:targetClass nen3610:GeoObject ;

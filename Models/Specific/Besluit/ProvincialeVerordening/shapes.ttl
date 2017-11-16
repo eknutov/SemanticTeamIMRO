@@ -23,6 +23,7 @@
 @prefix nen3610_str: <http://data.informatiehuisruimte.nl/def/nen3610/> .
 @prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
 @prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
+<<<<<<< HEAD
 @prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
 @prefix ro_begkr: <http://data.informatiehuisruimte.nl/id/begrippenkader/> .
 @prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
@@ -99,3 +100,6 @@ ro_str:Besluitvlak_P a sh:NodeShape ;
     ro_str:Besluitvlak_P_begrenzing ,
     ro_str:Besluitvlak_P_hasPart
 .
+=======
+@prefix ro_col: <http://data.informatiehuisruimte.nl/ro/id/collectie/> .
+>>>>>>> master

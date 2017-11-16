@@ -24,6 +24,7 @@
 @prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
 @prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
 @prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
+<<<<<<< HEAD
 @prefix ro_begkr: <http://data.informatiehuisruimte.nl/id/begrippenkader/> .
 @prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
 @prefix ro_nen3610_beg: <http://data.informatiehuisruimte.nl/nen3610/id/begrip/> .
@@ -36,6 +37,10 @@
 
 # legacy: (legacy prefix, in case someone still uses it)
 @prefix begrip: <http://data.informatiehuisruimte.nl/ro/id/begrip#> .
+=======
+@prefix ro_col: <http://data.informatiehuisruimte.nl/ro/id/collectie/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+>>>>>>> master
 
 
 ro_str:Idealisatie_1 a sh:NodeShape ;
