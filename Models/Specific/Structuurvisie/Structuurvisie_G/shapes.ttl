@@ -19,15 +19,14 @@
 #################################################################
 
 
-ro_str:Structuurvisie_G rdf:type sh:NodeShape ;
+ro_str:Structuurvisie_G a sh:NodeShape ;
   sh:targetClass ro:Structuurvisie_G ;
   sh:property
     ro_str:Structuurvisie_G_beleidsmatigVerantwoordelijkeOverheid ,
     ro_str:Structuurvisie_G_hasPart
 .
 
-ro_str:Structuurvisie_G_beleidsmatigVerantwoordelijkeOverheid
-  rdf:type sh:PropertyShape ;
+ro_str:Structuurvisie_G_beleidsmatigVerantwoordelijkeOverheid a sh:PropertyShape ;
   sh:path ro:beleidsmatigVerantwoordelijkeOverheid ;
   sh:minCount 1 ;
 #  sh:maxCount 1 ; #the gml files concatenates the names of the ministries, resulting in a single instance. resulting in a sh:maxCount 1 ; however, if we can seperate these again, I think we'll have a more robust knowledge graph.
@@ -51,7 +50,7 @@ ro_str:Structuurvisie_G_hasPart a sh:PropertyShape ;
 #    Structuurvisiegebied_G
 #################################################################
 
-ro_str:Structuurvisiegebied_G rdf:type sh:NodeShape ;
+ro_str:Structuurvisiegebied_G a sh:NodeShape ;
     sh:targetClass ro:Structuurvisiegebied_G ;
     sh:property
       ro_str:Structuurvisiegebied_G_beleid ,
@@ -60,45 +59,45 @@ ro_str:Structuurvisiegebied_G rdf:type sh:NodeShape ;
 .
 
 
-ro_str:Structuurvisiegebied_G_beleid rdf:type sh:PropertyShape ;
+ro_str:Structuurvisiegebied_G_beleid a sh:PropertyShape ;
   sh:path ro:beleid ;
   sh:minCount 1 ;
   sh:node ro_str:BeleidInfo_GSV ;
 .
 
-ro_str:Structuurvisiegebied_G_tekstVerwijzing rdf:type sh:PropertyShape ;
+ro_str:Structuurvisiegebied_G_tekstVerwijzing a sh:PropertyShape ;
   sh:path ro:tekst ;
   sh:minCount 1 ;
   sh:node ro_str:Teksttype_SV
 .
 
-ro_str:Structuurvisiegebied_G_isPartOf rdf:type sh:PropertyShape ;
+ro_str:Structuurvisiegebied_G_isPartOf a sh:PropertyShape ;
   sh:path ro:isPartOf ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
   sh:class ro:Structuurvisie_G ;
 .
 
-ro_str:BeleidInfo_GSV rdf:type sh:NodeShape ; #treated as a blank node
+ro_str:BeleidInfo_GSV a sh:NodeShape ; #treated as a blank node
   sh:property
     ro_str:BeleidInfo_GSV_belang ,
     ro_str:BeleidInfo_GSV_rol ,
     ro_str:BeleidInfo_GSV_instrument ;
 .
 
-ro_str:BeleidInfo_GSV_belang rdf:type sh:PropertyShape ;
+ro_str:BeleidInfo_GSV_belang a sh:PropertyShape ;
   sh:path ro:belang ;
   sh:datatype xsd:string ;
   sh:maxCount 1 ;
 .
 
-ro_str:BeleidInfo_GSV_rol rdf:type sh:PropertyShape ;
+ro_str:BeleidInfo_GSV_rol a sh:PropertyShape ;
   sh:path ro:rol ;
   sh:datatype xsd:string ;
   sh:maxCount 1 ;
 .
 
-ro_str:BeleidInfo_GSV_instrument rdf:type sh:PropertyShape ;
+ro_str:BeleidInfo_GSV_instrument a sh:PropertyShape ;
   sh:path ro:instrument ;
   sh:maxCount 1 ;
   sh:in (
@@ -120,7 +119,7 @@ ro_str:BeleidInfo_GSV_instrument rdf:type sh:PropertyShape ;
 #    Structuurvisiecomplex_G
 #################################################################
 
-ro_str:Structuurvisiecomplex_G rdf:type sh:NodeShape ;
+ro_str:Structuurvisiecomplex_G a sh:NodeShape ;
     sh:targetClass ro:Structuurvisiecomplex_R ;
     sh:property
       ro_str:Structuurvisiegebied_G_beleid , #copied

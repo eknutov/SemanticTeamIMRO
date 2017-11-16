@@ -174,26 +174,26 @@ ro_str:Structuurvisiegebied_cartografie a sh:PropertyShape ; #perhaps applicable
   sh:node ro_str:cartografieInfo ;
 .
 
-ro_str:Structuurvisiegebied_begrenzing rdf:type sh:PropertyShape ;
+ro_str:Structuurvisiegebied_begrenzing a sh:PropertyShape ;
   sh:path ro:begrenzing ;
   sh:class ro:Geometrie ; #no cardinality
   sh:node ro_str:Structuurvisiegebied_Geometrie ;
 .
 
-ro_str:Structuurvisiegebied_Geometrie rdf:type sh:NodeShape ;
+ro_str:Structuurvisiegebied_Geometrie a sh:NodeShape ;
   sh:property
     ro_str:Structuurvisiegebied_Geometrie_geometrie , #perhaps we can make these properties of the class.
     ro_str:Structuurvisiegebied_Geometrie_idealisatie ;
 .
 
-ro_str:Structuurvisiegebied_Geometrie_geometrie rdf:type sh:PropertyShape ;
+ro_str:Structuurvisiegebied_Geometrie_geometrie a sh:PropertyShape ;
   sh:path ro:geometrie ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
   sh:node ro_str:PuntLijnVlakMulti ;
 .
 
-ro_str:Structuurvisiegebied_Geometrie_idealisatie rdf:type sh:PropertyShape ;
+ro_str:Structuurvisiegebied_Geometrie_idealisatie a sh:PropertyShape ;
   sh:path ro:idealisatie ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
@@ -227,7 +227,7 @@ ro_str:Structuurvisiecomplex_thema a sh:PropertyShape ;
   sh:datatype xsd:string ;
 .
 
-ro_str:Structuurvisiecomplex_hasPart rdf:type sh:PropertyShape ;
+ro_str:Structuurvisiecomplex_hasPart a sh:PropertyShape ;
   sh:path ro:hasPart ;
   sh:minCount 1 ;
   sh:class ro:Planobject ;

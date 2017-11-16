@@ -26,8 +26,7 @@ ro_str:Structuurvisie_P a sh:NodeShape ;
     ro_str:Structuurvisie_P_spatial ;
 .
 
-ro_str:Structuurvisie_P_beleidsmatigVerantwoordelijkeOverheid
-  a sh:PropertyShape ;
+ro_str:Structuurvisie_P_beleidsmatigVerantwoordelijkeOverheid a sh:PropertyShape ;
   sh:path ro:beleidsmatigVerantwoordelijkeOverheid ;
   sh:minCount 1 ;
   sh:node ro_str:Overheden_P
@@ -68,7 +67,7 @@ ro_str:Structuurvisie_P_Plangebied_inwinningsschaal a sh:PropertyShape ;
 #################################################################
 
 
-ro_str:Structuurvisiegebied_P rdf:type sh:NodeShape ;
+ro_str:Structuurvisiegebied_P a sh:NodeShape ;
     sh:targetClass ro:Structuurvisiegebied_P ;
     sh:property
       ro_str:Structuurvisiegebied_P_beleid ,
@@ -78,40 +77,40 @@ ro_str:Structuurvisiegebied_P rdf:type sh:NodeShape ;
       ro_str:Structuurvisiegebied_P_begrenzing
 .
 
-ro_str:Structuurvisiegebied_P_thema rdf:type sh:PropertyShape ; #same as for structuurvisieplangebied_R, perhaps lose P_ and keep use the same sh:PropertyShape.
+ro_str:Structuurvisiegebied_P_thema a sh:PropertyShape ; #same as for structuurvisieplangebied_R, perhaps lose P_ and keep use the same sh:PropertyShape.
   sh:path ro:thema ;
   sh:minCount 1 ;
   sh:datatype xsd:string ;
 .
 
-ro_str:Structuurvisiegebied_P_beleid rdf:type sh:PropertyShape ;
+ro_str:Structuurvisiegebied_P_beleid a sh:PropertyShape ;
   sh:path ro:beleid ;
   sh:minCount 1 ;
   sh:node ro_str:BeleidInfo_PSV ;
 .
 
-ro_str:BeleidInfo_PSV rdf:type sh:NodeShape ; #treated as a blank node
+ro_str:BeleidInfo_PSV a sh:NodeShape ; #treated as a blank node
   sh:property
     ro_str:BeleidInfo_PSV_belang ,
     ro_str:BeleidInfo_PSV_rol ,
     ro_str:BeleidInfo_PSV_instrument ;
 .
 
-ro_str:BeleidInfo_PSV_belang rdf:type sh:PropertyShape ;
+ro_str:BeleidInfo_PSV_belang a sh:PropertyShape ;
   sh:path ro:belang ;
   sh:datatype xsd:string ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
 .
 
-ro_str:BeleidInfo_PSV_rol rdf:type sh:PropertyShape ;
+ro_str:BeleidInfo_PSV_rol a sh:PropertyShape ;
   sh:path ro:rol ;
   sh:datatype xsd:string ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
 .
 
-ro_str:BeleidInfo_PSV_instrument rdf:type sh:PropertyShape ;
+ro_str:BeleidInfo_PSV_instrument a sh:PropertyShape ;
   sh:path ro:instrument ;
   sh:maxCount 1 ;
   sh:in ( #were instruments named individuals? # for now yes, TODO make skos:Concepts.
@@ -127,26 +126,26 @@ ro_str:BeleidInfo_PSV_instrument rdf:type sh:PropertyShape ;
   )
 .
 
-ro_str:Structuurvisiegebied_P_tekstVerwijzing rdf:type sh:PropertyShape ;
+ro_str:Structuurvisiegebied_P_tekstVerwijzing a sh:PropertyShape ;
   sh:path ro:tekst ;
   sh:minCount 1 ;
   sh:node ro_str:Teksttype_PSV ;
 .
 
-ro_str:Structuurvisiegebied_P_illustratieVerwijzing rdf:type sh:PropertyShape ;
+ro_str:Structuurvisiegebied_P_illustratieVerwijzing a sh:PropertyShape ;
   sh:path ro:illustratie ;
   sh:class ro:Illustratie ;
   sh:node ro_str:Illustratie_illustratieNaam
 .
 
-ro_str:Structuurvisiegebied_P_isPartOf rdf:type sh:PropertyShape ;
+ro_str:Structuurvisiegebied_P_isPartOf a sh:PropertyShape ;
   sh:path ro:isPartOf ;
 #  sh:minCount 1 ; #inherited
 #  sh:maxCount 1 ; #inherited
   sh:class ro:Structuurvisieplangebied_P ;
 .
 
-ro_str:Structuurvisiegebied_P_begrenzing rdf:type sh:PropertyShape ;
+ro_str:Structuurvisiegebied_P_begrenzing a sh:PropertyShape ;
   sh:path ro:begrenzing ;
 #  sh:class ro:Geometrie ;
   sh:minCount 1 ;
@@ -155,12 +154,12 @@ ro_str:Structuurvisiegebied_P_begrenzing rdf:type sh:PropertyShape ;
 .
 
 #partially defined by ro_str:Structuurvisiegebied.
-ro_str:Structuurvisiegebied_P_Geometrie rdf:type sh:NodeShape ;
+ro_str:Structuurvisiegebied_P_Geometrie a sh:NodeShape ;
   sh:property
     ro_str:Structuurvisiegebied_P_Geometrie_inwinningsschaal
 .
 
-ro_str:Structuurvisiegebied_P_Geometrie_inwinningsschaal rdf:type sh:PropertyShape ;
+ro_str:Structuurvisiegebied_P_Geometrie_inwinningsschaal a sh:PropertyShape ;
   sh:path ro:inwinningschaal ;
   sh:maxCount 1 ;
   sh:datatype xsd:integer ;
@@ -172,7 +171,7 @@ ro_str:Structuurvisiegebied_P_Geometrie_inwinningsschaal rdf:type sh:PropertySha
 #    Structuurvisiecomplex_P
 #################################################################
 
-ro_str:Structuurvisiecomplex_P rdf:type sh:NodeShape ;
+ro_str:Structuurvisiecomplex_P a sh:NodeShape ;
   sh:targetClass ro:Structuurvisiecomplex_P ;
   sh:property
     ro_str:Structuurvisiecomplex_P_beleid ,
@@ -182,7 +181,7 @@ ro_str:Structuurvisiecomplex_P rdf:type sh:NodeShape ;
     ro_str:Structuurvisiecomplex_P_isPartOf # multiplicity is defined in the superclass shape.
 .
 
-ro_str:Structuurvisiecomplex_P_beleid rdf:type sh:PropertyShape ;
+ro_str:Structuurvisiecomplex_P_beleid a sh:PropertyShape ;
   sh:path ro:beleid ;
   sh:minCount 1 ;
   sh:node ro_str:BeleidInfo_PSV ;
@@ -198,7 +197,7 @@ ro_str:Structuurvisiecomplex_P_isPartOf a sh:PropertyShape ;
 #    Structuurvisieverklaring_P
 #################################################################
 
-ro_str:Structuurvisieverklaring_P rdf:type sh:NodeShape ;
+ro_str:Structuurvisieverklaring_P a sh:NodeShape ;
   sh:targetClass ro:Structuurvisieverklaring_P ;
   sh:property
     ro_str:Structuurvisiecomplex_thema , #copied
@@ -213,7 +212,7 @@ ro_str:Structuurvisieverklaring_P_tekstVerwijzing a sh:PropertyShape ;
   sh:node ro_str:TeksttypeP_PSV ;
 .
 
-ro_str:TeksttypeP_PSV rdf:type sh:NodeShape ;
+ro_str:TeksttypeP_PSV a sh:NodeShape ;
   sh:property [
     sh:path rdf:type ;
     sh:in (

@@ -21,12 +21,12 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 nen3610:GeoObject a owl:Class ;
-  dcterms:subject ro_nen3610_beg:GeoObject ;
+  dcterms:subject ro_nen3610_beg:GeoObject ;  # ekn: ro_nen3610_beg:GeoObject  is not defined anywhere
   rdfs:label "GeoObject"@nl
 .
 
 nen3610:NEN3610ID a owl:Class ;
-  dcterms:subject ro_nen3610_beg:NEN3610ID ;
+  dcterms:subject ro_nen3610_beg:NEN3610ID ; # ekn: ro_nen3610_beg:NEN3610ID  is not defined anywhere
   rdfs:label "NEN3610ID"@nl
 .
 
