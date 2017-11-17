@@ -160,6 +160,18 @@ ro:Document a owl:Class ;
   rdfs:isDefinedBy :ro
 .
 
+ro:VoorschriftenRegels a owl:Class ;
+  rdfs:label "Voorschriften/Regels" ;
+  rdfs:subClassOf ro:Tekst ;
+  rdfs:isDefinedBy :ro
+.
+
+ro:BijlageVoorschriftenRegels a owl:Class ;
+  rdfs:label "Bijlage Voorschriften/Regels" ;
+  rdfs:subClassOf ro:Tekst ;
+  rdfs:isDefinedBy :ro
+.
+
 #################################################################
 #    Illustratie
 #################################################################

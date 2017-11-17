@@ -49,7 +49,7 @@ ro_str:Besluitgebied_P a sh:NodeShape ;
     ro_str:Besluitgebied_P_beleidsmatigVerantwoorlijkeOverheid ,
     ro_str:Besluitgebied_P_normadressant ,
     ro_str:Besluitgebied_P_tekstverwijzing ,
-    ro_str:Besluitgebied_P_illustratieverwijzing ,
+    ro_str:Besluitgebied_A-P_illustratieverwijzing ,
     ro_str:Besluitgebied_P_externPlan ,
     ro_str:Besluitgebied_P_norm
 .
@@ -75,12 +75,71 @@ ro_str:Besluitgebied_P_normadressant a sh:PropertyShape ;
   sh:node [
     sh:property [
        sh:path [ sh:inversePath skos:member ] ;
-       sh:hasValue ro_col:Normadressant_PV ; #TODO: create these collections
+       sh:hasValue ro_col:Normadressant_PV ;
     ]
   ]
 .
 
 ro_str:Besluitgebied_P_tekstverwijzing a sh:PropertyShape ;
+  sh:path ro:tekst ;
+  sh:minCount 1 ;
+  sh:maxCount 6 ;
+#Jesse: TODO: qualifiedValueShape (sh:hasValue of the multiple occurences), the IMROPT2012 constraint is in place.
+  sh:node ro_str:TeksttypeBG_PV
+.
+
+ro_str:TeksttypeBG_PV a sh:NodeShape ;
+  sh:property [
+    sh:path rdf:type ;
+    sh:in (
+      ropt:Tekstobject
+      ro:Besluitdocument
+      ro:Regels
+      ro:Toelichting
+      ro:BijlageBesluitdocument
+      ro:BijlageRegels
+      ro:BijlageToelichting
+    )
+  ]
+.
+
+ro_str:Besluitgebied_P_externPlan a sh:PropertyShape ;
+  sh:path ro:externPlan ;
+  sh:node ro_str:ExternPlanReferentie_PV
+.
+
+ro_str:ExternPlanReferentie_PV a sh:Nodeshape ;
+  sh:closed true ;
+  sh:ignoredProperties (
+    ro:muteert
+    ro:vervangt
+    ro:tenGevolgeVan
+  )
+.
+
+ro_str:Besluitgebied_P_norm a sh:PropertyShape ;
+  sh:path ro:norm ;
+  sh:minCount 2 ;
+  sh:maxCount 3 ;
+  sh:and ( [
+    sh:qualifiedValueShape [
+      sh:hasValue ro_beg:IMRO2012 ;
+    ] ;
+    sh:qualifiedMinCount 1 ;
+    sh:qualifiedMaxCount 1 ;
+    ] [
+    sh:qualifiedValueShape [
+      sh:hasValue ro_beg:PRPV2012 ;
+    ] ;
+    sh:qualifiedMinCount 1 ;
+    sh:qualifiedMaxCount 1 ;
+    ] [
+    sh:qualifiedValueShape [
+      sh:hasValue ro_beg:IMROPT2012 ;
+    ] ;
+    sh:qualifiedMaxCount 1 ;
+  ]
+  )
 .
 
 #################################################################
@@ -90,23 +149,48 @@ ro_str:Besluitgebied_P_tekstverwijzing a sh:PropertyShape ;
 
 ro_str:Besluitvlak_P a sh:NodeShape ;
   sh:property
-    ro_str:Besluitvlak_P_thema ,
-    ro_str:Besluitvlak_P_tekst ,
-    ro_str:Besluitvlak_P_illustratie ,
-    ro_str:Besluitvlak_P_cartografie ,
+    ro_str:Besluitvlak_A-P_thema ,
+    ro_str:Besluitvlak_P_tekstverwijzing ,
+    ro_str:Besluitvlak_A-P_illustratieverwijzing ,
+    ro_str:Besluitvlak_A-P_cartografie ,
     ro_str:Besluitvlak_P_begrenzing ,
     ro_str:Besluitvlak_P_hasPart
+.
+
+
+ro_str:Besluitvlak_P_tekstverwijzing a sh:PropertyShape ;
+  sh:path ro:tekst ;
+  sh:minCount 1 ;
+#Jesse: TODO: qualifiedValueShape (sh:hasValue of the multiple occurences), the IMROPT2012 constraint is in place.
+  sh:node
+    ro_str:Teksttype_PV ,
+    ro_str:Besluitgebied_P_normadressant
+.
+
+ro_str:Teksttype_PV a sh:NodeShape ;
+  sh:property [
+    sh:path rdf:type ;
+    sh:in (
+      ropt:Tekstobject
+      ro:RegelZonderVoorbereidingsbescherming
+      ro:RegelMetVoorbereidingsbescherming
+      ro:Toelichting
+      ro:BijlageRegelZonderVoorbereidingsbescherming
+      ro:BijlageRegelMetVoorbereidingsbescherming
+      ro:BijlageToelichting
+    )
+  ]
 .
 
 ro_str:Besluitvlak_P_begrenzing a sh:PropertyShape ;
   sh:path ro:begrenzing ;
   sh:node
-    ro_str:Besluitgebied_P_Geometry_geometry ,
-    ro_str:Besluitvlak_P_Geometry_idealisatie
+    ro_str:Besluitvlak_P_Geometrie_geometrie ,
+    ro_str:Besluitvlak_P_Geometrie_idealisatie
 .
 
-ro_str:Besluitvlak_A_Geometrie_geometry a sh:PropertyShape ;
-  sh:path ro:geometry ;
+ro_str:Besluitvlak_P_Geometrie_geometrie a sh:PropertyShape ;
+  sh:path ro:geometrie ;
   sh:node ro_str:VlakMultiVlak
 .
 
@@ -115,4 +199,52 @@ ro_str:Besluitvlak_P_Geometrie_idealisatie a sh:PropertyShape ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
   sh:node ro_str:Idealisatie_1
+.
+
+ro_str:Besluitsubvlak_P_Geometrie_idealisatie a sh:PropertyShape ;
+  sh:path ro:idealisatie ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:node ro_str:Idealisatie_3
+.
+
+ro_str:Besluitvlak_P_hasPart a sh:PropertyShape ;
+  sh:path dct:hasPart ;
+  sh:class ro:Besluitvlak ;
+#Jesse: Deactivation does not work this way. Will probably have to resort to a SPARQL property.
+#  sh:deactivate ro_str:Besluitvlak_P_begrenzing ;
+  sh:node
+    ro_str:Besluitvlak_P ,
+    ro_str:Besluitsubvlak_P_isPartOf
+#    ro_str:Besluitsubvlak_P_begrenzing
+.
+
+ro_str:Besluitsubvlak_P_isPartOf a sh:NodeShape ;
+  sh:property [
+    sh:path dct:isPartOf ;
+    sh:or (
+      [ sh:class ro:ProvincialeVerordening ]
+      [ sh:class ro:Besluitvlak ]
+    ) ;
+    sh:minCount 2 ;   #Jesse: a subvlak is always part of a ro:Besluit and a ro:Besluitvlak.
+  ]
+.
+
+ro_str:Besluitsubvlak_P_begrenzing a sh:PropertyShape ;
+  sh:path ro:begrenzing ;
+  sh:node
+    ro_str:Besluitsubvlak_P_Geometry_geometry ,
+    ro_str:Besluitsubvlak_P_Geometry_idealisatie
+.
+
+ro_str:Besluitsubvlak_P_Geometrie_geometry a sh:PropertyShape ;
+  sh:path ro:geometry ;
+  sh:node ro_str:PuntLijnVlakMulti
+.
+
+ro_str:Besluitsubvlak_P_Geometrie_idealisatie a sh:PropertyShape ;
+  sh:path ro:idealisatie ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:node ro_str:Idealisatie_3
 .

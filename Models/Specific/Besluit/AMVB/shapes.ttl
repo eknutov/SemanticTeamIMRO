@@ -50,7 +50,7 @@ ro_str:Besluitgebied_A a sh:NodeShape ;
     ro_str:Besluitgebied_A_beleidsmatigVerantwoorlijkeOverheid ,
     ro_str:Besluitgebied_A_normadressant ,
     ro_str:Besluitgebied_A_tekstverwijzing ,
-    ro_str:Besluitgebied_A_illustratieverwijzing , #Jesse: common for both Besluitgebied_P and besluitgebied_A, not for besluitgebied_X
+    ro_str:Besluitgebied_A-P_illustratieverwijzing , #Jesse: common for both Besluitgebied_P and besluitgebied_A, not for besluitgebied_X
     ro_str:Besluitgebied_A_externPlan ,
     ro_str:Besluitgebied_A_norm
 .
@@ -88,23 +88,16 @@ ro_str:Besluitgebied_A_normadressant a sh:PropertyShape ;
   sh:node [
     sh:property [
        sh:path [ sh:inversePath skos:member ] ;
-       sh:hasValue ro_col:NormadressantenAMVB ;
+       sh:hasValue ro_col:Normadressant_AMB ;
     ]
   ]
 .
 
 ro_str:Besluitgebied_A_tekstverwijzing a sh:PropertyShape ;
-#  sh:path ro:tekst ;
+  sh:path ro:tekst ;
   sh:minCount 1 ;
   sh:maxCount 6 ;
 #Jesse: TODO: qualifiedValueShape (sh:hasValue of the multiple occurences), the IMROPT2012 constraint is in place.
-  sh:xone ( [
-    sh:and (
-      [ sh:path ro:norm ; sh:hasValue ro_beg:IMROPT2012 ; ]
-      [ sh:path ro:tekst ; sh:class ropt:Tekstobject, ro:Tekst ; ] ) ] [
-    sh:and (
-      [ sh:path ro:norm ; sh:not [ sh:hasValue ro_beg:IMROPT ; ] ]
-      [ sh:path ro:tekst ; sh:class ro:Tekst ; sh:not [ sh:class ropt:Tekstobject ]  ]  ) ] ) ;
   sh:node ro_str:TeksttypeBG_AMB
 .
 
@@ -113,6 +106,7 @@ ro_str:TeksttypeBG_AMB a sh:NodeShape ;
   sh:property [
     sh:path rdf:type ;
     sh:in (
+      ropt:Tekstobject
       ro:Besluitdocument
       ro:Regels
       ro:Toelichting
@@ -124,7 +118,7 @@ ro_str:TeksttypeBG_AMB a sh:NodeShape ;
 .
 
 #Jesse: I am thinking these property shapes could also follow a different structure. e.g. `IllustratieReferentiePG a sh:PropertyShape .` which is used instead of `ro_str:<insertPlan>_illustratieverwijzing`. for a later version perhaps
-ro_str:Besluitgebied_A_illustratieverwijzing a sh:PropertyShape ;
+ro_str:Besluitgebied_A-P_illustratieverwijzing a sh:PropertyShape ;
   sh:path ro:illustratie ;
   sh:class ro:Illustratie
 .
@@ -177,13 +171,12 @@ ro_str:Besluitgebied_A_norm a sh:PropertyShape ;
 
 ro_str:Besluitgebied_A-P_Plangebied a sh:NodeShape ;
   sh:property
-    ro_str:Besluitgebied_A-P_Plangebied_begrenzing ,
-#    ro_str:Besluitgebied_A-P_Plangebied_idealisatie
+    ro_str:Besluitgebied_A-P_Plangebied_begrenzing 
 .
 
 ro_str:Besluitgebied_A-P_Plangebied_begrenzing a sh:PropertyShape ;
   sh:path ro:begrenzing ;
-#Jesse Inherited
+#Jesse: Inherited
 #  sh:class ro:Geometry ;
 #  sh:minCount 1 ;
 #  sh:maxCount 1 ;
@@ -192,12 +185,6 @@ ro_str:Besluitgebied_A-P_Plangebied_begrenzing a sh:PropertyShape ;
 #    ro_str:VlakMultiVlak ,
   sh:node ro_str:Besluitgebied_A-P_Plangebied_idealisatie
 .
-
-#  ro_str:Besluitgebied_A-P_Plangebied_geometrie a sh:PropertyShape ;
-#    sh:path ro:geometrie ;
-#    sh:minCount 1 ;
-#    sh:maxCount 1
-#  .
 
 ro_str:Besluitgebied_A-P_Plangebied_idealisatie a sh:PropertyShape ;
   sh:path ro:idealisatie ;
@@ -214,7 +201,7 @@ ro_str:Besluitgebied_A-P_Plangebied_idealisatie a sh:PropertyShape ;
 ro_str:Besluitvlak_A a sh:NodeShape ;
 #  sh:targetClass ro:Besluitvlak_A ; #Jesse: Beluitvlak_A does not exist, the target is 'inherited' from ro_Str:Besluitgebied_A
   sh:property
-    ro_str:Besluitvlak_A_thema ,
+    ro_str:Besluitvlak_A-P_thema ,
     ro_str:Besluitvlak_A_tekst ,
     ro_str:Besluitvlak_A_illustratie ,
     ro_str:Besluitvlak_A_cartografie , #Jesse: my concern here is that I am not sure whether these are attributes of the specialization of ro:Illustratie, ro:Kaart. Hence, I put this in a blank node.
@@ -222,7 +209,7 @@ ro_str:Besluitvlak_A a sh:NodeShape ;
     ro_str:Besluitvlak_A_hasPart
 .
 
-ro_str:Besluitvlak_A_thema a sh:PropertyShape ;
+ro_str:Besluitvlak_A-P_thema a sh:PropertyShape ;
   sh:path ro:thema ;
   sh:datatype xsd:string ;
   sh:nodeKind sh:Literal ;
@@ -233,20 +220,16 @@ ro_str:Besluitvlak_A_tekst a sh:PropertyShape ;
   sh:path ro:tekst ;
   sh:minCount 1 ;
   #Jesse: TODO: qualifiedValueShape (sh:hasValue of the multiple occurences), the IMROPT2012 constraint is in place.
-  sh:xone ( [
-    sh:and (
-      [ sh:path ro:norm ; sh:hasValue ro_beg:IMROPT2012 ; ]
-      [ sh:path ro:tekst ; sh:class ropt:Tekstobject, ro:Tekst ; ] ) ] [
-    sh:and (
-      [ sh:path ro:norm ; sh:not [ sh:hasValue ro_beg:IMROPT ; ] ]
-      [ sh:path ro:tekst ; sh:class ro:Tekst ; sh:not [ sh:class ropt:Tekstobject ]  ]  ) ] ) ;
-  sh:node ro_str:Teksttype_AMB
+  sh:node
+    ro_str:Teksttype_AMB ,
+    ro_str:Besluitgebied_A_normadressant
 .
 
 ro_str:Teksttype_AMB a sh:NodeShape ;
   sh:property [
     sh:path rdf:type ;
     sh:in (
+      ropt:Tekstobject
       ro:Besluittekst
       ro:Regels
       ro:Toelichting
@@ -257,13 +240,13 @@ ro_str:Teksttype_AMB a sh:NodeShape ;
   ]
 .
 
-ro_str:Besluitvlak_A_illustratie a sh:PropertyShape ;
+ro_str:Besluitvlak_A-P_illustratieverwijzing a sh:PropertyShape ;
   sh:path ro:illustratie ;
   sh:class ro:Illustratie ;
   sh:node ro_str:Illustratie_legendaNaam
 .
 
-ro_str:Besluitvlak_A_cartografie a sh:PropertyShape ;
+ro_str:Besluitvlak_A-P_cartografie a sh:PropertyShape ;
   sh:path ro:cartografie ;
   sh:node ro_str:cartografieInfo
 .
@@ -271,12 +254,12 @@ ro_str:Besluitvlak_A_cartografie a sh:PropertyShape ;
 ro_str:Besluitvlak_A_begrenzing a sh:PropertyShape ;
   sh:path ro:begrenzing ;
   sh:node
-    ro_str:Besluitgebied_A_Geometry_geometry ,
-    ro_str:Besluitvlak_A_Geometry_idealisatie
+    ro_str:Besluitvlak_A_Geometrie_geometrie ,
+    ro_str:Besluitvlak_A_Geometrie_idealisatie
 .
 
-ro_str:Besluitvlak_A_Geometrie_geometry a sh:PropertyShape ;
-  sh:path ro:geometry ;
+ro_str:Besluitvlak_A_Geometrie_geometrie a sh:PropertyShape ;
+  sh:path ro:geometrie ;
   sh:node ro_str:PuntLijnVlakMulti
 .
 
@@ -298,7 +281,11 @@ ro_str:Besluitvlak_A_hasPart a sh:PropertyShape ;
 ro_str:Besluitsubvlak_A_isPartOf a sh:NodeShape ;
   sh:property [
     sh:path dct:isPartOf ;
-    sh:class ro:AMVB, ro:Regeling ;
-    sh:minCount 1 ; #Jesse: IMRO defines a min cardinality of 0, However, I don't think a part can exist without its whole.
+    sh:or (
+      [ sh:class ro:AMVB ]
+      [ sh:class ro:Regeling ]
+      [ sh:class ro:Besluitvlak ]
+    ) ;
+    sh:minCount 2 ;   #Jesse: a subvlak is always part of a ro:Besluit and a ro:Besluitvlak.
   ]
 .
