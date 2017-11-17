@@ -1605,7 +1605,7 @@ ro_beg:tenGevolgeVan a skos:Concept .
   rdfs:seeAlso <https://www.nen.nl/NEN-Shop/Norm/NEN-36102011-nl.htm>
 .
 
-# ekn: a purpose to have the same URI as seeAlso of the same thing
+# ekn: a purpose to have the same URI as seeAlso of the same thing !!!
 <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012> a dcmit:Text ;
   rdfs:label "Informatiemodel Ruimtelijke Ordening (IMRO2012)"@nl ;
   rdfs:seeAlso <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012>
