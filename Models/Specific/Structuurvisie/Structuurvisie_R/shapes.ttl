@@ -148,7 +148,7 @@ ro_str:Structuurvisiecomplex_R a sh:NodeShape ;
     sh:property
       ro_str:Structuurvisiecomplex_R_beleid ,
       ro_str:Structuurvisiegebied_R_tekstverwijzing ,
-      ro_str:Structuurvisiegebied_R_isPartOf 
+      ro_str:Structuurvisiegebied_R_isPartOf
 .
 
 ro_str:Structuurvisiecomplex_R_beleid a sh:PropertyShape ;

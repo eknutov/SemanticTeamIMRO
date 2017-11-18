@@ -12,6 +12,7 @@
 @prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix skos-thes: <http://purl.org/iso25964/skos-thes#> .
 @prefix voaf: <http://purl.org/vocommons/voaf#> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -24,8 +25,8 @@
 @prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
 @prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
 @prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
-@prefix ro_begkr: <http://data.informatiehuisruimte.nl/id/begrippenkader/> .
-@prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
+@prefix ro_begkr: <http://data.informatiehuisruimte.nl/ro/id/begrippenkader/> .
+@prefix ro_col: <http://data.informatiehuisruimte.nl/ro/id/collectie/> .
 @prefix ro_nen3610_beg: <http://data.informatiehuisruimte.nl/nen3610/id/begrip/> .
 @prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
 @prefix ro_sym: <http://data.informatiehuisruimte.nl/ro/id/symbool/> .
@@ -33,15 +34,8 @@
 @prefix ropt: <http://data.informatiehuisruimte.nl/def/ropt#> .
 @prefix ropt_str: <http://data.informatiehuisruimte.nl/def/ropt/> .
 @prefix ropt_beg: <http://data.informatiehuisruimte.nl/ropt/id/begrip/> .
+@prefix ropt_col: <http://data.informatiehuisruimte.nl/ropt/id/collectie/> .
 
-# legacy: (legacy prefix, in case someone still uses it)
-@prefix begrip: <http://data.informatiehuisruimte.nl/ro/id/begrip#> .
-
-
-#  ro:verwijzing a rdf:Property ;
-#    rdfs:label "verwijzing"@nl ;
-#    rdfs:isDefinedBy :ro
-#  .
 
 ### TODO DOCO?
 
@@ -49,16 +43,12 @@
 #    Tekst
 #################################################################
 
-#TODO: Not all items in the teksttype enumeration are covered yet
-
-#ro:tekstReferentie a owl:AnnotationProperty ;
-#  rdfs:label "tekstverwijzing"@nl ;
-#.
 
 ro:Tekst a owl:Class ;
   rdfs:label "Tekst"@nl ;
   rdfs:subClassOf owl:Thing ;
-  rdfs:isDefinedBy :ro
+  rdfs:isDefinedBy :ro ;
+  dct:subject ro_beg:Tekst
 .
 
 ro:tekst a owl:ObjectProperty ;
@@ -66,111 +56,132 @@ ro:tekst a owl:ObjectProperty ;
   rdfs:isDefinedBy :ro
 .
 
-ro:Toelichting a owl:Class ;
-  rdfs:label "Toelichting"@nl ;
-  rdfs:subClassOf ro:Tekst ;
-  rdfs:isDefinedBy :ro
-.
-
 ro:Beleid a owl:Class ;
   rdfs:label "Beleid"@nl ;
   rdfs:subClassOf ro:Tekst ;
-  rdfs:isDefinedBy :ro
-.
-
-ro:RegelMetVoorbereidingsbescherming a owl:Class ;
-  rdfs:label "Regel met Voorbereidingsbescherming"@nl ;
-  rdfs:subClassOf ro:Tekst
-.
-
-ro:RegelZonderVoorbereidingsbescherming a owl:Class ;
-  rdfs:label "Regel zonder Voorbereidingsbescherming"@nl ;
-  rdfs:subClassOf ro:Tekst ;
-  rdfs:isDefinedBy :ro
-.
-
-ro:Regels a owl:Class ;
-  rdfs:label "Regels"@nl ;
-  rdfs:subClassOf ro:Tekst ;
-  rdfs:isDefinedBy :ro
+  rdfs:isDefinedBy :ro ;
+  dct:subject ro_beg:Beleid
 .
 
 ro:BeleidGemandateerdAanGS a owl:Class ;
   rdfs:label "Beleid Gemandateerd aan GS"@nl ;
   rdfs:subClassOf ro:Tekst ;
-  rdfs:isDefinedBy :ro
+  rdfs:isDefinedBy :ro ;
+  dct:subject ro_beg:BeleidGemandateerdAanGS
 .
 
 ro:Besluitdocument a owl:Class ;
   rdfs:label "Besluitdocument"@nl ;
   rdfs:subClassOf ro:Tekst ;
-  rdfs:isDefinedBy :ro
+  rdfs:isDefinedBy :ro ;
+  dct:subject ro_beg:Besluitdocument
 .
 
 ro:Besluittekst a owl:Class ;
   rdfs:label "Besluittekst"@nl ;
   rdfs:subClassOf ro:Tekst ;
-  rdfs:isDefinedBy :ro
+  rdfs:isDefinedBy :ro ;
+  dct:subject ro_beg:Besluittekst
 .
 
 ro:Bijlage a owl:Class ;
   rdfs:label "Bijlage"@nl ;
   rdfs:subClassOf ro:Tekst ;
-  rdfs:isDefinedBy :ro
+  rdfs:isDefinedBy :ro ;
+  dct:subject ro_beg:Bijlage
 .
 
 ro:BijlageBesluitdocument a owl:Class ;
   rdfs:label "Bijlage Besluitdocument"@nl ;
   rdfs:subClassOf ro:Tekst ;
-  rdfs:isDefinedBy :ro
+  rdfs:isDefinedBy :ro ;
+  dct:subject ro_beg:BijlageBesluitdocument
 .
 
 ro:BijlageBesluittekst a owl:Class ;
   rdfs:label "Bijlage Besluittekst"@nl ;
   rdfs:subClassOf ro:Tekst ;
-  rdfs:isDefinedBy :ro
+  rdfs:isDefinedBy :ro ;
+  dct:subject ro_beg:BijlageBesluittekst
 .
 
 ro:BijlageRegelMetVoorbereidingsbescherming a owl:Class ;
   rdfs:label "Bijlage Regel met voorbereidingsbescherming"@nl ;
-  rdfs:subClassOf ro:Tekst
+  rdfs:subClassOf ro:Tekst ;
+  rdfs:isDefinedBy :ro ;
+  dct:subject ro_beg:BijlageRegelMetVoorbereidingsbescherming
 .
 
 ro:BijlageRegelZonderVoorbereidingsbescherming a owl:Class ;
   rdfs:label "Bijlage Regel zonder voorbereidingsbescherming"@nl ;
   rdfs:subClassOf ro:Tekst ;
-  rdfs:isDefinedBy :ro
+  rdfs:isDefinedBy :ro ;
+  dct:subject ro_beg:BijlageRegelZonderVoorbereidingsbescherming
 .
 
 ro:BijlageRegels a owl:Class ;
   rdfs:label "Bijlage Regels"@nl ;
   rdfs:subClassOf ro:Tekst ;
-  rdfs:isDefinedBy :ro
+  rdfs:isDefinedBy :ro ;
+  dct:subject ro_beg:BijlageRegels
 .
 
 ro:BijlageToelichting a owl:Class ;
   rdfs:label "Bijlage Toelichting"@nl ;
   rdfs:subClassOf ro:Tekst ;
-  rdfs:isDefinedBy :ro
+  rdfs:isDefinedBy :ro ;
+  dct:subject ro_beg:BijlageToelichting
+.
+
+ro:BijlageVoorschriften_Regels a owl:Class ;
+  rdfs:label "Bijlage Voorschriften/Regels" ;
+  rdfs:subClassOf ro:Tekst ;
+  rdfs:isDefinedBy :ro ;
+  dct:subject ro_beg:BijlageVoorschriften_Regels
 .
 
 ro:Document a owl:Class ;
   rdfs:label "Document"@nl ;
   rdfs:subClassOf ro:Tekst ;
-  rdfs:isDefinedBy :ro
+  rdfs:isDefinedBy :ro ;
+  dct:subject ro_beg:Document
 .
 
-ro:VoorschriftenRegels a owl:Class ;
+ro:RegelMetVoorbereidingsbescherming a owl:Class ;
+  rdfs:label "Regel met Voorbereidingsbescherming"@nl ;
+  rdfs:subClassOf ro:Tekst ;
+  rdfs:isDefinedBy :ro ;
+  dct:subject ro_beg:RegelMetVoorbereidingsbescherming
+.
+
+ro:RegelZonderVoorbereidingsbescherming a owl:Class ;
+  rdfs:label "Regel zonder Voorbereidingsbescherming"@nl ;
+  rdfs:subClassOf ro:Tekst ;
+  rdfs:isDefinedBy :ro ;
+  dct:subject ro_beg:RegelZonderVoorbereidingsbescherming
+.
+
+ro:Regels a owl:Class ;
+  rdfs:label "Regels"@nl ;
+  rdfs:subClassOf ro:Tekst ;
+  rdfs:isDefinedBy :ro ;
+  dct:subject ro_beg:Regels
+.
+
+ro:Toelichting a owl:Class ;
+  rdfs:label "Toelichting"@nl ;
+  rdfs:subClassOf ro:Tekst ;
+  rdfs:isDefinedBy :ro ;
+  dct:subject ro_beg:Toelichting
+.
+
+ro:Voorschriften_Regels a owl:Class ;
   rdfs:label "Voorschriften/Regels" ;
   rdfs:subClassOf ro:Tekst ;
-  rdfs:isDefinedBy :ro
+  rdfs:isDefinedBy :ro ;
+  dct:subject ro_beg:Voorschriften_Regels
 .
 
-ro:BijlageVoorschriftenRegels a owl:Class ;
-  rdfs:label "Bijlage Voorschriften/Regels" ;
-  rdfs:subClassOf ro:Tekst ;
-  rdfs:isDefinedBy :ro
-.
 
 #################################################################
 #    Illustratie
@@ -289,7 +300,7 @@ ro:uitgewerktIn a owl:ObjectProperty ;
   dct:subject ro_beg:uitgewerktIn
 .
 
-ro:gebruiktInformatieUit a owl:ObjectProperty ; #does this IRI deviate too much from 'informatie in extern plan/besluit'?
+ro:gebruiktInformatieUit a owl:ObjectProperty ;
   rdfs:subPropertyOf ro:externPlan ;
   rdfs:isDefinedBy :ro ;
   dct:subject ro_beg:gebruiktInformatieUit
@@ -308,5 +319,5 @@ ro:tenGevolgeVan a owl:ObjectProperty ;
 
 ro:norm a owl:ObjectProperty ;
   rdfs:label "verwijzing norm"@nl ;
-  rdfs:isDefinedBy
+  rdfs:isDefinedBy :ro
 .

@@ -31,20 +31,10 @@
 @prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
 @prefix ro_sym: <http://data.informatiehuisruimte.nl/ro/id/symbool/> .
 
-<<<<<<< HEAD
 @prefix ropt: <http://data.informatiehuisruimte.nl/def/ropt#> .
 @prefix ropt_str: <http://data.informatiehuisruimte.nl/def/ropt/> .
 @prefix ropt_beg: <http://data.informatiehuisruimte.nl/ropt/id/begrip/> .
-
-# legacy: (legacy prefix, in case someone still uses it)
-@prefix begrip: <http://data.informatiehuisruimte.nl/ro/id/begrip#> .
-
-=======
-@prefix ropt_beg: <http://data.informatiehuisruimte.nl/ropt/id/begrip/> .
 @prefix ropt_col: <http://data.informatiehuisruimte.nl/ropt/id/collectie/> .
->>>>>>> master
-
-ropt_beg:IMROPT a skos:ConceptScheme .
 
 
 #################################################################

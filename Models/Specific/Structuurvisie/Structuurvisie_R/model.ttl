@@ -36,7 +36,6 @@
 @prefix ropt_beg: <http://data.informatiehuisruimte.nl/ropt/id/begrip/> .
 @prefix ropt_col: <http://data.informatiehuisruimte.nl/ropt/id/collectie/> .
 
-
 #################################################################
 #    Structuurvisie_R
 #################################################################

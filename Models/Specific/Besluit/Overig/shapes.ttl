@@ -102,10 +102,10 @@ ro_str:TeksttypeBG_XGB a sh:NodeShape ;
     sh:in (
       ropt:Tekstobject
       ro:Besluitdocument
-      ro:VoorschriftenRegels
+      ro:Voorschriften_Regels
       ro:Toelichting
       ro:BijlageBesluitdocument
-      ro:BijlageVoorschriftenRegels
+      ro:BijlageVoorschriften_Regels
       ro:BijlageToelichting
     )
   ]
@@ -184,10 +184,10 @@ ro_str:Teksttype_XGB a sh:NodeShape ;
     sh:in (
       ropt:Tekstobject
       ro:Besluittekst
-      ro:VoorschriftenRegels
+      ro:Voorschriften_Regels
       ro:Toelichting
       ro:BijlageBesluittekst
-      ro:BijlageVoorschriftenRegels
+      ro:BijlageVoorschriften_Regels
       ro:BijlageToelichting
     )
   ]
