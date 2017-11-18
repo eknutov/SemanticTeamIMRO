@@ -58,41 +58,40 @@ ro_str:Plan_spatial a sh:PropertyShape ;
   sh:path dct:spatial ;
   sh:class ro:Plangebied ;
   sh:minCount 1 ;
-  sh:maxCount 1 ;
-  sh:node
-    ro_str:Plan_begrenzing
-.
-
-ro_str:Plan_begrenzing a sh:PropertyShape ;
-  sh:path ro:begrenzing ;
-  sh:class ro:Geometry ;
-  sh:minCount 1 ;
   sh:maxCount 1
 .
 
 
+
 ro_str:Plan_hasPart a sh:PropertyShape ;
   sh:path dct:hasPart ;
-  sh:class ro:Planobject ;
+  sh:class ro:Planobject
 .
 
 ro_str:Plan_label a sh:PropertyShape ; #TODO: ScopedName
   sh:path rdfs:label ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
-  sh:datatype xsd:string ;
+  sh:datatype xsd:string
 .
 
 ro_str:Plan_geographicName a sh:PropertyShape ;
   sh:path locn:geographicName ;
   sh:nodeKind sh:Literal ;
-  sh:datatype xsd:string ;
+  sh:datatype xsd:string
 .
 
 ro_str:Plan_ondergrond a sh:PropertyShape ;
   sh:path ro:ondergrond ;
+  sh:class ro:Ondergrond ;
   sh:minCount 1 ;
-  sh:node ro_str:Plangebied_Ondergrond ;
+  sh:node ro_str:Plan_ondergronddatum
+.
+
+ro_str:Plan_ondergronddatum a sh:PropertyShape ;
+  sh:path ro:ondergronddatum ;
+  sh:minCount 1 ;
+  sh:maxCount 1
 .
 
 ro_str:Plan_dataset a sh:propertyShape ;
@@ -101,14 +100,14 @@ ro_str:Plan_dataset a sh:propertyShape ;
     sh:class void:Dataset ;
   ] ;
   sh:qualifiedMinCount 1 ;
-  sh:qualifiedMaxCount 1 ;
+  sh:qualifiedMaxCount 1
 .
 
 ro_str:Plan_planstatus a sh:PropertyShape ;
   sh:path ro:planstatus ;
   sh:class ro:Planstatus ;
   sh:minCount 1 ;
-  sh:maxCount 1 ;
+  sh:maxCount 1
 .
 
 ro_str:Plan_tekstverwijzing a sh:PropertyShape ;
@@ -155,43 +154,21 @@ ro_str:Planobject_identificatie_lokaalID a sh:PropertyShape ;
 ro_str:Plangebied a sh:NodeShape ;
   sh:targetClass ro:Plangebied ;
   sh:property
-    ro_str:Plangebied_geometry ,
+    ro_str:Plangebied_begrenzing ,
     ro_str:Plangebied_identificatie_lokaalID
+.
+
+ro_str:Plangebied_begrenzing a sh:PropertyShape ;
+  sh:path ro:begrenzing ;
+  sh:class ro:Geometry ;
+  sh:minCount 1 ;
+  sh:maxCount 1
 .
 
 ro_str:Plangebied_identificatie_lokaalID a sh:PropertyShape ;
   sh:path ( nen3610:identificatie nen3610:lokaalID ) ;
   sh:datatype xsd:string ;
   sh:maxLength 23
-.
-
-ro_str:Plangebied_geometrie a sh:PropertyShape ;
-  sh:path ro:geometrie ;
-  sh:class ro:Geometrie ;
-  sh:minCount 1 ;
-  sh:maxCount 1 ;
-.
-
-#################################################################
-#    Ondergrond
-#################################################################
-
-ro_str:Plangebied_Ondergrond a sh:NodeShape ;
-  sh:property
-    ro:Ondergrond_ondergrondtype ,
-    ro:ondergrond_datum ;
-.
-
-ro_str:Ondergrond_ondergrondtype a sh:PropertyShape ;
-  sh:path ro:ondergrondtype ;
-  sh:minCount 1 ;
-  sh:maxCount 1 ;
-.
-
-ro_str:ondergrond_datum a sh:PropertyShape ;
-  sh:path ro:ondergronddatum ;
-  sh:minCount 1 ;
-  sh:maxCount 1 ;
 .
 
 #################################################################
@@ -215,5 +192,5 @@ ro_str:prefixes #should we store this here?
   sh:declare [
       sh:namespace "http://data.informatiehuisruimte.nl/def/nen3610#"^^xsd:anyURI ;
       sh:prefix "nen3610" ;
-    ] ;
+    ]
 .

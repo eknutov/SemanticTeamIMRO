@@ -73,10 +73,10 @@ ro_str:Besluitvlak a sh:NodeShape ;
 ro_str:Besluitvlak_tekstverwijzing a sh:PropertyShape ;
   sh:xone ( [
     sh:and (
-      [ sh:path ro:norm ; sh:hasValue ro_beg:IMROPT2012 ; ]
+      [ sh:path ( dct:isPartOf ro:norm ) ; sh:hasValue ro_beg:IMROPT2012 ; ]
       [ sh:path ro:tekst ; sh:class ropt:Tekstobject , ro:Tekst ; ] ) ] [
     sh:and (
-      [ sh:path ro:norm ; sh:not [ sh:hasValue ro_beg:IMROPT ; ] ]
+      [ sh:path  ( dct:isPartOf ro:norm ) ; sh:not [ sh:hasValue ro_beg:IMROPT ; ] ]
       [ sh:path ro:tekst ; sh:class ro:Tekst ; sh:not [ sh:class ropt:Tekstobject ] ] ) ] )
 .
 

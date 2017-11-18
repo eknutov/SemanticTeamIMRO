@@ -12,6 +12,7 @@
 @prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix skos-thes: <http://purl.org/iso25964/skos-thes#> .
 @prefix voaf: <http://purl.org/vocommons/voaf#> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -23,10 +24,9 @@
 @prefix nen3610_str: <http://data.informatiehuisruimte.nl/def/nen3610/> .
 @prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
 @prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
-<<<<<<< HEAD
 @prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
-@prefix ro_begkr: <http://data.informatiehuisruimte.nl/id/begrippenkader/> .
-@prefix ro_col: <http://data.informatiehuisruimte.nl/id/collectie/> .
+@prefix ro_begkr: <http://data.informatiehuisruimte.nl/ro/id/begrippenkader/> .
+@prefix ro_col: <http://data.informatiehuisruimte.nl/ro/id/collectie/> .
 @prefix ro_nen3610_beg: <http://data.informatiehuisruimte.nl/nen3610/id/begrip/> .
 @prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
 @prefix ro_sym: <http://data.informatiehuisruimte.nl/ro/id/symbool/> .
@@ -34,15 +34,8 @@
 @prefix ropt: <http://data.informatiehuisruimte.nl/def/ropt#> .
 @prefix ropt_str: <http://data.informatiehuisruimte.nl/def/ropt/> .
 @prefix ropt_beg: <http://data.informatiehuisruimte.nl/ropt/id/begrip/> .
+@prefix ropt_col: <http://data.informatiehuisruimte.nl/ropt/id/collectie/> .
 
-# legacy: (legacy prefix, in case someone still uses it)
-@prefix begrip: <http://data.informatiehuisruimte.nl/ro/id/begrip#> .
-
-=======
-@prefix ro_col: <http://data.informatiehuisruimte.nl/ro/id/collectie/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix dct: <http://udfr.org/docs/onto/> .
->>>>>>> master
 
 #################################################################
 #    Structuurvisie_G
@@ -84,8 +77,8 @@ ro_str:Structuurvisiegebied_G a sh:NodeShape ;
     sh:targetClass ro:Structuurvisiegebied_G ;
     sh:property
       ro_str:Structuurvisiegebied_G_beleid ,
-      ro_str:Structuurvisiegebied_G_tekstVerwijzing ,
-      ro_str:Structuurvisiegebied_G_isPartOf ,
+      ro_str:Structuurvisiegebied_G_tekstverwijzing ,
+      ro_str:Structuurvisiegebied_G_isPartOf
 .
 
 
@@ -95,7 +88,7 @@ ro_str:Structuurvisiegebied_G_beleid a sh:PropertyShape ;
   sh:node ro_str:BeleidInfo_GSV
 .
 
-ro_str:Structuurvisiegebied_G_tekstVerwijzing a sh:PropertyShape ;
+ro_str:Structuurvisiegebied_G_tekstverwijzing a sh:PropertyShape ;
   sh:path ro:tekst ;
   sh:minCount 1 ;
   sh:node ro_str:Teksttype_SV
@@ -103,12 +96,10 @@ ro_str:Structuurvisiegebied_G_tekstVerwijzing a sh:PropertyShape ;
 
 ro_str:Structuurvisiegebied_G_isPartOf a sh:PropertyShape ;
   sh:path ro:isPartOf ;
-  sh:minCount 1 ;
-  sh:maxCount 1 ;
   sh:class ro:Structuurvisie_G
 .
 
-ro_str:BeleidInfo_GSV a sh:NodeShape ; #treated as a blank node
+ro_str:BeleidInfo_GSV a sh:NodeShape ;
   sh:property
     ro_str:BeleidInfo_GSV_belang ,
     ro_str:BeleidInfo_GSV_rol ,
@@ -152,7 +143,7 @@ ro_str:BeleidInfo_GSV_instrument a sh:PropertyShape ;
 ro_str:Structuurvisiecomplex_G a sh:NodeShape ;
     sh:targetClass ro:Structuurvisiecomplex_R ;
     sh:property
-      ro_str:Structuurvisiegebied_G_beleid , #copied
-      ro_str:Structuurvisiegebied_G_tekstVerwijzing , #copied
-      ro_str:Structuurvisiegebied_G_isPartOf, #copied
+      ro_str:Structuurvisiegebied_G_beleid ,
+      ro_str:Structuurvisiegebied_G_tekstVerwijzing ,
+      ro_str:Structuurvisiegebied_G_isPartOf ,
 .

@@ -54,8 +54,7 @@ ro_str:Structuurvisie a sh:NodeShape ;
 
 ro_str:Structuurvisie_illustratieverwijzing a sh:PropertyShape ;
   sh:path ro:illustratie ;
-  sh:class ro:Illustratie ; #either afbeelding or kaart. TODO: make ro:Illustratie an abstract class.
-#  sh:node ro_str:Illustratie ;  #no longer needed since the IRI is the reference.
+  sh:class ro:Illustratie ;
 .
 
 #TODO: use IMROPT if norm == ro_beg:IMROPT
@@ -63,42 +62,33 @@ ro_str:Structuurvisie_tekstverwijzing a sh:PropertyShape ;
     sh:path ro:tekst ;
     sh:minCount 1 ;
     sh:maxCount 3 ;
-    sh:or (
+    sh:and (
       [
-        sh:node ro_str:TeksttypePG_SV ;
-        sh:and (
-          [
-            sh:qualifiedValueShape [
-              sh:path rdf:type  ;
-              sh:hasValue ro:Document ;
-            ] ;
-            sh:qualifiedMinCount 1 ;
-            sh:qualifiedMaxCount 1 ;
-          ] [
-            sh:qualifiedValueShape [
-              sh:path  rdf:type  ;
-              sh:hasValue ro:Bijlage ;
-            ] ;
-            sh:qualifiedMaxCount 1 ;
-          ]
-        ) ;
+        sh:qualifiedValueShape [
+          sh:path rdf:type  ;
+          sh:hasValue ro:Document ;
+        ] ;
+        sh:qualifiedMinCount 1 ;
+        sh:qualifiedMaxCount 1 ;
+      ] [
+        sh:qualifiedValueShape [
+          sh:path  rdf:type  ;
+          sh:hasValue ro:Bijlage ;
+        ] ;
+        sh:qualifiedMaxCount 1 ;
       ]
-      [
-      sh:class ropt:Tekstobject
-      ]
-    )
+    ) ;
+    sh:node ro_str:TeksttypePG_SV ;
 .
 
-#maybe remove the blank node
 ro_str:Structuurvisie_externPlan a sh:PropertyShape ;
   sh:path ro:externPlan ;
   sh:maxCount 1 ;
   sh:node ro_str:ExternPlanReferentiePG_SV ;
 .
 
-#TODO: change property 'verwijzingNorm' into ro:norm .
 ro_str:Structuurvisie_norm a sh:PropertyShape ;
-  sh:path ro:verwijzingNorm ;
+  sh:path ro:norm ;
   sh:minCount 2 ;
   sh:maxCount 3 ;
   sh:and ( [
@@ -127,23 +117,14 @@ ro_str:Structuurvisie_norm a sh:PropertyShape ;
 
 ro_str:Structuurvisie_spatial a sh:PropertyShape ;
   sh:path dct:spatial ;
-  sh:class ro:Plangebied ;
-  sh:minCount 1 ;
-  sh:maxCount 1 ;
-  sh:node ro_str:Structuurvisie_Plangebied #TODO similar construct at bestemmingsplan.
+  sh:node ro_str:Structuurvisie_Plangebied
 .
 
-ro_str:Structuurvisie_Plangebied a sh:NodeShape ;
-  sh:property
-    ro_str:Structuurvisie_Plangebied_geometrie ,
+ro_str:Structuurvisie_Plangebied a sh:PropertyShape ;
+  sh:path ro:begrenzing ;
+  sh:node
+    ro_str:VlakMultiVlak ,
     ro_str:Structuurvisie_Plangebied_idealisatie
-.
-
-ro_str:Structuurvisie_Plangebied_geometrie a sh:PropertyShape ;
-  sh:path ro:geometrie ;
-  sh:minCount 1 ;
-  sh:maxCount 1 ;
-  sh:node ro_str:VlakMultiVlak ;
 .
 
 ro_str:Structuurvisie_Plangebied_idealisatie a sh:PropertyShape ;
@@ -162,9 +143,10 @@ ro_str:Structuurvisiegebied a sh:NodeShape ;
     sh:targetClass ro:Structuurvisiegebied ;
     sh:property
       ro_str:Structuurvisiegebied_thema ,
-      ro_str:Structuurvisiegebied_illustratieVerwijzing , #partially common
+      ro_str:Structuurvisiegebied_tekstverwijzing ,
+      ro_str:Structuurvisiegebied_illustratieVerwijzing ,
       ro_str:Structuurvisiegebied_externPlan ,
-      ro_str:Structuurvisiegebied_cartografie , #TODO: add hoofdkaart == nummer 1
+      ro_str:Structuurvisiegebied_cartografie ,
       ro_str:Structuurvisiegebied_begrenzing ,
       ro_str:Structuurvisiegebied_isPartOf
 .
@@ -175,11 +157,19 @@ ro_str:Structuurvisiegebied_thema a sh:PropertyShape ;
   sh:datatype xsd:string ;
 .
 
-# Illustratie shapes should be corrected.
+ro_str:Structuurvisiegebied_tekstverwijzing a sh:PropertyShape ;
+  sh:xone ( [
+    sh:and (
+      [ sh:path ( dct:isPartOf ro:norm ) ; sh:hasValue ro_beg:IMROPT2012 ; ]
+      [ sh:path ro:tekst ; sh:class ropt:Tekstobject , ro:Tekst ; ] ) ] [
+    sh:and (
+      [ sh:path ( dct:isPartOf ro:norm ) ; sh:not [ sh:hasValue ro_beg:IMROPT ; ] ]
+      [ sh:path ro:tekst ; sh:class ro:Tekst ; sh:not [ sh:class ropt:Tekstobject ] ] ) ] )
+.
+
 ro_str:Structuurvisiegebied_illustratieVerwijzing a sh:PropertyShape ;
   sh:path ro:illustratie ;
   sh:class ro:Illustratie ;
-#  sh:node ro_str:Illustratie ;
   sh:node ro_str:Illustratie_legendaNaam
 .
 
@@ -189,57 +179,47 @@ ro_str:Structuurvisiegebied_externPlan a sh:PropertyShape ;
   sh:node ro_str:ExternPlanReferentie_SV ;
 .
 
-ro_str:Structuurvisiegebied_cartografie a sh:PropertyShape ; #perhaps applicable for all planobjects?
+ro_str:Structuurvisiegebied_cartografie a sh:PropertyShape ;
   sh:path ro:cartografie ;
   sh:node ro_str:cartografieInfo ;
 .
 
-ro_str:Structuurvisiegebied_begrenzing rdf:type sh:PropertyShape ;
+ro_str:Structuurvisiegebied_begrenzing a sh:PropertyShape ;
   sh:path ro:begrenzing ;
-  sh:class ro:Geometrie ; #no cardinality
-  sh:node ro_str:Structuurvisiegebied_Geometrie ;
+  sh:node
+    ro_str:Structuurvisiegebied_Geometrie_idealisatie ,
+    ro_str:PuntLijnVlakMulti ; ;
 .
 
-ro_str:Structuurvisiegebied_Geometrie rdf:type sh:NodeShape ;
-  sh:property
-    ro_str:Structuurvisiegebied_Geometrie_geometrie , #perhaps we can make these properties of the class.
-    ro_str:Structuurvisiegebied_Geometrie_idealisatie ;
-.
-
-ro_str:Structuurvisiegebied_Geometrie_geometrie rdf:type sh:PropertyShape ;
-  sh:path ro:geometrie ;
-  sh:minCount 1 ;
-  sh:maxCount 1 ;
-  sh:node ro_str:PuntLijnVlakMulti ;
-.
-
-ro_str:Structuurvisiegebied_Geometrie_idealisatie rdf:type sh:PropertyShape ;
+ro_str:Structuurvisiegebied_Geometrie_idealisatie a sh:PropertyShape ;
   sh:path ro:idealisatie ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
   sh:node ro_str:Idealisatie_3 ;
 .
 
-ro_str:Structuurvisiegebied_isPartOf a sh:PropertyShape ; #the specialisation specify a sh:class constraint.
+ro_str:Structuurvisiegebied_isPartOf a sh:PropertyShape ;
   sh:path dct:isPartOf ;
   sh:minCount 1 ;
   sh:maxcount 1 ;
+  sh:class ro:Structuurvisie
 .
 
 #################################################################
-#    Structuurvisiecomplex <- actually largely equals Structuurvisiegebied
+#    Structuurvisiecomplex
 #################################################################
 
 ro_str:Structuurvisiecomplex a sh:NodeShape ;
   sh:targetClass ro:Structuurvisiecomplex ;
   sh:property
     ro_str:Structuurvisiecomplex_thema ,
-    ro_str:Structuurvisiegebied_illustratieVerwijzing ,  #copied same as ro:structuurvisiegebied_illustratieVerwijzing
-    ro_str:Structuurvisiegebied_externPlan , #copied same as ro_str:Structuurvisiegebied_externPlan
-    ro_str:Structuurvisiegebied_cartografie , #copied same as ro_str:Structuurvisiegebied_cartografie
-    ro_str:Structuurvisiegebied_begrenzing ,  #copied same as ro:structuurvisiegebied_illustratieVerwijzing
+    ro_str:Structuurvisiegebied_illustratieVerwijzing ,
+    ro_str:Structuurvisiegebied_tekstverwijzing ,
+    ro_str:Structuurvisiegebied_externPlan ,
+    ro_str:Structuurvisiegebied_cartografie ,
+    ro_str:Structuurvisiegebied_begrenzing ,
     ro_str:Structuurvisiecomplex_hasPart ,
-    ro_str:Structuurvisiegebied_isPartOf #copied same as ro:structuurvisiegebied_isPartOf
+    ro_str:Structuurvisiegebied_isPartOf
 .
 
 ro_str:Structuurvisiecomplex_thema a sh:PropertyShape ;
@@ -247,9 +227,11 @@ ro_str:Structuurvisiecomplex_thema a sh:PropertyShape ;
   sh:datatype xsd:string ;
 .
 
-ro_str:Structuurvisiecomplex_hasPart rdf:type sh:PropertyShape ;
+ro_str:Structuurvisiecomplex_hasPart a sh:PropertyShape ;
   sh:path ro:hasPart ;
   sh:minCount 1 ;
-  sh:class ro:Planobject ;
-  #TODO: only structuurvisiecomplex and structuurvisiegebied
+  sh:or (
+    [ sh:class ro:Structuurvisiecomplex ]
+    [ sh:class ro:Structuurvisiegebied ]
+  )
 .
