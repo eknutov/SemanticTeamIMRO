@@ -171,7 +171,7 @@ ro_str:Besluitgebied_A_norm a sh:PropertyShape ;
 
 ro_str:Besluitgebied_A-P_Plangebied a sh:NodeShape ;
   sh:property
-    ro_str:Besluitgebied_A-P_Plangebied_begrenzing 
+    ro_str:Besluitgebied_A-P_Plangebied_begrenzing
 .
 
 ro_str:Besluitgebied_A-P_Plangebied_begrenzing a sh:PropertyShape ;
@@ -202,8 +202,8 @@ ro_str:Besluitvlak_A a sh:NodeShape ;
 #  sh:targetClass ro:Besluitvlak_A ; #Jesse: Beluitvlak_A does not exist, the target is 'inherited' from ro_Str:Besluitgebied_A
   sh:property
     ro_str:Besluitvlak_A-P_thema ,
-    ro_str:Besluitvlak_A_tekst ,
-    ro_str:Besluitvlak_A_illustratie ,
+    ro_str:Besluitvlak_A_tekstverwijzing ,
+    ro_str:Besluitvlak_A_illustratieverwijzing ,
     ro_str:Besluitvlak_A_cartografie , #Jesse: my concern here is that I am not sure whether these are attributes of the specialization of ro:Illustratie, ro:Kaart. Hence, I put this in a blank node.
     ro_str:Besluitvlak_A_begrenzing ,
     ro_str:Besluitvlak_A_hasPart
@@ -216,7 +216,7 @@ ro_str:Besluitvlak_A-P_thema a sh:PropertyShape ;
   sh:minCount 1
 .
 
-ro_str:Besluitvlak_A_tekst a sh:PropertyShape ;
+ro_str:Besluitvlak_A_tekstverwijzing a sh:PropertyShape ;
   sh:path ro:tekst ;
   sh:minCount 1 ;
   #Jesse: TODO: qualifiedValueShape (sh:hasValue of the multiple occurences), the IMROPT2012 constraint is in place.
@@ -253,14 +253,10 @@ ro_str:Besluitvlak_A-P_cartografie a sh:PropertyShape ;
 
 ro_str:Besluitvlak_A_begrenzing a sh:PropertyShape ;
   sh:path ro:begrenzing ;
+  sh:minCount 1 ;
   sh:node
-    ro_str:Besluitvlak_A_Geometrie_geometrie ,
+    ro_str:PuntLijnVlakMulti ,
     ro_str:Besluitvlak_A_Geometrie_idealisatie
-.
-
-ro_str:Besluitvlak_A_Geometrie_geometrie a sh:PropertyShape ;
-  sh:path ro:geometrie ;
-  sh:node ro_str:PuntLijnVlakMulti
 .
 
 ro_str:Besluitvlak_A_Geometrie_idealisatie a sh:PropertyShape ;

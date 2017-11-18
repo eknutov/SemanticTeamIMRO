@@ -38,21 +38,12 @@
 @prefix begrip: <http://data.informatiehuisruimte.nl/ro/id/begrip#> .
 
 
-#Dummy section, Should be moved to/recreated in common in due time.
-
-ro:Plan a owl:Class .
 
 
 #################################################################
 #    Bestemmingsplan
 #################################################################
 
-#ro:Bestemmingsplangebied a owl:Class ;
-#  rdfs:label "Bestemmingsplangebied"@nl ;
-#  rdfs:isDefinedBy :ro ;
-#  rdfs:subClassOf ro:RuimtelijkInstrument ;
-#  dct:subject ro_beg:Bestemmingsplangebied ; ;
-#.
 
 ro:Bestemmingsplan a owl:Class ;
   rdfs:label "Bestemmingsplan"@nl ;
@@ -149,12 +140,6 @@ ro:Aanduiding a owl:Class ;
   dct:subject ro_beg:Aanduiding ;
   rdfs:comment "Een aanduiding is een object gericht op een specificatie van een bestemming of andere aanduiding."@nl
 .
-
-#ro:bestemmingsvlak a owl:ObjectProperty ;
-#  rdfs:label "bestemmingsvlak"@nl ;
-#  rdfs:isDefinedBy :ro ;
-#  rdfs:range ro:Bestemmingvlak ;
-#.
 
 ro:Bouwvlak a owl:Class ;
   rdfs:label "Bouwvlak"@nl ;
@@ -1111,5 +1096,6 @@ ro:aanpijlingspunt a owl:ObjectProperty ;
 ro:hoek a owl:DatatypeProperty ;
   rdfs:label "hoek"@nl ;
   rdfs:isDefinedBy :ro ;
-  rdfs:domain ro:Labelpositie
+  rdfs:domain ro:Labelpositie ; 
+  rdfs:comment "Eenheid is in graden; tov Noordpijl; rechtsom = positief"@nl
 .

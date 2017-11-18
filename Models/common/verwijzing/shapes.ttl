@@ -64,6 +64,7 @@ ro_str:TeksttypePG_BP a sh:NodeShape ;
   sh:property [
     sh:path rdf:type ;
     sh:in (
+      ropt:Tekstobject
       ro:Regels
       ro:Toelichting
       ro:BijlageBijRegels
@@ -86,6 +87,7 @@ ro_str:TeksttypePG_SV a sh:NodeShape ;
   sh:property [
     sh:path rdf:type ;
     sh:in (
+      ropt:Tekstobject
       ro:Besluitdocument
       ro:Bijlage
       ro:Toelichting
@@ -97,6 +99,7 @@ ro_str:Teksttype_BP a sh:NodeShape ;
   sh:property [
     sh:path rdf:type ;
     sh:in (
+      ropt:Tekstobject
       ro:Regels
     )
   ]

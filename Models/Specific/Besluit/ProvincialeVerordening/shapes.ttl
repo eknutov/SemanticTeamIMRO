@@ -184,14 +184,10 @@ ro_str:Teksttype_PV a sh:NodeShape ;
 
 ro_str:Besluitvlak_P_begrenzing a sh:PropertyShape ;
   sh:path ro:begrenzing ;
+  sh:minCount 1 ;
   sh:node
-    ro_str:Besluitvlak_P_Geometrie_geometrie ,
+    ro_str:VlakMultiVlak ,
     ro_str:Besluitvlak_P_Geometrie_idealisatie
-.
-
-ro_str:Besluitvlak_P_Geometrie_geometrie a sh:PropertyShape ;
-  sh:path ro:geometrie ;
-  sh:node ro_str:VlakMultiVlak
 .
 
 ro_str:Besluitvlak_P_Geometrie_idealisatie a sh:PropertyShape ;
@@ -233,13 +229,8 @@ ro_str:Besluitsubvlak_P_isPartOf a sh:NodeShape ;
 ro_str:Besluitsubvlak_P_begrenzing a sh:PropertyShape ;
   sh:path ro:begrenzing ;
   sh:node
-    ro_str:Besluitsubvlak_P_Geometry_geometry ,
+    ro_str:PuntLijnVlakMulti ,
     ro_str:Besluitsubvlak_P_Geometry_idealisatie
-.
-
-ro_str:Besluitsubvlak_P_Geometrie_geometry a sh:PropertyShape ;
-  sh:path ro:geometry ;
-  sh:node ro_str:PuntLijnVlakMulti
 .
 
 ro_str:Besluitsubvlak_P_Geometrie_idealisatie a sh:PropertyShape ;

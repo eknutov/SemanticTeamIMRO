@@ -59,6 +59,19 @@ ro_str:Geometrie_geometrie a sh:PropertyShape ;
   sh:maxcount 1
 .
 
+
+#################################################################
+#    begrenzing
+#################################################################
+
+ro_str:begrenzing a sh:nodeShape ;
+  sh:targetObjectsOf ro:begrenzing ;
+  sh:property [
+    sh:class ro:Geometrie ;
+    sh:nodeKind sh:IRI
+  ]
+.
+
 #################################################################
 #    Idealisatie
 #################################################################

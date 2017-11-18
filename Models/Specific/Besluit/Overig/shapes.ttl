@@ -165,7 +165,7 @@ ro_str:Besluitvlak_X a sh:NodeShape ;
   sh:property
     ro_str:Besluitvlak_X_tekstverwijzing ,
     ro_str:Besluitvlak_X_begrenzing ,
-    ro_str:Besluitvlak_X_hasPart 
+    ro_str:Besluitvlak_X_hasPart
 .
 
 
@@ -195,12 +195,8 @@ ro_str:Teksttype_XGB a sh:NodeShape ;
 
 ro_str:Besluitvlak_X_begrenzing a sh:PropertyShape ;
   sh:path ro:begrenzing ;
+  sh:minCount 1 ;
   sh:maxCount 1 ;
-  sh:node ro_str:Besluitvlak_X_Geometrie_geometrie
-.
-
-ro_str:Besluitvlak_X_Geometrie_geometrie a sh:PropertyShape ;
-  sh:path ro:geometrie ;
   sh:node ro_str:VlakMultiVlak
 .
 
