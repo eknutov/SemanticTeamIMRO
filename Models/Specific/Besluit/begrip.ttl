@@ -338,4 +338,3 @@ ro_col:NormadressantenOverigGebiedsgerichtBesluit a skos:Collection;
     ro_beg:Rijksbestuursorganen,
     ro_beg:NietNaderAangeduid;
 .
-

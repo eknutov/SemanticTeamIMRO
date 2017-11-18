@@ -204,7 +204,7 @@ ro_str:Structuurvisieverklaring_P rdf:type sh:NodeShape ;
     ro_str:Structuurvisiecomplex_thema , #copied
     ro_str:Structuurvisieverklaring_P_tekstVerwijzing ,
     ro_str:Structuurvisieverklaring_illustratieverwijzing ,
-    ro_str:Structuurvisiegebied_cartografie , #copied
+    ro_str:Structuurvisiegebied_isCartografischOnderdeelVan , #copied
     ro_str:Structuurvisieverklaring_isPartOf
 .
 

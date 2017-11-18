@@ -108,38 +108,6 @@ ro_str:Illustratie_IllustratieNaam a sh:NodeShape ; #can I treat a nodeshape as 
 .
 
 #################################################################
-#    Cartografie
-#################################################################
-
-ro_str:cartografieInfo a sh:NodeShape ;     #[0...*] cardinality of properties
-  sh:property
-    ro_str:cartografieInfo_kaartNaam ,
-    ro_str:cartografieInfo_kaartNummer ,
-    ro_str:cartografieInfo_symboolCode
-.
-
-ro_str:cartografieInfo_kaartNaam a sh:PropertyShape ;
-  sh:path ro:kaartNaam ;
-  sh:minCount 1 ;
-  sh:maxCount 1 ;
-  sh:datatype xsd:string
-.
-
-ro_str:cartografieInfo_kaartNummer a sh:PropertyShape ;
-  sh:path ro:kaartNummer ;
-  sh:minCount 1 ;
-  sh:maxCount 1 ;
-  sh:datatype xsd:string
-.
-
-ro_str:cartografieInfo_symboolCode a sh:PropertyShape ;
-  sh:path ro:symboolCode ;
-  sh:maxCount 1 ;
-  sh:datatype xsd:string
-.
-
-
-#################################################################
 #    Extern plan
 #################################################################
 
