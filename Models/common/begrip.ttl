@@ -1128,7 +1128,7 @@ ro_beg:MinimumVerticaleBouwdiepte_m_Omvang a skos:Concept ;
 ro_beg:Structuurvisie a skos:Concept ;
 	rdfs:label "Structuurvisie"@nl ;
 	skos:prefLabel "Structuurvisie"@nl ;
-	skos-thes:broaderGeneric: ro_beg:Plan ;
+	skos-thes:broaderGeneric ro_beg:Plan ;
 	skos:definition "Gebied, of gebieden, binnen de grenzen van een structuurvise."@nl ;
 	skos:inScheme ro_begkr:ro ;
 	skos:notation "structuurvisie"
@@ -1137,7 +1137,7 @@ ro_beg:Structuurvisie a skos:Concept ;
 ro_beg:Structuurvisiegebied a skos:Concept ;
 	rdfs:label "Structuurvisiegebied"@nl ;
 	skos:prefLabel "Structuurvisiegebied"@nl ;
-	skos-thes:broaderGeneric: ro_beg:Planobject ;
+	skos-thes:broaderGeneric ro_beg:Planobject ;
 	skos:definition "Een gebied waarop één of meerdere beleidsuitspraken in het kader van een structuurvisie betrekking hebben."@nl ;
 	skos:inScheme ro_begkr:ro ;
 	skos:notation "structuurvisiegebied"
@@ -1146,7 +1146,7 @@ ro_beg:Structuurvisiegebied a skos:Concept ;
 ro_beg:Structuurvisiecomplex a skos:Concept ;
 	rdfs:label "Structuurvisiecomplex"@nl ;
 	skos:prefLabel "Structuurvisiecomplex"@nl ;
-	skos-thes:broaderGeneric: ro_beg:Planobject ;
+	skos-thes:broaderGeneric ro_beg:Planobject ;
 	skos:definition "Een samenstelling van objecten Structuurvisiegebied en of andere complexen binnen één structuurvisie, waarop één of meerdere beleidsuitspraken betrekking hebben en waarbij op het niveau van de samenstellende delen (gebieden en/of andere complexen) verschillende specifieke beleidsuitspraken gedaan moeten worden."@nl ;
 	skos:inScheme ro_begkr:ro ;
 	skos:notation "structuurvisiecomplex"
@@ -1159,7 +1159,7 @@ ro_beg:Structuurvisiecomplex a skos:Concept ;
 ro_beg:Structuurvisie_R a skos:Concept ;
 	rdfs:label "Structuurvisie_R"@nl ;
 	skos:prefLabel "Structuurvisie_R"@nl ;
-	skos-thes:broaderGeneric: ro_beg:Structuurvisie ;
+	skos-thes:broaderGeneric ro_beg:Structuurvisie ;
 #	skos:definition "Gebied, of gebieden, binnen de grenzen van een Rijksstructuurvise."@nl ;
 	skos:inScheme ro_begkr:ro ;
 	skos:notation "Rijks structuurvisie"
@@ -1168,7 +1168,7 @@ ro_beg:Structuurvisie_R a skos:Concept ;
 ro_beg:Structuurvisiegebied_R a skos:Concept ;
 	rdfs:label "Structuurvisiegebied_R"@nl ;
 	skos:prefLabel "Structuurvisiegebied_R"@nl ;
-	skos-thes:broaderGeneric: ro_beg:Structuurvisiegebied ;
+	skos-thes:broaderGeneric ro_beg:Structuurvisiegebied ;
 	skos:definition "Een gebied waarop één of meerdere beleidsuitspraken in het kader van een Rijksstructuurvisie betrekking hebben."@nl ;
 	skos:inScheme ro_begkr:ro ;
 	skos:notation "structuurvisiegebied_R"
@@ -1178,7 +1178,7 @@ ro_beg:Structuurvisiegebied_R a skos:Concept ;
 ro_beg:Structuurvisiecomplex_R a skos:Concept ;
 	rdfs:label "Structuurvisiecomplex_R"@nl ;
 	skos:prefLabel "Structuurvisiecomplex_R"@nl ;
-	skos-thes:broaderGeneric: ro_beg:Structuurvisiecomplex ;
+	skos-thes:broaderGeneric ro_beg:Structuurvisiecomplex ;
 	skos:definition "Een samenstelling van objecten Structuurvisiegebied en of andere complexen binnen één structuurvisie, waarop één of meerdere beleidsuitspraken betrekking hebben en waarbij op het niveau van de samenstellende delen (gebieden en/of andere complexen) verschillende specifieke beleidsuitspraken gedaan moeten worden."@nl ;
 	skos:inScheme ro_begkr:ro ;
 	skos:notation "structuurvisiecomplex_R"
@@ -1191,7 +1191,7 @@ ro_beg:Structuurvisiecomplex_R a skos:Concept ;
 ro_beg:Structuurvisie_P a skos:Concept ;
 	rdfs:label "Structuurvisie_P"@nl ;
 	skos:prefLabel "Structuurvisie_P"@nl ;
-	skos-thes:broaderGeneric: ro_beg:Structuurvisie ;
+	skos-thes:broaderGeneric ro_beg:Structuurvisie ;
 #	skos:definition "Gebied, of gebieden, binnen de grenzen van een provinciale structuurvise."@nl ;
 	skos:inScheme ro_begkr:ro ;
 	skos:notation "Provinciale structuurvisie"
@@ -1200,7 +1200,7 @@ ro_beg:Structuurvisie_P a skos:Concept ;
 ro_beg:Structuurvisiegebied_P a skos:Concept ;
 	rdfs:label "Structuurvisiegebied_P"@nl ;
 	skos:prefLabel "Structuurvisiegebied_P"@nl ;
-	skos-thes:broaderGeneric: ro_beg:Structuurvisiegebied ;
+	skos-thes:broaderGeneric ro_beg:Structuurvisiegebied ;
 	skos:definition "Een gebied waarop één of meerdere beleidsuitspraken in het kader van een provinciale structuurvisie betrekking hebben."@nl ;
 	skos:inScheme ro_begkr:ro ;
 	skos:notation "structuurvisiegebied_P"
@@ -1210,7 +1210,7 @@ ro_beg:Structuurvisiegebied_P a skos:Concept ;
 ro_beg:Structuurvisiecomplex_P a skos:Concept ;
 	rdfs:label "Structuurvisiecomplex_P"@nl ;
 	skos:prefLabel "Structuurvisiecomplex_P"@nl ;
-	skos-thes:broaderGeneric: ro_beg:Structuurvisiecomplex ;
+	skos-thes:broaderGeneric ro_beg:Structuurvisiecomplex ;
 	skos:definition "Een samenstelling van objecten Structuurvisiegebied en of andere complexen binnen één structuurvisie, waarop één of meerdere beleidsuitspraken betrekking hebben en waarbij op het niveau van de samenstellende delen (gebieden en/of andere complexen) verschillende specifieke beleidsuitspraken gedaan moeten worden."@nl ;
 	skos:inScheme ro_begkr:ro ;
 	skos:notation "structuurvisiecomplex_P"
@@ -1219,7 +1219,7 @@ ro_beg:Structuurvisiecomplex_P a skos:Concept ;
 ro_beg:Structuurvisieverklaring_P a skos:Concept ;
 	rdfs:label "Structuurvisieverklaring_P"@nl ;
 	skos:prefLabel "Structuurvisieverklaring_P"@nl ;
-	skos-thes:broaderGeneric: ro_beg:Planobject ;
+	skos-thes:broaderGeneric ro_beg:Planobject ;
 	skos:definition "Ruimtelijke eenheid waaraan geen beleid gekoppeld is maar die wel in de plankaart als toelichting of nadere verklaring is opgenomen."@nl ;
 	skos:inScheme ro_begkr:ro ;
 	skos:notation "structuurvisieverklaring_P"
@@ -1233,7 +1233,7 @@ ro_beg:Structuurvisieverklaring_P a skos:Concept ;
 ro_beg:Structuurvisie_G a skos:Concept ;
 	rdfs:label "Structuurvisie_G"@nl ;
 	skos:prefLabel "Structuurvisie_G"@nl ;
-	skos-thes:broaderGeneric: ro_beg:Structuurvisie ;
+	skos-thes:broaderGeneric ro_beg:Structuurvisie ;
 #	skos:definition "Gebied, of gebieden, binnen de grenzen van een gemeentelijke structuurvise."@nl ;
 	skos:inScheme ro_begkr:ro ;
 	skos:notation "Gemeentelijke structuurvisie"
@@ -1242,7 +1242,7 @@ ro_beg:Structuurvisie_G a skos:Concept ;
 ro_beg:Structuurvisiegebied_G a skos:Concept ;
 	rdfs:label "Structuurvisiegebied_G"@nl ;
 	skos:prefLabel "Structuurvisiegebied_G"@nl ;
-	skos-thes:broaderGeneric: ro_beg:Structuurvisiegebied ;
+	skos-thes:broaderGeneric ro_beg:Structuurvisiegebied ;
 	skos:definition "Een gebied waarop één of meerdere beleidsuitspraken in het kader van een gemeentelijke structuurvisie betrekking hebben."@nl ;
 	skos:inScheme ro_begkr:ro ;
 	skos:notation "structuurvisiegebied_G"
@@ -1252,7 +1252,7 @@ ro_beg:Structuurvisiegebied_G a skos:Concept ;
 ro_beg:Structuurvisiecomplex_G a skos:Concept ;
 	rdfs:label "Structuurvisiecomplex_G"@nl ;
 	skos:prefLabel "Structuurvisiecomplex_G"@nl ;
-	skos-thes:broaderGeneric: ro_beg:Structuurvisiecomplex ;
+	skos-thes:broaderGeneric ro_beg:Structuurvisiecomplex ;
 	skos:definition "Een samenstelling van objecten Structuurvisiegebied en of andere complexen binnen één structuurvisie, waarop één of meerdere beleidsuitspraken betrekking hebben en waarbij op het niveau van de samenstellende delen (gebieden en/of andere complexen) verschillende specifieke beleidsuitspraken gedaan moeten worden."@nl ;
 	skos:inScheme ro_begkr:ro ;
 	skos:notation "structuurvisiecomplex_G"
