@@ -83,7 +83,7 @@ ro_str:Bestemmingsplan_tekstverwijzing a sh:PropertyShape ;
       sh:qualifiedMincount 1 ;
     ]
   ) ;
-  sh:node ro_str:TeksttypePG_BP 
+  sh:node ro_str:TeksttypePG_BP
 .
 
 ro_str:Bestemmingsplan_externPlan a sh:PropertyShape ;
@@ -184,12 +184,19 @@ ro_str:Bestemmingsvlak_artikelnummer a sh:PropertyShape ;
 .
 
 ro_str:Bestemmingsvlak_tekstverwijzing a sh:PropertyShape ;
-  #TODO: IF norm == IMROPT2012 THEN ropt:Tekstobject
-  sh:path ro:tekst ;
-  sh:nodeKind sh:IRI ;
-  sh:minCount 1 ;
-  sh:maxCount 1 ;
-  sh:node ro_str:Teksttype_BP
+  sh:and (
+    [ sh:xone ( [
+        sh:and (
+          [ sh:path ( dct:isPartOf ro:norm ) ; sh:hasValue ro_beg:IMROPT2012 ; ]
+          [ sh:path ro:tekst ; sh:class ropt:Tekstobject , ro:Tekst ; ] ) ] [
+        sh:and (
+          [ sh:path ( dct:isPartOf ro:norm ) ; sh:not [ sh:hasValue ro_beg:IMROPT ; ] ]
+          [ sh:path ro:tekst ; sh:class ro:Tekst ; sh:not [ sh:class ropt:Tekstobject ] ] ) ] ) ]
+    [ sh:path ro:tekst ;
+      sh:nodeKind sh:IRI ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+      sh:node ro_str:Teksttype_BP ] )
 .
 
 ro_str:Bestemmingsvlak_label a sh:PropertyShape ;
@@ -328,8 +335,14 @@ ro_str:aanduiding a sh:NodeShape ;
 ro_str:Bouwvlak a sh:NodeShape ;
   sh:targetClass ro:Bouwvlak ;
   sh:property
+    ro_str:Bouwvlak_naam ,
     ro_str:Bouwvlak_begrenzing ,
     ro_str:Bouwvlak_aanduiding
+.
+
+ro_str:Bouwvlak_naam a sh:Propertyshape ;
+  sh:path rdfs:label ;
+  sh:hasValue "bouwvlak"@nl ;
 .
 
 ro_str:Bouwvlak_begrenzing a sh:PropertyShape ;
@@ -352,11 +365,20 @@ ro_str:Bouwvlak_aanduiding a sh:PropertyShape ;
 ro_str:Functieaanduiding a sh:NodeShape ;
   sh:targetClass ro:Functieaanduiding ;
   sh:property
+    ro_str:Functieaanduiding_naam ,
     ro_str:Functieaanduiding_label ,
     ro_str:Functieaanduiding_tekstverwijzing ,
     ro_str:Functieaanduiding_begrenzing ,
     ro_str:Functieaanduiding_aanduiding
 .
+
+ro_str:Functieaanduiding_naam a sh:Propertyshape ;
+  sh:path rdfs:label ;
+  sh:node ro_str:Functieaanduidingen
+.
+
+ro_str:Functieaanduidingen a sh:NodeShape .
+#TODO: De volledige naam van de functieaanduiding volgens de in de SVBP2012 opgenomen regel.
 
 ro_str:Functieaanduiding_label a sh:PropertyShape ;
   sh:path ro:label ;
@@ -366,10 +388,18 @@ ro_str:Functieaanduiding_label a sh:PropertyShape ;
 .
 
 ro_str:Functieaanduiding_tekstverwijzing a sh:PropertyShape ;
-  sh:path ro:tekst ;
-  sh:nodeKind sh:IRI ;
-  sh:maxCount 1 ;
-  sh:node ro_str:Teksttype_BP
+  sh:and (
+    [ sh:xone ( [
+        sh:and (
+          [ sh:path ( dct:isPartOf ro:norm ) ; sh:hasValue ro_beg:IMROPT2012 ; ]
+          [ sh:path ro:tekst ; sh:class ropt:Tekstobject , ro:Tekst ; ] ) ] [
+        sh:and (
+          [ sh:path ( dct:isPartOf ro:norm ) ; sh:not [ sh:hasValue ro_beg:IMROPT ; ] ]
+          [ sh:path ro:tekst ; sh:class ro:Tekst ; sh:not [ sh:class ropt:Tekstobject ] ] ) ] ) ]
+    [ sh:path ro:tekst ;
+      sh:nodeKind sh:IRI ;
+      sh:maxCount 1 ;
+      sh:node ro_str:Teksttype_BP ] )
 .
 
 ro_str:Functieaanduiding_begrenzing a sh:PropertyShape ;
@@ -388,48 +418,55 @@ ro_str:Functieaanduiding_aanduiding a sh:PropertyShape ;
 
 
 #################################################################
-#    Gebiedsaanduiding
+#    Bouwaanduiding
 #################################################################
 
 ro_str:Bouwaanduiding a sh:NodeShape ;
   sh:targetClass ro:Bouwaanduiding ;
   sh:property
-    ro_str:Bouwaanduiding_label ,
-    ro_str:Bouwaanduiding_tekstverwijzing ,
-    ro_str:Bouwaanduiding_begrenzing ,
-    ro_str:Bouwaanduiding_aanduiding
+    ro_str:Bouwsaanduiding_naam ,
+    ro_str:Functieaanduiding_label ,
+    ro_str:Functieaanduiding_tekstverwijzing ,
+    ro_str:Functieaanduiding_begrenzing ,
+    ro_str:Functieaanduiding_aanduiding
 .
 
-#same as the label for functieaanduiding.
-ro_str:Bouwaanduiding_label a sh:PropertyShape ;
-  sh:path ro:label ;
-  sh:class ro:Label ;
-  sh:nodeKind sh:IRI ;
-  sh:maxCount 1
+ro_str:Bouwaanduiding_naam a sh:Propertyshape ;
+  sh:path rdfs:label ;
+  sh:node ro_str:Bouwaanduidingen.
+
+ro_str:Bouwaanduidingen a sh:NodeShape ;
+  sh:or (
+    [ sh:in (
+        "aaneengebouwd"
+        "antennemast"
+        "bijgebouwen"
+        "gestapeld"
+        "kap"
+        "karakteristiek"
+        "nokrichting"
+        "onderdoorgang"
+        "plat dak"
+        "twee-aaneen"
+        "vrijstaand"
+        "aaneengebouwd uitgesloten"
+        "antennemast uitgesloten"
+        "bijgebouwen uitgesloten"
+        "gestapeld uitgesloten"
+        "kap uitgesloten"
+        "karakteristiek uitgesloten"
+        "nokrichting uitgesloten"
+        "onderdoorgang uitgesloten"
+        "plat dak uitgesloten"
+        "twee-aaneen uitgesloten"
+        "vrijstaand uitgesloten"
+      )
+    ]
+    [ sh:pattern "(^specifieke bouwaanduiding - [a-z ]*)" ]
+    [ sh:pattern "(^specifieke bouwaanduiding uitgesloten - [a-z ]*)" ]
+  )
 .
 
-#same for Functieaanduiding
-ro_str:Bouwaanduiding_tekstverwijzing a sh:PropertyShape ;
-  #TODO: IF norm == IMROPT2012 THEN ropt:Tekstobject
-  sh:path ro:tekst ;
-  sh:nodeKind sh:IRI ;
-  sh:maxCount 1 ;
-  sh:node ro_str:Teksttype_BP
-.
-
-#same for Functieaanduiding
-ro_str:Bouwaanduiding_begrenzing a sh:PropertyShape ;
-  sh:path ro:begrenzing ;
-  sh:class gml:Surface ;
-  sh:minCount 1 ;
-  sh:maxcount 1
-.
-
-#same for Functieaanduiding
-ro_str:Bouwaanduiding_aanduiding a sh:PropertyShape ;
-  sh:path ro:aanduiding ;
-  sh:maxCount 1
-.
 
 #################################################################
 #    Maatvoering
@@ -438,11 +475,17 @@ ro_str:Bouwaanduiding_aanduiding a sh:PropertyShape ;
 ro_str:Maatvoering a sh:NodeShape ;
   sh:targetClass ro:Maatvoering ;
   sh:property
+    ro_str:Maatvoering_naam ,
     ro_str:Maatvoering_symbool ,
     ro_str:Maatvoering_maatvoeringwaarde ,
-    ro_str:Maatvoering_tekstverwijzing ,
+    ro_str:Functieaanduiding_tekstverwijzing ,
     ro_str:Maatvoering_begrenzing ,
     ro_str:Maatvoering_aanduiding
+.
+
+ro_str:Maatvoering_naam a sh:Propertyshape ;
+  sh:path rdfs:label ;
+#TODO: Opsomming van alle waardetypen die in dit maatvoeringsobject voorkomen. Elk van elkaar gescheiden door een komma en een spatie.
 .
 
 ro_str:Maatvoering_symbool a sh:PropertyShape ;
@@ -451,7 +494,6 @@ ro_str:Maatvoering_symbool a sh:PropertyShape ;
   sh:nodeKind sh:IRI
 .
 
-#TODO what to do when class is not ro:Omvang
 ro_str:Maatvoering_maatvoeringwaarde a sh:PropertyShape ;
   sh:path ro:maatvoeringWaarde ;
   sh:nodeKind sh:IRI ;
@@ -459,9 +501,8 @@ ro_str:Maatvoering_maatvoeringwaarde a sh:PropertyShape ;
   sh:node
     ro_str:Maatvoering_maatvoeringwaarde_waarde ,
     ro_str:Maatvoering_maatvoeringwaarde_code
-
-
 .
+
 ro_str:Maatvoering_maatvoeringwaarde_waarde a sh:PropertyShape ;
   sh:path ro:waarde ;
   sh:minCount 1 ;
@@ -477,14 +518,6 @@ ro_str:Maatvoering_maatvoeringwaarde_symboolCode a sh:PropertyShape ;
   sh:datatype xsd:string ;
   sh:nodeKind sh:Literal
   #TODO: if norm == PRABPK2012 then sh:minCount 1
-.
-
-ro_str:Maatvoering_tekstverwijzing a sh:PropertyShape ;
-  #TODO: IF norm == IMROPT2012 THEN ropt:Tekstobject
-  sh:path ro:tekst ;
-  sh:nodeKind sh:IRI ;
-  sh:maxCount 1 ;
-  sh:node ro_str:Teksttype_BP
 .
 
 ro_str:Maatvoering_begrenzing a sh:PropertyShape ;
@@ -533,9 +566,10 @@ ro_str:Symbool_positie a sh:PropertyShape ;
 ro_str:Figuur a sh:NodeShape ;
   sh:targetClass ro:Figuur ;
   sh:property
+    ro_str:Figuur_naam ,
     ro_str:Figuur_illustratie ,
     ro_str:Figuur_label ,
-    ro_str:Figuur_tekstverwijzing ,
+    ro_str:Functieaanduiding_tekstverwijzing ,
     ro_str:Figuur_begrenzing ,
     ro_str:Figuur_aanduiding
 .
@@ -543,6 +577,26 @@ ro_str:Figuur a sh:NodeShape ;
 ro_str:Figuur_naam a sh:PropertyShape ;
   sh:path rdfs:label ;
   sh:node ro_str:Figuren
+.
+
+ro_str:Figuren a sh:Nodeshape ;
+  sh:or (
+    [ sh:in (
+        "as van de weg"
+        "dwarsprofiel"
+        "gevellijn"
+        "hartleiding - brandstof"
+        "hartlijn leiding - gas"
+        "hartlijn leiding - hoogspanning"
+        "hartlijn leiding - hoogspanningsverbinding"
+        "hartlijn leiding - olie"
+        "hartlijn leiding - riool"
+        "hartlijn leiding - water"
+        "relatie"
+      )
+    ]
+    [ sh:pattern "(^hartlijn leiding - [a-z ]*)" ]
+    )
 .
 
 ro_str:Figuur_illustratie a sh:PropertyShape ;
@@ -575,13 +629,6 @@ ro_str:Figuur_label a sh:PropertyShape ;
   sh:maxCount 1
 .
 
-ro_str:Figuur_tekstverwijzing a sh:PropertyShape ;
-# TODO if norm == IMROPT2012 then ropt:tekstobject
-  sh:path ro:tekst ;
-  sh:maxCount 1 ;
-  sh:node ro_str:Teksttype_BP
-.
-
 ro_str:Figuur_begrenzing a sh:PropertyShape ;
   sh:path ro:begrenzing ;
   sh:minCount 1 ;
@@ -593,26 +640,6 @@ ro_str:Figuur_aanduiding a sh:PropertyShape ;
   sh:path ro:aanduiding ;
 .
 
-#is this the way do deal with the codelist? or make namedIndividuals with a string attribute?
-ro_str:Figuren a sh:Nodeshape ;
-  sh:or (
-    [ sh:in (
-        "as van de weg"
-        "dwarsprofiel"
-        "gevellijn"
-        "hartleiding - brandstof"
-        "hartlijn leiding - gas"
-        "hartlijn leiding - hoogspanning"
-        "hartlijn leiding - hoogspanningsverbinding"
-        "hartlijn leiding - olie"
-        "hartlijn leiding - riool"
-        "hartlijn leiding - water"
-        "relatie"
-      )
-    ]
-    [ sh:pattern "(^hartlijn leiding - [a-z ]*)" ]
-    )
-.
 
 #################################################################
 #    Gebiedsaanduiding
@@ -622,7 +649,6 @@ ro_str:Gebiedsaanduiding a sh:NodeShape ;
   sh:targetClass ro:Gebiedsaanduiding ;
   sh:property
     ro_str:Gebiedsaanduiding_naam ,
-#    ro_str:Gebiedsaanduiding_gebiedsaanduidinggroep , <- this is incorporated at the class hierarchy
     ro_str:Gebiedsaanduiding_artikelnummer ,
     ro_str:Gebiedsaanduiding_tekstverwijzing ,
     ro_str:Gebiedsaanduiding_label ,
@@ -630,13 +656,71 @@ ro_str:Gebiedsaanduiding a sh:NodeShape ;
     ro_str:Gebiedsaanduiding_aanduiding
 .
 
-#TODO again, what to do with codelists.
 ro_str:Gebiedsaanduiding_naam a sh:Propertyshape ;
   sh:path rdfs:label ;
   sh:node ro_str:Gebiedsaanduidingen
 .
-ro_str:Gebiedsaanduidingen a sh:NodeShape .
-#TODO what are the allowed names.
+
+ro_str:Gebiedsaanduidingen a sh:NodeShape
+  sh:or (
+    [ sh:in (
+        "geluidzone"
+        "geluidzone - industrie"
+        "geluidzone - spoor"
+        "geluidzone - weg"
+        "luchtvaartverkeerzone"
+        "milieuzone"
+        "milieuzone - bodembeschermingsgebied"
+        "milieuzone - geluidsgevoelige functie"
+        "milieuzone - geurzone"
+        "milieuzone - grondwaterbeschermingsgebied"
+        "milieuzone - stiltegebied"
+        "milieuzone - waterwingebied"
+        "milieuzone - zones wet milieubeheer"
+        "overige zone"
+        "reconstructiewetzone"
+        "reconstructiewetzone - extensiveringsgebied"
+        "reconstructiewetzone - landbouwontwikkelingsgebied"
+        "reconstructiewetzone - verwevingsgebied"
+        "veiligheidszone"
+        "veiligheidszone - bevi"
+        "veiligheidszone - leiding"
+        "veiligheidszone - lpg"
+        "veiligheidszone - munitie"
+        "veiligheidszone - vervoer gevaarlijke stoffen"
+        "veiligheidszone - vuurwerk"
+        "veiligheidszone - windturbine"
+        "vrijwaringszone"
+        "vrijwaringszone - buisleidingenstraat"
+        "vrijwaringszone - dijk"
+        "vrijwaringszone - duin"
+        "vrijwaringszone - molenbiotoop"
+        "vrijwaringszone - radar"
+        "vrijwaringszone - spoor"
+        "vrijwaringszone - straalpad"
+        "vrijwaringszone - weg"
+        "vrijwaringszone - vaarweg"
+        "wetgevingzone"
+        "wetgevingzone - moderniseringsgebied"
+        "wetgevingzone - afwijkingsgebied"
+        "wetgevingzone - verwezenlijking in de naaste toekomst"
+        "wetgevingzone - wijzigingsgebied"
+        "wetgevingzone - wet geluidhinder"
+        "wetgevingzone - natura 2000"
+        "wetgevingzone - tracéwet"
+        "wetgevingzone - waterwet"
+      )
+    ]
+    [ sh:pattern "(^geluidzone - [a-z ]*)" ]
+    [ sh:pattern "(^luchtvaartverkeerzone - [a-z ]*)" ]
+    [ sh:pattern "(^milieuzone - [a-z ]*)" ]
+    [ sh:pattern "(^overige zone - [a-z ]*)" ]
+    [ sh:pattern "(^reconstructiewetzone - [a-z ]*)" ]
+    [ sh:pattern "(^veiligheidszone - [a-z ]*)" ]
+    [ sh:pattern "(^vrijwaringszone - [a-z ]*)" ]
+    [ sh:pattern "(^wetgevingzone - [a-z ]*)" ]
+  )
+.
 
 ro_str:Gebiedsaanduiding_artikelnummer a sh:PropertyShape ;
   sh:path ro:artikelnummer ;
@@ -647,11 +731,19 @@ ro_str:Gebiedsaanduiding_artikelnummer a sh:PropertyShape ;
 .
 
 ro_str:Gebiedsaanduiding_tekstverwijzing a sh:PropertyShape ;
-#TODO if norm == IMROPT2012 then ropt:Tekstobject
-  sh:path ro:tekst ;
-  sh:minCount 1 ;
-  sh:maxCount 1 ;
-  sh:node ro_str:Teksttype_BP
+  sh:and (
+    [ sh:xone ( [
+        sh:and (
+          [ sh:path ( dct:isPartOf ro:norm ) ; sh:hasValue ro_beg:IMROPT2012 ; ]
+          [ sh:path ro:tekst ; sh:class ropt:Tekstobject , ro:Tekst ; ] ) ] [
+        sh:and (
+          [ sh:path ( dct:isPartOf ro:norm ) ; sh:not [ sh:hasValue ro_beg:IMROPT ; ] ]
+          [ sh:path ro:tekst ; sh:class ro:Tekst ; sh:not [ sh:class ropt:Tekstobject ] ] ) ] ) ]
+    [ sh:path ro:tekst ;
+      sh:nodeKind sh:IRI ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+      sh:node ro_str:Teksttype_BP ] )
 .
 
 ro_str:Gebiedsaanduiding_label a sh:PropertyShape ;
@@ -660,19 +752,10 @@ ro_str:Gebiedsaanduiding_label a sh:PropertyShape ;
   sh:nodeKind sh:IRI ;
   sh:maxCount 1 ;
 # This specific case would have labeltekst be an integer
-#  sh:node [
-#    sh:path ro:labeltekst ;
-#    sh:nodeKind sh:Literal ;
-#    sh:datatype xsd:integer ;
-#    sh:minCount 1 ;
-#    sh:maxCount 1 ;
-#  ]
 .
 
 ro_str:Gebiedsaanduiding_begrenzing a sh:PropertyShape ;
   sh:path ro:begrenzing ;
-  sh:minCount 1 ;
-  sh:maxcount 1 ;
   sh:node ro_str:VlakMultiVlak
 .
 
