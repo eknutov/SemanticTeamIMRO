@@ -88,33 +88,9 @@ ro_str:Besluitgebied_P_tekstverwijzing a sh:PropertyShape ;
   sh:node ro_str:TeksttypeBG_PV
 .
 
-ro_str:TeksttypeBG_PV a sh:NodeShape ;
-  sh:property [
-    sh:path rdf:type ;
-    sh:in (
-      ropt:Tekstobject
-      ro:Besluitdocument
-      ro:Regels
-      ro:Toelichting
-      ro:BijlageBesluitdocument
-      ro:BijlageRegels
-      ro:BijlageToelichting
-    )
-  ]
-.
-
 ro_str:Besluitgebied_P_externPlan a sh:PropertyShape ;
   sh:path ro:externPlan ;
   sh:node ro_str:ExternPlanReferentie_PV
-.
-
-ro_str:ExternPlanReferentie_PV a sh:Nodeshape ;
-  sh:closed true ;
-  sh:ignoredProperties (
-    ro:muteert
-    ro:vervangt
-    ro:tenGevolgeVan
-  )
 .
 
 ro_str:Besluitgebied_P_norm a sh:PropertyShape ;
@@ -152,11 +128,10 @@ ro_str:Besluitvlak_P a sh:NodeShape ;
     ro_str:Besluitvlak_A-P_thema ,
     ro_str:Besluitvlak_P_tekstverwijzing ,
     ro_str:Besluitvlak_A-P_illustratieverwijzing ,
-    ro_str:Besluitvlak_A-P_cartografie ,
+    ro_str:Besluitvlak_A-P_isCartografischOnderdeelVan ,
     ro_str:Besluitvlak_P_begrenzing ,
     ro_str:Besluitvlak_P_hasPart
 .
-
 
 ro_str:Besluitvlak_P_tekstverwijzing a sh:PropertyShape ;
   sh:path ro:tekst ;
@@ -165,21 +140,6 @@ ro_str:Besluitvlak_P_tekstverwijzing a sh:PropertyShape ;
   sh:node
     ro_str:Teksttype_PV ,
     ro_str:Besluitgebied_P_normadressant
-.
-
-ro_str:Teksttype_PV a sh:NodeShape ;
-  sh:property [
-    sh:path rdf:type ;
-    sh:in (
-      ropt:Tekstobject
-      ro:RegelZonderVoorbereidingsbescherming
-      ro:RegelMetVoorbereidingsbescherming
-      ro:Toelichting
-      ro:BijlageRegelZonderVoorbereidingsbescherming
-      ro:BijlageRegelMetVoorbereidingsbescherming
-      ro:BijlageToelichting
-    )
-  ]
 .
 
 ro_str:Besluitvlak_P_begrenzing a sh:PropertyShape ;

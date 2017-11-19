@@ -194,3 +194,105 @@ ro_str:prefixes #should we store this here?
       sh:prefix "nen3610" ;
     ]
 .
+
+ro_str:RuimtelijkPlanOfBesluit_SV
+  rdf:type sh:NodeShape ;
+  sh:in (
+    ro:Structuurvisie
+    ) ;
+.
+
+#################################################################
+#    Symbool
+#################################################################
+
+ro_str:Symbool a sh:NodeShape ;
+  sh:targetClass ro:Symbool ;
+  sh:property
+    ro_str:Symbool_code ,
+    ro_str:Symbool_positie ;
+.
+
+ro_str:Symbool_code a sh:PropertyShape;
+  sh:path ro:code ;
+  sh:mincount 1 ;
+  sh:maxCount 1 ;
+  sh:nodeKind sh:Literal ;
+  sh:datatype xsd:String ;
+.
+
+ro_str:Symbool_positie a sh:PropertyShape ;
+  sh:path ro:positie ;
+  sh:class sh:Labelpositie ;
+  sh:minCount 1
+.
+
+#################################################################
+#    cartografie
+#################################################################
+
+ro_str:Verbeeldingskaart a sh:NodeShape ;
+  sh:targetClass ro:Verbeeldingskaart ;
+  sh:property
+    ro_str:Verbeeldingskaart_kaartnaam ,
+    ro_str:Verbeeldingskaart_kaartnummer ;
+.
+
+ro_str:Verbeeldingskaart_kaartnaam a sh:PropertyShape ;
+  sh:path rdfs:label ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:datatype xsd:string ;
+.
+
+ro_str:Verbeeldingskaart_kaartnummer a sh:PropertyShape ;
+  sh:path ro:kaartnummer ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:datatype xsd:string ;
+.
+
+# Because the symbol is specific to the use of a Verbeeldingskaart,
+# we require the reification of the statement that expresses this usage.
+# To that statement we add the symbol as an annotation.
+ro_str:Verbeeldingskaartsymbool a sh:NodeShape ;
+  sh:targetNode ro:isCartografischOnderdeelVan ;
+  sh:property [
+    sh:path [ sh:inversePath rdf:predicate ] ;
+    sh:node ro_str:CartografieSymboolannotatie ;
+  ]
+.
+
+ro_str:CartografieSymboolannotatie a sh:NodeShape ;
+  sh:property
+    [
+      sh:path rdf:subject ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+      sh:or (
+        [
+          sh:nodeKind sh:IRI ;
+        ]
+        [
+          sh:nodeKind sh:BlankNode ;
+        ]
+      )
+    ] ,
+    [
+      sh:path rdf:predicate ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+      sh:nodeKind sh:IRI ;
+    ] ,
+    [
+      sh:path rdf:object ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+    ] ,
+    [
+      sh:path ro:symbool ;
+      sh:maxCount 1 ;
+      sh:nodeKind sh:IRI ;
+      sh:class ro:Symbool ;
+    ] ;
+.

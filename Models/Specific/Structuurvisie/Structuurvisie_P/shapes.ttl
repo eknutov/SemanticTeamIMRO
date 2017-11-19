@@ -213,7 +213,7 @@ ro_str:Structuurvisieverklaring_P a sh:NodeShape ;
     ro_str:Structuurvisiecomplex_thema ,
     ro_str:Structuurvisieverklaring_P_tekstverwijzing ,
     ro_str:Structuurvisieverklaring_P_illustratieverwijzing ,
-    ro_str:Structuurvisiegebied_cartografie ,
+    ro_str:Structuurvisiegebied_isCartografischOnderdeelVan ,
     ro_str:Structuurvisieverklaring_P_isPartOf ,
     ro_str:Structuurvisieverklaring_P_begrenzing
 .

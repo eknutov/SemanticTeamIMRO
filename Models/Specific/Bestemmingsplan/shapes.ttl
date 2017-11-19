@@ -532,33 +532,6 @@ ro_str:Maatvoering_aanduiding a sh:PropertyShape ;
   sh:maxCount 1
 .
 
-
-#################################################################
-#    Symbool
-#################################################################
-
-ro_str:Symbool a sh:NodeShape ;
-  sh:targetClass ro:Symbool ;
-  sh:property
-    ro_str:Symbool_code ,
-    ro_str:Symbool_positie
-.
-
-ro_str:Symbool_code a sh:PropertyShape;
-  sh:path ro:code ;
-  sh:mincount 1 ;
-  sh:maxCount 1 ;
-  sh:nodeKind sh:Literal ;
-  sh:datatype xsd:String
-.
-
-ro_str:Symbool_positie a sh:PropertyShape ;
-  sh:path ro:positie ;
-  sh:class ro:Labelpositie ;
-  sh:minCount 1
-.
-
-
 #################################################################
 #    Figuur
 #################################################################

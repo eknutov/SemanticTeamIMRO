@@ -178,21 +178,6 @@ ro_str:Besluitvlak_X_tekstverwijzing a sh:PropertyShape ;
     ro_str:Besluitgebied_X_normadressant
 .
 
-ro_str:Teksttype_XGB a sh:NodeShape ;
-  sh:property [
-    sh:path rdf:type ;
-    sh:in (
-      ropt:Tekstobject
-      ro:Besluittekst
-      ro:Voorschriften_Regels
-      ro:Toelichting
-      ro:BijlageBesluittekst
-      ro:BijlageVoorschriften_Regels
-      ro:BijlageToelichting
-    )
-  ]
-.
-
 ro_str:Besluitvlak_X_begrenzing a sh:PropertyShape ;
   sh:path ro:begrenzing ;
   sh:minCount 1 ;

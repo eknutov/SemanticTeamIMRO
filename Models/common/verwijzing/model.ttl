@@ -219,62 +219,14 @@ ro:illustratieNaam a owl:AnnotationProperty ;
   rdfs:label "illustratie naam"@nl
 .
 
-#ro:afbeeldingReferentie
-#  rdf:type owl:AnnotationProperty ;
-#  rdfs:label "afbeeldingReferentie"@nl ;
-#  rdfs:subPropertyOf ro:illustratie ;
-#.
-
-#ro:kaartReferentie
-#  rdf:type owl:AnnotationProperty ;
-#  rdfs:label "kaartReferentie"@nl ;
-#  rdfs:subPropertyOf ro:illustratie ;
-#.
-
-#ro:illustratieverwijzing a owl:Class ;
-#  rdfs:label "illustratieverwijzing"@nl ;
-#.
-
 #################################################################
-#    Cartografie TODO @Pano
-#################################################################
-
-ro:cartografie a owl:ObjectProperty ;
-  rdfs:label "cartografie"@nl ;
-  rdfs:isDefinedBy :ro
-.
-
-ro:kaartNaam a owl:AnnotationProperty ;
-  rdfs:label "kaart naam"@nl ;
-  rdfs:isDefinedBy :ro
-.
-
-ro:kaartNummer a owl:DatatypeProperty ;
-  rdfs:label "kaart nummer"@nl ;
-  rdfs:isDefinedBy :ro
-.
-
-ro:symboolCode a owl:DatatypeProperty ;
-  rdfs:label "symbool code"@nl ;
-  rdfs:isDefinedBy :ro
-.
-
-#################################################################
-#    Extern plan
+#    Extern Plan
 #################################################################
 
 ro:externPlan a owl:ObjectProperty ;
   rdfs:label "extern plan"@nl ;
   rdfs:isDefinedBy :ro
 .
-
-#redundant if we point to IRIs of external plans.
-#ro:idn
-#  rdf:type owl:DatatypeProperty ;
-#  rdfs:domain ro:ExternPlan ;
-#  rdfs:isDefinedBy :ro ;
-#  rdfs:label "idn"@nl
-#.
 
 ro:muteert a owl:ObjectProperty ;
   rdfs:subPropertyOf ro:externPlan ;

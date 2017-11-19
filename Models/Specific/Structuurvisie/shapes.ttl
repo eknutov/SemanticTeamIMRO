@@ -143,9 +143,9 @@ ro_str:Structuurvisiegebied a sh:NodeShape ;
     sh:property
       ro_str:Structuurvisiegebied_thema ,
       ro_str:Structuurvisiegebied_tekstverwijzing ,
-      ro_str:Structuurvisiegebied_illustratieVerwijzing ,
+      ro_str:Structuurvisiegebied_illustratieverwijzing ,
       ro_str:Structuurvisiegebied_externPlan ,
-      ro_str:Structuurvisiegebied_cartografie ,
+      ro_str:Structuurvisiegebied_isCartografischOnderdeelVan ,
       ro_str:Structuurvisiegebied_begrenzing ,
       ro_str:Structuurvisiegebied_isPartOf
 .
@@ -178,9 +178,9 @@ ro_str:Structuurvisiegebied_externPlan a sh:PropertyShape ;
   sh:node ro_str:ExternPlanReferentie_SV ;
 .
 
-ro_str:Structuurvisiegebied_cartografie a sh:PropertyShape ;
-  sh:path ro:cartografie ;
-  sh:node ro_str:cartografieInfo ;
+ro_str:Structuurvisiegebied_isCartografischOnderdeelVan a sh:PropertyShape ; #perhaps applicable for all planobjects?
+  sh:path ro:isCartografischOnderdeelVan ;
+  sh:node ro_str:Verbeeldingskaart ;
 .
 
 ro_str:Structuurvisiegebied_begrenzing a sh:PropertyShape ;
@@ -212,10 +212,9 @@ ro_str:Structuurvisiecomplex a sh:NodeShape ;
   sh:targetClass ro:Structuurvisiecomplex ;
   sh:property
     ro_str:Structuurvisiecomplex_thema ,
-    ro_str:Structuurvisiegebied_illustratieVerwijzing ,
-    ro_str:Structuurvisiegebied_tekstverwijzing ,
+    ro_str:Structuurvisiegebied_illustratieverwijzing ,
     ro_str:Structuurvisiegebied_externPlan ,
-    ro_str:Structuurvisiegebied_cartografie ,
+    ro_str:Structuurvisiegebied_isCartografischOnderdeelVan ,
     ro_str:Structuurvisiegebied_begrenzing ,
     ro_str:Structuurvisiecomplex_hasPart ,
     ro_str:Structuurvisiegebied_isPartOf

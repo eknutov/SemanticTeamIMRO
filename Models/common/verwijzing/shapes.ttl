@@ -98,6 +98,82 @@ ro_str:Teksttype_PSV a sh:NodeShape ;
     ) ]
 .
 
+ro_str:TeksttypeBG_AMB a sh:NodeShape ;
+  sh:property [
+    sh:path rdf:type ;
+    sh:in (
+      ropt:Tekstobject
+      ro:Besluitdocument
+      ro:Regels
+      ro:Toelichting
+      ro:BijlageBesluitdocument
+      ro:BijlageRegels
+      ro:BijlageToelichting
+    )
+  ]
+.
+
+ro_str:Teksttype_AMB a sh:NodeShape ;
+  sh:property [
+    sh:path rdf:type ;
+    sh:in (
+      ropt:Tekstobject
+      ro:Besluittekst
+      ro:Regels
+      ro:Toelichting
+      ro:BijlageBesluittekst
+      ro:BijlageRegels
+      ro:BijlageToelichting
+    )
+  ]
+.
+
+ro_str:Teksttype_XGB a sh:NodeShape ;
+  sh:property [
+    sh:path rdf:type ;
+    sh:in (
+      ropt:Tekstobject
+      ro:Besluittekst
+      ro:Voorschriften_Regels
+      ro:Toelichting
+      ro:BijlageBesluittekst
+      ro:BijlageVoorschriften_Regels
+      ro:BijlageToelichting
+    )
+  ]
+.
+
+ro_str:TeksttypeBG_PV a sh:NodeShape ;
+  sh:property [
+    sh:path rdf:type ;
+    sh:in (
+      ropt:Tekstobject
+      ro:Besluitdocument
+      ro:Regels
+      ro:Toelichting
+      ro:BijlageBesluitdocument
+      ro:BijlageRegels
+      ro:BijlageToelichting
+    )
+  ]
+.
+
+ro_str:Teksttype_PV a sh:NodeShape ;
+  sh:property [
+    sh:path rdf:type ;
+    sh:in (
+      ropt:Tekstobject
+      ro:RegelZonderVoorbereidingsbescherming
+      ro:RegelMetVoorbereidingsbescherming
+      ro:Toelichting
+      ro:BijlageRegelZonderVoorbereidingsbescherming
+      ro:BijlageRegelMetVoorbereidingsbescherming
+      ro:BijlageToelichting
+    )
+  ]
+.
+
+
 #################################################################
 #    Illustratie
 #################################################################
@@ -114,38 +190,6 @@ ro_str:Illustratie_IllustratieNaam a sh:NodeShape ;
   sh:datatype xsd:string ;
   sh:maxCount 1
 .
-
-#################################################################
-#    Cartografie TODO @Pano
-#################################################################
-
-ro_str:cartografieInfo a sh:NodeShape ;
-  sh:property
-    ro_str:cartografieInfo_kaartNaam ,
-    ro_str:cartografieInfo_kaartNummer ,
-    ro_str:cartografieInfo_symboolCode
-.
-
-ro_str:cartografieInfo_kaartNaam a sh:PropertyShape ;
-  sh:path ro:kaartNaam ;
-  sh:minCount 1 ;
-  sh:maxCount 1 ;
-  sh:datatype xsd:string
-.
-
-ro_str:cartografieInfo_kaartNummer a sh:PropertyShape ;
-  sh:path ro:kaartNummer ;
-  sh:minCount 1 ;
-  sh:maxCount 1 ;
-  sh:datatype xsd:string
-.
-
-ro_str:cartografieInfo_symboolCode a sh:PropertyShape ;
-  sh:path ro:symboolCode ;
-  sh:maxCount 1 ;
-  sh:datatype xsd:string
-.
-
 
 #################################################################
 #    Extern plan
@@ -181,4 +225,27 @@ ro_str:ExternPlanReferentie_BP a sh:NodeShape ;
     ro:vervangt
     ro:tenGevolgeVan
     )
+.
+
+ro_str:ExternPlanReferentie_AMB a sh:NodeShape ;
+  sh:closed true ;
+  sh:ignoredProperties (
+    ro:muteert
+    ro:vervangt
+    ro:uitTeWerkenIn    #Jesse: IMRO is quite unclear here. Is "in extern plan/besluit uit werken" different from "in extern plan/besluit uit te werken"?
+#    ro:uitgewerktIn
+    ro:gebruiktInformatieUit
+    ro:tenGevolgeVan
+    )
+.
+
+
+
+ro_str:ExternPlanReferentie_PV a sh:Nodeshape ;
+  sh:closed true ;
+  sh:ignoredProperties (
+    ro:muteert
+    ro:vervangt
+    ro:tenGevolgeVan
+  )
 .
