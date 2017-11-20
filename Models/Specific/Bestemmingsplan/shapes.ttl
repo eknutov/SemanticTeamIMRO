@@ -45,11 +45,11 @@ ro_str:Planobject_isPartOf a sh:PropertyShape ;
 .
 
 ro_str:Plangebied a sh:NodeShape ;
-  sh:property ro_str:Plangebied_geometry
+  sh:property ro_str:Plangebied_geometrie
 .
 
 ro_str:Plangebied_geometrie a sh:PropertyShape ;
-  sh:path ro:geometry ;
+  sh:path ro:geometrie ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
 .

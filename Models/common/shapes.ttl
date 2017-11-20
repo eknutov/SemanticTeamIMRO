@@ -111,7 +111,7 @@ ro_str:Planobject_identificatie_lokaalID a sh:PropertyShape ;
 ro_str:Plangebied a sh:NodeShape ;
   sh:targetClass ro:Plangebied ;
   sh:property
-    ro_str:Plangebied_geometry ,
+    ro_str:Plangebied_geometrie , 
     ro_str:Plangebied_identificatie_lokaalID
 .
 
