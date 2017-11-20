@@ -160,7 +160,7 @@ ro_str:Plangebied a sh:NodeShape ;
 
 ro_str:Plangebied_begrenzing a sh:PropertyShape ;
   sh:path ro:begrenzing ;
-  sh:class ro:Geometry ;
+  sh:class ro:Geometrie ;
   sh:minCount 1 ;
   sh:maxCount 1
 .

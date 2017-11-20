@@ -190,7 +190,7 @@ ro_str:Besluitsubvlak_P_begrenzing a sh:PropertyShape ;
   sh:path ro:begrenzing ;
   sh:node
     ro_str:PuntLijnVlakMulti ,
-    ro_str:Besluitsubvlak_P_Geometry_idealisatie
+    ro_str:Besluitsubvlak_P_Geometrie_idealisatie
 .
 
 ro_str:Besluitsubvlak_P_Geometrie_idealisatie a sh:PropertyShape ;
