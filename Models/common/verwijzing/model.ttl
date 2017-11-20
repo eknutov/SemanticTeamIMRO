@@ -190,37 +190,7 @@ ro:illustratieNaam a owl:AnnotationProperty ;
 #  rdfs:subPropertyOf ro:illustratie ;
 #.
 
-#ro:illustratieverwijzing a owl:Class ;
-#  rdfs:label "illustratieverwijzing"@nl ;
-#.
-
-#################################################################
-#    Cartografie
-#################################################################
-
-ro:cartografie a owl:ObjectProperty ;
-  rdfs:label "cartografie"@nl ;
-  rdfs:isDefinedBy :ro
-.
-
-ro:kaartNaam a owl:AnnotationProperty ;
-  rdfs:label "kaart naam"@nl ;
-  rdfs:isDefinedBy :ro
-.
-
-ro:kaartNummer a owl:DatatypeProperty ;
-  rdfs:label "kaart nummer"@nl ;
-  rdfs:isDefinedBy :ro
-.
-
-ro:symboolCode a owl:DatatypeProperty ;
-  rdfs:label "symbool code"@nl ;
-  rdfs:isDefinedBy :ro
-.
-
-#################################################################
-#    Extern plan
-#################################################################
+### extern plan
 
 ro:externPlan a owl:ObjectProperty ;
   rdfs:label "extern plan"@nl ;

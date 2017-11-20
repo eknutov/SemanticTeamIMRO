@@ -144,7 +144,7 @@ ro_str:Structuurvisiegebied a sh:NodeShape ;
       ro_str:Structuurvisiegebied_thema ,
       ro_str:Structuurvisiegebied_illustratieVerwijzing , #partially common
       ro_str:Structuurvisiegebied_externPlan ,
-      ro_str:Structuurvisiegebied_cartografie , #TODO: add hoofdkaart == nummer 1
+      ro_str:Structuurvisiegebied_isCartografischOnderdeelVan , #TODO: add hoofdkaart == nummer 1
       ro_str:Structuurvisiegebied_begrenzing ,
       ro_str:Structuurvisiegebied_isPartOf
 .
@@ -169,9 +169,9 @@ ro_str:Structuurvisiegebied_externPlan a sh:PropertyShape ;
   sh:node ro_str:ExternPlanReferentie_SV ;
 .
 
-ro_str:Structuurvisiegebied_cartografie a sh:PropertyShape ; #perhaps applicable for all planobjects?
-  sh:path ro:cartografie ;
-  sh:node ro_str:cartografieInfo ;
+ro_str:Structuurvisiegebied_isCartografischOnderdeelVan a sh:PropertyShape ; #perhaps applicable for all planobjects?
+  sh:path ro:isCartografischOnderdeelVan ;
+  sh:node ro_str:Verbeeldingskaart ;
 .
 
 ro_str:Structuurvisiegebied_begrenzing a sh:PropertyShape ;
@@ -216,7 +216,7 @@ ro_str:Structuurvisiecomplex a sh:NodeShape ;
     ro_str:Structuurvisiecomplex_thema ,
     ro_str:Structuurvisiegebied_illustratieVerwijzing ,  #copied same as ro:structuurvisiegebied_illustratieVerwijzing
     ro_str:Structuurvisiegebied_externPlan , #copied same as ro_str:Structuurvisiegebied_externPlan
-    ro_str:Structuurvisiegebied_cartografie , #copied same as ro_str:Structuurvisiegebied_cartografie
+    ro_str:Structuurvisiegebied_isCartografischOnderdeelVan , #copied same as ro_str:Structuurvisiegebied_isCartografischOnderdeelVan
     ro_str:Structuurvisiegebied_begrenzing ,  #copied same as ro:structuurvisiegebied_illustratieVerwijzing
     ro_str:Structuurvisiecomplex_hasPart ,
     ro_str:Structuurvisiegebied_isPartOf #copied same as ro:structuurvisiegebied_isPartOf

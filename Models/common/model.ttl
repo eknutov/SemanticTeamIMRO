@@ -177,3 +177,157 @@ ro:instrument a owl:ObjectProperty ;
   rdfs:label "instrument"@nl ;
   rdfs:range ro_beg:Instrument ;
 .
+
+###############
+### cartografie
+###############
+
+ro:isCartografischOnderdeelVan a owl:ObjectProperty ;
+  rdfs:label "is cartografisch onderdeel van"@nl ;
+  rdfs:domain ro:Planobject ;
+  rdfs:range ro:Verbeeldingskaart ;
+  rdfs:isDefinedBy :ro ;
+.
+
+ro:Verbeeldingskaart a owl:Class ;
+  rdfs:label "Verbeeldingskaart"@nl ;
+  rdfs:isDefinedBy :ro ;
+.
+
+ro:kaartnummer a owl:DatatypeProperty ;
+  rdfs:label "kaartnummer" ;
+  rdfs:domain ro:Verbeeldingskaart ;
+  rdfs:isDefinedBy :ro ;
+.
+
+###############
+### Symbool
+###############
+
+ro:symbool a owl:AnnotationProperty ; #or should this be an objectproperty?
+  rdfs:label "symbool"@nl ;
+  rdfs:isDefinedBy :ro ;
+  rdfs:range ro:Symbool ;
+.
+
+ro:Symbool a owl:Class ;
+  rdfs:label "Symbool"@nl ;
+  rdfs:isDefinedBy :ro ;
+.
+
+ro:code a owl:DatatypeProperty ;
+  rdfs:label "code"@nl ;
+  rdfs:isDefinedBy :ro ;
+.
+
+ro_sym:s100 a ro:Symbool, owl:NamedIndividual ; ro:code "s100" .
+ro_sym:s101 a ro:Symbool, owl:NamedIndividual ; ro:code "s101" .
+ro_sym:s102 a ro:Symbool, owl:NamedIndividual ; ro:code "s102" .
+ro_sym:s103 a ro:Symbool, owl:NamedIndividual ; ro:code "s103" .
+ro_sym:s104 a ro:Symbool, owl:NamedIndividual ; ro:code "s104" .
+ro_sym:s105 a ro:Symbool, owl:NamedIndividual ; ro:code "s105" .
+ro_sym:s106 a ro:Symbool, owl:NamedIndividual ; ro:code "s106" .
+ro_sym:s107 a ro:Symbool, owl:NamedIndividual ; ro:code "s107" .
+ro_sym:s108 a ro:Symbool, owl:NamedIndividual ; ro:code "s108" .
+ro_sym:s109 a ro:Symbool, owl:NamedIndividual ; ro:code "s109" .
+ro_sym:s110 a ro:Symbool, owl:NamedIndividual ; ro:code "s110" .
+ro_sym:s111 a ro:Symbool, owl:NamedIndividual ; ro:code "s111" .
+ro_sym:s112 a ro:Symbool, owl:NamedIndividual ; ro:code "s112" .
+ro_sym:s113 a ro:Symbool, owl:NamedIndividual ; ro:code "s113" .
+ro_sym:s114 a ro:Symbool, owl:NamedIndividual ; ro:code "s114" .
+ro_sym:s115 a ro:Symbool, owl:NamedIndividual ; ro:code "s115" .
+ro_sym:s116 a ro:Symbool, owl:NamedIndividual ; ro:code "s116" .
+ro_sym:s117 a ro:Symbool, owl:NamedIndividual ; ro:code "s117" .
+ro_sym:s118 a ro:Symbool, owl:NamedIndividual ; ro:code "s118" .
+ro_sym:s119 a ro:Symbool, owl:NamedIndividual ; ro:code "s119" .
+ro_sym:s120 a ro:Symbool, owl:NamedIndividual ; ro:code "s120" .
+ro_sym:s121 a ro:Symbool, owl:NamedIndividual ; ro:code "s121" .
+ro_sym:s122 a ro:Symbool, owl:NamedIndividual ; ro:code "s122" .
+ro_sym:s123 a ro:Symbool, owl:NamedIndividual ; ro:code "s123" .
+ro_sym:s124 a ro:Symbool, owl:NamedIndividual ; ro:code "s124" .
+ro_sym:s125 a ro:Symbool, owl:NamedIndividual ; ro:code "s125" .
+ro_sym:s126 a ro:Symbool, owl:NamedIndividual ; ro:code "s126" .
+ro_sym:s127 a ro:Symbool, owl:NamedIndividual ; ro:code "s127" .
+ro_sym:s128a a ro:Symbool, owl:NamedIndividual ; ro:code "s128a" .
+ro_sym:s128b a ro:Symbool, owl:NamedIndividual ; ro:code "s128b" .
+ro_sym:s128c a ro:Symbool, owl:NamedIndividual ; ro:code "s128c" .
+ro_sym:s128d a ro:Symbool, owl:NamedIndividual ; ro:code "s128d" .
+ro_sym:s128e a ro:Symbool, owl:NamedIndividual ; ro:code "s128e" .
+ro_sym:s128f a ro:Symbool, owl:NamedIndividual ; ro:code "s128f" .
+ro_sym:s128g a ro:Symbool, owl:NamedIndividual ; ro:code "s128g" .
+ro_sym:s128h a ro:Symbool, owl:NamedIndividual ; ro:code "s128h" .
+ro_sym:s128i a ro:Symbool, owl:NamedIndividual ; ro:code "s128i" .
+ro_sym:s128j a ro:Symbool, owl:NamedIndividual ; ro:code "s128j" .
+ro_sym:s128k a ro:Symbool, owl:NamedIndividual ; ro:code "s128k" .
+ro_sym:s128l a ro:Symbool, owl:NamedIndividual ; ro:code "s128l" .
+ro_sym:s128m a ro:Symbool, owl:NamedIndividual ; ro:code "s128m" .
+ro_sym:s128n a ro:Symbool, owl:NamedIndividual ; ro:code "s128n" .
+ro_sym:s128o a ro:Symbool, owl:NamedIndividual ; ro:code "s128o" .
+ro_sym:s128p a ro:Symbool, owl:NamedIndividual ; ro:code "s128p" .
+ro_sym:s128q a ro:Symbool, owl:NamedIndividual ; ro:code "s128q" .
+ro_sym:s128r a ro:Symbool, owl:NamedIndividual ; ro:code "s128r" .
+ro_sym:s128s a ro:Symbool, owl:NamedIndividual ; ro:code "s128s" .
+ro_sym:s128t a ro:Symbool, owl:NamedIndividual ; ro:code "s128t" .
+ro_sym:s128u a ro:Symbool, owl:NamedIndividual ; ro:code "s128u" .
+ro_sym:s128v a ro:Symbool, owl:NamedIndividual ; ro:code "s128v" .
+ro_sym:s128w a ro:Symbool, owl:NamedIndividual ; ro:code "s128w" .
+ro_sym:s128x a ro:Symbool, owl:NamedIndividual ; ro:code "s128x" .
+ro_sym:s128y a ro:Symbool, owl:NamedIndividual ; ro:code "s128y" .
+ro_sym:s128z a ro:Symbool, owl:NamedIndividual ; ro:code "s128z" .
+ro_sym:s128aa a ro:Symbool, owl:NamedIndividual ; ro:code "s128aa" .
+ro_sym:s128ab a ro:Symbool, owl:NamedIndividual ; ro:code "s128ab" .
+ro_sym:s128ac a ro:Symbool, owl:NamedIndividual ; ro:code "s128ac" .
+ro_sym:s128ad a ro:Symbool, owl:NamedIndividual ; ro:code "s128ad" .
+ro_sym:s128ae a ro:Symbool, owl:NamedIndividual ; ro:code "s128ae" .
+ro_sym:s128af a ro:Symbool, owl:NamedIndividual ; ro:code "s128af" .
+ro_sym:s129a a ro:Symbool, owl:NamedIndividual ; ro:code "s129a" .
+ro_sym:s129b a ro:Symbool, owl:NamedIndividual ; ro:code "s129b" .
+ro_sym:s129c a ro:Symbool, owl:NamedIndividual ; ro:code "s129c" .
+ro_sym:s129d a ro:Symbool, owl:NamedIndividual ; ro:code "s129d" .
+ro_sym:s129e a ro:Symbool, owl:NamedIndividual ; ro:code "s129e" .
+ro_sym:s129f a ro:Symbool, owl:NamedIndividual ; ro:code "s129f" .
+ro_sym:s129g a ro:Symbool, owl:NamedIndividual ; ro:code "s129g" .
+ro_sym:s129h a ro:Symbool, owl:NamedIndividual ; ro:code "s129h" .
+ro_sym:s129i a ro:Symbool, owl:NamedIndividual ; ro:code "s129i" .
+ro_sym:s129j a ro:Symbool, owl:NamedIndividual ; ro:code "s129j" .
+ro_sym:s129k a ro:Symbool, owl:NamedIndividual ; ro:code "s129k" .
+ro_sym:s129l a ro:Symbool, owl:NamedIndividual ; ro:code "s129l" .
+ro_sym:s129m a ro:Symbool, owl:NamedIndividual ; ro:code "s129m" .
+ro_sym:s129n a ro:Symbool, owl:NamedIndividual ; ro:code "s129n" .
+ro_sym:s129o a ro:Symbool, owl:NamedIndividual ; ro:code "s129o" .
+ro_sym:s129p a ro:Symbool, owl:NamedIndividual ; ro:code "s129p" .
+ro_sym:s129q a ro:Symbool, owl:NamedIndividual ; ro:code "s129q" .
+ro_sym:s129r a ro:Symbool, owl:NamedIndividual ; ro:code "s129r" .
+ro_sym:s129s a ro:Symbool, owl:NamedIndividual ; ro:code "s129s" .
+ro_sym:s129t a ro:Symbool, owl:NamedIndividual ; ro:code "s129t" .
+ro_sym:s129u a ro:Symbool, owl:NamedIndividual ; ro:code "s129u" .
+ro_sym:s129v a ro:Symbool, owl:NamedIndividual ; ro:code "s129v" .
+ro_sym:s129w a ro:Symbool, owl:NamedIndividual ; ro:code "s129w" .
+ro_sym:s129x a ro:Symbool, owl:NamedIndividual ; ro:code "s129x" .
+ro_sym:s129y a ro:Symbool, owl:NamedIndividual ; ro:code "s129y" .
+ro_sym:s129z a ro:Symbool, owl:NamedIndividual ; ro:code "s129z" .
+ro_sym:s129aa a ro:Symbool, owl:NamedIndividual ; ro:code "s129aa" .
+ro_sym:s129ab a ro:Symbool, owl:NamedIndividual ; ro:code "s129ab" .
+ro_sym:s130a a ro:Symbool, owl:NamedIndividual ; ro:code "s130a" .
+ro_sym:s130b a ro:Symbool, owl:NamedIndividual ; ro:code "s130b" .
+ro_sym:s130c a ro:Symbool, owl:NamedIndividual ; ro:code "s130c" .
+ro_sym:s130d a ro:Symbool, owl:NamedIndividual ; ro:code "s130d" .
+ro_sym:s130e a ro:Symbool, owl:NamedIndividual ; ro:code "s130e" .
+ro_sym:s130f a ro:Symbool, owl:NamedIndividual ; ro:code "s130f" .
+ro_sym:s130g a ro:Symbool, owl:NamedIndividual ; ro:code "s130g" .
+ro_sym:s130h a ro:Symbool, owl:NamedIndividual ; ro:code "s130h" .
+ro_sym:s130i a ro:Symbool, owl:NamedIndividual ; ro:code "s130i" .
+ro_sym:s130j a ro:Symbool, owl:NamedIndividual ; ro:code "s130j" .
+ro_sym:s130k a ro:Symbool, owl:NamedIndividual ; ro:code "s130k" .
+ro_sym:s130l a ro:Symbool, owl:NamedIndividual ; ro:code "s130l" .
+ro_sym:s130m a ro:Symbool, owl:NamedIndividual ; ro:code "s130m" .
+ro_sym:s130n a ro:Symbool, owl:NamedIndividual ; ro:code "s130n" .
+ro_sym:s130o a ro:Symbool, owl:NamedIndividual ; ro:code "s130o" .
+ro_sym:s130p a ro:Symbool, owl:NamedIndividual ; ro:code "s130p" .
+ro_sym:s130q a ro:Symbool, owl:NamedIndividual ; ro:code "s130q" .
+ro_sym:s130r a ro:Symbool, owl:NamedIndividual ; ro:code "s130r" .
+ro_sym:s130s a ro:Symbool, owl:NamedIndividual ; ro:code "s130s" .
+ro_sym:s130t a ro:Symbool, owl:NamedIndividual ; ro:code "s130t" .
+ro_sym:s130u a ro:Symbool, owl:NamedIndividual ; ro:code "s130u" .
+ro_sym:s130v a ro:Symbool, owl:NamedIndividual ; ro:code "s130v" .
+ro_sym:s130w a ro:Symbool, owl:NamedIndividual ; ro:code "s130w" .
