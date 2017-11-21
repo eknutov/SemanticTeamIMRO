@@ -167,18 +167,268 @@ ro_beg:Dubbelbestemming a skos:Concept ;
   skos:inScheme ro_begkr:ro ;
   skos:notation "dubbelbestemming"
 .
+#################################################################
+#    Bestemmingshoofdgroep
+#################################################################
 
-#TODO:
-# ekn: whoever left TODO here, please specify what is on a TODO list
+ro_beg:Bestemmingshoofdgroep a skos:Concept ;
+  rdfs:label "Bestemmingshoofdgroep"@nl ;
+  skos:prefLabel "Bestemmingshoofdgroep"@nl ;
+  skos:topConceptOf ro_begkr:ro ;
+  skos:inScheme ro_begkr:ro
+.
 
-ro_beg:bestemmingshoofdgroep a skos:Concept .
+ro_beg:Agrarisch a skos:Concept ;
+  rdfs:label "agrarisch"@nl ;
+  skos:prefLabel "agrarisch"@nl ;
+  skos-thes:broaderGeneric ro_beg:Bestemmingshoofdgroep ;
+  skos:inScheme ro_begkr:ro
+.
 
-ro_col:Bestemmingshoofdgroep a skos:Collection .
+ro_beg:AgrarischMetWaarden a skos:Concept ;
+  rdfs:label "agrarisch met waarden"@nl ;
+  skos:prefLabel "agrarisch met waarden"@nl ;
+  skos-thes:broaderGeneric ro_beg:Bestemmingshoofdgroep ;
+  skos:inScheme ro_begkr:ro
+.
 
-ro_col:Bestemmingshoofdgroep_E a skos:Collection .
+ro_beg:Bedrijf a skos:Concept ;
+  rdfs:label "bedrijf"@nl ;
+  skos:prefLabel "bedrijf"@nl ;
+  skos-thes:broaderGeneric ro_beg:Bestemmingshoofdgroep ;
+  skos:inScheme ro_begkr:ro
+.
 
-ro_col:Bestemmingshoofdgroep_D a skos:Collection .
+ro_beg:Bedrijventerrein a skos:Concept ;
+  rdfs:label "bedrijventerrein"@nl ;
+  skos:prefLabel "bedrijventerrein"@nl ;
+  skos-thes:broaderGeneric ro_beg:Bestemmingshoofdgroep ;
+  skos:inScheme ro_begkr:ro
+.
 
+ro_beg:Bos a skos:Concept ;
+  rdfs:label "bos"@nl ;
+  skos:prefLabel "bos"@nl ;
+  skos-thes:broaderGeneric ro_beg:Bestemmingshoofdgroep ;
+  skos:inScheme ro_begkr:ro
+.
+
+ro_beg:Centrum a skos:Concept ;
+  rdfs:label "centrum"@nl ;
+  skos:prefLabel "centrum"@nl ;
+  skos-thes:broaderGeneric ro_beg:Bestemmingshoofdgroep ;
+  skos:inScheme ro_begkr:ro
+.
+
+ro_beg:CultuurEnOntspanning a skos:Concept ;
+  rdfs:label "cultuur en ontspanning"@nl ;
+  skos:prefLabel "cultuur en ontspanning"@nl ;
+  skos-thes:broaderGeneric ro_beg:Bestemmingshoofdgroep ;
+  skos:inScheme ro_begkr:ro
+.
+
+ro_beg:Detailhandel a skos:Concept ;
+  rdfs:label "detailhandel"@nl ;
+  skos:prefLabel "detailhandel"@nl ;
+  skos-thes:broaderGeneric ro_beg:Bestemmingshoofdgroep ;
+  skos:inScheme ro_begkr:ro
+.
+
+ro_beg:Dienstverlening a skos:Concept ;
+  rdfs:label "dienstverlening"@nl ;
+  skos:prefLabel "dienstverlening"@nl ;
+  skos-thes:broaderGeneric ro_beg:Bestemmingshoofdgroep ;
+  skos:inScheme ro_begkr:ro
+.
+
+ro_beg:Gemengd a skos:Concept ;
+  rdfs:label "gemengd"@nl ;
+  skos:prefLabel "gemengd"@nl ;
+  skos-thes:broaderGeneric ro_beg:Bestemmingshoofdgroep ;
+  skos:inScheme ro_begkr:ro
+.
+
+ro_beg:Groen a skos:Concept ;
+  rdfs:label "groen"@nl ;
+  skos:prefLabel "groen"@nl ;
+  skos-thes:broaderGeneric ro_beg:Bestemmingshoofdgroep ;
+  skos:inScheme ro_begkr:ro
+.
+
+ro_beg:Horeca a skos:Concept ;
+  rdfs:label "horeca"@nl ;
+  skos:prefLabel "horeca"@nl ;
+  skos-thes:broaderGeneric ro_beg:Bestemmingshoofdgroep ;
+  skos:inScheme ro_begkr:ro
+.
+
+ro_beg:Kantoor a skos:Concept ;
+  rdfs:label "kantoor"@nl ;
+  skos:prefLabel "kantoor"@nl ;
+  skos-thes:broaderGeneric ro_beg:Bestemmingshoofdgroep ;
+  skos:inScheme ro_begkr:ro
+.
+
+ro_beg:Maatschappelijk a skos:Concept ;
+  rdfs:label "maatschappelijk"@nl ;
+  skos:prefLabel "maatschappelijk"@nl ;
+  skos-thes:broaderGeneric ro_beg:Bestemmingshoofdgroep ;
+  skos:inScheme ro_begkr:ro
+.
+
+ro_beg:Natuur a skos:Concept ;
+  rdfs:label "natuur"@nl ;
+  skos:prefLabel "natuur"@nl ;
+  skos-thes:broaderGeneric ro_beg:Bestemmingshoofdgroep ;
+  skos:inScheme ro_begkr:ro
+.
+
+ro_beg:Overig a skos:Concept ;
+  rdfs:label "overig"@nl ;
+  skos:prefLabel "overig"@nl ;
+  skos-thes:broaderGeneric ro_beg:Bestemmingshoofdgroep ;
+  skos:inScheme ro_begkr:ro
+.
+
+ro_beg:Recreatie a skos:Concept ;
+  rdfs:label "recreatie"@nl ;
+  skos:prefLabel "recreatie"@nl ;
+  skos-thes:broaderGeneric ro_beg:Bestemmingshoofdgroep ;
+  skos:inScheme ro_begkr:ro
+.
+
+ro_beg:Sport a skos:Concept ;
+  rdfs:label "sport"@nl ;
+  skos:prefLabel "sport"@nl ;
+  skos-thes:broaderGeneric ro_beg:Bestemmingshoofdgroep ;
+  skos:inScheme ro_begkr:ro
+.
+
+ro_beg:Tuin a skos:Concept ;
+  rdfs:label "tuin"@nl ;
+  skos:prefLabel "tuin"@nl ;
+  skos-thes:broaderGeneric ro_beg:Bestemmingshoofdgroep ;
+  skos:inScheme ro_begkr:ro
+.
+
+ro_beg:Verkeer a skos:Concept ;
+  rdfs:label "verkeer"@nl ;
+  skos:prefLabel "verkeer"@nl ;
+  skos-thes:broaderGeneric ro_beg:Bestemmingshoofdgroep ;
+  skos:inScheme ro_begkr:ro
+.
+
+ro_beg:Water a skos:Concept ;
+  rdfs:label "water"@nl ;
+  skos:prefLabel "water"@nl ;
+  skos-thes:broaderGeneric ro_beg:Bestemmingshoofdgroep ;
+  skos:inScheme ro_begkr:ro
+.
+
+ro_beg:Wonen a skos:Concept ;
+  rdfs:label ""@nl ;
+  skos:prefLabel ""@nl ;
+  skos-thes:broaderGeneric ro_beg:Bestemmingshoofdgroep ;
+  skos:inScheme ro_begkr:ro
+.
+
+ro_beg:Woongebied a skos:Concept ;
+  rdfs:label "wonen"@nl ;
+  skos:prefLabel "wonen"@nl ;
+  skos-thes:broaderGeneric ro_beg:Bestemmingshoofdgroep ;
+  skos:inScheme ro_begkr:ro
+.
+
+ro_beg:Leiding a skos:Concept ;
+  rdfs:label "leiding"@nl ;
+  skos:prefLabel "leiding"@nl ;
+  skos-thes:broaderGeneric ro_beg:Bestemmingshoofdgroep ;
+  skos:inScheme ro_begkr:ro
+.
+
+ro_beg:Waarde a skos:Concept ;
+  rdfs:label "waarde"@nl ;
+  skos:prefLabel "waarde"@nl ;
+  skos-thes:broaderGeneric ro_beg:Bestemmingshoofdgroep ;
+  skos:inScheme ro_begkr:ro
+.
+
+ro_beg:Waterstaat a skos:Concept ;
+  rdfs:label "waterstaat"@nl ;
+  skos:prefLabel "waterstaat"@nl ;
+  skos-thes:broaderGeneric ro_beg:Bestemmingshoofdgroep ;
+  skos:inScheme ro_begkr:ro
+.
+
+ro_col:Bestemmingshoofdgroep a skos:Collection ;
+  rdfs:label "Bestemmingshoofdgroep"@nl ;
+  skos:prefLabel "Bestemmingshoofdgroep"@nl ;
+  skos:member
+    ro_beg:Agrarisch ,
+    ro_beg:AgrarischMetWaarden ,
+    ro_beg:Bedrijf ,
+    ro_beg:Bedrijventerrein ,
+    ro_beg:Bos ,
+    ro_beg:Centrum ,
+    ro_beg:CultuurEnOntspanning ,
+    ro_beg:Detailhandel ,
+    ro_beg:Dienstverlening ,
+    ro_beg:Gemengd ,
+    ro_beg:Groen ,
+    ro_beg:Horeca ,
+    ro_beg:Kantoor ,
+    ro_beg:Maatschappelijk ,
+    ro_beg:Natuur ,
+    ro_beg:Overig ,
+    ro_beg:Recreatie ,
+    ro_beg:Sport ,
+    ro_beg:Tuin ,
+    ro_beg:Verkeer ,
+    ro_beg:Water ,
+    ro_beg:Wonen ,
+    ro_beg:Woongebied ,
+    ro_beg:Leiding ,
+    ro_beg:Waarde ,
+    ro_beg:Waterstaat
+.
+
+ro_col:Bestemmingshoofdgroep_E a skos:Collection ;
+  rdfs:label "Bestemmingshoofdgroep_E"@nl ;
+  skos:prefLabel "Bestemmingshoofdgroep_E"@nl ;
+  skos:member
+    ro_beg:Agrarisch ,
+    ro_beg:AgrarischMetWaarden ,
+    ro_beg:Bedrijf ,
+    ro_beg:Bedrijventerrein ,
+    ro_beg:Bos ,
+    ro_beg:Centrum ,
+    ro_beg:CultuurEnOntspanning ,
+    ro_beg:Detailhandel ,
+    ro_beg:Dienstverlening ,
+    ro_beg:Gemengd ,
+    ro_beg:Groen ,
+    ro_beg:Horeca ,
+    ro_beg:Kantoor ,
+    ro_beg:Maatschappelijk ,
+    ro_beg:Natuur ,
+    ro_beg:Overig ,
+    ro_beg:Recreatie ,
+    ro_beg:Sport ,
+    ro_beg:Tuin ,
+    ro_beg:Verkeer ,
+    ro_beg:Water ,
+    ro_beg:Wonen ,
+    ro_beg:Woongebied
+.
+
+ro_col:Bestemmingshoofdgroep_D a skos:Collection ;
+  rdfs:label "Bestemmingshoofdgroep_D"@nl ;
+  skos:prefLabel "Bestemmingshoofdgroep_D"@nl ;
+  skos:member
+    ro_beg:Leiding ,
+    ro_beg:Waarde ,
+    ro_beg:Waterstaat
+.
 
 #################################################################
 #    Aanduiding
