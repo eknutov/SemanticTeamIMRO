@@ -1,19 +1,45 @@
+# common prefixes
+@prefix : <http://data.informatiehuisruimte.nl/def/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix doco: <http://purl.org/spar/doco/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix gml: <http://www.opengis.net/ont/gml#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix ogc: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix ogc: <http://www.opengis.net/ont/geosparql#> .
-@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
-@prefix gml: <http://www.opengis.net/ont/gml#> .
-@prefix nen3610_str: <http://data.informatiehuisruimte.nl/def/nen3610/> .
-@prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
-@prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
-@prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
-@prefix ro_col: <http://data.informatiehuisruimte.nl/ro/id/collectie/> .
-@prefix locn: <http://www.w3.org/ns/locn#> .
-@prefix dct: <http://purl.org/dc/terms/> .      # ekn: need to replace dct: to dcterms as we also have dct: referring to
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix skos-thes: <http://purl.org/iso25964/skos-thes#> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
 @prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcmit: <http://purl.org/dc/dcmitype/> .
+
+# prefixes specific to Informatiehuis Ruimte
+@prefix imro: <http://data.imro.com/def/> .
+@prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
+@prefix nen3610_str: <http://data.informatiehuisruimte.nl/def/nen3610/> .
+@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
+@prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
+@prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
+@prefix ro_begkr: <http://data.informatiehuisruimte.nl/ro/id/begrippenkader/> .
+@prefix ro_col: <http://data.informatiehuisruimte.nl/ro/id/collectie/> .
+@prefix ro_nen3610_beg: <http://data.informatiehuisruimte.nl/nen3610/id/begrip/> .
+@prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
+@prefix ro_sym: <http://data.informatiehuisruimte.nl/ro/id/symbool/> .
+
+@prefix ropt: <http://data.informatiehuisruimte.nl/def/ropt#> .
+@prefix ropt_str: <http://data.informatiehuisruimte.nl/def/ropt/> .
+@prefix ropt_beg: <http://data.informatiehuisruimte.nl/ropt/id/begrip/> .
+@prefix ropt_col: <http://data.informatiehuisruimte.nl/ropt/id/collectie/> .
+
+
+:ro_str a void:Dataset ;    #This entity was missing. Should work on additional metadata.
+  rdfs:label "Shapes graph voor IMRO2012 "@nl
+.
 
 
 #################################################################
@@ -29,38 +55,48 @@ ro_str:Plan a sh:NodeShape ;
     ro_str:Plan_geographicName , #formerly ro_str:Plangebied_locatieNaam
     ro_str:Plan_ondergrond ,
     ro_str:Plan_dataset ,
-    ro_str:Plan_planstatus
+    ro_str:Plan_planstatus ,
+    ro_str:Plan_tekstverwijzing
 .
 
 ro_str:Plan_spatial a sh:PropertyShape ;
   sh:path dct:spatial ;
   sh:class ro:Plangebied ;
   sh:minCount 1 ;
-  sh:maxCount 1 ;
+  sh:maxCount 1
 .
+
+
 
 ro_str:Plan_hasPart a sh:PropertyShape ;
   sh:path dct:hasPart ;
-  sh:class ro:Planobject ;
+  sh:class ro:Planobject
 .
 
 ro_str:Plan_label a sh:PropertyShape ; #TODO: ScopedName
   sh:path rdfs:label ;
   sh:minCount 1 ;
   sh:maxCount 1 ;
-  sh:datatype xsd:string ;
+  sh:datatype xsd:string
 .
 
 ro_str:Plan_geographicName a sh:PropertyShape ;
-  sh:path locn:geographicName ;                     # ekn: only place we use `locn: at, needs usage revision
+  sh:path locn:geographicName ;
   sh:nodeKind sh:Literal ;
-  sh:datatype xsd:string ;
+  sh:datatype xsd:string
 .
 
 ro_str:Plan_ondergrond a sh:PropertyShape ;
   sh:path ro:ondergrond ;
+  sh:class ro:Ondergrond ;
   sh:minCount 1 ;
-  sh:node ro_str:Plangebied_Ondergrond ;
+  sh:node ro_str:Plan_ondergronddatum
+.
+
+ro_str:Plan_ondergronddatum a sh:PropertyShape ;
+  sh:path ro:ondergronddatum ;
+  sh:minCount 1 ;
+  sh:maxCount 1
 .
 
 ro_str:Plan_dataset a sh:propertyShape ;
@@ -69,15 +105,27 @@ ro_str:Plan_dataset a sh:propertyShape ;
     sh:class void:Dataset ;
   ] ;
   sh:qualifiedMinCount 1 ;
-  sh:qualifiedMaxCount 1 ;
+  sh:qualifiedMaxCount 1
 .
 
 ro_str:Plan_planstatus a sh:PropertyShape ;
   sh:path ro:planstatus ;
   sh:class ro:Planstatus ;
   sh:minCount 1 ;
-  sh:maxCount 1 ;
+  sh:maxCount 1
 .
+
+ro_str:Plan_tekstverwijzing a sh:PropertyShape ;
+  sh:xone ( [
+    sh:and (
+      [ sh:path ro:norm ; sh:hasValue ro_beg:IMROPT2012 ; ]
+      [ sh:path ro:tekst ; sh:class ropt:Tekstobject , ro:Tekst ; ] ) ] [
+    sh:and (
+      [ sh:path ro:norm ; sh:not [ sh:hasValue ro_beg:IMROPT ; ] ]
+      [ sh:path ro:tekst ; sh:class ro:Tekst ; sh:not [ sh:class ropt:Tekstobject ] ] ) ] )
+.
+
+
 
 #################################################################
 #    Planobject
@@ -111,43 +159,21 @@ ro_str:Planobject_identificatie_lokaalID a sh:PropertyShape ;
 ro_str:Plangebied a sh:NodeShape ;
   sh:targetClass ro:Plangebied ;
   sh:property
-    ro_str:Plangebied_geometrie , 
+    ro_str:Plangebied_begrenzing ,
     ro_str:Plangebied_identificatie_lokaalID
+.
+
+ro_str:Plangebied_begrenzing a sh:PropertyShape ;
+  sh:path ro:begrenzing ;
+  sh:class ro:Geometrie ;
+  sh:minCount 1 ;
+  sh:maxCount 1
 .
 
 ro_str:Plangebied_identificatie_lokaalID a sh:PropertyShape ;
   sh:path ( nen3610:identificatie nen3610:lokaalID ) ;
   sh:datatype xsd:string ;
   sh:maxLength 23
-.
-
-ro_str:Plangebied_geometrie a sh:PropertyShape ;
-  sh:path ogc:geometry ;
-  sh:class ogc:Geometry ;
-  sh:minCount 1 ;
-  sh:maxCount 1 ;
-.
-
-#################################################################
-#    Ondergrond
-#################################################################
-
-ro_str:Plangebied_Ondergrond a sh:NodeShape ;
-  sh:property
-    ro:Ondergrond_ondergrondtype ,
-    ro:ondergrond_datum ;
-.
-
-ro_str:Ondergrond_ondergrondtype a sh:PropertyShape ;
-  sh:path ro:ondergrondtype ;
-  sh:minCount 1 ;
-  sh:maxCount 1 ;
-.
-
-ro_str:ondergrond_datum a sh:PropertyShape ;
-  sh:path ro:ondergronddatum ;
-  sh:minCount 1 ;
-  sh:maxCount 1 ;
 .
 
 #################################################################
@@ -171,7 +197,7 @@ ro_str:prefixes #should we store this here?
   sh:declare [
       sh:namespace "http://data.informatiehuisruimte.nl/def/nen3610#"^^xsd:anyURI ;
       sh:prefix "nen3610" ;
-    ] ;
+    ]
 .
 
 ro_str:RuimtelijkPlanOfBesluit_SV

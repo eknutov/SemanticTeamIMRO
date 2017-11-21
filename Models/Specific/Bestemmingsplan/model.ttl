@@ -1,79 +1,84 @@
+# common prefixes
+@prefix : <http://data.informatiehuisruimte.nl/def/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix doco: <http://purl.org/spar/doco/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix gml: <http://www.opengis.net/ont/gml#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix ogc: <http://www.opengis.net/ont/geosparql#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix ogc: <http://www.opengis.net/ont/geosparql#> .
-@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
-@prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix gml: <http://www.opengis.net/ont/gml#> .
 @prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
-@prefix c4o: <http://purl.org/spar/biro/> .
-@prefix doco: <http://purl.org/spar/doco/> .
-@prefix pattern: <http://www.essepuntato.it/2008/12/pattern#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix skos-thes: <http://purl.org/iso25964/skos-thes#> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcmit: <http://purl.org/dc/dcmitype/> .
+
+# prefixes specific to Informatiehuis Ruimte
+@prefix imro: <http://data.imro.com/def/> .
 @prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
-@prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
-@prefix ro_nen3610_beg: <http://data.informatiehuisruimte.nl/nen3610/id/begrip/> .
+@prefix nen3610_str: <http://data.informatiehuisruimte.nl/def/nen3610/> .
+@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
 @prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
+@prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
+@prefix ro_begkr: <http://data.informatiehuisruimte.nl/ro/id/begrippenkader/> .
+@prefix ro_col: <http://data.informatiehuisruimte.nl/ro/id/collectie/> .
+@prefix ro_nen3610_beg: <http://data.informatiehuisruimte.nl/nen3610/id/begrip/> .
+@prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
 @prefix ro_sym: <http://data.informatiehuisruimte.nl/ro/id/symbool/> .
-@prefix : <http://data.informatiehuisruimte.nl/def/> .
-@base <http://data.informatiehuisruimte.nl/def/ro#> .
 
-
-#Dummy section, Should be moved to/recreated in common in due time.
-
-ro:Plan a owl:Class .
+@prefix ropt: <http://data.informatiehuisruimte.nl/def/ropt#> .
+@prefix ropt_str: <http://data.informatiehuisruimte.nl/def/ropt/> .
+@prefix ropt_beg: <http://data.informatiehuisruimte.nl/ropt/id/begrip/> .
+@prefix ropt_col: <http://data.informatiehuisruimte.nl/ropt/id/collectie/> .
 
 
 #################################################################
 #    Bestemmingsplan
 #################################################################
 
-#ro:Bestemmingsplangebied a owl:Class ;
-#  rdfs:label "Bestemmingsplangebied"@nl ;
-#  rdfs:isDefinedBy :ro ;
-#  rdfs:subClassOf ro:RuimtelijkInstrument ;
-#  dcterms:subject ro_beg:Bestemmingsplangebied ; ;
-#.
 
 ro:Bestemmingsplan a owl:Class ;
   rdfs:label "Bestemmingsplan"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Plan ;
-  dcterms:subject ro_beg:Bestemmingsplan ;
-#  rdfs:comment ""@nl ;
+  dct:subject ro_beg:Bestemmingsplan ;
+#  rdfs:comment ""@nl
 .
 
 ro:Inpassingsplan a owl:Class ;
   rdfs:label "Inpassingsplan"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Bestemmingsplan ;
-  dcterms:subject ro_beg:Inpassingsplan ;
-  rdfs:comment "" ;
+  dct:subject ro_beg:Inpassingsplan ;
+  rdfs:comment ""
 .
 
 ro:Rijksbestemmingsplan a owl:Class ;
   rdfs:label "Rijksbestemmingsplan"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Bestemmingsplan ;
-  dcterms:subject ro_beg:Rijksbestemmingsplan ;
-  rdfs:comment "" ;
+  dct:subject ro_beg:Rijksbestemmingsplan ;
+  rdfs:comment ""
 .
+
 ro:Uitwerkingsplan a owl:Class ;
   rdfs:label "Uitwerkingsplan"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Bestemmingsplan ;
-  dcterms:subject ro_beg:Uitwerkingsplan ;
-  rdfs:comment "" ;
+  dct:subject ro_beg:Uitwerkingsplan ;
+  rdfs:comment ""
 .
 
 ro:Wijzigingsplan a owl:Class ;
   rdfs:label "Wijzigingsplan"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Wijzigingsplan ;
-  rdfs:comment "" ;
+  rdfs:comment ""
 .
 
 #################################################################
@@ -84,22 +89,22 @@ ro:Bestemmingsvlak a owl:Class ;
   rdfs:label "Bestemmingsvlak"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Planobject ;
-  dcterms:subject ro_beg:Bestemmingsvlak ;
-  rdfs:comment "Gebied waar een bestemming aan toegekend is."@nl ;
+  dct:subject ro_beg:Bestemmingsvlak ;
+  rdfs:comment "Gebied waar een bestemming aan toegekend is."@nl
 .
 
 ro:Enkelbestemming a owl:Class ;
   rdfs:label "Enkelbestemming"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Bestemmingsvlak ;
-  dcterms:subject ro_beg:Enkelbestemming ;
+  dct:subject ro_beg:Enkelbestemming
 .
 
 ro:Dubbelbestemming a owl:Class ;
   rdfs:label "Dubbelbestemming"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Bestemmingsvlak ;
-  dcterms:subject ro_beg:Dubbelbestemming ;
+  dct:subject ro_beg:Dubbelbestemming
 .
 
 ro:bestemmingshoofdgroep a owl:ObjectProperty ;
@@ -107,17 +112,17 @@ ro:bestemmingshoofdgroep a owl:ObjectProperty ;
   rdfs:isDefinedBy :ro ;
   rdfs:domain ro:Bestemmingsvlak ;
 #  rdfs:range skos:Concept ;
-  dcterms:subject ro_beg:bestemmingshoofdgroep ;
+  dct:subject ro_beg:bestemmingshoofdgroep
 .
 
 ro:artikelnummer a owl:DatatypeProperty ;
   rdfs:label "artikelnummer"@nl ;
-  rdfs:isDefinedBy :ro ;
+  rdfs:isDefinedBy :ro
 .
 
 ro:label a owl:AnnotationProperty ;
   rdfs:label "label"@nl ;
-  rdfs:isDefinedBy :ro ;
+  rdfs:isDefinedBy :ro
 .
 
 
@@ -129,36 +134,30 @@ ro:Aanduiding a owl:Class ;
   rdfs:label "Aanduiding"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Planobject ;
-  dcterms:subject ro_beg:Aanduiding ;
-  rdfs:comment "Een aanduiding is een object gericht op een specificatie van een bestemming of andere aanduiding."@nl ;
+  dct:subject ro_beg:Aanduiding ;
+  rdfs:comment "Een aanduiding is een object gericht op een specificatie van een bestemming of andere aanduiding."@nl
 .
-
-#ro:bestemmingsvlak a owl:ObjectProperty ;
-#  rdfs:label "bestemmingsvlak"@nl ;
-#  rdfs:isDefinedBy :ro ;
-#  rdfs:range ro:Bestemmingvlak ;
-#.
 
 ro:Bouwvlak a owl:Class ;
   rdfs:label "Bouwvlak"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Aanduiding ;
-  dcterms:subject ro_beg:Bouwvlak ;
-  rdfs:comment "Een gebied binnen een bestemming waarbinnen volgens de voorschriften de mogelijkheden voor bouwen nader worden benoemd."@nl ;
+  dct:subject ro_beg:Bouwvlak ;
+  rdfs:comment "Een gebied binnen een bestemming waarbinnen volgens de voorschriften de mogelijkheden voor bouwen nader worden benoemd."@nl
 .
 
 ro:Functieaanduiding a owl:Class ;
   rdfs:label "Functieaanduiding"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Aanduiding ;
-  rdfs:comment "Specificatie van de gebruiksmogelijkheden binnen een bestemming of een gedeelte daarvan."@nl ;
+  rdfs:comment "Specificatie van de gebruiksmogelijkheden binnen een bestemming of een gedeelte daarvan."@nl
 .
 
 ro:Bouwaanduiding a owl:Class ;
   rdfs:label "Bouwaanduiding"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Aanduiding ;
-  rdfs:comment "Aanduiding met betrekking tot de wijze van bouwen, dan wel de verschijningsvorm van bouwwerken."@nl ;
+  rdfs:comment "Aanduiding met betrekking tot de wijze van bouwen, dan wel de verschijningsvorm van bouwwerken."@nl
 .
 
 ###############
@@ -169,7 +168,7 @@ ro:Maatvoering a owl:Class ;
   rdfs:label "Maatvoering"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Aanduiding ;
-  rdfs:comment "Gebied waaraan gekoppeld informatie over maatvoering."@nl ;
+  rdfs:comment "Gebied waaraan gekoppeld informatie over maatvoering."@nl
 .
 
 ###############
@@ -180,7 +179,7 @@ ro:Maatvoering a owl:Class ;
 ro:symboolPlaatsing a owl:AnnotationProperty ;
   rdfs:label "symbool plaatsing"@nl ;
   rdfs:isDefinedBy :ro ;
-  rdfs:domain ro:Maatvoering ;
+  rdfs:domain ro:Maatvoering
 .
 
 ###############
@@ -197,616 +196,616 @@ ro:omvang a owl:DatatypeProperty ;
 ro:Omvang a owl:Class ;
   rdfs:label "Omvang"@nl ;
   rdfs:isDefinedBy :ro ;
-  dcterms:subject ro_beg:Omvang ;
+  dct:subject ro_beg:Omvang
 .
 
 ro:omvangwaarde a owl:DatatypeProperty ;
   rdfs:label "omvangwaarde"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:domain ro:Omvang ;
-  dcterms:subject ro_beg:omvangwaarde ;
+  dct:subject ro_beg:omvangwaarde
 .
 
 ro:Aantal_Omvang a owl:Class ;
   rdfs:label "Aantal (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:Aantal_Omvang ;
+  dct:subject ro_beg:Aantal_Omvang
 .
 
 ro:AantalBedrijven_Omvang a owl:Class ;
   rdfs:label "Aantal bedrijven (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:AantalBedrijven_Omvang ;
+  dct:subject ro_beg:AantalBedrijven_Omvang
 .
 
 ro:MaximumAantalBedrijven_Omvang a owl:Class ;
   rdfs:label "Maximum aantal bedrijven (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MaximumAantalBedrijven_Omvang ;
+  dct:subject ro_beg:MaximumAantalBedrijven_Omvang
 .
 
 ro:MinimumAantalBedrijven_Omvang a owl:Class ;
   rdfs:label "Minimum aantal bedrijven (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MinimumAantalBedrijven_Omvang ;
+  dct:subject ro_beg:MinimumAantalBedrijven_Omvang
 .
 
 ro:AantalBezoekers_Omvang a owl:Class ;
   rdfs:label "Aantal bezoekers (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:AantalBezoekers_Omvang ;
+  dct:subject ro_beg:AantalBezoekers_Omvang
 .
 
 ro:MaximumAantalBezoekers_Omvang a owl:Class ;
   rdfs:label "Maximum aantal bezoekers (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MaximumAantalBezoekers_Omvang ;
+  dct:subject ro_beg:MaximumAantalBezoekers_Omvang
 .
 
 ro:MinimumAantalBezoekers_Omvang a owl:Class ;
   rdfs:label "Minimum aantal bezoekers (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MinimumAantalBezoekers_Omvang ;
+  dct:subject ro_beg:MinimumAantalBezoekers_Omvang
 .
 
 ro:AantalBouwlagen_Omvang a owl:Class ;
   rdfs:label "Aantal bouwlagen (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:AantalBouwlagen_Omvang ;
+  dct:subject ro_beg:AantalBouwlagen_Omvang
 .
 
 ro:MaximumAantalBouwlagen_Omvang a owl:Class ;
   rdfs:label "Maximum aantal bouwlagen (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MaximumAantalBouwlagen_Omvang ;
+  dct:subject ro_beg:MaximumAantalBouwlagen_Omvang
 .
 
 ro:MinimumAantalBouwlagen_Omvang a owl:Class ;
   rdfs:label "Minimum aantal bouwlagen (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MinimumAantalBouwlagen_Omvang ;
+  dct:subject ro_beg:MinimumAantalBouwlagen_Omvang
 .
 
 ro:AantalGebouwen_Omvang a owl:Class ;
   rdfs:label "Aantal gebouwen (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:AantalGebouwen_Omvang ;
+  dct:subject ro_beg:AantalGebouwen_Omvang
 .
 
 ro:MaximumAantalGebouwen_Omvang a owl:Class ;
   rdfs:label "Maximum aantal gebouwen (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MaximumAantalGebouwen_Omvang ;
+  dct:subject ro_beg:MaximumAantalGebouwen_Omvang
 .
 
 ro:MinimumAantalGebouwen_Omvang a owl:Class ;
   rdfs:label "Minimum aantal gebouwen (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MinimumAantalGebouwen_Omvang ;
+  dct:subject ro_beg:MinimumAantalGebouwen_Omvang
 .
 
 ro:AantalParkeerplaatsen_Omvang a owl:Class ;
   rdfs:label "Aantal parkeerplaatsen (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:AantalParkeerplaatsen_Omvang ;
+  dct:subject ro_beg:AantalParkeerplaatsen_Omvang
 .
 
 ro:MaximumAantalParkeerplaatsen_Omvang a owl:Class ;
   rdfs:label "Maximum aantal parkeerplaatsen (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MaximumAantalParkeerplaatsen_Omvang ;
+  dct:subject ro_beg:MaximumAantalParkeerplaatsen_Omvang
 .
 
 ro:MinimumAantalParkeerplaatsen_Omvang a owl:Class ;
   rdfs:label "Minimum aantal parkeerplaatsen (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MinimumAantalParkeerplaatsen_Omvang ;
+  dct:subject ro_beg:MinimumAantalParkeerplaatsen_Omvang
 .
 
 ro:AantalRijstroken_Omvang a owl:Class ;
   rdfs:label "Aantal rijstroken (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:AantalRijstroken_Omvang ;
+  dct:subject ro_beg:AantalRijstroken_Omvang
 .
 
 ro:MaximumAantalRijstroken_Omvang a owl:Class ;
   rdfs:label "Maximum aantal rijstroken (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MaximumAantalRijstroken_Omvang ;
+  dct:subject ro_beg:MaximumAantalRijstroken_Omvang
 .
 
 ro:MinimumAantalRijstroken_Omvang a owl:Class ;
   rdfs:label "Minimum aantal rijstroken (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MinimumAantalRijstroken_Omvang ;
+  dct:subject ro_beg:MinimumAantalRijstroken_Omvang
 .
 
 ro:AantalSporen_Omvang a owl:Class ;
   rdfs:label "Aantal sporen (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:AantalSporen_Omvang ;
+  dct:subject ro_beg:AantalSporen_Omvang
 .
 
 ro:MaximumAantalSporen_Omvang a owl:Class ;
   rdfs:label "Maximum aantal sporen (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MaximumAantalSporen_Omvang ;
+  dct:subject ro_beg:MaximumAantalSporen_Omvang
 .
 
 ro:MinimumAantalSporen_Omvang a owl:Class ;
   rdfs:label "Minimum aantal sporen (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MinimumAantalSporen_Omvang ;
+  dct:subject ro_beg:MinimumAantalSporen_Omvang
 .
 
 ro:AantalWinkels_Omvang a owl:Class ;
   rdfs:label "Aantal winkels (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:AantalWinkels_Omvang ;
+  dct:subject ro_beg:AantalWinkels_Omvang
 .
 
 ro:MaximumAantalWinkels_Omvang a owl:Class ;
   rdfs:label "Maximum aantal winkels (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MaximumAantalWinkels_Omvang ;
+  dct:subject ro_beg:MaximumAantalWinkels_Omvang
 .
 
 ro:MinimumAantalWinkels_Omvang a owl:Class ;
   rdfs:label "Minimum aantal winkels (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MinimumAantalWinkels_Omvang ;
+  dct:subject ro_beg:MinimumAantalWinkels_Omvang
 .
 
 ro:AantalWooneenheden_Omvang a owl:Class ;
   rdfs:label "Aantal wooneenheden (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:AantalWooneenheden_Omvang ;
+  dct:subject ro_beg:AantalWooneenheden_Omvang
 .
 
 ro:MaximumAantalWooneenheden_Omvang a owl:Class ;
   rdfs:label "Maximum aantal wooneenheden (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MaximumAantalWooneenheden_Omvang ;
+  dct:subject ro_beg:MaximumAantalWooneenheden_Omvang
 .
 
 ro:MinimumAantalWooneenheden_Omvang a owl:Class ;
   rdfs:label "Minimum aantal wooneenheden (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MinimumAantalWooneenheden_Omvang ;
+  dct:subject ro_beg:MinimumAantalWooneenheden_Omvang
 .
 
 ro:Maatvoering_Omvang a owl:Class ;
   rdfs:label "Maatvoering (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:Maatvoering_Omvang ;
+  dct:subject ro_beg:Maatvoering_Omvang
 .
 
 ro:BebouwdOppervlak_m2_Omvang a owl:Class ;
   rdfs:label "Bebouwd oppervlak (m2) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:BebouwdOppervlak_m2_Omvang ;
+  dct:subject ro_beg:BebouwdOppervlak_m2_Omvang
 .
 
 ro:MaximumBebouwdOppervlak_m2_Omvang a owl:Class ;
   rdfs:label "Maximum bebouwd oppervlak (m2) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MaximumBebouwdOppervlak_m2_Omvang ;
+  dct:subject ro_beg:MaximumBebouwdOppervlak_m2_Omvang
 .
 
 ro:MinimumBebouwdOppervlak_m2_Omvang a owl:Class ;
   rdfs:label "Minimum bebouwd oppervlak (m2) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MinimumBebouwdOppervlak_m2_Omvang ;
+  dct:subject ro_beg:MinimumBebouwdOppervlak_m2_Omvang
 .
 
 ro:Breedte_m_Omvang a owl:Class ;
   rdfs:label "Breedte (m) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:Breedte_m_Omvang ;
+  dct:subject ro_beg:Breedte_m_Omvang
 .
 
 ro:MaximumBreedte_m_Omvang a owl:Class ;
   rdfs:label "Maximum breedte (m) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MaximumBreedte_m_Omvang ;
+  dct:subject ro_beg:MaximumBreedte_m_Omvang
 .
 
 ro:MinimumBreedte_m_Omvang a owl:Class ;
   rdfs:label "Minimum breedte (m) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MinimumBreedte_m_Omvang ;
+  dct:subject ro_beg:MinimumBreedte_m_Omvang
 .
 
 ro:Dakhelling_graden_Omvang a owl:Class ;
   rdfs:label "Dakhelling (graden) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:Dakhelling_graden_Omvang ;
+  dct:subject ro_beg:Dakhelling_graden_Omvang
 .
 
 ro:MaximumDakhelling_graden_Omvang a owl:Class ;
   rdfs:label "Maximum dakhelling (graden) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MaximumDakhelling_graden_Omvang ;
+  dct:subject ro_beg:MaximumDakhelling_graden_Omvang
 .
 
 ro:MinimumDakhelling_graden_Omvang a owl:Class ;
   rdfs:label "Minimum dakhelling (graden) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MinimumDakhelling_graden_Omvang ;
+  dct:subject ro_beg:MinimumDakhelling_graden_Omvang
 .
 
 ro:Diepte_m_Omvang a owl:Class ;
   rdfs:label "Diepte (m) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:Diepte_m_Omvang ;
+  dct:subject ro_beg:Diepte_m_Omvang
 .
 
 ro:MaximumDiepte_m_Omvang a owl:Class ;
   rdfs:label "Maximum diepte (m) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MaximumDiepte_m_Omvang ;
+  dct:subject ro_beg:MaximumDiepte_m_Omvang
 .
 
 ro:MinimumDiepte_m_Omvang a owl:Class ;
   rdfs:label "Minimum diepte (m) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MinimumDiepte_m_Omvang ;
+  dct:subject ro_beg:MinimumDiepte_m_Omvang
 .
 
 ro:Hoogte_m_Omvang a owl:Class ;
   rdfs:label "Hoogte (m) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:Hoogte_m_Omvang ;
+  dct:subject ro_beg:Hoogte_m_Omvang
 .
 
 ro:MaximumHoogte_m_Omvang a owl:Class ;
   rdfs:label "Maximum hoogte (m) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MaximumHoogte_m_Omvang ;
+  dct:subject ro_beg:MaximumHoogte_m_Omvang
 .
 
 ro:MinimumHoogte_m_Omvang a owl:Class ;
   rdfs:label "Minimum hoogte (m) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MinimumHoogte_m_Omvang ;
+  dct:subject ro_beg:MinimumHoogte_m_Omvang
 .
 
 ro:Bouwhoogte_m_Omvang a owl:Class ;
   rdfs:label "Bouwhoogte (m) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:Bouwhoogte_m_Omvang ;
+  dct:subject ro_beg:Bouwhoogte_m_Omvang
 .
 
 ro:MaximumBouwhoogte_m_Omvang a owl:Class ;
   rdfs:label "Maximum bouwhoogte (m) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MaximumBouwhoogte_m_Omvang ;
+  dct:subject ro_beg:MaximumBouwhoogte_m_Omvang
 .
 
 ro:MinimumBouwhoogte_m_Omvang a owl:Class ;
   rdfs:label "Minimum bouwhoogte (m) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MinimumBouwhoogte_m_Omvang ;
+  dct:subject ro_beg:MinimumBouwhoogte_m_Omvang
 .
 
 ro:Goothoogte_m_Omvang a owl:Class ;
   rdfs:label "Goothoogte (m) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:Goothoogte_m_Omvang ;
+  dct:subject ro_beg:Goothoogte_m_Omvang
 .
 
 ro:MaximumGoothoogte_m_Omvang a owl:Class ;
   rdfs:label "Maximum goothoogte (m) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MaximumGoothoogte_m_Omvang ;
+  dct:subject ro_beg:MaximumGoothoogte_m_Omvang
 .
 
 ro:MinimumGoothoogte_m_Omvang a owl:Class ;
   rdfs:label "Minimum goothoogte (m) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MinimumGoothoogte_m_Omvang ;
+  dct:subject ro_beg:MinimumGoothoogte_m_Omvang
 .
 
 ro:HoogteliggingVlak_m_Omvang a owl:Class ;
   rdfs:label "Hoogteligging vlak (m) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:HoogteliggingVlak_m_Omvang ;
+  dct:subject ro_beg:HoogteliggingVlak_m_Omvang
 .
 
 ro:MaximumHoogteliggingVlak_m_Omvang a owl:Class ;
   rdfs:label "Maximum hoogteligging vlak (m) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MaximumHoogteliggingVlak_m_Omvang ;
+  dct:subject ro_beg:MaximumHoogteliggingVlak_m_Omvang
 .
 
 ro:MinimumHoogteliggingVlak_m_Omvang a owl:Class ;
   rdfs:label "Minimum hoogteligging vlak (m) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MinimumHoogteliggingVlak_m_Omvang ;
+  dct:subject ro_beg:MinimumHoogteliggingVlak_m_Omvang
 .
 
 ro:Lengte_m_Omvang a owl:Class ;
   rdfs:label "Lengte (m) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:Lengte_m_Omvang ;
+  dct:subject ro_beg:Lengte_m_Omvang
 .
 
 ro:MaximumLengte_m_Omvang a owl:Class ;
   rdfs:label "Maximum lengte (m) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MaximumLengte_m_Omvang ;
+  dct:subject ro_beg:MaximumLengte_m_Omvang
 .
 
 ro:MinimumLengte_m_Omvang a owl:Class ;
   rdfs:label "Minimum lengte (m) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MinimumLengte_m_Omvang ;
+  dct:subject ro_beg:MinimumLengte_m_Omvang
 .
 
 ro:Oppervlakte_m2_Omvang a owl:Class ;
   rdfs:label "Oppervlakte (m2) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:Oppervlakte_m2_Omvang ;
+  dct:subject ro_beg:Oppervlakte_m2_Omvang
 .
 
 ro:MaximumOppervlakte_m2_Omvang a owl:Class ;
   rdfs:label "Maximum oppervlakte (m2) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MaximumOppervlakte_m2_Omvang ;
+  dct:subject ro_beg:MaximumOppervlakte_m2_Omvang
 .
 
 ro:MinimumOppervlakte_m2_Omvang a owl:Class ;
   rdfs:label "Minimum oppervlakte (m2) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MinimumOppervlakte_m2_Omvang ;
+  dct:subject ro_beg:MinimumOppervlakte_m2_Omvang
 .
 
 ro:Vloeroppervlakte_m2_Omvang a owl:Class ;
   rdfs:label "Vloeroppervlakte (m2) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:Vloeroppervlakte_m2_Omvang ;
+  dct:subject ro_beg:Vloeroppervlakte_m2_Omvang
 .
 
 ro:Vloeroppervlakte_Bruto_m2_Omvang a owl:Class ;
   rdfs:label "Vloeroppervlakte, bruto (m2) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:Vloeroppervlakte_Bruto_m2_Omvang ;
+  dct:subject ro_beg:Vloeroppervlakte_Bruto_m2_Omvang
 .
 
 ro:Vloeroppervlakte_Netto_m2_Omvang a owl:Class ;
   rdfs:label "Vloeroppervlakte, netto (m2) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:Vloeroppervlakte_Netto_m2_Omvang ;
+  dct:subject ro_beg:Vloeroppervlakte_Netto_m2_Omvang
 .
 
 ro:Vloeroppervlakte_Bvo_m2_Omvang a owl:Class ;
   rdfs:label "Vloeroppervlakte; bvo (m2) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:Vloeroppervlakte_Bvo_m2_Omvang ;
+  dct:subject ro_beg:Vloeroppervlakte_Bvo_m2_Omvang
 .
 
 ro:Vloeroppervlakte_Vvo_m2_Omvang a owl:Class ;
   rdfs:label "Vloeroppervlakte; vvo (m2) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:Vloeroppervlakte_Vvo_m2_Omvang ;
+  dct:subject ro_beg:Vloeroppervlakte_Vvo_m2_Omvang
 .
 
 ro:MaximumVloeroppervlakte_m2_Omvang a owl:Class ;
   rdfs:label "Maximum vloeroppervlakte (m2) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MaximumVloeroppervlakte_m2_Omvang ;
+  dct:subject ro_beg:MaximumVloeroppervlakte_m2_Omvang
 .
 
 ro:MaximumVloeroppervlakte_Bruto_m2_Omvang a owl:Class ;
   rdfs:label "Maximum vloeroppervlakte; bruto (m2) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MaximumVloeroppervlakte_Bruto_m2_Omvang ;
+  dct:subject ro_beg:MaximumVloeroppervlakte_Bruto_m2_Omvang
 .
 
 ro:MaximumVloeroppervlakte_Netto_m2_Omvang a owl:Class ;
   rdfs:label "Maximum vloeroppervlakte; netto (m2) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MaximumVloeroppervlakte_Netto_m2_Omvang ;
+  dct:subject ro_beg:MaximumVloeroppervlakte_Netto_m2_Omvang
 .
 
 ro:MaximumVloeroppervlakte_Bvo_m2_Omvang a owl:Class ;
   rdfs:label "Maximum vloeroppervlakte; bvo (m2) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MaximumVloeroppervlakte_Bvo_m2_Omvang ;
+  dct:subject ro_beg:MaximumVloeroppervlakte_Bvo_m2_Omvang
 .
 
 ro:MaximumVloeroppervlakte_Vvo_m2_Omvang a owl:Class ;
   rdfs:label "Maximum vloeroppervlakte; vvo (m2) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MaximumVloeroppervlakte_Vvo_m2_Omvang ;
+  dct:subject ro_beg:MaximumVloeroppervlakte_Vvo_m2_Omvang
 .
 
 ro:MinimumVloeroppervlakte_m2_Omvang a owl:Class ;
   rdfs:label "Minimum vloeroppervlakte (m2) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MinimumVloeroppervlakte_m2_Omvang ;
+  dct:subject ro_beg:MinimumVloeroppervlakte_m2_Omvang
 .
 
 ro:MinimumVloeroppervlakte_Bruto_m2_Omvang a owl:Class ;
   rdfs:label "Minimum vloeroppervlakte; bruto (m2) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MinimumVloeroppervlakte_Bruto_m2_Omvang ;
+  dct:subject ro_beg:MinimumVloeroppervlakte_Bruto_m2_Omvang
 .
 
 ro:MinimumVloeroppervlakte_Netto_m2_Omvang a owl:Class ;
   rdfs:label "Minimum vloeroppervlakte; netto (m2) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MinimumVloeroppervlakte_Netto_m2_Omvang ;
+  dct:subject ro_beg:MinimumVloeroppervlakte_Netto_m2_Omvang
 .
 
 ro:MinimumVloeroppervlakte_Bvo_m2_Omvang a owl:Class ;
   rdfs:label "Minimum vloeroppervlakte; bvo (m2) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MinimumVloeroppervlakte_Bvo_m2_Omvang ;
+  dct:subject ro_beg:MinimumVloeroppervlakte_Bvo_m2_Omvang
 .
 
 ro:MinimumVloeroppervlakte_Vvo_m2_Omvang a owl:Class ;
   rdfs:label "Minimum vloeroppervlakte; vvo (m2) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MinimumVloeroppervlakte_Vvo_m2_Omvang ;
+  dct:subject ro_beg:MinimumVloeroppervlakte_Vvo_m2_Omvang
 .
 
 ro:Volume_m3_Omvang a owl:Class ;
   rdfs:label "Volume (m3) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:Volume_m3_Omvang ;
+  dct:subject ro_beg:Volume_m3_Omvang
 .
 
 ro:MaximumVolume_m3_Omvang a owl:Class ;
   rdfs:label "Maximum volume (m3) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MaximumVolume_m3_Omvang ;
+  dct:subject ro_beg:MaximumVolume_m3_Omvang
 .
 
 ro:MinimumVolume_m3_Omvang a owl:Class ;
   rdfs:label "Minimum volume (m3) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MinimumVolume_m3_Omvang ;
+  dct:subject ro_beg:MinimumVolume_m3_Omvang
 .
 
 ro:Bebouwingspercentage_p_Omvang a owl:Class ;
   rdfs:label "Bebouwingspercentage (%) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:Bebouwingspercentage_p_Omvang ;
+  dct:subject ro_beg:Bebouwingspercentage_p_Omvang
 .
 
 ro:MaximumBebouwingspercentage_p_Omvang a owl:Class ;
   rdfs:label "Maximum bebouwingspercentage (%) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MaximumBebouwingspercentage_p_Omvang ;
+  dct:subject ro_beg:MaximumBebouwingspercentage_p_Omvang
 .
 
 ro:MinimumBebouwingspercentage_p_Omvang a owl:Class ;
   rdfs:label "Minimum bebouwingspercentage (%) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MinimumBebouwingspercentage_p_Omvang ;
+  dct:subject ro_beg:MinimumBebouwingspercentage_p_Omvang
 .
 
 ro:AantalAaneenTeBouwenWooneenheden_Omvang a owl:Class ;
   rdfs:label "Aantal aaneen te bouwen wooneenheden (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:AantalAaneenTeBouwenWooneenheden_Omvang ;
+  dct:subject ro_beg:AantalAaneenTeBouwenWooneenheden_Omvang
 .
 
 ro:MaximumAantalAaneenTeBouwenWooneenheden_Omvang a owl:Class ;
   rdfs:label "Maximum aantal aaneen te bouwen wooneenheden (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MaximumAantalAaneenTeBouwenWooneenheden_Omvang ;
+  dct:subject ro_beg:MaximumAantalAaneenTeBouwenWooneenheden_Omvang
 .
 
 ro:MinimumAantalAaneenTeBouwenWooneenheden_Omvang a owl:Class ;
   rdfs:label "Minimum aantal aaneen te bouwen wooneenheden (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MinimumAantalAaneenTeBouwenWooneenheden_Omvang ;
+  dct:subject ro_beg:MinimumAantalAaneenTeBouwenWooneenheden_Omvang
 .
 
 ro:VerticaleBouwdiepte_m_Omvang a owl:Class ;
   rdfs:label "Verticale bouwdiepte (m) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:VerticaleBouwdiepte_m_Omvang ;
+  dct:subject ro_beg:VerticaleBouwdiepte_m_Omvang
 .
 
 ro:MaximumVerticaleBouwdiepte_m_Omvang a owl:Class ;
   rdfs:label "Maximum verticale bouwdiepte (m) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MaximumVerticaleBouwdiepte_m_Omvang ;
+  dct:subject ro_beg:MaximumVerticaleBouwdiepte_m_Omvang
 .
 
 ro:MinimumVerticaleBouwdiepte_m_Omvang a owl:Class ;
   rdfs:label "Minimum verticale bouwdiepte (m) (Omvang)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Omvang ;
-  dcterms:subject ro_beg:MinimumVerticaleBouwdiepte_m_Omvang ;
+  dct:subject ro_beg:MinimumVerticaleBouwdiepte_m_Omvang
 .
 
 #################################################################
@@ -819,21 +818,15 @@ ro:maatvoeringWaarde a owl:ObjectProperty ;
   rdfs:label "Maatvoeringwaarde"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:domain ro:Maatvoering ;
-  rdfs:range ro:Omvang ;
+  rdfs:range ro:Omvang
 .
 
 ro:waarde a owl:DatatypeProperty ;
   rdfs:label "waarde"@nl ;
   rdfs:isDefinedBy :ro ;
-  rdfs:domain ro:Maatvoeringwaarde ;
+  rdfs:domain ro:Omvang
 .
 
-#rdf:type
-#ro:waardetype a owl:ObjectProperty;
-#  rdfs:label "waardetype"@nl ;
-#  rdfs:isDefinedBy :ro ;
-#  rdfs:domain ro:Maatvoeringwaarde
-#.
 
 
 ###############
@@ -844,8 +837,8 @@ ro:Figuur a owl:Class ;
   rdfs:label "Figuur"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Aanduiding ;
-  dcterms:subject ro_beg:Figuur ;
-  rdfs:comment "Aanduiding in de vorm van een figuur."@nl ;
+  dct:subject ro_beg:Figuur ;
+  rdfs:comment "Aanduiding in de vorm van een figuur."@nl
 .
 
 ###############
@@ -856,64 +849,64 @@ ro:Gebiedsaanduiding a owl:Class ;
   rdfs:label "Gebiedsaanduiding"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Aanduiding ;
-  dcterms:subject ro_beg:Gebiedsaanduiding ;
-  rdfs:comment "Benoemd gebied waar bijzondere regels, extra regels of nadere afwegingen gelden."@nl ;
+  dct:subject ro_beg:Gebiedsaanduiding ;
+  rdfs:comment "Benoemd gebied waar bijzondere regels, extra regels of nadere afwegingen gelden."@nl
 .
 
 ro:Geluidzone_Gebiedsaanduiding a owl:Class ;
   rdfs:label "Geluidzone (Gebiedsaanduiding)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Gebiedsaanduiding ;
-  dcterms:subject ro_beg:Geluidzone_Gebiedsaanduiding ;
+  dct:subject ro_beg:Geluidzone_Gebiedsaanduiding
 .
 
 ro:Luchtvaartverkeerzone_Gebiedsaanduiding a owl:Class ;
   rdfs:label "Luchtvaartverkeerzone (Gebiedsaanduiding)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Gebiedsaanduiding ;
-  dcterms:subject ro_beg:Luchtvaartverkeerzone_Gebiedsaanduiding ;
+  dct:subject ro_beg:Luchtvaartverkeerzone_Gebiedsaanduiding
 .
 
 ro:Milieuzone_Gebiedsaanduiding a owl:Class ;
   rdfs:label "Milieuzone (Gebiedsaanduiding)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Gebiedsaanduiding ;
-  dcterms:subject ro_beg:Milieuzone_Gebiedsaanduiding ;
+  dct:subject ro_beg:Milieuzone_Gebiedsaanduiding
 .
 
 ro:Reconstructiewetzone_Gebiedsaanduiding a owl:Class ;
   rdfs:label "Reconstructiewetzone (Gebiedsaanduiding)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Gebiedsaanduiding ;
-  dcterms:subject ro_beg:Reconstructiewetzone_Gebiedsaanduiding ;
+  dct:subject ro_beg:Reconstructiewetzone_Gebiedsaanduiding
 .
 
 ro:Veiligheidszone_Gebiedsaanduiding a owl:Class ;
   rdfs:label "Veiligheidszone (Gebiedsaanduiding)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Gebiedsaanduiding ;
-  dcterms:subject ro_beg:Veiligheidszone_Gebiedsaanduiding ;
+  dct:subject ro_beg:Veiligheidszone_Gebiedsaanduiding
 .
 
 ro:Vrijwaringszone_Gebiedsaanduiding a owl:Class ;
   rdfs:label "Vrijwaringszone (Gebiedsaanduiding)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Gebiedsaanduiding ;
-  dcterms:subject ro_beg:Vrijwaringszone_Gebiedsaanduiding ;
+  dct:subject ro_beg:Vrijwaringszone_Gebiedsaanduiding
 .
 
 ro:Wetgevingzone_Gebiedsaanduiding a owl:Class ;
   rdfs:label "Wetgevingzone (Gebiedsaanduiding)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Gebiedsaanduiding ;
-  dcterms:subject ro_beg:Wetgevingzone_Gebiedsaanduiding ;
+  dct:subject ro_beg:Wetgevingzone_Gebiedsaanduiding
 .
 
 ro:OverigeZone_Gebiedsaanduiding a owl:Class ;
   rdfs:label "Overige zone (Gebiedsaanduiding)"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:subClassOf ro:Gebiedsaanduiding ;
-  dcterms:subject ro_beg:OverigeZone_Gebiedsaanduiding ;
+  dct:subject ro_beg:OverigeZone_Gebiedsaanduiding
 .
 
 #################################################################
@@ -925,13 +918,13 @@ ro:OverigeZone_Gebiedsaanduiding a owl:Class ;
 ro:Label a owl:Class ;
   rdfs:label "Label"@nl ;
   rdfs:isDefinedBy :ro ;
-  rdfs:comment "Een klasse voor verwijzing naar een te plaatsen labeltekst en positie daarvan"@nl ;
+  rdfs:comment "Een klasse voor verwijzing naar een te plaatsen labeltekst en positie daarvan"@nl
 .
 
 ro:labeltekst a owl:DatatypeProperty ;
   rdfs:label "labeltekst"@nl ;
   rdfs:isDefinedBy :ro ;
-  rdfs:domain ro:Label ;
+  rdfs:domain ro:Label
 .
 
 #################################################################
@@ -941,30 +934,31 @@ ro:labeltekst a owl:DatatypeProperty ;
 ro:positie a owl:AnnotationProperty ;
   rdfs:label "positie"@nl ;
   rdfs:isDefinedBy :ro ;
-  rdfs:range ro:Labelpositie ;
+  rdfs:range ro:Labelpositie
 .
 
 ro:Labelpositie a owl:Class ;
   rdfs:label "Labelpositie"@nl ;
-  rdfs:isDefinedBy :ro ;
+  rdfs:isDefinedBy :ro
 .
 
 ro:plaatsingspunt a owl:ObjectProperty ;
   rdfs:subPropertyOf ogc:hasGeometry ;
   rdfs:label "plaatsingspunt"@nl ;
   rdfs:isDefinedBy :ro ;
-  rdfs:domain ro:Labelpositie ;
+  rdfs:domain ro:Labelpositie
 .
 
 ro:aanpijlingspunt a owl:ObjectProperty ;
   rdfs:subPropertyOf ogc:hasGeometry ;
   rdfs:label "aanpijlingspunt"@nl ;
   rdfs:isDefinedBy :ro ;
-  rdfs:domain ro:Labelpositie ;
+  rdfs:domain ro:Labelpositie
 .
 
 ro:hoek a owl:DatatypeProperty ;
   rdfs:label "hoek"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:domain ro:Labelpositie ;
+  rdfs:comment "Eenheid is in graden; tov Noordpijl; rechtsom = positief"@nl
 .

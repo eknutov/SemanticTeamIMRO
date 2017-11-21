@@ -36,64 +36,103 @@
 @prefix ropt_beg: <http://data.informatiehuisruimte.nl/ropt/id/begrip/> .
 @prefix ropt_col: <http://data.informatiehuisruimte.nl/ropt/id/collectie/> .
 
+
+
 #################################################################
-#    Besluitgebied_P
+#    Besluitgebied_X
 #################################################################
 
 
-ro_str:Besluitgebied_P a sh:NodeShape ;
-  sh:targetClass ro:ProvincialeVerordening ;
+ro_str:Besluitgebied_X a sh:NodeShape ;
+  sh:targetClass
+    ro:Aanwijzingsbesluit ,
+    ro:Beheersverordening ,
+    ro:Exploitatieplan ,
+    ro:GerechtelijkeUitspraak ,
+    ro:Omgevingsvergunning ,
+    ro:ReactieveAanwijzing ,
+    ro:Voorbereidingsbesluit ;
   sh:property
-    ro_str:Besluitgebied_P_hasPart ,
-    ro_str:Besluitgebied_A-P_spatial ,
-    ro_str:Besluitgebied_P_beleidsmatigVerantwoorlijkeOverheid ,
-    ro_str:Besluitgebied_P_normadressant ,
-    ro_str:Besluitgebied_P_tekstverwijzing ,
-    ro_str:Besluitgebied_A-P_illustratieverwijzing ,
-    ro_str:Besluitgebied_P_externPlan ,
-    ro_str:Besluitgebied_P_norm
+    ro_str:Besluitgebied_X_hasPart ,
+#    ro_str:Besluitgebied_X_spatial ,     #Jesse:Inherited
+    ro_str:Besluitgebied_X_beleidsmatigVerantwoorlijkeOverheid ,
+    ro_str:Besluitgebied_X_normadressant ,
+    ro_str:Besluitgebied_X_tekstverwijzing ,
+    ro_str:Besluitgebied_X_illustratieverwijzing ,
+    ro_str:Besluitgebied_X_externPlan ,
+    ro_str:Besluitgebied_X_norm
 .
 
-ro_str:Besluitgebied_P_hasPart a sh:PropertyShape ;
+ro_str:Besluitgebied_X_hasPart a sh:PropertyShape ;
   sh:path dct:hasPart ;
   sh:class ro:Besluitvlak ;
   sh:minCount 1 ;
-  sh:node ro_str:Besluitvlak_P
+  sh:node ro_str:Besluitvlak_X
 .
 
-
-ro_str:Besluitgebied_P_beleidsmatigVerantwoorlijkeOverheid a sh:PropertyShape ;
+ro_str:Besluitgebied_X_beleidsmatigVerantwoorlijkeOverheid a sh:PropertyShape ;
   sh:path ro:beleidsmatigVerantwoordelijkeOverheid ;
+  sh:class ro:Overheid ;
   sh:minCount 1 ;
 #  sh:maxCount 1 ; #the gml files concatenates the names of the ministries, resulting in a single instance. Hence, the sh:maxCount 1. However, if we can seperate these again, I think we'll have a more robuust knowledge graph.
-  sh:node ro_str:Overheden_P
 .
 
-ro_str:Besluitgebied_P_normadressant a sh:PropertyShape ;
+ro_str:Besluitgebied_X_normadressant a sh:PropertyShape ;
   sh:path ro:normadressant ;
   sh:class skos:Concept ;
   sh:node [
     sh:property [
        sh:path [ sh:inversePath skos:member ] ;
-       sh:hasValue ro_col:Normadressant_PV ;
+       sh:hasValue ro_col:Normadressant_XGB ;
     ]
   ]
 .
 
-ro_str:Besluitgebied_P_tekstverwijzing a sh:PropertyShape ;
+ro_str:Besluitgebied_X_tekstverwijzing a sh:PropertyShape ;
   sh:path ro:tekst ;
   sh:minCount 1 ;
   sh:maxCount 6 ;
 #Jesse: TODO: qualifiedValueShape (sh:hasValue of the multiple occurences), the IMROPT2012 constraint is in place.
-  sh:node ro_str:TeksttypeBG_PV
+  sh:node ro_str:Teksttype_XGB
 .
 
-ro_str:Besluitgebied_P_externPlan a sh:PropertyShape ;
+ro_str:TeksttypeBG_XGB a sh:NodeShape ;
+  sh:property [
+    sh:path rdf:type ;
+    sh:in (
+      ropt:Tekstobject
+      ro:Besluitdocument
+      ro:Voorschriften_Regels
+      ro:Toelichting
+      ro:BijlageBesluitdocument
+      ro:BijlageVoorschriften_Regels
+      ro:BijlageToelichting
+    )
+  ]
+.
+
+ro_str:Besluitgebied_X_illustratieverwijzing a sh:PropertyShape ;
+  sh:path ro:illustratie ;
+  sh:class ro:Kaart
+.
+
+ro_str:Besluitgebied_X_externPlan a sh:PropertyShape ;
   sh:path ro:externPlan ;
-  sh:node ro_str:ExternPlanReferentie_PV
+  sh:node ro_str:ExternPlanReferentie_XGB
 .
 
-ro_str:Besluitgebied_P_norm a sh:PropertyShape ;
+ro_str:ExternPlanReferentie_XGB a sh:Nodeshape ;
+  sh:closed true ;
+  sh:ignoredProperties (
+    ro:muteert
+    ro:vervangt
+    ro:gebruiktInformatieUit
+    ro:uitTeWerkenIn
+    ro:tenGevolgeVan
+  )
+.
+
+ro_str:Besluitgebied_X_norm a sh:PropertyShape ;
   sh:path ro:norm ;
   sh:minCount 2 ;
   sh:maxCount 3 ;
@@ -105,7 +144,7 @@ ro_str:Besluitgebied_P_norm a sh:PropertyShape ;
     sh:qualifiedMaxCount 1 ;
     ] [
     sh:qualifiedValueShape [
-      sh:hasValue ro_beg:PRPV2012 ;
+      sh:hasValue ro_beg:PRGB2012 ;
     ] ;
     sh:qualifiedMinCount 1 ;
     sh:qualifiedMaxCount 1 ;
@@ -117,85 +156,56 @@ ro_str:Besluitgebied_P_norm a sh:PropertyShape ;
   ]
   )
 .
-
 #################################################################
-#    Besluitvlak_P
+#    Besluitvlak_X
 #################################################################
 
 
-ro_str:Besluitvlak_P a sh:NodeShape ;
+ro_str:Besluitvlak_X a sh:NodeShape ;
   sh:property
-    ro_str:Besluitvlak_A-P_thema ,
-    ro_str:Besluitvlak_P_tekstverwijzing ,
-    ro_str:Besluitvlak_A-P_illustratieverwijzing ,
-    ro_str:Besluitvlak_A-P_isCartografischOnderdeelVan ,
-    ro_str:Besluitvlak_P_begrenzing ,
-    ro_str:Besluitvlak_P_hasPart
+    ro_str:Besluitvlak_X_tekstverwijzing ,
+    ro_str:Besluitvlak_X_begrenzing ,
+    ro_str:Besluitvlak_X_hasPart
 .
 
-ro_str:Besluitvlak_P_tekstverwijzing a sh:PropertyShape ;
+
+ro_str:Besluitvlak_X_tekstverwijzing a sh:PropertyShape ;
   sh:path ro:tekst ;
   sh:minCount 1 ;
 #Jesse: TODO: qualifiedValueShape (sh:hasValue of the multiple occurences), the IMROPT2012 constraint is in place.
   sh:node
-    ro_str:Teksttype_PV ,
-    ro_str:Besluitgebied_P_normadressant
+    ro_str:Teksttype_XGB ,
+    ro_str:Besluitgebied_X_normadressant
 .
 
-ro_str:Besluitvlak_P_begrenzing a sh:PropertyShape ;
+ro_str:Besluitvlak_X_begrenzing a sh:PropertyShape ;
   sh:path ro:begrenzing ;
   sh:minCount 1 ;
-  sh:node
-    ro_str:VlakMultiVlak ,
-    ro_str:Besluitvlak_P_Geometrie_idealisatie
-.
-
-ro_str:Besluitvlak_P_Geometrie_idealisatie a sh:PropertyShape ;
-  sh:path ro:idealisatie ;
-  sh:minCount 1 ;
   sh:maxCount 1 ;
-  sh:node ro_str:Idealisatie_1
+  sh:node ro_str:VlakMultiVlak
 .
 
-ro_str:Besluitsubvlak_P_Geometrie_idealisatie a sh:PropertyShape ;
-  sh:path ro:idealisatie ;
-  sh:minCount 1 ;
-  sh:maxCount 1 ;
-  sh:node ro_str:Idealisatie_3
-.
-
-ro_str:Besluitvlak_P_hasPart a sh:PropertyShape ;
+ro_str:Besluitvlak_X_hasPart a sh:PropertyShape ;
   sh:path dct:hasPart ;
   sh:class ro:Besluitvlak ;
-#Jesse: Deactivation does not work this way. Will probably have to resort to a SPARQL property.
-#  sh:deactivate ro_str:Besluitvlak_P_begrenzing ;
   sh:node
-    ro_str:Besluitvlak_P ,
-    ro_str:Besluitsubvlak_P_isPartOf
-#    ro_str:Besluitsubvlak_P_begrenzing
+    ro_str:Besluitvlak_X ,
+    ro_str:Besluitsubvlak_X_isPartOf
 .
 
-ro_str:Besluitsubvlak_P_isPartOf a sh:NodeShape ;
+ro_str:Besluitsubvlak_X_isPartOf a sh:NodeShape ;
   sh:property [
     sh:path dct:isPartOf ;
     sh:or (
-      [ sh:class ro:ProvincialeVerordening ]
+      [ sh:class ro:Aanwijzingsbesluit ]
+      [ sh:class ro:Beheersverordening ]
+      [ sh:class ro:Exploitatieplan ]
+      [ sh:class ro:GerechtelijkeUitspraak ]
+      [ sh:class ro:Omgevingsvergunning ]
+      [ sh:class ro:ReactieveAanwijzing ]
+      [ sh:class ro:Voorbereidingsbesluit ]
       [ sh:class ro:Besluitvlak ]
     ) ;
-    sh:minCount 2 ;   #Jesse: a subvlak is always part of a ro:Besluit and a ro:Besluitvlak.
+    sh:minCount 2;   #Jesse: a subvlak is always part of a ro:Besluit and a ro:Besluitvlak.
   ]
-.
-
-ro_str:Besluitsubvlak_P_begrenzing a sh:PropertyShape ;
-  sh:path ro:begrenzing ;
-  sh:node
-    ro_str:PuntLijnVlakMulti ,
-    ro_str:Besluitsubvlak_P_Geometrie_idealisatie
-.
-
-ro_str:Besluitsubvlak_P_Geometrie_idealisatie a sh:PropertyShape ;
-  sh:path ro:idealisatie ;
-  sh:minCount 1 ;
-  sh:maxCount 1 ;
-  sh:node ro_str:Idealisatie_3
 .

@@ -1,0 +1,242 @@
+# common prefixes
+@prefix : <http://data.informatiehuisruimte.nl/def/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix doco: <http://purl.org/spar/doco/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix gml: <http://www.opengis.net/ont/gml#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix ogc: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix skos-thes: <http://purl.org/iso25964/skos-thes#> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcmit: <http://purl.org/dc/dcmitype/> .
+
+# prefixes specific to Informatiehuis Ruimte
+@prefix imro: <http://data.imro.com/def/> .
+@prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
+@prefix nen3610_str: <http://data.informatiehuisruimte.nl/def/nen3610/> .
+@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
+@prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
+@prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
+@prefix ro_begkr: <http://data.informatiehuisruimte.nl/ro/id/begrippenkader/> .
+@prefix ro_col: <http://data.informatiehuisruimte.nl/ro/id/collectie/> .
+@prefix ro_nen3610_beg: <http://data.informatiehuisruimte.nl/nen3610/id/begrip/> .
+@prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
+@prefix ro_sym: <http://data.informatiehuisruimte.nl/ro/id/symbool/> .
+
+@prefix ropt: <http://data.informatiehuisruimte.nl/def/ropt#> .
+@prefix ropt_str: <http://data.informatiehuisruimte.nl/def/ropt/> .
+@prefix ropt_beg: <http://data.informatiehuisruimte.nl/ropt/id/begrip/> .
+@prefix ropt_col: <http://data.informatiehuisruimte.nl/ropt/id/collectie/> .
+
+#################################################################
+#    Besluitgebied_A
+#################################################################
+
+
+#Jesse: This nodeshape constrains both ro:AMVB and ro:Regeling.
+ro_str:Besluitgebied_A a sh:NodeShape ;
+  sh:targetClass ro:AMVB, ro:Regeling ;
+  sh:property
+    ro_str:Besluitgebied_A_hasPart ,
+    ro_str:Besluitgebied_A-P_spatial ,
+    ro_str:Besluitgebied_A_beleidsmatigVerantwoorlijkeOverheid ,
+    ro_str:Besluitgebied_A_normadressant ,
+    ro_str:Besluitgebied_A_tekstverwijzing ,
+    ro_str:Besluitgebied_A-P_illustratieverwijzing , #Jesse: common for both Besluitgebied_P and besluitgebied_A, not for besluitgebied_X
+    ro_str:Besluitgebied_A_externPlan ,
+    ro_str:Besluitgebied_A_norm
+.
+
+#Jesse: a single specialisation of Planobject is used, ro:Besluitvlak (the suffixes, _A _P _X are dropped).
+# This class has unique propertyshapes given the related ro:Plan. (due to the sh:node here)
+ro_str:Besluitgebied_A_hasPart a sh:PropertyShape ;
+  sh:path dct:hasPart ;
+  sh:class ro:Besluitvlak ;
+  sh:minCount 1 ;
+  sh:node ro_str:Besluitvlak_A
+.
+
+ro_str:Besluitgebied_A-P_spatial a sh:PropertyShape ;
+  sh:path dct:spatial ;
+# Jesse: these are already inherited
+#  sh:class ro:Plangebied ;
+#  sh:minCount 1 ;
+#  sh:maxCount 1 ;
+  sh:node ro_str:Besluitgebied_A-P_Plangebied
+.
+
+
+ro_str:Besluitgebied_A_beleidsmatigVerantwoorlijkeOverheid a sh:PropertyShape ;
+  sh:path ro:beleidsmatigVerantwoordelijkeOverheid ;
+  sh:minCount 1 ;
+#  sh:maxCount 1 ; #the gml files concatenates the names of the ministries, resulting in a single instance. Hence, the sh:maxCount 1. However, if we can seperate these again, I think we'll have a more robuust knowledge graph.
+  sh:node ro_str:Overheden_R
+.
+
+ro_str:Besluitgebied_A_normadressant a sh:PropertyShape ;
+  sh:path ro:normadressant ;
+  sh:class skos:Concept ;
+  sh:minCount 1 ;
+  sh:node [
+    sh:property [
+       sh:path [ sh:inversePath skos:member ] ;
+       sh:hasValue ro_col:Normadressant_AMB ;
+    ]
+  ]
+.
+
+ro_str:Besluitgebied_A_tekstverwijzing a sh:PropertyShape ;
+  sh:path ro:tekst ;
+  sh:minCount 1 ;
+  sh:maxCount 6 ;
+#Jesse: TODO: qualifiedValueShape (sh:hasValue of the multiple occurences), the IMROPT2012 constraint is in place.
+  sh:node ro_str:TeksttypeBG_AMB
+.
+
+#Jesse: I am thinking these property shapes could also follow a different structure. e.g. `IllustratieReferentiePG a sh:PropertyShape .` which is used instead of `ro_str:<insertPlan>_illustratieverwijzing`. for a later version perhaps
+ro_str:Besluitgebied_A-P_illustratieverwijzing a sh:PropertyShape ;
+  sh:path ro:illustratie ;
+  sh:class ro:Illustratie
+.
+
+ro_str:Besluitgebied_A_externPlan a sh:PropertyShape ;
+  sh:path ro:externPlan ;
+  sh:node ro_str:ExternPlanReferentie_AMB
+.
+
+ro_str:Besluitgebied_A_norm a sh:PropertyShape ;
+  sh:path ro:norm ;
+  sh:minCount 2 ;
+  sh:maxCount 3 ;
+  sh:and ( [
+    sh:qualifiedValueShape [
+      sh:hasValue ro_beg:IMRO2012 ;
+    ] ;
+    sh:qualifiedMinCount 1 ;
+    sh:qualifiedMaxCount 1 ;
+    ] [
+    sh:qualifiedValueShape [
+      sh:hasValue ro_beg:PRAMvB2012 ;
+    ] ;
+    sh:qualifiedMinCount 1 ;
+    sh:qualifiedMaxCount 1 ;
+    ] [
+    sh:qualifiedValueShape [
+      sh:hasValue ro_beg:IMROPT2012 ;
+    ] ;
+    sh:qualifiedMaxCount 1 ;
+  ]
+  )
+.
+
+#################################################################
+#    Begrenzing
+#################################################################
+
+ro_str:Besluitgebied_A-P_Plangebied a sh:NodeShape ;
+  sh:property
+    ro_str:Besluitgebied_A-P_Plangebied_begrenzing
+.
+
+ro_str:Besluitgebied_A-P_Plangebied_begrenzing a sh:PropertyShape ;
+  sh:path ro:begrenzing ;
+#Jesse: Inherited
+#  sh:class ro:Geometry ;
+#  sh:minCount 1 ;
+#  sh:maxCount 1 ;
+#  sh:node
+#    ro_str:Besluitgebied_A-P_geometrie ,
+#    ro_str:VlakMultiVlak ,
+  sh:node ro_str:Besluitgebied_A-P_Plangebied_idealisatie
+.
+
+ro_str:Besluitgebied_A-P_Plangebied_idealisatie a sh:PropertyShape ;
+  sh:path ro:idealisatie ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:node ro_str:Idealisatie_1
+.
+
+#################################################################
+#    Besluitvlak_A
+#################################################################
+
+
+ro_str:Besluitvlak_A a sh:NodeShape ;
+#  sh:targetClass ro:Besluitvlak_A ; #Jesse: Beluitvlak_A does not exist, the target is 'inherited' from ro_Str:Besluitgebied_A
+  sh:property
+    ro_str:Besluitvlak_A-P_thema ,
+    ro_str:Besluitvlak_A_tekstverwijzing ,
+    ro_str:Besluitvlak_A_illustratieverwijzing ,
+    ro_str:Besluitvlak_A-P_isCartografischOnderdeelVan ,
+    ro_str:Besluitvlak_A_hasPart
+.
+
+ro_str:Besluitvlak_A-P_thema a sh:PropertyShape ;
+  sh:path ro:thema ;
+  sh:datatype xsd:string ;
+  sh:nodeKind sh:Literal ;
+  sh:minCount 1
+.
+
+ro_str:Besluitvlak_A_tekstverwijzing a sh:PropertyShape ;
+  sh:path ro:tekst ;
+  sh:minCount 1 ;
+  #Jesse: TODO: qualifiedValueShape (sh:hasValue of the multiple occurences), the IMROPT2012 constraint is in place.
+  sh:node
+    ro_str:Teksttype_AMB ,
+    ro_str:Besluitgebied_A_normadressant
+.
+
+ro_str:Besluitvlak_A-P_illustratieverwijzing a sh:PropertyShape ;
+  sh:path ro:illustratie ;
+  sh:class ro:Illustratie ;
+  sh:node ro_str:Illustratie_legendaNaam
+.
+
+ro_str:Besluitvlak_A-P_isCartografischOnderdeelVan a sh:PropertyShape ;
+  sh:path ro:isCartografischOnderdeelVan ;
+  sh:node ro_str:Verbeeldingskaart ;
+.
+ro_str:Besluitvlak_A_begrenzing a sh:PropertyShape ;
+  sh:path ro:begrenzing ;
+  sh:minCount 1 ;
+  sh:node
+    ro_str:PuntLijnVlakMulti ,
+    ro_str:Besluitvlak_A_Geometrie_idealisatie
+.
+
+ro_str:Besluitvlak_A_Geometrie_idealisatie a sh:PropertyShape ;
+  sh:path ro:idealisatie ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:node ro_str:Idealisatie_2
+.
+
+ro_str:Besluitvlak_A_hasPart a sh:PropertyShape ;
+  sh:path dct:hasPart ;
+  sh:class ro:Besluitvlak ;
+  sh:node
+    ro_str:Besluitvlak_A ,
+    ro_str:Besluitsubvlak_A_isPartOf
+.
+
+ro_str:Besluitsubvlak_A_isPartOf a sh:NodeShape ;
+  sh:property [
+    sh:path dct:isPartOf ;
+    sh:or (
+      [ sh:class ro:AMVB ]
+      [ sh:class ro:Regeling ]
+      [ sh:class ro:Besluitvlak ]
+    ) ;
+    sh:minCount 2 ;   #Jesse: a subvlak is always part of a ro:Besluit and a ro:Besluitvlak.
+  ]
+.

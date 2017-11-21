@@ -1,5 +1,6 @@
 # common prefixes
-@prefix dc: <http://purl.org/dc/terms/> .
+@prefix : <http://data.informatiehuisruimte.nl/def/> .
+@prefix dct: <http://purl.org/dc/terms/> .
 @prefix doco: <http://purl.org/spar/doco/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix gml: <http://www.opengis.net/ont/gml#> .
@@ -11,9 +12,11 @@
 @prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix skos-thes: <http://purl.org/iso25964/skos-thes#> .
 @prefix voaf: <http://purl.org/vocommons/voaf#> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcmit: <http://purl.org/dc/dcmitype/> .
 
 # prefixes specific to Informatiehuis Ruimte
 @prefix imro: <http://data.imro.com/def/> .
@@ -22,21 +25,32 @@
 @prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
 @prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
 @prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
-
 @prefix ro_begkr: <http://data.informatiehuisruimte.nl/ro/id/begrippenkader/> .
 @prefix ro_col: <http://data.informatiehuisruimte.nl/ro/id/collectie/> .
 @prefix ro_nen3610_beg: <http://data.informatiehuisruimte.nl/nen3610/id/begrip/> .
 @prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
 @prefix ro_sym: <http://data.informatiehuisruimte.nl/ro/id/symbool/> .
-@prefix : <http://data.informatiehuisruimte.nl/def/> .
 
-:ro
-  a owl:Ontology ;
-  dc:description "TODO"@nl ;
-  dc:title "Ruimtelijke Ordening vocabulaire"@nl ;
-  rdfs:label "Ruimtelijke Ordening vocabulaire"@nl ;
+@prefix ropt: <http://data.informatiehuisruimte.nl/def/ropt#> .
+@prefix ropt_str: <http://data.informatiehuisruimte.nl/def/ropt/> .
+@prefix ropt_beg: <http://data.informatiehuisruimte.nl/ropt/id/begrip/> .
+@prefix ropt_col: <http://data.informatiehuisruimte.nl/ropt/id/collectie/> .
+@prefix dbr: <http://dbpedia.org/resource/> .
+
+:ro a owl:Ontology , voaf:Vocabulary ;
+  dct:description "Dit is een vocabulaire dat gebruikt kan worden voor het beschrijven van ruimtelijke instrumenten (beleidsstukken die worden gebruikt voor ruimtelijke ordening). Dit vocabulaire is afgeleid van het Informatiemodel Ruimtelijke Ordening 2012 (IMRO2012)."@nl ;
+  dct:title "Vocabulaire voor ruimtelijke ordening"@nl ;
+  rdfs:label "Vocabulaire voor ruimtelijke ordening"@nl ;
   owl:imports <http://datashapes.org/dash> ;
-#  sh:shapesGraph :ro_str #<- TODO
+  rdfs:seeAlso <http://ro-standaarden.geonovum.nl/2012/IMRO/1.2/IMRO2012-v1.2.pdf> ;
+  sh:shapesGraph :ro_str ;
+  voaf:extends :nen3610 ;
+  dct:coverage dbr:Netherlands ;
+  dct:language "nl" ;
+  dct:publisher dbr:Kadaster ;
+  owl:versionInfo "0.1.0" ;
+  dct:created "2017-10-04"^^xsd:date ;
+  dct:modified "2017-10-06"^^xsd:date
 .
 
 #################################################################
@@ -47,14 +61,14 @@ ro:Plan a owl:Class ;
   rdfs:label "Plan"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:comment "Een plan dat regels beschrijft die geldig zijn voor een bepaald gebied."@nl ;
-  dcterms:subject ro_beg:Plan
+  dct:subject ro_beg:Plan
 .
 
 ro:Plangebied a owl:Class ;
   rdfs:label "Plangebied"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:comment "Het gebied waar een specifiek plan voor geldt."@nl ;
-  dcterms:subject ro_beg:Plangebied ;
+  dct:subject ro_beg:Plangebied ;
   rdfs:subClassOf nen3610:PlanologischGebied
 .
 
@@ -62,43 +76,13 @@ ro:Planobject a owl:Class ;
   rdfs:label "Planobject"@nl ;
   rdfs:isDefinedBy :ro ;
   rdfs:comment "Ruimtelijk object dat zich bevindt in een bijbehorend plangebied."@nl ;
-  dcterms:subject ro_beg:Planobject ;
+  dct:subject ro_beg:Planobject ;
   rdfs:subClassOf nen3610:PlanologischGebied
 .
 
-#################################################################
-#    labels
-#################################################################
-
-
-#ro:locatieNaam a owl:AnnotationProperty ;   #this property is replaced by locn:geographicName
-#  rdfs:isDefinedBy :ro ;
-#  rdfs:label "locatie naam"@nl
-#.
-
-#ro:naam                                     #this property is replaced by rdfs:label
-#  a owl:AnnotationProperty ;
-#  rdfs:isDefinedBy :ro ;
-#  rdfs:label "naam"@nl ;
-#.
-
-#ro:plangebied
-#  a owl:ObjectProperty ;
-#  rdfs:isDefinedBy :ro ;
-#  rdfs:label "plangebied"@nl ;
-#  rdfs:range nen3610:Plangebied ;
-#.
-
-# ro:planobject
-#   a owl:ObjectProperty ;
-#   rdfs:isDefinedBy :ro ;
-#   rdfs:label "planobject"@nl ;
-#   rdfs:range nen3610:Planobject ;
-# .
-
-ro:thema a owl:DatatypeProperty ;             #is this a datatype/annotation or perhaps even an objectproperty?
+ro:thema a owl:DatatypeProperty ;
   rdfs:isDefinedBy :ro ;
-  rdfs:label "thema"@nl ;
+  rdfs:label "thema"@nl
 .
 
 #################################################################
@@ -108,28 +92,28 @@ ro:thema a owl:DatatypeProperty ;             #is this a datatype/annotation or 
 ro:Ondergrond a owl:Class ;
   rdfs:label "Ondergrond"@nl ;
   rdfs:isDefinedBy :ro ;
-  dcterms:subject ro_beg:Ondergrond ;
+  dct:subject ro_beg:Ondergrond ;
   rdfs:comment "naamgeving van de gebruikte ondergrond bij het instrument."@nl
 .
 
 ro:GrootschaligeBasiskaart a owl:Class ;
   rdfs:subClassOf ro:Ondergrond ;
   rdfs:isDefinedBy :ro ;
-  dcterms:subject ro_beg:GrootschaligeBasiskaart ;
+  dct:subject ro_beg:GrootschaligeBasiskaart ;
   rdfs:label "Grootschalige basiskaart"@nl
 .
 
 ro:BasisregistratieGrootschaligeTopografie a owl:Class ;
   rdfs:subClassOf ro:Ondergrond ;
   rdfs:isDefinedBy :ro ;
-  dcterms:subject ro_beg:BasisregistratieGrootschaligeTopografie ;
+  dct:subject ro_beg:BasisregistratieGrootschaligeTopografie ;
   rdfs:label "Basisregistratie grootschalige topografie"@nl
 .
 
 ro:BasisregistratieTopografie a owl:Class ;
   rdfs:subClassOf ro:Ondergrond ;
   rdfs:isDefinedBy :ro ;
-  dcterms:subject ro_beg:BasisregistratieTopografie ;
+  dct:subject ro_beg:BasisregistratieTopografie ;
   rdfs:label "Basisregistratie topografie"@nl
 .
 
@@ -137,7 +121,7 @@ ro:BasisregistratieKadaster a owl:Class ;
   rdfs:subClassOf ro:Ondergrond ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "Basisregistratie kadaster"@nl ;
-  dcterms:subject ro_beg:BasisregistratieKadaster
+  dct:subject ro_beg:BasisregistratieKadaster
 .
 
 ro:ondergrond a owl:ObjectProperty ;
@@ -175,7 +159,7 @@ ro:rol a owl:DatatypeProperty ;
 ro:instrument a owl:ObjectProperty ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "instrument"@nl ;
-  rdfs:range ro_beg:Instrument ;
+  rdfs:range ro_beg:Instrument
 .
 
 ###############
