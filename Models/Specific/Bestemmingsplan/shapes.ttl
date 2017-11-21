@@ -634,7 +634,7 @@ ro_str:Gebiedsaanduiding_naam a sh:Propertyshape ;
   sh:node ro_str:Gebiedsaanduidingen
 .
 
-ro_str:Gebiedsaanduidingen a sh:NodeShape
+ro_str:Gebiedsaanduidingen a sh:NodeShape ;
   sh:or (
     [ sh:in (
         "geluidzone"

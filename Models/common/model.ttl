@@ -35,6 +35,7 @@
 @prefix ropt_str: <http://data.informatiehuisruimte.nl/def/ropt/> .
 @prefix ropt_beg: <http://data.informatiehuisruimte.nl/ropt/id/begrip/> .
 @prefix ropt_col: <http://data.informatiehuisruimte.nl/ropt/id/collectie/> .
+@prefix dbr: <http://dbpedia.org/resource/> .
 
 :ro a owl:Ontology , voaf:Vocabulary ;
   dct:description "Dit is een vocabulaire dat gebruikt kan worden voor het beschrijven van ruimtelijke instrumenten (beleidsstukken die worden gebruikt voor ruimtelijke ordening). Dit vocabulaire is afgeleid van het Informatiemodel Ruimtelijke Ordening 2012 (IMRO2012)."@nl ;
@@ -44,9 +45,9 @@
   rdfs:seeAlso <http://ro-standaarden.geonovum.nl/2012/IMRO/1.2/IMRO2012-v1.2.pdf> ;
   sh:shapesGraph :ro_str ;
   voaf:extends :nen3610 ;
-  dct:coverage dbp:Netherlands ;
+  dct:coverage dbr:Netherlands ;
   dct:language "nl" ;
-  dct:publisher dbp:Kadaster ;
+  dct:publisher dbr:Kadaster ;
   owl:versionInfo "0.1.0" ;
   dct:created "2017-10-04"^^xsd:date ;
   dct:modified "2017-10-06"^^xsd:date
