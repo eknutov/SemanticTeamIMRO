@@ -1,1 +1,67 @@
-# nen3610 will probably need its own skos.
+# common prefixes
+@prefix : <http://data.informatiehuisruimte.nl/def/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix doco: <http://purl.org/spar/doco/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix gml: <http://www.opengis.net/ont/gml#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix ogc: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix skos-thes: <http://purl.org/iso25964/skos-thes#> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcmit: <http://purl.org/dc/dcmitype/> .
+
+# prefixes specific to Informatiehuis Ruimte
+@prefix imro: <http://data.imro.com/def/> .
+@prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
+@prefix nen3610_str: <http://data.informatiehuisruimte.nl/def/nen3610/> .
+@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
+@prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
+@prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
+@prefix ro_begkr: <http://data.informatiehuisruimte.nl/ro/id/begrippenkader/> .
+@prefix ro_col: <http://data.informatiehuisruimte.nl/ro/id/collectie/> .
+@prefix ro_nen3610_beg: <http://data.informatiehuisruimte.nl/nen3610/id/begrip/> .
+@prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
+@prefix ro_sym: <http://data.informatiehuisruimte.nl/ro/id/symbool/> .
+
+@prefix ropt: <http://data.informatiehuisruimte.nl/def/ropt#> .
+@prefix ropt_str: <http://data.informatiehuisruimte.nl/def/ropt/> .
+@prefix ropt_beg: <http://data.informatiehuisruimte.nl/ropt/id/begrip/> .
+@prefix ropt_col: <http://data.informatiehuisruimte.nl/ropt/id/collectie/> .
+
+
+ro_nen3610_beg:GeoObject a skos:Concept ;
+  rdfs:label "Geo-object"@nl ;
+  skos:prefLabel "Geo-object"@nl ;
+  skos:altLabel "GeoObject"@nl ;
+  skos:altLabel "Ruimtelijk object"@nl ;
+  skos:topConceptOf ro_begkr:ro ;
+  skos:inScheme ro_begkr:ro ;
+  skos:definition "Abstractie van een fenomeen in de werkelijkheid, dat direct of indirect is geassocieerd met een locatie relatief ten opzichte van de aarde."@nl ;
+  skos:scopeNote "Indien een object een geo-object is, is het altijd een instantie van een subklasse van GeoObject."@nl ;
+  dct:source <https://www.nen.nl/NEN-Shop/Norm/NEN-36102011-nl.htm>
+.
+
+ro_nen3610_beg:PlanologischGebied a skos:Concept ;
+  rdfs:label "Planologisch gebied"@nl ;
+  skos:prefLabel "Planologisch gebied"@nl ;
+  skos-thes:broaderGeneric ro_nen3610_beg:GeoObject ;
+  skos:inScheme ro_begkr:ro ;
+  skos:definition "Niet-tastbaar begrensd gebied waaraan een bepaalde (toekomstige) bestemming, functionele en/of bestuurlijke ruimtelijke ontwikkeling is gekoppeld."@nl ;
+  skos:scopeNote "Planologische gebieden vormen de geo-objecten die worden gebruikt om het beleid van de ruimtelijke ordening weer te geven. In de regel zijn het objecten die zijn gekoppeld aan beleidsinformatie die aangeeft wat waar krachtens de wet op de ruimtelijke ordening aan beleid is geformuleerd."@nl ;
+  skos:scopeNote "Dit is een abstracte klasse waarvan alleen de onderliggende specialisaties gebruikt worden. Alle gebieden die in omgevingsinstrumenten onderscheiden worden en waar beleid aan gekoppeld is behoren tot deze klasse."@nl ;
+  dct:source <https://www.nen.nl/NEN-Shop/Norm/NEN-36102011-nl.htm>
+.
+
+  ro_nen3610_beg:NEN3610ID a skos:Concept ;
+    rdfs:label "NEN#3610ID"@nl ;
+    skos:prefLabel "NEN3610ID"@nl ;
+    skos:inSchema ro_begkr:ro
+.

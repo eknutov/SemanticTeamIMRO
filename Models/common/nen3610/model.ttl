@@ -53,7 +53,7 @@ nen3610:PlanologischGebied a owl:Class ;
   rdfs:subClassOf nen3610:GeoObject
 .
 
-nen3610:identificatie a owl:ObjectProperty ; #functional object property to blank node?
+nen3610:identificatie a owl:ObjectProperty ;
   rdfs:label "identificatie"@nl ;
   rdfs:domain nen3610:GeoObject ;
   rdfs:range nen3610:NEN3610ID
