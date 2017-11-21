@@ -311,7 +311,8 @@ ropt:VoorlopigeBestemming a owl:Class ;
 ropt:GeldigheidstermijnVanDeVoorlopigeBestemming a owl:Class ;
   rdfs:label "geldigheidstermijn van de voorlopige bestemming"@nl ;
   rdfs:isDefinedBy :ropt ;
-  rdfs:subClassOf ropt:GeldigheidstermijnVanDeVoorlopigeBestemming
+  rdfs:subClassOf ropt:Tekstobject ;
+  dct:subject ropt_beg:GeldigheidstermijnVanDeVoorlopigeBestemming ;
 .
 
 ropt:DefinitieveBestemmingBijVoorlopigeBestemming a owl:Class ;
@@ -373,7 +374,8 @@ ropt:AlgemeneGebruiksregels a owl:Class ;
 ropt:AlgemeneAanduidingsregels a owl:Class ;
   rdfs:label "algemene aanduidingsregels"@nl ;
   rdfs:isDefinedBy :ropt ;
-  rdfs:subClassOf ropt:AlgemeneAanduidingsregels
+  rdfs:subClassOf ropt:Tekstobject ;
+  dct:subject ropt_beg:AlgemeneAanduidingsregels ;
 .
 
 ropt:AlgemeneAfwijkingsregels a owl:Class ;
