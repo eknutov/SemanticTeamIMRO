@@ -56,7 +56,7 @@ ro:Structuurvisiegebied_G a owl:Class ;
   dct:subject ro_beg:Structuurvisiegebied_G ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "Structuurvisiegebied_G"@nl ;
-  rdfs:subClassOf ro:Planobject
+  rdfs:subClassOf ro:Structuurvisiegebied
 .
 
 
@@ -68,5 +68,5 @@ ro:Structuurvisiecomplex_G a owl:Class ;
   dct:subject ro_beg:Structuurvisiecomplex_G ;
   rdfs:isDefinedBy :ro ;
   rdfs:label "Structuurvisiegebied_G"@nl ;
-  rdfs:subClassOf ro:Planobject
+  rdfs:subClassOf ro:Structuurvisiecomplex
 .
