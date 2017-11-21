@@ -71,6 +71,7 @@ ropt:identificatie a owl:DatatypeProperty ;
 ropt:plan a owl:ObjectProperty ;
   rdfs:label "plan"@nl ;
   rdfs:isDefinedby :ropt ;
+  rdfs:domain ropt:Tekstobject ;
   rdfs:range ro:Plan
 .
 
