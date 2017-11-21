@@ -46,7 +46,6 @@
 
 ro:Tekst a owl:Class ;
   rdfs:label "Tekst"@nl ;
-  rdfs:subClassOf owl:Thing ;
   rdfs:isDefinedBy :ro ;
   dct:subject ro_beg:Tekst
 .
