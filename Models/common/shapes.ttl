@@ -102,7 +102,7 @@ ro_str:Plan_ondergronddatum a sh:PropertyShape ;
 ro_str:Plan_dataset a sh:propertyShape ;
   sh:path rdf:type ;
   sh:qualifiedValueShape [
-    sh:class void:Dataset ;
+    sh:hasValue void:Dataset ;
   ] ;
   sh:qualifiedMinCount 1 ;
   sh:qualifiedMaxCount 1
