@@ -77,7 +77,7 @@ ro:Uitwerkingsplan a owl:Class ;
 ro:Wijzigingsplan a owl:Class ;
   rdfs:label "Wijzigingsplan"@nl ;
   rdfs:isDefinedBy :ro ;
-  rdfs:subClassOf ro:Wijzigingsplan ;
+  rdfs:subClassOf ro:Bestemmingsplan ;
   rdfs:comment ""
 .
 
