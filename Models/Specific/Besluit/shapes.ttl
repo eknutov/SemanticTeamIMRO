@@ -1,18 +1,22 @@
 # common prefixes
-@prefix dc: <http://purl.org/dc/terms/> .
+@prefix : <http://data.informatiehuisruimte.nl/def/> .
+@prefix dct: <http://purl.org/dc/terms/> .
 @prefix doco: <http://purl.org/spar/doco/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix gml: <http://www.opengis.net/ont/gml#> .
 @prefix locn: <http://www.w3.org/ns/locn#> .
 @prefix ogc: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix skos-thes: <http://purl.org/iso25964/skos-thes#> .
 @prefix voaf: <http://purl.org/vocommons/voaf#> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcmit: <http://purl.org/dc/dcmitype/> .
 
 # prefixes specific to Informatiehuis Ruimte
 @prefix imro: <http://data.imro.com/def/> .
@@ -21,245 +25,63 @@
 @prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
 @prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
 @prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
-
 @prefix ro_begkr: <http://data.informatiehuisruimte.nl/ro/id/begrippenkader/> .
 @prefix ro_col: <http://data.informatiehuisruimte.nl/ro/id/collectie/> .
 @prefix ro_nen3610_beg: <http://data.informatiehuisruimte.nl/nen3610/id/begrip/> .
 @prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
 @prefix ro_sym: <http://data.informatiehuisruimte.nl/ro/id/symbool/> .
 
-# TODO: Once correct, split the file to one file for each of the three subclasses of ro:Besluit.
+@prefix ropt: <http://data.informatiehuisruimte.nl/def/ropt#> .
+@prefix ropt_str: <http://data.informatiehuisruimte.nl/def/ropt/> .
+@prefix ropt_beg: <http://data.informatiehuisruimte.nl/ropt/id/begrip/> .
+@prefix ropt_col: <http://data.informatiehuisruimte.nl/ropt/id/collectie/> .
 
-# This will be defined in the common folder, it is put here pending finalization of the common shapes
+#################################################################
+#    Besluit
+#################################################################
 
-ro_str:Plan a sh:NodeShape;
-  sh:targetClass ro:Plan;
-  sh:property [
-    sh:nodeKind sh:IRI;
-    sh:path dc:hasPart;
-    sh:class ro:Planobject;
-    sh:minCount 1;
-  ];
-.
-
-
-# Provinciale verordening
-ro_str:ProvincialeVerordening a sh:NodeShape;
-  sh:targetClass ro:ProvincialeVerordening;
-  sh:property [
-    sh:path dc:hasPart;
-    sh:node ro_str:ProvincialeVerordening_Planobject;
-  ]
-.
-
-ro_str:ProvincialeVerordening_Planobject a sh:NodeShape;
+ro_str:Besluit a sh:NodeShape ;
+  sh:targetClass ro:Besluit ;
   sh:property
-    ro_str:ProvincialeVerordening_Plannobject_subject,
-    ro_str:ProvincialeVerordening_Plannobject_tekst,
-    ro_str:ProvincialeVerordening_Plannobject_illustratie,
-    ro_str:ProvincialeVerordening_Plannobject_kaart,
-    ro_str:ProvincialeVerordening_Plannobject_hasPart;
+    ro_str:Besluit_spatial
 .
 
-ro_str:ProvincialeVerordening_Plannobject_subject a sh:PropertyShape;
-  sh:property [
-    sh:path dc:subject;
-    sh:nodeKind sh:Literal;
-    sh:minCount 1;
-  ];
+ro_str:Besluit_spatial a sh:PropertyShape ;
+  sh:path dct:spatial ;
+  sh:node
+    ro_str:Besluit_Plangebied_begrenzing
 .
 
-ro_str:ProvincialeVerordening_Plannobject_tekst a sh:PropertyShape;
-  sh:path ro:tekst;
-  sh:class ro:Tekst;
-  sh:node ro_str:ProvincialeVerordening_Plannobject_tekst_teksttype;
-  sh:node ro_str:ProvincialeVerordening_Plannobject_tekst_normadressant;
+ro_str:Besluit_Plangebied_begrenzing a sh:PropertyShape ;
+  sh:path ro:begrenzing ;
+  sh:node
+    ro_str:VlakMultiVlak
 .
 
-ro_str:ProvincialeVerordening_Plannobject_tekst_teksttype a sh:PropertyShape;
-  sh:path ro:teksttype;
-  sh:class skos:Concept;
-  sh:minCount 1;
-  sh:maxCount 1;
-  sh:node [ 
-    sh:property [
-       sh:path [ sh:inversePath skos:member ];
-       sh:hasValue ro_col:TekstypesPlanobjectProvinciaalBesluit;
-    ]
-  ]
-.
+#################################################################
+#    Besluitvlak
+#################################################################
 
-ro_str:ProvincialeVerordening_Plannobject_tekst_normadressant a sh:PropertyShape;
-  sh:path ro:normadressant;
-  sh:class skos:Concept;
-  sh:node [ 
-    sh:property [
-       sh:path [ sh:inversePath skos:member ];
-       sh:hasValue ro_col:NormadressantenProvincialeVerorderdening;
-    ]
-  ]
-.
-
-ro_str:ProvincialeVerordening_Plannobject_illustratie a sh:PropertyShape;
-  sh:property [
-    sh:path ro:illustratie;
-    sh:nodeKind sh:IRI;
-    sh:class ro:Illustratie;
-  ];
-.
-
-ro_str:ProvincialeVerordening_Plannobject_kaart a sh:PropertyShape;
-  sh:property [
-    sh:path ro:kaart;
-    sh:nodeKind sh:IRI;
-    sh:class ro:Kaart;
-  ];
-.
-
-ro_str:ProvincialeVerordening_Plannobject_hasPart a sh:PropertyShape;
-  sh:property [
-    sh:path dc:hasPart;
-    sh:node ro_str:ProvincialeVerordening_Planobject;
-  ];
-.
-
-# Algemene Maatregel van Bestuur
-
-ro_str:AMVB a sh:NodeShape;
-  sh:targetClass ro:AMVB;
-  sh:property [
-    sh:path dc:hasPart;
-    sh:node ro_str:AMVB_Planobject;
-  ]
-.
-
-ro_str:AMVB_Planobject a sh:NodeShape;
+ro_str:Besluitvlak a sh:NodeShape ;
+  sh:targetClass ro:Besluitvlak ;
   sh:property
-    ro_str:AMVB_Plannobject_subject,
-    ro_str:AMVB_Plannobject_tekst,
-    ro_str:AMVB_Plannobject_illustratie,
-    ro_str:AMVB_Plannobject_kaart,
-    ro_str:AMVB_Plannobject_hasPart;
-.
-
-ro_str:AMVB_Plannobject_subject a sh:PropertyShape;
-  sh:property [
-    sh:path dc:subject;
-    sh:nodeKind sh:Literal;
-    sh:minCount 1;
-  ];
-.
-
-ro_str:AMVB_Plannobject_tekst a sh:PropertyShape;
-  sh:path ro:tekst;
-  sh:class ro:Tekst;
-  sh:node ro_str:AMVB_Plannobject_tekst_teksttype;
-  sh:node ro_str:AMVB_Plannobject_tekst_normadressant;
-.
-
-ro_str:AMVB_Plannobject_tekst_teksttype a sh:PropertyShape;
-  sh:path ro:teksttype;
-  sh:class skos:Concept;
-  sh:minCount 1;
-  sh:maxCount 1;
-  sh:node [ 
-    sh:property [
-       sh:path [ sh:inversePath skos:member ];
-       sh:hasValue ro_col:TekstypesPlanobjectAMVB;
-    ]
-  ]
-.
-
-ro_str:AMVB_Plannobject_tekst_normadressant a sh:PropertyShape;
-  sh:path ro:normadressant;
-  sh:class skos:Concept;
-  sh:node [ 
-    sh:property [
-       sh:path [ sh:inversePath skos:member ];
-       sh:hasValue ro_col:NormadressantenAMVB;
-    ]
-  ]
-.
-
-ro_str:AMVB_Plannobject_illustratie a sh:PropertyShape;
-  sh:property [
-    sh:path ro:illustratie;
-    sh:nodeKind sh:IRI;
-    sh:class ro:Illustratie;
-  ];
-.
-
-ro_str:AMVB_Plannobject_kaart a sh:PropertyShape;
-  sh:property [
-    sh:path ro:kaart;
-    sh:nodeKind sh:IRI;
-    sh:class ro:Kaart;
-  ];
-.
-
-ro_str:AMVB_Plannobject_hasPart a sh:PropertyShape;
-  sh:property [
-    sh:path dc:hasPart;
-    sh:node ro_str:AMVB_Planobject;
-  ];
-.
-
-# Overige gebiedsgebonden besluiten
-# + naam: ScopedName
-# + verwijzingNaarTekstInfo: TekstReferentie_XGB [1..*]
-# + geometrie: VlakMultiVlak
-
-ro_str:OverigGebiedsgerichtBesluit a sh:NodeShape;
-  sh:targetClass ro:OverigGebiedsgerichtBesluit;
-  sh:property [
-    sh:path dc:hasPart;
-    sh:node ro_str:OverigGebiedsgerichtBesluit_Planobject;
-  ]
-.
-
-ro_str:OverigGebiedsgerichtBesluit_Planobject a sh:NodeShape;
-  sh:property
-    ro_str:OverigGebiedsgerichtBesluit_Plannobject_tekst,
-    ro_str:OverigGebiedsgerichtBesluit_Plannobject_geometry,
-    ro_str:OverigGebiedsgerichtBesluit_Plannobject_hasPart;
+    ro_str:Besluitvlak_tekstverwijzing ,
+    ro_str:Besluitvlak_begrenzing
 .
 
 
-ro_str:OverigGebiedsgerichtBesluit_Plannobject_tekst a sh:PropertyShape;
-  sh:path ro:tekst;
-  sh:class ro:Tekst;
-  sh:node ro_str:OverigGebiedsgerichtBesluit_Plannobject_tekst_teksttype;
-  sh:node ro_str:OverigGebiedsgerichtBesluit_Plannobject_tekst_normadressant;
+ro_str:Besluitvlak_tekstverwijzing a sh:PropertyShape ;
+  sh:xone ( [
+    sh:and (
+      [ sh:path ( dct:isPartOf ro:norm ) ; sh:hasValue ro_beg:IMROPT2012 ; ]
+      [ sh:path ro:tekst ; sh:class ropt:Tekstobject , ro:Tekst ; ] ) ] [
+    sh:and (
+      [ sh:path  ( dct:isPartOf ro:norm ) ; sh:not [ sh:hasValue ro_beg:IMROPT ; ] ]
+      [ sh:path ro:tekst ; sh:class ro:Tekst ; sh:not [ sh:class ropt:Tekstobject ] ] ) ] )
 .
 
-ro_str:OverigGebiedsgerichtBesluit_Plannobject_tekst_teksttype a sh:PropertyShape;
-  sh:path ro:teksttype;
-  sh:class skos:Concept;
-  sh:minCount 1;
-  sh:maxCount 1;
-  sh:node [ 
-    sh:property [
-       sh:path [ sh:inversePath skos:member ];
-       sh:hasValue ro_col:TekstypesPlanobjectOverigGebiedsgerichtBesluit;
-    ]
-  ]
-.
-
-ro_str:OverigGebiedsgerichtBesluit_Plannobject_tekst_normadressant a sh:PropertyShape;
-  sh:path ro:normadressant;
-  sh:class skos:Concept;
-  sh:node [ 
-    sh:property [
-       sh:path [ sh:inversePath skos:member ];
-       sh:hasValue ro_col:NormadressantenOverigGebiedsgerichtBesluit;
-    ]
-  ]
-.
-
-
-ro_str:OverigGebiedsgerichtBesluit_Plannobject_hasPart a sh:PropertyShape;
-  sh:property [
-    sh:path dc:hasPart;
-    sh:node ro_str:OverigGebiedsgerichtBesluit_Planobject;
-  ];
+ro_str:Besluitvlak_begrenzing a sh:PropertyShape ;
+  sh:path ro:begrenzing ;
+  sh:class ro:Geometrie ;
+  sh:minCount 1
 .

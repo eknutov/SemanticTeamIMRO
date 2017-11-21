@@ -1,38 +1,51 @@
+# common prefixes
+@prefix : <http://data.informatiehuisruimte.nl/def/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix doco: <http://purl.org/spar/doco/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix gml: <http://www.opengis.net/ont/gml#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix ogc: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix skos-thes: <http://purl.org/iso25964/skos-thes#> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix ogc: <http://www.opengis.net/ont/geosparql#> .
-@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
-@prefix gml: <http://www.opengis.net/ont/gml#> .
-@prefix nen3610_str: <http://data.informatiehuisruimte.nl/def/nen3610/> .
+@prefix dcmit: <http://purl.org/dc/dcmitype/> .
+
+# prefixes specific to Informatiehuis Ruimte
+@prefix imro: <http://data.imro.com/def/> .
 @prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
+@prefix nen3610_str: <http://data.informatiehuisruimte.nl/def/nen3610/> .
+@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
 @prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
-@prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
+@prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
+@prefix ro_begkr: <http://data.informatiehuisruimte.nl/ro/id/begrippenkader/> .
 @prefix ro_col: <http://data.informatiehuisruimte.nl/ro/id/collectie/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ro_nen3610_beg: <http://data.informatiehuisruimte.nl/nen3610/id/begrip/> .
+@prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
+@prefix ro_sym: <http://data.informatiehuisruimte.nl/ro/id/symbool/> .
+
+@prefix ropt: <http://data.informatiehuisruimte.nl/def/ropt#> .
+@prefix ropt_str: <http://data.informatiehuisruimte.nl/def/ropt/> .
+@prefix ropt_beg: <http://data.informatiehuisruimte.nl/ropt/id/begrip/> .
+@prefix ropt_col: <http://data.informatiehuisruimte.nl/ropt/id/collectie/> .
+
 
 ##################################################################
-#    Illustratie
+#    teksttype
 #################################################################
-
-#here we define that all instances of ro:Tekst should have a reference to the tekst as a string.
-#date - 4-11-17: instances are the reference, they no longer contain a reference.
-#ro_str:Tekst rdf:type sh:NodeShape ;
-#  sh:targetClass ro:Tekst ;
-#  sh:property [
-#    sh:path ro:tekstverwijzing ;
-#    sh:minCount 1 ;
-#    sh:maxCount 1 ;
-#    sh:datatype xsd:string ;
-#    ] ;
-#.
 
 ro_str:TeksttypePG_BP a sh:NodeShape ;
   sh:property [
     sh:path rdf:type ;
     sh:in (
+      ropt:Tekstobject
       ro:Regels
       ro:Toelichting
       ro:BijlageBijRegels
@@ -45,66 +58,137 @@ ro_str:Teksttype_SV a sh:NodeShape ;
   sh:property [
     sh:path rdf:type ;
     sh:in (
+      ropt:Tekstobject
       ro:Beleid
       ro:Toelichting
     )
-  ] ;
+  ]
 .
 
 ro_str:TeksttypePG_SV a sh:NodeShape ;
   sh:property [
     sh:path rdf:type ;
     sh:in (
+      ropt:Tekstobject
       ro:Besluitdocument
       ro:Bijlage
       ro:Toelichting
     )
-  ] ;
+  ]
 .
 
 ro_str:Teksttype_BP a sh:NodeShape ;
   sh:property [
     sh:path rdf:type ;
     sh:in (
+      ropt:Tekstobject
       ro:Regels
     )
-  ] ;
+  ]
 .
 
 ro_str:Teksttype_PSV a sh:NodeShape ;
   sh:property [
     sh:path rdf:type ;
     sh:in (
+      ropt:Tekstobject
       ro:Beleid
       ro:BeleidGemandateerdAanGS
       ro:Toelichting
-    ) ] ;
+    ) ]
 .
+
+ro_str:TeksttypeBG_AMB a sh:NodeShape ;
+  sh:property [
+    sh:path rdf:type ;
+    sh:in (
+      ropt:Tekstobject
+      ro:Besluitdocument
+      ro:Regels
+      ro:Toelichting
+      ro:BijlageBesluitdocument
+      ro:BijlageRegels
+      ro:BijlageToelichting
+    )
+  ]
+.
+
+ro_str:Teksttype_AMB a sh:NodeShape ;
+  sh:property [
+    sh:path rdf:type ;
+    sh:in (
+      ropt:Tekstobject
+      ro:Besluittekst
+      ro:Regels
+      ro:Toelichting
+      ro:BijlageBesluittekst
+      ro:BijlageRegels
+      ro:BijlageToelichting
+    )
+  ]
+.
+
+ro_str:Teksttype_XGB a sh:NodeShape ;
+  sh:property [
+    sh:path rdf:type ;
+    sh:in (
+      ropt:Tekstobject
+      ro:Besluittekst
+      ro:Voorschriften_Regels
+      ro:Toelichting
+      ro:BijlageBesluittekst
+      ro:BijlageVoorschriften_Regels
+      ro:BijlageToelichting
+    )
+  ]
+.
+
+ro_str:TeksttypeBG_PV a sh:NodeShape ;
+  sh:property [
+    sh:path rdf:type ;
+    sh:in (
+      ropt:Tekstobject
+      ro:Besluitdocument
+      ro:Regels
+      ro:Toelichting
+      ro:BijlageBesluitdocument
+      ro:BijlageRegels
+      ro:BijlageToelichting
+    )
+  ]
+.
+
+ro_str:Teksttype_PV a sh:NodeShape ;
+  sh:property [
+    sh:path rdf:type ;
+    sh:in (
+      ropt:Tekstobject
+      ro:RegelZonderVoorbereidingsbescherming
+      ro:RegelMetVoorbereidingsbescherming
+      ro:Toelichting
+      ro:BijlageRegelZonderVoorbereidingsbescherming
+      ro:BijlageRegelMetVoorbereidingsbescherming
+      ro:BijlageToelichting
+    )
+  ]
+.
+
 
 #################################################################
 #    Illustratie
 #################################################################
 
-#no longer used as the instance is the reference, it does not contain the reference as an attribute.
-#ro_str:Illustratie a sh:NodeShape ;
-#  sh:property [
-#    sh:path ro:illustratieverwijzing ;
-##    sh:datatype xsd:string ; #object can be a hyperlink, would we want to store it as a string?
-#    sh:minCount 1 ;
-#    sh:maxCount 1 ;
-#  ]
-#.
 
-ro_str:Illustratie_legendaNaam a sh:NodeShape ; #can I treat a nodeshape as a propertyshape?
+ro_str:Illustratie_legendaNaam a sh:NodeShape ;
   sh:path ro:legendaNaam ;
   sh:datatype xsd:string ;
-  sh:maxCount 1 ;
+  sh:maxCount 1
 .
 
-ro_str:Illustratie_IllustratieNaam a sh:NodeShape ; #can I treat a nodeshape as a propertyshape?
+ro_str:Illustratie_IllustratieNaam a sh:NodeShape ;
   sh:path ro:illustratieNaam ;
   sh:datatype xsd:string ;
-  sh:maxCount 1 ;
+  sh:maxCount 1
 .
 
 #################################################################
@@ -113,7 +197,7 @@ ro_str:Illustratie_IllustratieNaam a sh:NodeShape ; #can I treat a nodeshape as 
 
 
 ro_str:ExternPlanReferentiePG_SV a sh:NodeShape ;
-  sh:closed true ; # this construct is used to restrict the allowed predicates from the blank node.
+  sh:closed true ;
   sh:ignoredProperties (
     ro:muteert
     ro:vervangt
@@ -122,11 +206,7 @@ ro_str:ExternPlanReferentiePG_SV a sh:NodeShape ;
     ro:gebruiktInformatieUit
     ro:tenGevolgeVan
     )
-.                               #include other properties such as rdf:type of is there a better solution?
-                                #it's in a blanknode, there are no other predicates.
-                                #we could include a sh:SPARQL to make sure all objects are of type ro:PlanologischGebeid?
-                                #what will happen if we don't have an IRI for a external plan?
-
+.
 
 ro_str:ExternPlanReferentie_SV a sh:NodeShape ;
   sh:closed true ;
@@ -145,4 +225,27 @@ ro_str:ExternPlanReferentie_BP a sh:NodeShape ;
     ro:vervangt
     ro:tenGevolgeVan
     )
+.
+
+ro_str:ExternPlanReferentie_AMB a sh:NodeShape ;
+  sh:closed true ;
+  sh:ignoredProperties (
+    ro:muteert
+    ro:vervangt
+    ro:uitTeWerkenIn    #Jesse: IMRO is quite unclear here. Is "in extern plan/besluit uit werken" different from "in extern plan/besluit uit te werken"?
+#    ro:uitgewerktIn
+    ro:gebruiktInformatieUit
+    ro:tenGevolgeVan
+    )
+.
+
+
+
+ro_str:ExternPlanReferentie_PV a sh:Nodeshape ;
+  sh:closed true ;
+  sh:ignoredProperties (
+    ro:muteert
+    ro:vervangt
+    ro:tenGevolgeVan
+  )
 .

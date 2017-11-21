@@ -1,16 +1,5 @@
-@prefix begrip: <http://data.informatiehuisruimte.nl/ro/id/begrip#> .
-@prefix dct: <http://purl.org/dc/terms/> .
-@prefix dcmit: <http://purl.org/dc/dcmitype/> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
-
-@prefix ro_begkr: <http://data.informatiehuisruimte.nl/ro/id/begrippenkader/> .
-@prefix ro_col: <http://data.informatiehuisruimte.nl/ro/id/collectie/> .
-@prefix ro_nen3610_beg: <http://data.informatiehuisruimte.nl/nen3610/id/begrip/> .
-
+# common prefixes
+@prefix : <http://data.informatiehuisruimte.nl/def/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix doco: <http://purl.org/spar/doco/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
@@ -23,10 +12,36 @@
 @prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix skos-thes: <http://purl.org/iso25964/skos-thes#> . #TODO: replace with working URI
+@prefix skos-thes: <http://purl.org/iso25964/skos-thes#> .
 @prefix voaf: <http://purl.org/vocommons/voaf#> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcmit: <http://purl.org/dc/dcmitype/> .
+
+# prefixes specific to Informatiehuis Ruimte
+@prefix imro: <http://data.imro.com/def/> .
+@prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
+@prefix nen3610_str: <http://data.informatiehuisruimte.nl/def/nen3610/> .
+@prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
+@prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
+@prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
+@prefix ro_begkr: <http://data.informatiehuisruimte.nl/ro/id/begrippenkader/> .
+@prefix ro_col: <http://data.informatiehuisruimte.nl/ro/id/collectie/> .
+@prefix ro_nen3610_beg: <http://data.informatiehuisruimte.nl/nen3610/id/begrip/> .
+@prefix ro_str: <http://data.informatiehuisruimte.nl/def/ro/> .
+@prefix ro_sym: <http://data.informatiehuisruimte.nl/ro/id/symbool/> .
+
+@prefix ropt: <http://data.informatiehuisruimte.nl/def/ropt#> .
+@prefix ropt_str: <http://data.informatiehuisruimte.nl/def/ropt/> .
+@prefix ropt_beg: <http://data.informatiehuisruimte.nl/ropt/id/begrip/> .
+@prefix ropt_col: <http://data.informatiehuisruimte.nl/ropt/id/collectie/> .
+
+ro_begkr:ro a skos:ConceptScheme ;
+  rdfs:label "Begrippen ruimtelijke ordening"@nl ;
+#  skos:hasTopConcept
+#    ro_beg:AanduidingActueelOfHistorisch     #Is this outdated or..?
+.
+
 
 #################################################################
 #    Plan
@@ -49,7 +64,7 @@ ro_beg:Plangebied a skos:Concept ;
    skos:inScheme ro_begkr:ro ;
    skos:definition "Het object dat het gebied, of de gebieden, binnen de plangrenzen representeert."@nl ;
    skos:scopeNote "Omvat het totale gebied van een benoemd ruimtelijk instrument. Bijvoorbeeld een bestemmingsplan, een structuurvisie een gebiedsgericht besluit."@nl ;
-   dct:source         # ekn:
+   dct:source
      <http://www.geonovum.nl/wegwijzer/standaarden/informatiemodel-ruimtelijke-ordening-imro2012> ,
      <jci1.31:c:BWBR0020449&hoofdstuk=3&afdeling=3.1&artikel=3.1&lid=1&z=2016-04-14&g=2016-04-14> ,
      <jci1.31:c:BWBR0020449&hoofdstuk=3&afdeling=3.5&paragraaf=3.5.1&artikel=3.26&lid=3&z=2016-04-14&g=2016-04-14> ,
@@ -1595,6 +1610,346 @@ ro_beg:gebruiktInformatieUit a skos:Concept ;
   skos:notation "informatie in extern plan/besluit" .
 
 ro_beg:tenGevolgeVan a skos:Concept .
+
+
+#################################################################
+#    Besluit
+#################################################################
+
+ro_beg:Besluit a skos:Concept ;
+  skos:inScheme ro_begkr:ro ;
+  skos:prefLabel "Besluit"@nl ;
+  skos:definition "Een provinciale verordening, algemene maatregel van bestuur of overig gebiedsgericht besluit. In het IMRO zijn deze drie soorten beleidsinstrumenten sterk gelijkend."@nl ;
+  skos:narrower
+    ro_beg:ProvincialeVerordening,
+    ro_beg:AMVB,
+    ro_beg:OverigGebiedsgerichtBesluit
+.
+
+ro_beg:ProvincialeVerordening a skos:Concept ;
+  skos:inScheme ro_begkr:ro ;
+  skos:broader ro:Besluit;
+  skos:prefLabel "Provinciale verordening"@nl ;
+  skos:definition "Een provinciale verordening regelt een aantal zaken die de gemeenten moeten vertalen in bestemmingsplannen. Het gaat om regels voor de inhoud van bestemmingsplannen, maar ook om eventueel daaraan voorafgaande projectbesluiten en beheersverordeningen."@nl
+.
+
+ro_beg:AMVB a skos:Concept ;
+  skos:inScheme ro_begkr:ro ;
+  skos:broader ro:Besluit;
+  skos:prefLabel "Algemene Maatregel van Bestuur (AMvB)"@nl ;
+  skos:altLabel "AMvB"@nl ;
+  skos:definition "Een Algemene Maatregel van Bestuur (AMvB) is een instrument waarmee de Minister regels kan geven omtrent de inhoud van bestemmingsplannen en provinciale inpassingsplannen, daaraan voorafgaande projectbesluiten en beheersverordeningen. Het is daarbij niet altijd noodzakelijk dat er ook een specifiek gebied van het Nederlands grondgebied gedefinieerd wordt. Met betrekking tot dat laatste vallen AMvB’s in twee groepen uiteen: een groep waarin regels gekoppeld zijn aan geografisch geduide gebieden en een groep waarin regels gesteld worden voor het hele land of minder direct aangegeven gebieden."@nl
+.
+
+ro_beg:OverigGebiedsgerichtBesluit a skos:Concept ;
+  skos:inScheme ro_begkr:ro ;
+  skos:broader ro:Besluit;
+  skos:prefLabel "Overig gebiedsgericht besluit"@nl ;
+  skos:definition "Overige Gebiedsgerichte besluiten zijn beleidsinstrumenten waarmee nog niet voldoende ervaring is opgedaan om er aparte modellen voor te maken. Onder deze groep vallen de besluittypen Aanwijzingsbesluit (proactieve aanwijzing), Beheersverordening, Exploitatieplan, Gerechtelijke uitspraak, Omgevingsvergunning (voormalig Wro projectbesluit), Omgevingsvergunning (voormalig Chw projectuitvoeringsbesluit), Reactieve aanwijzing en Voorbereidingsbesluit."@nl
+.
+
+
+############################################
+# Concepts for Teksttype
+############################################
+
+ro_beg:Tekst a skos:Concept ;
+  skos:inScheme ro_begkr:ro ;
+  skos:prefLabel "teksttypes"@nl ;
+  skos:definition "Het soort tekst waarnaar wordt verwezen."@nl ;
+  skos:narrower
+    ro_beg:Beleid ,
+    ro_beg:BeleidGemandateerdAanGS ,
+    ro_beg:Besluitdocument ,
+    ro_beg:Besluittekst ,
+    ro_beg:Bijlage ,
+    ro_beg:BijlageBijBesluitdocument ,
+    ro_beg:BijlageBijBesluittekst ,
+    ro_beg:BijlageBijRegelMetVoorbereidingsbescherming ,
+    ro_beg:BijlageBijRegelZonderVoorbereidingsbescherming ,
+    ro_beg:BijlageBijRegels ,
+    ro_beg:BijlageBijToelichting ,
+    ro_beg:BijlageBijVoorschriften_Regels ,
+    ro_beg:Document ,
+    ro_beg:RegelMetVoorbereidingsbescherming ,
+    ro_beg:RegelZonderVoorbereidingsbescherming ,
+    ro_beg:Regels ,
+    ro_beg:Toelichting ,
+    ro_beg:Voorschriften_Regels
+.
+
+ro_beg:Beleid a skos:Concept ;
+  skos:inScheme ro_begkr:ro ;
+  skos:prefLabel "Besluitdocument"@nl ;
+  skos:broader ro_beg:Teksttype
+.
+
+ro_beg:BeleidGemandateerdAanGS a skos:Concept ;
+  skos:inScheme ro_begkr:ro ;
+  skos:prefLabel "Beleid gemandateerd aan Gedeputeerde Staten"@nl ;
+  skos:broader ro_beg:Teksttype
+.
+
+ro_beg:Besluitdocument a skos:Concept ;
+  skos:inScheme ro_begkr:ro ;
+  skos:prefLabel "Besluitdocument"@nl ;
+  skos:broader ro_beg:Teksttype
+.
+
+ro_beg:Besluittekst a skos:Concept ;
+  skos:inScheme ro_begkr:ro ;
+  skos:prefLabel "Besluittekst"@nl ;
+  skos:broader ro_beg:Teksttype
+.
+
+ro_beg:Bijlage a skos:Concept ;
+  skos:inScheme ro_begkr:ro ;
+  skos:prefLabel "Bijlage"@nl ;
+  skos:broader ro_beg:Teksttype
+.
+
+ro_beg:BijlageBijBesluitdocument a skos:Concept ;
+  skos:inScheme ro_begkr:ro ;
+  skos:prefLabel "Bijlage bij besluitdocument"@nl ;
+  skos:broader ro_beg:Teksttype
+.
+
+ro_beg:BijlageBijBesluittekst a skos:Concept ;
+  skos:inScheme ro_begkr:ro ;
+  skos:prefLabel "Bijlage bij besluittekst"@nl ;
+  skos:broader ro_beg:Teksttype
+.
+
+ro_beg:BijlageBijRegelMetVoorbereidingsbescherming a skos:Concept ;
+  skos:inScheme ro_begkr:ro ;
+  skos:prefLabel "Bijlage bij regel zonder voorbereidingsbescherming"@nl ;
+  skos:broader ro_beg:Teksttype
+.
+
+ro_beg:BijlageBijRegelZonderVoorbereidingsbescherming a skos:Concept ;
+  skos:inScheme ro_begkr:ro ;
+  skos:prefLabel "Bijlage bij regel zonder voorbereidingsbescherming"@nl ;
+  skos:broader ro_beg:Teksttype
+.
+
+ro_beg:BijlageBijRegels a skos:Concept ;
+  skos:inScheme ro_begkr:ro ;
+  skos:prefLabel "Bijlage bij regels"@nl ;
+  skos:broader ro_beg:Teksttype
+.
+
+ro_beg:BijlageBijToelichting a skos:Concept ;
+  skos:inScheme ro_begkr:ro ;
+  skos:prefLabel "Bijlage bij toelichting"@nl ;
+  skos:broader ro_beg:Teksttype
+.
+
+ro_beg:BijlageBijVoorschriften_Regels a skos:Concept ;
+  skos:inScheme ro_begkr:ro ;
+  skos:prefLabel "Bijlage bij voorschriften/regels"@nl ;
+  skos:broader ro_beg:Teksttype
+.
+
+ro_beg:Document a skos:Concept ;
+  skos:inScheme ro_begkr:ro ;
+  skos:prefLabel "Document"@nl ;
+  skos:broader ro_beg:Teksttype
+.
+
+ro_beg:RegelMetVoorbereidingsbescherming a skos:Concept ;
+  skos:inScheme ro_begkr:ro ;
+  skos:prefLabel "Regel met voorbereidingsbescherming"@nl ;
+  skos:broader ro_beg:Teksttype
+.
+
+ro_beg:RegelZonderVoorbereidingsbescherming a skos:Concept ;
+  skos:inScheme ro_begkr:ro ;
+  skos:prefLabel "Regel zonder voorbereidingsbescherming"@nl ;
+  skos:broader ro_beg:Teksttype
+.
+
+ro_beg:Regels a skos:Concept ;
+  skos:inScheme ro_begkr:ro ;
+  skos:prefLabel "Regels"@nl ;
+  skos:broader ro_beg:Teksttype
+.
+
+ro_beg:Toelichting a skos:Concept ;
+  skos:inScheme ro_begkr:ro ;
+  skos:prefLabel "Toelichting"@nl ;
+  skos:broader ro_beg:Teksttype
+.
+
+ro_beg:Voorschriften_Regels a skos:Concept ;
+  skos:inScheme ro_begkr:ro ;
+  skos:prefLabel "Voorschriften/Regels"@nl ;
+  skos:broader ro_beg:Teksttype
+.
+
+
+############################################
+#   Normadressant
+############################################
+
+ro_beg:Normadressant a skos:Concept ;
+  skos:inScheme ro_begkr:ro ;
+  skos:prefLabel "Normadressanten"@nl ;
+  skos:definition "Instantie, overheid of maatschappelijke partij tot welke het ruimtelijk instrument zich richt."@nl ;
+  skos:narrower ro_beg:BevoegdGezag;
+  skos:narrower ro_beg:BurgemeesterEnWethouders;
+  skos:narrower ro_beg:Burgers;
+  skos:narrower ro_beg:GedeputeerdeStaten;
+  skos:narrower ro_beg:GemeentelijkeBestuursorganen;
+  skos:narrower ro_beg:Gemeenteraad
+.
+
+ro_beg:BevoegdGezag a skos:Concept ;
+  skos:inScheme ro_begkr:ro ;
+  skos:prefLabel "bevoegd gezag"@nl ;
+  skos:definition "Bevoegd gezag."@nl ;
+  skos:broader ro_beg:Normadressant
+.
+
+ro_beg:BurgemeesterEnWethouders a skos:Concept ;
+  skos:inScheme ro_begkr:ro ;
+  skos:prefLabel "burgemeester en wethouders"@nl ;
+  skos:definition "Burgemeester en wethouders."@nl ;
+  skos:broader ro_beg:Normadressant
+.
+
+ro_beg:Burgers a skos:Concept ;
+  skos:inScheme ro_begkr:ro ;
+  skos:prefLabel "burgers"@nl ;
+  skos:definition "Burgers."@nl ;
+  skos:broader ro_beg:Normadressant
+.
+
+ro_beg:GedeputeerdeStaten a skos:Concept ;
+  skos:inScheme ro_begkr:ro ;
+  skos:prefLabel "gedeputeerde staten"@nl ;
+  skos:definition "Gedeputeerde staten."@nl ;
+  skos:broader ro_beg:Normadressant
+.
+
+ro_beg:GemeentelijkeBestuursorganen a skos:Concept ;
+  skos:inScheme ro_begkr:ro ;
+  skos:prefLabel "gemeentelijke bestuursorganen"@nl ;
+  skos:definition "Gemeentelijke bestuursorganen."@nl ;
+  skos:broader ro_beg:Normadressant
+.
+
+ro_beg:Gemeenteraad a skos:Concept ;
+  skos:inScheme ro_begkr:ro ;
+  skos:prefLabel "gemeenteraad"@nl ;
+  skos:definition "Gemeenteraad."@nl ;
+  skos:broader ro_beg:Normadressant
+.
+
+ro_beg:ProvincialeBestuursorganen a skos:Concept ;
+  skos:inScheme ro_begkr:ro ;
+  skos:prefLabel "provinciale bestuursorganen"@nl ;
+  skos:definition "Provinciale Bestuursorganen."@nl ;
+  skos:broader ro_beg:Normadressant
+.
+
+ro_beg:ProvincialeStaten a skos:Concept ;
+  skos:inScheme ro_begkr:ro ;
+  skos:prefLabel "provinciale staten"@nl ;
+  skos:definition "Provinciale Staten."@nl ;
+  skos:broader ro_beg:Normadressant
+.
+
+ro_beg:RegionaleBestuursorganen a skos:Concept ;
+  skos:inScheme ro_begkr:ro ;
+  skos:prefLabel "regionale bestuursorganen"@nl ;
+  skos:definition "Regionale Bestuursorganen."@nl ;
+  skos:broader ro_beg:Normadressant
+.
+
+ro_beg:OnzeMinister a skos:Concept ;
+  skos:inScheme ro_begkr:ro ;
+  skos:prefLabel "onze minister"@nl ;
+  skos:definition "Onze Minister."@nl ;
+  skos:broader ro_beg:Normadressant
+.
+
+ro_beg:OnzeMinisterDieHetMedeAangaat a skos:Concept ;
+  skos:inScheme ro_begkr:ro ;
+  skos:prefLabel "onze minister die het mede aangaat"@nl ;
+  skos:definition "Onze Minister Die Het Mede Aangaat."@nl ;
+  skos:broader ro_beg:Normadressant
+.
+
+ro_beg:Rijksbestuursorganen a skos:Concept ;
+  skos:inScheme ro_begkr:ro ;
+  skos:prefLabel "rijksbestuursorganen"@nl ;
+  skos:definition "Rijksbestuursorganen."@nl ;
+  skos:broader ro_beg:Normadressant
+.
+
+ro_beg:Waterschappen a skos:Concept ;
+  skos:inScheme ro_begkr:ro ;
+  skos:prefLabel "waterschappen"@nl ;
+  skos:definition "Waterschappen."@nl ;
+  skos:broader ro_beg:Normadressant
+.
+
+ro_beg:NietNaderAangeduid a skos:Concept ;
+  skos:inScheme ro_begkr:ro ;
+  skos:prefLabel "niet nader aangeduid"@nl ;
+  skos:definition "Niet Nader Aangeduid."@nl ;
+  skos:broader ro_beg:Normadressant
+.
+
+ro_col:Normadressant_PV a skos:Collection ;
+  skos:inScheme ro_begkr:ro ;
+  skos:prefLabel "Normadressanten voor een Provinciale Verordening of onderdelen van een Provinciale Verordening"@nl ;
+  skos:member
+    ro_beg:BevoegdGezag ,
+    ro_beg:BurgemeesterEnWethouders ,
+    ro_beg:GedeputeerdeStaten ,
+    ro_beg:GemeentelijkeBestuursorganen ,
+    ro_beg:Gemeenteraad ,
+    ro_beg:RegionaleBestuursorganen ,
+    ro_beg:NietNaderAangeduid
+.
+
+ro_col:Normadressant_AMB a skos:Collection ;
+  skos:inScheme ro_begkr:ro ;
+  skos:prefLabel "Normadressanten voor een Algemene Maatregel van Bestuur of onderdelen daarvan"@nl ;
+  skos:member
+    ro_beg:BevoegdGezag ,
+    ro_beg:BurgemeesterEnWethouders ,
+    ro_beg:Burgers ,
+    ro_beg:GedeputeerdeStaten ,
+    ro_beg:GemeentelijkeBestuursorganen ,
+    ro_beg:Gemeenteraad ,
+    ro_beg:ProvincialeBestuursorganen ,
+    ro_beg:ProvincialeStaten ,
+    ro_beg:RegionaleBestuursorganen ,
+    ro_beg:OnzeMinister ,
+    ro_beg:OnzeMinisterDieHetMedeAangaat ,
+    ro_beg:Rijksbestuursorganen ,
+    ro_beg:Waterschappen ,
+    ro_beg:NietNaderAangeduid
+.
+
+ro_col:Normadressant_XGB a skos:Collection ;
+  skos:inScheme ro_begkr:ro ;
+  skos:prefLabel "Normadressanten voor overige gebiedsgerichte besluiten of onderdelen daarvan"@nl ;
+  skos:member
+    ro_beg:BevoegdGezag ,
+    ro_beg:BurgemeesterEnWethouders ,
+    ro_beg:Burgers ,
+    ro_beg:GedeputeerdeStaten ,
+    ro_beg:GemeentelijkeBestuursorganen ,
+    ro_beg:Gemeenteraad ,
+    ro_beg:ProvincialeBestuursorganen ,
+    ro_beg:ProvincialeStaten ,
+    ro_beg:RegionaleBestuursorganen ,
+    ro_beg:Rijksbestuursorganen ,
+    ro_beg:NietNaderAangeduid
+.
 
 ##############################################################################
 # RO Sources

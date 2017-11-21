@@ -17,6 +17,9 @@
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix dcmit: <http://purl.org/dc/dcmitype/> .
+@prefix pattern: <http://www.essepuntato.it/2008/12/pattern#> .
+@prefix c4o: <http://purl.org/spar/biro/> .
+@prefix dbr: <http://dbpedia.org/resource/> .
 
 # prefixes specific to Informatiehuis Ruimte
 @prefix imro: <http://data.imro.com/def/> .
