@@ -1594,87 +1594,87 @@ ro_str:Geometrie_geometrie a sh:PropertyShape ;
 
 ro_str:begrenzing a sh:nodeShape ;
 	sh:targetObjectsOf ro:begrenzing ;
-	sh:property _:node1bvfdmt21x1 .
+	sh:property _:node1bvfdvmotx1 .
 
-_:node1bvfdmt21x1 sh:class ro:Geometrie ;
+_:node1bvfdvmotx1 sh:class ro:Geometrie ;
 	sh:nodeKind sh:IRI .
 
 ro_str:Idealisatie_1 a sh:NodeShape ;
-	sh:in _:node1bvfdmt21x2 .
+	sh:in _:node1bvfdvmotx2 .
 
-_:node1bvfdmt21x2 rdf:first ro_beg:exact ;
+_:node1bvfdvmotx2 rdf:first ro_beg:exact ;
 	rdf:rest rdf:nil .
 
 ro_str:Idealisatie_2 a sh:NodeShape ;
-	sh:in _:node1bvfdmt21x3 .
+	sh:in _:node1bvfdvmotx3 .
 
-_:node1bvfdmt21x3 rdf:first ro_beg:exact ;
-	rdf:rest _:node1bvfdmt21x4 .
+_:node1bvfdvmotx3 rdf:first ro_beg:exact ;
+	rdf:rest _:node1bvfdvmotx4 .
 
-_:node1bvfdmt21x4 rdf:first ro_beg:indicatief ;
+_:node1bvfdvmotx4 rdf:first ro_beg:indicatief ;
 	rdf:rest rdf:nil .
 
 ro_str:Idealisatie_3 a sh:NodeShape ;
-	sh:in _:node1bvfdmt21x5 .
+	sh:in _:node1bvfdvmotx5 .
 
-_:node1bvfdmt21x5 rdf:first ro_beg:exact ;
-	rdf:rest _:node1bvfdmt21x6 .
+_:node1bvfdvmotx5 rdf:first ro_beg:exact ;
+	rdf:rest _:node1bvfdvmotx6 .
 
-_:node1bvfdmt21x6 rdf:first ro_beg:indicatief ;
-	rdf:rest _:node1bvfdmt21x7 .
+_:node1bvfdvmotx6 rdf:first ro_beg:indicatief ;
+	rdf:rest _:node1bvfdvmotx7 .
 
-_:node1bvfdmt21x7 rdf:first ro_beg:cartografischFiguur ;
+_:node1bvfdvmotx7 rdf:first ro_beg:cartografischFiguur ;
 	rdf:rest rdf:nil .
 
 ro_str:PuntLijnVlak a sh:NodeShape ;
-	sh:xone _:node1bvfdmt21x8 .
+	sh:xone _:node1bvfdvmotx8 .
 
-_:node1bvfdmt21x8 rdf:first ro_str:Point ;
-	rdf:rest _:node1bvfdmt21x9 .
+_:node1bvfdvmotx8 rdf:first ro_str:Point ;
+	rdf:rest _:node1bvfdvmotx9 .
 
-_:node1bvfdmt21x9 rdf:first ro_str:Curve ;
-	rdf:rest _:node1bvfdmt21x10 .
+_:node1bvfdvmotx9 rdf:first ro_str:Curve ;
+	rdf:rest _:node1bvfdvmotx10 .
 
-_:node1bvfdmt21x10 rdf:first ro_str:Surface ;
+_:node1bvfdvmotx10 rdf:first ro_str:Surface ;
 	rdf:rest rdf:nil .
 
 ro_str:VlakMultiVlak a sh:NodeShape ;
-	sh:xone _:node1bvfdmt21x11 .
+	sh:xone _:node1bvfdvmotx11 .
 
-_:node1bvfdmt21x11 rdf:first ro_str:Surface ;
-	rdf:rest _:node1bvfdmt21x12 .
+_:node1bvfdvmotx11 rdf:first ro_str:Surface ;
+	rdf:rest _:node1bvfdvmotx12 .
 
-_:node1bvfdmt21x12 rdf:first ro_str:MultiSurface ;
+_:node1bvfdvmotx12 rdf:first ro_str:MultiSurface ;
 	rdf:rest rdf:nil .
 
 ro_str:PuntLijnVlakMulti a sh:NodeShape ;
-	sh:xone _:node1bvfdmt21x13 .
+	sh:xone _:node1bvfdvmotx13 .
 
-_:node1bvfdmt21x13 rdf:first ro_str:Point ;
-	rdf:rest _:node1bvfdmt21x14 .
+_:node1bvfdvmotx13 rdf:first ro_str:Point ;
+	rdf:rest _:node1bvfdvmotx14 .
 
-_:node1bvfdmt21x14 rdf:first ro_str:Curve ;
-	rdf:rest _:node1bvfdmt21x15 .
+_:node1bvfdvmotx14 rdf:first ro_str:Curve ;
+	rdf:rest _:node1bvfdvmotx15 .
 
-_:node1bvfdmt21x15 rdf:first ro_str:Surface ;
-	rdf:rest _:node1bvfdmt21x16 .
+_:node1bvfdvmotx15 rdf:first ro_str:Surface ;
+	rdf:rest _:node1bvfdvmotx16 .
 
-_:node1bvfdmt21x16 rdf:first ro_str:MultiPoint ;
-	rdf:rest _:node1bvfdmt21x17 .
+_:node1bvfdvmotx16 rdf:first ro_str:MultiPoint ;
+	rdf:rest _:node1bvfdvmotx17 .
 
-_:node1bvfdmt21x17 rdf:first ro_str:MultiCurve ;
-	rdf:rest _:node1bvfdmt21x18 .
+_:node1bvfdvmotx17 rdf:first ro_str:MultiCurve ;
+	rdf:rest _:node1bvfdvmotx18 .
 
-_:node1bvfdmt21x18 rdf:first ro_str:MultiSurface ;
+_:node1bvfdvmotx18 rdf:first ro_str:MultiSurface ;
 	rdf:rest rdf:nil .
 
 ro_str:LijnMultiLijn a sh:NodeShape ;
-	sh:xone _:node1bvfdmt21x19 .
+	sh:xone _:node1bvfdvmotx19 .
 
-_:node1bvfdmt21x19 rdf:first ro_str:Curve ;
-	rdf:rest _:node1bvfdmt21x20 .
+_:node1bvfdvmotx19 rdf:first ro_str:Curve ;
+	rdf:rest _:node1bvfdvmotx20 .
 
-_:node1bvfdmt21x20 rdf:first ro_str:MultiCurve ;
+_:node1bvfdvmotx20 rdf:first ro_str:MultiCurve ;
 	rdf:rest rdf:nil .
 
 ro_str:Point a sh:NodeShape ;
@@ -2198,86 +2198,86 @@ ropt_str:TekstObject_niveau a sh:PropertyShape ;
 	sh:maxCount 1 .
 
 ropt_str:TekstObject_type a sh:PropertyShape ;
-	sh:qualifiedValueShape _:node1bvfdmt21x21 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx21 ;
 	sh:qualiedMaxCount 1 .
 
-_:node1bvfdmt21x26 rdf:first ropt:plan ;
-	rdf:rest _:node1bvfdmt21x27 .
+_:node1bvfdvmotx26 rdf:first ropt:plan ;
+	rdf:rest _:node1bvfdvmotx27 .
 
-_:node1bvfdmt21x27 rdf:first rdf:type ;
+_:node1bvfdvmotx27 rdf:first rdf:type ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x25 sh:path _:node1bvfdmt21x26 ;
+_:node1bvfdvmotx25 sh:path _:node1bvfdvmotx26 ;
 	sh:class ro:Bestemmingsplan .
 
-_:node1bvfdmt21x24 rdf:first _:node1bvfdmt21x25 ;
-	rdf:rest _:node1bvfdmt21x28 .
+_:node1bvfdvmotx24 rdf:first _:node1bvfdvmotx25 ;
+	rdf:rest _:node1bvfdvmotx28 .
 
-_:node1bvfdmt21x29 sh:path rdf:type ;
+_:node1bvfdvmotx29 sh:path rdf:type ;
 	sh:node ropt_str:ObjecttypePlan .
 
-_:node1bvfdmt21x28 rdf:first _:node1bvfdmt21x29 ;
+_:node1bvfdvmotx28 rdf:first _:node1bvfdvmotx29 ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x23 sh:and _:node1bvfdmt21x24 .
+_:node1bvfdvmotx23 sh:and _:node1bvfdvmotx24 .
 
-_:node1bvfdmt21x22 rdf:first _:node1bvfdmt21x23 ;
-	rdf:rest _:node1bvfdmt21x30 .
+_:node1bvfdvmotx22 rdf:first _:node1bvfdvmotx23 ;
+	rdf:rest _:node1bvfdvmotx30 .
 
-_:node1bvfdmt21x34 rdf:first ropt:plan ;
-	rdf:rest _:node1bvfdmt21x35 .
+_:node1bvfdvmotx34 rdf:first ropt:plan ;
+	rdf:rest _:node1bvfdvmotx35 .
 
-_:node1bvfdmt21x35 rdf:first rdf:type ;
+_:node1bvfdvmotx35 rdf:first rdf:type ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x33 sh:path _:node1bvfdmt21x34 ;
+_:node1bvfdvmotx33 sh:path _:node1bvfdvmotx34 ;
 	sh:class ro:Structuurvisie .
 
-_:node1bvfdmt21x32 rdf:first _:node1bvfdmt21x33 ;
-	rdf:rest _:node1bvfdmt21x36 .
+_:node1bvfdvmotx32 rdf:first _:node1bvfdvmotx33 ;
+	rdf:rest _:node1bvfdvmotx36 .
 
-_:node1bvfdmt21x37 sh:path rdf:type ;
+_:node1bvfdvmotx37 sh:path rdf:type ;
 	sh:node ropt_str:ObjecttypeVisie .
 
-_:node1bvfdmt21x36 rdf:first _:node1bvfdmt21x37 ;
+_:node1bvfdvmotx36 rdf:first _:node1bvfdvmotx37 ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x31 sh:and _:node1bvfdmt21x32 .
+_:node1bvfdvmotx31 sh:and _:node1bvfdvmotx32 .
 
-_:node1bvfdmt21x30 rdf:first _:node1bvfdmt21x31 ;
-	rdf:rest _:node1bvfdmt21x38 .
+_:node1bvfdvmotx30 rdf:first _:node1bvfdvmotx31 ;
+	rdf:rest _:node1bvfdvmotx38 .
 
-_:node1bvfdmt21x42 rdf:first ropt:plan ;
-	rdf:rest _:node1bvfdmt21x43 .
+_:node1bvfdvmotx42 rdf:first ropt:plan ;
+	rdf:rest _:node1bvfdvmotx43 .
 
-_:node1bvfdmt21x43 rdf:first rdf:type ;
+_:node1bvfdvmotx43 rdf:first rdf:type ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x41 sh:path _:node1bvfdmt21x42 ;
+_:node1bvfdvmotx41 sh:path _:node1bvfdvmotx42 ;
 	sh:class ro:Besluit .
 
-_:node1bvfdmt21x40 rdf:first _:node1bvfdmt21x41 ;
-	rdf:rest _:node1bvfdmt21x44 .
+_:node1bvfdvmotx40 rdf:first _:node1bvfdvmotx41 ;
+	rdf:rest _:node1bvfdvmotx44 .
 
-_:node1bvfdmt21x45 sh:path rdf:type ;
+_:node1bvfdvmotx45 sh:path rdf:type ;
 	sh:node ropt_str:ObjecttypeBesluit .
 
-_:node1bvfdmt21x44 rdf:first _:node1bvfdmt21x45 ;
+_:node1bvfdvmotx44 rdf:first _:node1bvfdvmotx45 ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x39 sh:and _:node1bvfdmt21x40 .
+_:node1bvfdvmotx39 sh:and _:node1bvfdvmotx40 .
 
-_:node1bvfdmt21x38 rdf:first _:node1bvfdmt21x39 ;
+_:node1bvfdvmotx38 rdf:first _:node1bvfdvmotx39 ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x21 sh:xone _:node1bvfdmt21x22 ;
+_:node1bvfdvmotx21 sh:xone _:node1bvfdvmotx22 ;
 	sh:nodeKind sh:IRI .
 
 ropt_str:TekstObject_typeTekst a sh:PropertyShape ;
-	sh:qualifiedValueShape _:node1bvfdmt21x46 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx46 ;
 	sh:qualiedMaxCount 1 .
 
-_:node1bvfdmt21x46 sh:path rdf:type ;
+_:node1bvfdvmotx46 sh:path rdf:type ;
 	sh:class ro:Tekst ;
 	sh:nodeKind sh:IRI .
 
@@ -2304,14 +2304,14 @@ ropt_str:TekstObject_naamPraktijkRichtlijn a sh:PropertyShape ;
 	sh:class skos:Concept ;
 	sh:nodeKind sh:IRI ;
 	sh:maxCount 1 ;
-	sh:node _:node1bvfdmt21x47 .
+	sh:node _:node1bvfdvmotx47 .
 
-_:node1bvfdmt21x49 sh:inversePath skos:member .
+_:node1bvfdvmotx49 sh:inversePath skos:member .
 
-_:node1bvfdmt21x48 sh:path _:node1bvfdmt21x49 ;
+_:node1bvfdvmotx48 sh:path _:node1bvfdvmotx49 ;
 	sh:hasvalue ro_col:PraktijkRichtlijnNaam .
 
-_:node1bvfdmt21x47 sh:property _:node1bvfdmt21x48 .
+_:node1bvfdvmotx47 sh:property _:node1bvfdvmotx48 .
 
 ropt_str:Titel a sh:NodeShape ;
 	sh:targetClass ropt:Titel ;
@@ -2336,282 +2336,282 @@ ropt_str:Titel_titellnaam a sh:PropertyShape ;
 	sh:maxCount 1 .
 
 ropt_str:ObjecttypePlan a sh:NodeShape ;
-	sh:in _:node1bvfdmt21x50 .
+	sh:in _:node1bvfdvmotx50 .
 
-_:node1bvfdmt21x50 rdf:first ropt:AfwijkenVanDeBouwregels ;
-	rdf:rest _:node1bvfdmt21x51 .
+_:node1bvfdvmotx50 rdf:first ropt:AfwijkenVanDeBouwregels ;
+	rdf:rest _:node1bvfdvmotx51 .
 
-_:node1bvfdmt21x51 rdf:first ropt:afwijkenVanDeGebruiksregels ;
-	rdf:rest _:node1bvfdmt21x52 .
+_:node1bvfdvmotx51 rdf:first ropt:afwijkenVanDeGebruiksregels ;
+	rdf:rest _:node1bvfdvmotx52 .
 
-_:node1bvfdmt21x52 rdf:first ropt:AlgemeneAanduidingsregels ;
-	rdf:rest _:node1bvfdmt21x53 .
+_:node1bvfdvmotx52 rdf:first ropt:AlgemeneAanduidingsregels ;
+	rdf:rest _:node1bvfdvmotx53 .
 
-_:node1bvfdmt21x53 rdf:first ropt:AlgemeneAfwijkingsregels ;
-	rdf:rest _:node1bvfdmt21x54 .
+_:node1bvfdvmotx53 rdf:first ropt:AlgemeneAfwijkingsregels ;
+	rdf:rest _:node1bvfdvmotx54 .
 
-_:node1bvfdmt21x54 rdf:first ropt:AlgemeneBouwregels ;
-	rdf:rest _:node1bvfdmt21x55 .
+_:node1bvfdvmotx54 rdf:first ropt:AlgemeneBouwregels ;
+	rdf:rest _:node1bvfdvmotx55 .
 
-_:node1bvfdmt21x55 rdf:first ropt:AlgemeneGebruiksregels ;
-	rdf:rest _:node1bvfdmt21x56 .
+_:node1bvfdvmotx55 rdf:first ropt:AlgemeneGebruiksregels ;
+	rdf:rest _:node1bvfdvmotx56 .
 
-_:node1bvfdmt21x56 rdf:first ropt:AlgemeneProcedureregels ;
-	rdf:rest _:node1bvfdmt21x57 .
+_:node1bvfdvmotx56 rdf:first ropt:AlgemeneProcedureregels ;
+	rdf:rest _:node1bvfdvmotx57 .
 
-_:node1bvfdmt21x57 rdf:first ropt:AlgemeneRegels ;
-	rdf:rest _:node1bvfdmt21x58 .
+_:node1bvfdvmotx57 rdf:first ropt:AlgemeneRegels ;
+	rdf:rest _:node1bvfdvmotx58 .
 
-_:node1bvfdmt21x58 rdf:first ropt:AlgemeneWijzigingsregels ;
-	rdf:rest _:node1bvfdmt21x59 .
+_:node1bvfdvmotx58 rdf:first ropt:AlgemeneWijzigingsregels ;
+	rdf:rest _:node1bvfdvmotx59 .
 
-_:node1bvfdmt21x59 rdf:first ropt:Anti-Dubbeltelregel ;
-	rdf:rest _:node1bvfdmt21x60 .
+_:node1bvfdvmotx59 rdf:first ropt:Anti-Dubbeltelregel ;
+	rdf:rest _:node1bvfdvmotx60 .
 
-_:node1bvfdmt21x60 rdf:first ropt:Begrippen ;
-	rdf:rest _:node1bvfdmt21x61 .
+_:node1bvfdvmotx60 rdf:first ropt:Begrippen ;
+	rdf:rest _:node1bvfdvmotx61 .
 
-_:node1bvfdmt21x61 rdf:first ropt:Bestemming ;
-	rdf:rest _:node1bvfdmt21x62 .
+_:node1bvfdvmotx61 rdf:first ropt:Bestemming ;
+	rdf:rest _:node1bvfdvmotx62 .
 
-_:node1bvfdmt21x62 rdf:first ropt:Bestemmingsomschrijving ;
-	rdf:rest _:node1bvfdmt21x63 .
+_:node1bvfdvmotx62 rdf:first ropt:Bestemmingsomschrijving ;
+	rdf:rest _:node1bvfdvmotx63 .
 
-_:node1bvfdmt21x63 rdf:first ropt:Bestemmingsregels ;
-	rdf:rest _:node1bvfdmt21x64 .
+_:node1bvfdvmotx63 rdf:first ropt:Bestemmingsregels ;
+	rdf:rest _:node1bvfdvmotx64 .
 
-_:node1bvfdmt21x64 rdf:first ropt:BijlageBijRegels ;
-	rdf:rest _:node1bvfdmt21x65 .
+_:node1bvfdvmotx64 rdf:first ropt:BijlageBijRegels ;
+	rdf:rest _:node1bvfdvmotx65 .
 
-_:node1bvfdmt21x65 rdf:first ropt:BijlageBijToelichting ;
-	rdf:rest _:node1bvfdmt21x66 .
+_:node1bvfdvmotx65 rdf:first ropt:BijlageBijToelichting ;
+	rdf:rest _:node1bvfdvmotx66 .
 
-_:node1bvfdmt21x66 rdf:first ropt:BijlagenBijregels ;
-	rdf:rest _:node1bvfdmt21x67 .
+_:node1bvfdvmotx66 rdf:first ropt:BijlagenBijregels ;
+	rdf:rest _:node1bvfdvmotx67 .
 
-_:node1bvfdmt21x67 rdf:first ropt:BijlagenBijtoelichting ;
-	rdf:rest _:node1bvfdmt21x68 .
+_:node1bvfdvmotx67 rdf:first ropt:BijlagenBijtoelichting ;
+	rdf:rest _:node1bvfdvmotx68 .
 
-_:node1bvfdmt21x68 rdf:first ropt:Bouwregels ;
-	rdf:rest _:node1bvfdmt21x69 .
+_:node1bvfdvmotx68 rdf:first ropt:Bouwregels ;
+	rdf:rest _:node1bvfdvmotx69 .
 
-_:node1bvfdmt21x69 rdf:first ropt:Deel ;
-	rdf:rest _:node1bvfdmt21x70 .
+_:node1bvfdvmotx69 rdf:first ropt:Deel ;
+	rdf:rest _:node1bvfdvmotx70 .
 
-_:node1bvfdmt21x70 rdf:first ropt:DefinitieveBestemmingBijVoorlopigeBestemming ;
-	rdf:rest _:node1bvfdmt21x71 .
+_:node1bvfdvmotx70 rdf:first ropt:DefinitieveBestemmingBijVoorlopigeBestemming ;
+	rdf:rest _:node1bvfdvmotx71 .
 
-_:node1bvfdmt21x71 rdf:first ropt:Document ;
-	rdf:rest _:node1bvfdmt21x72 .
+_:node1bvfdvmotx71 rdf:first ropt:Document ;
+	rdf:rest _:node1bvfdvmotx72 .
 
-_:node1bvfdmt21x72 rdf:first ropt:Dubbelbestemming ;
-	rdf:rest _:node1bvfdmt21x73 .
+_:node1bvfdvmotx72 rdf:first ropt:Dubbelbestemming ;
+	rdf:rest _:node1bvfdvmotx73 .
 
-_:node1bvfdmt21x73 rdf:first ropt:GeldigheidstermijnVanDeVoorlopigeBestemming ;
-	rdf:rest _:node1bvfdmt21x74 .
+_:node1bvfdvmotx73 rdf:first ropt:GeldigheidstermijnVanDeVoorlopigeBestemming ;
+	rdf:rest _:node1bvfdvmotx74 .
 
-_:node1bvfdmt21x74 rdf:first ropt:Hoofdstuk ;
-	rdf:rest _:node1bvfdmt21x75 .
+_:node1bvfdvmotx74 rdf:first ropt:Hoofdstuk ;
+	rdf:rest _:node1bvfdvmotx75 .
 
-_:node1bvfdmt21x75 rdf:first ropt:InleidendeRegels ;
-	rdf:rest _:node1bvfdmt21x76 .
+_:node1bvfdvmotx75 rdf:first ropt:InleidendeRegels ;
+	rdf:rest _:node1bvfdvmotx76 .
 
-_:node1bvfdmt21x76 rdf:first ropt:Lid ;
-	rdf:rest _:node1bvfdmt21x77 .
+_:node1bvfdvmotx76 rdf:first ropt:Lid ;
+	rdf:rest _:node1bvfdvmotx77 .
 
-_:node1bvfdmt21x77 rdf:first ropt:NadereEisen ;
-	rdf:rest _:node1bvfdmt21x78 .
+_:node1bvfdvmotx77 rdf:first ropt:NadereEisen ;
+	rdf:rest _:node1bvfdvmotx78 .
 
-_:node1bvfdmt21x78 rdf:first ropt:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk ;
-	rdf:rest _:node1bvfdmt21x79 .
+_:node1bvfdvmotx78 rdf:first ropt:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk ;
+	rdf:rest _:node1bvfdvmotx79 .
 
-_:node1bvfdmt21x79 rdf:first ropt:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden ;
-	rdf:rest _:node1bvfdmt21x80 .
+_:node1bvfdvmotx79 rdf:first ropt:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden ;
+	rdf:rest _:node1bvfdvmotx80 .
 
-_:node1bvfdmt21x80 rdf:first ropt:Overgangs_EnSlotregels ;
-	rdf:rest _:node1bvfdmt21x81 .
+_:node1bvfdvmotx80 rdf:first ropt:Overgangs_EnSlotregels ;
+	rdf:rest _:node1bvfdvmotx81 .
 
-_:node1bvfdmt21x81 rdf:first ropt:Overgangsrecht ;
-	rdf:rest _:node1bvfdmt21x82 .
+_:node1bvfdvmotx81 rdf:first ropt:Overgangsrecht ;
+	rdf:rest _:node1bvfdvmotx82 .
 
-_:node1bvfdmt21x82 rdf:first ropt:Overig ;
-	rdf:rest _:node1bvfdmt21x83 .
+_:node1bvfdvmotx82 rdf:first ropt:Overig ;
+	rdf:rest _:node1bvfdvmotx83 .
 
-_:node1bvfdmt21x83 rdf:first ropt:OverigeRegels ;
-	rdf:rest _:node1bvfdmt21x84 .
+_:node1bvfdvmotx83 rdf:first ropt:OverigeRegels ;
+	rdf:rest _:node1bvfdvmotx84 .
 
-_:node1bvfdmt21x84 rdf:first ropt:Paragraaf ;
-	rdf:rest _:node1bvfdmt21x85 .
+_:node1bvfdvmotx84 rdf:first ropt:Paragraaf ;
+	rdf:rest _:node1bvfdvmotx85 .
 
-_:node1bvfdmt21x85 rdf:first ropt:Regels ;
-	rdf:rest _:node1bvfdmt21x86 .
+_:node1bvfdvmotx85 rdf:first ropt:Regels ;
+	rdf:rest _:node1bvfdvmotx86 .
 
-_:node1bvfdmt21x86 rdf:first ropt:Slotregel ;
-	rdf:rest _:node1bvfdmt21x87 .
+_:node1bvfdvmotx86 rdf:first ropt:Slotregel ;
+	rdf:rest _:node1bvfdvmotx87 .
 
-_:node1bvfdmt21x87 rdf:first ropt:SpecifiekeGebruiksregels ;
-	rdf:rest _:node1bvfdmt21x88 .
+_:node1bvfdvmotx87 rdf:first ropt:SpecifiekeGebruiksregels ;
+	rdf:rest _:node1bvfdvmotx88 .
 
-_:node1bvfdmt21x88 rdf:first ropt:Sublid ;
-	rdf:rest _:node1bvfdmt21x89 .
+_:node1bvfdvmotx88 rdf:first ropt:Sublid ;
+	rdf:rest _:node1bvfdvmotx89 .
 
-_:node1bvfdmt21x89 rdf:first ropt:Subparagraaf ;
-	rdf:rest _:node1bvfdmt21x90 .
+_:node1bvfdvmotx89 rdf:first ropt:Subparagraaf ;
+	rdf:rest _:node1bvfdvmotx90 .
 
-_:node1bvfdmt21x90 rdf:first ropt:SubSublid ;
-	rdf:rest _:node1bvfdmt21x91 .
+_:node1bvfdvmotx90 rdf:first ropt:SubSublid ;
+	rdf:rest _:node1bvfdvmotx91 .
 
-_:node1bvfdmt21x91 rdf:first ropt:SubSubparagraaf ;
-	rdf:rest _:node1bvfdmt21x92 .
+_:node1bvfdvmotx91 rdf:first ropt:SubSubparagraaf ;
+	rdf:rest _:node1bvfdvmotx92 .
 
-_:node1bvfdmt21x92 rdf:first ropt:SubSubSublid ;
-	rdf:rest _:node1bvfdmt21x93 .
+_:node1bvfdvmotx92 rdf:first ropt:SubSubSublid ;
+	rdf:rest _:node1bvfdvmotx93 .
 
-_:node1bvfdmt21x93 rdf:first ropt:SubSubSubparagraaf ;
-	rdf:rest _:node1bvfdmt21x94 .
+_:node1bvfdvmotx93 rdf:first ropt:SubSubSubparagraaf ;
+	rdf:rest _:node1bvfdvmotx94 .
 
-_:node1bvfdmt21x94 rdf:first ropt:Toelichting ;
-	rdf:rest _:node1bvfdmt21x95 .
+_:node1bvfdvmotx94 rdf:first ropt:Toelichting ;
+	rdf:rest _:node1bvfdvmotx95 .
 
-_:node1bvfdmt21x95 rdf:first ropt:UitTeWerkenBestemming ;
-	rdf:rest _:node1bvfdmt21x96 .
+_:node1bvfdvmotx95 rdf:first ropt:UitTeWerkenBestemming ;
+	rdf:rest _:node1bvfdvmotx96 .
 
-_:node1bvfdmt21x96 rdf:first ropt:Uitwerkingsregels ;
-	rdf:rest _:node1bvfdmt21x97 .
+_:node1bvfdvmotx96 rdf:first ropt:Uitwerkingsregels ;
+	rdf:rest _:node1bvfdvmotx97 .
 
-_:node1bvfdmt21x97 rdf:first ropt:VerwezenlijkingInDeNaasteToekomst ;
-	rdf:rest _:node1bvfdmt21x98 .
+_:node1bvfdvmotx97 rdf:first ropt:VerwezenlijkingInDeNaasteToekomst ;
+	rdf:rest _:node1bvfdvmotx98 .
 
-_:node1bvfdmt21x98 rdf:first ropt:VoorlopigeBestemming ;
-	rdf:rest _:node1bvfdmt21x99 .
+_:node1bvfdvmotx98 rdf:first ropt:VoorlopigeBestemming ;
+	rdf:rest _:node1bvfdvmotx99 .
 
-_:node1bvfdmt21x99 rdf:first ropt:WijzeVanMeten ;
-	rdf:rest _:node1bvfdmt21x100 .
+_:node1bvfdvmotx99 rdf:first ropt:WijzeVanMeten ;
+	rdf:rest _:node1bvfdvmotx100 .
 
-_:node1bvfdmt21x100 rdf:first ropt:wijzigingsbevoegdheid ;
+_:node1bvfdvmotx100 rdf:first ropt:wijzigingsbevoegdheid ;
 	rdf:rest rdf:nil .
 
 ropt_str:ObjecttypeVisie a sh:NodeShape ;
-	sh:in _:node1bvfdmt21x101 .
+	sh:in _:node1bvfdvmotx101 .
 
-_:node1bvfdmt21x101 rdf:first ropt:Band ;
-	rdf:rest _:node1bvfdmt21x102 .
+_:node1bvfdvmotx101 rdf:first ropt:Band ;
+	rdf:rest _:node1bvfdvmotx102 .
 
-_:node1bvfdmt21x102 rdf:first ropt:Beleidstekst ;
-	rdf:rest _:node1bvfdmt21x103 .
+_:node1bvfdvmotx102 rdf:first ropt:Beleidstekst ;
+	rdf:rest _:node1bvfdvmotx103 .
 
-_:node1bvfdmt21x103 rdf:first ropt:Bijlage ;
-	rdf:rest _:node1bvfdmt21x104 .
+_:node1bvfdvmotx103 rdf:first ropt:Bijlage ;
+	rdf:rest _:node1bvfdvmotx104 .
 
-_:node1bvfdmt21x104 rdf:first ropt:Bijlagen ;
-	rdf:rest _:node1bvfdmt21x105 .
+_:node1bvfdvmotx104 rdf:first ropt:Bijlagen ;
+	rdf:rest _:node1bvfdvmotx105 .
 
-_:node1bvfdmt21x105 rdf:first ropt:Deel ;
-	rdf:rest _:node1bvfdmt21x106 .
+_:node1bvfdvmotx105 rdf:first ropt:Deel ;
+	rdf:rest _:node1bvfdvmotx106 .
 
-_:node1bvfdmt21x106 rdf:first ropt:Document ;
-	rdf:rest _:node1bvfdmt21x107 .
+_:node1bvfdvmotx106 rdf:first ropt:Document ;
+	rdf:rest _:node1bvfdvmotx107 .
 
-_:node1bvfdmt21x107 rdf:first ropt:Hoofdstuk ;
-	rdf:rest _:node1bvfdmt21x108 .
+_:node1bvfdvmotx107 rdf:first ropt:Hoofdstuk ;
+	rdf:rest _:node1bvfdvmotx108 .
 
-_:node1bvfdmt21x108 rdf:first ropt:Overig ;
-	rdf:rest _:node1bvfdmt21x109 .
+_:node1bvfdvmotx108 rdf:first ropt:Overig ;
+	rdf:rest _:node1bvfdvmotx109 .
 
-_:node1bvfdmt21x109 rdf:first ropt:Paragraaf ;
-	rdf:rest _:node1bvfdmt21x110 .
+_:node1bvfdvmotx109 rdf:first ropt:Paragraaf ;
+	rdf:rest _:node1bvfdvmotx110 .
 
-_:node1bvfdmt21x110 rdf:first ropt:Subparagraaf ;
-	rdf:rest _:node1bvfdmt21x111 .
+_:node1bvfdvmotx110 rdf:first ropt:Subparagraaf ;
+	rdf:rest _:node1bvfdvmotx111 .
 
-_:node1bvfdmt21x111 rdf:first ropt:SubSubparagraaf ;
-	rdf:rest _:node1bvfdmt21x112 .
+_:node1bvfdvmotx111 rdf:first ropt:SubSubparagraaf ;
+	rdf:rest _:node1bvfdvmotx112 .
 
-_:node1bvfdmt21x112 rdf:first ropt:SubSubSubparagraaf ;
-	rdf:rest _:node1bvfdmt21x113 .
+_:node1bvfdvmotx112 rdf:first ropt:SubSubSubparagraaf ;
+	rdf:rest _:node1bvfdvmotx113 .
 
-_:node1bvfdmt21x113 rdf:first ropt:Toelichting ;
+_:node1bvfdvmotx113 rdf:first ropt:Toelichting ;
 	rdf:rest rdf:nil .
 
 ropt_str:ObjecttypeBesluit a sh:NodeShape ;
-	sh:in _:node1bvfdmt21x114 .
+	sh:in _:node1bvfdvmotx114 .
 
-_:node1bvfdmt21x114 rdf:first ropt:Afdeling ;
-	rdf:rest _:node1bvfdmt21x115 .
+_:node1bvfdvmotx114 rdf:first ropt:Afdeling ;
+	rdf:rest _:node1bvfdvmotx115 .
 
-_:node1bvfdmt21x115 rdf:first ropt:Artikel ;
-	rdf:rest _:node1bvfdmt21x116 .
+_:node1bvfdvmotx115 rdf:first ropt:Artikel ;
+	rdf:rest _:node1bvfdvmotx116 .
 
-_:node1bvfdmt21x116 rdf:first ropt:Besluitdocument ;
-	rdf:rest _:node1bvfdmt21x117 .
+_:node1bvfdvmotx116 rdf:first ropt:Besluitdocument ;
+	rdf:rest _:node1bvfdvmotx117 .
 
-_:node1bvfdmt21x117 rdf:first ropt:Besluittekst ;
-	rdf:rest _:node1bvfdmt21x118 .
+_:node1bvfdvmotx117 rdf:first ropt:Besluittekst ;
+	rdf:rest _:node1bvfdvmotx118 .
 
-_:node1bvfdmt21x118 rdf:first ropt:Bijlage ;
-	rdf:rest _:node1bvfdmt21x119 .
+_:node1bvfdvmotx118 rdf:first ropt:Bijlage ;
+	rdf:rest _:node1bvfdvmotx119 .
 
-_:node1bvfdmt21x119 rdf:first ropt:BijlageBijRegels ;
-	rdf:rest _:node1bvfdmt21x120 .
+_:node1bvfdvmotx119 rdf:first ropt:BijlageBijRegels ;
+	rdf:rest _:node1bvfdvmotx120 .
 
-_:node1bvfdmt21x120 rdf:first ropt:BijlageBijToelichting ;
-	rdf:rest _:node1bvfdmt21x121 .
+_:node1bvfdvmotx120 rdf:first ropt:BijlageBijToelichting ;
+	rdf:rest _:node1bvfdvmotx121 .
 
-_:node1bvfdmt21x121 rdf:first ropt:Bijlagen ;
-	rdf:rest _:node1bvfdmt21x122 .
+_:node1bvfdvmotx121 rdf:first ropt:Bijlagen ;
+	rdf:rest _:node1bvfdvmotx122 .
 
-_:node1bvfdmt21x122 rdf:first ropt:BijlagenBijRegels ;
-	rdf:rest _:node1bvfdmt21x123 .
+_:node1bvfdvmotx122 rdf:first ropt:BijlagenBijRegels ;
+	rdf:rest _:node1bvfdvmotx123 .
 
-_:node1bvfdmt21x123 rdf:first ropt:BijlagenBijToelichting ;
-	rdf:rest _:node1bvfdmt21x124 .
+_:node1bvfdvmotx123 rdf:first ropt:BijlagenBijToelichting ;
+	rdf:rest _:node1bvfdvmotx124 .
 
-_:node1bvfdmt21x124 rdf:first ropt:Deel ;
-	rdf:rest _:node1bvfdmt21x125 .
+_:node1bvfdvmotx124 rdf:first ropt:Deel ;
+	rdf:rest _:node1bvfdvmotx125 .
 
-_:node1bvfdmt21x125 rdf:first ropt:Hoofdstuk ;
-	rdf:rest _:node1bvfdmt21x126 .
+_:node1bvfdvmotx125 rdf:first ropt:Hoofdstuk ;
+	rdf:rest _:node1bvfdvmotx126 .
 
-_:node1bvfdmt21x126 rdf:first ropt:Lid ;
-	rdf:rest _:node1bvfdmt21x127 .
+_:node1bvfdvmotx126 rdf:first ropt:Lid ;
+	rdf:rest _:node1bvfdvmotx127 .
 
-_:node1bvfdmt21x127 rdf:first ropt:Onderdeel ;
-	rdf:rest _:node1bvfdmt21x128 .
+_:node1bvfdvmotx127 rdf:first ropt:Onderdeel ;
+	rdf:rest _:node1bvfdvmotx128 .
 
-_:node1bvfdmt21x128 rdf:first ropt:Overig ;
-	rdf:rest _:node1bvfdmt21x129 .
+_:node1bvfdvmotx128 rdf:first ropt:Overig ;
+	rdf:rest _:node1bvfdvmotx129 .
 
-_:node1bvfdmt21x129 rdf:first ropt:Paragraaf ;
-	rdf:rest _:node1bvfdmt21x130 .
+_:node1bvfdvmotx129 rdf:first ropt:Paragraaf ;
+	rdf:rest _:node1bvfdvmotx130 .
 
-_:node1bvfdmt21x130 rdf:first ropt:Regels ;
-	rdf:rest _:node1bvfdmt21x131 .
+_:node1bvfdvmotx130 rdf:first ropt:Regels ;
+	rdf:rest _:node1bvfdvmotx131 .
 
-_:node1bvfdmt21x131 rdf:first ropt:Sublid ;
-	rdf:rest _:node1bvfdmt21x132 .
+_:node1bvfdvmotx131 rdf:first ropt:Sublid ;
+	rdf:rest _:node1bvfdvmotx132 .
 
-_:node1bvfdmt21x132 rdf:first ropt:Subonderdeel ;
-	rdf:rest _:node1bvfdmt21x133 .
+_:node1bvfdvmotx132 rdf:first ropt:Subonderdeel ;
+	rdf:rest _:node1bvfdvmotx133 .
 
-_:node1bvfdmt21x133 rdf:first ropt:Subparagraaf ;
-	rdf:rest _:node1bvfdmt21x134 .
+_:node1bvfdvmotx133 rdf:first ropt:Subparagraaf ;
+	rdf:rest _:node1bvfdvmotx134 .
 
-_:node1bvfdmt21x134 rdf:first ropt:SubSublid ;
-	rdf:rest _:node1bvfdmt21x135 .
+_:node1bvfdvmotx134 rdf:first ropt:SubSublid ;
+	rdf:rest _:node1bvfdvmotx135 .
 
-_:node1bvfdmt21x135 rdf:first ropt:SubSubparagraaf ;
-	rdf:rest _:node1bvfdmt21x136 .
+_:node1bvfdvmotx135 rdf:first ropt:SubSubparagraaf ;
+	rdf:rest _:node1bvfdvmotx136 .
 
-_:node1bvfdmt21x136 rdf:first ropt:SubSubSublid ;
-	rdf:rest _:node1bvfdmt21x137 .
+_:node1bvfdvmotx136 rdf:first ropt:SubSubSublid ;
+	rdf:rest _:node1bvfdvmotx137 .
 
-_:node1bvfdmt21x137 rdf:first ropt:SubSubSubparagraaf ;
-	rdf:rest _:node1bvfdmt21x138 .
+_:node1bvfdvmotx137 rdf:first ropt:SubSubSubparagraaf ;
+	rdf:rest _:node1bvfdvmotx138 .
 
-_:node1bvfdmt21x138 rdf:first ropt:Titel ;
-	rdf:rest _:node1bvfdmt21x139 .
+_:node1bvfdvmotx138 rdf:first ropt:Titel ;
+	rdf:rest _:node1bvfdvmotx139 .
 
-_:node1bvfdmt21x139 rdf:first ropt:Toelichting ;
+_:node1bvfdvmotx139 rdf:first ropt:Toelichting ;
 	rdf:rest rdf:nil .
 
 ropt_str:Bouwregels a sh:NodeShape ;
@@ -2620,57 +2620,57 @@ ropt_str:Bouwregels a sh:NodeShape ;
 
 ropt_str:Bouwregels_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x140 .
+	sh:in _:node1bvfdvmotx140 .
 
-_:node1bvfdmt21x140 rdf:first ropt:UitTeWerkenBestemming ;
-	rdf:rest _:node1bvfdmt21x141 .
+_:node1bvfdvmotx140 rdf:first ropt:UitTeWerkenBestemming ;
+	rdf:rest _:node1bvfdvmotx141 .
 
-_:node1bvfdmt21x141 rdf:first ropt:Dubbelbestemming ;
-	rdf:rest _:node1bvfdmt21x142 .
+_:node1bvfdvmotx141 rdf:first ropt:Dubbelbestemming ;
+	rdf:rest _:node1bvfdvmotx142 .
 
-_:node1bvfdmt21x142 rdf:first ropt:DefinitieveBestemmingBijVoorlopigeBestemming ;
-	rdf:rest _:node1bvfdmt21x143 .
+_:node1bvfdvmotx142 rdf:first ropt:DefinitieveBestemmingBijVoorlopigeBestemming ;
+	rdf:rest _:node1bvfdvmotx143 .
 
-_:node1bvfdmt21x143 rdf:first ropt:Bestemming ;
-	rdf:rest _:node1bvfdmt21x144 .
+_:node1bvfdvmotx143 rdf:first ropt:Bestemming ;
+	rdf:rest _:node1bvfdvmotx144 .
 
-_:node1bvfdmt21x144 rdf:first ropt:VoorlopigeBestemming ;
+_:node1bvfdvmotx144 rdf:first ropt:VoorlopigeBestemming ;
 	rdf:rest rdf:nil .
 
 ropt_str:Bouwregels_ouder_UitTeWerkenBestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x145 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx145 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x145 sh:class ropt:UitTeWerkenBestemming .
+_:node1bvfdvmotx145 sh:class ropt:UitTeWerkenBestemming .
 
 ropt_str:Bouwregels_ouder_Dubbelbestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x146 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx146 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x146 sh:class ropt:Dubbelbestemming .
+_:node1bvfdvmotx146 sh:class ropt:Dubbelbestemming .
 
 ropt_str:Bouwregels_ouder_DefinitieveBestemmingBijVoorlopigeBestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x147 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx147 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x147 sh:class ropt:DefinitieveBestemmingBijVoorlopigeBestemming .
+_:node1bvfdvmotx147 sh:class ropt:DefinitieveBestemmingBijVoorlopigeBestemming .
 
 ropt_str:Bouwregels_ouder_Bestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x148 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx148 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x148 sh:class ropt:Bestemming .
+_:node1bvfdvmotx148 sh:class ropt:Bestemming .
 
 ropt_str:Bouwregels_ouder_VoorlopigeBestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x149 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx149 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x149 sh:class ropt:VoorlopigeBestemming .
+_:node1bvfdvmotx149 sh:class ropt:VoorlopigeBestemming .
 
 ropt_str:Artikel a sh:NodeShape ;
 	sh:targetClass ropt:Artikel ;
@@ -2678,24 +2678,24 @@ ropt_str:Artikel a sh:NodeShape ;
 
 ropt_str:Artikel_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x150 .
+	sh:in _:node1bvfdvmotx150 .
 
-_:node1bvfdmt21x150 rdf:first ropt:Hoofdstuk ;
-	rdf:rest _:node1bvfdmt21x151 .
+_:node1bvfdvmotx150 rdf:first ropt:Hoofdstuk ;
+	rdf:rest _:node1bvfdvmotx151 .
 
-_:node1bvfdmt21x151 rdf:first ropt:Toelichting ;
-	rdf:rest _:node1bvfdmt21x152 .
+_:node1bvfdvmotx151 rdf:first ropt:Toelichting ;
+	rdf:rest _:node1bvfdvmotx152 .
 
-_:node1bvfdmt21x152 rdf:first ropt:Besluittekst ;
-	rdf:rest _:node1bvfdmt21x153 .
+_:node1bvfdvmotx152 rdf:first ropt:Besluittekst ;
+	rdf:rest _:node1bvfdvmotx153 .
 
-_:node1bvfdmt21x153 rdf:first ropt:Paragraaf ;
-	rdf:rest _:node1bvfdmt21x154 .
+_:node1bvfdvmotx153 rdf:first ropt:Paragraaf ;
+	rdf:rest _:node1bvfdvmotx154 .
 
-_:node1bvfdmt21x154 rdf:first ropt:Titel ;
-	rdf:rest _:node1bvfdmt21x155 .
+_:node1bvfdvmotx154 rdf:first ropt:Titel ;
+	rdf:rest _:node1bvfdvmotx155 .
 
-_:node1bvfdmt21x155 rdf:first ropt:Regels ;
+_:node1bvfdvmotx155 rdf:first ropt:Regels ;
 	rdf:rest rdf:nil .
 
 ropt_str:Sublid a sh:NodeShape ;
@@ -2704,9 +2704,9 @@ ropt_str:Sublid a sh:NodeShape ;
 
 ropt_str:Sublid_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x156 .
+	sh:in _:node1bvfdvmotx156 .
 
-_:node1bvfdmt21x156 rdf:first ropt:Lid ;
+_:node1bvfdvmotx156 rdf:first ropt:Lid ;
 	rdf:rest rdf:nil .
 
 ropt_str:Subonderdeel a sh:NodeShape ;
@@ -2715,9 +2715,9 @@ ropt_str:Subonderdeel a sh:NodeShape ;
 
 ropt_str:Subonderdeel_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x157 .
+	sh:in _:node1bvfdvmotx157 .
 
-_:node1bvfdmt21x157 rdf:first ropt:Onderdeel ;
+_:node1bvfdvmotx157 rdf:first ropt:Onderdeel ;
 	rdf:rest rdf:nil .
 
 ropt_str:Deel a sh:NodeShape ;
@@ -2726,15 +2726,15 @@ ropt_str:Deel a sh:NodeShape ;
 
 ropt_str:Deel_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x158 , _:node1bvfdmt21x261 .
+	sh:in _:node1bvfdvmotx158 , _:node1bvfdvmotx261 .
 
-_:node1bvfdmt21x158 rdf:first ropt:Bijlage ;
-	rdf:rest _:node1bvfdmt21x159 .
+_:node1bvfdvmotx158 rdf:first ropt:Bijlage ;
+	rdf:rest _:node1bvfdvmotx159 .
 
-_:node1bvfdmt21x159 rdf:first ropt:BijlageBijToelichting ;
-	rdf:rest _:node1bvfdmt21x160 .
+_:node1bvfdvmotx159 rdf:first ropt:BijlageBijToelichting ;
+	rdf:rest _:node1bvfdvmotx160 .
 
-_:node1bvfdmt21x160 rdf:first ropt:BijlageBijRegels ;
+_:node1bvfdvmotx160 rdf:first ropt:BijlageBijRegels ;
 	rdf:rest rdf:nil .
 
 ropt_str:AlgemeneAanduidingsregels a sh:NodeShape ;
@@ -2743,9 +2743,9 @@ ropt_str:AlgemeneAanduidingsregels a sh:NodeShape ;
 
 ropt_str:AlgemeneAanduidingsregels_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x161 .
+	sh:in _:node1bvfdvmotx161 .
 
-_:node1bvfdmt21x161 rdf:first ropt:AlgemeneRegels ;
+_:node1bvfdvmotx161 rdf:first ropt:AlgemeneRegels ;
 	rdf:rest rdf:nil .
 
 ropt_str:Begrippen a sh:NodeShape ;
@@ -2754,17 +2754,17 @@ ropt_str:Begrippen a sh:NodeShape ;
 
 ropt_str:Begrippen_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x162 .
+	sh:in _:node1bvfdvmotx162 .
 
-_:node1bvfdmt21x162 rdf:first ropt:InleidendeRegels ;
+_:node1bvfdvmotx162 rdf:first ropt:InleidendeRegels ;
 	rdf:rest rdf:nil .
 
 ropt_str:Begrippen_ouder_InleidendeRegels a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x163 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx163 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x163 sh:class ropt:InleidendeRegels .
+_:node1bvfdvmotx163 sh:class ropt:InleidendeRegels .
 
 ropt_str:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk a sh:NodeShape ;
 	sh:targetClass ropt:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk ;
@@ -2772,47 +2772,47 @@ ropt_str:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk a sh:NodeShape ;
 
 ropt_str:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x164 .
+	sh:in _:node1bvfdvmotx164 .
 
-_:node1bvfdmt21x164 rdf:first ropt:Dubbelbestemming ;
-	rdf:rest _:node1bvfdmt21x165 .
+_:node1bvfdvmotx164 rdf:first ropt:Dubbelbestemming ;
+	rdf:rest _:node1bvfdvmotx165 .
 
-_:node1bvfdmt21x165 rdf:first ropt:DefinitieveBestemmingBijVoorlopigeBestemming ;
-	rdf:rest _:node1bvfdmt21x166 .
+_:node1bvfdvmotx165 rdf:first ropt:DefinitieveBestemmingBijVoorlopigeBestemming ;
+	rdf:rest _:node1bvfdvmotx166 .
 
-_:node1bvfdmt21x166 rdf:first ropt:Bestemming ;
-	rdf:rest _:node1bvfdmt21x167 .
+_:node1bvfdvmotx166 rdf:first ropt:Bestemming ;
+	rdf:rest _:node1bvfdvmotx167 .
 
-_:node1bvfdmt21x167 rdf:first ropt:VoorlopigeBestemming ;
+_:node1bvfdvmotx167 rdf:first ropt:VoorlopigeBestemming ;
 	rdf:rest rdf:nil .
 
 ropt_str:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk_ouder_Dubbelbestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x168 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx168 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x168 sh:class ropt:Dubbelbestemming .
+_:node1bvfdvmotx168 sh:class ropt:Dubbelbestemming .
 
 ropt_str:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk_ouder_DefinitieveBestemmingBijVoorlopigeBestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x169 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx169 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x169 sh:class ropt:DefinitieveBestemmingBijVoorlopigeBestemming .
+_:node1bvfdvmotx169 sh:class ropt:DefinitieveBestemmingBijVoorlopigeBestemming .
 
 ropt_str:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk_ouder_Bestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x170 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx170 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x170 sh:class ropt:Bestemming .
+_:node1bvfdvmotx170 sh:class ropt:Bestemming .
 
 ropt_str:OmgevingsvergunningVoorHetSlopenVanEenBouwwerk_ouder_VoorlopigeBestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x171 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx171 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x171 sh:class ropt:VoorlopigeBestemming .
+_:node1bvfdvmotx171 sh:class ropt:VoorlopigeBestemming .
 
 ropt_str:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden a sh:NodeShape ;
 	sh:targetClass ropt:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden ;
@@ -2820,57 +2820,57 @@ ropt_str:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerk
 
 ropt_str:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x172 .
+	sh:in _:node1bvfdvmotx172 .
 
-_:node1bvfdmt21x172 rdf:first ropt:UitTeWerkenBestemming ;
-	rdf:rest _:node1bvfdmt21x173 .
+_:node1bvfdvmotx172 rdf:first ropt:UitTeWerkenBestemming ;
+	rdf:rest _:node1bvfdvmotx173 .
 
-_:node1bvfdmt21x173 rdf:first ropt:Dubbelbestemming ;
-	rdf:rest _:node1bvfdmt21x174 .
+_:node1bvfdvmotx173 rdf:first ropt:Dubbelbestemming ;
+	rdf:rest _:node1bvfdvmotx174 .
 
-_:node1bvfdmt21x174 rdf:first ropt:DefinitieveBestemmingBijVoorlopigeBestemming ;
-	rdf:rest _:node1bvfdmt21x175 .
+_:node1bvfdvmotx174 rdf:first ropt:DefinitieveBestemmingBijVoorlopigeBestemming ;
+	rdf:rest _:node1bvfdvmotx175 .
 
-_:node1bvfdmt21x175 rdf:first ropt:Bestemming ;
-	rdf:rest _:node1bvfdmt21x176 .
+_:node1bvfdvmotx175 rdf:first ropt:Bestemming ;
+	rdf:rest _:node1bvfdvmotx176 .
 
-_:node1bvfdmt21x176 rdf:first ropt:VoorlopigeBestemming ;
+_:node1bvfdvmotx176 rdf:first ropt:VoorlopigeBestemming ;
 	rdf:rest rdf:nil .
 
 ropt_str:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden_ouder_UitTeWerkenBestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x177 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx177 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x177 sh:class ropt:UitTeWerkenBestemming .
+_:node1bvfdvmotx177 sh:class ropt:UitTeWerkenBestemming .
 
 ropt_str:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden_ouder_Dubbelbestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x178 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx178 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x178 sh:class ropt:Dubbelbestemming .
+_:node1bvfdvmotx178 sh:class ropt:Dubbelbestemming .
 
 ropt_str:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden_ouder_DefinitieveBestemmingBijVoorlopigeBestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x179 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx179 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x179 sh:class ropt:DefinitieveBestemmingBijVoorlopigeBestemming .
+_:node1bvfdvmotx179 sh:class ropt:DefinitieveBestemmingBijVoorlopigeBestemming .
 
 ropt_str:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden_ouder_Bestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x180 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx180 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x180 sh:class ropt:Bestemming .
+_:node1bvfdvmotx180 sh:class ropt:Bestemming .
 
 ropt_str:OmgevingsvergunningVoorHetUitvoerenVanWerkenGeenBouwwerkZijndeOfVanWerkzaamheden_ouder_VoorlopigeBestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x181 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx181 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x181 sh:class ropt:VoorlopigeBestemming .
+_:node1bvfdvmotx181 sh:class ropt:VoorlopigeBestemming .
 
 ropt_str:AlgemeneRegels a sh:NodeShape ;
 	sh:targetClass ropt:AlgemeneRegels ;
@@ -2878,17 +2878,17 @@ ropt_str:AlgemeneRegels a sh:NodeShape ;
 
 ropt_str:AlgemeneRegels_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x182 .
+	sh:in _:node1bvfdvmotx182 .
 
-_:node1bvfdmt21x182 rdf:first ropt:Regels ;
+_:node1bvfdvmotx182 rdf:first ropt:Regels ;
 	rdf:rest rdf:nil .
 
 ropt_str:AlgemeneRegels_ouder_Regels a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x183 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx183 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x183 sh:class ropt:Regels .
+_:node1bvfdvmotx183 sh:class ropt:Regels .
 
 ropt_str:Afdeling a sh:NodeShape ;
 	sh:targetClass ropt:Afdeling ;
@@ -2896,9 +2896,9 @@ ropt_str:Afdeling a sh:NodeShape ;
 
 ropt_str:Afdeling_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x184 .
+	sh:in _:node1bvfdvmotx184 .
 
-_:node1bvfdmt21x184 rdf:first ropt:Titel ;
+_:node1bvfdvmotx184 rdf:first ropt:Titel ;
 	rdf:rest rdf:nil .
 
 ropt_str:Lid a sh:NodeShape ;
@@ -2907,48 +2907,48 @@ ropt_str:Lid a sh:NodeShape ;
 
 ropt_str:Lid_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x185 .
+	sh:in _:node1bvfdvmotx185 .
 
-_:node1bvfdmt21x185 rdf:first ropt:Anti_dubbeltelregel ;
-	rdf:rest _:node1bvfdmt21x186 .
+_:node1bvfdvmotx185 rdf:first ropt:Anti_dubbeltelregel ;
+	rdf:rest _:node1bvfdvmotx186 .
 
-_:node1bvfdmt21x186 rdf:first ropt:AlgemeneProcedureregels ;
-	rdf:rest _:node1bvfdmt21x187 .
+_:node1bvfdvmotx186 rdf:first ropt:AlgemeneProcedureregels ;
+	rdf:rest _:node1bvfdvmotx187 .
 
-_:node1bvfdmt21x187 rdf:first ropt:AlgemeneGebruiksregels ;
-	rdf:rest _:node1bvfdmt21x188 .
+_:node1bvfdvmotx187 rdf:first ropt:AlgemeneGebruiksregels ;
+	rdf:rest _:node1bvfdvmotx188 .
 
-_:node1bvfdmt21x188 rdf:first ropt:OverigeRegels ;
-	rdf:rest _:node1bvfdmt21x189 .
+_:node1bvfdvmotx188 rdf:first ropt:OverigeRegels ;
+	rdf:rest _:node1bvfdvmotx189 .
 
-_:node1bvfdmt21x189 rdf:first ropt:Begrippen ;
-	rdf:rest _:node1bvfdmt21x190 .
+_:node1bvfdvmotx189 rdf:first ropt:Begrippen ;
+	rdf:rest _:node1bvfdvmotx190 .
 
-_:node1bvfdmt21x190 rdf:first ropt:AlgemeneAfwijkingsregels ;
-	rdf:rest _:node1bvfdmt21x191 .
+_:node1bvfdvmotx190 rdf:first ropt:AlgemeneAfwijkingsregels ;
+	rdf:rest _:node1bvfdvmotx191 .
 
-_:node1bvfdmt21x191 rdf:first ropt:VerwerkelijkingInDeNaasteToekomst ;
-	rdf:rest _:node1bvfdmt21x192 .
+_:node1bvfdvmotx191 rdf:first ropt:VerwerkelijkingInDeNaasteToekomst ;
+	rdf:rest _:node1bvfdvmotx192 .
 
-_:node1bvfdmt21x192 rdf:first ropt:AlgemeneBouwregels ;
-	rdf:rest _:node1bvfdmt21x193 .
+_:node1bvfdvmotx192 rdf:first ropt:AlgemeneBouwregels ;
+	rdf:rest _:node1bvfdvmotx193 .
 
-_:node1bvfdmt21x193 rdf:first ropt:Slotregel ;
-	rdf:rest _:node1bvfdmt21x194 .
+_:node1bvfdvmotx193 rdf:first ropt:Slotregel ;
+	rdf:rest _:node1bvfdvmotx194 .
 
-_:node1bvfdmt21x194 rdf:first ropt:WijzeVanMeten ;
-	rdf:rest _:node1bvfdmt21x195 .
+_:node1bvfdvmotx194 rdf:first ropt:WijzeVanMeten ;
+	rdf:rest _:node1bvfdvmotx195 .
 
-_:node1bvfdmt21x195 rdf:first ropt:Overgangsrecht ;
-	rdf:rest _:node1bvfdmt21x196 .
+_:node1bvfdvmotx195 rdf:first ropt:Overgangsrecht ;
+	rdf:rest _:node1bvfdvmotx196 .
 
-_:node1bvfdmt21x196 rdf:first ropt:AlgemeneAanduidingsregels ;
-	rdf:rest _:node1bvfdmt21x197 .
+_:node1bvfdvmotx196 rdf:first ropt:AlgemeneAanduidingsregels ;
+	rdf:rest _:node1bvfdvmotx197 .
 
-_:node1bvfdmt21x197 rdf:first ropt:AlgemeneWijzigingsregels ;
-	rdf:rest _:node1bvfdmt21x198 .
+_:node1bvfdvmotx197 rdf:first ropt:AlgemeneWijzigingsregels ;
+	rdf:rest _:node1bvfdvmotx198 .
 
-_:node1bvfdmt21x198 rdf:first ropt:Artikel ;
+_:node1bvfdvmotx198 rdf:first ropt:Artikel ;
 	rdf:rest rdf:nil .
 
 ropt_str:Regels a sh:NodeShape ;
@@ -2957,28 +2957,28 @@ ropt_str:Regels a sh:NodeShape ;
 
 ropt_str:Regels_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x199 .
+	sh:in _:node1bvfdvmotx199 .
 
-_:node1bvfdmt21x199 rdf:first ropt:Besluitdocument ;
-	rdf:rest _:node1bvfdmt21x200 .
+_:node1bvfdvmotx199 rdf:first ropt:Besluitdocument ;
+	rdf:rest _:node1bvfdvmotx200 .
 
-_:node1bvfdmt21x200 rdf:first ropt:Document ;
+_:node1bvfdvmotx200 rdf:first ropt:Document ;
 	rdf:rest rdf:nil .
 
 ropt_str:Regels_ouder_Besluitdocument a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x201 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx201 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x201 sh:class ropt:Besluitdocument .
+_:node1bvfdvmotx201 sh:class ropt:Besluitdocument .
 
 ropt_str:Regels_ouder_Document a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x202 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx202 ;
 	sh:qualifiedMinCount 1 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x202 sh:class ropt:Document .
+_:node1bvfdvmotx202 sh:class ropt:Document .
 
 ropt_str:Anti_dubbeltelregel a sh:NodeShape ;
 	sh:targetClass ropt:Anti_dubbeltelregel ;
@@ -2986,17 +2986,17 @@ ropt_str:Anti_dubbeltelregel a sh:NodeShape ;
 
 ropt_str:Anti_dubbeltelregel_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x203 .
+	sh:in _:node1bvfdvmotx203 .
 
-_:node1bvfdmt21x203 rdf:first ropt:AlgemeneRegels ;
+_:node1bvfdvmotx203 rdf:first ropt:AlgemeneRegels ;
 	rdf:rest rdf:nil .
 
 ropt_str:Anti_dubbeltelregel_ouder_AlgemeneRegels a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x204 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx204 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x204 sh:class ropt:AlgemeneRegels .
+_:node1bvfdvmotx204 sh:class ropt:AlgemeneRegels .
 
 ropt_str:Beleidstekst a sh:NodeShape ;
 	sh:targetClass ropt:Beleidstekst ;
@@ -3004,18 +3004,18 @@ ropt_str:Beleidstekst a sh:NodeShape ;
 
 ropt_str:Beleidstekst_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x205 .
+	sh:in _:node1bvfdvmotx205 .
 
-_:node1bvfdmt21x205 rdf:first ropt:Document ;
+_:node1bvfdvmotx205 rdf:first ropt:Document ;
 	rdf:rest rdf:nil .
 
 ropt_str:Beleidstekst_ouder_Document a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x206 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx206 ;
 	sh:qualifiedMinCount 1 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x206 sh:class ropt:Document .
+_:node1bvfdvmotx206 sh:class ropt:Document .
 
 ropt_str:Bestemmingsomschrijving a sh:NodeShape ;
 	sh:targetClass ropt:Bestemmingsomschrijving ;
@@ -3023,57 +3023,57 @@ ropt_str:Bestemmingsomschrijving a sh:NodeShape ;
 
 ropt_str:Bestemmingsomschrijving_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x207 .
+	sh:in _:node1bvfdvmotx207 .
 
-_:node1bvfdmt21x207 rdf:first ropt:UitTeWerkenBestemming ;
-	rdf:rest _:node1bvfdmt21x208 .
+_:node1bvfdvmotx207 rdf:first ropt:UitTeWerkenBestemming ;
+	rdf:rest _:node1bvfdvmotx208 .
 
-_:node1bvfdmt21x208 rdf:first ropt:Dubbelbestemming ;
-	rdf:rest _:node1bvfdmt21x209 .
+_:node1bvfdvmotx208 rdf:first ropt:Dubbelbestemming ;
+	rdf:rest _:node1bvfdvmotx209 .
 
-_:node1bvfdmt21x209 rdf:first ropt:DefinitieveBestemmingBijVoorlopigeBestemming ;
-	rdf:rest _:node1bvfdmt21x210 .
+_:node1bvfdvmotx209 rdf:first ropt:DefinitieveBestemmingBijVoorlopigeBestemming ;
+	rdf:rest _:node1bvfdvmotx210 .
 
-_:node1bvfdmt21x210 rdf:first ropt:Bestemming ;
-	rdf:rest _:node1bvfdmt21x211 .
+_:node1bvfdvmotx210 rdf:first ropt:Bestemming ;
+	rdf:rest _:node1bvfdvmotx211 .
 
-_:node1bvfdmt21x211 rdf:first ropt:VoorlopigeBestemming ;
+_:node1bvfdvmotx211 rdf:first ropt:VoorlopigeBestemming ;
 	rdf:rest rdf:nil .
 
 ropt_str:Bestemmingsomschrijving_ouder_UitTeWerkenBestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x212 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx212 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x212 sh:class ropt:UitTeWerkenBestemming .
+_:node1bvfdvmotx212 sh:class ropt:UitTeWerkenBestemming .
 
 ropt_str:Bestemmingsomschrijving_ouder_Dubbelbestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x213 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx213 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x213 sh:class ropt:Dubbelbestemming .
+_:node1bvfdvmotx213 sh:class ropt:Dubbelbestemming .
 
 ropt_str:Bestemmingsomschrijving_ouder_DefinitieveBestemmingBijVoorlopigeBestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x214 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx214 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x214 sh:class ropt:DefinitieveBestemmingBijVoorlopigeBestemming .
+_:node1bvfdvmotx214 sh:class ropt:DefinitieveBestemmingBijVoorlopigeBestemming .
 
 ropt_str:Bestemmingsomschrijving_ouder_Bestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x215 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx215 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x215 sh:class ropt:Bestemming .
+_:node1bvfdvmotx215 sh:class ropt:Bestemming .
 
 ropt_str:Bestemmingsomschrijving_ouder_VoorlopigeBestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x216 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx216 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x216 sh:class ropt:VoorlopigeBestemming .
+_:node1bvfdvmotx216 sh:class ropt:VoorlopigeBestemming .
 
 ropt_str:GeldigheidstermijnVanDeVoorlopigeBestemming a sh:NodeShape ;
 	sh:targetClass ropt:GeldigheidstermijnVanDeVoorlopigeBestemming ;
@@ -3081,17 +3081,17 @@ ropt_str:GeldigheidstermijnVanDeVoorlopigeBestemming a sh:NodeShape ;
 
 ropt_str:GeldigheidstermijnVanDeVoorlopigeBestemming_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x217 .
+	sh:in _:node1bvfdvmotx217 .
 
-_:node1bvfdmt21x217 rdf:first ropt:VoorlopigeBestemming ;
+_:node1bvfdvmotx217 rdf:first ropt:VoorlopigeBestemming ;
 	rdf:rest rdf:nil .
 
 ropt_str:GeldigheidstermijnVanDeVoorlopigeBestemming_ouder_VoorlopigeBestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x218 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx218 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x218 sh:class ropt:VoorlopigeBestemming .
+_:node1bvfdvmotx218 sh:class ropt:VoorlopigeBestemming .
 
 ropt_str:Dubbelbestemming a sh:NodeShape ;
 	sh:targetClass ropt:Dubbelbestemming ;
@@ -3099,9 +3099,9 @@ ropt_str:Dubbelbestemming a sh:NodeShape ;
 
 ropt_str:Dubbelbestemming_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x219 .
+	sh:in _:node1bvfdvmotx219 .
 
-_:node1bvfdmt21x219 rdf:first ropt:Bestemmingsregels ;
+_:node1bvfdvmotx219 rdf:first ropt:Bestemmingsregels ;
 	rdf:rest rdf:nil .
 
 ropt_str:SubSublid a sh:NodeShape ;
@@ -3110,9 +3110,9 @@ ropt_str:SubSublid a sh:NodeShape ;
 
 ropt_str:SubSublid_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x220 .
+	sh:in _:node1bvfdvmotx220 .
 
-_:node1bvfdmt21x220 rdf:first ropt:Sublid ;
+_:node1bvfdvmotx220 rdf:first ropt:Sublid ;
 	rdf:rest rdf:nil .
 
 ropt_str:InleidendeRegels a sh:NodeShape ;
@@ -3121,17 +3121,17 @@ ropt_str:InleidendeRegels a sh:NodeShape ;
 
 ropt_str:InleidendeRegels_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x221 .
+	sh:in _:node1bvfdvmotx221 .
 
-_:node1bvfdmt21x221 rdf:first ropt:Regels ;
+_:node1bvfdvmotx221 rdf:first ropt:Regels ;
 	rdf:rest rdf:nil .
 
 ropt_str:InleidendeRegels_ouder_Regels a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x222 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx222 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x222 sh:class ropt:Regels .
+_:node1bvfdvmotx222 sh:class ropt:Regels .
 
 ropt_str:SubSubparagraaf a sh:NodeShape ;
 	sh:targetClass ropt:SubSubparagraaf ;
@@ -3139,9 +3139,9 @@ ropt_str:SubSubparagraaf a sh:NodeShape ;
 
 ropt_str:SubSubparagraaf_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x223 .
+	sh:in _:node1bvfdvmotx223 .
 
-_:node1bvfdmt21x223 rdf:first ropt:Subparagraaf ;
+_:node1bvfdvmotx223 rdf:first ropt:Subparagraaf ;
 	rdf:rest rdf:nil .
 
 ropt_str:Slotregel a sh:NodeShape ;
@@ -3150,17 +3150,17 @@ ropt_str:Slotregel a sh:NodeShape ;
 
 ropt_str:Slotregel_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x224 .
+	sh:in _:node1bvfdvmotx224 .
 
-_:node1bvfdmt21x224 rdf:first ropt:Overgangs_EnSlotregels ;
+_:node1bvfdvmotx224 rdf:first ropt:Overgangs_EnSlotregels ;
 	rdf:rest rdf:nil .
 
 ropt_str:Slotregel_ouder_Overgangs_EnSlotregels a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x225 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx225 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x225 sh:class ropt:Overgangs_EnSlotregels .
+_:node1bvfdvmotx225 sh:class ropt:Overgangs_EnSlotregels .
 
 ropt_str:Onderdeel a sh:NodeShape ;
 	sh:targetClass ropt:Onderdeel ;
@@ -3168,9 +3168,9 @@ ropt_str:Onderdeel a sh:NodeShape ;
 
 ropt_str:Onderdeel_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x226 .
+	sh:in _:node1bvfdvmotx226 .
 
-_:node1bvfdmt21x226 rdf:first ropt:Lid ;
+_:node1bvfdvmotx226 rdf:first ropt:Lid ;
 	rdf:rest rdf:nil .
 
 ropt_str:Subparagraaf a sh:NodeShape ;
@@ -3179,9 +3179,9 @@ ropt_str:Subparagraaf a sh:NodeShape ;
 
 ropt_str:Subparagraaf_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x227 .
+	sh:in _:node1bvfdvmotx227 .
 
-_:node1bvfdmt21x227 rdf:first ropt:Paragraaf ;
+_:node1bvfdvmotx227 rdf:first ropt:Paragraaf ;
 	rdf:rest rdf:nil .
 
 ropt_str:SubSubSublid a sh:NodeShape ;
@@ -3190,9 +3190,9 @@ ropt_str:SubSubSublid a sh:NodeShape ;
 
 ropt_str:SubSubSublid_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x228 .
+	sh:in _:node1bvfdvmotx228 .
 
-_:node1bvfdmt21x228 rdf:first ropt:SubSublid ;
+_:node1bvfdvmotx228 rdf:first ropt:SubSublid ;
 	rdf:rest rdf:nil .
 
 ropt_str:OverigeRegels a sh:NodeShape ;
@@ -3201,17 +3201,17 @@ ropt_str:OverigeRegels a sh:NodeShape ;
 
 ropt_str:OverigeRegels_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x229 .
+	sh:in _:node1bvfdvmotx229 .
 
-_:node1bvfdmt21x229 rdf:first ropt:AlgemeneRegels ;
+_:node1bvfdvmotx229 rdf:first ropt:AlgemeneRegels ;
 	rdf:rest rdf:nil .
 
 ropt_str:OverigeRegels_ouder_AlgemeneRegels a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x230 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx230 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x230 sh:class ropt:AlgemeneRegels .
+_:node1bvfdvmotx230 sh:class ropt:AlgemeneRegels .
 
 ropt_str:Uitwerkingsregels a sh:NodeShape ;
 	sh:targetClass ropt:Uitwerkingsregels ;
@@ -3219,17 +3219,17 @@ ropt_str:Uitwerkingsregels a sh:NodeShape ;
 
 ropt_str:Uitwerkingsregels_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x231 .
+	sh:in _:node1bvfdvmotx231 .
 
-_:node1bvfdmt21x231 rdf:first ropt:UitTeWerkenBestemming ;
+_:node1bvfdvmotx231 rdf:first ropt:UitTeWerkenBestemming ;
 	rdf:rest rdf:nil .
 
 ropt_str:Uitwerkingsregels_ouder_UitTeWerkenBestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x232 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx232 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x232 sh:class ropt:UitTeWerkenBestemming .
+_:node1bvfdvmotx232 sh:class ropt:UitTeWerkenBestemming .
 
 ropt_str:Wijzigingsbevoegdheid a sh:NodeShape ;
 	sh:targetClass ropt:Wijzigingsbevoegdheid ;
@@ -3237,47 +3237,47 @@ ropt_str:Wijzigingsbevoegdheid a sh:NodeShape ;
 
 ropt_str:Wijzigingsbevoegdheid_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x233 .
+	sh:in _:node1bvfdvmotx233 .
 
-_:node1bvfdmt21x233 rdf:first ropt:Dubbelbestemming ;
-	rdf:rest _:node1bvfdmt21x234 .
+_:node1bvfdvmotx233 rdf:first ropt:Dubbelbestemming ;
+	rdf:rest _:node1bvfdvmotx234 .
 
-_:node1bvfdmt21x234 rdf:first ropt:DefinitieveBestemmingBijVoorlopigeBestemming ;
-	rdf:rest _:node1bvfdmt21x235 .
+_:node1bvfdvmotx234 rdf:first ropt:DefinitieveBestemmingBijVoorlopigeBestemming ;
+	rdf:rest _:node1bvfdvmotx235 .
 
-_:node1bvfdmt21x235 rdf:first ropt:Bestemming ;
-	rdf:rest _:node1bvfdmt21x236 .
+_:node1bvfdvmotx235 rdf:first ropt:Bestemming ;
+	rdf:rest _:node1bvfdvmotx236 .
 
-_:node1bvfdmt21x236 rdf:first ropt:VoorlopigeBestemming ;
+_:node1bvfdvmotx236 rdf:first ropt:VoorlopigeBestemming ;
 	rdf:rest rdf:nil .
 
 ropt_str:Wijzigingsbevoegdheid_ouder_Dubbelbestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x237 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx237 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x237 sh:class ropt:Dubbelbestemming .
+_:node1bvfdvmotx237 sh:class ropt:Dubbelbestemming .
 
 ropt_str:Wijzigingsbevoegdheid_ouder_DefinitieveBestemmingBijVoorlopigeBestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x238 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx238 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x238 sh:class ropt:DefinitieveBestemmingBijVoorlopigeBestemming .
+_:node1bvfdvmotx238 sh:class ropt:DefinitieveBestemmingBijVoorlopigeBestemming .
 
 ropt_str:Wijzigingsbevoegdheid_ouder_Bestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x239 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx239 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x239 sh:class ropt:Bestemming .
+_:node1bvfdvmotx239 sh:class ropt:Bestemming .
 
 ropt_str:Wijzigingsbevoegdheid_ouder_VoorlopigeBestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x240 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx240 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x240 sh:class ropt:VoorlopigeBestemming .
+_:node1bvfdvmotx240 sh:class ropt:VoorlopigeBestemming .
 
 ropt_str:Overig a sh:NodeShape ;
 	sh:targetClass ropt:Overig ;
@@ -3285,84 +3285,84 @@ ropt_str:Overig a sh:NodeShape ;
 
 ropt_str:Overig_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x241 .
+	sh:in _:node1bvfdvmotx241 .
 
-_:node1bvfdmt21x241 rdf:first ropt:Hoofdstuk ;
-	rdf:rest _:node1bvfdmt21x242 .
+_:node1bvfdvmotx241 rdf:first ropt:Hoofdstuk ;
+	rdf:rest _:node1bvfdvmotx242 .
 
-_:node1bvfdmt21x242 rdf:first ropt:Deel ;
-	rdf:rest _:node1bvfdmt21x243 .
+_:node1bvfdvmotx242 rdf:first ropt:Deel ;
+	rdf:rest _:node1bvfdvmotx243 .
 
-_:node1bvfdmt21x243 rdf:first ropt:Toelichting ;
-	rdf:rest _:node1bvfdmt21x244 .
+_:node1bvfdvmotx243 rdf:first ropt:Toelichting ;
+	rdf:rest _:node1bvfdvmotx244 .
 
-_:node1bvfdmt21x244 rdf:first ropt:Subparagraaf ;
-	rdf:rest _:node1bvfdmt21x245 .
+_:node1bvfdvmotx244 rdf:first ropt:Subparagraaf ;
+	rdf:rest _:node1bvfdvmotx245 .
 
-_:node1bvfdmt21x245 rdf:first ropt:Titel ;
-	rdf:rest _:node1bvfdmt21x246 .
+_:node1bvfdvmotx245 rdf:first ropt:Titel ;
+	rdf:rest _:node1bvfdvmotx246 .
 
-_:node1bvfdmt21x246 rdf:first ropt:Overig ;
-	rdf:rest _:node1bvfdmt21x247 .
+_:node1bvfdvmotx246 rdf:first ropt:Overig ;
+	rdf:rest _:node1bvfdvmotx247 .
 
-_:node1bvfdmt21x247 rdf:first ropt:SubSubSubparagraaf ;
-	rdf:rest _:node1bvfdmt21x248 .
+_:node1bvfdvmotx247 rdf:first ropt:SubSubSubparagraaf ;
+	rdf:rest _:node1bvfdvmotx248 .
 
-_:node1bvfdmt21x248 rdf:first ropt:Subonderdeel ;
-	rdf:rest _:node1bvfdmt21x249 .
+_:node1bvfdvmotx248 rdf:first ropt:Subonderdeel ;
+	rdf:rest _:node1bvfdvmotx249 .
 
-_:node1bvfdmt21x249 rdf:first ropt:Bijlage ;
-	rdf:rest _:node1bvfdmt21x250 .
+_:node1bvfdvmotx249 rdf:first ropt:Bijlage ;
+	rdf:rest _:node1bvfdvmotx250 .
 
-_:node1bvfdmt21x250 rdf:first ropt:BijlageBijToelichting ;
-	rdf:rest _:node1bvfdmt21x251 .
+_:node1bvfdvmotx250 rdf:first ropt:BijlageBijToelichting ;
+	rdf:rest _:node1bvfdvmotx251 .
 
-_:node1bvfdmt21x251 rdf:first ropt:SubSubparagraaf ;
-	rdf:rest _:node1bvfdmt21x252 .
+_:node1bvfdvmotx251 rdf:first ropt:SubSubparagraaf ;
+	rdf:rest _:node1bvfdvmotx252 .
 
-_:node1bvfdmt21x252 rdf:first ropt:Lid ;
-	rdf:rest _:node1bvfdmt21x253 .
+_:node1bvfdvmotx252 rdf:first ropt:Lid ;
+	rdf:rest _:node1bvfdvmotx253 .
 
-_:node1bvfdmt21x253 rdf:first ropt:Afdeling ;
-	rdf:rest _:node1bvfdmt21x254 .
+_:node1bvfdvmotx253 rdf:first ropt:Afdeling ;
+	rdf:rest _:node1bvfdvmotx254 .
 
-_:node1bvfdmt21x254 rdf:first ropt:Besluittekst ;
-	rdf:rest _:node1bvfdmt21x255 .
+_:node1bvfdvmotx254 rdf:first ropt:Besluittekst ;
+	rdf:rest _:node1bvfdvmotx255 .
 
-_:node1bvfdmt21x255 rdf:first ropt:Paragraaf ;
-	rdf:rest _:node1bvfdmt21x256 .
+_:node1bvfdvmotx255 rdf:first ropt:Paragraaf ;
+	rdf:rest _:node1bvfdvmotx256 .
 
-_:node1bvfdmt21x256 rdf:first ropt:Onderdeel ;
-	rdf:rest _:node1bvfdmt21x257 .
+_:node1bvfdvmotx256 rdf:first ropt:Onderdeel ;
+	rdf:rest _:node1bvfdvmotx257 .
 
-_:node1bvfdmt21x257 rdf:first ropt:SubSubSublid ;
-	rdf:rest _:node1bvfdmt21x258 .
+_:node1bvfdvmotx257 rdf:first ropt:SubSubSublid ;
+	rdf:rest _:node1bvfdvmotx258 .
 
-_:node1bvfdmt21x258 rdf:first ropt:Sublid ;
-	rdf:rest _:node1bvfdmt21x259 .
+_:node1bvfdvmotx258 rdf:first ropt:Sublid ;
+	rdf:rest _:node1bvfdvmotx259 .
 
-_:node1bvfdmt21x259 rdf:first ropt:Artikel ;
-	rdf:rest _:node1bvfdmt21x260 .
+_:node1bvfdvmotx259 rdf:first ropt:Artikel ;
+	rdf:rest _:node1bvfdvmotx260 .
 
-_:node1bvfdmt21x260 rdf:first ropt:SubSublid ;
+_:node1bvfdvmotx260 rdf:first ropt:SubSublid ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x261 rdf:first ropt:Band ;
-	rdf:rest _:node1bvfdmt21x262 .
+_:node1bvfdvmotx261 rdf:first ropt:Band ;
+	rdf:rest _:node1bvfdvmotx262 .
 
-_:node1bvfdmt21x262 rdf:first ropt:Toelichting ;
-	rdf:rest _:node1bvfdmt21x263 .
+_:node1bvfdvmotx262 rdf:first ropt:Toelichting ;
+	rdf:rest _:node1bvfdvmotx263 .
 
-_:node1bvfdmt21x263 rdf:first ropt:Besluittekst ;
-	rdf:rest _:node1bvfdmt21x264 .
+_:node1bvfdvmotx263 rdf:first ropt:Besluittekst ;
+	rdf:rest _:node1bvfdvmotx264 .
 
-_:node1bvfdmt21x264 rdf:first ropt:Bijlage ;
-	rdf:rest _:node1bvfdmt21x265 .
+_:node1bvfdvmotx264 rdf:first ropt:Bijlage ;
+	rdf:rest _:node1bvfdvmotx265 .
 
-_:node1bvfdmt21x265 rdf:first ropt:BijlageBijToelichting ;
-	rdf:rest _:node1bvfdmt21x266 .
+_:node1bvfdvmotx265 rdf:first ropt:BijlageBijToelichting ;
+	rdf:rest _:node1bvfdvmotx266 .
 
-_:node1bvfdmt21x266 rdf:first ropt:Beleidstekst ;
+_:node1bvfdvmotx266 rdf:first ropt:Beleidstekst ;
 	rdf:rest rdf:nil .
 
 ropt_str:AlgemeneGebruiksregels a sh:NodeShape ;
@@ -3371,17 +3371,17 @@ ropt_str:AlgemeneGebruiksregels a sh:NodeShape ;
 
 ropt_str:AlgemeneGebruiksregels_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x267 .
+	sh:in _:node1bvfdvmotx267 .
 
-_:node1bvfdmt21x267 rdf:first ropt:AlgemeneRegels ;
+_:node1bvfdvmotx267 rdf:first ropt:AlgemeneRegels ;
 	rdf:rest rdf:nil .
 
 ropt_str:AlgemeneGebruiksregels_ouder_AlgemeneRegels a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x268 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx268 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x268 sh:class ropt:AlgemeneRegels .
+_:node1bvfdvmotx268 sh:class ropt:AlgemeneRegels .
 
 ropt_str:DefinitieveBestemmingBijVoorlopigeBestemming a sh:NodeShape ;
 	sh:targetClass ropt:DefinitieveBestemmingBijVoorlopigeBestemming ;
@@ -3389,17 +3389,17 @@ ropt_str:DefinitieveBestemmingBijVoorlopigeBestemming a sh:NodeShape ;
 
 ropt_str:DefinitieveBestemmingBijVoorlopigeBestemming_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x269 .
+	sh:in _:node1bvfdvmotx269 .
 
-_:node1bvfdmt21x269 rdf:first ropt:VoorlopigeBestemming ;
+_:node1bvfdvmotx269 rdf:first ropt:VoorlopigeBestemming ;
 	rdf:rest rdf:nil .
 
 ropt_str:DefinitieveBestemmingBijVoorlopigeBestemming_ouder_VoorlopigeBestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x270 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx270 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x270 sh:class ropt:VoorlopigeBestemming .
+_:node1bvfdvmotx270 sh:class ropt:VoorlopigeBestemming .
 
 ropt_str:BijlageBijToelichting a sh:NodeShape ;
 	sh:targetClass ropt:BijlageBijToelichting ;
@@ -3407,9 +3407,9 @@ ropt_str:BijlageBijToelichting a sh:NodeShape ;
 
 ropt_str:BijlageBijToelichting_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x271 .
+	sh:in _:node1bvfdvmotx271 .
 
-_:node1bvfdmt21x271 rdf:first ropt:BijlagenBijToelichting ;
+_:node1bvfdvmotx271 rdf:first ropt:BijlagenBijToelichting ;
 	rdf:rest rdf:nil .
 
 ropt_str:VoorlopigeBestemming a sh:NodeShape ;
@@ -3418,9 +3418,9 @@ ropt_str:VoorlopigeBestemming a sh:NodeShape ;
 
 ropt_str:VoorlopigeBestemming_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x272 .
+	sh:in _:node1bvfdvmotx272 .
 
-_:node1bvfdmt21x272 rdf:first ropt:Bestemmingsregels ;
+_:node1bvfdvmotx272 rdf:first ropt:Bestemmingsregels ;
 	rdf:rest rdf:nil .
 
 ropt_str:WijzeVanMeten a sh:NodeShape ;
@@ -3429,17 +3429,17 @@ ropt_str:WijzeVanMeten a sh:NodeShape ;
 
 ropt_str:WijzeVanMeten_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x273 .
+	sh:in _:node1bvfdvmotx273 .
 
-_:node1bvfdmt21x273 rdf:first ropt:InleidendeRegels ;
+_:node1bvfdvmotx273 rdf:first ropt:InleidendeRegels ;
 	rdf:rest rdf:nil .
 
 ropt_str:WijzeVanMeten_ouder_InleidendeRegels a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x274 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx274 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x274 sh:class ropt:InleidendeRegels .
+_:node1bvfdvmotx274 sh:class ropt:InleidendeRegels .
 
 ropt_str:Besluittekst a sh:NodeShape ;
 	sh:targetClass ropt:Besluittekst ;
@@ -3447,17 +3447,17 @@ ropt_str:Besluittekst a sh:NodeShape ;
 
 ropt_str:Besluittekst_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x275 .
+	sh:in _:node1bvfdvmotx275 .
 
-_:node1bvfdmt21x275 rdf:first ropt:Besluitdocument ;
+_:node1bvfdvmotx275 rdf:first ropt:Besluitdocument ;
 	rdf:rest rdf:nil .
 
 ropt_str:Besluittekst_ouder_Besluitdocument a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x276 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx276 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x276 sh:class ropt:Besluitdocument .
+_:node1bvfdvmotx276 sh:class ropt:Besluitdocument .
 
 ropt_str:SpecifiekeGebruiksregels a sh:NodeShape ;
 	sh:targetClass ropt:SpecifiekeGebruiksregels ;
@@ -3465,47 +3465,47 @@ ropt_str:SpecifiekeGebruiksregels a sh:NodeShape ;
 
 ropt_str:SpecifiekeGebruiksregels_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x277 .
+	sh:in _:node1bvfdvmotx277 .
 
-_:node1bvfdmt21x277 rdf:first ropt:Dubbelbestemming ;
-	rdf:rest _:node1bvfdmt21x278 .
+_:node1bvfdvmotx277 rdf:first ropt:Dubbelbestemming ;
+	rdf:rest _:node1bvfdvmotx278 .
 
-_:node1bvfdmt21x278 rdf:first ropt:DefinitieveBestemmingBijVoorlopigeBestemming ;
-	rdf:rest _:node1bvfdmt21x279 .
+_:node1bvfdvmotx278 rdf:first ropt:DefinitieveBestemmingBijVoorlopigeBestemming ;
+	rdf:rest _:node1bvfdvmotx279 .
 
-_:node1bvfdmt21x279 rdf:first ropt:Bestemming ;
-	rdf:rest _:node1bvfdmt21x280 .
+_:node1bvfdvmotx279 rdf:first ropt:Bestemming ;
+	rdf:rest _:node1bvfdvmotx280 .
 
-_:node1bvfdmt21x280 rdf:first ropt:VoorlopigeBestemming ;
+_:node1bvfdvmotx280 rdf:first ropt:VoorlopigeBestemming ;
 	rdf:rest rdf:nil .
 
 ropt_str:SpecifiekeGebruiksregels_ouder_Dubbelbestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x281 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx281 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x281 sh:class ropt:Dubbelbestemming .
+_:node1bvfdvmotx281 sh:class ropt:Dubbelbestemming .
 
 ropt_str:SpecifiekeGebruiksregels_ouder_DefinitieveBestemmingBijVoorlopigeBestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x282 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx282 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x282 sh:class ropt:DefinitieveBestemmingBijVoorlopigeBestemming .
+_:node1bvfdvmotx282 sh:class ropt:DefinitieveBestemmingBijVoorlopigeBestemming .
 
 ropt_str:SpecifiekeGebruiksregels_ouder_Bestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x283 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx283 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x283 sh:class ropt:Bestemming .
+_:node1bvfdvmotx283 sh:class ropt:Bestemming .
 
 ropt_str:SpecifiekeGebruiksregels_ouder_VoorlopigeBestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x284 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx284 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x284 sh:class ropt:VoorlopigeBestemming .
+_:node1bvfdvmotx284 sh:class ropt:VoorlopigeBestemming .
 
 ropt_str:AfwijkenVanDeGebruiksregels a sh:NodeShape ;
 	sh:targetClass ropt:AfwijkenVanDeGebruiksregels ;
@@ -3513,47 +3513,47 @@ ropt_str:AfwijkenVanDeGebruiksregels a sh:NodeShape ;
 
 ropt_str:AfwijkenVanDeGebruiksregels_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x285 .
+	sh:in _:node1bvfdvmotx285 .
 
-_:node1bvfdmt21x285 rdf:first ropt:Dubbelbestemming ;
-	rdf:rest _:node1bvfdmt21x286 .
+_:node1bvfdvmotx285 rdf:first ropt:Dubbelbestemming ;
+	rdf:rest _:node1bvfdvmotx286 .
 
-_:node1bvfdmt21x286 rdf:first ropt:DefinitieveBestemmingBijVoorlopigeBestemming ;
-	rdf:rest _:node1bvfdmt21x287 .
+_:node1bvfdvmotx286 rdf:first ropt:DefinitieveBestemmingBijVoorlopigeBestemming ;
+	rdf:rest _:node1bvfdvmotx287 .
 
-_:node1bvfdmt21x287 rdf:first ropt:Bestemming ;
-	rdf:rest _:node1bvfdmt21x288 .
+_:node1bvfdvmotx287 rdf:first ropt:Bestemming ;
+	rdf:rest _:node1bvfdvmotx288 .
 
-_:node1bvfdmt21x288 rdf:first ropt:VoorlopigeBestemming ;
+_:node1bvfdvmotx288 rdf:first ropt:VoorlopigeBestemming ;
 	rdf:rest rdf:nil .
 
 ropt_str:AfwijkenVanDeGebruiksregels_ouder_Dubbelbestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x289 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx289 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x289 sh:class ropt:Dubbelbestemming .
+_:node1bvfdvmotx289 sh:class ropt:Dubbelbestemming .
 
 ropt_str:AfwijkenVanDeGebruiksregels_ouder_DefinitieveBestemmingBijVoorlopigeBestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x290 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx290 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x290 sh:class ropt:DefinitieveBestemmingBijVoorlopigeBestemming .
+_:node1bvfdvmotx290 sh:class ropt:DefinitieveBestemmingBijVoorlopigeBestemming .
 
 ropt_str:AfwijkenVanDeGebruiksregels_ouder_Bestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x291 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx291 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x291 sh:class ropt:Bestemming .
+_:node1bvfdvmotx291 sh:class ropt:Bestemming .
 
 ropt_str:AfwijkenVanDeGebruiksregels_ouder_VoorlopigeBestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x292 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx292 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x292 sh:class ropt:VoorlopigeBestemming .
+_:node1bvfdvmotx292 sh:class ropt:VoorlopigeBestemming .
 
 ropt_str:BijlagenBijToelichting a sh:NodeShape ;
 	sh:targetClass ropt:BijlagenBijToelichting ;
@@ -3561,37 +3561,37 @@ ropt_str:BijlagenBijToelichting a sh:NodeShape ;
 
 ropt_str:BijlagenBijToelichting_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x293 .
+	sh:in _:node1bvfdvmotx293 .
 
-_:node1bvfdmt21x293 rdf:first ropt:Besluitdocument ;
-	rdf:rest _:node1bvfdmt21x294 .
+_:node1bvfdvmotx293 rdf:first ropt:Besluitdocument ;
+	rdf:rest _:node1bvfdvmotx294 .
 
-_:node1bvfdmt21x294 rdf:first ropt:Toelichting ;
-	rdf:rest _:node1bvfdmt21x295 .
+_:node1bvfdvmotx294 rdf:first ropt:Toelichting ;
+	rdf:rest _:node1bvfdvmotx295 .
 
-_:node1bvfdmt21x295 rdf:first ropt:Document ;
+_:node1bvfdvmotx295 rdf:first ropt:Document ;
 	rdf:rest rdf:nil .
 
 ropt_str:BijlagenBijToelichting_ouder_Besluitdocument a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x296 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx296 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x296 sh:class ropt:Besluitdocument .
+_:node1bvfdvmotx296 sh:class ropt:Besluitdocument .
 
 ropt_str:BijlagenBijToelichting_ouder_Toelichting a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x297 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx297 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x297 sh:class ropt:Toelichting .
+_:node1bvfdvmotx297 sh:class ropt:Toelichting .
 
 ropt_str:BijlagenBijToelichting_ouder_Document a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x298 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx298 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x298 sh:class ropt:Document .
+_:node1bvfdvmotx298 sh:class ropt:Document .
 
 ropt_str:BijlagenBijRegels a sh:NodeShape ;
 	sh:targetClass ropt:BijlagenBijRegels ;
@@ -3599,37 +3599,37 @@ ropt_str:BijlagenBijRegels a sh:NodeShape ;
 
 ropt_str:BijlagenBijRegels_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x299 .
+	sh:in _:node1bvfdvmotx299 .
 
-_:node1bvfdmt21x299 rdf:first ropt:Besluitdocument ;
-	rdf:rest _:node1bvfdmt21x300 .
+_:node1bvfdvmotx299 rdf:first ropt:Besluitdocument ;
+	rdf:rest _:node1bvfdvmotx300 .
 
-_:node1bvfdmt21x300 rdf:first ropt:Regels ;
-	rdf:rest _:node1bvfdmt21x301 .
+_:node1bvfdvmotx300 rdf:first ropt:Regels ;
+	rdf:rest _:node1bvfdvmotx301 .
 
-_:node1bvfdmt21x301 rdf:first ropt:Document ;
+_:node1bvfdvmotx301 rdf:first ropt:Document ;
 	rdf:rest rdf:nil .
 
 ropt_str:BijlagenBijRegels_ouder_Besluitdocument a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x302 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx302 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x302 sh:class ropt:Besluitdocument .
+_:node1bvfdvmotx302 sh:class ropt:Besluitdocument .
 
 ropt_str:BijlagenBijRegels_ouder_Regels a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x303 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx303 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x303 sh:class ropt:Regels .
+_:node1bvfdvmotx303 sh:class ropt:Regels .
 
 ropt_str:BijlagenBijRegels_ouder_Document a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x304 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx304 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x304 sh:class ropt:Document .
+_:node1bvfdvmotx304 sh:class ropt:Document .
 
 ropt_str:VerwezenlijkingInDeNaasteToekomst a sh:NodeShape ;
 	sh:targetClass ropt:VerwezenlijkingInDeNaasteToekomst ;
@@ -3637,17 +3637,17 @@ ropt_str:VerwezenlijkingInDeNaasteToekomst a sh:NodeShape ;
 
 ropt_str:VerwezenlijkingInDeNaasteToekomst_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x305 .
+	sh:in _:node1bvfdvmotx305 .
 
-_:node1bvfdmt21x305 rdf:first ropt:AlgemeneRegels ;
+_:node1bvfdvmotx305 rdf:first ropt:AlgemeneRegels ;
 	rdf:rest rdf:nil .
 
 ropt_str:VerwezenlijkingInDeNaasteToekomst_ouder_AlgemeneRegels a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x306 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx306 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x306 sh:class ropt:AlgemeneRegels .
+_:node1bvfdvmotx306 sh:class ropt:AlgemeneRegels .
 
 ropt_str:AlgemeneProcedureregels a sh:NodeShape ;
 	sh:targetClass ropt:AlgemeneProcedureregels ;
@@ -3655,17 +3655,17 @@ ropt_str:AlgemeneProcedureregels a sh:NodeShape ;
 
 ropt_str:AlgemeneProcedureregels_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x307 .
+	sh:in _:node1bvfdvmotx307 .
 
-_:node1bvfdmt21x307 rdf:first ropt:AlgemeneRegels ;
+_:node1bvfdvmotx307 rdf:first ropt:AlgemeneRegels ;
 	rdf:rest rdf:nil .
 
 ropt_str:AlgemeneProcedureregels_ouder_AlgemeneRegels a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x308 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx308 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x308 sh:class ropt:AlgemeneRegels .
+_:node1bvfdvmotx308 sh:class ropt:AlgemeneRegels .
 
 ropt_str:BijlageBijRegels a sh:NodeShape ;
 	sh:targetClass ropt:BijlageBijRegels ;
@@ -3673,9 +3673,9 @@ ropt_str:BijlageBijRegels a sh:NodeShape ;
 
 ropt_str:BijlageBijRegels_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x309 .
+	sh:in _:node1bvfdvmotx309 .
 
-_:node1bvfdmt21x309 rdf:first ropt:BijlagenBijRegels ;
+_:node1bvfdvmotx309 rdf:first ropt:BijlagenBijRegels ;
 	rdf:rest rdf:nil .
 
 ropt_str:Hoofdstuk a sh:NodeShape ;
@@ -3684,39 +3684,39 @@ ropt_str:Hoofdstuk a sh:NodeShape ;
 
 ropt_str:Hoofdstuk_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x310 .
+	sh:in _:node1bvfdvmotx310 .
 
-_:node1bvfdmt21x310 rdf:first ropt:Band ;
-	rdf:rest _:node1bvfdmt21x311 .
+_:node1bvfdvmotx310 rdf:first ropt:Band ;
+	rdf:rest _:node1bvfdvmotx311 .
 
-_:node1bvfdmt21x311 rdf:first ropt:Deel ;
-	rdf:rest _:node1bvfdmt21x312 .
+_:node1bvfdvmotx311 rdf:first ropt:Deel ;
+	rdf:rest _:node1bvfdvmotx312 .
 
-_:node1bvfdmt21x312 rdf:first ropt:Deel ;
-	rdf:rest _:node1bvfdmt21x313 .
+_:node1bvfdvmotx312 rdf:first ropt:Deel ;
+	rdf:rest _:node1bvfdvmotx313 .
 
-_:node1bvfdmt21x313 rdf:first ropt:Toelichting ;
-	rdf:rest _:node1bvfdmt21x314 .
+_:node1bvfdvmotx313 rdf:first ropt:Toelichting ;
+	rdf:rest _:node1bvfdvmotx314 .
 
-_:node1bvfdmt21x314 rdf:first ropt:Besluittekst ;
-	rdf:rest _:node1bvfdmt21x315 .
+_:node1bvfdvmotx314 rdf:first ropt:Besluittekst ;
+	rdf:rest _:node1bvfdvmotx315 .
 
-_:node1bvfdmt21x315 rdf:first ropt:Titel ;
-	rdf:rest _:node1bvfdmt21x316 .
+_:node1bvfdvmotx315 rdf:first ropt:Titel ;
+	rdf:rest _:node1bvfdvmotx316 .
 
-_:node1bvfdmt21x316 rdf:first ropt:Bijlage ;
-	rdf:rest _:node1bvfdmt21x317 .
+_:node1bvfdvmotx316 rdf:first ropt:Bijlage ;
+	rdf:rest _:node1bvfdvmotx317 .
 
-_:node1bvfdmt21x317 rdf:first ropt:BijlageBijToelichting ;
-	rdf:rest _:node1bvfdmt21x318 .
+_:node1bvfdvmotx317 rdf:first ropt:BijlageBijToelichting ;
+	rdf:rest _:node1bvfdvmotx318 .
 
-_:node1bvfdmt21x318 rdf:first ropt:Beleidstekst ;
-	rdf:rest _:node1bvfdmt21x319 .
+_:node1bvfdvmotx318 rdf:first ropt:Beleidstekst ;
+	rdf:rest _:node1bvfdvmotx319 .
 
-_:node1bvfdmt21x319 rdf:first ropt:Regels ;
-	rdf:rest _:node1bvfdmt21x320 .
+_:node1bvfdvmotx319 rdf:first ropt:Regels ;
+	rdf:rest _:node1bvfdvmotx320 .
 
-_:node1bvfdmt21x320 rdf:first ropt:BijlageBijRegels ;
+_:node1bvfdvmotx320 rdf:first ropt:BijlageBijRegels ;
 	rdf:rest rdf:nil .
 
 ropt_str:Paragraaf a sh:NodeShape ;
@@ -3725,24 +3725,24 @@ ropt_str:Paragraaf a sh:NodeShape ;
 
 ropt_str:Paragraaf_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x321 .
+	sh:in _:node1bvfdvmotx321 .
 
-_:node1bvfdmt21x321 rdf:first ropt:Afdeling ;
-	rdf:rest _:node1bvfdmt21x322 .
+_:node1bvfdvmotx321 rdf:first ropt:Afdeling ;
+	rdf:rest _:node1bvfdvmotx322 .
 
-_:node1bvfdmt21x322 rdf:first ropt:Hoofdstuk ;
-	rdf:rest _:node1bvfdmt21x323 .
+_:node1bvfdvmotx322 rdf:first ropt:Hoofdstuk ;
+	rdf:rest _:node1bvfdvmotx323 .
 
-_:node1bvfdmt21x323 rdf:first ropt:Toelichting ;
-	rdf:rest _:node1bvfdmt21x324 .
+_:node1bvfdvmotx323 rdf:first ropt:Toelichting ;
+	rdf:rest _:node1bvfdvmotx324 .
 
-_:node1bvfdmt21x324 rdf:first ropt:Besluittekst ;
-	rdf:rest _:node1bvfdmt21x325 .
+_:node1bvfdvmotx324 rdf:first ropt:Besluittekst ;
+	rdf:rest _:node1bvfdvmotx325 .
 
-_:node1bvfdmt21x325 rdf:first ropt:Titel ;
-	rdf:rest _:node1bvfdmt21x326 .
+_:node1bvfdvmotx325 rdf:first ropt:Titel ;
+	rdf:rest _:node1bvfdvmotx326 .
 
-_:node1bvfdmt21x326 rdf:first ropt:Bijlage ;
+_:node1bvfdvmotx326 rdf:first ropt:Bijlage ;
 	rdf:rest rdf:nil .
 
 ropt_str:AlgemeneWijzigingsregels a sh:NodeShape ;
@@ -3751,17 +3751,17 @@ ropt_str:AlgemeneWijzigingsregels a sh:NodeShape ;
 
 ropt_str:AlgemeneWijzigingsregels_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x327 .
+	sh:in _:node1bvfdvmotx327 .
 
-_:node1bvfdmt21x327 rdf:first ropt:AlgemeneRegels ;
+_:node1bvfdvmotx327 rdf:first ropt:AlgemeneRegels ;
 	rdf:rest rdf:nil .
 
 ropt_str:AlgemeneWijzigingsregels_ouder_AlgemeneRegels a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x328 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx328 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x328 sh:class ropt:AlgemeneRegels .
+_:node1bvfdvmotx328 sh:class ropt:AlgemeneRegels .
 
 ropt_str:Bijlagen a sh:NodeShape ;
 	sh:targetClass ropt:Bijlagen ;
@@ -3769,37 +3769,37 @@ ropt_str:Bijlagen a sh:NodeShape ;
 
 ropt_str:Bijlagen_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x329 .
+	sh:in _:node1bvfdvmotx329 .
 
-_:node1bvfdmt21x329 rdf:first ropt:Beleidstekst ;
-	rdf:rest _:node1bvfdmt21x330 .
+_:node1bvfdvmotx329 rdf:first ropt:Beleidstekst ;
+	rdf:rest _:node1bvfdvmotx330 .
 
-_:node1bvfdmt21x330 rdf:first ropt:Besluitdocument ;
-	rdf:rest _:node1bvfdmt21x331 .
+_:node1bvfdvmotx330 rdf:first ropt:Besluitdocument ;
+	rdf:rest _:node1bvfdvmotx331 .
 
-_:node1bvfdmt21x331 rdf:first ropt:Document ;
+_:node1bvfdvmotx331 rdf:first ropt:Document ;
 	rdf:rest rdf:nil .
 
 ropt_str:Bijlagen_ouder_Beleidstekst a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x332 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx332 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x332 sh:class ropt:Beleidstekst .
+_:node1bvfdvmotx332 sh:class ropt:Beleidstekst .
 
 ropt_str:Bijlagen_ouder_Besluitdocument a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x333 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx333 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x333 sh:class ropt:Besluitdocument .
+_:node1bvfdvmotx333 sh:class ropt:Besluitdocument .
 
 ropt_str:Bijlagen_ouder_Document a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x334 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx334 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x334 sh:class ropt:Document .
+_:node1bvfdvmotx334 sh:class ropt:Document .
 
 ropt_str:SubSubSubparagraaf a sh:NodeShape ;
 	sh:targetClass ropt:SubSubSubparagraaf ;
@@ -3807,19 +3807,19 @@ ropt_str:SubSubSubparagraaf a sh:NodeShape ;
 
 ropt_str:SubSubSubparagraaf_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x335 .
+	sh:in _:node1bvfdvmotx335 .
 
-_:node1bvfdmt21x335 rdf:first ropt:SubSubparagraaf ;
+_:node1bvfdvmotx335 rdf:first ropt:SubSubparagraaf ;
 	rdf:rest rdf:nil .
 
 ropt_str:Titel_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x336 .
+	sh:in _:node1bvfdvmotx336 .
 
-_:node1bvfdmt21x336 rdf:first ropt:Hoofdstuk ;
-	rdf:rest _:node1bvfdmt21x337 .
+_:node1bvfdvmotx336 rdf:first ropt:Hoofdstuk ;
+	rdf:rest _:node1bvfdvmotx337 .
 
-_:node1bvfdmt21x337 rdf:first ropt:Regels ;
+_:node1bvfdvmotx337 rdf:first ropt:Regels ;
 	rdf:rest rdf:nil .
 
 ropt_str:AlgemeneAfwijkingsregels a sh:NodeShape ;
@@ -3828,17 +3828,17 @@ ropt_str:AlgemeneAfwijkingsregels a sh:NodeShape ;
 
 ropt_str:AlgemeneAfwijkingsregels_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x338 .
+	sh:in _:node1bvfdvmotx338 .
 
-_:node1bvfdmt21x338 rdf:first ropt:AlgemeneRegels ;
+_:node1bvfdvmotx338 rdf:first ropt:AlgemeneRegels ;
 	rdf:rest rdf:nil .
 
 ropt_str:AlgemeneAfwijkingsregels_ouder_AlgemeneRegels a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x339 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx339 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x339 sh:class ropt:AlgemeneRegels .
+_:node1bvfdvmotx339 sh:class ropt:AlgemeneRegels .
 
 ropt_str:Toelichting a sh:NodeShape ;
 	sh:targetClass ropt:Toelichting ;
@@ -3846,28 +3846,28 @@ ropt_str:Toelichting a sh:NodeShape ;
 
 ropt_str:Toelichting_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x340 .
+	sh:in _:node1bvfdvmotx340 .
 
-_:node1bvfdmt21x340 rdf:first ropt:Document ;
-	rdf:rest _:node1bvfdmt21x341 .
+_:node1bvfdvmotx340 rdf:first ropt:Document ;
+	rdf:rest _:node1bvfdvmotx341 .
 
-_:node1bvfdmt21x341 rdf:first ropt:Besluitdocument ;
+_:node1bvfdvmotx341 rdf:first ropt:Besluitdocument ;
 	rdf:rest rdf:nil .
 
 ropt_str:Toelichting_ouder_Document a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x342 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx342 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x342 sh:class ropt:Document .
+_:node1bvfdvmotx342 sh:class ropt:Document .
 
 ropt_str:Toelichting_ouder_Besluitdocument a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x343 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx343 ;
 	sh:qualifiedMinCount 1 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x343 sh:class ropt:Besluitdocument .
+_:node1bvfdvmotx343 sh:class ropt:Besluitdocument .
 
 ropt_str:Bestemmingsregels a sh:NodeShape ;
 	sh:targetClass ropt:Bestemmingsregels ;
@@ -3875,17 +3875,17 @@ ropt_str:Bestemmingsregels a sh:NodeShape ;
 
 ropt_str:Bestemmingsregels_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x344 .
+	sh:in _:node1bvfdvmotx344 .
 
-_:node1bvfdmt21x344 rdf:first ropt:Regels ;
+_:node1bvfdvmotx344 rdf:first ropt:Regels ;
 	rdf:rest rdf:nil .
 
 ropt_str:Bestemmingsregels_ouder_Regels a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x345 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx345 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x345 sh:class ropt:Regels .
+_:node1bvfdvmotx345 sh:class ropt:Regels .
 
 ropt_str:Overgangsrecht a sh:NodeShape ;
 	sh:targetClass ropt:Overgangsrecht ;
@@ -3893,17 +3893,17 @@ ropt_str:Overgangsrecht a sh:NodeShape ;
 
 ropt_str:Overgangsrecht_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x346 .
+	sh:in _:node1bvfdvmotx346 .
 
-_:node1bvfdmt21x346 rdf:first ropt:Overgangs_EnSlotregels ;
+_:node1bvfdvmotx346 rdf:first ropt:Overgangs_EnSlotregels ;
 	rdf:rest rdf:nil .
 
 ropt_str:Overgangsrecht_ouder_Overgangs_EnSlotregels a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x347 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx347 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x347 sh:class ropt:Overgangs_EnSlotregels .
+_:node1bvfdvmotx347 sh:class ropt:Overgangs_EnSlotregels .
 
 ropt_str:AlgemeneBouwregels a sh:NodeShape ;
 	sh:targetClass ropt:AlgemeneBouwregels ;
@@ -3911,17 +3911,17 @@ ropt_str:AlgemeneBouwregels a sh:NodeShape ;
 
 ropt_str:AlgemeneBouwregels_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x348 .
+	sh:in _:node1bvfdvmotx348 .
 
-_:node1bvfdmt21x348 rdf:first ropt:AlgemeneRegels ;
+_:node1bvfdvmotx348 rdf:first ropt:AlgemeneRegels ;
 	rdf:rest rdf:nil .
 
 ropt_str:AlgemeneBouwregels_ouder_AlgemeneRegels a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x349 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx349 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x349 sh:class ropt:AlgemeneRegels .
+_:node1bvfdvmotx349 sh:class ropt:AlgemeneRegels .
 
 ropt_str:Band a sh:NodeShape ;
 	sh:targetClass ropt:Band ;
@@ -3929,9 +3929,9 @@ ropt_str:Band a sh:NodeShape ;
 
 ropt_str:Band_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x350 .
+	sh:in _:node1bvfdvmotx350 .
 
-_:node1bvfdmt21x350 rdf:first ropt:Beleidstekst ;
+_:node1bvfdvmotx350 rdf:first ropt:Beleidstekst ;
 	rdf:rest rdf:nil .
 
 ropt_str:NadereEisen a sh:NodeShape ;
@@ -3940,47 +3940,47 @@ ropt_str:NadereEisen a sh:NodeShape ;
 
 ropt_str:NadereEisen_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x351 .
+	sh:in _:node1bvfdvmotx351 .
 
-_:node1bvfdmt21x351 rdf:first ropt:Dubbelbestemming ;
-	rdf:rest _:node1bvfdmt21x352 .
+_:node1bvfdvmotx351 rdf:first ropt:Dubbelbestemming ;
+	rdf:rest _:node1bvfdvmotx352 .
 
-_:node1bvfdmt21x352 rdf:first ropt:DefinitieveBestemmingBijVoorlopigeBestemming ;
-	rdf:rest _:node1bvfdmt21x353 .
+_:node1bvfdvmotx352 rdf:first ropt:DefinitieveBestemmingBijVoorlopigeBestemming ;
+	rdf:rest _:node1bvfdvmotx353 .
 
-_:node1bvfdmt21x353 rdf:first ropt:Bestemming ;
-	rdf:rest _:node1bvfdmt21x354 .
+_:node1bvfdvmotx353 rdf:first ropt:Bestemming ;
+	rdf:rest _:node1bvfdvmotx354 .
 
-_:node1bvfdmt21x354 rdf:first ropt:VoorlopigeBestemming ;
+_:node1bvfdvmotx354 rdf:first ropt:VoorlopigeBestemming ;
 	rdf:rest rdf:nil .
 
 ropt_str:NadereEisen_ouder_Dubbelbestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x355 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx355 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x355 sh:class ropt:Dubbelbestemming .
+_:node1bvfdvmotx355 sh:class ropt:Dubbelbestemming .
 
 ropt_str:NadereEisen_ouder_DefinitieveBestemmingBijVoorlopigeBestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x356 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx356 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x356 sh:class ropt:DefinitieveBestemmingBijVoorlopigeBestemming .
+_:node1bvfdvmotx356 sh:class ropt:DefinitieveBestemmingBijVoorlopigeBestemming .
 
 ropt_str:NadereEisen_ouder_Bestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x357 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx357 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x357 sh:class ropt:Bestemming .
+_:node1bvfdvmotx357 sh:class ropt:Bestemming .
 
 ropt_str:NadereEisen_ouder_VoorlopigeBestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x358 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx358 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x358 sh:class ropt:VoorlopigeBestemming .
+_:node1bvfdvmotx358 sh:class ropt:VoorlopigeBestemming .
 
 ropt_str:UitTeWerkenBestemming a sh:NodeShape ;
 	sh:targetClass ropt:UitTeWerkenBestemming ;
@@ -3988,9 +3988,9 @@ ropt_str:UitTeWerkenBestemming a sh:NodeShape ;
 
 ropt_str:UitTeWerkenBestemming_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x359 .
+	sh:in _:node1bvfdvmotx359 .
 
-_:node1bvfdmt21x359 rdf:first ropt:Bestemmingsregels ;
+_:node1bvfdvmotx359 rdf:first ropt:Bestemmingsregels ;
 	rdf:rest rdf:nil .
 
 ropt_str:Overgangs_EnSlotregels a sh:NodeShape ;
@@ -3999,17 +3999,17 @@ ropt_str:Overgangs_EnSlotregels a sh:NodeShape ;
 
 ropt_str:Overgangs_EnSlotregels_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x360 .
+	sh:in _:node1bvfdvmotx360 .
 
-_:node1bvfdmt21x360 rdf:first ropt:Regels ;
+_:node1bvfdvmotx360 rdf:first ropt:Regels ;
 	rdf:rest rdf:nil .
 
 ropt_str:Overgangs_EnSlotregels_ouder_Regels a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x361 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx361 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x361 sh:class ropt:Regels .
+_:node1bvfdvmotx361 sh:class ropt:Regels .
 
 ropt_str:Bestemming a sh:NodeShape ;
 	sh:targetClass ropt:Bestemming ;
@@ -4017,9 +4017,9 @@ ropt_str:Bestemming a sh:NodeShape ;
 
 ropt_str:Bestemming_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x362 .
+	sh:in _:node1bvfdvmotx362 .
 
-_:node1bvfdmt21x362 rdf:first ropt:Bestemmingsregels ;
+_:node1bvfdvmotx362 rdf:first ropt:Bestemmingsregels ;
 	rdf:rest rdf:nil .
 
 ropt_str:AfwijkenVanDeBouwregels a sh:NodeShape ;
@@ -4028,57 +4028,57 @@ ropt_str:AfwijkenVanDeBouwregels a sh:NodeShape ;
 
 ropt_str:AfwijkenVanDeBouwregels_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x363 .
+	sh:in _:node1bvfdvmotx363 .
 
-_:node1bvfdmt21x363 rdf:first ropt:UitTeWerkenBestemming ;
-	rdf:rest _:node1bvfdmt21x364 .
+_:node1bvfdvmotx363 rdf:first ropt:UitTeWerkenBestemming ;
+	rdf:rest _:node1bvfdvmotx364 .
 
-_:node1bvfdmt21x364 rdf:first ropt:Dubbelbestemming ;
-	rdf:rest _:node1bvfdmt21x365 .
+_:node1bvfdvmotx364 rdf:first ropt:Dubbelbestemming ;
+	rdf:rest _:node1bvfdvmotx365 .
 
-_:node1bvfdmt21x365 rdf:first ropt:DefinitieveBestemmingBijVoorlopigeBestemming ;
-	rdf:rest _:node1bvfdmt21x366 .
+_:node1bvfdvmotx365 rdf:first ropt:DefinitieveBestemmingBijVoorlopigeBestemming ;
+	rdf:rest _:node1bvfdvmotx366 .
 
-_:node1bvfdmt21x366 rdf:first ropt:Bestemming ;
-	rdf:rest _:node1bvfdmt21x367 .
+_:node1bvfdvmotx366 rdf:first ropt:Bestemming ;
+	rdf:rest _:node1bvfdvmotx367 .
 
-_:node1bvfdmt21x367 rdf:first ropt:VoorlopigeBestemming ;
+_:node1bvfdvmotx367 rdf:first ropt:VoorlopigeBestemming ;
 	rdf:rest rdf:nil .
 
 ropt_str:AfwijkenVanDeBouwregels_ouder_UitTeWerkenBestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x368 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx368 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x368 sh:class ropt:UitTeWerkenBestemming .
+_:node1bvfdvmotx368 sh:class ropt:UitTeWerkenBestemming .
 
 ropt_str:AfwijkenVanDeBouwregels_ouder_Dubbelbestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x369 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx369 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x369 sh:class ropt:Dubbelbestemming .
+_:node1bvfdvmotx369 sh:class ropt:Dubbelbestemming .
 
 ropt_str:AfwijkenVanDeBouwregels_ouder_DefinitieveBestemmingBijVoorlopigeBestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x370 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx370 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x370 sh:class ropt:DefinitieveBestemmingBijVoorlopigeBestemming .
+_:node1bvfdvmotx370 sh:class ropt:DefinitieveBestemmingBijVoorlopigeBestemming .
 
 ropt_str:AfwijkenVanDeBouwregels_ouder_Bestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x371 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx371 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x371 sh:class ropt:Bestemming .
+_:node1bvfdvmotx371 sh:class ropt:Bestemming .
 
 ropt_str:AfwijkenVanDeBouwregels_ouder_VoorlopigeBestemming a sh:PropertyConstraint ;
 	sh:path ropt:ouder ;
-	sh:qualifiedValueShape _:node1bvfdmt21x372 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx372 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x372 sh:class ropt:VoorlopigeBestemming .
+_:node1bvfdvmotx372 sh:class ropt:VoorlopigeBestemming .
 
 ropt_str:Bijlage a sh:NodeShape ;
 	sh:targetClass ropt:Bijlage ;
@@ -4086,9 +4086,9 @@ ropt_str:Bijlage a sh:NodeShape ;
 
 ropt_str:Bijlage_ouder a sh:PropertyShape ;
 	sh:path ropt:ouder ;
-	sh:in _:node1bvfdmt21x373 .
+	sh:in _:node1bvfdvmotx373 .
 
-_:node1bvfdmt21x373 rdf:first ropt:Bijlagen ;
+_:node1bvfdvmotx373 rdf:first ropt:Bijlagen ;
 	rdf:rest rdf:nil .
 
 :ro a owl:Ontology , voaf:Vocabulary ;
@@ -4694,58 +4694,58 @@ ro_str:overheidsCode a sh:PropertyShape ;
 	sh:datatype xsd:string .
 
 ro_str:Overheden_R a sh:NodeShape ;
-	sh:property _:node1bvfdmt21x374 , _:node1bvfdmt21x376 , _:node1bvfdmt21x377 .
+	sh:property _:node1bvfdvmotx374 , _:node1bvfdvmotx376 , _:node1bvfdvmotx377 .
 
-_:node1bvfdmt21x374 sh:path rdf:type ;
-	sh:in _:node1bvfdmt21x375 .
+_:node1bvfdvmotx374 sh:path rdf:type ;
+	sh:in _:node1bvfdvmotx375 .
 
-_:node1bvfdmt21x375 rdf:first ro:NationaleOverheid ;
+_:node1bvfdvmotx375 rdf:first ro:NationaleOverheid ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x376 sh:path ro:overheidsCode ;
+_:node1bvfdvmotx376 sh:path ro:overheidsCode ;
 	sh:hasValue "0000" .
 
-_:node1bvfdmt21x377 sh:path ro:overheidsNaam ;
+_:node1bvfdvmotx377 sh:path ro:overheidsNaam ;
 	sh:pattern "^(ministerie)\\s" .
 
 ro_str:Overheden_P a sh:NodeShape ;
-	sh:property _:node1bvfdmt21x378 , _:node1bvfdmt21x380 , _:node1bvfdmt21x381 .
+	sh:property _:node1bvfdvmotx378 , _:node1bvfdvmotx380 , _:node1bvfdvmotx381 .
 
-_:node1bvfdmt21x378 sh:path rdf:type ;
-	sh:in _:node1bvfdmt21x379 .
+_:node1bvfdvmotx378 sh:path rdf:type ;
+	sh:in _:node1bvfdvmotx379 .
 
-_:node1bvfdmt21x379 rdf:first ro:ProvincialeOverheid ;
+_:node1bvfdvmotx379 rdf:first ro:ProvincialeOverheid ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x380 sh:path ro:overheidsCode ;
+_:node1bvfdvmotx380 sh:path ro:overheidsCode ;
 	sh:pattern "99[0-9][0-9]" .
 
-_:node1bvfdmt21x381 sh:path ro:overheidsNaam ;
+_:node1bvfdvmotx381 sh:path ro:overheidsNaam ;
 	sh:pattern "^(provincie)\\s" .
 
 ro_str:Overheden_G a sh:NodeShape ;
-	sh:property _:node1bvfdmt21x382 , _:node1bvfdmt21x385 .
+	sh:property _:node1bvfdvmotx382 , _:node1bvfdvmotx385 .
 
-_:node1bvfdmt21x382 sh:path rdf:type ;
-	sh:in _:node1bvfdmt21x383 .
+_:node1bvfdvmotx382 sh:path rdf:type ;
+	sh:in _:node1bvfdvmotx383 .
 
-_:node1bvfdmt21x383 rdf:first ro:GemeentelijkeOverheid ;
-	rdf:rest _:node1bvfdmt21x384 .
+_:node1bvfdvmotx383 rdf:first ro:GemeentelijkeOverheid ;
+	rdf:rest _:node1bvfdvmotx384 .
 
-_:node1bvfdmt21x384 rdf:first ro:Deelgemeente_Stadsdeel ;
+_:node1bvfdvmotx384 rdf:first ro:Deelgemeente_Stadsdeel ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x385 sh:path ro:overheidsNaam ;
-	sh:or _:node1bvfdmt21x386 .
+_:node1bvfdvmotx385 sh:path ro:overheidsNaam ;
+	sh:or _:node1bvfdvmotx386 .
 
-_:node1bvfdmt21x387 sh:pattern "^(gemeente)\\s" .
+_:node1bvfdvmotx387 sh:pattern "^(gemeente)\\s" .
 
-_:node1bvfdmt21x386 rdf:first _:node1bvfdmt21x387 ;
-	rdf:rest _:node1bvfdmt21x388 .
+_:node1bvfdvmotx386 rdf:first _:node1bvfdvmotx387 ;
+	rdf:rest _:node1bvfdvmotx388 .
 
-_:node1bvfdmt21x389 sh:pattern "^(deelgemeente/stadsdeel)\\s" .
+_:node1bvfdvmotx389 sh:pattern "^(deelgemeente/stadsdeel)\\s" .
 
-_:node1bvfdmt21x388 rdf:first _:node1bvfdmt21x389 ;
+_:node1bvfdvmotx388 rdf:first _:node1bvfdvmotx389 ;
 	rdf:rest rdf:nil .
 
 ro:Planstatus a owl:Class ;
@@ -4783,14 +4783,14 @@ ro_str:Planstatus_status a sh:PropertyShape ;
 	sh:nodeKind sh:IRI ;
 	sh:minCount 1 ;
 	sh:maxCount 1 ;
-	sh:node _:node1bvfdmt21x390 .
+	sh:node _:node1bvfdvmotx390 .
 
-_:node1bvfdmt21x392 sh:inversePath skos:member .
+_:node1bvfdvmotx392 sh:inversePath skos:member .
 
-_:node1bvfdmt21x391 sh:path _:node1bvfdmt21x392 ;
+_:node1bvfdvmotx391 sh:path _:node1bvfdvmotx392 ;
 	sh:hasValue ro_col:Planstatussen .
 
-_:node1bvfdmt21x390 sh:property _:node1bvfdmt21x391 .
+_:node1bvfdvmotx390 sh:property _:node1bvfdvmotx391 .
 
 ro_str:Planstatus_toekenningsdatum a sh:PropertyShape ;
 	sh:path ro:toekenningsdatum ;
@@ -4800,87 +4800,87 @@ ro_str:Planstatus_toekenningsdatum a sh:PropertyShape ;
 	sh:maxCount 1 .
 
 ro_str:Planstatus_vaststellingsbesluit a sh:PropertyShape ;
-	sh:xone _:node1bvfdmt21x393 .
+	sh:xone _:node1bvfdvmotx393 .
 
-_:node1bvfdmt21x396 sh:path ro:vaststellingsbesluit ;
+_:node1bvfdvmotx396 sh:path ro:vaststellingsbesluit ;
 	sh:nodeKind sh:Literal ;
 	sh:datatype xsd:string ;
 	sh:minCount 1 ;
 	sh:maxCount 1 .
 
-_:node1bvfdmt21x395 rdf:first _:node1bvfdmt21x396 ;
-	rdf:rest _:node1bvfdmt21x397 .
+_:node1bvfdvmotx395 rdf:first _:node1bvfdvmotx396 ;
+	rdf:rest _:node1bvfdvmotx397 .
 
-_:node1bvfdmt21x398 sh:path ro:status ;
+_:node1bvfdvmotx398 sh:path ro:status ;
 	sh:hasValue ro_beg:Vastgesteld_Planstatus .
 
-_:node1bvfdmt21x397 rdf:first _:node1bvfdmt21x398 ;
+_:node1bvfdvmotx397 rdf:first _:node1bvfdvmotx398 ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x394 sh:and _:node1bvfdmt21x395 .
+_:node1bvfdvmotx394 sh:and _:node1bvfdvmotx395 .
 
-_:node1bvfdmt21x393 rdf:first _:node1bvfdmt21x394 ;
-	rdf:rest _:node1bvfdmt21x399 .
+_:node1bvfdvmotx393 rdf:first _:node1bvfdvmotx394 ;
+	rdf:rest _:node1bvfdvmotx399 .
 
-_:node1bvfdmt21x402 sh:path ro:vaststellingsbesluit ;
+_:node1bvfdvmotx402 sh:path ro:vaststellingsbesluit ;
 	sh:maxCount 0 .
 
-_:node1bvfdmt21x401 rdf:first _:node1bvfdmt21x402 ;
-	rdf:rest _:node1bvfdmt21x403 .
+_:node1bvfdvmotx401 rdf:first _:node1bvfdvmotx402 ;
+	rdf:rest _:node1bvfdvmotx403 .
 
-_:node1bvfdmt21x405 sh:path ro:status ;
+_:node1bvfdvmotx405 sh:path ro:status ;
 	sh:hasValue ro_beg:Vastgesteld_Planstatus .
 
-_:node1bvfdmt21x404 sh:not _:node1bvfdmt21x405 .
+_:node1bvfdvmotx404 sh:not _:node1bvfdvmotx405 .
 
-_:node1bvfdmt21x403 rdf:first _:node1bvfdmt21x404 ;
+_:node1bvfdvmotx403 rdf:first _:node1bvfdvmotx404 ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x400 sh:and _:node1bvfdmt21x401 .
+_:node1bvfdvmotx400 sh:and _:node1bvfdvmotx401 .
 
-_:node1bvfdmt21x399 rdf:first _:node1bvfdmt21x400 ;
+_:node1bvfdvmotx399 rdf:first _:node1bvfdvmotx400 ;
 	rdf:rest rdf:nil .
 
 ro_str:Planstatus_besluitnummer a sh:PropertyShape ;
-	sh:xone _:node1bvfdmt21x406 .
+	sh:xone _:node1bvfdvmotx406 .
 
-_:node1bvfdmt21x409 sh:path ro:besluitnummer ;
+_:node1bvfdvmotx409 sh:path ro:besluitnummer ;
 	sh:nodeKind sh:Literal ;
 	sh:datatype xsd:string ;
 	sh:minCount 1 ;
 	sh:maxCount 1 .
 
-_:node1bvfdmt21x408 rdf:first _:node1bvfdmt21x409 ;
-	rdf:rest _:node1bvfdmt21x410 .
+_:node1bvfdvmotx408 rdf:first _:node1bvfdvmotx409 ;
+	rdf:rest _:node1bvfdvmotx410 .
 
-_:node1bvfdmt21x411 sh:path ro:status ;
+_:node1bvfdvmotx411 sh:path ro:status ;
 	sh:hasValue ro_beg:Vastgesteld_Planstatus .
 
-_:node1bvfdmt21x410 rdf:first _:node1bvfdmt21x411 ;
+_:node1bvfdvmotx410 rdf:first _:node1bvfdvmotx411 ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x407 sh:and _:node1bvfdmt21x408 .
+_:node1bvfdvmotx407 sh:and _:node1bvfdvmotx408 .
 
-_:node1bvfdmt21x406 rdf:first _:node1bvfdmt21x407 ;
-	rdf:rest _:node1bvfdmt21x412 .
+_:node1bvfdvmotx406 rdf:first _:node1bvfdvmotx407 ;
+	rdf:rest _:node1bvfdvmotx412 .
 
-_:node1bvfdmt21x415 sh:path ro:vaststellingsbesluit ;
+_:node1bvfdvmotx415 sh:path ro:vaststellingsbesluit ;
 	sh:maxCount 0 .
 
-_:node1bvfdmt21x414 rdf:first _:node1bvfdmt21x415 ;
-	rdf:rest _:node1bvfdmt21x416 .
+_:node1bvfdvmotx414 rdf:first _:node1bvfdvmotx415 ;
+	rdf:rest _:node1bvfdvmotx416 .
 
-_:node1bvfdmt21x418 sh:path ro:status ;
+_:node1bvfdvmotx418 sh:path ro:status ;
 	sh:hasValue ro_beg:Vastgesteld_Planstatus .
 
-_:node1bvfdmt21x417 sh:not _:node1bvfdmt21x418 .
+_:node1bvfdvmotx417 sh:not _:node1bvfdvmotx418 .
 
-_:node1bvfdmt21x416 rdf:first _:node1bvfdmt21x417 ;
+_:node1bvfdvmotx416 rdf:first _:node1bvfdvmotx417 ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x413 sh:and _:node1bvfdmt21x414 .
+_:node1bvfdvmotx413 sh:and _:node1bvfdvmotx414 .
 
-_:node1bvfdmt21x412 rdf:first _:node1bvfdmt21x413 ;
+_:node1bvfdvmotx412 rdf:first _:node1bvfdvmotx413 ;
 	rdf:rest rdf:nil .
 
 :ro_str a void:Dataset ;
@@ -4924,11 +4924,11 @@ ro_str:Plan_ondergronddatum a sh:PropertyShape ;
 
 ro_str:Plan_dataset a sh:propertyShape ;
 	sh:path rdf:type ;
-	sh:qualifiedValueShape _:node1bvfdmt21x419 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx419 ;
 	sh:qualifiedMinCount 1 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x419 sh:class void:Dataset .
+_:node1bvfdvmotx419 sh:class void:Dataset .
 
 ro_str:Plan_planstatus a sh:PropertyShape ;
 	sh:path ro:planstatus ;
@@ -4937,45 +4937,45 @@ ro_str:Plan_planstatus a sh:PropertyShape ;
 	sh:maxCount 1 .
 
 ro_str:Plan_tekstverwijzing a sh:PropertyShape ;
-	sh:xone _:node1bvfdmt21x420 .
+	sh:xone _:node1bvfdvmotx420 .
 
-_:node1bvfdmt21x423 sh:path ro:norm ;
+_:node1bvfdvmotx423 sh:path ro:norm ;
 	sh:hasValue ro_beg:IMROPT2012 .
 
-_:node1bvfdmt21x422 rdf:first _:node1bvfdmt21x423 ;
-	rdf:rest _:node1bvfdmt21x424 .
+_:node1bvfdvmotx422 rdf:first _:node1bvfdvmotx423 ;
+	rdf:rest _:node1bvfdvmotx424 .
 
-_:node1bvfdmt21x425 sh:path ro:tekst ;
+_:node1bvfdvmotx425 sh:path ro:tekst ;
 	sh:class ropt:Tekstobject , ro:Tekst .
 
-_:node1bvfdmt21x424 rdf:first _:node1bvfdmt21x425 ;
+_:node1bvfdvmotx424 rdf:first _:node1bvfdvmotx425 ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x421 sh:and _:node1bvfdmt21x422 .
+_:node1bvfdvmotx421 sh:and _:node1bvfdvmotx422 .
 
-_:node1bvfdmt21x420 rdf:first _:node1bvfdmt21x421 ;
-	rdf:rest _:node1bvfdmt21x426 .
+_:node1bvfdvmotx420 rdf:first _:node1bvfdvmotx421 ;
+	rdf:rest _:node1bvfdvmotx426 .
 
-_:node1bvfdmt21x429 sh:path ro:norm ;
-	sh:not _:node1bvfdmt21x430 .
+_:node1bvfdvmotx429 sh:path ro:norm ;
+	sh:not _:node1bvfdvmotx430 .
 
-_:node1bvfdmt21x430 sh:hasValue ro_beg:IMROPT .
+_:node1bvfdvmotx430 sh:hasValue ro_beg:IMROPT .
 
-_:node1bvfdmt21x428 rdf:first _:node1bvfdmt21x429 ;
-	rdf:rest _:node1bvfdmt21x431 .
+_:node1bvfdvmotx428 rdf:first _:node1bvfdvmotx429 ;
+	rdf:rest _:node1bvfdvmotx431 .
 
-_:node1bvfdmt21x432 sh:path ro:tekst ;
+_:node1bvfdvmotx432 sh:path ro:tekst ;
 	sh:class ro:Tekst ;
-	sh:not _:node1bvfdmt21x433 .
+	sh:not _:node1bvfdvmotx433 .
 
-_:node1bvfdmt21x433 sh:class ropt:Tekstobject .
+_:node1bvfdvmotx433 sh:class ropt:Tekstobject .
 
-_:node1bvfdmt21x431 rdf:first _:node1bvfdmt21x432 ;
+_:node1bvfdvmotx431 rdf:first _:node1bvfdvmotx432 ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x427 sh:and _:node1bvfdmt21x428 .
+_:node1bvfdvmotx427 sh:and _:node1bvfdvmotx428 .
 
-_:node1bvfdmt21x426 rdf:first _:node1bvfdmt21x427 ;
+_:node1bvfdvmotx426 rdf:first _:node1bvfdvmotx427 ;
 	rdf:rest rdf:nil .
 
 ro_str:Planobject a sh:NodeShape ;
@@ -4989,14 +4989,14 @@ ro_str:Planobject_isPartOf a sh:PropertyShape ;
 	sh:maxCount 1 .
 
 ro_str:Planobject_identificatie_lokaalID a sh:PropertyShape ;
-	sh:path _:node1bvfdmt21x434 ;
+	sh:path _:node1bvfdvmotx434 ;
 	sh:datatype xsd:string ;
 	sh:maxLength 32 .
 
-_:node1bvfdmt21x434 rdf:first nen3610:identificatie ;
-	rdf:rest _:node1bvfdmt21x435 .
+_:node1bvfdvmotx434 rdf:first nen3610:identificatie ;
+	rdf:rest _:node1bvfdvmotx435 .
 
-_:node1bvfdmt21x435 rdf:first nen3610:lokaalID ;
+_:node1bvfdvmotx435 rdf:first nen3610:lokaalID ;
 	rdf:rest rdf:nil .
 
 ro_str:Plangebied a sh:NodeShape ;
@@ -5010,34 +5010,34 @@ ro_str:Plangebied_begrenzing a sh:PropertyShape ;
 	sh:maxCount 1 .
 
 ro_str:Plangebied_identificatie_lokaalID a sh:PropertyShape ;
-	sh:path _:node1bvfdmt21x436 ;
+	sh:path _:node1bvfdvmotx436 ;
 	sh:datatype xsd:string ;
 	sh:maxLength 23 .
 
-_:node1bvfdmt21x436 rdf:first nen3610:identificatie ;
-	rdf:rest _:node1bvfdmt21x437 .
+_:node1bvfdvmotx436 rdf:first nen3610:identificatie ;
+	rdf:rest _:node1bvfdvmotx437 .
 
-_:node1bvfdmt21x437 rdf:first nen3610:lokaalID ;
+_:node1bvfdvmotx437 rdf:first nen3610:lokaalID ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x438 sh:namespace "http://data.informatiehuisruimte.nl/def/ro#"^^xsd:anyURI ;
+_:node1bvfdvmotx438 sh:namespace "http://data.informatiehuisruimte.nl/def/ro#"^^xsd:anyURI ;
 	sh:prefix "ro" .
 
-ro_str:prefixes sh:declare _:node1bvfdmt21x438 , _:node1bvfdmt21x439 , _:node1bvfdmt21x440 , _:node1bvfdmt21x441 .
+ro_str:prefixes sh:declare _:node1bvfdvmotx438 , _:node1bvfdvmotx439 , _:node1bvfdvmotx440 , _:node1bvfdvmotx441 .
 
-_:node1bvfdmt21x439 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+_:node1bvfdvmotx439 sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
 	sh:prefix "rdf" .
 
-_:node1bvfdmt21x440 sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ;
+_:node1bvfdvmotx440 sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ;
 	sh:prefix "rdfs" .
 
-_:node1bvfdmt21x441 sh:namespace "http://data.informatiehuisruimte.nl/def/nen3610#"^^xsd:anyURI ;
+_:node1bvfdvmotx441 sh:namespace "http://data.informatiehuisruimte.nl/def/nen3610#"^^xsd:anyURI ;
 	sh:prefix "nen3610" .
 
 ro_str:RuimtelijkPlanOfBesluit_SV a sh:NodeShape ;
-	sh:in _:node1bvfdmt21x442 .
+	sh:in _:node1bvfdvmotx442 .
 
-_:node1bvfdmt21x442 rdf:first ro:Structuurvisie ;
+_:node1bvfdvmotx442 rdf:first ro:Structuurvisie ;
 	rdf:rest rdf:nil .
 
 ro_str:Symbool a sh:NodeShape ;
@@ -5074,41 +5074,41 @@ ro_str:Verbeeldingskaart_kaartnummer a sh:PropertyShape ;
 
 ro_str:Verbeeldingskaartsymbool a sh:NodeShape ;
 	sh:targetNode ro:isCartografischOnderdeelVan ;
-	sh:property _:node1bvfdmt21x443 .
+	sh:property _:node1bvfdvmotx443 .
 
-_:node1bvfdmt21x444 sh:inversePath rdf:predicate .
+_:node1bvfdvmotx444 sh:inversePath rdf:predicate .
 
-_:node1bvfdmt21x443 sh:path _:node1bvfdmt21x444 ;
+_:node1bvfdvmotx443 sh:path _:node1bvfdvmotx444 ;
 	sh:node ro_str:CartografieSymboolannotatie .
 
 ro_str:CartografieSymboolannotatie a sh:NodeShape ;
-	sh:property _:node1bvfdmt21x445 , _:node1bvfdmt21x450 , _:node1bvfdmt21x451 , _:node1bvfdmt21x452 .
+	sh:property _:node1bvfdvmotx445 , _:node1bvfdvmotx450 , _:node1bvfdvmotx451 , _:node1bvfdvmotx452 .
 
-_:node1bvfdmt21x445 sh:path rdf:subject ;
+_:node1bvfdvmotx445 sh:path rdf:subject ;
 	sh:minCount 1 ;
 	sh:maxCount 1 ;
-	sh:or _:node1bvfdmt21x446 .
+	sh:or _:node1bvfdvmotx446 .
 
-_:node1bvfdmt21x447 sh:nodeKind sh:IRI .
+_:node1bvfdvmotx447 sh:nodeKind sh:IRI .
 
-_:node1bvfdmt21x446 rdf:first _:node1bvfdmt21x447 ;
-	rdf:rest _:node1bvfdmt21x448 .
+_:node1bvfdvmotx446 rdf:first _:node1bvfdvmotx447 ;
+	rdf:rest _:node1bvfdvmotx448 .
 
-_:node1bvfdmt21x449 sh:nodeKind sh:BlankNode .
+_:node1bvfdvmotx449 sh:nodeKind sh:BlankNode .
 
-_:node1bvfdmt21x448 rdf:first _:node1bvfdmt21x449 ;
+_:node1bvfdvmotx448 rdf:first _:node1bvfdvmotx449 ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x450 sh:path rdf:predicate ;
+_:node1bvfdvmotx450 sh:path rdf:predicate ;
 	sh:minCount 1 ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:IRI .
 
-_:node1bvfdmt21x451 sh:path rdf:object ;
+_:node1bvfdvmotx451 sh:path rdf:object ;
 	sh:minCount 1 ;
 	sh:maxCount 1 .
 
-_:node1bvfdmt21x452 sh:path ro:symbool ;
+_:node1bvfdvmotx452 sh:path ro:symbool ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:IRI ;
 	sh:class ro:Symbool .
@@ -5296,222 +5296,222 @@ ro:norm a owl:ObjectProperty ;
 	rdfs:isDefinedBy :ro .
 
 ro_str:TeksttypePG_BP a sh:NodeShape ;
-	sh:property _:node1bvfdmt21x453 .
+	sh:property _:node1bvfdvmotx453 .
 
-_:node1bvfdmt21x453 sh:path rdf:type ;
-	sh:in _:node1bvfdmt21x454 .
+_:node1bvfdvmotx453 sh:path rdf:type ;
+	sh:in _:node1bvfdvmotx454 .
 
-_:node1bvfdmt21x454 rdf:first ropt:Tekstobject ;
-	rdf:rest _:node1bvfdmt21x455 .
+_:node1bvfdvmotx454 rdf:first ropt:Tekstobject ;
+	rdf:rest _:node1bvfdvmotx455 .
 
-_:node1bvfdmt21x455 rdf:first ro:Regels ;
-	rdf:rest _:node1bvfdmt21x456 .
+_:node1bvfdvmotx455 rdf:first ro:Regels ;
+	rdf:rest _:node1bvfdvmotx456 .
 
-_:node1bvfdmt21x456 rdf:first ro:Toelichting ;
-	rdf:rest _:node1bvfdmt21x457 .
+_:node1bvfdvmotx456 rdf:first ro:Toelichting ;
+	rdf:rest _:node1bvfdvmotx457 .
 
-_:node1bvfdmt21x457 rdf:first ro:BijlageBijRegels ;
-	rdf:rest _:node1bvfdmt21x458 .
+_:node1bvfdvmotx457 rdf:first ro:BijlageBijRegels ;
+	rdf:rest _:node1bvfdvmotx458 .
 
-_:node1bvfdmt21x458 rdf:first ro:BijlageBijToelichting ;
+_:node1bvfdvmotx458 rdf:first ro:BijlageBijToelichting ;
 	rdf:rest rdf:nil .
 
 ro_str:Teksttype_SV a sh:NodeShape ;
-	sh:property _:node1bvfdmt21x459 .
+	sh:property _:node1bvfdvmotx459 .
 
-_:node1bvfdmt21x459 sh:path rdf:type ;
-	sh:in _:node1bvfdmt21x460 .
+_:node1bvfdvmotx459 sh:path rdf:type ;
+	sh:in _:node1bvfdvmotx460 .
 
-_:node1bvfdmt21x460 rdf:first ropt:Tekstobject ;
-	rdf:rest _:node1bvfdmt21x461 .
+_:node1bvfdvmotx460 rdf:first ropt:Tekstobject ;
+	rdf:rest _:node1bvfdvmotx461 .
 
-_:node1bvfdmt21x461 rdf:first ro:Beleid ;
-	rdf:rest _:node1bvfdmt21x462 .
+_:node1bvfdvmotx461 rdf:first ro:Beleid ;
+	rdf:rest _:node1bvfdvmotx462 .
 
-_:node1bvfdmt21x462 rdf:first ro:Toelichting ;
+_:node1bvfdvmotx462 rdf:first ro:Toelichting ;
 	rdf:rest rdf:nil .
 
 ro_str:TeksttypePG_SV a sh:NodeShape ;
-	sh:property _:node1bvfdmt21x463 .
+	sh:property _:node1bvfdvmotx463 .
 
-_:node1bvfdmt21x463 sh:path rdf:type ;
-	sh:in _:node1bvfdmt21x464 .
+_:node1bvfdvmotx463 sh:path rdf:type ;
+	sh:in _:node1bvfdvmotx464 .
 
-_:node1bvfdmt21x464 rdf:first ropt:Tekstobject ;
-	rdf:rest _:node1bvfdmt21x465 .
+_:node1bvfdvmotx464 rdf:first ropt:Tekstobject ;
+	rdf:rest _:node1bvfdvmotx465 .
 
-_:node1bvfdmt21x465 rdf:first ro:Besluitdocument ;
-	rdf:rest _:node1bvfdmt21x466 .
+_:node1bvfdvmotx465 rdf:first ro:Besluitdocument ;
+	rdf:rest _:node1bvfdvmotx466 .
 
-_:node1bvfdmt21x466 rdf:first ro:Bijlage ;
-	rdf:rest _:node1bvfdmt21x467 .
+_:node1bvfdvmotx466 rdf:first ro:Bijlage ;
+	rdf:rest _:node1bvfdvmotx467 .
 
-_:node1bvfdmt21x467 rdf:first ro:Toelichting ;
+_:node1bvfdvmotx467 rdf:first ro:Toelichting ;
 	rdf:rest rdf:nil .
 
 ro_str:Teksttype_BP a sh:NodeShape ;
-	sh:property _:node1bvfdmt21x468 .
+	sh:property _:node1bvfdvmotx468 .
 
-_:node1bvfdmt21x468 sh:path rdf:type ;
-	sh:in _:node1bvfdmt21x469 .
+_:node1bvfdvmotx468 sh:path rdf:type ;
+	sh:in _:node1bvfdvmotx469 .
 
-_:node1bvfdmt21x469 rdf:first ropt:Tekstobject ;
-	rdf:rest _:node1bvfdmt21x470 .
+_:node1bvfdvmotx469 rdf:first ropt:Tekstobject ;
+	rdf:rest _:node1bvfdvmotx470 .
 
-_:node1bvfdmt21x470 rdf:first ro:Regels ;
+_:node1bvfdvmotx470 rdf:first ro:Regels ;
 	rdf:rest rdf:nil .
 
 ro_str:Teksttype_PSV a sh:NodeShape ;
-	sh:property _:node1bvfdmt21x471 .
+	sh:property _:node1bvfdvmotx471 .
 
-_:node1bvfdmt21x471 sh:path rdf:type ;
-	sh:in _:node1bvfdmt21x472 .
+_:node1bvfdvmotx471 sh:path rdf:type ;
+	sh:in _:node1bvfdvmotx472 .
 
-_:node1bvfdmt21x472 rdf:first ropt:Tekstobject ;
-	rdf:rest _:node1bvfdmt21x473 .
+_:node1bvfdvmotx472 rdf:first ropt:Tekstobject ;
+	rdf:rest _:node1bvfdvmotx473 .
 
-_:node1bvfdmt21x473 rdf:first ro:Beleid ;
-	rdf:rest _:node1bvfdmt21x474 .
+_:node1bvfdvmotx473 rdf:first ro:Beleid ;
+	rdf:rest _:node1bvfdvmotx474 .
 
-_:node1bvfdmt21x474 rdf:first ro:BeleidGemandateerdAanGS ;
-	rdf:rest _:node1bvfdmt21x475 .
+_:node1bvfdvmotx474 rdf:first ro:BeleidGemandateerdAanGS ;
+	rdf:rest _:node1bvfdvmotx475 .
 
-_:node1bvfdmt21x475 rdf:first ro:Toelichting ;
+_:node1bvfdvmotx475 rdf:first ro:Toelichting ;
 	rdf:rest rdf:nil .
 
 ro_str:TeksttypeBG_AMB a sh:NodeShape ;
-	sh:property _:node1bvfdmt21x476 .
+	sh:property _:node1bvfdvmotx476 .
 
-_:node1bvfdmt21x476 sh:path rdf:type ;
-	sh:in _:node1bvfdmt21x477 .
+_:node1bvfdvmotx476 sh:path rdf:type ;
+	sh:in _:node1bvfdvmotx477 .
 
-_:node1bvfdmt21x477 rdf:first ropt:Tekstobject ;
-	rdf:rest _:node1bvfdmt21x478 .
+_:node1bvfdvmotx477 rdf:first ropt:Tekstobject ;
+	rdf:rest _:node1bvfdvmotx478 .
 
-_:node1bvfdmt21x478 rdf:first ro:Besluitdocument ;
-	rdf:rest _:node1bvfdmt21x479 .
+_:node1bvfdvmotx478 rdf:first ro:Besluitdocument ;
+	rdf:rest _:node1bvfdvmotx479 .
 
-_:node1bvfdmt21x479 rdf:first ro:Regels ;
-	rdf:rest _:node1bvfdmt21x480 .
+_:node1bvfdvmotx479 rdf:first ro:Regels ;
+	rdf:rest _:node1bvfdvmotx480 .
 
-_:node1bvfdmt21x480 rdf:first ro:Toelichting ;
-	rdf:rest _:node1bvfdmt21x481 .
+_:node1bvfdvmotx480 rdf:first ro:Toelichting ;
+	rdf:rest _:node1bvfdvmotx481 .
 
-_:node1bvfdmt21x481 rdf:first ro:BijlageBesluitdocument ;
-	rdf:rest _:node1bvfdmt21x482 .
+_:node1bvfdvmotx481 rdf:first ro:BijlageBesluitdocument ;
+	rdf:rest _:node1bvfdvmotx482 .
 
-_:node1bvfdmt21x482 rdf:first ro:BijlageRegels ;
-	rdf:rest _:node1bvfdmt21x483 .
+_:node1bvfdvmotx482 rdf:first ro:BijlageRegels ;
+	rdf:rest _:node1bvfdvmotx483 .
 
-_:node1bvfdmt21x483 rdf:first ro:BijlageToelichting ;
+_:node1bvfdvmotx483 rdf:first ro:BijlageToelichting ;
 	rdf:rest rdf:nil .
 
 ro_str:Teksttype_AMB a sh:NodeShape ;
-	sh:property _:node1bvfdmt21x484 .
+	sh:property _:node1bvfdvmotx484 .
 
-_:node1bvfdmt21x484 sh:path rdf:type ;
-	sh:in _:node1bvfdmt21x485 .
+_:node1bvfdvmotx484 sh:path rdf:type ;
+	sh:in _:node1bvfdvmotx485 .
 
-_:node1bvfdmt21x485 rdf:first ropt:Tekstobject ;
-	rdf:rest _:node1bvfdmt21x486 .
+_:node1bvfdvmotx485 rdf:first ropt:Tekstobject ;
+	rdf:rest _:node1bvfdvmotx486 .
 
-_:node1bvfdmt21x486 rdf:first ro:Besluittekst ;
-	rdf:rest _:node1bvfdmt21x487 .
+_:node1bvfdvmotx486 rdf:first ro:Besluittekst ;
+	rdf:rest _:node1bvfdvmotx487 .
 
-_:node1bvfdmt21x487 rdf:first ro:Regels ;
-	rdf:rest _:node1bvfdmt21x488 .
+_:node1bvfdvmotx487 rdf:first ro:Regels ;
+	rdf:rest _:node1bvfdvmotx488 .
 
-_:node1bvfdmt21x488 rdf:first ro:Toelichting ;
-	rdf:rest _:node1bvfdmt21x489 .
+_:node1bvfdvmotx488 rdf:first ro:Toelichting ;
+	rdf:rest _:node1bvfdvmotx489 .
 
-_:node1bvfdmt21x489 rdf:first ro:BijlageBesluittekst ;
-	rdf:rest _:node1bvfdmt21x490 .
+_:node1bvfdvmotx489 rdf:first ro:BijlageBesluittekst ;
+	rdf:rest _:node1bvfdvmotx490 .
 
-_:node1bvfdmt21x490 rdf:first ro:BijlageRegels ;
-	rdf:rest _:node1bvfdmt21x491 .
+_:node1bvfdvmotx490 rdf:first ro:BijlageRegels ;
+	rdf:rest _:node1bvfdvmotx491 .
 
-_:node1bvfdmt21x491 rdf:first ro:BijlageToelichting ;
+_:node1bvfdvmotx491 rdf:first ro:BijlageToelichting ;
 	rdf:rest rdf:nil .
 
 ro_str:Teksttype_XGB a sh:NodeShape ;
-	sh:property _:node1bvfdmt21x492 .
+	sh:property _:node1bvfdvmotx492 .
 
-_:node1bvfdmt21x492 sh:path rdf:type ;
-	sh:in _:node1bvfdmt21x493 .
+_:node1bvfdvmotx492 sh:path rdf:type ;
+	sh:in _:node1bvfdvmotx493 .
 
-_:node1bvfdmt21x493 rdf:first ropt:Tekstobject ;
-	rdf:rest _:node1bvfdmt21x494 .
+_:node1bvfdvmotx493 rdf:first ropt:Tekstobject ;
+	rdf:rest _:node1bvfdvmotx494 .
 
-_:node1bvfdmt21x494 rdf:first ro:Besluittekst ;
-	rdf:rest _:node1bvfdmt21x495 .
+_:node1bvfdvmotx494 rdf:first ro:Besluittekst ;
+	rdf:rest _:node1bvfdvmotx495 .
 
-_:node1bvfdmt21x495 rdf:first ro:Voorschriften_Regels ;
-	rdf:rest _:node1bvfdmt21x496 .
+_:node1bvfdvmotx495 rdf:first ro:Voorschriften_Regels ;
+	rdf:rest _:node1bvfdvmotx496 .
 
-_:node1bvfdmt21x496 rdf:first ro:Toelichting ;
-	rdf:rest _:node1bvfdmt21x497 .
+_:node1bvfdvmotx496 rdf:first ro:Toelichting ;
+	rdf:rest _:node1bvfdvmotx497 .
 
-_:node1bvfdmt21x497 rdf:first ro:BijlageBesluittekst ;
-	rdf:rest _:node1bvfdmt21x498 .
+_:node1bvfdvmotx497 rdf:first ro:BijlageBesluittekst ;
+	rdf:rest _:node1bvfdvmotx498 .
 
-_:node1bvfdmt21x498 rdf:first ro:BijlageVoorschriften_Regels ;
-	rdf:rest _:node1bvfdmt21x499 .
+_:node1bvfdvmotx498 rdf:first ro:BijlageVoorschriften_Regels ;
+	rdf:rest _:node1bvfdvmotx499 .
 
-_:node1bvfdmt21x499 rdf:first ro:BijlageToelichting ;
+_:node1bvfdvmotx499 rdf:first ro:BijlageToelichting ;
 	rdf:rest rdf:nil .
 
 ro_str:TeksttypeBG_PV a sh:NodeShape ;
-	sh:property _:node1bvfdmt21x500 .
+	sh:property _:node1bvfdvmotx500 .
 
-_:node1bvfdmt21x500 sh:path rdf:type ;
-	sh:in _:node1bvfdmt21x501 .
+_:node1bvfdvmotx500 sh:path rdf:type ;
+	sh:in _:node1bvfdvmotx501 .
 
-_:node1bvfdmt21x501 rdf:first ropt:Tekstobject ;
-	rdf:rest _:node1bvfdmt21x502 .
+_:node1bvfdvmotx501 rdf:first ropt:Tekstobject ;
+	rdf:rest _:node1bvfdvmotx502 .
 
-_:node1bvfdmt21x502 rdf:first ro:Besluitdocument ;
-	rdf:rest _:node1bvfdmt21x503 .
+_:node1bvfdvmotx502 rdf:first ro:Besluitdocument ;
+	rdf:rest _:node1bvfdvmotx503 .
 
-_:node1bvfdmt21x503 rdf:first ro:Regels ;
-	rdf:rest _:node1bvfdmt21x504 .
+_:node1bvfdvmotx503 rdf:first ro:Regels ;
+	rdf:rest _:node1bvfdvmotx504 .
 
-_:node1bvfdmt21x504 rdf:first ro:Toelichting ;
-	rdf:rest _:node1bvfdmt21x505 .
+_:node1bvfdvmotx504 rdf:first ro:Toelichting ;
+	rdf:rest _:node1bvfdvmotx505 .
 
-_:node1bvfdmt21x505 rdf:first ro:BijlageBesluitdocument ;
-	rdf:rest _:node1bvfdmt21x506 .
+_:node1bvfdvmotx505 rdf:first ro:BijlageBesluitdocument ;
+	rdf:rest _:node1bvfdvmotx506 .
 
-_:node1bvfdmt21x506 rdf:first ro:BijlageRegels ;
-	rdf:rest _:node1bvfdmt21x507 .
+_:node1bvfdvmotx506 rdf:first ro:BijlageRegels ;
+	rdf:rest _:node1bvfdvmotx507 .
 
-_:node1bvfdmt21x507 rdf:first ro:BijlageToelichting ;
+_:node1bvfdvmotx507 rdf:first ro:BijlageToelichting ;
 	rdf:rest rdf:nil .
 
 ro_str:Teksttype_PV a sh:NodeShape ;
-	sh:property _:node1bvfdmt21x508 .
+	sh:property _:node1bvfdvmotx508 .
 
-_:node1bvfdmt21x508 sh:path rdf:type ;
-	sh:in _:node1bvfdmt21x509 .
+_:node1bvfdvmotx508 sh:path rdf:type ;
+	sh:in _:node1bvfdvmotx509 .
 
-_:node1bvfdmt21x509 rdf:first ropt:Tekstobject ;
-	rdf:rest _:node1bvfdmt21x510 .
+_:node1bvfdvmotx509 rdf:first ropt:Tekstobject ;
+	rdf:rest _:node1bvfdvmotx510 .
 
-_:node1bvfdmt21x510 rdf:first ro:RegelZonderVoorbereidingsbescherming ;
-	rdf:rest _:node1bvfdmt21x511 .
+_:node1bvfdvmotx510 rdf:first ro:RegelZonderVoorbereidingsbescherming ;
+	rdf:rest _:node1bvfdvmotx511 .
 
-_:node1bvfdmt21x511 rdf:first ro:RegelMetVoorbereidingsbescherming ;
-	rdf:rest _:node1bvfdmt21x512 .
+_:node1bvfdvmotx511 rdf:first ro:RegelMetVoorbereidingsbescherming ;
+	rdf:rest _:node1bvfdvmotx512 .
 
-_:node1bvfdmt21x512 rdf:first ro:Toelichting ;
-	rdf:rest _:node1bvfdmt21x513 .
+_:node1bvfdvmotx512 rdf:first ro:Toelichting ;
+	rdf:rest _:node1bvfdvmotx513 .
 
-_:node1bvfdmt21x513 rdf:first ro:BijlageRegelZonderVoorbereidingsbescherming ;
-	rdf:rest _:node1bvfdmt21x514 .
+_:node1bvfdvmotx513 rdf:first ro:BijlageRegelZonderVoorbereidingsbescherming ;
+	rdf:rest _:node1bvfdvmotx514 .
 
-_:node1bvfdmt21x514 rdf:first ro:BijlageRegelMetVoorbereidingsbescherming ;
-	rdf:rest _:node1bvfdmt21x515 .
+_:node1bvfdvmotx514 rdf:first ro:BijlageRegelMetVoorbereidingsbescherming ;
+	rdf:rest _:node1bvfdvmotx515 .
 
-_:node1bvfdmt21x515 rdf:first ro:BijlageToelichting ;
+_:node1bvfdvmotx515 rdf:first ro:BijlageToelichting ;
 	rdf:rest rdf:nil .
 
 ro_str:Illustratie_legendaNaam a sh:NodeShape ;
@@ -5526,85 +5526,85 @@ ro_str:Illustratie_IllustratieNaam a sh:NodeShape ;
 
 ro_str:ExternPlanReferentiePG_SV a sh:NodeShape ;
 	sh:closed true ;
-	sh:ignoredProperties _:node1bvfdmt21x516 .
+	sh:ignoredProperties _:node1bvfdvmotx516 .
 
-_:node1bvfdmt21x516 rdf:first ro:muteert ;
-	rdf:rest _:node1bvfdmt21x517 .
+_:node1bvfdvmotx516 rdf:first ro:muteert ;
+	rdf:rest _:node1bvfdvmotx517 .
 
-_:node1bvfdmt21x517 rdf:first ro:vervangt ;
-	rdf:rest _:node1bvfdmt21x518 .
+_:node1bvfdvmotx517 rdf:first ro:vervangt ;
+	rdf:rest _:node1bvfdvmotx518 .
 
-_:node1bvfdmt21x518 rdf:first ro:uitTeWerkenIn ;
-	rdf:rest _:node1bvfdmt21x519 .
+_:node1bvfdvmotx518 rdf:first ro:uitTeWerkenIn ;
+	rdf:rest _:node1bvfdvmotx519 .
 
-_:node1bvfdmt21x519 rdf:first ro:uitgewerktIn ;
-	rdf:rest _:node1bvfdmt21x520 .
+_:node1bvfdvmotx519 rdf:first ro:uitgewerktIn ;
+	rdf:rest _:node1bvfdvmotx520 .
 
-_:node1bvfdmt21x520 rdf:first ro:gebruiktInformatieUit ;
-	rdf:rest _:node1bvfdmt21x521 .
+_:node1bvfdvmotx520 rdf:first ro:gebruiktInformatieUit ;
+	rdf:rest _:node1bvfdvmotx521 .
 
-_:node1bvfdmt21x521 rdf:first ro:tenGevolgeVan ;
+_:node1bvfdvmotx521 rdf:first ro:tenGevolgeVan ;
 	rdf:rest rdf:nil .
 
 ro_str:ExternPlanReferentie_SV a sh:NodeShape ;
 	sh:closed true ;
-	sh:ignoredProperties _:node1bvfdmt21x522 .
+	sh:ignoredProperties _:node1bvfdvmotx522 .
 
-_:node1bvfdmt21x522 rdf:first ro:uitTeWerkenIn ;
-	rdf:rest _:node1bvfdmt21x523 .
+_:node1bvfdvmotx522 rdf:first ro:uitTeWerkenIn ;
+	rdf:rest _:node1bvfdvmotx523 .
 
-_:node1bvfdmt21x523 rdf:first ro:uitgewerktIn ;
-	rdf:rest _:node1bvfdmt21x524 .
+_:node1bvfdvmotx523 rdf:first ro:uitgewerktIn ;
+	rdf:rest _:node1bvfdvmotx524 .
 
-_:node1bvfdmt21x524 rdf:first ro:gebruiktInformatieUit ;
-	rdf:rest _:node1bvfdmt21x525 .
+_:node1bvfdvmotx524 rdf:first ro:gebruiktInformatieUit ;
+	rdf:rest _:node1bvfdvmotx525 .
 
-_:node1bvfdmt21x525 rdf:first ro:tenGevolgeVan ;
+_:node1bvfdvmotx525 rdf:first ro:tenGevolgeVan ;
 	rdf:rest rdf:nil .
 
 ro_str:ExternPlanReferentie_BP a sh:NodeShape ;
 	sh:closed true ;
-	sh:ignoredProperties _:node1bvfdmt21x526 .
+	sh:ignoredProperties _:node1bvfdvmotx526 .
 
-_:node1bvfdmt21x526 rdf:first ro:muteert ;
-	rdf:rest _:node1bvfdmt21x527 .
+_:node1bvfdvmotx526 rdf:first ro:muteert ;
+	rdf:rest _:node1bvfdvmotx527 .
 
-_:node1bvfdmt21x527 rdf:first ro:vervangt ;
-	rdf:rest _:node1bvfdmt21x528 .
+_:node1bvfdvmotx527 rdf:first ro:vervangt ;
+	rdf:rest _:node1bvfdvmotx528 .
 
-_:node1bvfdmt21x528 rdf:first ro:tenGevolgeVan ;
+_:node1bvfdvmotx528 rdf:first ro:tenGevolgeVan ;
 	rdf:rest rdf:nil .
 
 ro_str:ExternPlanReferentie_AMB a sh:NodeShape ;
 	sh:closed true ;
-	sh:ignoredProperties _:node1bvfdmt21x529 .
+	sh:ignoredProperties _:node1bvfdvmotx529 .
 
-_:node1bvfdmt21x529 rdf:first ro:muteert ;
-	rdf:rest _:node1bvfdmt21x530 .
+_:node1bvfdvmotx529 rdf:first ro:muteert ;
+	rdf:rest _:node1bvfdvmotx530 .
 
-_:node1bvfdmt21x530 rdf:first ro:vervangt ;
-	rdf:rest _:node1bvfdmt21x531 .
+_:node1bvfdvmotx530 rdf:first ro:vervangt ;
+	rdf:rest _:node1bvfdvmotx531 .
 
-_:node1bvfdmt21x531 rdf:first ro:uitTeWerkenIn ;
-	rdf:rest _:node1bvfdmt21x532 .
+_:node1bvfdvmotx531 rdf:first ro:uitTeWerkenIn ;
+	rdf:rest _:node1bvfdvmotx532 .
 
-_:node1bvfdmt21x532 rdf:first ro:gebruiktInformatieUit ;
-	rdf:rest _:node1bvfdmt21x533 .
+_:node1bvfdvmotx532 rdf:first ro:gebruiktInformatieUit ;
+	rdf:rest _:node1bvfdvmotx533 .
 
-_:node1bvfdmt21x533 rdf:first ro:tenGevolgeVan ;
+_:node1bvfdvmotx533 rdf:first ro:tenGevolgeVan ;
 	rdf:rest rdf:nil .
 
 ro_str:ExternPlanReferentie_PV a sh:Nodeshape ;
 	sh:closed true ;
-	sh:ignoredProperties _:node1bvfdmt21x534 .
+	sh:ignoredProperties _:node1bvfdvmotx534 .
 
-_:node1bvfdmt21x534 rdf:first ro:muteert ;
-	rdf:rest _:node1bvfdmt21x535 .
+_:node1bvfdvmotx534 rdf:first ro:muteert ;
+	rdf:rest _:node1bvfdvmotx535 .
 
-_:node1bvfdmt21x535 rdf:first ro:vervangt ;
-	rdf:rest _:node1bvfdmt21x536 .
+_:node1bvfdvmotx535 rdf:first ro:vervangt ;
+	rdf:rest _:node1bvfdvmotx536 .
 
-_:node1bvfdmt21x536 rdf:first ro:tenGevolgeVan ;
+_:node1bvfdvmotx536 rdf:first ro:tenGevolgeVan ;
 	rdf:rest rdf:nil .
 
 ro:AMVB a owl:Class ;
@@ -5643,14 +5643,14 @@ ro_str:Besluitgebied_A_normadressant a sh:PropertyShape ;
 	sh:path ro:normadressant ;
 	sh:class skos:Concept ;
 	sh:minCount 1 ;
-	sh:node _:node1bvfdmt21x537 .
+	sh:node _:node1bvfdvmotx537 .
 
-_:node1bvfdmt21x539 sh:inversePath skos:member .
+_:node1bvfdvmotx539 sh:inversePath skos:member .
 
-_:node1bvfdmt21x538 sh:path _:node1bvfdmt21x539 ;
+_:node1bvfdvmotx538 sh:path _:node1bvfdvmotx539 ;
 	sh:hasValue ro_col:Normadressant_AMB .
 
-_:node1bvfdmt21x537 sh:property _:node1bvfdmt21x538 .
+_:node1bvfdvmotx537 sh:property _:node1bvfdvmotx538 .
 
 ro_str:Besluitgebied_A_tekstverwijzing a sh:PropertyShape ;
 	sh:path ro:tekst ;
@@ -5670,32 +5670,32 @@ ro_str:Besluitgebied_A_norm a sh:PropertyShape ;
 	sh:path ro:norm ;
 	sh:minCount 2 ;
 	sh:maxCount 3 ;
-	sh:and _:node1bvfdmt21x540 .
+	sh:and _:node1bvfdvmotx540 .
 
-_:node1bvfdmt21x542 sh:hasValue ro_beg:IMRO2012 .
+_:node1bvfdvmotx542 sh:hasValue ro_beg:IMRO2012 .
 
-_:node1bvfdmt21x541 sh:qualifiedValueShape _:node1bvfdmt21x542 ;
+_:node1bvfdvmotx541 sh:qualifiedValueShape _:node1bvfdvmotx542 ;
 	sh:qualifiedMinCount 1 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x540 rdf:first _:node1bvfdmt21x541 ;
-	rdf:rest _:node1bvfdmt21x543 .
+_:node1bvfdvmotx540 rdf:first _:node1bvfdvmotx541 ;
+	rdf:rest _:node1bvfdvmotx543 .
 
-_:node1bvfdmt21x545 sh:hasValue ro_beg:PRAMvB2012 .
+_:node1bvfdvmotx545 sh:hasValue ro_beg:PRAMvB2012 .
 
-_:node1bvfdmt21x544 sh:qualifiedValueShape _:node1bvfdmt21x545 ;
+_:node1bvfdvmotx544 sh:qualifiedValueShape _:node1bvfdvmotx545 ;
 	sh:qualifiedMinCount 1 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x543 rdf:first _:node1bvfdmt21x544 ;
-	rdf:rest _:node1bvfdmt21x546 .
+_:node1bvfdvmotx543 rdf:first _:node1bvfdvmotx544 ;
+	rdf:rest _:node1bvfdvmotx546 .
 
-_:node1bvfdmt21x548 sh:hasValue ro_beg:IMROPT2012 .
+_:node1bvfdvmotx548 sh:hasValue ro_beg:IMROPT2012 .
 
-_:node1bvfdmt21x547 sh:qualifiedValueShape _:node1bvfdmt21x548 ;
+_:node1bvfdvmotx547 sh:qualifiedValueShape _:node1bvfdvmotx548 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x546 rdf:first _:node1bvfdmt21x547 ;
+_:node1bvfdvmotx546 rdf:first _:node1bvfdvmotx547 ;
 	rdf:rest rdf:nil .
 
 ro_str:Besluitgebied_A-P_Plangebied a sh:NodeShape ;
@@ -5751,25 +5751,25 @@ ro_str:Besluitvlak_A_hasPart a sh:PropertyShape ;
 	sh:node ro_str:Besluitvlak_A , ro_str:Besluitsubvlak_A_isPartOf .
 
 ro_str:Besluitsubvlak_A_isPartOf a sh:NodeShape ;
-	sh:property _:node1bvfdmt21x549 .
+	sh:property _:node1bvfdvmotx549 .
 
-_:node1bvfdmt21x549 sh:path dct:isPartOf ;
-	sh:or _:node1bvfdmt21x550 ;
+_:node1bvfdvmotx549 sh:path dct:isPartOf ;
+	sh:or _:node1bvfdvmotx550 ;
 	sh:minCount 2 .
 
-_:node1bvfdmt21x551 sh:class ro:AMVB .
+_:node1bvfdvmotx551 sh:class ro:AMVB .
 
-_:node1bvfdmt21x550 rdf:first _:node1bvfdmt21x551 ;
-	rdf:rest _:node1bvfdmt21x552 .
+_:node1bvfdvmotx550 rdf:first _:node1bvfdvmotx551 ;
+	rdf:rest _:node1bvfdvmotx552 .
 
-_:node1bvfdmt21x553 sh:class ro:Regeling .
+_:node1bvfdvmotx553 sh:class ro:Regeling .
 
-_:node1bvfdmt21x552 rdf:first _:node1bvfdmt21x553 ;
-	rdf:rest _:node1bvfdmt21x554 .
+_:node1bvfdvmotx552 rdf:first _:node1bvfdvmotx553 ;
+	rdf:rest _:node1bvfdvmotx554 .
 
-_:node1bvfdmt21x555 sh:class ro:Besluitvlak .
+_:node1bvfdvmotx555 sh:class ro:Besluitvlak .
 
-_:node1bvfdmt21x554 rdf:first _:node1bvfdmt21x555 ;
+_:node1bvfdvmotx554 rdf:first _:node1bvfdvmotx555 ;
 	rdf:rest rdf:nil .
 
 ro:Besluit a owl:Class ;
@@ -5850,14 +5850,14 @@ ro_str:Besluitgebied_X_beleidsmatigVerantwoorlijkeOverheid a sh:PropertyShape ;
 ro_str:Besluitgebied_X_normadressant a sh:PropertyShape ;
 	sh:path ro:normadressant ;
 	sh:class skos:Concept ;
-	sh:node _:node1bvfdmt21x556 .
+	sh:node _:node1bvfdvmotx556 .
 
-_:node1bvfdmt21x558 sh:inversePath skos:member .
+_:node1bvfdvmotx558 sh:inversePath skos:member .
 
-_:node1bvfdmt21x557 sh:path _:node1bvfdmt21x558 ;
+_:node1bvfdvmotx557 sh:path _:node1bvfdvmotx558 ;
 	sh:hasValue ro_col:Normadressant_XGB .
 
-_:node1bvfdmt21x556 sh:property _:node1bvfdmt21x557 .
+_:node1bvfdvmotx556 sh:property _:node1bvfdvmotx557 .
 
 ro_str:Besluitgebied_X_tekstverwijzing a sh:PropertyShape ;
 	sh:path ro:tekst ;
@@ -5866,30 +5866,30 @@ ro_str:Besluitgebied_X_tekstverwijzing a sh:PropertyShape ;
 	sh:node ro_str:Teksttype_XGB .
 
 ro_str:TeksttypeBG_XGB a sh:NodeShape ;
-	sh:property _:node1bvfdmt21x559 .
+	sh:property _:node1bvfdvmotx559 .
 
-_:node1bvfdmt21x559 sh:path rdf:type ;
-	sh:in _:node1bvfdmt21x560 .
+_:node1bvfdvmotx559 sh:path rdf:type ;
+	sh:in _:node1bvfdvmotx560 .
 
-_:node1bvfdmt21x560 rdf:first ropt:Tekstobject ;
-	rdf:rest _:node1bvfdmt21x561 .
+_:node1bvfdvmotx560 rdf:first ropt:Tekstobject ;
+	rdf:rest _:node1bvfdvmotx561 .
 
-_:node1bvfdmt21x561 rdf:first ro:Besluitdocument ;
-	rdf:rest _:node1bvfdmt21x562 .
+_:node1bvfdvmotx561 rdf:first ro:Besluitdocument ;
+	rdf:rest _:node1bvfdvmotx562 .
 
-_:node1bvfdmt21x562 rdf:first ro:Voorschriften_Regels ;
-	rdf:rest _:node1bvfdmt21x563 .
+_:node1bvfdvmotx562 rdf:first ro:Voorschriften_Regels ;
+	rdf:rest _:node1bvfdvmotx563 .
 
-_:node1bvfdmt21x563 rdf:first ro:Toelichting ;
-	rdf:rest _:node1bvfdmt21x564 .
+_:node1bvfdvmotx563 rdf:first ro:Toelichting ;
+	rdf:rest _:node1bvfdvmotx564 .
 
-_:node1bvfdmt21x564 rdf:first ro:BijlageBesluitdocument ;
-	rdf:rest _:node1bvfdmt21x565 .
+_:node1bvfdvmotx564 rdf:first ro:BijlageBesluitdocument ;
+	rdf:rest _:node1bvfdvmotx565 .
 
-_:node1bvfdmt21x565 rdf:first ro:BijlageVoorschriften_Regels ;
-	rdf:rest _:node1bvfdmt21x566 .
+_:node1bvfdvmotx565 rdf:first ro:BijlageVoorschriften_Regels ;
+	rdf:rest _:node1bvfdvmotx566 .
 
-_:node1bvfdmt21x566 rdf:first ro:BijlageToelichting ;
+_:node1bvfdvmotx566 rdf:first ro:BijlageToelichting ;
 	rdf:rest rdf:nil .
 
 ro_str:Besluitgebied_X_illustratieverwijzing a sh:PropertyShape ;
@@ -5902,53 +5902,53 @@ ro_str:Besluitgebied_X_externPlan a sh:PropertyShape ;
 
 ro_str:ExternPlanReferentie_XGB a sh:Nodeshape ;
 	sh:closed true ;
-	sh:ignoredProperties _:node1bvfdmt21x567 .
+	sh:ignoredProperties _:node1bvfdvmotx567 .
 
-_:node1bvfdmt21x567 rdf:first ro:muteert ;
-	rdf:rest _:node1bvfdmt21x568 .
+_:node1bvfdvmotx567 rdf:first ro:muteert ;
+	rdf:rest _:node1bvfdvmotx568 .
 
-_:node1bvfdmt21x568 rdf:first ro:vervangt ;
-	rdf:rest _:node1bvfdmt21x569 .
+_:node1bvfdvmotx568 rdf:first ro:vervangt ;
+	rdf:rest _:node1bvfdvmotx569 .
 
-_:node1bvfdmt21x569 rdf:first ro:gebruiktInformatieUit ;
-	rdf:rest _:node1bvfdmt21x570 .
+_:node1bvfdvmotx569 rdf:first ro:gebruiktInformatieUit ;
+	rdf:rest _:node1bvfdvmotx570 .
 
-_:node1bvfdmt21x570 rdf:first ro:uitTeWerkenIn ;
-	rdf:rest _:node1bvfdmt21x571 .
+_:node1bvfdvmotx570 rdf:first ro:uitTeWerkenIn ;
+	rdf:rest _:node1bvfdvmotx571 .
 
-_:node1bvfdmt21x571 rdf:first ro:tenGevolgeVan ;
+_:node1bvfdvmotx571 rdf:first ro:tenGevolgeVan ;
 	rdf:rest rdf:nil .
 
 ro_str:Besluitgebied_X_norm a sh:PropertyShape ;
 	sh:path ro:norm ;
 	sh:minCount 2 ;
 	sh:maxCount 3 ;
-	sh:and _:node1bvfdmt21x572 .
+	sh:and _:node1bvfdvmotx572 .
 
-_:node1bvfdmt21x574 sh:hasValue ro_beg:IMRO2012 .
+_:node1bvfdvmotx574 sh:hasValue ro_beg:IMRO2012 .
 
-_:node1bvfdmt21x573 sh:qualifiedValueShape _:node1bvfdmt21x574 ;
+_:node1bvfdvmotx573 sh:qualifiedValueShape _:node1bvfdvmotx574 ;
 	sh:qualifiedMinCount 1 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x572 rdf:first _:node1bvfdmt21x573 ;
-	rdf:rest _:node1bvfdmt21x575 .
+_:node1bvfdvmotx572 rdf:first _:node1bvfdvmotx573 ;
+	rdf:rest _:node1bvfdvmotx575 .
 
-_:node1bvfdmt21x577 sh:hasValue ro_beg:PRGB2012 .
+_:node1bvfdvmotx577 sh:hasValue ro_beg:PRGB2012 .
 
-_:node1bvfdmt21x576 sh:qualifiedValueShape _:node1bvfdmt21x577 ;
+_:node1bvfdvmotx576 sh:qualifiedValueShape _:node1bvfdvmotx577 ;
 	sh:qualifiedMinCount 1 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x575 rdf:first _:node1bvfdmt21x576 ;
-	rdf:rest _:node1bvfdmt21x578 .
+_:node1bvfdvmotx575 rdf:first _:node1bvfdvmotx576 ;
+	rdf:rest _:node1bvfdvmotx578 .
 
-_:node1bvfdmt21x580 sh:hasValue ro_beg:IMROPT2012 .
+_:node1bvfdvmotx580 sh:hasValue ro_beg:IMROPT2012 .
 
-_:node1bvfdmt21x579 sh:qualifiedValueShape _:node1bvfdmt21x580 ;
+_:node1bvfdvmotx579 sh:qualifiedValueShape _:node1bvfdvmotx580 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x578 rdf:first _:node1bvfdmt21x579 ;
+_:node1bvfdvmotx578 rdf:first _:node1bvfdvmotx579 ;
 	rdf:rest rdf:nil .
 
 ro_str:Besluitvlak_X a sh:NodeShape ;
@@ -5971,50 +5971,50 @@ ro_str:Besluitvlak_X_hasPart a sh:PropertyShape ;
 	sh:node ro_str:Besluitvlak_X , ro_str:Besluitsubvlak_X_isPartOf .
 
 ro_str:Besluitsubvlak_X_isPartOf a sh:NodeShape ;
-	sh:property _:node1bvfdmt21x581 .
+	sh:property _:node1bvfdvmotx581 .
 
-_:node1bvfdmt21x581 sh:path dct:isPartOf ;
-	sh:or _:node1bvfdmt21x582 ;
+_:node1bvfdvmotx581 sh:path dct:isPartOf ;
+	sh:or _:node1bvfdvmotx582 ;
 	sh:minCount 2 .
 
-_:node1bvfdmt21x583 sh:class ro:Aanwijzingsbesluit .
+_:node1bvfdvmotx583 sh:class ro:Aanwijzingsbesluit .
 
-_:node1bvfdmt21x582 rdf:first _:node1bvfdmt21x583 ;
-	rdf:rest _:node1bvfdmt21x584 .
+_:node1bvfdvmotx582 rdf:first _:node1bvfdvmotx583 ;
+	rdf:rest _:node1bvfdvmotx584 .
 
-_:node1bvfdmt21x585 sh:class ro:Beheersverordening .
+_:node1bvfdvmotx585 sh:class ro:Beheersverordening .
 
-_:node1bvfdmt21x584 rdf:first _:node1bvfdmt21x585 ;
-	rdf:rest _:node1bvfdmt21x586 .
+_:node1bvfdvmotx584 rdf:first _:node1bvfdvmotx585 ;
+	rdf:rest _:node1bvfdvmotx586 .
 
-_:node1bvfdmt21x587 sh:class ro:Exploitatieplan .
+_:node1bvfdvmotx587 sh:class ro:Exploitatieplan .
 
-_:node1bvfdmt21x586 rdf:first _:node1bvfdmt21x587 ;
-	rdf:rest _:node1bvfdmt21x588 .
+_:node1bvfdvmotx586 rdf:first _:node1bvfdvmotx587 ;
+	rdf:rest _:node1bvfdvmotx588 .
 
-_:node1bvfdmt21x589 sh:class ro:GerechtelijkeUitspraak .
+_:node1bvfdvmotx589 sh:class ro:GerechtelijkeUitspraak .
 
-_:node1bvfdmt21x588 rdf:first _:node1bvfdmt21x589 ;
-	rdf:rest _:node1bvfdmt21x590 .
+_:node1bvfdvmotx588 rdf:first _:node1bvfdvmotx589 ;
+	rdf:rest _:node1bvfdvmotx590 .
 
-_:node1bvfdmt21x591 sh:class ro:Omgevingsvergunning .
+_:node1bvfdvmotx591 sh:class ro:Omgevingsvergunning .
 
-_:node1bvfdmt21x590 rdf:first _:node1bvfdmt21x591 ;
-	rdf:rest _:node1bvfdmt21x592 .
+_:node1bvfdvmotx590 rdf:first _:node1bvfdvmotx591 ;
+	rdf:rest _:node1bvfdvmotx592 .
 
-_:node1bvfdmt21x593 sh:class ro:ReactieveAanwijzing .
+_:node1bvfdvmotx593 sh:class ro:ReactieveAanwijzing .
 
-_:node1bvfdmt21x592 rdf:first _:node1bvfdmt21x593 ;
-	rdf:rest _:node1bvfdmt21x594 .
+_:node1bvfdvmotx592 rdf:first _:node1bvfdvmotx593 ;
+	rdf:rest _:node1bvfdvmotx594 .
 
-_:node1bvfdmt21x595 sh:class ro:Voorbereidingsbesluit .
+_:node1bvfdvmotx595 sh:class ro:Voorbereidingsbesluit .
 
-_:node1bvfdmt21x594 rdf:first _:node1bvfdmt21x595 ;
-	rdf:rest _:node1bvfdmt21x596 .
+_:node1bvfdvmotx594 rdf:first _:node1bvfdvmotx595 ;
+	rdf:rest _:node1bvfdvmotx596 .
 
-_:node1bvfdmt21x597 sh:class ro:Besluitvlak .
+_:node1bvfdvmotx597 sh:class ro:Besluitvlak .
 
-_:node1bvfdmt21x596 rdf:first _:node1bvfdmt21x597 ;
+_:node1bvfdvmotx596 rdf:first _:node1bvfdvmotx597 ;
 	rdf:rest rdf:nil .
 
 ro:ProvincialeVerordening a owl:Class ;
@@ -6042,14 +6042,14 @@ ro_str:Besluitgebied_P_beleidsmatigVerantwoorlijkeOverheid a sh:PropertyShape ;
 ro_str:Besluitgebied_P_normadressant a sh:PropertyShape ;
 	sh:path ro:normadressant ;
 	sh:class skos:Concept ;
-	sh:node _:node1bvfdmt21x598 .
+	sh:node _:node1bvfdvmotx598 .
 
-_:node1bvfdmt21x600 sh:inversePath skos:member .
+_:node1bvfdvmotx600 sh:inversePath skos:member .
 
-_:node1bvfdmt21x599 sh:path _:node1bvfdmt21x600 ;
+_:node1bvfdvmotx599 sh:path _:node1bvfdvmotx600 ;
 	sh:hasValue ro_col:Normadressant_PV .
 
-_:node1bvfdmt21x598 sh:property _:node1bvfdmt21x599 .
+_:node1bvfdvmotx598 sh:property _:node1bvfdvmotx599 .
 
 ro_str:Besluitgebied_P_tekstverwijzing a sh:PropertyShape ;
 	sh:path ro:tekst ;
@@ -6065,32 +6065,32 @@ ro_str:Besluitgebied_P_norm a sh:PropertyShape ;
 	sh:path ro:norm ;
 	sh:minCount 2 ;
 	sh:maxCount 3 ;
-	sh:and _:node1bvfdmt21x601 .
+	sh:and _:node1bvfdvmotx601 .
 
-_:node1bvfdmt21x603 sh:hasValue ro_beg:IMRO2012 .
+_:node1bvfdvmotx603 sh:hasValue ro_beg:IMRO2012 .
 
-_:node1bvfdmt21x602 sh:qualifiedValueShape _:node1bvfdmt21x603 ;
+_:node1bvfdvmotx602 sh:qualifiedValueShape _:node1bvfdvmotx603 ;
 	sh:qualifiedMinCount 1 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x601 rdf:first _:node1bvfdmt21x602 ;
-	rdf:rest _:node1bvfdmt21x604 .
+_:node1bvfdvmotx601 rdf:first _:node1bvfdvmotx602 ;
+	rdf:rest _:node1bvfdvmotx604 .
 
-_:node1bvfdmt21x606 sh:hasValue ro_beg:PRPV2012 .
+_:node1bvfdvmotx606 sh:hasValue ro_beg:PRPV2012 .
 
-_:node1bvfdmt21x605 sh:qualifiedValueShape _:node1bvfdmt21x606 ;
+_:node1bvfdvmotx605 sh:qualifiedValueShape _:node1bvfdvmotx606 ;
 	sh:qualifiedMinCount 1 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x604 rdf:first _:node1bvfdmt21x605 ;
-	rdf:rest _:node1bvfdmt21x607 .
+_:node1bvfdvmotx604 rdf:first _:node1bvfdvmotx605 ;
+	rdf:rest _:node1bvfdvmotx607 .
 
-_:node1bvfdmt21x609 sh:hasValue ro_beg:IMROPT2012 .
+_:node1bvfdvmotx609 sh:hasValue ro_beg:IMROPT2012 .
 
-_:node1bvfdmt21x608 sh:qualifiedValueShape _:node1bvfdmt21x609 ;
+_:node1bvfdvmotx608 sh:qualifiedValueShape _:node1bvfdvmotx609 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x607 rdf:first _:node1bvfdmt21x608 ;
+_:node1bvfdvmotx607 rdf:first _:node1bvfdvmotx608 ;
 	rdf:rest rdf:nil .
 
 ro_str:Besluitvlak_P a sh:NodeShape ;
@@ -6124,20 +6124,20 @@ ro_str:Besluitvlak_P_hasPart a sh:PropertyShape ;
 	sh:node ro_str:Besluitvlak_P , ro_str:Besluitsubvlak_P_isPartOf .
 
 ro_str:Besluitsubvlak_P_isPartOf a sh:NodeShape ;
-	sh:property _:node1bvfdmt21x610 .
+	sh:property _:node1bvfdvmotx610 .
 
-_:node1bvfdmt21x610 sh:path dct:isPartOf ;
-	sh:or _:node1bvfdmt21x611 ;
+_:node1bvfdvmotx610 sh:path dct:isPartOf ;
+	sh:or _:node1bvfdvmotx611 ;
 	sh:minCount 2 .
 
-_:node1bvfdmt21x612 sh:class ro:ProvincialeVerordening .
+_:node1bvfdvmotx612 sh:class ro:ProvincialeVerordening .
 
-_:node1bvfdmt21x611 rdf:first _:node1bvfdmt21x612 ;
-	rdf:rest _:node1bvfdmt21x613 .
+_:node1bvfdvmotx611 rdf:first _:node1bvfdvmotx612 ;
+	rdf:rest _:node1bvfdvmotx613 .
 
-_:node1bvfdmt21x614 sh:class ro:Besluitvlak .
+_:node1bvfdvmotx614 sh:class ro:Besluitvlak .
 
-_:node1bvfdmt21x613 rdf:first _:node1bvfdmt21x614 ;
+_:node1bvfdvmotx613 rdf:first _:node1bvfdvmotx614 ;
 	rdf:rest rdf:nil .
 
 ro_str:Besluitsubvlak_P_begrenzing a sh:PropertyShape ;
@@ -6161,57 +6161,57 @@ ro_str:Besluitvlak a sh:NodeShape ;
 	sh:property ro_str:Besluitvlak_tekstverwijzing , ro_str:Besluitvlak_begrenzing .
 
 ro_str:Besluitvlak_tekstverwijzing a sh:PropertyShape ;
-	sh:xone _:node1bvfdmt21x615 .
+	sh:xone _:node1bvfdvmotx615 .
 
-_:node1bvfdmt21x619 rdf:first dct:isPartOf ;
-	rdf:rest _:node1bvfdmt21x620 .
+_:node1bvfdvmotx619 rdf:first dct:isPartOf ;
+	rdf:rest _:node1bvfdvmotx620 .
 
-_:node1bvfdmt21x620 rdf:first ro:norm ;
+_:node1bvfdvmotx620 rdf:first ro:norm ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x618 sh:path _:node1bvfdmt21x619 ;
+_:node1bvfdvmotx618 sh:path _:node1bvfdvmotx619 ;
 	sh:hasValue ro_beg:IMROPT2012 .
 
-_:node1bvfdmt21x617 rdf:first _:node1bvfdmt21x618 ;
-	rdf:rest _:node1bvfdmt21x621 .
+_:node1bvfdvmotx617 rdf:first _:node1bvfdvmotx618 ;
+	rdf:rest _:node1bvfdvmotx621 .
 
-_:node1bvfdmt21x622 sh:path ro:tekst ;
+_:node1bvfdvmotx622 sh:path ro:tekst ;
 	sh:class ropt:Tekstobject , ro:Tekst .
 
-_:node1bvfdmt21x621 rdf:first _:node1bvfdmt21x622 ;
+_:node1bvfdvmotx621 rdf:first _:node1bvfdvmotx622 ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x616 sh:and _:node1bvfdmt21x617 .
+_:node1bvfdvmotx616 sh:and _:node1bvfdvmotx617 .
 
-_:node1bvfdmt21x615 rdf:first _:node1bvfdmt21x616 ;
-	rdf:rest _:node1bvfdmt21x623 .
+_:node1bvfdvmotx615 rdf:first _:node1bvfdvmotx616 ;
+	rdf:rest _:node1bvfdvmotx623 .
 
-_:node1bvfdmt21x627 rdf:first dct:isPartOf ;
-	rdf:rest _:node1bvfdmt21x628 .
+_:node1bvfdvmotx627 rdf:first dct:isPartOf ;
+	rdf:rest _:node1bvfdvmotx628 .
 
-_:node1bvfdmt21x628 rdf:first ro:norm ;
+_:node1bvfdvmotx628 rdf:first ro:norm ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x626 sh:path _:node1bvfdmt21x627 ;
-	sh:not _:node1bvfdmt21x629 .
+_:node1bvfdvmotx626 sh:path _:node1bvfdvmotx627 ;
+	sh:not _:node1bvfdvmotx629 .
 
-_:node1bvfdmt21x629 sh:hasValue ro_beg:IMROPT .
+_:node1bvfdvmotx629 sh:hasValue ro_beg:IMROPT .
 
-_:node1bvfdmt21x625 rdf:first _:node1bvfdmt21x626 ;
-	rdf:rest _:node1bvfdmt21x630 .
+_:node1bvfdvmotx625 rdf:first _:node1bvfdvmotx626 ;
+	rdf:rest _:node1bvfdvmotx630 .
 
-_:node1bvfdmt21x631 sh:path ro:tekst ;
+_:node1bvfdvmotx631 sh:path ro:tekst ;
 	sh:class ro:Tekst ;
-	sh:not _:node1bvfdmt21x632 .
+	sh:not _:node1bvfdvmotx632 .
 
-_:node1bvfdmt21x632 sh:class ropt:Tekstobject .
+_:node1bvfdvmotx632 sh:class ropt:Tekstobject .
 
-_:node1bvfdmt21x630 rdf:first _:node1bvfdmt21x631 ;
+_:node1bvfdvmotx630 rdf:first _:node1bvfdvmotx631 ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x624 sh:and _:node1bvfdmt21x625 .
+_:node1bvfdvmotx624 sh:and _:node1bvfdvmotx625 .
 
-_:node1bvfdmt21x623 rdf:first _:node1bvfdmt21x624 ;
+_:node1bvfdvmotx623 rdf:first _:node1bvfdvmotx624 ;
 	rdf:rest rdf:nil .
 
 ro_str:Besluitvlak_begrenzing a sh:PropertyShape ;
@@ -6979,27 +6979,27 @@ ro_str:Bestemmingsplan_tekstverwijzing a sh:PropertyShape ;
 	sh:path ro:tekst ;
 	sh:minCount 2 ;
 	sh:maxCount 4 ;
-	sh:and _:node1bvfdmt21x633 ;
+	sh:and _:node1bvfdvmotx633 ;
 	sh:node ro_str:TeksttypePG_BP .
 
-_:node1bvfdmt21x635 sh:path rdf:type ;
+_:node1bvfdvmotx635 sh:path rdf:type ;
 	sh:hasValue ro:Toelichting .
 
-_:node1bvfdmt21x634 sh:qualifiedValueShape _:node1bvfdmt21x635 ;
+_:node1bvfdvmotx634 sh:qualifiedValueShape _:node1bvfdvmotx635 ;
 	sh:qualifiedMinCount 1 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x633 rdf:first _:node1bvfdmt21x634 ;
-	rdf:rest _:node1bvfdmt21x636 .
+_:node1bvfdvmotx633 rdf:first _:node1bvfdvmotx634 ;
+	rdf:rest _:node1bvfdvmotx636 .
 
-_:node1bvfdmt21x638 sh:path rdf:type ;
+_:node1bvfdvmotx638 sh:path rdf:type ;
 	sh:hasValue ro:Regels .
 
-_:node1bvfdmt21x637 sh:qualifiedValueShape _:node1bvfdmt21x638 ;
+_:node1bvfdvmotx637 sh:qualifiedValueShape _:node1bvfdvmotx638 ;
 	sh:qualifiedMaxCount 1 ;
 	sh:qualifiedMincount 1 .
 
-_:node1bvfdmt21x636 rdf:first _:node1bvfdmt21x637 ;
+_:node1bvfdvmotx636 rdf:first _:node1bvfdvmotx637 ;
 	rdf:rest rdf:nil .
 
 ro_str:Bestemmingsplan_externPlan a sh:PropertyShape ;
@@ -7011,56 +7011,56 @@ ro_str:Bestemmingsplan_norm a sh:PropertyShape ;
 	sh:path ro:norm ;
 	sh:minCount 2 ;
 	sh:maxCount 4 ;
-	sh:and _:node1bvfdmt21x639 .
+	sh:and _:node1bvfdvmotx639 .
 
-_:node1bvfdmt21x641 sh:hasValue ro_beg:IMRO2012 .
+_:node1bvfdvmotx641 sh:hasValue ro_beg:IMRO2012 .
 
-_:node1bvfdmt21x640 sh:qualifiedValueShape _:node1bvfdmt21x641 ;
+_:node1bvfdvmotx640 sh:qualifiedValueShape _:node1bvfdvmotx641 ;
 	sh:qualifiedMinCount 1 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x639 rdf:first _:node1bvfdmt21x640 ;
-	rdf:rest _:node1bvfdmt21x642 .
+_:node1bvfdvmotx639 rdf:first _:node1bvfdvmotx640 ;
+	rdf:rest _:node1bvfdvmotx642 .
 
-_:node1bvfdmt21x644 sh:hasValue ro_beg:PRBP2012 .
+_:node1bvfdvmotx644 sh:hasValue ro_beg:PRBP2012 .
 
-_:node1bvfdmt21x643 sh:qualifiedValueShape _:node1bvfdmt21x644 ;
+_:node1bvfdvmotx643 sh:qualifiedValueShape _:node1bvfdvmotx644 ;
 	sh:qualifiedMinCount 1 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x642 rdf:first _:node1bvfdmt21x643 ;
-	rdf:rest _:node1bvfdmt21x645 .
+_:node1bvfdvmotx642 rdf:first _:node1bvfdvmotx643 ;
+	rdf:rest _:node1bvfdvmotx645 .
 
-_:node1bvfdmt21x647 sh:hasValue ro_beg:IMROPT2012 .
+_:node1bvfdvmotx647 sh:hasValue ro_beg:IMROPT2012 .
 
-_:node1bvfdmt21x646 sh:qualifiedValueShape _:node1bvfdmt21x647 ;
+_:node1bvfdvmotx646 sh:qualifiedValueShape _:node1bvfdvmotx647 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x645 rdf:first _:node1bvfdmt21x646 ;
-	rdf:rest _:node1bvfdmt21x648 .
+_:node1bvfdvmotx645 rdf:first _:node1bvfdvmotx646 ;
+	rdf:rest _:node1bvfdvmotx648 .
 
-_:node1bvfdmt21x650 sh:hasValue ro_beg:PRABPK2012 .
+_:node1bvfdvmotx650 sh:hasValue ro_beg:PRABPK2012 .
 
-_:node1bvfdmt21x649 sh:qualifiedValueShape _:node1bvfdmt21x650 ;
+_:node1bvfdvmotx649 sh:qualifiedValueShape _:node1bvfdvmotx650 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x648 rdf:first _:node1bvfdmt21x649 ;
+_:node1bvfdvmotx648 rdf:first _:node1bvfdvmotx649 ;
 	rdf:rest rdf:nil .
 
 ro_str:Bestemmingsplan_hasPart a sh:PropertyShape ;
-	sh:path _:node1bvfdmt21x651 ;
-	sh:in _:node1bvfdmt21x653 .
+	sh:path _:node1bvfdvmotx651 ;
+	sh:in _:node1bvfdvmotx653 .
 
-_:node1bvfdmt21x651 rdf:first dct:hasPart ;
-	rdf:rest _:node1bvfdmt21x652 .
+_:node1bvfdvmotx651 rdf:first dct:hasPart ;
+	rdf:rest _:node1bvfdvmotx652 .
 
-_:node1bvfdmt21x652 rdf:first rdf:type ;
+_:node1bvfdvmotx652 rdf:first rdf:type ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x653 rdf:first ro:Aanduiding ;
-	rdf:rest _:node1bvfdmt21x654 .
+_:node1bvfdvmotx653 rdf:first ro:Aanduiding ;
+	rdf:rest _:node1bvfdvmotx654 .
 
-_:node1bvfdmt21x654 rdf:first ro:Bestemmingsvlak ;
+_:node1bvfdvmotx654 rdf:first ro:Bestemmingsvlak ;
 	rdf:rest rdf:nil .
 
 ro_str:Bestemmingsplan_spatial a sh:PropertyShape ;
@@ -7081,14 +7081,14 @@ ro_str:Bestemmingsvlak_bestemmingshoofdgroep a sh:PropertyShape ;
 	sh:nodeKind sh:IRI ;
 	sh:minCount 1 ;
 	sh:maxCount 1 ;
-	sh:node _:node1bvfdmt21x655 .
+	sh:node _:node1bvfdvmotx655 .
 
-_:node1bvfdmt21x657 sh:inversePath skos:member .
+_:node1bvfdvmotx657 sh:inversePath skos:member .
 
-_:node1bvfdmt21x656 sh:path _:node1bvfdmt21x657 ;
+_:node1bvfdvmotx656 sh:path _:node1bvfdvmotx657 ;
 	sh:hasValue ro_col:Bestemmingshoofdgroep .
 
-_:node1bvfdmt21x655 sh:property _:node1bvfdmt21x656 .
+_:node1bvfdvmotx655 sh:property _:node1bvfdvmotx656 .
 
 ro_str:Bestemmingsvlak_artikelnummer a sh:PropertyShape ;
 	sh:path ro:artikelnummer ;
@@ -7098,71 +7098,71 @@ ro_str:Bestemmingsvlak_artikelnummer a sh:PropertyShape ;
 	sh:maxCount 1 .
 
 ro_str:Bestemmingsvlak_tekstverwijzing a sh:PropertyShape ;
-	sh:and _:node1bvfdmt21x658 .
+	sh:and _:node1bvfdvmotx658 .
 
-_:node1bvfdmt21x664 rdf:first dct:isPartOf ;
-	rdf:rest _:node1bvfdmt21x665 .
+_:node1bvfdvmotx664 rdf:first dct:isPartOf ;
+	rdf:rest _:node1bvfdvmotx665 .
 
-_:node1bvfdmt21x665 rdf:first ro:norm ;
+_:node1bvfdvmotx665 rdf:first ro:norm ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x663 sh:path _:node1bvfdmt21x664 ;
+_:node1bvfdvmotx663 sh:path _:node1bvfdvmotx664 ;
 	sh:hasValue ro_beg:IMROPT2012 .
 
-_:node1bvfdmt21x662 rdf:first _:node1bvfdmt21x663 ;
-	rdf:rest _:node1bvfdmt21x666 .
+_:node1bvfdvmotx662 rdf:first _:node1bvfdvmotx663 ;
+	rdf:rest _:node1bvfdvmotx666 .
 
-_:node1bvfdmt21x667 sh:path ro:tekst ;
+_:node1bvfdvmotx667 sh:path ro:tekst ;
 	sh:class ropt:Tekstobject , ro:Tekst .
 
-_:node1bvfdmt21x666 rdf:first _:node1bvfdmt21x667 ;
+_:node1bvfdvmotx666 rdf:first _:node1bvfdvmotx667 ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x661 sh:and _:node1bvfdmt21x662 .
+_:node1bvfdvmotx661 sh:and _:node1bvfdvmotx662 .
 
-_:node1bvfdmt21x660 rdf:first _:node1bvfdmt21x661 ;
-	rdf:rest _:node1bvfdmt21x668 .
+_:node1bvfdvmotx660 rdf:first _:node1bvfdvmotx661 ;
+	rdf:rest _:node1bvfdvmotx668 .
 
-_:node1bvfdmt21x672 rdf:first dct:isPartOf ;
-	rdf:rest _:node1bvfdmt21x673 .
+_:node1bvfdvmotx672 rdf:first dct:isPartOf ;
+	rdf:rest _:node1bvfdvmotx673 .
 
-_:node1bvfdmt21x673 rdf:first ro:norm ;
+_:node1bvfdvmotx673 rdf:first ro:norm ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x671 sh:path _:node1bvfdmt21x672 ;
-	sh:not _:node1bvfdmt21x674 .
+_:node1bvfdvmotx671 sh:path _:node1bvfdvmotx672 ;
+	sh:not _:node1bvfdvmotx674 .
 
-_:node1bvfdmt21x674 sh:hasValue ro_beg:IMROPT .
+_:node1bvfdvmotx674 sh:hasValue ro_beg:IMROPT .
 
-_:node1bvfdmt21x670 rdf:first _:node1bvfdmt21x671 ;
-	rdf:rest _:node1bvfdmt21x675 .
+_:node1bvfdvmotx670 rdf:first _:node1bvfdvmotx671 ;
+	rdf:rest _:node1bvfdvmotx675 .
 
-_:node1bvfdmt21x676 sh:path ro:tekst ;
+_:node1bvfdvmotx676 sh:path ro:tekst ;
 	sh:class ro:Tekst ;
-	sh:not _:node1bvfdmt21x677 .
+	sh:not _:node1bvfdvmotx677 .
 
-_:node1bvfdmt21x677 sh:class ropt:Tekstobject .
+_:node1bvfdvmotx677 sh:class ropt:Tekstobject .
 
-_:node1bvfdmt21x675 rdf:first _:node1bvfdmt21x676 ;
+_:node1bvfdvmotx675 rdf:first _:node1bvfdvmotx676 ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x669 sh:and _:node1bvfdmt21x670 .
+_:node1bvfdvmotx669 sh:and _:node1bvfdvmotx670 .
 
-_:node1bvfdmt21x668 rdf:first _:node1bvfdmt21x669 ;
+_:node1bvfdvmotx668 rdf:first _:node1bvfdvmotx669 ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x659 sh:xone _:node1bvfdmt21x660 .
+_:node1bvfdvmotx659 sh:xone _:node1bvfdvmotx660 .
 
-_:node1bvfdmt21x658 rdf:first _:node1bvfdmt21x659 ;
-	rdf:rest _:node1bvfdmt21x678 .
+_:node1bvfdvmotx658 rdf:first _:node1bvfdvmotx659 ;
+	rdf:rest _:node1bvfdvmotx678 .
 
-_:node1bvfdmt21x679 sh:path ro:tekst ;
+_:node1bvfdvmotx679 sh:path ro:tekst ;
 	sh:nodeKind sh:IRI ;
 	sh:minCount 1 ;
 	sh:maxCount 1 ;
 	sh:node ro_str:Teksttype_BP .
 
-_:node1bvfdmt21x678 rdf:first _:node1bvfdmt21x679 ;
+_:node1bvfdvmotx678 rdf:first _:node1bvfdvmotx679 ;
 	rdf:rest rdf:nil .
 
 ro_str:Bestemmingsvlak_label a sh:PropertyShape ;
@@ -7232,31 +7232,31 @@ ro_str:Aanduiding a sh:Nodeshape ;
 
 ro_str:Aanduiding_isPartOf a sh:PropertyShape ;
 	sh:path dct:isPartOf ;
-	sh:and _:node1bvfdmt21x680 .
+	sh:and _:node1bvfdvmotx680 .
 
-_:node1bvfdmt21x682 sh:path rdf:type ;
+_:node1bvfdvmotx682 sh:path rdf:type ;
 	sh:hasValue ro:Bestemmingsplan .
 
-_:node1bvfdmt21x681 sh:qualifiedValueShape _:node1bvfdmt21x682 ;
+_:node1bvfdvmotx681 sh:qualifiedValueShape _:node1bvfdvmotx682 ;
 	sh:qualifiedMinCount 1 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x680 rdf:first _:node1bvfdmt21x681 ;
-	rdf:rest _:node1bvfdmt21x683 .
+_:node1bvfdvmotx680 rdf:first _:node1bvfdvmotx681 ;
+	rdf:rest _:node1bvfdvmotx683 .
 
-_:node1bvfdmt21x685 sh:path rdf:type ;
+_:node1bvfdvmotx685 sh:path rdf:type ;
 	sh:hasValue ro:Bestemmingsvlak .
 
-_:node1bvfdmt21x684 sh:qualifiedValueShape _:node1bvfdmt21x685 .
+_:node1bvfdvmotx684 sh:qualifiedValueShape _:node1bvfdvmotx685 .
 
-_:node1bvfdmt21x683 rdf:first _:node1bvfdmt21x684 ;
+_:node1bvfdvmotx683 rdf:first _:node1bvfdvmotx684 ;
 	rdf:rest rdf:nil .
 
 ro_str:aanduiding a sh:NodeShape ;
 	sh:targetObjectsOf ro:aanduiding ;
-	sh:property _:node1bvfdmt21x686 .
+	sh:property _:node1bvfdvmotx686 .
 
-_:node1bvfdmt21x686 sh:class ro:Aanduiding ;
+_:node1bvfdvmotx686 sh:class ro:Aanduiding ;
 	sh:nodeKind sh:IRI .
 
 ro_str:Bouwvlak a sh:NodeShape ;
@@ -7294,70 +7294,70 @@ ro_str:Functieaanduiding_label a sh:PropertyShape ;
 	sh:maxCount 1 .
 
 ro_str:Functieaanduiding_tekstverwijzing a sh:PropertyShape ;
-	sh:and _:node1bvfdmt21x687 .
+	sh:and _:node1bvfdvmotx687 .
 
-_:node1bvfdmt21x693 rdf:first dct:isPartOf ;
-	rdf:rest _:node1bvfdmt21x694 .
+_:node1bvfdvmotx693 rdf:first dct:isPartOf ;
+	rdf:rest _:node1bvfdvmotx694 .
 
-_:node1bvfdmt21x694 rdf:first ro:norm ;
+_:node1bvfdvmotx694 rdf:first ro:norm ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x692 sh:path _:node1bvfdmt21x693 ;
+_:node1bvfdvmotx692 sh:path _:node1bvfdvmotx693 ;
 	sh:hasValue ro_beg:IMROPT2012 .
 
-_:node1bvfdmt21x691 rdf:first _:node1bvfdmt21x692 ;
-	rdf:rest _:node1bvfdmt21x695 .
+_:node1bvfdvmotx691 rdf:first _:node1bvfdvmotx692 ;
+	rdf:rest _:node1bvfdvmotx695 .
 
-_:node1bvfdmt21x696 sh:path ro:tekst ;
+_:node1bvfdvmotx696 sh:path ro:tekst ;
 	sh:class ropt:Tekstobject , ro:Tekst .
 
-_:node1bvfdmt21x695 rdf:first _:node1bvfdmt21x696 ;
+_:node1bvfdvmotx695 rdf:first _:node1bvfdvmotx696 ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x690 sh:and _:node1bvfdmt21x691 .
+_:node1bvfdvmotx690 sh:and _:node1bvfdvmotx691 .
 
-_:node1bvfdmt21x689 rdf:first _:node1bvfdmt21x690 ;
-	rdf:rest _:node1bvfdmt21x697 .
+_:node1bvfdvmotx689 rdf:first _:node1bvfdvmotx690 ;
+	rdf:rest _:node1bvfdvmotx697 .
 
-_:node1bvfdmt21x701 rdf:first dct:isPartOf ;
-	rdf:rest _:node1bvfdmt21x702 .
+_:node1bvfdvmotx701 rdf:first dct:isPartOf ;
+	rdf:rest _:node1bvfdvmotx702 .
 
-_:node1bvfdmt21x702 rdf:first ro:norm ;
+_:node1bvfdvmotx702 rdf:first ro:norm ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x700 sh:path _:node1bvfdmt21x701 ;
-	sh:not _:node1bvfdmt21x703 .
+_:node1bvfdvmotx700 sh:path _:node1bvfdvmotx701 ;
+	sh:not _:node1bvfdvmotx703 .
 
-_:node1bvfdmt21x703 sh:hasValue ro_beg:IMROPT .
+_:node1bvfdvmotx703 sh:hasValue ro_beg:IMROPT .
 
-_:node1bvfdmt21x699 rdf:first _:node1bvfdmt21x700 ;
-	rdf:rest _:node1bvfdmt21x704 .
+_:node1bvfdvmotx699 rdf:first _:node1bvfdvmotx700 ;
+	rdf:rest _:node1bvfdvmotx704 .
 
-_:node1bvfdmt21x705 sh:path ro:tekst ;
+_:node1bvfdvmotx705 sh:path ro:tekst ;
 	sh:class ro:Tekst ;
-	sh:not _:node1bvfdmt21x706 .
+	sh:not _:node1bvfdvmotx706 .
 
-_:node1bvfdmt21x706 sh:class ropt:Tekstobject .
+_:node1bvfdvmotx706 sh:class ropt:Tekstobject .
 
-_:node1bvfdmt21x704 rdf:first _:node1bvfdmt21x705 ;
+_:node1bvfdvmotx704 rdf:first _:node1bvfdvmotx705 ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x698 sh:and _:node1bvfdmt21x699 .
+_:node1bvfdvmotx698 sh:and _:node1bvfdvmotx699 .
 
-_:node1bvfdmt21x697 rdf:first _:node1bvfdmt21x698 ;
+_:node1bvfdvmotx697 rdf:first _:node1bvfdvmotx698 ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x688 sh:xone _:node1bvfdmt21x689 .
+_:node1bvfdvmotx688 sh:xone _:node1bvfdvmotx689 .
 
-_:node1bvfdmt21x687 rdf:first _:node1bvfdmt21x688 ;
-	rdf:rest _:node1bvfdmt21x707 .
+_:node1bvfdvmotx687 rdf:first _:node1bvfdvmotx688 ;
+	rdf:rest _:node1bvfdvmotx707 .
 
-_:node1bvfdmt21x708 sh:path ro:tekst ;
+_:node1bvfdvmotx708 sh:path ro:tekst ;
 	sh:nodeKind sh:IRI ;
 	sh:maxCount 1 ;
 	sh:node ro_str:Teksttype_BP .
 
-_:node1bvfdmt21x707 rdf:first _:node1bvfdmt21x708 ;
+_:node1bvfdvmotx707 rdf:first _:node1bvfdvmotx708 ;
 	rdf:rest rdf:nil .
 
 ro_str:Functieaanduiding_begrenzing a sh:PropertyShape ;
@@ -7381,87 +7381,87 @@ ro_str:Bouwaanduiding_naam a sh:Propertyshape ;
 	sh:node ro_str:Bouwaanduidingen .
 
 ro_str:Bouwaanduidingen a sh:NodeShape ;
-	sh:or _:node1bvfdmt21x709 .
+	sh:or _:node1bvfdvmotx709 .
 
-_:node1bvfdmt21x711 rdf:first "aaneengebouwd" ;
-	rdf:rest _:node1bvfdmt21x712 .
+_:node1bvfdvmotx711 rdf:first "aaneengebouwd" ;
+	rdf:rest _:node1bvfdvmotx712 .
 
-_:node1bvfdmt21x712 rdf:first "antennemast" ;
-	rdf:rest _:node1bvfdmt21x713 .
+_:node1bvfdvmotx712 rdf:first "antennemast" ;
+	rdf:rest _:node1bvfdvmotx713 .
 
-_:node1bvfdmt21x713 rdf:first "bijgebouwen" ;
-	rdf:rest _:node1bvfdmt21x714 .
+_:node1bvfdvmotx713 rdf:first "bijgebouwen" ;
+	rdf:rest _:node1bvfdvmotx714 .
 
-_:node1bvfdmt21x714 rdf:first "gestapeld" ;
-	rdf:rest _:node1bvfdmt21x715 .
+_:node1bvfdvmotx714 rdf:first "gestapeld" ;
+	rdf:rest _:node1bvfdvmotx715 .
 
-_:node1bvfdmt21x715 rdf:first "kap" ;
-	rdf:rest _:node1bvfdmt21x716 .
+_:node1bvfdvmotx715 rdf:first "kap" ;
+	rdf:rest _:node1bvfdvmotx716 .
 
-_:node1bvfdmt21x716 rdf:first "karakteristiek" ;
-	rdf:rest _:node1bvfdmt21x717 .
+_:node1bvfdvmotx716 rdf:first "karakteristiek" ;
+	rdf:rest _:node1bvfdvmotx717 .
 
-_:node1bvfdmt21x717 rdf:first "nokrichting" ;
-	rdf:rest _:node1bvfdmt21x718 .
+_:node1bvfdvmotx717 rdf:first "nokrichting" ;
+	rdf:rest _:node1bvfdvmotx718 .
 
-_:node1bvfdmt21x718 rdf:first "onderdoorgang" ;
-	rdf:rest _:node1bvfdmt21x719 .
+_:node1bvfdvmotx718 rdf:first "onderdoorgang" ;
+	rdf:rest _:node1bvfdvmotx719 .
 
-_:node1bvfdmt21x719 rdf:first "plat dak" ;
-	rdf:rest _:node1bvfdmt21x720 .
+_:node1bvfdvmotx719 rdf:first "plat dak" ;
+	rdf:rest _:node1bvfdvmotx720 .
 
-_:node1bvfdmt21x720 rdf:first "twee-aaneen" ;
-	rdf:rest _:node1bvfdmt21x721 .
+_:node1bvfdvmotx720 rdf:first "twee-aaneen" ;
+	rdf:rest _:node1bvfdvmotx721 .
 
-_:node1bvfdmt21x721 rdf:first "vrijstaand" ;
-	rdf:rest _:node1bvfdmt21x722 .
+_:node1bvfdvmotx721 rdf:first "vrijstaand" ;
+	rdf:rest _:node1bvfdvmotx722 .
 
-_:node1bvfdmt21x722 rdf:first "aaneengebouwd uitgesloten" ;
-	rdf:rest _:node1bvfdmt21x723 .
+_:node1bvfdvmotx722 rdf:first "aaneengebouwd uitgesloten" ;
+	rdf:rest _:node1bvfdvmotx723 .
 
-_:node1bvfdmt21x723 rdf:first "antennemast uitgesloten" ;
-	rdf:rest _:node1bvfdmt21x724 .
+_:node1bvfdvmotx723 rdf:first "antennemast uitgesloten" ;
+	rdf:rest _:node1bvfdvmotx724 .
 
-_:node1bvfdmt21x724 rdf:first "bijgebouwen uitgesloten" ;
-	rdf:rest _:node1bvfdmt21x725 .
+_:node1bvfdvmotx724 rdf:first "bijgebouwen uitgesloten" ;
+	rdf:rest _:node1bvfdvmotx725 .
 
-_:node1bvfdmt21x725 rdf:first "gestapeld uitgesloten" ;
-	rdf:rest _:node1bvfdmt21x726 .
+_:node1bvfdvmotx725 rdf:first "gestapeld uitgesloten" ;
+	rdf:rest _:node1bvfdvmotx726 .
 
-_:node1bvfdmt21x726 rdf:first "kap uitgesloten" ;
-	rdf:rest _:node1bvfdmt21x727 .
+_:node1bvfdvmotx726 rdf:first "kap uitgesloten" ;
+	rdf:rest _:node1bvfdvmotx727 .
 
-_:node1bvfdmt21x727 rdf:first "karakteristiek uitgesloten" ;
-	rdf:rest _:node1bvfdmt21x728 .
+_:node1bvfdvmotx727 rdf:first "karakteristiek uitgesloten" ;
+	rdf:rest _:node1bvfdvmotx728 .
 
-_:node1bvfdmt21x728 rdf:first "nokrichting uitgesloten" ;
-	rdf:rest _:node1bvfdmt21x729 .
+_:node1bvfdvmotx728 rdf:first "nokrichting uitgesloten" ;
+	rdf:rest _:node1bvfdvmotx729 .
 
-_:node1bvfdmt21x729 rdf:first "onderdoorgang uitgesloten" ;
-	rdf:rest _:node1bvfdmt21x730 .
+_:node1bvfdvmotx729 rdf:first "onderdoorgang uitgesloten" ;
+	rdf:rest _:node1bvfdvmotx730 .
 
-_:node1bvfdmt21x730 rdf:first "plat dak uitgesloten" ;
-	rdf:rest _:node1bvfdmt21x731 .
+_:node1bvfdvmotx730 rdf:first "plat dak uitgesloten" ;
+	rdf:rest _:node1bvfdvmotx731 .
 
-_:node1bvfdmt21x731 rdf:first "twee-aaneen uitgesloten" ;
-	rdf:rest _:node1bvfdmt21x732 .
+_:node1bvfdvmotx731 rdf:first "twee-aaneen uitgesloten" ;
+	rdf:rest _:node1bvfdvmotx732 .
 
-_:node1bvfdmt21x732 rdf:first "vrijstaand uitgesloten" ;
+_:node1bvfdvmotx732 rdf:first "vrijstaand uitgesloten" ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x710 sh:in _:node1bvfdmt21x711 .
+_:node1bvfdvmotx710 sh:in _:node1bvfdvmotx711 .
 
-_:node1bvfdmt21x709 rdf:first _:node1bvfdmt21x710 ;
-	rdf:rest _:node1bvfdmt21x733 .
+_:node1bvfdvmotx709 rdf:first _:node1bvfdvmotx710 ;
+	rdf:rest _:node1bvfdvmotx733 .
 
-_:node1bvfdmt21x734 sh:pattern "(^specifieke bouwaanduiding - [a-z ]*)" .
+_:node1bvfdvmotx734 sh:pattern "(^specifieke bouwaanduiding - [a-z ]*)" .
 
-_:node1bvfdmt21x733 rdf:first _:node1bvfdmt21x734 ;
-	rdf:rest _:node1bvfdmt21x735 .
+_:node1bvfdvmotx733 rdf:first _:node1bvfdvmotx734 ;
+	rdf:rest _:node1bvfdvmotx735 .
 
-_:node1bvfdmt21x736 sh:pattern "(^specifieke bouwaanduiding uitgesloten - [a-z ]*)" .
+_:node1bvfdvmotx736 sh:pattern "(^specifieke bouwaanduiding uitgesloten - [a-z ]*)" .
 
-_:node1bvfdmt21x735 rdf:first _:node1bvfdmt21x736 ;
+_:node1bvfdvmotx735 rdf:first _:node1bvfdvmotx736 ;
 	rdf:rest rdf:nil .
 
 ro_str:Maatvoering a sh:NodeShape ;
@@ -7514,77 +7514,77 @@ ro_str:Figuur_naam a sh:PropertyShape ;
 	sh:node ro_str:Figuren .
 
 ro_str:Figuren a sh:Nodeshape ;
-	sh:or _:node1bvfdmt21x737 .
+	sh:or _:node1bvfdvmotx737 .
 
-_:node1bvfdmt21x739 rdf:first "as van de weg" ;
-	rdf:rest _:node1bvfdmt21x740 .
+_:node1bvfdvmotx739 rdf:first "as van de weg" ;
+	rdf:rest _:node1bvfdvmotx740 .
 
-_:node1bvfdmt21x740 rdf:first "dwarsprofiel" ;
-	rdf:rest _:node1bvfdmt21x741 .
+_:node1bvfdvmotx740 rdf:first "dwarsprofiel" ;
+	rdf:rest _:node1bvfdvmotx741 .
 
-_:node1bvfdmt21x741 rdf:first "gevellijn" ;
-	rdf:rest _:node1bvfdmt21x742 .
+_:node1bvfdvmotx741 rdf:first "gevellijn" ;
+	rdf:rest _:node1bvfdvmotx742 .
 
-_:node1bvfdmt21x742 rdf:first "hartleiding - brandstof" ;
-	rdf:rest _:node1bvfdmt21x743 .
+_:node1bvfdvmotx742 rdf:first "hartleiding - brandstof" ;
+	rdf:rest _:node1bvfdvmotx743 .
 
-_:node1bvfdmt21x743 rdf:first "hartlijn leiding - gas" ;
-	rdf:rest _:node1bvfdmt21x744 .
+_:node1bvfdvmotx743 rdf:first "hartlijn leiding - gas" ;
+	rdf:rest _:node1bvfdvmotx744 .
 
-_:node1bvfdmt21x744 rdf:first "hartlijn leiding - hoogspanning" ;
-	rdf:rest _:node1bvfdmt21x745 .
+_:node1bvfdvmotx744 rdf:first "hartlijn leiding - hoogspanning" ;
+	rdf:rest _:node1bvfdvmotx745 .
 
-_:node1bvfdmt21x745 rdf:first "hartlijn leiding - hoogspanningsverbinding" ;
-	rdf:rest _:node1bvfdmt21x746 .
+_:node1bvfdvmotx745 rdf:first "hartlijn leiding - hoogspanningsverbinding" ;
+	rdf:rest _:node1bvfdvmotx746 .
 
-_:node1bvfdmt21x746 rdf:first "hartlijn leiding - olie" ;
-	rdf:rest _:node1bvfdmt21x747 .
+_:node1bvfdvmotx746 rdf:first "hartlijn leiding - olie" ;
+	rdf:rest _:node1bvfdvmotx747 .
 
-_:node1bvfdmt21x747 rdf:first "hartlijn leiding - riool" ;
-	rdf:rest _:node1bvfdmt21x748 .
+_:node1bvfdvmotx747 rdf:first "hartlijn leiding - riool" ;
+	rdf:rest _:node1bvfdvmotx748 .
 
-_:node1bvfdmt21x748 rdf:first "hartlijn leiding - water" ;
-	rdf:rest _:node1bvfdmt21x749 .
+_:node1bvfdvmotx748 rdf:first "hartlijn leiding - water" ;
+	rdf:rest _:node1bvfdvmotx749 .
 
-_:node1bvfdmt21x749 rdf:first "relatie" ;
+_:node1bvfdvmotx749 rdf:first "relatie" ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x738 sh:in _:node1bvfdmt21x739 .
+_:node1bvfdvmotx738 sh:in _:node1bvfdvmotx739 .
 
-_:node1bvfdmt21x737 rdf:first _:node1bvfdmt21x738 ;
-	rdf:rest _:node1bvfdmt21x750 .
+_:node1bvfdvmotx737 rdf:first _:node1bvfdvmotx738 ;
+	rdf:rest _:node1bvfdvmotx750 .
 
-_:node1bvfdmt21x751 sh:pattern "(^hartlijn leiding - [a-z ]*)" .
+_:node1bvfdvmotx751 sh:pattern "(^hartlijn leiding - [a-z ]*)" .
 
-_:node1bvfdmt21x750 rdf:first _:node1bvfdmt21x751 ;
+_:node1bvfdvmotx750 rdf:first _:node1bvfdvmotx751 ;
 	rdf:rest rdf:nil .
 
 ro_str:Figuur_illustratie a sh:PropertyShape ;
-	sh:xone _:node1bvfdmt21x752 .
+	sh:xone _:node1bvfdvmotx752 .
 
-_:node1bvfdmt21x755 sh:path rdfs:label ;
+_:node1bvfdvmotx755 sh:path rdfs:label ;
 	sh:hasValue "dwarsprofiel" .
 
-_:node1bvfdmt21x754 rdf:first _:node1bvfdmt21x755 ;
-	rdf:rest _:node1bvfdmt21x756 .
+_:node1bvfdvmotx754 rdf:first _:node1bvfdvmotx755 ;
+	rdf:rest _:node1bvfdvmotx756 .
 
-_:node1bvfdmt21x757 sh:path ro:illustratie ;
+_:node1bvfdvmotx757 sh:path ro:illustratie ;
 	sh:class ro:Afbeelding ;
 	sh:minCount 1 ;
 	sh:maxCount 1 .
 
-_:node1bvfdmt21x756 rdf:first _:node1bvfdmt21x757 ;
+_:node1bvfdvmotx756 rdf:first _:node1bvfdvmotx757 ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x753 sh:and _:node1bvfdmt21x754 .
+_:node1bvfdvmotx753 sh:and _:node1bvfdvmotx754 .
 
-_:node1bvfdmt21x752 rdf:first _:node1bvfdmt21x753 ;
-	rdf:rest _:node1bvfdmt21x758 .
+_:node1bvfdvmotx752 rdf:first _:node1bvfdvmotx753 ;
+	rdf:rest _:node1bvfdvmotx758 .
 
-_:node1bvfdmt21x759 sh:path ro:illustratie ;
+_:node1bvfdvmotx759 sh:path ro:illustratie ;
 	sh:maxCount 0 .
 
-_:node1bvfdmt21x758 rdf:first _:node1bvfdmt21x759 ;
+_:node1bvfdvmotx758 rdf:first _:node1bvfdvmotx759 ;
 	rdf:rest rdf:nil .
 
 ro_str:Figuur_label a sh:PropertyShape ;
@@ -7611,186 +7611,186 @@ ro_str:Gebiedsaanduiding_naam a sh:Propertyshape ;
 	sh:node ro_str:Gebiedsaanduidingen .
 
 ro_str:Gebiedsaanduidingen a sh:NodeShape ;
-	sh:or _:node1bvfdmt21x760 .
+	sh:or _:node1bvfdvmotx760 .
 
-_:node1bvfdmt21x762 rdf:first "geluidzone" ;
-	rdf:rest _:node1bvfdmt21x763 .
+_:node1bvfdvmotx762 rdf:first "geluidzone" ;
+	rdf:rest _:node1bvfdvmotx763 .
 
-_:node1bvfdmt21x763 rdf:first "geluidzone - industrie" ;
-	rdf:rest _:node1bvfdmt21x764 .
+_:node1bvfdvmotx763 rdf:first "geluidzone - industrie" ;
+	rdf:rest _:node1bvfdvmotx764 .
 
-_:node1bvfdmt21x764 rdf:first "geluidzone - spoor" ;
-	rdf:rest _:node1bvfdmt21x765 .
+_:node1bvfdvmotx764 rdf:first "geluidzone - spoor" ;
+	rdf:rest _:node1bvfdvmotx765 .
 
-_:node1bvfdmt21x765 rdf:first "geluidzone - weg" ;
-	rdf:rest _:node1bvfdmt21x766 .
+_:node1bvfdvmotx765 rdf:first "geluidzone - weg" ;
+	rdf:rest _:node1bvfdvmotx766 .
 
-_:node1bvfdmt21x766 rdf:first "luchtvaartverkeerzone" ;
-	rdf:rest _:node1bvfdmt21x767 .
+_:node1bvfdvmotx766 rdf:first "luchtvaartverkeerzone" ;
+	rdf:rest _:node1bvfdvmotx767 .
 
-_:node1bvfdmt21x767 rdf:first "milieuzone" ;
-	rdf:rest _:node1bvfdmt21x768 .
+_:node1bvfdvmotx767 rdf:first "milieuzone" ;
+	rdf:rest _:node1bvfdvmotx768 .
 
-_:node1bvfdmt21x768 rdf:first "milieuzone - bodembeschermingsgebied" ;
-	rdf:rest _:node1bvfdmt21x769 .
+_:node1bvfdvmotx768 rdf:first "milieuzone - bodembeschermingsgebied" ;
+	rdf:rest _:node1bvfdvmotx769 .
 
-_:node1bvfdmt21x769 rdf:first "milieuzone - geluidsgevoelige functie" ;
-	rdf:rest _:node1bvfdmt21x770 .
+_:node1bvfdvmotx769 rdf:first "milieuzone - geluidsgevoelige functie" ;
+	rdf:rest _:node1bvfdvmotx770 .
 
-_:node1bvfdmt21x770 rdf:first "milieuzone - geurzone" ;
-	rdf:rest _:node1bvfdmt21x771 .
+_:node1bvfdvmotx770 rdf:first "milieuzone - geurzone" ;
+	rdf:rest _:node1bvfdvmotx771 .
 
-_:node1bvfdmt21x771 rdf:first "milieuzone - grondwaterbeschermingsgebied" ;
-	rdf:rest _:node1bvfdmt21x772 .
+_:node1bvfdvmotx771 rdf:first "milieuzone - grondwaterbeschermingsgebied" ;
+	rdf:rest _:node1bvfdvmotx772 .
 
-_:node1bvfdmt21x772 rdf:first "milieuzone - stiltegebied" ;
-	rdf:rest _:node1bvfdmt21x773 .
+_:node1bvfdvmotx772 rdf:first "milieuzone - stiltegebied" ;
+	rdf:rest _:node1bvfdvmotx773 .
 
-_:node1bvfdmt21x773 rdf:first "milieuzone - waterwingebied" ;
-	rdf:rest _:node1bvfdmt21x774 .
+_:node1bvfdvmotx773 rdf:first "milieuzone - waterwingebied" ;
+	rdf:rest _:node1bvfdvmotx774 .
 
-_:node1bvfdmt21x774 rdf:first "milieuzone - zones wet milieubeheer" ;
-	rdf:rest _:node1bvfdmt21x775 .
+_:node1bvfdvmotx774 rdf:first "milieuzone - zones wet milieubeheer" ;
+	rdf:rest _:node1bvfdvmotx775 .
 
-_:node1bvfdmt21x775 rdf:first "overige zone" ;
-	rdf:rest _:node1bvfdmt21x776 .
+_:node1bvfdvmotx775 rdf:first "overige zone" ;
+	rdf:rest _:node1bvfdvmotx776 .
 
-_:node1bvfdmt21x776 rdf:first "reconstructiewetzone" ;
-	rdf:rest _:node1bvfdmt21x777 .
+_:node1bvfdvmotx776 rdf:first "reconstructiewetzone" ;
+	rdf:rest _:node1bvfdvmotx777 .
 
-_:node1bvfdmt21x777 rdf:first "reconstructiewetzone - extensiveringsgebied" ;
-	rdf:rest _:node1bvfdmt21x778 .
+_:node1bvfdvmotx777 rdf:first "reconstructiewetzone - extensiveringsgebied" ;
+	rdf:rest _:node1bvfdvmotx778 .
 
-_:node1bvfdmt21x778 rdf:first "reconstructiewetzone - landbouwontwikkelingsgebied" ;
-	rdf:rest _:node1bvfdmt21x779 .
+_:node1bvfdvmotx778 rdf:first "reconstructiewetzone - landbouwontwikkelingsgebied" ;
+	rdf:rest _:node1bvfdvmotx779 .
 
-_:node1bvfdmt21x779 rdf:first "reconstructiewetzone - verwevingsgebied" ;
-	rdf:rest _:node1bvfdmt21x780 .
+_:node1bvfdvmotx779 rdf:first "reconstructiewetzone - verwevingsgebied" ;
+	rdf:rest _:node1bvfdvmotx780 .
 
-_:node1bvfdmt21x780 rdf:first "veiligheidszone" ;
-	rdf:rest _:node1bvfdmt21x781 .
+_:node1bvfdvmotx780 rdf:first "veiligheidszone" ;
+	rdf:rest _:node1bvfdvmotx781 .
 
-_:node1bvfdmt21x781 rdf:first "veiligheidszone - bevi" ;
-	rdf:rest _:node1bvfdmt21x782 .
+_:node1bvfdvmotx781 rdf:first "veiligheidszone - bevi" ;
+	rdf:rest _:node1bvfdvmotx782 .
 
-_:node1bvfdmt21x782 rdf:first "veiligheidszone - leiding" ;
-	rdf:rest _:node1bvfdmt21x783 .
+_:node1bvfdvmotx782 rdf:first "veiligheidszone - leiding" ;
+	rdf:rest _:node1bvfdvmotx783 .
 
-_:node1bvfdmt21x783 rdf:first "veiligheidszone - lpg" ;
-	rdf:rest _:node1bvfdmt21x784 .
+_:node1bvfdvmotx783 rdf:first "veiligheidszone - lpg" ;
+	rdf:rest _:node1bvfdvmotx784 .
 
-_:node1bvfdmt21x784 rdf:first "veiligheidszone - munitie" ;
-	rdf:rest _:node1bvfdmt21x785 .
+_:node1bvfdvmotx784 rdf:first "veiligheidszone - munitie" ;
+	rdf:rest _:node1bvfdvmotx785 .
 
-_:node1bvfdmt21x785 rdf:first "veiligheidszone - vervoer gevaarlijke stoffen" ;
-	rdf:rest _:node1bvfdmt21x786 .
+_:node1bvfdvmotx785 rdf:first "veiligheidszone - vervoer gevaarlijke stoffen" ;
+	rdf:rest _:node1bvfdvmotx786 .
 
-_:node1bvfdmt21x786 rdf:first "veiligheidszone - vuurwerk" ;
-	rdf:rest _:node1bvfdmt21x787 .
+_:node1bvfdvmotx786 rdf:first "veiligheidszone - vuurwerk" ;
+	rdf:rest _:node1bvfdvmotx787 .
 
-_:node1bvfdmt21x787 rdf:first "veiligheidszone - windturbine" ;
-	rdf:rest _:node1bvfdmt21x788 .
+_:node1bvfdvmotx787 rdf:first "veiligheidszone - windturbine" ;
+	rdf:rest _:node1bvfdvmotx788 .
 
-_:node1bvfdmt21x788 rdf:first "vrijwaringszone" ;
-	rdf:rest _:node1bvfdmt21x789 .
+_:node1bvfdvmotx788 rdf:first "vrijwaringszone" ;
+	rdf:rest _:node1bvfdvmotx789 .
 
-_:node1bvfdmt21x789 rdf:first "vrijwaringszone - buisleidingenstraat" ;
-	rdf:rest _:node1bvfdmt21x790 .
+_:node1bvfdvmotx789 rdf:first "vrijwaringszone - buisleidingenstraat" ;
+	rdf:rest _:node1bvfdvmotx790 .
 
-_:node1bvfdmt21x790 rdf:first "vrijwaringszone - dijk" ;
-	rdf:rest _:node1bvfdmt21x791 .
+_:node1bvfdvmotx790 rdf:first "vrijwaringszone - dijk" ;
+	rdf:rest _:node1bvfdvmotx791 .
 
-_:node1bvfdmt21x791 rdf:first "vrijwaringszone - duin" ;
-	rdf:rest _:node1bvfdmt21x792 .
+_:node1bvfdvmotx791 rdf:first "vrijwaringszone - duin" ;
+	rdf:rest _:node1bvfdvmotx792 .
 
-_:node1bvfdmt21x792 rdf:first "vrijwaringszone - molenbiotoop" ;
-	rdf:rest _:node1bvfdmt21x793 .
+_:node1bvfdvmotx792 rdf:first "vrijwaringszone - molenbiotoop" ;
+	rdf:rest _:node1bvfdvmotx793 .
 
-_:node1bvfdmt21x793 rdf:first "vrijwaringszone - radar" ;
-	rdf:rest _:node1bvfdmt21x794 .
+_:node1bvfdvmotx793 rdf:first "vrijwaringszone - radar" ;
+	rdf:rest _:node1bvfdvmotx794 .
 
-_:node1bvfdmt21x794 rdf:first "vrijwaringszone - spoor" ;
-	rdf:rest _:node1bvfdmt21x795 .
+_:node1bvfdvmotx794 rdf:first "vrijwaringszone - spoor" ;
+	rdf:rest _:node1bvfdvmotx795 .
 
-_:node1bvfdmt21x795 rdf:first "vrijwaringszone - straalpad" ;
-	rdf:rest _:node1bvfdmt21x796 .
+_:node1bvfdvmotx795 rdf:first "vrijwaringszone - straalpad" ;
+	rdf:rest _:node1bvfdvmotx796 .
 
-_:node1bvfdmt21x796 rdf:first "vrijwaringszone - weg" ;
-	rdf:rest _:node1bvfdmt21x797 .
+_:node1bvfdvmotx796 rdf:first "vrijwaringszone - weg" ;
+	rdf:rest _:node1bvfdvmotx797 .
 
-_:node1bvfdmt21x797 rdf:first "vrijwaringszone - vaarweg" ;
-	rdf:rest _:node1bvfdmt21x798 .
+_:node1bvfdvmotx797 rdf:first "vrijwaringszone - vaarweg" ;
+	rdf:rest _:node1bvfdvmotx798 .
 
-_:node1bvfdmt21x798 rdf:first "wetgevingzone" ;
-	rdf:rest _:node1bvfdmt21x799 .
+_:node1bvfdvmotx798 rdf:first "wetgevingzone" ;
+	rdf:rest _:node1bvfdvmotx799 .
 
-_:node1bvfdmt21x799 rdf:first "wetgevingzone - moderniseringsgebied" ;
-	rdf:rest _:node1bvfdmt21x800 .
+_:node1bvfdvmotx799 rdf:first "wetgevingzone - moderniseringsgebied" ;
+	rdf:rest _:node1bvfdvmotx800 .
 
-_:node1bvfdmt21x800 rdf:first "wetgevingzone - afwijkingsgebied" ;
-	rdf:rest _:node1bvfdmt21x801 .
+_:node1bvfdvmotx800 rdf:first "wetgevingzone - afwijkingsgebied" ;
+	rdf:rest _:node1bvfdvmotx801 .
 
-_:node1bvfdmt21x801 rdf:first "wetgevingzone - verwezenlijking in de naaste toekomst" ;
-	rdf:rest _:node1bvfdmt21x802 .
+_:node1bvfdvmotx801 rdf:first "wetgevingzone - verwezenlijking in de naaste toekomst" ;
+	rdf:rest _:node1bvfdvmotx802 .
 
-_:node1bvfdmt21x802 rdf:first "wetgevingzone - wijzigingsgebied" ;
-	rdf:rest _:node1bvfdmt21x803 .
+_:node1bvfdvmotx802 rdf:first "wetgevingzone - wijzigingsgebied" ;
+	rdf:rest _:node1bvfdvmotx803 .
 
-_:node1bvfdmt21x803 rdf:first "wetgevingzone - wet geluidhinder" ;
-	rdf:rest _:node1bvfdmt21x804 .
+_:node1bvfdvmotx803 rdf:first "wetgevingzone - wet geluidhinder" ;
+	rdf:rest _:node1bvfdvmotx804 .
 
-_:node1bvfdmt21x804 rdf:first "wetgevingzone - natura 2000" ;
-	rdf:rest _:node1bvfdmt21x805 .
+_:node1bvfdvmotx804 rdf:first "wetgevingzone - natura 2000" ;
+	rdf:rest _:node1bvfdvmotx805 .
 
-_:node1bvfdmt21x805 rdf:first "wetgevingzone - tracéwet" ;
-	rdf:rest _:node1bvfdmt21x806 .
+_:node1bvfdvmotx805 rdf:first "wetgevingzone - tracéwet" ;
+	rdf:rest _:node1bvfdvmotx806 .
 
-_:node1bvfdmt21x806 rdf:first "wetgevingzone - waterwet" ;
+_:node1bvfdvmotx806 rdf:first "wetgevingzone - waterwet" ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x761 sh:in _:node1bvfdmt21x762 .
+_:node1bvfdvmotx761 sh:in _:node1bvfdvmotx762 .
 
-_:node1bvfdmt21x760 rdf:first _:node1bvfdmt21x761 ;
-	rdf:rest _:node1bvfdmt21x807 .
+_:node1bvfdvmotx760 rdf:first _:node1bvfdvmotx761 ;
+	rdf:rest _:node1bvfdvmotx807 .
 
-_:node1bvfdmt21x808 sh:pattern "(^geluidzone - [a-z ]*)" .
+_:node1bvfdvmotx808 sh:pattern "(^geluidzone - [a-z ]*)" .
 
-_:node1bvfdmt21x807 rdf:first _:node1bvfdmt21x808 ;
-	rdf:rest _:node1bvfdmt21x809 .
+_:node1bvfdvmotx807 rdf:first _:node1bvfdvmotx808 ;
+	rdf:rest _:node1bvfdvmotx809 .
 
-_:node1bvfdmt21x810 sh:pattern "(^luchtvaartverkeerzone - [a-z ]*)" .
+_:node1bvfdvmotx810 sh:pattern "(^luchtvaartverkeerzone - [a-z ]*)" .
 
-_:node1bvfdmt21x809 rdf:first _:node1bvfdmt21x810 ;
-	rdf:rest _:node1bvfdmt21x811 .
+_:node1bvfdvmotx809 rdf:first _:node1bvfdvmotx810 ;
+	rdf:rest _:node1bvfdvmotx811 .
 
-_:node1bvfdmt21x812 sh:pattern "(^milieuzone - [a-z ]*)" .
+_:node1bvfdvmotx812 sh:pattern "(^milieuzone - [a-z ]*)" .
 
-_:node1bvfdmt21x811 rdf:first _:node1bvfdmt21x812 ;
-	rdf:rest _:node1bvfdmt21x813 .
+_:node1bvfdvmotx811 rdf:first _:node1bvfdvmotx812 ;
+	rdf:rest _:node1bvfdvmotx813 .
 
-_:node1bvfdmt21x814 sh:pattern "(^overige zone - [a-z ]*)" .
+_:node1bvfdvmotx814 sh:pattern "(^overige zone - [a-z ]*)" .
 
-_:node1bvfdmt21x813 rdf:first _:node1bvfdmt21x814 ;
-	rdf:rest _:node1bvfdmt21x815 .
+_:node1bvfdvmotx813 rdf:first _:node1bvfdvmotx814 ;
+	rdf:rest _:node1bvfdvmotx815 .
 
-_:node1bvfdmt21x816 sh:pattern "(^reconstructiewetzone - [a-z ]*)" .
+_:node1bvfdvmotx816 sh:pattern "(^reconstructiewetzone - [a-z ]*)" .
 
-_:node1bvfdmt21x815 rdf:first _:node1bvfdmt21x816 ;
-	rdf:rest _:node1bvfdmt21x817 .
+_:node1bvfdvmotx815 rdf:first _:node1bvfdvmotx816 ;
+	rdf:rest _:node1bvfdvmotx817 .
 
-_:node1bvfdmt21x818 sh:pattern "(^veiligheidszone - [a-z ]*)" .
+_:node1bvfdvmotx818 sh:pattern "(^veiligheidszone - [a-z ]*)" .
 
-_:node1bvfdmt21x817 rdf:first _:node1bvfdmt21x818 ;
-	rdf:rest _:node1bvfdmt21x819 .
+_:node1bvfdvmotx817 rdf:first _:node1bvfdvmotx818 ;
+	rdf:rest _:node1bvfdvmotx819 .
 
-_:node1bvfdmt21x820 sh:pattern "(^vrijwaringszone - [a-z ]*)" .
+_:node1bvfdvmotx820 sh:pattern "(^vrijwaringszone - [a-z ]*)" .
 
-_:node1bvfdmt21x819 rdf:first _:node1bvfdmt21x820 ;
-	rdf:rest _:node1bvfdmt21x821 .
+_:node1bvfdvmotx819 rdf:first _:node1bvfdvmotx820 ;
+	rdf:rest _:node1bvfdvmotx821 .
 
-_:node1bvfdmt21x822 sh:pattern "(^wetgevingzone - [a-z ]*)" .
+_:node1bvfdvmotx822 sh:pattern "(^wetgevingzone - [a-z ]*)" .
 
-_:node1bvfdmt21x821 rdf:first _:node1bvfdmt21x822 ;
+_:node1bvfdvmotx821 rdf:first _:node1bvfdvmotx822 ;
 	rdf:rest rdf:nil .
 
 ro_str:Gebiedsaanduiding_artikelnummer a sh:PropertyShape ;
@@ -7801,71 +7801,71 @@ ro_str:Gebiedsaanduiding_artikelnummer a sh:PropertyShape ;
 	sh:datatype xsd:string .
 
 ro_str:Gebiedsaanduiding_tekstverwijzing a sh:PropertyShape ;
-	sh:and _:node1bvfdmt21x823 .
+	sh:and _:node1bvfdvmotx823 .
 
-_:node1bvfdmt21x829 rdf:first dct:isPartOf ;
-	rdf:rest _:node1bvfdmt21x830 .
+_:node1bvfdvmotx829 rdf:first dct:isPartOf ;
+	rdf:rest _:node1bvfdvmotx830 .
 
-_:node1bvfdmt21x830 rdf:first ro:norm ;
+_:node1bvfdvmotx830 rdf:first ro:norm ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x828 sh:path _:node1bvfdmt21x829 ;
+_:node1bvfdvmotx828 sh:path _:node1bvfdvmotx829 ;
 	sh:hasValue ro_beg:IMROPT2012 .
 
-_:node1bvfdmt21x827 rdf:first _:node1bvfdmt21x828 ;
-	rdf:rest _:node1bvfdmt21x831 .
+_:node1bvfdvmotx827 rdf:first _:node1bvfdvmotx828 ;
+	rdf:rest _:node1bvfdvmotx831 .
 
-_:node1bvfdmt21x832 sh:path ro:tekst ;
+_:node1bvfdvmotx832 sh:path ro:tekst ;
 	sh:class ropt:Tekstobject , ro:Tekst .
 
-_:node1bvfdmt21x831 rdf:first _:node1bvfdmt21x832 ;
+_:node1bvfdvmotx831 rdf:first _:node1bvfdvmotx832 ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x826 sh:and _:node1bvfdmt21x827 .
+_:node1bvfdvmotx826 sh:and _:node1bvfdvmotx827 .
 
-_:node1bvfdmt21x825 rdf:first _:node1bvfdmt21x826 ;
-	rdf:rest _:node1bvfdmt21x833 .
+_:node1bvfdvmotx825 rdf:first _:node1bvfdvmotx826 ;
+	rdf:rest _:node1bvfdvmotx833 .
 
-_:node1bvfdmt21x837 rdf:first dct:isPartOf ;
-	rdf:rest _:node1bvfdmt21x838 .
+_:node1bvfdvmotx837 rdf:first dct:isPartOf ;
+	rdf:rest _:node1bvfdvmotx838 .
 
-_:node1bvfdmt21x838 rdf:first ro:norm ;
+_:node1bvfdvmotx838 rdf:first ro:norm ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x836 sh:path _:node1bvfdmt21x837 ;
-	sh:not _:node1bvfdmt21x839 .
+_:node1bvfdvmotx836 sh:path _:node1bvfdvmotx837 ;
+	sh:not _:node1bvfdvmotx839 .
 
-_:node1bvfdmt21x839 sh:hasValue ro_beg:IMROPT .
+_:node1bvfdvmotx839 sh:hasValue ro_beg:IMROPT .
 
-_:node1bvfdmt21x835 rdf:first _:node1bvfdmt21x836 ;
-	rdf:rest _:node1bvfdmt21x840 .
+_:node1bvfdvmotx835 rdf:first _:node1bvfdvmotx836 ;
+	rdf:rest _:node1bvfdvmotx840 .
 
-_:node1bvfdmt21x841 sh:path ro:tekst ;
+_:node1bvfdvmotx841 sh:path ro:tekst ;
 	sh:class ro:Tekst ;
-	sh:not _:node1bvfdmt21x842 .
+	sh:not _:node1bvfdvmotx842 .
 
-_:node1bvfdmt21x842 sh:class ropt:Tekstobject .
+_:node1bvfdvmotx842 sh:class ropt:Tekstobject .
 
-_:node1bvfdmt21x840 rdf:first _:node1bvfdmt21x841 ;
+_:node1bvfdvmotx840 rdf:first _:node1bvfdvmotx841 ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x834 sh:and _:node1bvfdmt21x835 .
+_:node1bvfdvmotx834 sh:and _:node1bvfdvmotx835 .
 
-_:node1bvfdmt21x833 rdf:first _:node1bvfdmt21x834 ;
+_:node1bvfdvmotx833 rdf:first _:node1bvfdvmotx834 ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x824 sh:xone _:node1bvfdmt21x825 .
+_:node1bvfdvmotx824 sh:xone _:node1bvfdvmotx825 .
 
-_:node1bvfdmt21x823 rdf:first _:node1bvfdmt21x824 ;
-	rdf:rest _:node1bvfdmt21x843 .
+_:node1bvfdvmotx823 rdf:first _:node1bvfdvmotx824 ;
+	rdf:rest _:node1bvfdvmotx843 .
 
-_:node1bvfdmt21x844 sh:path ro:tekst ;
+_:node1bvfdvmotx844 sh:path ro:tekst ;
 	sh:nodeKind sh:IRI ;
 	sh:minCount 1 ;
 	sh:maxCount 1 ;
 	sh:node ro_str:Teksttype_BP .
 
-_:node1bvfdmt21x843 rdf:first _:node1bvfdmt21x844 ;
+_:node1bvfdvmotx843 rdf:first _:node1bvfdvmotx844 ;
 	rdf:rest rdf:nil .
 
 ro_str:Gebiedsaanduiding_label a sh:PropertyShape ;
@@ -7915,26 +7915,26 @@ ro_str:Structuurvisie_tekstverwijzing a sh:PropertyShape ;
 	sh:path ro:tekst ;
 	sh:minCount 1 ;
 	sh:maxCount 3 ;
-	sh:and _:node1bvfdmt21x845 ;
+	sh:and _:node1bvfdvmotx845 ;
 	sh:node ro_str:TeksttypePG_SV .
 
-_:node1bvfdmt21x847 sh:path rdf:type ;
+_:node1bvfdvmotx847 sh:path rdf:type ;
 	sh:hasValue ro:Document .
 
-_:node1bvfdmt21x846 sh:qualifiedValueShape _:node1bvfdmt21x847 ;
+_:node1bvfdvmotx846 sh:qualifiedValueShape _:node1bvfdvmotx847 ;
 	sh:qualifiedMinCount 1 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x845 rdf:first _:node1bvfdmt21x846 ;
-	rdf:rest _:node1bvfdmt21x848 .
+_:node1bvfdvmotx845 rdf:first _:node1bvfdvmotx846 ;
+	rdf:rest _:node1bvfdvmotx848 .
 
-_:node1bvfdmt21x850 sh:path rdf:type ;
+_:node1bvfdvmotx850 sh:path rdf:type ;
 	sh:hasValue ro:Bijlage .
 
-_:node1bvfdmt21x849 sh:qualifiedValueShape _:node1bvfdmt21x850 ;
+_:node1bvfdvmotx849 sh:qualifiedValueShape _:node1bvfdvmotx850 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x848 rdf:first _:node1bvfdmt21x849 ;
+_:node1bvfdvmotx848 rdf:first _:node1bvfdvmotx849 ;
 	rdf:rest rdf:nil .
 
 ro_str:Structuurvisie_externPlan a sh:PropertyShape ;
@@ -7946,32 +7946,32 @@ ro_str:Structuurvisie_norm a sh:PropertyShape ;
 	sh:path ro:norm ;
 	sh:minCount 2 ;
 	sh:maxCount 3 ;
-	sh:and _:node1bvfdmt21x851 .
+	sh:and _:node1bvfdvmotx851 .
 
-_:node1bvfdmt21x853 sh:hasValue ro_beg:IMRO2012 .
+_:node1bvfdvmotx853 sh:hasValue ro_beg:IMRO2012 .
 
-_:node1bvfdmt21x852 sh:qualifiedValueShape _:node1bvfdmt21x853 ;
+_:node1bvfdvmotx852 sh:qualifiedValueShape _:node1bvfdvmotx853 ;
 	sh:qualifiedMinCount 1 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x851 rdf:first _:node1bvfdmt21x852 ;
-	rdf:rest _:node1bvfdmt21x854 .
+_:node1bvfdvmotx851 rdf:first _:node1bvfdvmotx852 ;
+	rdf:rest _:node1bvfdvmotx854 .
 
-_:node1bvfdmt21x856 sh:hasValue ro_beg:PRpSV2012 .
+_:node1bvfdvmotx856 sh:hasValue ro_beg:PRpSV2012 .
 
-_:node1bvfdmt21x855 sh:qualifiedValueShape _:node1bvfdmt21x856 ;
+_:node1bvfdvmotx855 sh:qualifiedValueShape _:node1bvfdvmotx856 ;
 	sh:qualifiedMinCount 1 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x854 rdf:first _:node1bvfdmt21x855 ;
-	rdf:rest _:node1bvfdmt21x857 .
+_:node1bvfdvmotx854 rdf:first _:node1bvfdvmotx855 ;
+	rdf:rest _:node1bvfdvmotx857 .
 
-_:node1bvfdmt21x859 sh:hasValue ro_beg:IMROPT2012 .
+_:node1bvfdvmotx859 sh:hasValue ro_beg:IMROPT2012 .
 
-_:node1bvfdmt21x858 sh:qualifiedValueShape _:node1bvfdmt21x859 ;
+_:node1bvfdvmotx858 sh:qualifiedValueShape _:node1bvfdvmotx859 ;
 	sh:qualifiedMaxCount 1 .
 
-_:node1bvfdmt21x857 rdf:first _:node1bvfdmt21x858 ;
+_:node1bvfdvmotx857 rdf:first _:node1bvfdvmotx858 ;
 	rdf:rest rdf:nil .
 
 ro_str:Structuurvisie_spatial a sh:PropertyShape ;
@@ -7998,57 +7998,57 @@ ro_str:Structuurvisiegebied_thema a sh:PropertyShape ;
 	sh:datatype xsd:string .
 
 ro_str:Structuurvisiegebied_tekstverwijzing a sh:PropertyShape ;
-	sh:xone _:node1bvfdmt21x860 .
+	sh:xone _:node1bvfdvmotx860 .
 
-_:node1bvfdmt21x864 rdf:first dct:isPartOf ;
-	rdf:rest _:node1bvfdmt21x865 .
+_:node1bvfdvmotx864 rdf:first dct:isPartOf ;
+	rdf:rest _:node1bvfdvmotx865 .
 
-_:node1bvfdmt21x865 rdf:first ro:norm ;
+_:node1bvfdvmotx865 rdf:first ro:norm ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x863 sh:path _:node1bvfdmt21x864 ;
+_:node1bvfdvmotx863 sh:path _:node1bvfdvmotx864 ;
 	sh:hasValue ro_beg:IMROPT2012 .
 
-_:node1bvfdmt21x862 rdf:first _:node1bvfdmt21x863 ;
-	rdf:rest _:node1bvfdmt21x866 .
+_:node1bvfdvmotx862 rdf:first _:node1bvfdvmotx863 ;
+	rdf:rest _:node1bvfdvmotx866 .
 
-_:node1bvfdmt21x867 sh:path ro:tekst ;
+_:node1bvfdvmotx867 sh:path ro:tekst ;
 	sh:class ropt:Tekstobject , ro:Tekst .
 
-_:node1bvfdmt21x866 rdf:first _:node1bvfdmt21x867 ;
+_:node1bvfdvmotx866 rdf:first _:node1bvfdvmotx867 ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x861 sh:and _:node1bvfdmt21x862 .
+_:node1bvfdvmotx861 sh:and _:node1bvfdvmotx862 .
 
-_:node1bvfdmt21x860 rdf:first _:node1bvfdmt21x861 ;
-	rdf:rest _:node1bvfdmt21x868 .
+_:node1bvfdvmotx860 rdf:first _:node1bvfdvmotx861 ;
+	rdf:rest _:node1bvfdvmotx868 .
 
-_:node1bvfdmt21x872 rdf:first dct:isPartOf ;
-	rdf:rest _:node1bvfdmt21x873 .
+_:node1bvfdvmotx872 rdf:first dct:isPartOf ;
+	rdf:rest _:node1bvfdvmotx873 .
 
-_:node1bvfdmt21x873 rdf:first ro:norm ;
+_:node1bvfdvmotx873 rdf:first ro:norm ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x871 sh:path _:node1bvfdmt21x872 ;
-	sh:not _:node1bvfdmt21x874 .
+_:node1bvfdvmotx871 sh:path _:node1bvfdvmotx872 ;
+	sh:not _:node1bvfdvmotx874 .
 
-_:node1bvfdmt21x874 sh:hasValue ro_beg:IMROPT .
+_:node1bvfdvmotx874 sh:hasValue ro_beg:IMROPT .
 
-_:node1bvfdmt21x870 rdf:first _:node1bvfdmt21x871 ;
-	rdf:rest _:node1bvfdmt21x875 .
+_:node1bvfdvmotx870 rdf:first _:node1bvfdvmotx871 ;
+	rdf:rest _:node1bvfdvmotx875 .
 
-_:node1bvfdmt21x876 sh:path ro:tekst ;
+_:node1bvfdvmotx876 sh:path ro:tekst ;
 	sh:class ro:Tekst ;
-	sh:not _:node1bvfdmt21x877 .
+	sh:not _:node1bvfdvmotx877 .
 
-_:node1bvfdmt21x877 sh:class ropt:Tekstobject .
+_:node1bvfdvmotx877 sh:class ropt:Tekstobject .
 
-_:node1bvfdmt21x875 rdf:first _:node1bvfdmt21x876 ;
+_:node1bvfdvmotx875 rdf:first _:node1bvfdvmotx876 ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x869 sh:and _:node1bvfdmt21x870 .
+_:node1bvfdvmotx869 sh:and _:node1bvfdvmotx870 .
 
-_:node1bvfdmt21x868 rdf:first _:node1bvfdmt21x869 ;
+_:node1bvfdvmotx868 rdf:first _:node1bvfdvmotx869 ;
 	rdf:rest rdf:nil .
 
 ro_str:Structuurvisiegebied_illustratieVerwijzing a sh:PropertyShape ;
@@ -8092,16 +8092,16 @@ ro_str:Structuurvisiecomplex_thema a sh:PropertyShape ;
 ro_str:Structuurvisiecomplex_hasPart a sh:PropertyShape ;
 	sh:path ro:hasPart ;
 	sh:minCount 1 ;
-	sh:or _:node1bvfdmt21x878 .
+	sh:or _:node1bvfdvmotx878 .
 
-_:node1bvfdmt21x879 sh:class ro:Structuurvisiecomplex .
+_:node1bvfdvmotx879 sh:class ro:Structuurvisiecomplex .
 
-_:node1bvfdmt21x878 rdf:first _:node1bvfdmt21x879 ;
-	rdf:rest _:node1bvfdmt21x880 .
+_:node1bvfdvmotx878 rdf:first _:node1bvfdvmotx879 ;
+	rdf:rest _:node1bvfdvmotx880 .
 
-_:node1bvfdmt21x881 sh:class ro:Structuurvisiegebied .
+_:node1bvfdvmotx881 sh:class ro:Structuurvisiegebied .
 
-_:node1bvfdmt21x880 rdf:first _:node1bvfdmt21x881 ;
+_:node1bvfdvmotx880 rdf:first _:node1bvfdvmotx881 ;
 	rdf:rest rdf:nil .
 
 ro:Structuurvisie_G a owl:Class ;
@@ -8132,24 +8132,24 @@ ro_str:Structuurvisie_G_beleidsmatigVerantwoordelijkeOverheid a sh:PropertyShape
 	sh:node ro_str:Overheden_G .
 
 ro_str:Structuurvisie_G_hasPart a sh:PropertyShape ;
-	sh:path _:node1bvfdmt21x882 ;
-	sh:in _:node1bvfdmt21x884 ;
-	sh:qualifiedValueShape _:node1bvfdmt21x886 ;
+	sh:path _:node1bvfdvmotx882 ;
+	sh:in _:node1bvfdvmotx884 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx886 ;
 	sh:qualifiedMinCount 1 .
 
-_:node1bvfdmt21x882 rdf:first dct:hasPart ;
-	rdf:rest _:node1bvfdmt21x883 .
+_:node1bvfdvmotx882 rdf:first dct:hasPart ;
+	rdf:rest _:node1bvfdvmotx883 .
 
-_:node1bvfdmt21x883 rdf:first rdf:type ;
+_:node1bvfdvmotx883 rdf:first rdf:type ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x884 rdf:first ro:Structuurvisiegebied_G ;
-	rdf:rest _:node1bvfdmt21x885 .
+_:node1bvfdvmotx884 rdf:first ro:Structuurvisiegebied_G ;
+	rdf:rest _:node1bvfdvmotx885 .
 
-_:node1bvfdmt21x885 rdf:first ro:Structuurvisiecomplex_G ;
+_:node1bvfdvmotx885 rdf:first ro:Structuurvisiecomplex_G ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x886 sh:hasValue ro:Structuurvisiegebied_G .
+_:node1bvfdvmotx886 sh:hasValue ro:Structuurvisiegebied_G .
 
 ro_str:Structuurvisiegebied_G a sh:NodeShape ;
 	sh:targetClass ro:Structuurvisiegebied_G ;
@@ -8185,41 +8185,41 @@ ro_str:BeleidInfo_GSV_rol a sh:PropertyShape ;
 ro_str:BeleidInfo_GSV_instrument a sh:PropertyShape ;
 	sh:path ro:instrument ;
 	sh:maxCount 1 ;
-	sh:in _:node1bvfdmt21x887 .
+	sh:in _:node1bvfdvmotx887 .
 
-_:node1bvfdmt21x887 rdf:first ro_beg:beheersverordening ;
-	rdf:rest _:node1bvfdmt21x888 .
+_:node1bvfdvmotx887 rdf:first ro_beg:beheersverordening ;
+	rdf:rest _:node1bvfdvmotx888 .
 
-_:node1bvfdmt21x888 rdf:first ro_beg:bestemmingsplan ;
-	rdf:rest _:node1bvfdmt21x889 .
+_:node1bvfdvmotx888 rdf:first ro_beg:bestemmingsplan ;
+	rdf:rest _:node1bvfdvmotx889 .
 
-_:node1bvfdmt21x889 rdf:first ro_beg:coordinatieregeling ;
-	rdf:rest _:node1bvfdmt21x890 .
+_:node1bvfdvmotx889 rdf:first ro_beg:coordinatieregeling ;
+	rdf:rest _:node1bvfdvmotx890 .
 
-_:node1bvfdmt21x890 rdf:first ro_beg:inpassingsplan ;
-	rdf:rest _:node1bvfdmt21x891 .
+_:node1bvfdvmotx890 rdf:first ro_beg:inpassingsplan ;
+	rdf:rest _:node1bvfdvmotx891 .
 
-_:node1bvfdmt21x891 rdf:first ro_beg:omgevingsvergunning ;
-	rdf:rest _:node1bvfdmt21x892 .
+_:node1bvfdvmotx891 rdf:first ro_beg:omgevingsvergunning ;
+	rdf:rest _:node1bvfdvmotx892 .
 
-_:node1bvfdmt21x892 rdf:first ro_beg:proactieveAanwijzing ;
-	rdf:rest _:node1bvfdmt21x893 .
+_:node1bvfdvmotx892 rdf:first ro_beg:proactieveAanwijzing ;
+	rdf:rest _:node1bvfdvmotx893 .
 
-_:node1bvfdmt21x893 rdf:first ro_beg:reactieveAanwijzing ;
-	rdf:rest _:node1bvfdmt21x894 .
+_:node1bvfdvmotx893 rdf:first ro_beg:reactieveAanwijzing ;
+	rdf:rest _:node1bvfdvmotx894 .
 
-_:node1bvfdmt21x894 rdf:first ro_beg:verordening ;
-	rdf:rest _:node1bvfdmt21x895 .
+_:node1bvfdvmotx894 rdf:first ro_beg:verordening ;
+	rdf:rest _:node1bvfdvmotx895 .
 
-_:node1bvfdmt21x895 rdf:first ro_beg:voorbereidingsbesluit ;
-	rdf:rest _:node1bvfdmt21x896 .
+_:node1bvfdvmotx895 rdf:first ro_beg:voorbereidingsbesluit ;
+	rdf:rest _:node1bvfdvmotx896 .
 
-_:node1bvfdmt21x896 rdf:first ro_beg:zienswijze ;
+_:node1bvfdvmotx896 rdf:first ro_beg:zienswijze ;
 	rdf:rest rdf:nil .
 
 ro_str:Structuurvisiecomplex_G a sh:NodeShape ;
 	sh:targetClass ro:Structuurvisiecomplex_R ;
-	sh:property ro_str:Structuurvisiegebied_G_beleid , ro_str:Structuurvisiegebied_G_tekstVerwijzing , ro_str:Structuurvisiegebied_G_isPartOf , ""^^xsd:integer .
+	sh:property ro_str:Structuurvisiegebied_G_beleid , ro_str:Structuurvisiegebied_G_tekstVerwijzing , ro_str:Structuurvisiegebied_G_isPartOf .
 
 ro:Structuurvisie_P a owl:Class ;
 	dct:subject ro_beg:Structuurvisie_P ;
@@ -8255,27 +8255,27 @@ ro_str:Structuurvisie_P_beleidsmatigVerantwoordelijkeOverheid a sh:PropertyShape
 	sh:node ro_str:Overheden_P .
 
 ro_str:Structuurvisie_P_hasPart a sh:PropertyShape ;
-	sh:path _:node1bvfdmt21x897 ;
-	sh:in _:node1bvfdmt21x899 ;
-	sh:qualifiedValueShape _:node1bvfdmt21x902 ;
+	sh:path _:node1bvfdvmotx897 ;
+	sh:in _:node1bvfdvmotx899 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx902 ;
 	sh:qualifiedMinCount 1 .
 
-_:node1bvfdmt21x897 rdf:first dct:hasPart ;
-	rdf:rest _:node1bvfdmt21x898 .
+_:node1bvfdvmotx897 rdf:first dct:hasPart ;
+	rdf:rest _:node1bvfdvmotx898 .
 
-_:node1bvfdmt21x898 rdf:first rdf:type ;
+_:node1bvfdvmotx898 rdf:first rdf:type ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x899 rdf:first ro:Structuurvisiegebied_P ;
-	rdf:rest _:node1bvfdmt21x900 .
+_:node1bvfdvmotx899 rdf:first ro:Structuurvisiegebied_P ;
+	rdf:rest _:node1bvfdvmotx900 .
 
-_:node1bvfdmt21x900 rdf:first ro:Structuurvisiecomplex_P ;
-	rdf:rest _:node1bvfdmt21x901 .
+_:node1bvfdvmotx900 rdf:first ro:Structuurvisiecomplex_P ;
+	rdf:rest _:node1bvfdvmotx901 .
 
-_:node1bvfdmt21x901 rdf:first ro:Structuurvisieverklaring_P ;
+_:node1bvfdvmotx901 rdf:first ro:Structuurvisieverklaring_P ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x902 sh:hasValue ro:Structuurvisiegebied_P .
+_:node1bvfdvmotx902 sh:hasValue ro:Structuurvisiegebied_P .
 
 ro_str:Structuurvisie_P_spatial a sh:PropertyShape ;
 	sh:path dct:spatial ;
@@ -8322,33 +8322,33 @@ ro_str:BeleidInfo_PSV_rol a sh:PropertyShape ;
 ro_str:BeleidInfo_PSV_instrument a sh:PropertyShape ;
 	sh:path ro:instrument ;
 	sh:maxCount 1 ;
-	sh:in _:node1bvfdmt21x903 .
+	sh:in _:node1bvfdvmotx903 .
 
-_:node1bvfdmt21x903 rdf:first ro_beg:bestuurlijkeAfspraken ;
-	rdf:rest _:node1bvfdmt21x904 .
+_:node1bvfdvmotx903 rdf:first ro_beg:bestuurlijkeAfspraken ;
+	rdf:rest _:node1bvfdvmotx904 .
 
-_:node1bvfdmt21x904 rdf:first ro_beg:coordinatieregeling ;
-	rdf:rest _:node1bvfdmt21x905 .
+_:node1bvfdvmotx904 rdf:first ro_beg:coordinatieregeling ;
+	rdf:rest _:node1bvfdvmotx905 .
 
-_:node1bvfdmt21x905 rdf:first ro_beg:inpassingsplan ;
-	rdf:rest _:node1bvfdmt21x906 .
+_:node1bvfdvmotx905 rdf:first ro_beg:inpassingsplan ;
+	rdf:rest _:node1bvfdvmotx906 .
 
-_:node1bvfdmt21x906 rdf:first ro_beg:omgevingsvergunning ;
-	rdf:rest _:node1bvfdmt21x907 .
+_:node1bvfdvmotx906 rdf:first ro_beg:omgevingsvergunning ;
+	rdf:rest _:node1bvfdvmotx907 .
 
-_:node1bvfdmt21x907 rdf:first ro_beg:proactieveAanwijzing ;
-	rdf:rest _:node1bvfdmt21x908 .
+_:node1bvfdvmotx907 rdf:first ro_beg:proactieveAanwijzing ;
+	rdf:rest _:node1bvfdvmotx908 .
 
-_:node1bvfdmt21x908 rdf:first ro_beg:reactieveAanwijzing ;
-	rdf:rest _:node1bvfdmt21x909 .
+_:node1bvfdvmotx908 rdf:first ro_beg:reactieveAanwijzing ;
+	rdf:rest _:node1bvfdvmotx909 .
 
-_:node1bvfdmt21x909 rdf:first ro_beg:verordening ;
-	rdf:rest _:node1bvfdmt21x910 .
+_:node1bvfdvmotx909 rdf:first ro_beg:verordening ;
+	rdf:rest _:node1bvfdvmotx910 .
 
-_:node1bvfdmt21x910 rdf:first ro_beg:vooroverleg ;
-	rdf:rest _:node1bvfdmt21x911 .
+_:node1bvfdvmotx910 rdf:first ro_beg:vooroverleg ;
+	rdf:rest _:node1bvfdvmotx911 .
 
-_:node1bvfdmt21x911 rdf:first ro_beg:zienswijze ;
+_:node1bvfdvmotx911 rdf:first ro_beg:zienswijze ;
 	rdf:rest rdf:nil .
 
 ro_str:Structuurvisiegebied_P_tekstverwijzing a sh:PropertyShape ;
@@ -8397,15 +8397,15 @@ ro_str:Structuurvisieverklaring_P_tekstverwijzing a sh:PropertyShape ;
 	sh:node ro_str:TeksttypeV_PSV .
 
 ro_str:TeksttypeV_PSV a sh:NodeShape ;
-	sh:property _:node1bvfdmt21x912 .
+	sh:property _:node1bvfdvmotx912 .
 
-_:node1bvfdmt21x912 sh:path rdf:type ;
-	sh:in _:node1bvfdmt21x913 .
+_:node1bvfdvmotx912 sh:path rdf:type ;
+	sh:in _:node1bvfdvmotx913 .
 
-_:node1bvfdmt21x913 rdf:first ropt:tekstobject ;
-	rdf:rest _:node1bvfdmt21x914 .
+_:node1bvfdvmotx913 rdf:first ropt:tekstobject ;
+	rdf:rest _:node1bvfdvmotx914 .
 
-_:node1bvfdmt21x914 rdf:first ro:Toelichting ;
+_:node1bvfdvmotx914 rdf:first ro:Toelichting ;
 	rdf:rest rdf:nil .
 
 ro_str:Structuurvisieverklaring_P_illustratieverwijzing a sh:PropertyShape ;
@@ -8456,24 +8456,24 @@ ro_str:Structuurvisie_R_beleidsmatigVerantwoordelijkeOverheid a sh:PropertyShape
 	sh:node ro_str:Overheden_R .
 
 ro_str:Structuurvisie_R_hasPart a sh:PropertyShape ;
-	sh:path _:node1bvfdmt21x915 ;
-	sh:in _:node1bvfdmt21x917 ;
-	sh:qualifiedValueShape _:node1bvfdmt21x919 ;
+	sh:path _:node1bvfdvmotx915 ;
+	sh:in _:node1bvfdvmotx917 ;
+	sh:qualifiedValueShape _:node1bvfdvmotx919 ;
 	sh:qualifiedMinCount 1 .
 
-_:node1bvfdmt21x915 rdf:first dct:hasPart ;
-	rdf:rest _:node1bvfdmt21x916 .
+_:node1bvfdvmotx915 rdf:first dct:hasPart ;
+	rdf:rest _:node1bvfdvmotx916 .
 
-_:node1bvfdmt21x916 rdf:first rdf:type ;
+_:node1bvfdvmotx916 rdf:first rdf:type ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x917 rdf:first ro:Structuurvisiegebied_R ;
-	rdf:rest _:node1bvfdmt21x918 .
+_:node1bvfdvmotx917 rdf:first ro:Structuurvisiegebied_R ;
+	rdf:rest _:node1bvfdvmotx918 .
 
-_:node1bvfdmt21x918 rdf:first ro:Structuurvisiecomplex_R ;
+_:node1bvfdvmotx918 rdf:first ro:Structuurvisiecomplex_R ;
 	rdf:rest rdf:nil .
 
-_:node1bvfdmt21x919 sh:hasValue ro:Structuurvisiegebied_R .
+_:node1bvfdvmotx919 sh:hasValue ro:Structuurvisiegebied_R .
 
 ro_str:Structuurvisiegebied_R a sh:NodeShape ;
 	sh:targetClass ro:Structuurvisiegebied_R ;
@@ -8513,45 +8513,45 @@ ro_str:BeleidInfo_RSV_rol a sh:PropertyShape ;
 ro_str:BeleidInfo_RSV_instrument a sh:PropertyShape ;
 	sh:path ro:instrument ;
 	sh:maxCount 1 ;
-	sh:in _:node1bvfdmt21x920 .
+	sh:in _:node1bvfdvmotx920 .
 
-_:node1bvfdmt21x920 rdf:first ro_beg:amvb ;
-	rdf:rest _:node1bvfdmt21x921 .
+_:node1bvfdvmotx920 rdf:first ro_beg:amvb ;
+	rdf:rest _:node1bvfdvmotx921 .
 
-_:node1bvfdmt21x921 rdf:first ro_beg:beheersverordening ;
-	rdf:rest _:node1bvfdmt21x922 .
+_:node1bvfdvmotx921 rdf:first ro_beg:beheersverordening ;
+	rdf:rest _:node1bvfdvmotx922 .
 
-_:node1bvfdmt21x922 rdf:first ro_beg:bestemmingsplan ;
-	rdf:rest _:node1bvfdmt21x923 .
+_:node1bvfdvmotx922 rdf:first ro_beg:bestemmingsplan ;
+	rdf:rest _:node1bvfdvmotx923 .
 
-_:node1bvfdmt21x923 rdf:first ro_beg:bestuurlijkeAfspraken ;
-	rdf:rest _:node1bvfdmt21x924 .
+_:node1bvfdvmotx923 rdf:first ro_beg:bestuurlijkeAfspraken ;
+	rdf:rest _:node1bvfdvmotx924 .
 
-_:node1bvfdmt21x924 rdf:first ro_beg:coordinatieregeling ;
-	rdf:rest _:node1bvfdmt21x925 .
+_:node1bvfdvmotx924 rdf:first ro_beg:coordinatieregeling ;
+	rdf:rest _:node1bvfdvmotx925 .
 
-_:node1bvfdmt21x925 rdf:first ro_beg:inpassingsplan ;
-	rdf:rest _:node1bvfdmt21x926 .
+_:node1bvfdvmotx925 rdf:first ro_beg:inpassingsplan ;
+	rdf:rest _:node1bvfdvmotx926 .
 
-_:node1bvfdmt21x926 rdf:first ro_beg:omgevingsvergunning ;
-	rdf:rest _:node1bvfdmt21x927 .
+_:node1bvfdvmotx926 rdf:first ro_beg:omgevingsvergunning ;
+	rdf:rest _:node1bvfdvmotx927 .
 
-_:node1bvfdmt21x927 rdf:first ro_beg:proactieveAanwijzing ;
-	rdf:rest _:node1bvfdmt21x928 .
+_:node1bvfdvmotx927 rdf:first ro_beg:proactieveAanwijzing ;
+	rdf:rest _:node1bvfdvmotx928 .
 
-_:node1bvfdmt21x928 rdf:first ro_beg:reactieveAanwijzing ;
-	rdf:rest _:node1bvfdmt21x929 .
+_:node1bvfdvmotx928 rdf:first ro_beg:reactieveAanwijzing ;
+	rdf:rest _:node1bvfdvmotx929 .
 
-_:node1bvfdmt21x929 rdf:first ro_beg:verordening ;
-	rdf:rest _:node1bvfdmt21x930 .
+_:node1bvfdvmotx929 rdf:first ro_beg:verordening ;
+	rdf:rest _:node1bvfdvmotx930 .
 
-_:node1bvfdmt21x930 rdf:first ro_beg:voorbereidingsbesluit ;
-	rdf:rest _:node1bvfdmt21x931 .
+_:node1bvfdvmotx930 rdf:first ro_beg:voorbereidingsbesluit ;
+	rdf:rest _:node1bvfdvmotx931 .
 
-_:node1bvfdmt21x931 rdf:first ro_beg:vooroverleg ;
-	rdf:rest _:node1bvfdmt21x932 .
+_:node1bvfdvmotx931 rdf:first ro_beg:vooroverleg ;
+	rdf:rest _:node1bvfdvmotx932 .
 
-_:node1bvfdmt21x932 rdf:first ro_beg:zienswijze ;
+_:node1bvfdvmotx932 rdf:first ro_beg:zienswijze ;
 	rdf:rest rdf:nil .
 
 ro_str:Structuurvisiecomplex_R a sh:NodeShape ;

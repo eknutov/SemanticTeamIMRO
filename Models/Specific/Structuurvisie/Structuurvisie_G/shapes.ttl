@@ -145,5 +145,5 @@ ro_str:Structuurvisiecomplex_G a sh:NodeShape ;
     sh:property
       ro_str:Structuurvisiegebied_G_beleid ,
       ro_str:Structuurvisiegebied_G_tekstVerwijzing ,
-      ro_str:Structuurvisiegebied_G_isPartOf ,
+      ro_str:Structuurvisiegebied_G_isPartOf
 .
