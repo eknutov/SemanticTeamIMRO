@@ -26,6 +26,7 @@
 @prefix nen3610: <http://data.informatiehuisruimte.nl/def/nen3610#> .
 @prefix nen3610_str: <http://data.informatiehuisruimte.nl/def/nen3610/> .
 @prefix pdok_pdok: <http://data.pdok.nl/def/pdok#> .
+
 @prefix ro: <http://data.informatiehuisruimte.nl/def/ro#> .
 @prefix ro_beg: <http://data.informatiehuisruimte.nl/ro/id/begrip/> .
 @prefix ro_begkr: <http://data.informatiehuisruimte.nl/ro/id/begrippenkader/> .
