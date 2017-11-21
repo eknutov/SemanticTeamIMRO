@@ -39,7 +39,8 @@
 
 nen3610:GeoObject a owl:Class ;
   dct:subject ro_nen3610_beg:GeoObject ;
-  rdfs:label "GeoObject"@nl
+  rdfs:label "GeoObject"@nl ;
+  rdfs:subClassOf ogc:Feature ;
 .
 
 nen3610:NEN3610ID a owl:Class ;
