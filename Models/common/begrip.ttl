@@ -42,6 +42,41 @@ ro_begkr:ro a skos:ConceptScheme ;
 #    ro_beg:AanduidingActueelOfHistorisch     #Is this outdated or..?
 .
 
+#################################################################
+#    Dossier (collection of plans)
+#################################################################
+ro_beg:Dossier a skos:Concept ;
+  rdfs:label "Dossier"@nl ;
+  skos:prefLabel "Dossier"@nl ;
+  skos:inScheme ro_begkr:ro ;
+  skos:definition "Een verzameling bij elkaar horende ruimtelijke plannen"@nl ;
+  dct:subject ro_beg:Dossier ;
+.
+
+# TODO: find more possible statusses and add them
+ro_col:Dossierstatussen a skos:Collection ;
+  rdfs:label "Dossierstatussen"@nl ;
+  skos:prefLabel "Dossierstatussen"@nl ;
+  skos:definition "Mogelijke waarden van de status van een dossier."@n; ; 
+  skos:member
+    ro_beg:Dossierstatus_Vastgesteld ,
+    ro_beg:Dossierstatus_DeelsOnherroepelijk ;
+.
+
+ro_beg:Dossierstatus_Vastgesteld a skos:Concept ;
+  rdfs:label "vastgesteld"@nl ;
+  skos:prefLabel "vatgesteld"@nl ;
+  skos-thes:broaderGeneric ro_beg:Dossierstatussen ;
+  skos:inScheme ro_begkr:ro
+.
+
+ro_beg:Dossierstatus_DeelsOnherroepelijk a skos:Concept ;
+  rdfs:label "deels onherroepelijk"@nl ;
+  skos:prefLabel "deels onherroepelijk"@nl ;
+  skos-thes:broaderGeneric ro_beg:Dossierstatussen ;
+  skos:inScheme ro_begkr:ro
+.
+
 
 #################################################################
 #    Plan

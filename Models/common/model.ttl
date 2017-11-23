@@ -54,6 +54,23 @@
 .
 
 #################################################################
+#    Dossier (collection of plans
+#################################################################
+ro:Dossier a owl:Class ;
+  rdfs:label "Dossier"@nl ;
+  rdfs:comment "Een verzameling bij elkaar horende ruimtelijke plannen"@nl ;
+  dct:subject ro_beg:Dossier ;
+.
+
+ro:dossierstatus a owl:ObjectProperty ;
+  rdfs:label "dossierstatus"@nl ;
+  rdfs:comment "Verwijzing naar de status van het dossier."@nl ;
+  rdfs:domain ro:Dossier ;
+  rdfs:range skos:Concept ;
+.  
+
+
+#################################################################
 #    Plan*
 #################################################################
 
